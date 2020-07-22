@@ -45,8 +45,11 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         if level >= .error {
             let formattedLines: [String] = Thread.callStackSymbols
-                .map { line in
+                .compactMap { line in
                     let components = line.components(separatedBy: " ").filter({ !$0.isEmpty })
+                    guard components.count >= 6
+                        else { return nil }
+
                     let method = components[3..<(components.count - 2)].joined()
                     return "\tat " + method + "(:" + components.last! + ")"
                 }
