@@ -13,7 +13,7 @@ extension GoogleCloudLogHandler {
 
     static var rawClient: Google_Logging_V2_LoggingServiceV2Client!
 
-    static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
 
         func accessToken() throws -> String {
             guard let provider = DefaultTokenProvider(scopes: ["https://www.googleapis.com/auth/logging.write"]) else { throw AccessTokenError.noTokenProvider }
