@@ -62,7 +62,10 @@ struct Google_Logging_V2_LogEntry {
   /// forward-slash is removed. Listing the log entry will not show the leading
   /// slash and filtering for a log name with a leading slash will never return
   /// any results.
-  var logName: String = String()
+  var logName: String {
+    get {return _storage._logName}
+    set {_uniqueStorage()._logName = newValue}
+  }
 
   /// Required. The monitored resource that produced this log entry.
   ///
@@ -70,16 +73,19 @@ struct Google_Logging_V2_LogEntry {
   /// the monitored resource designating the particular database that reported
   /// the error.
   var resource: Google_Api_MonitoredResource {
-    get {return _resource ?? Google_Api_MonitoredResource()}
-    set {_resource = newValue}
+    get {return _storage._resource ?? Google_Api_MonitoredResource()}
+    set {_uniqueStorage()._resource = newValue}
   }
   /// Returns true if `resource` has been explicitly set.
-  var hasResource: Bool {return self._resource != nil}
+  var hasResource: Bool {return _storage._resource != nil}
   /// Clears the value of `resource`. Subsequent reads from it will return its default value.
-  mutating func clearResource() {self._resource = nil}
+  mutating func clearResource() {_uniqueStorage()._resource = nil}
 
   /// The log entry payload, which can be one of multiple types.
-  var payload: Google_Logging_V2_LogEntry.OneOf_Payload? = nil
+  var payload: OneOf_Payload? {
+    get {return _storage._payload}
+    set {_uniqueStorage()._payload = newValue}
+  }
 
   /// The log entry payload, represented as a protocol buffer. Some Google
   /// Cloud Platform services use this field for their log entry payloads.
@@ -91,29 +97,29 @@ struct Google_Logging_V2_LogEntry {
   ///   "type.googleapis.com/google.appengine.logging.v1.RequestLog"
   var protoPayload: SwiftProtobuf.Google_Protobuf_Any {
     get {
-      if case .protoPayload(let v)? = payload {return v}
+      if case .protoPayload(let v)? = _storage._payload {return v}
       return SwiftProtobuf.Google_Protobuf_Any()
     }
-    set {payload = .protoPayload(newValue)}
+    set {_uniqueStorage()._payload = .protoPayload(newValue)}
   }
 
   /// The log entry payload, represented as a Unicode string (UTF-8).
   var textPayload: String {
     get {
-      if case .textPayload(let v)? = payload {return v}
+      if case .textPayload(let v)? = _storage._payload {return v}
       return String()
     }
-    set {payload = .textPayload(newValue)}
+    set {_uniqueStorage()._payload = .textPayload(newValue)}
   }
 
   /// The log entry payload, represented as a structure that is
   /// expressed as a JSON object.
   var jsonPayload: SwiftProtobuf.Google_Protobuf_Struct {
     get {
-      if case .jsonPayload(let v)? = payload {return v}
+      if case .jsonPayload(let v)? = _storage._payload {return v}
       return SwiftProtobuf.Google_Protobuf_Struct()
     }
-    set {payload = .jsonPayload(newValue)}
+    set {_uniqueStorage()._payload = .jsonPayload(newValue)}
   }
 
   /// Optional. The time the event described by the log entry occurred. This time is used
@@ -128,26 +134,29 @@ struct Google_Logging_V2_LogEntry {
   /// the past, and that don't exceed 24 hours in the future. Log entries outside
   /// those time boundaries aren't ingested by Logging.
   var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _timestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_timestamp = newValue}
+    get {return _storage._timestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._timestamp = newValue}
   }
   /// Returns true if `timestamp` has been explicitly set.
-  var hasTimestamp: Bool {return self._timestamp != nil}
+  var hasTimestamp: Bool {return _storage._timestamp != nil}
   /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
-  mutating func clearTimestamp() {self._timestamp = nil}
+  mutating func clearTimestamp() {_uniqueStorage()._timestamp = nil}
 
   /// Output only. The time the log entry was received by Logging.
   var receiveTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _receiveTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_receiveTimestamp = newValue}
+    get {return _storage._receiveTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._receiveTimestamp = newValue}
   }
   /// Returns true if `receiveTimestamp` has been explicitly set.
-  var hasReceiveTimestamp: Bool {return self._receiveTimestamp != nil}
+  var hasReceiveTimestamp: Bool {return _storage._receiveTimestamp != nil}
   /// Clears the value of `receiveTimestamp`. Subsequent reads from it will return its default value.
-  mutating func clearReceiveTimestamp() {self._receiveTimestamp = nil}
+  mutating func clearReceiveTimestamp() {_uniqueStorage()._receiveTimestamp = nil}
 
   /// Optional. The severity of the log entry. The default value is `LogSeverity.DEFAULT`.
-  var severity: Google_Logging_Type_LogSeverity = .default
+  var severity: Google_Logging_Type_LogSeverity {
+    get {return _storage._severity}
+    set {_uniqueStorage()._severity = newValue}
+  }
 
   /// Optional. A unique identifier for the log entry. If you provide a value, then
   /// Logging considers other log entries in the same project, with the same
@@ -160,46 +169,58 @@ struct Google_Logging_V2_LogEntry {
   ///
   /// In queries, the `insert_id` is also used to order log entries that have
   /// the same `log_name` and `timestamp` values.
-  var insertID: String = String()
+  var insertID: String {
+    get {return _storage._insertID}
+    set {_uniqueStorage()._insertID = newValue}
+  }
 
   /// Optional. Information about the HTTP request associated with this log entry, if
   /// applicable.
   var httpRequest: Google_Logging_Type_HttpRequest {
-    get {return _httpRequest ?? Google_Logging_Type_HttpRequest()}
-    set {_httpRequest = newValue}
+    get {return _storage._httpRequest ?? Google_Logging_Type_HttpRequest()}
+    set {_uniqueStorage()._httpRequest = newValue}
   }
   /// Returns true if `httpRequest` has been explicitly set.
-  var hasHTTPRequest: Bool {return self._httpRequest != nil}
+  var hasHTTPRequest: Bool {return _storage._httpRequest != nil}
   /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
-  mutating func clearHTTPRequest() {self._httpRequest = nil}
+  mutating func clearHTTPRequest() {_uniqueStorage()._httpRequest = nil}
 
   /// Optional. A set of user-defined (key, value) data that provides additional
   /// information about the log entry.
-  var labels: Dictionary<String,String> = [:]
+  var labels: Dictionary<String,String> {
+    get {return _storage._labels}
+    set {_uniqueStorage()._labels = newValue}
+  }
 
   /// Optional. Information about an operation associated with the log entry, if
   /// applicable.
   var operation: Google_Logging_V2_LogEntryOperation {
-    get {return _operation ?? Google_Logging_V2_LogEntryOperation()}
-    set {_operation = newValue}
+    get {return _storage._operation ?? Google_Logging_V2_LogEntryOperation()}
+    set {_uniqueStorage()._operation = newValue}
   }
   /// Returns true if `operation` has been explicitly set.
-  var hasOperation: Bool {return self._operation != nil}
+  var hasOperation: Bool {return _storage._operation != nil}
   /// Clears the value of `operation`. Subsequent reads from it will return its default value.
-  mutating func clearOperation() {self._operation = nil}
+  mutating func clearOperation() {_uniqueStorage()._operation = nil}
 
   /// Optional. Resource name of the trace associated with the log entry, if any. If it
   /// contains a relative resource name, the name is assumed to be relative to
   /// `//tracing.googleapis.com`. Example:
   /// `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
-  var trace: String = String()
+  var trace: String {
+    get {return _storage._trace}
+    set {_uniqueStorage()._trace = newValue}
+  }
 
   /// Optional. The span ID within the trace associated with the log entry.
   ///
   /// For Trace spans, this is the same format that the Trace API v2 uses: a
   /// 16-character hexadecimal encoding of an 8-byte array, such as
   /// `000000000000004a`.
-  var spanID: String = String()
+  var spanID: String {
+    get {return _storage._spanID}
+    set {_uniqueStorage()._spanID = newValue}
+  }
 
   /// Optional. The sampling decision of the trace associated with the log entry.
   ///
@@ -208,17 +229,20 @@ struct Google_Logging_V2_LogEntry {
   /// for storage when this log entry was written, or the sampling decision was
   /// unknown at the time. A non-sampled `trace` value is still useful as a
   /// request correlation identifier. The default is False.
-  var traceSampled: Bool = false
+  var traceSampled: Bool {
+    get {return _storage._traceSampled}
+    set {_uniqueStorage()._traceSampled = newValue}
+  }
 
   /// Optional. Source code location information associated with the log entry, if any.
   var sourceLocation: Google_Logging_V2_LogEntrySourceLocation {
-    get {return _sourceLocation ?? Google_Logging_V2_LogEntrySourceLocation()}
-    set {_sourceLocation = newValue}
+    get {return _storage._sourceLocation ?? Google_Logging_V2_LogEntrySourceLocation()}
+    set {_uniqueStorage()._sourceLocation = newValue}
   }
   /// Returns true if `sourceLocation` has been explicitly set.
-  var hasSourceLocation: Bool {return self._sourceLocation != nil}
+  var hasSourceLocation: Bool {return _storage._sourceLocation != nil}
   /// Clears the value of `sourceLocation`. Subsequent reads from it will return its default value.
-  mutating func clearSourceLocation() {self._sourceLocation = nil}
+  mutating func clearSourceLocation() {_uniqueStorage()._sourceLocation = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -241,10 +265,22 @@ struct Google_Logging_V2_LogEntry {
 
   #if !swift(>=4.1)
     static func ==(lhs: Google_Logging_V2_LogEntry.OneOf_Payload, rhs: Google_Logging_V2_LogEntry.OneOf_Payload) -> Bool {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch (lhs, rhs) {
-      case (.protoPayload(let l), .protoPayload(let r)): return l == r
-      case (.textPayload(let l), .textPayload(let r)): return l == r
-      case (.jsonPayload(let l), .jsonPayload(let r)): return l == r
+      case (.protoPayload, .protoPayload): return {
+        guard case .protoPayload(let l) = lhs, case .protoPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.textPayload, .textPayload): return {
+        guard case .textPayload(let l) = lhs, case .textPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.jsonPayload, .jsonPayload): return {
+        guard case .jsonPayload(let l) = lhs, case .jsonPayload(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
       default: return false
       }
     }
@@ -253,12 +289,7 @@ struct Google_Logging_V2_LogEntry {
 
   init() {}
 
-  fileprivate var _resource: Google_Api_MonitoredResource? = nil
-  fileprivate var _timestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-  fileprivate var _receiveTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-  fileprivate var _httpRequest: Google_Logging_Type_HttpRequest? = nil
-  fileprivate var _operation: Google_Logging_V2_LogEntryOperation? = nil
-  fileprivate var _sourceLocation: Google_Logging_V2_LogEntrySourceLocation? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Additional information about a potentially long-running operation with which
@@ -341,117 +372,198 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
     23: .standard(proto: "source_location"),
   ]
 
+  fileprivate class _StorageClass {
+    var _logName: String = String()
+    var _resource: Google_Api_MonitoredResource? = nil
+    var _payload: Google_Logging_V2_LogEntry.OneOf_Payload?
+    var _timestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _receiveTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _severity: Google_Logging_Type_LogSeverity = .default
+    var _insertID: String = String()
+    var _httpRequest: Google_Logging_Type_HttpRequest? = nil
+    var _labels: Dictionary<String,String> = [:]
+    var _operation: Google_Logging_V2_LogEntryOperation? = nil
+    var _trace: String = String()
+    var _spanID: String = String()
+    var _traceSampled: Bool = false
+    var _sourceLocation: Google_Logging_V2_LogEntrySourceLocation? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _logName = source._logName
+      _resource = source._resource
+      _payload = source._payload
+      _timestamp = source._timestamp
+      _receiveTimestamp = source._receiveTimestamp
+      _severity = source._severity
+      _insertID = source._insertID
+      _httpRequest = source._httpRequest
+      _labels = source._labels
+      _operation = source._operation
+      _trace = source._trace
+      _spanID = source._spanID
+      _traceSampled = source._traceSampled
+      _sourceLocation = source._sourceLocation
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 2:
-        var v: SwiftProtobuf.Google_Protobuf_Any?
-        if let current = self.payload {
-          try decoder.handleConflictingOneOf()
-          if case .protoPayload(let m) = current {v = m}
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 2: try {
+          var v: SwiftProtobuf.Google_Protobuf_Any?
+          var hadOneofValue = false
+          if let current = _storage._payload {
+            hadOneofValue = true
+            if case .protoPayload(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._payload = .protoPayload(v)
+          }
+        }()
+        case 3: try {
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {
+            if _storage._payload != nil {try decoder.handleConflictingOneOf()}
+            _storage._payload = .textPayload(v)
+          }
+        }()
+        case 4: try { try decoder.decodeSingularStringField(value: &_storage._insertID) }()
+        case 6: try {
+          var v: SwiftProtobuf.Google_Protobuf_Struct?
+          var hadOneofValue = false
+          if let current = _storage._payload {
+            hadOneofValue = true
+            if case .jsonPayload(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {
+            if hadOneofValue {try decoder.handleConflictingOneOf()}
+            _storage._payload = .jsonPayload(v)
+          }
+        }()
+        case 7: try { try decoder.decodeSingularMessageField(value: &_storage._httpRequest) }()
+        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._resource) }()
+        case 9: try { try decoder.decodeSingularMessageField(value: &_storage._timestamp) }()
+        case 10: try { try decoder.decodeSingularEnumField(value: &_storage._severity) }()
+        case 11: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._labels) }()
+        case 12: try { try decoder.decodeSingularStringField(value: &_storage._logName) }()
+        case 15: try { try decoder.decodeSingularMessageField(value: &_storage._operation) }()
+        case 22: try { try decoder.decodeSingularStringField(value: &_storage._trace) }()
+        case 23: try { try decoder.decodeSingularMessageField(value: &_storage._sourceLocation) }()
+        case 24: try { try decoder.decodeSingularMessageField(value: &_storage._receiveTimestamp) }()
+        case 27: try { try decoder.decodeSingularStringField(value: &_storage._spanID) }()
+        case 30: try { try decoder.decodeSingularBoolField(value: &_storage._traceSampled) }()
+        default: break
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.payload = .protoPayload(v)}
-      case 3:
-        if self.payload != nil {try decoder.handleConflictingOneOf()}
-        var v: String?
-        try decoder.decodeSingularStringField(value: &v)
-        if let v = v {self.payload = .textPayload(v)}
-      case 4: try decoder.decodeSingularStringField(value: &self.insertID)
-      case 6:
-        var v: SwiftProtobuf.Google_Protobuf_Struct?
-        if let current = self.payload {
-          try decoder.handleConflictingOneOf()
-          if case .jsonPayload(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.payload = .jsonPayload(v)}
-      case 7: try decoder.decodeSingularMessageField(value: &self._httpRequest)
-      case 8: try decoder.decodeSingularMessageField(value: &self._resource)
-      case 9: try decoder.decodeSingularMessageField(value: &self._timestamp)
-      case 10: try decoder.decodeSingularEnumField(value: &self.severity)
-      case 11: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.labels)
-      case 12: try decoder.decodeSingularStringField(value: &self.logName)
-      case 15: try decoder.decodeSingularMessageField(value: &self._operation)
-      case 22: try decoder.decodeSingularStringField(value: &self.trace)
-      case 23: try decoder.decodeSingularMessageField(value: &self._sourceLocation)
-      case 24: try decoder.decodeSingularMessageField(value: &self._receiveTimestamp)
-      case 27: try decoder.decodeSingularStringField(value: &self.spanID)
-      case 30: try decoder.decodeSingularBoolField(value: &self.traceSampled)
-      default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self.payload {
-    case .protoPayload(let v)?:
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .textPayload(let v)?:
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    case nil: break
-    default: break
-    }
-    if !self.insertID.isEmpty {
-      try visitor.visitSingularStringField(value: self.insertID, fieldNumber: 4)
-    }
-    if case .jsonPayload(let v)? = self.payload {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }
-    if let v = self._httpRequest {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    }
-    if let v = self._resource {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    }
-    if let v = self._timestamp {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-    }
-    if self.severity != .default {
-      try visitor.visitSingularEnumField(value: self.severity, fieldNumber: 10)
-    }
-    if !self.labels.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.labels, fieldNumber: 11)
-    }
-    if !self.logName.isEmpty {
-      try visitor.visitSingularStringField(value: self.logName, fieldNumber: 12)
-    }
-    if let v = self._operation {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-    }
-    if !self.trace.isEmpty {
-      try visitor.visitSingularStringField(value: self.trace, fieldNumber: 22)
-    }
-    if let v = self._sourceLocation {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 23)
-    }
-    if let v = self._receiveTimestamp {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 24)
-    }
-    if !self.spanID.isEmpty {
-      try visitor.visitSingularStringField(value: self.spanID, fieldNumber: 27)
-    }
-    if self.traceSampled != false {
-      try visitor.visitSingularBoolField(value: self.traceSampled, fieldNumber: 30)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      switch _storage._payload {
+      case .protoPayload?: try {
+        guard case .protoPayload(let v)? = _storage._payload else { preconditionFailure() }
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }()
+      case .textPayload?: try {
+        guard case .textPayload(let v)? = _storage._payload else { preconditionFailure() }
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      }()
+      default: break
+      }
+      if !_storage._insertID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._insertID, fieldNumber: 4)
+      }
+      try { if case .jsonPayload(let v)? = _storage._payload {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      } }()
+      try { if let v = _storage._httpRequest {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      } }()
+      try { if let v = _storage._resource {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._timestamp {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      } }()
+      if _storage._severity != .default {
+        try visitor.visitSingularEnumField(value: _storage._severity, fieldNumber: 10)
+      }
+      if !_storage._labels.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._labels, fieldNumber: 11)
+      }
+      if !_storage._logName.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._logName, fieldNumber: 12)
+      }
+      try { if let v = _storage._operation {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      } }()
+      if !_storage._trace.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._trace, fieldNumber: 22)
+      }
+      try { if let v = _storage._sourceLocation {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 23)
+      } }()
+      try { if let v = _storage._receiveTimestamp {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 24)
+      } }()
+      if !_storage._spanID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._spanID, fieldNumber: 27)
+      }
+      if _storage._traceSampled != false {
+        try visitor.visitSingularBoolField(value: _storage._traceSampled, fieldNumber: 30)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Logging_V2_LogEntry, rhs: Google_Logging_V2_LogEntry) -> Bool {
-    if lhs.logName != rhs.logName {return false}
-    if lhs._resource != rhs._resource {return false}
-    if lhs.payload != rhs.payload {return false}
-    if lhs._timestamp != rhs._timestamp {return false}
-    if lhs._receiveTimestamp != rhs._receiveTimestamp {return false}
-    if lhs.severity != rhs.severity {return false}
-    if lhs.insertID != rhs.insertID {return false}
-    if lhs._httpRequest != rhs._httpRequest {return false}
-    if lhs.labels != rhs.labels {return false}
-    if lhs._operation != rhs._operation {return false}
-    if lhs.trace != rhs.trace {return false}
-    if lhs.spanID != rhs.spanID {return false}
-    if lhs.traceSampled != rhs.traceSampled {return false}
-    if lhs._sourceLocation != rhs._sourceLocation {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._logName != rhs_storage._logName {return false}
+        if _storage._resource != rhs_storage._resource {return false}
+        if _storage._payload != rhs_storage._payload {return false}
+        if _storage._timestamp != rhs_storage._timestamp {return false}
+        if _storage._receiveTimestamp != rhs_storage._receiveTimestamp {return false}
+        if _storage._severity != rhs_storage._severity {return false}
+        if _storage._insertID != rhs_storage._insertID {return false}
+        if _storage._httpRequest != rhs_storage._httpRequest {return false}
+        if _storage._labels != rhs_storage._labels {return false}
+        if _storage._operation != rhs_storage._operation {return false}
+        if _storage._trace != rhs_storage._trace {return false}
+        if _storage._spanID != rhs_storage._spanID {return false}
+        if _storage._traceSampled != rhs_storage._traceSampled {return false}
+        if _storage._sourceLocation != rhs_storage._sourceLocation {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -468,11 +580,14 @@ extension Google_Logging_V2_LogEntryOperation: SwiftProtobuf.Message, SwiftProto
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.id)
-      case 2: try decoder.decodeSingularStringField(value: &self.producer)
-      case 3: try decoder.decodeSingularBoolField(value: &self.first)
-      case 4: try decoder.decodeSingularBoolField(value: &self.last)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.id) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.producer) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.first) }()
+      case 4: try { try decoder.decodeSingularBoolField(value: &self.last) }()
       default: break
       }
     }
@@ -514,10 +629,13 @@ extension Google_Logging_V2_LogEntrySourceLocation: SwiftProtobuf.Message, Swift
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.file)
-      case 2: try decoder.decodeSingularInt64Field(value: &self.line)
-      case 3: try decoder.decodeSingularStringField(value: &self.function)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.file) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.line) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.function) }()
       default: break
       }
     }

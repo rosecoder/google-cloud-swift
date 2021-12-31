@@ -59,11 +59,17 @@ struct Google_Logging_V2_LogMetric {
   /// However, when the metric identifier appears as the `[METRIC_ID]` part of a
   /// `metric_name` API parameter, then the metric identifier must be
   /// URL-encoded. Example: `"projects/my-project/metrics/nginx%2Frequests"`.
-  var name: String = String()
+  var name: String {
+    get {return _storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
 
   /// Optional. A description of this metric, which is used in documentation.
   /// The maximum length of the description is 8000 characters.
-  var description_p: String = String()
+  var description_p: String {
+    get {return _storage._description_p}
+    set {_uniqueStorage()._description_p = newValue}
+  }
 
   /// Required. An [advanced logs
   /// filter](https://cloud.google.com/logging/docs/view/advanced_filters) which
@@ -72,7 +78,10 @@ struct Google_Logging_V2_LogMetric {
   ///     "resource.type=gae_app AND severity>=ERROR"
   ///
   /// The maximum length of the filter is 20000 characters.
-  var filter: String = String()
+  var filter: String {
+    get {return _storage._filter}
+    set {_uniqueStorage()._filter = newValue}
+  }
 
   /// Optional. The metric descriptor associated with the logs-based metric.
   /// If unspecified, it uses a default metric descriptor with a DELTA metric
@@ -96,13 +105,13 @@ struct Google_Logging_V2_LogMetric {
   /// `metric_descriptor`, but existing labels cannot be modified except for
   /// their description.
   var metricDescriptor: Google_Api_MetricDescriptor {
-    get {return _metricDescriptor ?? Google_Api_MetricDescriptor()}
-    set {_metricDescriptor = newValue}
+    get {return _storage._metricDescriptor ?? Google_Api_MetricDescriptor()}
+    set {_uniqueStorage()._metricDescriptor = newValue}
   }
   /// Returns true if `metricDescriptor` has been explicitly set.
-  var hasMetricDescriptor: Bool {return self._metricDescriptor != nil}
+  var hasMetricDescriptor: Bool {return _storage._metricDescriptor != nil}
   /// Clears the value of `metricDescriptor`. Subsequent reads from it will return its default value.
-  mutating func clearMetricDescriptor() {self._metricDescriptor = nil}
+  mutating func clearMetricDescriptor() {_uniqueStorage()._metricDescriptor = nil}
 
   /// Optional. A `value_extractor` is required when using a distribution
   /// logs-based metric to extract the values to record from a log entry.
@@ -123,7 +132,10 @@ struct Google_Logging_V2_LogMetric {
   /// distribution.
   ///
   /// Example: `REGEXP_EXTRACT(jsonPayload.request, ".*quantity=(\d+).*")`
-  var valueExtractor: String = String()
+  var valueExtractor: String {
+    get {return _storage._valueExtractor}
+    set {_uniqueStorage()._valueExtractor = newValue}
+  }
 
   /// Optional. A map from a label key string to an extractor expression which is
   /// used to extract data from a log entry field and assign as the label value.
@@ -139,47 +151,53 @@ struct Google_Logging_V2_LogMetric {
   ///
   /// Note that there are upper bounds on the maximum number of labels and the
   /// number of active time series that are allowed in a project.
-  var labelExtractors: Dictionary<String,String> = [:]
+  var labelExtractors: Dictionary<String,String> {
+    get {return _storage._labelExtractors}
+    set {_uniqueStorage()._labelExtractors = newValue}
+  }
 
   /// Optional. The `bucket_options` are required when the logs-based metric is
   /// using a DISTRIBUTION value type and it describes the bucket boundaries
   /// used to create a histogram of the extracted values.
   var bucketOptions: Google_Api_Distribution.BucketOptions {
-    get {return _bucketOptions ?? Google_Api_Distribution.BucketOptions()}
-    set {_bucketOptions = newValue}
+    get {return _storage._bucketOptions ?? Google_Api_Distribution.BucketOptions()}
+    set {_uniqueStorage()._bucketOptions = newValue}
   }
   /// Returns true if `bucketOptions` has been explicitly set.
-  var hasBucketOptions: Bool {return self._bucketOptions != nil}
+  var hasBucketOptions: Bool {return _storage._bucketOptions != nil}
   /// Clears the value of `bucketOptions`. Subsequent reads from it will return its default value.
-  mutating func clearBucketOptions() {self._bucketOptions = nil}
+  mutating func clearBucketOptions() {_uniqueStorage()._bucketOptions = nil}
 
   /// Output only. The creation timestamp of the metric.
   ///
   /// This field may not be present for older metrics.
   var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_createTime = newValue}
+    get {return _storage._createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._createTime = newValue}
   }
   /// Returns true if `createTime` has been explicitly set.
-  var hasCreateTime: Bool {return self._createTime != nil}
+  var hasCreateTime: Bool {return _storage._createTime != nil}
   /// Clears the value of `createTime`. Subsequent reads from it will return its default value.
-  mutating func clearCreateTime() {self._createTime = nil}
+  mutating func clearCreateTime() {_uniqueStorage()._createTime = nil}
 
   /// Output only. The last update timestamp of the metric.
   ///
   /// This field may not be present for older metrics.
   var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
-    get {return _updateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
-    set {_updateTime = newValue}
+    get {return _storage._updateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_uniqueStorage()._updateTime = newValue}
   }
   /// Returns true if `updateTime` has been explicitly set.
-  var hasUpdateTime: Bool {return self._updateTime != nil}
+  var hasUpdateTime: Bool {return _storage._updateTime != nil}
   /// Clears the value of `updateTime`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateTime() {self._updateTime = nil}
+  mutating func clearUpdateTime() {_uniqueStorage()._updateTime = nil}
 
   /// Deprecated. The API version that created or updated this metric.
   /// The v2 format is used by default and cannot be changed.
-  var version: Google_Logging_V2_LogMetric.ApiVersion = .v2
+  var version: Google_Logging_V2_LogMetric.ApiVersion {
+    get {return _storage._version}
+    set {_uniqueStorage()._version = newValue}
+  }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -218,10 +236,7 @@ struct Google_Logging_V2_LogMetric {
 
   init() {}
 
-  fileprivate var _metricDescriptor: Google_Api_MetricDescriptor? = nil
-  fileprivate var _bucketOptions: Google_Api_Distribution.BucketOptions? = nil
-  fileprivate var _createTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
-  fileprivate var _updateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 #if swift(>=4.2)
@@ -396,69 +411,126 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
     4: .same(proto: "version"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _description_p: String = String()
+    var _filter: String = String()
+    var _metricDescriptor: Google_Api_MetricDescriptor? = nil
+    var _valueExtractor: String = String()
+    var _labelExtractors: Dictionary<String,String> = [:]
+    var _bucketOptions: Google_Api_Distribution.BucketOptions? = nil
+    var _createTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _updateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _version: Google_Logging_V2_LogMetric.ApiVersion = .v2
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _description_p = source._description_p
+      _filter = source._filter
+      _metricDescriptor = source._metricDescriptor
+      _valueExtractor = source._valueExtractor
+      _labelExtractors = source._labelExtractors
+      _bucketOptions = source._bucketOptions
+      _createTime = source._createTime
+      _updateTime = source._updateTime
+      _version = source._version
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.name)
-      case 2: try decoder.decodeSingularStringField(value: &self.description_p)
-      case 3: try decoder.decodeSingularStringField(value: &self.filter)
-      case 4: try decoder.decodeSingularEnumField(value: &self.version)
-      case 5: try decoder.decodeSingularMessageField(value: &self._metricDescriptor)
-      case 6: try decoder.decodeSingularStringField(value: &self.valueExtractor)
-      case 7: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.labelExtractors)
-      case 8: try decoder.decodeSingularMessageField(value: &self._bucketOptions)
-      case 9: try decoder.decodeSingularMessageField(value: &self._createTime)
-      case 10: try decoder.decodeSingularMessageField(value: &self._updateTime)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._description_p) }()
+        case 3: try { try decoder.decodeSingularStringField(value: &_storage._filter) }()
+        case 4: try { try decoder.decodeSingularEnumField(value: &_storage._version) }()
+        case 5: try { try decoder.decodeSingularMessageField(value: &_storage._metricDescriptor) }()
+        case 6: try { try decoder.decodeSingularStringField(value: &_storage._valueExtractor) }()
+        case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._labelExtractors) }()
+        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._bucketOptions) }()
+        case 9: try { try decoder.decodeSingularMessageField(value: &_storage._createTime) }()
+        case 10: try { try decoder.decodeSingularMessageField(value: &_storage._updateTime) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
-    }
-    if !self.description_p.isEmpty {
-      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
-    }
-    if !self.filter.isEmpty {
-      try visitor.visitSingularStringField(value: self.filter, fieldNumber: 3)
-    }
-    if self.version != .v2 {
-      try visitor.visitSingularEnumField(value: self.version, fieldNumber: 4)
-    }
-    if let v = self._metricDescriptor {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }
-    if !self.valueExtractor.isEmpty {
-      try visitor.visitSingularStringField(value: self.valueExtractor, fieldNumber: 6)
-    }
-    if !self.labelExtractors.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.labelExtractors, fieldNumber: 7)
-    }
-    if let v = self._bucketOptions {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    }
-    if let v = self._createTime {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-    }
-    if let v = self._updateTime {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
+      }
+      if !_storage._description_p.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._description_p, fieldNumber: 2)
+      }
+      if !_storage._filter.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._filter, fieldNumber: 3)
+      }
+      if _storage._version != .v2 {
+        try visitor.visitSingularEnumField(value: _storage._version, fieldNumber: 4)
+      }
+      try { if let v = _storage._metricDescriptor {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      } }()
+      if !_storage._valueExtractor.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._valueExtractor, fieldNumber: 6)
+      }
+      if !_storage._labelExtractors.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._labelExtractors, fieldNumber: 7)
+      }
+      try { if let v = _storage._bucketOptions {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      } }()
+      try { if let v = _storage._createTime {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      } }()
+      try { if let v = _storage._updateTime {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Logging_V2_LogMetric, rhs: Google_Logging_V2_LogMetric) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs.description_p != rhs.description_p {return false}
-    if lhs.filter != rhs.filter {return false}
-    if lhs._metricDescriptor != rhs._metricDescriptor {return false}
-    if lhs.valueExtractor != rhs.valueExtractor {return false}
-    if lhs.labelExtractors != rhs.labelExtractors {return false}
-    if lhs._bucketOptions != rhs._bucketOptions {return false}
-    if lhs._createTime != rhs._createTime {return false}
-    if lhs._updateTime != rhs._updateTime {return false}
-    if lhs.version != rhs.version {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._description_p != rhs_storage._description_p {return false}
+        if _storage._filter != rhs_storage._filter {return false}
+        if _storage._metricDescriptor != rhs_storage._metricDescriptor {return false}
+        if _storage._valueExtractor != rhs_storage._valueExtractor {return false}
+        if _storage._labelExtractors != rhs_storage._labelExtractors {return false}
+        if _storage._bucketOptions != rhs_storage._bucketOptions {return false}
+        if _storage._createTime != rhs_storage._createTime {return false}
+        if _storage._updateTime != rhs_storage._updateTime {return false}
+        if _storage._version != rhs_storage._version {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -481,10 +553,13 @@ extension Google_Logging_V2_ListLogMetricsRequest: SwiftProtobuf.Message, SwiftP
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.parent)
-      case 2: try decoder.decodeSingularStringField(value: &self.pageToken)
-      case 3: try decoder.decodeSingularInt32Field(value: &self.pageSize)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.pageToken) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       default: break
       }
     }
@@ -521,9 +596,12 @@ extension Google_Logging_V2_ListLogMetricsResponse: SwiftProtobuf.Message, Swift
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &self.metrics)
-      case 2: try decoder.decodeSingularStringField(value: &self.nextPageToken)
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.metrics) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.nextPageToken) }()
       default: break
       }
     }
@@ -555,8 +633,11 @@ extension Google_Logging_V2_GetLogMetricRequest: SwiftProtobuf.Message, SwiftPro
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.metricName)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.metricName) }()
       default: break
       }
     }
@@ -585,21 +666,28 @@ extension Google_Logging_V2_CreateLogMetricRequest: SwiftProtobuf.Message, Swift
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.parent)
-      case 2: try decoder.decodeSingularMessageField(value: &self._metric)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._metric) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.parent.isEmpty {
       try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
     }
-    if let v = self._metric {
+    try { if let v = self._metric {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -620,21 +708,28 @@ extension Google_Logging_V2_UpdateLogMetricRequest: SwiftProtobuf.Message, Swift
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.metricName)
-      case 2: try decoder.decodeSingularMessageField(value: &self._metric)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.metricName) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._metric) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.metricName.isEmpty {
       try visitor.visitSingularStringField(value: self.metricName, fieldNumber: 1)
     }
-    if let v = self._metric {
+    try { if let v = self._metric {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -654,8 +749,11 @@ extension Google_Logging_V2_DeleteLogMetricRequest: SwiftProtobuf.Message, Swift
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.metricName)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.metricName) }()
       default: break
       }
     }

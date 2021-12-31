@@ -6,6 +6,8 @@ import Foundation
 
 public struct GoogleCloudLogHandler: LogHandler {
 
+    // MARK: - LogHandler implementation
+
     public let label: String
     public let resource: Resource
 
@@ -20,14 +22,10 @@ public struct GoogleCloudLogHandler: LogHandler {
         self.logLevel = level
     }
 
-    // MARK: - Metadata
-
     public subscript(metadataKey key: String) -> Logger.Metadata.Value? {
         get { metadata[key] }
         set { metadata[key] = newValue }
     }
-
-    // MARK: - Log
 
     public func log(level: Logger.Level, message: Logger.Message, metadata: Logger.Metadata?, source: String, file: String, function: String, line: UInt) {
         let now = Date()
@@ -74,13 +72,17 @@ public struct GoogleCloudLogHandler: LogHandler {
                     }
                     $0.textPayload = textPayload
                     $0.labels = labels
-//                    $0.httpRequest = .with {
-//                        $0.requestMethod = ""
-//                    }
                 }
             ]
         }
 
-        _ = Self.rawClient.writeLogEntries(request).response
+        Self.lastLogTask = Task {
+            _ = try await Self._client.writeLogEntries(request)
+        }
     }
+
+    // MARK: - Internal
+
+    /// Last task for publishing logging to GCP. Intended only for internal use while testing.
+    static var lastLogTask: Task<(), Error>?
 }

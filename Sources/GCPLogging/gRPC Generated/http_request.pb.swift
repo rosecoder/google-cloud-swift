@@ -143,28 +143,35 @@ extension Google_Logging_Type_HttpRequest: SwiftProtobuf.Message, SwiftProtobuf.
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self.requestMethod)
-      case 2: try decoder.decodeSingularStringField(value: &self.requestURL)
-      case 3: try decoder.decodeSingularInt64Field(value: &self.requestSize)
-      case 4: try decoder.decodeSingularInt32Field(value: &self.status)
-      case 5: try decoder.decodeSingularInt64Field(value: &self.responseSize)
-      case 6: try decoder.decodeSingularStringField(value: &self.userAgent)
-      case 7: try decoder.decodeSingularStringField(value: &self.remoteIp)
-      case 8: try decoder.decodeSingularStringField(value: &self.referer)
-      case 9: try decoder.decodeSingularBoolField(value: &self.cacheHit)
-      case 10: try decoder.decodeSingularBoolField(value: &self.cacheValidatedWithOriginServer)
-      case 11: try decoder.decodeSingularBoolField(value: &self.cacheLookup)
-      case 12: try decoder.decodeSingularInt64Field(value: &self.cacheFillBytes)
-      case 13: try decoder.decodeSingularStringField(value: &self.serverIp)
-      case 14: try decoder.decodeSingularMessageField(value: &self._latency)
-      case 15: try decoder.decodeSingularStringField(value: &self.`protocol`)
+      case 1: try { try decoder.decodeSingularStringField(value: &self.requestMethod) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.requestURL) }()
+      case 3: try { try decoder.decodeSingularInt64Field(value: &self.requestSize) }()
+      case 4: try { try decoder.decodeSingularInt32Field(value: &self.status) }()
+      case 5: try { try decoder.decodeSingularInt64Field(value: &self.responseSize) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.userAgent) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.remoteIp) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.referer) }()
+      case 9: try { try decoder.decodeSingularBoolField(value: &self.cacheHit) }()
+      case 10: try { try decoder.decodeSingularBoolField(value: &self.cacheValidatedWithOriginServer) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.cacheLookup) }()
+      case 12: try { try decoder.decodeSingularInt64Field(value: &self.cacheFillBytes) }()
+      case 13: try { try decoder.decodeSingularStringField(value: &self.serverIp) }()
+      case 14: try { try decoder.decodeSingularMessageField(value: &self._latency) }()
+      case 15: try { try decoder.decodeSingularStringField(value: &self.`protocol`) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.requestMethod.isEmpty {
       try visitor.visitSingularStringField(value: self.requestMethod, fieldNumber: 1)
     }
@@ -204,9 +211,9 @@ extension Google_Logging_Type_HttpRequest: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.serverIp.isEmpty {
       try visitor.visitSingularStringField(value: self.serverIp, fieldNumber: 13)
     }
-    if let v = self._latency {
+    try { if let v = self._latency {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-    }
+    } }()
     if !self.`protocol`.isEmpty {
       try visitor.visitSingularStringField(value: self.`protocol`, fieldNumber: 15)
     }

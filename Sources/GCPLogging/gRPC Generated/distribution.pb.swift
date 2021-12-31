@@ -197,10 +197,22 @@ struct Google_Api_Distribution {
 
     #if !swift(>=4.1)
       static func ==(lhs: Google_Api_Distribution.BucketOptions.OneOf_Options, rhs: Google_Api_Distribution.BucketOptions.OneOf_Options) -> Bool {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
         switch (lhs, rhs) {
-        case (.linearBuckets(let l), .linearBuckets(let r)): return l == r
-        case (.exponentialBuckets(let l), .exponentialBuckets(let r)): return l == r
-        case (.explicitBuckets(let l), .explicitBuckets(let r)): return l == r
+        case (.linearBuckets, .linearBuckets): return {
+          guard case .linearBuckets(let l) = lhs, case .linearBuckets(let r) = rhs else { preconditionFailure() }
+          return l == r
+        }()
+        case (.exponentialBuckets, .exponentialBuckets): return {
+          guard case .exponentialBuckets(let l) = lhs, case .exponentialBuckets(let r) = rhs else { preconditionFailure() }
+          return l == r
+        }()
+        case (.explicitBuckets, .explicitBuckets): return {
+          guard case .explicitBuckets(let l) = lhs, case .explicitBuckets(let r) = rhs else { preconditionFailure() }
+          return l == r
+        }()
         default: return false
         }
       }
@@ -358,20 +370,27 @@ extension Google_Api_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &self.count)
-      case 2: try decoder.decodeSingularDoubleField(value: &self.mean)
-      case 3: try decoder.decodeSingularDoubleField(value: &self.sumOfSquaredDeviation)
-      case 4: try decoder.decodeSingularMessageField(value: &self._range)
-      case 6: try decoder.decodeSingularMessageField(value: &self._bucketOptions)
-      case 7: try decoder.decodeRepeatedInt64Field(value: &self.bucketCounts)
-      case 10: try decoder.decodeRepeatedMessageField(value: &self.exemplars)
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.count) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.mean) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.sumOfSquaredDeviation) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._range) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._bucketOptions) }()
+      case 7: try { try decoder.decodeRepeatedInt64Field(value: &self.bucketCounts) }()
+      case 10: try { try decoder.decodeRepeatedMessageField(value: &self.exemplars) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.count != 0 {
       try visitor.visitSingularInt64Field(value: self.count, fieldNumber: 1)
     }
@@ -381,12 +400,12 @@ extension Google_Api_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.sumOfSquaredDeviation != 0 {
       try visitor.visitSingularDoubleField(value: self.sumOfSquaredDeviation, fieldNumber: 3)
     }
-    if let v = self._range {
+    try { if let v = self._range {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }
-    if let v = self._bucketOptions {
+    } }()
+    try { if let v = self._bucketOptions {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }
+    } }()
     if !self.bucketCounts.isEmpty {
       try visitor.visitPackedInt64Field(value: self.bucketCounts, fieldNumber: 7)
     }
@@ -418,9 +437,12 @@ extension Google_Api_Distribution.Range: SwiftProtobuf.Message, SwiftProtobuf._M
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularDoubleField(value: &self.min)
-      case 2: try decoder.decodeSingularDoubleField(value: &self.max)
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.min) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.max) }()
       default: break
       }
     }
@@ -454,44 +476,72 @@ extension Google_Api_Distribution.BucketOptions: SwiftProtobuf.Message, SwiftPro
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1:
+      case 1: try {
         var v: Google_Api_Distribution.BucketOptions.Linear?
+        var hadOneofValue = false
         if let current = self.options {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .linearBuckets(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.options = .linearBuckets(v)}
-      case 2:
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.options = .linearBuckets(v)
+        }
+      }()
+      case 2: try {
         var v: Google_Api_Distribution.BucketOptions.Exponential?
+        var hadOneofValue = false
         if let current = self.options {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .exponentialBuckets(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.options = .exponentialBuckets(v)}
-      case 3:
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.options = .exponentialBuckets(v)
+        }
+      }()
+      case 3: try {
         var v: Google_Api_Distribution.BucketOptions.Explicit?
+        var hadOneofValue = false
         if let current = self.options {
-          try decoder.handleConflictingOneOf()
+          hadOneofValue = true
           if case .explicitBuckets(let m) = current {v = m}
         }
         try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {self.options = .explicitBuckets(v)}
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.options = .explicitBuckets(v)
+        }
+      }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     switch self.options {
-    case .linearBuckets(let v)?:
+    case .linearBuckets?: try {
+      guard case .linearBuckets(let v)? = self.options else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    case .exponentialBuckets(let v)?:
+    }()
+    case .exponentialBuckets?: try {
+      guard case .exponentialBuckets(let v)? = self.options else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .explicitBuckets(let v)?:
+    }()
+    case .explicitBuckets?: try {
+      guard case .explicitBuckets(let v)? = self.options else { preconditionFailure() }
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }()
     case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -514,10 +564,13 @@ extension Google_Api_Distribution.BucketOptions.Linear: SwiftProtobuf.Message, S
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.numFiniteBuckets)
-      case 2: try decoder.decodeSingularDoubleField(value: &self.width)
-      case 3: try decoder.decodeSingularDoubleField(value: &self.offset)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.numFiniteBuckets) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.width) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.offset) }()
       default: break
       }
     }
@@ -555,10 +608,13 @@ extension Google_Api_Distribution.BucketOptions.Exponential: SwiftProtobuf.Messa
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.numFiniteBuckets)
-      case 2: try decoder.decodeSingularDoubleField(value: &self.growthFactor)
-      case 3: try decoder.decodeSingularDoubleField(value: &self.scale)
+      case 1: try { try decoder.decodeSingularInt32Field(value: &self.numFiniteBuckets) }()
+      case 2: try { try decoder.decodeSingularDoubleField(value: &self.growthFactor) }()
+      case 3: try { try decoder.decodeSingularDoubleField(value: &self.scale) }()
       default: break
       }
     }
@@ -594,8 +650,11 @@ extension Google_Api_Distribution.BucketOptions.Explicit: SwiftProtobuf.Message,
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedDoubleField(value: &self.bounds)
+      case 1: try { try decoder.decodeRepeatedDoubleField(value: &self.bounds) }()
       default: break
       }
     }
@@ -625,22 +684,29 @@ extension Google_Api_Distribution.Exemplar: SwiftProtobuf.Message, SwiftProtobuf
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try decoder.decodeSingularDoubleField(value: &self.value)
-      case 2: try decoder.decodeSingularMessageField(value: &self._timestamp)
-      case 3: try decoder.decodeRepeatedMessageField(value: &self.attachments)
+      case 1: try { try decoder.decodeSingularDoubleField(value: &self.value) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._timestamp) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.attachments) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
-    if let v = self._timestamp {
+    try { if let v = self._timestamp {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }
+    } }()
     if !self.attachments.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.attachments, fieldNumber: 3)
     }
