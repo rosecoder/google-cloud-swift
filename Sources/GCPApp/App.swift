@@ -4,18 +4,21 @@ import NIO
 import GCPCore
 import GCPLogging
 
-private let defaultEventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
-
 public protocol App {
 
     var eventLoopGroup: EventLoopGroup { get }
+    var logger: Logger { get }
 
     var dependencies: [Dependency.Type] { get }
 }
 
+private let defaultEventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
+private let defaultLogger = Logger(label: "main")
+
 extension App {
 
     public var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
+    public var logger: Logger { defaultLogger }
 
     public var dependencies: [Dependency.Type] { [] }
 
@@ -44,7 +47,10 @@ extension App {
                 do {
                     try await dependency.bootstrap(eventLoopGroup: eventLoopGroup)
                 } catch {
-                    fatalError("Error bootstrapping app dependency: \(error)")
+                    logger.critical("Error bootstrapping app dependency: \(dependency)", metadata: [
+                        "error": .string(String(describing: error)),
+                    ])
+                    exit(1)
                 }
             }
 
@@ -52,7 +58,10 @@ extension App {
             do {
                 try await boostrap()
             } catch {
-                fatalError("Error bootstrapping app: \(error)")
+                logger.critical("Error bootstrapping app", metadata: [
+                    "error": .string(String(describing: error)),
+                ])
+                exit(1)
             }
         }
 
