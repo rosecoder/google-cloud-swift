@@ -104,7 +104,7 @@ public struct Subscription: Identifiable, Equatable, Hashable {
                 }
             }, nil)
         } catch {
-            if !"\(error)".hasPrefix("alreadyExists (6):") {
+            if !"\(error)".hasPrefix("already exists (6):") {
                 throw error
             }
         }

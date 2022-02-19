@@ -40,7 +40,7 @@ public struct Topic: Identifiable, Equatable, Hashable {
                 $0.labels = labels
             }, nil)
         } catch {
-            if !"\(error)".hasPrefix("alreadyExists (6):") {
+            if !"\(error)".hasPrefix("already exists (6):") {
                 throw error
             }
         }
