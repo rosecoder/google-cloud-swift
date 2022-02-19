@@ -63,6 +63,13 @@ extension App {
                 ])
                 exit(1)
             }
+
+            // Ready!
+            #if DEBUG
+            logger.debug("App running for debug 🚀")
+            #else
+            logger.debug("App running for production")
+            #endif
         }
 
         RunLoop.main.run()
