@@ -23,10 +23,12 @@ extension App {
         Task {
 
             // Logging
+            #if !DEBUG
             try! await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
             LoggingSystem.bootstrap {
                 GoogleCloudLogHandler(label: $0, resource: .autoResolve)
             }
+            #endif
 
             // Error reporting
             // TODO: Implement
