@@ -26,7 +26,13 @@ extension App {
         Task {
 
             // Logging
-            #if !DEBUG
+            #if DEBUG
+            LoggingSystem.bootstrap {
+                var handler = StreamLogHandler.standardOutput(label: $0)
+                handler.logLevel = .debug
+                return handler
+            }
+            #else
             try! await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
             LoggingSystem.bootstrap {
                 GoogleCloudLogHandler(label: $0, resource: .autoResolve)
