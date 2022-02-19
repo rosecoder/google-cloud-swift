@@ -9,6 +9,7 @@ let package = Package(
     products: [
         .library(name: "GCPApp", targets: ["GCPApp"]),
         .library(name: "GCPCore", targets: ["GCPCore"]),
+        .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
     ],
@@ -30,6 +31,12 @@ let package = Package(
             .product(name: "OAuth2", package: "Auth"),
         ]),
         .testTarget( name: "GCPCoreTests", dependencies: ["GCPCore"]),
+
+        .target(name: "GCPDatastore", dependencies: [
+            "GCPCore",
+            .product(name: "GRPC", package: "grpc-swift"),
+        ]),
+        .testTarget( name: "GCPDatastoreTests", dependencies: ["GCPDatastore"]),
 
         .target(name: "GCPLogging", dependencies: [
             "GCPCore",

@@ -17,3 +17,12 @@ protoc google/pubsub/v1/*.proto \
 rm ../Sources/GCPPubSub/gRPC\ Generated/*.swift
 mv google/pubsub/v1/*.swift \
   ../Sources/GCPPubSub/gRPC\ Generated
+
+echo "Generating gRPC code for GCPDatastore..."
+protoc google/datastore/v1/*.proto google/type/latlng.proto \
+  --swift_out=. \
+  --grpc-swift_out=Client=true,Server=false,ExperimentalAsyncClient=true:.
+
+rm ../Sources/GCPDatastore/gRPC\ Generated/*.swift
+mv google/datastore/v1/*.swift google/type/*.swift \
+   ../Sources/GCPDatastore/gRPC\ Generated
