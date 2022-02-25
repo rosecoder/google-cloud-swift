@@ -4,6 +4,7 @@ import NIO
 import OAuth2
 import Logging
 import GCPCore
+import SwiftProtobuf
 
 public final class Publisher: Dependency {
 
@@ -83,7 +84,7 @@ public final class Publisher: Dependency {
     }
 
     @discardableResult
-    public func publish<Element: Encodable>(to topic: Topic, data element: Element, attributes: [String: String] = [:]) async throws -> PublishedMessage {
+    public func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:]) async throws -> PublishedMessage {
         let message = try PublisherMessage(data: element, attributes: attributes)
         return (try await publish(to: topic, messages: [message]))[0]
     }

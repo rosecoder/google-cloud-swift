@@ -1,4 +1,5 @@
 import Foundation
+import SwiftProtobuf
 
 public struct SubscriberMessage: Message {
 
@@ -15,7 +16,7 @@ public struct SubscriberMessage: Message {
         self.attributes = attributes
     }
 
-    public func decode<Element: Decodable>(_ elementType: Element.Type) throws -> Element {
-        try JSONDecoder().decode(elementType, from: data)
+    public func decode<Element: SwiftProtobuf.Message>(_ elementType: Element.Type) throws -> Element {
+        try elementType.init(serializedData: data)
     }
 }

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftProtobuf
 
 public struct PublisherMessage: Message {
 
@@ -10,8 +11,8 @@ public struct PublisherMessage: Message {
         self.attributes = attributes
     }
 
-    public init<Element: Encodable>(data element: Element, attributes: [String: String] = [:]) throws {
-        let data = try JSONEncoder().encode(element)
+    public init<Element: SwiftProtobuf.Message>(data element: Element, attributes: [String: String] = [:]) throws {
+        let data = try element.serializedData()
         self.init(data: data, attributes: attributes)
     }
 }
