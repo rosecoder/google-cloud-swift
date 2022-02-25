@@ -61,6 +61,8 @@ public final class Subscriber: Dependency {
                 try await singlePull(subscription: subscription, handler: handler)
             }
         })
+
+        logger.debug("Subscribed to \(subscription.name)")
     }
 
     // MARK: - Shutdown
@@ -132,6 +134,7 @@ public final class Subscriber: Dependency {
 
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
+                        messageLogger.debug("Unacknowledged message")
                     } catch {
                         messageLogger.error("Failed to unacknowledge message: \(error)")
                     }
@@ -140,6 +143,7 @@ public final class Subscriber: Dependency {
 
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscription: subscription)
+                    messageLogger.debug("Acknowledged message")
                 } catch {
                     messageLogger.error("Failed to acknowledge message: \(error)")
                     // Should we nack the message?
