@@ -114,7 +114,7 @@ public final class Subscriber: Dependency {
                 // TODO: Add trace context to metadata
 
                 // Wrap message
-                let message = SubscriberMessage(
+                var message = SubscriberMessage(
                     id: rawMessage.messageID,
                     published: rawMessage.publishTime.date,
                     data: rawMessage.data,
@@ -126,7 +126,7 @@ public final class Subscriber: Dependency {
                 messageLogger.debug("Handling message")
 
                 do {
-                    try await handler.handle(message: message)
+                    try await handler.handle(message: &message)
                 } catch {
                     messageLogger.error("Failed to handle message: \(error)")
 

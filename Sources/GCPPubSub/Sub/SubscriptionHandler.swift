@@ -2,5 +2,5 @@ import Foundation
 
 public protocol SubscriptionHandler {
 
-    func handle(message: SubscriberMessage) async throws
+    func handle(message: inout SubscriberMessage) async throws
 }

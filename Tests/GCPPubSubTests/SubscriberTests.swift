@@ -11,7 +11,7 @@ private struct CallbackHandler: SubscriptionHandler {
 
     let callback: (SubscriberMessage) async throws -> Void
 
-    func handle(message: SubscriberMessage) async throws {
+    func handle(message: inout SubscriberMessage) async throws {
         try await callback(message)
     }
 }
