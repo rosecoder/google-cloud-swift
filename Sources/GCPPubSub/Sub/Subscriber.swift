@@ -7,7 +7,7 @@ import GCPCore
 public final class Subscriber: Dependency {
 
     private static var _client: Google_Pubsub_V1_SubscriberAsyncClient?
-    private static let logger = Logger(label: "Pub/Sub Subscriber")
+    private static let logger = Logger(label: "pubsub.subscriber")
 
     private static var client: Google_Pubsub_V1_SubscriberAsyncClient {
         guard let _client = _client else {
@@ -102,30 +102,38 @@ public final class Subscriber: Dependency {
             return
         }
 
-        logger.debug("Received messages: \(response.receivedMessages.count)")
+        logger.debug("Received \(response.receivedMessages.count) messages")
 
         let tasks: [Task<Void, Error>] = response.receivedMessages.map { receivedMessage in
             Task {
                 let rawMessage = receivedMessage.message
+
+                // Get a logger
+                var messageLogger = Logger(label: logger.label + ".message")
+                messageLogger[metadataKey: "message"] = .string(rawMessage.messageID)
+                // TODO: Add trace context to metadata
+
+                // Wrap message
                 let message = SubscriberMessage(
                     id: rawMessage.messageID,
                     published: rawMessage.publishTime.date,
                     data: rawMessage.data,
-                    attributes: rawMessage.attributes
+                    attributes: rawMessage.attributes,
+                    logger: messageLogger
                 )
 
                 // Handle message
-                logger.debug("Handling message", metadata: ["message-id": .string(rawMessage.messageID)])
+                messageLogger.debug("Handling message")
 
                 do {
                     try await handler.handle(message: message)
                 } catch {
-                    logger.error("Failed to handle message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+                    messageLogger.error("Failed to handle message: \(error)")
 
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
                     } catch {
-                        logger.error("Failed to unacknowledge message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+                        messageLogger.error("Failed to unacknowledge message: \(error)")
                     }
                     return
                 }
@@ -133,7 +141,7 @@ public final class Subscriber: Dependency {
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscription: subscription)
                 } catch {
-                    logger.error("Failed to acknowledge message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+                    messageLogger.error("Failed to acknowledge message: \(error)")
                     // Should we nack the message?
                 }
             }

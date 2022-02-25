@@ -9,7 +9,7 @@ import SwiftProtobuf
 public final class Publisher: Dependency {
 
     private let _client: Google_Pubsub_V1_PublisherAsyncClient
-    private let logger = Logger(label: "Pub/Sub Publisher")
+    private let logger = Logger(label: "pubsub.publisher")
 
     private init(eventLoopGroup: EventLoopGroup) async throws {
 
@@ -68,7 +68,7 @@ public final class Publisher: Dependency {
             .messageIds
             .enumerated()
             .map { (index, id) in
-                logger.debug("Published message", metadata: ["message-id": .string(id)])
+                logger.debug("Published message", metadata: ["message": .string(id)])
                 return PublishedMessage(id: id, data: messages[index].data, attributes: messages[index].attributes)
             }
     }
