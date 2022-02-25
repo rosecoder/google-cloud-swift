@@ -83,6 +83,14 @@ public final class Subscriber: Dependency {
         })
     }
 
+    private static func unacknowledge(id: String, subscription: Subscription) async throws {
+        _ = try await client.modifyAckDeadline(.with {
+            $0.subscription = subscription.rawValue
+            $0.ackIds = [id]
+            $0.ackDeadlineSeconds = 0
+        })
+    }
+
     // MARK: - Pull
 
     private static func singlePull(subscription: Subscription, handler: SubscriptionHandler) async throws {
@@ -113,12 +121,20 @@ public final class Subscriber: Dependency {
                     try await handler.handle(message: message)
                 } catch {
                     logger.error("Failed to handle message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+
+                    do {
+                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
+                    } catch {
+                        logger.error("Failed to unacknowledge message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+                    }
+                    return
                 }
 
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscription: subscription)
                 } catch {
                     logger.error("Failed to acknowledge message: \(error)", metadata: ["message-id": .string(rawMessage.messageID)])
+                    // Should we nack the message?
                 }
             }
         }
