@@ -52,7 +52,9 @@ public final class Publisher: Dependency {
 
     @discardableResult
     public func publish(to topic: Topic, messages: [PublisherMessage]) async throws -> [PublishedMessage] {
+#if DEBUG
         try await topic.createIfNeeded(creation: _client.createTopic)
+#endif
 
         let response = try await _client.publish(.with {
             $0.topic = topic.rawValue

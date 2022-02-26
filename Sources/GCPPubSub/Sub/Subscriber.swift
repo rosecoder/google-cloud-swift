@@ -54,7 +54,9 @@ public final class Subscriber: Dependency {
     private static var runningPullTasks = [Task<Void, Error>]()
 
     public static func startPull(subscription: Subscription, handler: SubscriptionHandler) async throws {
+#if DEBUG
         try await subscription.createIfNeeded(creation: client.createSubscription)
+#endif
 
         runningPullTasks.append(Task {
             while !Task.isCancelled {
