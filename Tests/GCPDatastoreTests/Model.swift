@@ -151,6 +151,7 @@ struct AllPropertyTypeEntity: Entity, Equatable {
 
     var entity: User
     var array: [String]
+    var dictionary: [String: Int]
 
     enum CodingKeys: String, CodingKey {
         case key
@@ -179,6 +180,7 @@ struct AllPropertyTypeEntity: Entity, Equatable {
 
         case entity = "Entity"
         case array = "Array"
+        case dictionary = "Dictionary"
     }
 
     func encode(to encoder: Encoder) throws {
@@ -209,5 +211,6 @@ struct AllPropertyTypeEntity: Entity, Equatable {
 
         try container.encode(entity, forKey: .entity)
         try container.encode(array, forKey: .array)
+        try container.encode(dictionary, forKey: .dictionary)
     }
 }

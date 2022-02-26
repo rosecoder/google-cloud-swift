@@ -137,7 +137,8 @@ final class EntityCodingTests: XCTestCase {
             nilValue: nil,
 
             entity: User(key: .incomplete, email: "testing"),
-            array: ["a", "b", "c", "z"]
+            array: ["a", "b", "c", "z"],
+            dictionary: ["a": 1, "b": 2, "c": 3]
         )
     }
 
@@ -272,6 +273,27 @@ final class EntityCodingTests: XCTestCase {
             raw.properties["Array"]?.arrayValue.values.last?.valueType,
             .stringValue("z"),
             "Property array.last was not encoded correctly",
+            file: file,
+            line: line
+        )
+        XCTAssertEqual(
+            raw.properties["Dictionary"]?.entityValue.properties["a"]?.valueType,
+            .integerValue(1),
+            "Property dictionary.a was not encoded correctly",
+            file: file,
+            line: line
+        )
+        XCTAssertEqual(
+            raw.properties["Dictionary"]?.entityValue.properties["b"]?.valueType,
+            .integerValue(2),
+            "Property dictionary.b was not encoded correctly",
+            file: file,
+            line: line
+        )
+        XCTAssertEqual(
+            raw.properties["Dictionary"]?.entityValue.properties["c"]?.valueType,
+            .integerValue(3),
+            "Property dictionary.c was not encoded correctly",
             file: file,
             line: line
         )
