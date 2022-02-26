@@ -94,9 +94,7 @@ extension App {
             #endif
         }
 
-        RunLoop.main.run()
-
-        terminate(exitCode: 0)
+        dispatchMain()
     }
 
     public func shutdown() async throws {}
