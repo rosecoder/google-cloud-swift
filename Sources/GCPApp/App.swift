@@ -74,9 +74,9 @@ extension App {
 
             // Ready!
             #if DEBUG
-            logger.debug("App running for debug 🚀")
+            logger.debug("App running in debug 🚀")
             #else
-            logger.debug("App running for production")
+            logger.debug("App running in production")
             #endif
         }
 
