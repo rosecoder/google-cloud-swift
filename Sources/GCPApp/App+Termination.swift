@@ -5,7 +5,17 @@ private var isReadyToDie = false
 
 extension App {
 
-    public func terminate(exitCode: Int32) {
+    func catchGracefulTermination() {
+        signal(SIGINT, SIG_IGN)
+
+        let sigintSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
+        sigintSource.setEventHandler {
+            terminate(exitCode: 0)
+        }
+        sigintSource.resume()
+    }
+
+    public func terminate(exitCode: Int32) -> Never {
         #if DEBUG
         logger.debug("Shutdown initialized. Terminating... 👋")
         #else
@@ -46,8 +56,11 @@ extension App {
 
             // Logging
             #if !DEBUG
-            try await GoogleCloudLogHandler.shutdown()
+            try! await GoogleCloudLogHandler.shutdown()
             #endif
+
+            // Just in case, hold on for 1 sec
+            try! await Task.sleep(nanoseconds: 1_000_000_000)
 
             // It's time
             isReadyToDie = true
@@ -56,6 +69,6 @@ extension App {
         let runLoop = RunLoop.current
         while !isReadyToDie && runLoop.run(mode: .default, before: .distantFuture) {}
 
-//        exit(exitCode)
+        exit(exitCode)
     }
 }

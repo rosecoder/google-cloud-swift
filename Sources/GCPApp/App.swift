@@ -35,6 +35,8 @@ extension App {
     public var dependencies: [Dependency.Type] { [] }
 
     public func main(boostrap: @escaping () async throws -> Void = {}) {
+        catchGracefulTermination()
+
         Task {
 
             // Logging
