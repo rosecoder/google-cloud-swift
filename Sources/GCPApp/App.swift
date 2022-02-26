@@ -88,7 +88,7 @@ extension App {
             #if DEBUG
             logger.debug("App running in debug 🚀")
             #else
-            logger.debug("App running in production")
+            logger.info("Bootstrap completed")
             #endif
         }
 
