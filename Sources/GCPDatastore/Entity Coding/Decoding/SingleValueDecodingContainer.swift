@@ -48,6 +48,7 @@ extension EntityDecoder {
             case .doubleValue(let value): return value
             case .integerValue(let value): return Double(value)
             case .nullValue: return 0
+            case .timestampValue(let value): return value.timeIntervalSince1970
             case .stringValue(let value):
                 guard let parsed = Double(value) else {
                     throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
@@ -63,6 +64,7 @@ extension EntityDecoder {
             case .doubleValue(let value): return Float(value)
             case .integerValue(let value): return Float(value)
             case .nullValue: return 0
+            case .timestampValue(let value): return Float(value.timeIntervalSince1970)
             case .stringValue(let value):
                 guard let parsed = Float(value) else {
                     throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
@@ -94,6 +96,7 @@ extension EntityDecoder {
             case .integerValue(let value): return value
             case .doubleValue(let value): return Int64(value)
             case .nullValue: return 0
+            case .timestampValue(let value): return Int64(value.timeIntervalSince1970)
             case .stringValue(let value):
                 guard let parsed = Int64(value) else {
                     throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
