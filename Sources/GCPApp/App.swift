@@ -12,6 +12,8 @@ public protocol App {
     var logLevel: Logger.Level { get }
 
     var dependencies: [Dependency.Type] { get }
+
+    func shutdown() async throws
 }
 
 private let defaultEventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
@@ -68,7 +70,7 @@ extension App {
                     logger.critical("Error bootstrapping app dependency: \(dependency)", metadata: [
                         "error": .string(String(describing: error)),
                     ])
-                    exit(1)
+                    terminate(exitCode: 1)
                 }
             }
 
@@ -79,7 +81,7 @@ extension App {
                 logger.critical("Error bootstrapping app", metadata: [
                     "error": .string(String(describing: error)),
                 ])
-                exit(1)
+                terminate(exitCode: 1)
             }
 
             // Ready!
@@ -91,5 +93,9 @@ extension App {
         }
 
         RunLoop.main.run()
+
+        terminate(exitCode: 0)
     }
+
+    public func shutdown() async throws {}
 }

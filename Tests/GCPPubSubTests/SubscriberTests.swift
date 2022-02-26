@@ -53,6 +53,6 @@ final class SubscriberTestCase: XCTestCase {
         XCTAssertNotNil(receivedMessage)
         XCTAssertEqual(publishedMessage.id, receivedMessage?.id)
 
-        await Subscriber.shutdown()
+        try await Subscriber.shutdown()
     }
 }

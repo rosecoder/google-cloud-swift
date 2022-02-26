@@ -22,4 +22,8 @@ extension GoogleCloudLogHandler: Dependency {
 
         _client = Google_Logging_V2_LoggingServiceV2AsyncClient(channel: channel, defaultCallOptions: callOptions)
     }
+
+    public static func shutdown() async throws {
+        try await lastLogTask?.value
+    }
 }

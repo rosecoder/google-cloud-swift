@@ -67,7 +67,7 @@ public final class Subscriber: Dependency {
 
     // MARK: - Shutdown
 
-    public static func shutdown() async {
+    public static func shutdown() async throws {
         logger.info("Shutting down subscriptions...")
 
         runningPullTasks.forEach { $0.cancel() }
@@ -128,9 +128,12 @@ public final class Subscriber: Dependency {
                 messageLogger.debug("Handling message")
 
                 do {
+                    try Task.checkCancellation()
                     try await handler.handle(message: &message)
                 } catch {
-                    messageLogger.error("Failed to handle message: \(error)")
+                    if !(error is CancellationError) {
+                        messageLogger.error("Failed to handle message: \(error)")
+                    }
 
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
