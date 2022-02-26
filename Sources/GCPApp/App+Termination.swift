@@ -6,7 +6,11 @@ private var isReadyToDie = false
 extension App {
 
     public func terminate(exitCode: Int32) {
-        logger.debug("Shutdown initialized. Terminating...")
+        #if DEBUG
+        logger.debug("Shutdown initialized. Terminating... 👋")
+        #else
+        logger.info("Shutdown initialized. Terminating...")
+        #endif
 
         Task {
 
