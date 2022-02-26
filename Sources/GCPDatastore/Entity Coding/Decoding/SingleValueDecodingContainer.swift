@@ -202,6 +202,19 @@ extension EntityDecoder {
                     codingPath: codingPath,
                     values: array.values
                 )
+            case .entityValue(let entity):
+                // TODO: Replace the following with a custom UnkeyedDecodingContainer
+                // The following is a bit slow due to the convertion each key.
+
+                var values = [Google_Datastore_V1_Value]()
+                values.reserveCapacity(entity.properties.count * 2)
+                for (key, value) in entity.properties {
+                    values.append(contentsOf: [
+                        .with { $0.valueType = .stringValue(key) },
+                        value,
+                    ])
+                }
+                return UnkeyedContainer(codingPath: codingPath, values: values)
             default:
                 throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
