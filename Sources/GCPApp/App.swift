@@ -15,6 +15,8 @@ public protocol App {
 private let defaultEventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
 private let defaultLogger = Logger(label: "main")
 
+public typealias Dependency = GCPCore.Dependency
+
 extension App {
 
     public var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
