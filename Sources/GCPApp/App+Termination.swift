@@ -5,7 +5,7 @@ private var isReadyToDie = false
 
 extension App {
 
-    public func terminate(exitCode: Int32) -> Never {
+    public func terminate(exitCode: Int32) {
         logger.debug("Shutdown initialized. Terminating...")
 
         Task {
@@ -52,6 +52,6 @@ extension App {
         let runLoop = RunLoop.current
         while !isReadyToDie && runLoop.run(mode: .default, before: .distantFuture) {}
 
-        exit(exitCode)
+//        exit(exitCode)
     }
 }
