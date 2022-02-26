@@ -25,3 +25,28 @@ struct IndexKey: CodingKey {
         self.index
     }
 }
+
+struct NameKey: CodingKey {
+
+    let name: String
+
+    init(_ stringValue: String) {
+        self.name = stringValue
+    }
+
+    init?(intValue: Int) {
+        self.init(String(intValue))
+    }
+
+    init?(stringValue: String) {
+        self.init(stringValue)
+    }
+
+    var stringValue: String {
+        name
+    }
+
+    var intValue: Int? {
+        Int(name)
+    }
+}

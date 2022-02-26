@@ -90,6 +90,20 @@ extension EntityEncoder {
             case let key as _CodableKey:
                 self.value = .raw(.with { $0.valueType = .keyValue(key.raw) })
 
+            case let dictionary as Dictionary<AnyHashable, Encodable>:
+                let properties: [String: Google_Datastore_V1_Value] = .init(uniqueKeysWithValues: try dictionary.map { key, value in
+                    let stringKey = String(describing: key)
+                    let valueContainer = SingleValueContainer(codingPath: codingPath + [NameKey(stringKey)])
+                    try value.encode(to: valueContainer)
+                    return (stringKey, valueContainer.computedRaw)
+                })
+
+                self.value = .raw(.with {
+                    $0.valueType = .entityValue(.with {
+                        $0.properties = properties
+                    })
+                })
+
             default:
                 try value.encode(to: self)
             }
