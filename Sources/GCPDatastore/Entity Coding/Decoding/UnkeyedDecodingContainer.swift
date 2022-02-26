@@ -24,7 +24,8 @@ extension EntityDecoder {
         // MARK: - Nested containers
 
         mutating func nestedContainer<NestedKey>(keyedBy type: NestedKey.Type) throws -> KeyedDecodingContainer<NestedKey> where NestedKey: CodingKey {
-            switch nextValue().valueType {
+            let valueType = nextValue().valueType
+            switch valueType {
             case .entityValue(let entity):
                 return KeyedDecodingContainer(KeyedContainer<NestedKey>(
                     codingPath: codingPath + [IndexKey(currentIndex)],
@@ -33,12 +34,13 @@ extension EntityDecoder {
                 ))
             default:
                 currentIndex -= 1
-                throw UndecodableTypeError(codingPath: codingPath + [IndexKey(currentIndex)])
+                throw UndecodableTypeError(codingPath: codingPath + [IndexKey(currentIndex)], expectedType: valueType)
             }
         }
 
         mutating func nestedUnkeyedContainer() throws -> UnkeyedDecodingContainer {
-            switch nextValue().valueType {
+            let valueType = nextValue().valueType
+            switch valueType {
             case .arrayValue(let array):
                 return UnkeyedContainer(
                     codingPath: codingPath + [IndexKey(currentIndex)],
@@ -46,7 +48,7 @@ extension EntityDecoder {
                 )
             default:
                 currentIndex -= 1
-                throw UndecodableTypeError(codingPath: codingPath + [IndexKey(currentIndex)])
+                throw UndecodableTypeError(codingPath: codingPath + [IndexKey(currentIndex)], expectedType: valueType)
             }
         }
 

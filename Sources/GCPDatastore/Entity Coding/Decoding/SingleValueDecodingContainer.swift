@@ -28,7 +28,7 @@ extension EntityDecoder {
             case .stringValue(let value): return !value.isEmpty
             case .timestampValue(let value): return value.seconds != 0 || value.nanos != 0
             case .geoPointValue(let value): return value.latitude != 0 || value.longitude != 0
-            default: throw UndecodableTypeError(codingPath: codingPath)
+            default: throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -39,7 +39,7 @@ extension EntityDecoder {
             case .nullValue: return ""
             case .integerValue(let value): return String(value)
             case .doubleValue(let value): return String(value)
-            default: throw UndecodableTypeError(codingPath: codingPath)
+            default: throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -51,10 +51,10 @@ extension EntityDecoder {
             case .booleanValue(let value): return value ? 1 : 0
             case .stringValue(let value):
                 guard let parsed = Double(value) else {
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return parsed
-            default: throw UndecodableTypeError(codingPath: codingPath)
+            default: throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -66,10 +66,10 @@ extension EntityDecoder {
             case .booleanValue(let value): return value ? 1 : 0
             case .stringValue(let value):
                 guard let parsed = Float(value) else {
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return parsed
-            default: throw UndecodableTypeError(codingPath: codingPath)
+            default: throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -97,10 +97,10 @@ extension EntityDecoder {
             case .booleanValue(let value): return value ? 1 : 0
             case .stringValue(let value):
                 guard let parsed = Int64(value) else {
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return parsed
-            default: throw UndecodableTypeError(codingPath: codingPath)
+            default: throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -138,7 +138,7 @@ extension EntityDecoder {
                 case .nullValue:
                     returning = Date(timeIntervalSince1970: 0)
                 default:
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return returning as! T
 
@@ -149,7 +149,7 @@ extension EntityDecoder {
                     returning = value
                 case .stringValue(let value):
                     guard let data = value.data(using: .utf8) else {
-                        throw UndecodableTypeError(codingPath: codingPath)
+                        throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                     }
                     returning = data
 //                case .doubleValue(let value):
@@ -161,7 +161,7 @@ extension EntityDecoder {
                 case .nullValue:
                     returning = Data()
                 default:
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return returning as! T
 
@@ -171,7 +171,7 @@ extension EntityDecoder {
                 case .keyValue(let value):
                     returning = (T.self as! _CodableKey.Type).init(raw: value)
                 default:
-                    throw UndecodableTypeError(codingPath: codingPath)
+                    throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
                 }
                 return returning as! T
 
@@ -191,7 +191,7 @@ extension EntityDecoder {
                     properties: entity.properties
                 ))
             default:
-                throw UndecodableTypeError(codingPath: codingPath)
+                throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 
@@ -203,7 +203,7 @@ extension EntityDecoder {
                     values: array.values
                 )
             default:
-                throw UndecodableTypeError(codingPath: codingPath)
+                throw UndecodableTypeError(codingPath: codingPath, expectedType: valueType)
             }
         }
 

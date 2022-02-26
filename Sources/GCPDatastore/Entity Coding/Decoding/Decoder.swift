@@ -5,6 +5,7 @@ struct EntityDecoder {
     struct UndecodableTypeError: Error {
 
         let codingPath: [CodingKey]
+        let expectedType: Google_Datastore_V1_Value.OneOf_ValueType?
     }
 
     func decode<T>(_ type: T.Type, from raw: Google_Datastore_V1_Entity) throws -> T
