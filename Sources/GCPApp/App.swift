@@ -7,7 +7,9 @@ import GCPLogging
 public protocol App {
 
     var eventLoopGroup: EventLoopGroup { get }
+
     var logger: Logger { get }
+    var logLevel: Logger.Level { get }
 
     var dependencies: [Dependency.Type] { get }
 }
@@ -20,7 +22,13 @@ public typealias Dependency = GCPCore.Dependency
 extension App {
 
     public var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
+
     public var logger: Logger { defaultLogger }
+    #if DEBUG
+    public var logLevel: Logger.Level { .debug }
+    #else
+    public var logLevel: Logger.Level { .info }
+    #endif
 
     public var dependencies: [Dependency.Type] { [] }
 
@@ -31,13 +39,15 @@ extension App {
             #if DEBUG
             LoggingSystem.bootstrap {
                 var handler = StreamLogHandler.standardOutput(label: $0)
-                handler.logLevel = .debug
+                handler.logLevel = logLevel
                 return handler
             }
             #else
             try! await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
             LoggingSystem.bootstrap {
-                GoogleCloudLogHandler(label: $0, resource: .autoResolve)
+                var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
+                handler.logLevel = logLevel
+                return handler
             }
             #endif
 
