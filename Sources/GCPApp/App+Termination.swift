@@ -2,6 +2,7 @@ import Foundation
 import GCPLogging
 
 private var isReadyToDie = false
+private var _sigintSource: DispatchSourceSignal?
 
 extension App {
 
@@ -13,6 +14,9 @@ extension App {
             terminate(exitCode: 0)
         }
         sigintSource.resume()
+
+        // Keep strong reference to signal source
+        _sigintSource = sigintSource
     }
 
     public func terminate(exitCode: Int32) -> Never {
