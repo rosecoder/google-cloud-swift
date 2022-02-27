@@ -21,8 +21,7 @@ extension GoogleCloudLogHandler: Dependency {
         })
 
         let callOptions = CallOptions(
-            customMetadata: ["authorization": "Bearer \(accessToken)"],
-            timeLimit: .deadline(.distantFuture)
+            customMetadata: ["authorization": "Bearer \(accessToken)"]
         )
         _client = Google_Logging_V2_LoggingServiceV2AsyncClient(channel: channel, defaultCallOptions: callOptions)
     }

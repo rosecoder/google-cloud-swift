@@ -77,7 +77,12 @@ public struct GoogleCloudLogHandler: LogHandler {
         }
 
         Self.lastLogTask = Task {
-            _ = try await Self._client.writeLogEntries(request)
+            do {
+                _ = try await Self._client.writeLogEntries(request)
+            } catch {
+                print("Failed to create log entry: \(error)")
+                print("\(level.rawValue): \(message.description) \(metadata?.description ?? "")")
+            }
         }
     }
 

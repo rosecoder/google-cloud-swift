@@ -57,25 +57,32 @@ public final class Subscriber: Dependency {
 
     // MARK: - Subscribe
 
-    private static var runningPullTasks = [Task<Void, Error>]()
+    private static var runningPullTasks = [Subscription: Task<Void, Error>]()
 
     public static func startPull(subscription: Subscription, handler: SubscriptionHandler) async throws {
 #if DEBUG
         try await subscription.createIfNeeded(creation: client.createSubscription)
 #endif
 
-        runningPullTasks.append(Task {
+        continuesPull(subscription: subscription, handler: handler)
+
+        logger.debug("Subscribed to \(subscription.name)")
+    }
+
+    private static func continuesPull(subscription: Subscription, handler: SubscriptionHandler) {
+        runningPullTasks[subscription] = Task {
             while !Task.isCancelled {
                 do {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
                     logger.warning("Pull failed for \(subscription.name): \(error)")
-                    try await Task.sleep(nanoseconds: 1_000_000_000)
+
+                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                        self.continuesPull(subscription: subscription, handler: handler)
+                    }
                 }
             }
-        })
-
-        logger.debug("Subscribed to \(subscription.name)")
+        }
     }
 
     // MARK: - Shutdown
@@ -83,8 +90,8 @@ public final class Subscriber: Dependency {
     public static func shutdown() async throws {
         logger.info("Shutting down subscriptions...")
 
-        runningPullTasks.forEach { $0.cancel() }
-        for task in runningPullTasks {
+        runningPullTasks.values.forEach { $0.cancel() }
+        for task in runningPullTasks.values {
             _ = await task.result
         }
     }

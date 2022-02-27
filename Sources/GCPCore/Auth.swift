@@ -46,14 +46,16 @@ public struct AccessToken {
     }
 
     private func refresh(didRefresh: @escaping (String) -> Void) {
+        let logger = Logger(label: "core.auth")
+
+        logger.debug("Refreshing access token...")
+
         _generate { result in
             switch result {
             case .success(let value):
                 scheduleRefresh(result: value, didRefresh: didRefresh)
             case .failure(let error):
-                let logger = Logger(label: "core.auth")
                 logger.error("Failed to refresh access token: \(error)")
-
 
                 Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
                     refresh(didRefresh: didRefresh)
