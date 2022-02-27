@@ -17,7 +17,16 @@ public protocol App {
 
     /// Log level to be used when bootstrapping the logging system.
     ///
-    /// Default implementation uses `.debug` for debug builds and `.info` for release builds.
+    /// Default implementation uses `.debug` for debug builds and `.info` for release builds, unless the `LOG_LEVEL`-environment variable is present.
+    ///
+    /// The `LOG_LEVEL`-environment variable can have the following values (not case sensative):
+    /// - trace
+    /// - debug
+    /// - info
+    /// - notice
+    /// - warning
+    /// - error
+    /// - critical
     var logLevel: Logger.Level { get }
 
     /// All dependency types to bootstrap on main.
@@ -41,11 +50,20 @@ extension App {
     public var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
 
     public var logger: Logger { defaultLogger }
-    #if DEBUG
-    public var logLevel: Logger.Level { .debug }
-    #else
-    public var logLevel: Logger.Level { .info }
-    #endif
+
+    public var logLevel: Logger.Level {
+        if
+            let raw = ProcessInfo.processInfo.environment["LOG_LEVEL"],
+            let level = Logger.Level(rawValue: raw.lowercased())
+        {
+            return level
+        }
+#if DEBUG
+        return .debug
+#else
+        return .info
+#endif
+    }
 
     public var dependencies: [Dependency.Type] { [] }
 
