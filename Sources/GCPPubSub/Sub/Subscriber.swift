@@ -107,6 +107,7 @@ public final class Subscriber: Dependency {
             $0.subscription = subscription.rawValue
             $0.maxMessages = 1000
         }, callOptions: .init(
+            customMetadata: client.defaultCallOptions.customMetadata,
             timeLimit: .deadline(.distantFuture)
         ))
         guard !response.receivedMessages.isEmpty else {
