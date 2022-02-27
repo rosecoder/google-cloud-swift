@@ -105,7 +105,9 @@ public final class Subscriber: Dependency {
         let response = try await client.pull(.with {
             $0.subscription = subscription.rawValue
             $0.maxMessages = 100
-        })
+        }, callOptions: .init(
+            timeLimit: .deadline(.distantFuture)
+        ))
         guard !response.receivedMessages.isEmpty else {
             return
         }
