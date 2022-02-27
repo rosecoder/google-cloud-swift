@@ -104,7 +104,7 @@ public final class Subscriber: Dependency {
     private static func singlePull(subscription: Subscription, handler: SubscriptionHandler) async throws {
         let response = try await client.pull(.with {
             $0.subscription = subscription.rawValue
-            $0.maxMessages = 100
+            $0.maxMessages = 1000
         }, callOptions: .init(
             timeLimit: .deadline(.distantFuture)
         ))
