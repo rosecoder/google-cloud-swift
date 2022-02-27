@@ -4,22 +4,37 @@ import NIO
 import GCPCore
 import GCPLogging
 
+public typealias Dependency = GCPCore.Dependency
+
 public protocol App {
 
     var eventLoopGroup: EventLoopGroup { get }
 
+    /// Logger to be used for app during bootstrap and shutdown.
+    ///
+    /// Default implementation uses a logger with the label `"main"`.
     var logger: Logger { get }
+
+    /// Log level to be used when bootstrapping the logging system.
+    ///
+    /// Default implementation uses `.debug` for debug builds and `.info` for release builds.
     var logLevel: Logger.Level { get }
 
+    /// All dependency types to bootstrap on main.
+    ///
+    /// Bootstrapping is run one at a time in the order given.
     var dependencies: [Dependency.Type] { get }
 
+    /// Implement this to do any extra work needed before termination.
+    ///
+    /// Default implementation isn't doing anything.
     func shutdown() async throws
 }
 
+// MARK: - Default implementations
+
 private let defaultEventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
 private let defaultLogger = Logger(label: "main")
-
-public typealias Dependency = GCPCore.Dependency
 
 extension App {
 
@@ -33,69 +48,6 @@ extension App {
     #endif
 
     public var dependencies: [Dependency.Type] { [] }
-
-    public func main(boostrap: @escaping () async throws -> Void = {}) {
-        catchGracefulTermination()
-
-        Task {
-
-            // Logging
-            #if DEBUG
-            LoggingSystem.bootstrap {
-                var handler = StreamLogHandler.standardOutput(label: $0)
-                handler.logLevel = logLevel
-                return handler
-            }
-            #else
-            try! await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
-            LoggingSystem.bootstrap {
-                var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
-                handler.logLevel = logLevel
-                return handler
-            }
-            #endif
-
-            // Error reporting
-            // TODO: Implement
-
-            // Tracing
-            // TODO: Implement
-
-            // Metrics
-            // TODO: Implement
-
-            // App dependencies
-            for dependency in dependencies {
-                do {
-                    try await dependency.bootstrap(eventLoopGroup: eventLoopGroup)
-                } catch {
-                    logger.critical("Error bootstrapping app dependency: \(dependency)", metadata: [
-                        "error": .string(String(describing: error)),
-                    ])
-                    terminate(exitCode: 1)
-                }
-            }
-
-            // App
-            do {
-                try await boostrap()
-            } catch {
-                logger.critical("Error bootstrapping app", metadata: [
-                    "error": .string(String(describing: error)),
-                ])
-                terminate(exitCode: 1)
-            }
-
-            // Ready!
-            #if DEBUG
-            logger.debug("App running in debug 🚀")
-            #else
-            logger.info("Bootstrap completed")
-            #endif
-        }
-
-        dispatchMain()
-    }
 
     public func shutdown() async throws {}
 }
