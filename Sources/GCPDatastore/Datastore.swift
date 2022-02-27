@@ -44,11 +44,15 @@ public struct Datastore: Dependency {
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "datastore.googleapis.com", port: 443)
 
-        let accessToken = try await AccessToken(scopes: ["https://www.googleapis.com/auth/datastore"]).generate()
+        let accessToken = try await AccessToken(
+            scopes: ["https://www.googleapis.com/auth/datastore"]
+        ).generate(didRefresh: { accessToken in
+            _client?.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
+        })
+
         let callOptions = CallOptions(
             customMetadata: ["authorization": "Bearer \(accessToken)"]
         )
-
         self._client = .init(channel: channel, defaultCallOptions: callOptions)
     }
 }

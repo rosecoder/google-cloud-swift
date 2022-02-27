@@ -8,7 +8,7 @@ import SwiftProtobuf
 
 public final class Publisher: Dependency {
 
-    private let _client: Google_Pubsub_V1_PublisherAsyncClient
+    private var _client: Google_Pubsub_V1_PublisherAsyncClient
     private let logger = Logger(label: "pubsub.publisher")
 
     private init(eventLoopGroup: EventLoopGroup) async throws {
@@ -31,11 +31,15 @@ public final class Publisher: Dependency {
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
-            let accessToken = try await AccessToken(scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]).generate()
+            let accessToken = try await AccessToken(
+                scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]
+            ).generate(didRefresh: { accessToken in
+                Self.shared._client.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
+            })
+
             let callOptions = CallOptions(
                 customMetadata: ["authorization": "Bearer \(accessToken)"]
             )
-
             self._client = .init(channel: channel, defaultCallOptions: callOptions)
         }
     }

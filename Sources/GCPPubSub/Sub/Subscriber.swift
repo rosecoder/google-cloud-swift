@@ -19,6 +19,8 @@ public final class Subscriber: Dependency {
 
     // MARK: - Bootstrap
 
+    private static var accessToken: AccessToken?
+
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 
         // Emulator
@@ -39,12 +41,16 @@ public final class Subscriber: Dependency {
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
-            let accessToken = try await AccessToken(scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]).generate()
+            let accessToken = try await AccessToken(
+                scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]
+            ).generate(didRefresh: { accessToken in
+                _client?.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
+            })
+
             let callOptions = CallOptions(
                 customMetadata: ["authorization": "Bearer \(accessToken)"],
                 timeLimit: .deadline(.distantFuture)
             )
-
             self._client = .init(channel: channel, defaultCallOptions: callOptions)
         }
     }
