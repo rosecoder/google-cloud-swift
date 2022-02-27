@@ -7,7 +7,11 @@ private var _sigintSource: DispatchSourceSignal?
 extension App {
 
     func catchGracefulTermination() {
+#if DEBUG
         signal(SIGINT, SIG_IGN)
+#else
+        signal(SIGTERM, SIG_IGN)
+#endif
 
         let sigintSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
         sigintSource.setEventHandler {
