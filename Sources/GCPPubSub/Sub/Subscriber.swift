@@ -60,7 +60,11 @@ public final class Subscriber: Dependency {
 
         runningPullTasks.append(Task {
             while !Task.isCancelled {
-                try await singlePull(subscription: subscription, handler: handler)
+                do {
+                    try await singlePull(subscription: subscription, handler: handler)
+                } catch {
+                    logger.warning("Pull failed for \(subscription.name): \(error)")
+                }
             }
         })
 
