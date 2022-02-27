@@ -64,6 +64,7 @@ public final class Subscriber: Dependency {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
                     logger.warning("Pull failed for \(subscription.name): \(error)")
+                    try await Task.sleep(nanoseconds: 1_000_000_000)
                 }
             }
         })
