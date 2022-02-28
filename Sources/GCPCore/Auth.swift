@@ -2,8 +2,6 @@ import Foundation
 import OAuth2
 import Logging
 
-private let refreshTimeOffset: TimeInterval = 10
-
 public struct AccessToken {
 
     public let scopes: [String]
@@ -40,7 +38,7 @@ public struct AccessToken {
         guard let expiresIn = result.expiresIn else {
             return
         }
-        Timer.scheduledTimer(withTimeInterval: TimeInterval(expiresIn) - refreshTimeOffset, repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(expiresIn) - 10, repeats: false) { _ in
             refresh(didRefresh: didRefresh)
         }
     }
