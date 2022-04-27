@@ -27,6 +27,7 @@ let package = Package(
         .testTarget( name: "GCPAppTests", dependencies: ["GCPApp"]),
 
         .target(name: "GCPCore", dependencies: [
+            .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2", package: "Auth"),
         ]),

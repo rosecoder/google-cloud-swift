@@ -9,6 +9,8 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
+        try await client.ensureAuthentication(authorization: &authorization)
+        
         let response = try await client.runQuery(.with {
             $0.projectID = projectID
             $0.partitionID = .with {

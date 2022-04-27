@@ -11,6 +11,11 @@ public final class Publisher: Dependency {
     private var _client: Google_Pubsub_V1_PublisherAsyncClient
     private let logger = Logger(label: "pubsub.publisher")
 
+    private var authorization = Authorization(scopes: [
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/pubsub",
+    ])
+
     private init(eventLoopGroup: EventLoopGroup) async throws {
 
         // Emulator
@@ -31,16 +36,7 @@ public final class Publisher: Dependency {
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
-            let accessToken = try await AccessToken(
-                scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]
-            ).generate(didRefresh: { accessToken in
-                Self.shared._client.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
-            })
-
-            let callOptions = CallOptions(
-                customMetadata: ["authorization": "Bearer \(accessToken)"]
-            )
-            self._client = .init(channel: channel, defaultCallOptions: callOptions)
+            self._client = .init(channel: channel)
         }
     }
 
@@ -56,6 +52,8 @@ public final class Publisher: Dependency {
 
     @discardableResult
     public func publish(to topic: Topic, messages: [PublisherMessage]) async throws -> [PublishedMessage] {
+        try await _client.ensureAuthentication(authorization: &authorization)
+
 #if DEBUG
         try await topic.createIfNeeded(creation: _client.createTopic)
 #endif

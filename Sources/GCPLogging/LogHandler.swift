@@ -78,6 +78,7 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         Self.lastLogTask = Task {
             do {
+                try await Self._client.ensureAuthentication(authorization: &Self.authorization)
                 _ = try await Self._client.writeLogEntries(request)
             } catch {
                 print("Failed to create log entry: \(error)")

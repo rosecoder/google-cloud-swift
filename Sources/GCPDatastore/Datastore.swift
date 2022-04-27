@@ -9,14 +9,23 @@ public struct Datastore: Dependency {
     private static var _client: Google_Datastore_V1_DatastoreAsyncClient?
 
     static var client: Google_Datastore_V1_DatastoreAsyncClient {
-        guard let _client = _client else {
-            fatalError("Must call Datastore.bootstrap(eventLoopGroup:) first")
-        }
+        get {
+            guard let _client = _client else {
+                fatalError("Must call Datastore.bootstrap(eventLoopGroup:) first")
+            }
 
-        return _client
+            return _client
+        }
+        set {
+            _client = newValue
+        }
     }
 
     public static var defaultProjectID: String = ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? ""
+
+    static var authorization = Authorization(scopes: [
+        "https://www.googleapis.com/auth/datastore",
+    ])
 
     // MARK: - Bootstrap
 
@@ -44,15 +53,6 @@ public struct Datastore: Dependency {
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "datastore.googleapis.com", port: 443)
 
-        let accessToken = try await AccessToken(
-            scopes: ["https://www.googleapis.com/auth/datastore"]
-        ).generate(didRefresh: { accessToken in
-            _client?.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
-        })
-
-        let callOptions = CallOptions(
-            customMetadata: ["authorization": "Bearer \(accessToken)"]
-        )
-        self._client = .init(channel: channel, defaultCallOptions: callOptions)
+        self._client = .init(channel: channel)
     }
 }

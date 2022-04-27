@@ -10,6 +10,8 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
+        try await client.ensureAuthentication(authorization: &authorization)
+
         let response = try await client.lookup(.with {
             $0.projectID = projectID
             $0.keys = keys.map({ $0.raw })
@@ -45,6 +47,8 @@ extension Datastore {
     where
         Key: AnyKey
     {
+        try await client.ensureAuthentication(authorization: &authorization)
+        
         let response = try await client.lookup(.with {
             $0.projectID = projectID
             $0.keys = keys.map({ $0.raw })

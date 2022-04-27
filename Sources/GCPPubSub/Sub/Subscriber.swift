@@ -10,16 +10,24 @@ public final class Subscriber: Dependency {
     private static let logger = Logger(label: "pubsub.subscriber")
 
     private static var client: Google_Pubsub_V1_SubscriberAsyncClient {
-        guard let _client = _client else {
-            fatalError("Must call Subscriber.bootstrap(eventLoopGroup:) first")
-        }
+        get {
+            guard let _client = _client else {
+                fatalError("Must call Subscriber.bootstrap(eventLoopGroup:) first")
+            }
 
-        return _client
+            return _client
+        }
+        set {
+            _client = newValue
+        }
     }
 
     // MARK: - Bootstrap
 
-    private static var accessToken: AccessToken?
+    private static var authorization = Authorization(scopes: [
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/pubsub",
+    ])
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 
@@ -41,17 +49,7 @@ public final class Subscriber: Dependency {
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
-            let accessToken = try await AccessToken(
-                scopes: ["https://www.googleapis.com/auth/cloud-platform", "https://www.googleapis.com/auth/pubsub"]
-            ).generate(didRefresh: { accessToken in
-                _client?.defaultCallOptions.customMetadata.replaceOrAdd(name: "authorization", value: "Bearer \(accessToken)")
-            })
-
-            let callOptions = CallOptions(
-                customMetadata: ["authorization": "Bearer \(accessToken)"],
-                timeLimit: .deadline(.distantFuture)
-            )
-            self._client = .init(channel: channel, defaultCallOptions: callOptions)
+            self._client = .init(channel: channel)
         }
     }
 
@@ -61,6 +59,7 @@ public final class Subscriber: Dependency {
 
     public static func startPull(subscription: Subscription, handler: SubscriptionHandler) async throws {
 #if DEBUG
+        try await client.ensureAuthentication(authorization: &authorization)
         try await subscription.createIfNeeded(creation: client.createSubscription)
 #endif
 
@@ -99,6 +98,8 @@ public final class Subscriber: Dependency {
     // MARK: - Acknowledge
 
     private static func acknowledge(id: String, subscription: Subscription) async throws {
+        try await client.ensureAuthentication(authorization: &authorization)
+
         _ = try await client.acknowledge(.with {
             $0.subscription = subscription.rawValue
             $0.ackIds = [id]
@@ -106,6 +107,8 @@ public final class Subscriber: Dependency {
     }
 
     private static func unacknowledge(id: String, subscription: Subscription) async throws {
+        try await client.ensureAuthentication(authorization: &authorization)
+
         _ = try await client.modifyAckDeadline(.with {
             $0.subscription = subscription.rawValue
             $0.ackIds = [id]
@@ -116,9 +119,11 @@ public final class Subscriber: Dependency {
     // MARK: - Pull
 
     private static func singlePull(subscription: Subscription, handler: SubscriptionHandler) async throws {
+        try await client.ensureAuthentication(authorization: &authorization)
+
         let response = try await client.pull(.with {
             $0.subscription = subscription.rawValue
-            $0.maxMessages = 1000
+            $0.maxMessages = 1_000
         }, callOptions: .init(
             customMetadata: client.defaultCallOptions.customMetadata,
             timeLimit: .deadline(.distantFuture)

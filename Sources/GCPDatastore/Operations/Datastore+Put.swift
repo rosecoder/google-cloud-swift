@@ -10,6 +10,8 @@ extension Datastore {
         let encoder = EntityEncoder()
         let rawEntities: [Google_Datastore_V1_Entity] = try entities.map { try encoder.encode($0) }
 
+        try await client.ensureAuthentication(authorization: &authorization)
+
         let result = try await client.commit(.with {
             $0.projectID = projectID
             $0.mutations = rawEntities.map { raw in
