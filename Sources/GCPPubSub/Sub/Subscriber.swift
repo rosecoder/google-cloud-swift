@@ -74,10 +74,16 @@ public final class Subscriber: Dependency {
                 do {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
-                    logger.warning("Pull failed for \(subscription.name): \(error)")
-
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                    switch (error as? GRPCStatus)?.code ?? .unknown {
+                    case .unavailable, .deadlineExceeded:
+                        logger.debug("Pull failed with instant retry error code for \(subscription.name): \(error)")
                         self.continuesPull(subscription: subscription, handler: handler)
+                    default:
+                        logger.warning("Pull failed for \(subscription.name): \(error)")
+
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            self.continuesPull(subscription: subscription, handler: handler)
+                        }
                     }
                 }
             }
