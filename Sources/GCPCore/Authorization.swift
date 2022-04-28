@@ -33,8 +33,6 @@ public struct Authorization {
         if let existing = self.generateTask {
             generateTask = existing
         } else {
-            logger.debug("No authorization token task exists. Creating one...")
-
             let scopes = self.scopes
             generateTask = Task {
                 try await TokenGenerator.shared.generate(scopes: scopes)
@@ -64,16 +62,12 @@ public struct Authorization {
 
             // Need refresh directly?
             if timeIntervalToExpiration < estimatedExpiresLatency {
-                logger.debug("Authorization expires soon. Refreshing...")
-
                 self.generateTask = nil
                 return try await self.token()
             }
 
             // Need refresh soon?
             if timeIntervalToExpiration < overestimatedExpiresLatency {
-                logger.debug("Authorization expires soon. Refreshing next time...")
-
                 self.generateTask = nil
             }
         }
