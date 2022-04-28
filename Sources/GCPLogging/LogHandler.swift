@@ -81,8 +81,16 @@ public struct GoogleCloudLogHandler: LogHandler {
                 try await Self._client.ensureAuthentication(authorization: &Self.authorization)
                 _ = try await Self._client.writeLogEntries(request)
             } catch {
-                print("Failed to create log entry: \(error)")
-                print("\(level.rawValue): \(message.description) \(metadata?.description ?? "")")
+                try! FileHandle.standardError.write(contentsOf: "Failed to create log entry: \(error)".data(using: .utf8)!)
+
+                let backupData = "\(level.rawValue): \(message.description) \(metadata?.description ?? "")".data(using: .utf8)!
+
+                switch level {
+                case .critical, .error:
+                    try! FileHandle.standardError.write(contentsOf: backupData)
+                case .info, .trace, .debug, .notice, .warning:
+                    try! FileHandle.standardOutput.write(contentsOf: backupData)
+                }
             }
         }
     }
