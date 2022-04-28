@@ -39,6 +39,32 @@ extension Datastore {
         (try await getEntities(keys: [key], projectID: projectID))[0]
     }
 
+    enum RegetError: Error {
+        case entityIDIncomplete
+        case entityNotFound
+    }
+
+    public static func reget<Entity>(entity: inout Entity, projectID: String = defaultProjectID) async throws
+    where
+        Entity: GCPDatastore.Entity,
+        Entity.Key: GCPDatastore.AnyKey
+    {
+#if DEBUG
+        switch entity.key.id {
+        case .incomplete:
+            throw RegetError.entityIDIncomplete
+        case .named, .uniq:
+            break
+        }
+#endif
+
+        guard let updated: Entity = (try await getEntities(keys: [entity.key], projectID: projectID))[0] else {
+            throw RegetError.entityNotFound
+        }
+
+        entity = updated
+    }
+
     // MARK: - Exists
 
     /// Checks if provided keys eixsts in the datastore.
