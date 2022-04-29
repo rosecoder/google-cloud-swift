@@ -81,16 +81,33 @@ public struct GoogleCloudLogHandler: LogHandler {
                 try await Self._client.ensureAuthentication(authorization: &Self.authorization)
                 _ = try await Self._client.writeLogEntries(request)
             } catch {
-                try! FileHandle.standardError.write(contentsOf: "Failed to create log entry: \(error)".data(using: .utf8)!)
 
-                let backupData = "\(level.rawValue): \(message.description) \(metadata?.description ?? "")".data(using: .utf8)!
+                // Using forceable tries below.
+                // If fallback fails this is a critical issue and the app should be terminated on error.
 
-                switch level {
-                case .critical, .error:
-                    try! FileHandle.standardError.write(contentsOf: backupData)
-                case .info, .trace, .debug, .notice, .warning:
-                    try! FileHandle.standardOutput.write(contentsOf: backupData)
-                }
+                // First, log the error resulting in create failure
+                try! SidecarLog(
+                    date: Date(),
+                    level: .error,
+                    message: "Error creating log entry: \(error)",
+                    metadata: nil,
+                    source: "logging.log",
+                    file: #file,
+                    function: #function,
+                    line: #line
+                ).write()
+
+                // Log the log which failed
+                try! SidecarLog(
+                    date: now,
+                    level: level,
+                    message: message,
+                    metadata: metadata,
+                    source: source,
+                    file: file,
+                    function: function,
+                    line: line
+                ).write()
             }
         }
     }
