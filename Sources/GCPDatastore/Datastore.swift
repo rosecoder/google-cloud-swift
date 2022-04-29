@@ -102,7 +102,6 @@ public struct Datastore: Dependency {
                     let output = String(data: outputData, encoding: .utf8)
                 {
                     buffer += output
-                    print(output, terminator: "")
                 }
             }
 
