@@ -29,6 +29,7 @@ extension App {
         #if DEBUG
         logger.debug("Shutdown initialized. Terminating... 👋")
         #else
+        print("Shutdown initialized. Terminating...") // debugging shutdown in production
         logger.info("Shutdown initialized. Terminating...")
         #endif
 
