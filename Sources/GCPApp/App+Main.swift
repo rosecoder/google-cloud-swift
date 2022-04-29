@@ -17,6 +17,10 @@ extension App {
     ///
     /// This function will never return due to the runloop and graceful termination taking over.
     public func main(boostrap: @escaping () async throws -> Void = {}) -> Never {
+        #if !DEBUG
+        logger.debug("Bootstrapping app...")
+        #endif
+
         catchGracefulTermination()
 
         Task {
