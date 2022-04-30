@@ -12,13 +12,18 @@ This package includes infrastrucutre for running an app in GCP. The following pa
 
 The following packages are planned to be added:
 
-- ❌ GCPErrorReporting
 - ❌ GCPTrace
 - ❌ GCPMetrics
 
 ### GCPLogging
 
 Client for [Google Cloud Logging](https://cloud.google.com/logging). Implemented as a log handler for use with [swift-log](https://github.com/apple/swift-log). Sends it's logs directly to Cloud Logging via gRPC (not via stdout).
+
+GCPLogging also sends errors to Error Reporting.
+
+### GCPErrorReporting
+
+Client for [Google Cloud Error Reporting](https://cloud.google.com/error-reporting). GCPLogging uses GCPErrorReporting to report all errors logged to error reporting as well.
 
 ### GCPDatastore
 
