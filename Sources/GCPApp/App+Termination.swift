@@ -76,14 +76,14 @@ extension App {
             try! await Task.sleep(nanoseconds: 1_000_000_000)
 
             // It's time
+            logger.debug("Ready to die.")
             isReadyToDie = true
-
-            logger.debug("Shutdown completed.")
         }
 
         let runLoop = RunLoop.current
         while !isReadyToDie && runLoop.run(mode: .default, before: .distantFuture) {}
 
+        logger.debug("Exiting with exit code \(exitCode)")
         exit(exitCode)
     }
 }
