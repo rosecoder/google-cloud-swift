@@ -17,6 +17,8 @@ let package = Package(
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
         .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.6.0-async-await.1")),
         .package(name: "Auth", url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.2"),
+        .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0")
+
     ],
     targets: [
         .target(name: "GCPApp", dependencies: [
@@ -24,32 +26,38 @@ let package = Package(
             "GCPLogging",
             .product(name: "Logging", package: "swift-log"),
         ]),
-        .testTarget( name: "GCPAppTests", dependencies: ["GCPApp"]),
+        .testTarget(name: "GCPAppTests", dependencies: ["GCPApp"]),
 
         .target(name: "GCPCore", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2", package: "Auth"),
         ]),
-        .testTarget( name: "GCPCoreTests", dependencies: ["GCPCore"]),
+        .testTarget(name: "GCPCoreTests", dependencies: ["GCPCore"]),
 
         .target(name: "GCPDatastore", dependencies: [
             "GCPCore",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
-        .testTarget( name: "GCPDatastoreTests", dependencies: ["GCPDatastore"]),
+        .testTarget(name: "GCPDatastoreTests", dependencies: ["GCPDatastore"]),
+
+        .target(name: "GCPErrorReporting", dependencies: [
+            "GCPCore",
+            .product(name: "AsyncHTTPClient", package: "async-http-client"),
+        ]),
+        .testTarget(name: "GCPErrorReportingTests", dependencies: ["GCPErrorReporting"]),
 
         .target(name: "GCPLogging", dependencies: [
             "GCPCore",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
         ]),
-        .testTarget( name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
+        .testTarget(name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
 
         .target(name: "GCPPubSub", dependencies: [
             "GCPCore",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
-        .testTarget( name: "GCPPubSubTests", dependencies: ["GCPPubSub"]),
+        .testTarget(name: "GCPPubSubTests", dependencies: ["GCPPubSub"]),
     ]
 )

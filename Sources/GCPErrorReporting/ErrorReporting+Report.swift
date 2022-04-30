@@ -1,0 +1,80 @@
+import Foundation
+import AsyncHTTPClient
+
+extension ErrorReporting {
+
+    struct UnparsableRemoteError: Error {}
+
+    public static func report(
+        date: Date,
+        error: Error,
+        source: String,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
+        let request = try await self.request(date: date, error: error, source: source, file: file, function: function, line: line)
+        let response = try await client.execute(request, timeout: .seconds(15))
+        try await handle(response: response)
+    }
+
+    // MARK: - Request
+
+    private static func request(
+        date: Date,
+        error: Error,
+        source: String,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> HTTPClientRequest {
+        var request = HTTPClientRequest(
+            url: "https://clouderrorreporting.googleapis.com/v1beta1/projects/\(resource.projectID)/events:report" // TODO: Encode project id
+        )
+        request.method = .POST
+
+        // Authorization
+        let accessToken = try await authorization.token()
+        request.headers.add(name: "Authorization", value: "Bearer \(accessToken)")
+
+        // Body
+        let body = RequestBody(
+            eventTime: RequestBody.dateFormatter.string(from: date),
+            serviceContext: resource.serviceContext,
+            message: "\(source): \(String(describing: error))",
+            context: .init(
+                httpRequest: nil,
+                user: nil,
+                reportLocation: .init(
+                    filePath: file,
+                    lineNumber: line,
+                    functionName: function
+                ),
+                sourceReferences: nil
+            )
+        )
+        let data = try JSONEncoder().encode(body)
+        request.body = .bytes(data)
+
+        return request
+    }
+
+    // MARK: - Response
+
+    private static func handle(response: HTTPClientResponse) async throws {
+        switch response.status {
+        case .ok, .created:
+            break // Success! No need to check response body or anything else.
+        default:
+            let body = try await response.body.collect(upTo: 1024) // 1 KB
+
+            let remoteError: RemoteError
+            do {
+                remoteError = try JSONDecoder().decode(RemoteError.self, from: body)
+            } catch {
+                throw UnparsableRemoteError()
+            }
+            throw remoteError
+        }
+    }
+}

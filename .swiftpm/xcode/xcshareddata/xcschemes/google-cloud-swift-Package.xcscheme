@@ -146,6 +146,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPErrorReporting"
+               BuildableName = "GCPErrorReporting"
+               BlueprintName = "GCPErrorReporting"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -212,6 +226,16 @@
                BlueprintIdentifier = "GCPPubSubTests"
                BuildableName = "GCPPubSubTests"
                BlueprintName = "GCPPubSubTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPErrorReportingTests"
+               BuildableName = "GCPErrorReportingTests"
+               BlueprintName = "GCPErrorReportingTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "async-http-client",
+        "repositoryURL": "https://github.com/swift-server/async-http-client.git",
+        "state": {
+          "branch": null,
+          "revision": "24425989dadab6d6e4167174791a23d4e2a6d0c3",
+          "version": "1.10.0"
+        }
+      },
+      {
         "package": "BigInt",
         "repositoryURL": "https://github.com/attaswift/BigInt",
         "state": {
