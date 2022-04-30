@@ -3,6 +3,7 @@ import OAuth2
 import GRPC
 import NIO
 import Foundation
+import GCPCore
 
 public struct GoogleCloudLogHandler: LogHandler {
 
