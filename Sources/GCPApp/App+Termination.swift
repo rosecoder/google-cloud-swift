@@ -2,27 +2,25 @@ import Foundation
 import GCPLogging
 
 private var isReadyToDie = false
-private var _sigintSource: DispatchSourceSignal?
+
+private var _unsafeTerminateReferences = [((Int32) -> Never)]()
 
 extension App {
 
     func catchGracefulTermination() {
-        let rawSignal: Int32
+        if _unsafeTerminateReferences.isEmpty {
+            let rawSignal: Int32
 #if DEBUG
-        rawSignal = SIGINT
+            rawSignal = SIGINT
 #else
-        rawSignal = SIGTERM
+            rawSignal = SIGTERM
 #endif
-        signal(rawSignal, SIG_IGN)
-
-        let sigintSource = DispatchSource.makeSignalSource(signal: rawSignal, queue: .main)
-        sigintSource.setEventHandler {
-            terminate(exitCode: 0)
+            signal(rawSignal) { _ in
+                _unsafeTerminateReferences.forEach { $0(0) }
+            }
         }
-        sigintSource.resume()
 
-        // Keep strong reference to signal source
-        _sigintSource = sigintSource
+        _unsafeTerminateReferences.append(terminate)
     }
 
     public func terminate(exitCode: Int32) -> Never {
@@ -47,6 +45,8 @@ extension App {
 
             // App dependencies
             for dependency in dependencies.reversed() {
+                logger.debug("Shutting down app dependency \(dependency)...")
+
                 do {
                     try await dependency.shutdown()
                 } catch {
@@ -67,14 +67,18 @@ extension App {
 
             // Logging
             #if !DEBUG
+            logger.debug("Shutting down logging...")
             try! await GoogleCloudLogHandler.shutdown()
             #endif
 
             // Just in case, hold on for 1 sec
+            logger.debug("Delay shutting quickly...")
             try! await Task.sleep(nanoseconds: 1_000_000_000)
 
             // It's time
             isReadyToDie = true
+
+            logger.debug("Shutdown completed.")
         }
 
         let runLoop = RunLoop.current
