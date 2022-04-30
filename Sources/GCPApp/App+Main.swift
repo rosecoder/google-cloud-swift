@@ -16,8 +16,8 @@ extension App {
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
     ///
-    /// This function will never return due to the runloop and graceful termination taking over.
-    public func main(boostrap: @escaping () async throws -> Void = {}) -> Never {
+    /// This function will never return if `runLoop` for the app is not `.custom`.
+    public func main(boostrap: @escaping () async throws -> Void = {}) {
 
         // Logging
 #if DEBUG
@@ -82,8 +82,13 @@ extension App {
             #endif
         }
 
-        RunLoop.current.run()
-
-        terminate(exitCode: 0)
+        switch runLoop {
+        case .current:
+            RunLoop.current.run()
+            terminate(exitCode: 0)
+            
+        case .custom:
+            break
+        }
     }
 }
