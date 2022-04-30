@@ -1,5 +1,6 @@
 import Foundation
 import Logging
+import GCPErrorReporting
 import GCPLogging
 
 extension App {
@@ -38,10 +39,12 @@ extension App {
         // Termination
         catchGracefulTermination()
 
-        Task {
+        // Error reporting
+#if !DEBUG
+        ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup, resource: .autoResolve)
+#endif
 
-            // Error reporting
-            // TODO: Implement
+        Task {
 
             // Tracing
             // TODO: Implement

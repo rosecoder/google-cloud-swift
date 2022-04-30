@@ -23,6 +23,7 @@ let package = Package(
     targets: [
         .target(name: "GCPApp", dependencies: [
             "GCPCore",
+            "GCPErrorReporting",
             "GCPLogging",
             .product(name: "Logging", package: "swift-log"),
         ]),
