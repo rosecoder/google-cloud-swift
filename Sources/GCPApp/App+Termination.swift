@@ -1,8 +1,6 @@
 import Foundation
 import GCPLogging
 
-private var isReadyToDie = false
-
 private var _unsafeTerminateReferences = [((Int32) -> Never)]()
 
 extension App {
@@ -76,14 +74,11 @@ extension App {
             try! await Task.sleep(nanoseconds: 1_000_000_000)
 
             // It's time
-            logger.debug("Ready to die.")
-            isReadyToDie = true
+            exit(exitCode)
         }
 
-        let runLoop = RunLoop.current
-        while !isReadyToDie && runLoop.run(mode: .default, before: .distantFuture) {}
+        while RunLoop.current.run(mode: .default, before: .distantFuture) {}
 
-        logger.debug("Exiting with exit code \(exitCode)")
-        exit(exitCode)
+        fatalError("Expected to terminate with gracefully")
     }
 }
