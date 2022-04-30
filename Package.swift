@@ -50,6 +50,7 @@ let package = Package(
 
         .target(name: "GCPLogging", dependencies: [
             "GCPCore",
+            "GCPErrorReporting",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
         ]),

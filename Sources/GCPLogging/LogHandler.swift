@@ -4,6 +4,7 @@ import GRPC
 import NIO
 import Foundation
 import GCPCore
+import GCPErrorReporting
 
 public struct GoogleCloudLogHandler: LogHandler {
 
@@ -109,6 +110,33 @@ public struct GoogleCloudLogHandler: LogHandler {
                     function: function,
                     line: line
                 ).write()
+            }
+
+            // Report to error reporting if error
+            do {
+                switch level {
+                case .error, .critical:
+                    try await ErrorReporting.report(
+                        date: now,
+                        message: message.description,
+                        source: source,
+                        file: file,
+                        function: function,
+                        line: line
+                    )
+                case .trace, .debug, .info, .notice, .warning:
+                    break
+                }
+            } catch {
+                log(
+                    level: .warning,
+                    message: "Error reporting error to error reporting: \(error)",
+                    metadata: nil,
+                    source: source,
+                    file: file,
+                    function: function,
+                    line: line
+                )
             }
         }
     }
