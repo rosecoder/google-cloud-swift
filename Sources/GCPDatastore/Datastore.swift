@@ -105,6 +105,16 @@ public struct Datastore: Dependency {
                 }
             }
 
+            // Was already running?
+            if buffer.contains("Failed to bind") {
+                print("\(#function): Datastore emulator already running.")
+                
+                process.interrupt()
+                process.waitUntilExit()
+            } else {
+                print("\(#function): Datastore emulator started.")
+            }
+
             // Connect
             bootstraForEmulator(host: "localhost", port: port, eventLoopGroup: eventLoopGroup)
         }
