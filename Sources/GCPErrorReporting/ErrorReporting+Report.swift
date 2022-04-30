@@ -7,13 +7,13 @@ extension ErrorReporting {
 
     public static func report(
         date: Date,
-        error: Error,
+        message: String,
         source: String,
         file: String,
         function: String,
         line: UInt
     ) async throws {
-        let request = try await self.request(date: date, error: error, source: source, file: file, function: function, line: line)
+        let request = try await self.request(date: date, message: message, source: source, file: file, function: function, line: line)
         let response = try await client.execute(request, timeout: .seconds(15))
         try await handle(response: response)
     }
@@ -22,7 +22,7 @@ extension ErrorReporting {
 
     private static func request(
         date: Date,
-        error: Error,
+        message: String,
         source: String,
         file: String,
         function: String,
@@ -41,7 +41,7 @@ extension ErrorReporting {
         let body = RequestBody(
             eventTime: RequestBody.dateFormatter.string(from: date),
             serviceContext: resource.serviceContext,
-            message: "\(source): \(String(describing: error))",
+            message: "\(source): \(message)",
             context: .init(
                 httpRequest: nil,
                 user: nil,

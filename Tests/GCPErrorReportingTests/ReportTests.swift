@@ -19,11 +19,9 @@ final class ReportTests: XCTestCase {
             )
         )
 
-        struct TestError: Error {}
-
         try await ErrorReporting.report(
             date: Date(),
-            error: TestError(),
+            message: "Error doing testing",
             source: "error-reporting.test",
             file: #file,
             function: #function,
