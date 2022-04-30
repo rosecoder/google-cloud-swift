@@ -14,7 +14,7 @@ final class GoogleCloudLoggingTests: XCTestCase {
     }
 
     func testLog() async throws {
-        try await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
+        GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
 
         LoggingSystem.bootstrapInternal { label -> LogHandler in
             GoogleCloudLogHandler(label: label, resource: .k8sContainer(projectID: "ccode-development", location: "europe-west3-a", clusterName: "kubernetes", namespaceName: "default", podName: "admin-api-7764db5f79-6p4zs", containerName: "admin-api"))

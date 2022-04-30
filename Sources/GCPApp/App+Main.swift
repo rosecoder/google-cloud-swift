@@ -17,25 +17,28 @@ extension App {
     ///
     /// This function will never return due to the runloop and graceful termination taking over.
     public func main(boostrap: @escaping () async throws -> Void = {}) -> Never {
+
+        // Logging
+#if DEBUG
+        LoggingSystem.bootstrap {
+            var handler = StreamLogHandler.standardOutput(label: $0)
+            handler.logLevel = logLevel
+            return handler
+        }
+#else
+        GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
+        LoggingSystem.bootstrap {
+            var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
+            handler.logLevel = logLevel
+            return handler
+        }
+#endif
+        _ = logger // Initializes default logger
+
+        // Termination
         catchGracefulTermination()
 
         Task {
-
-            // Logging
-            #if DEBUG
-            LoggingSystem.bootstrap {
-                var handler = StreamLogHandler.standardOutput(label: $0)
-                handler.logLevel = logLevel
-                return handler
-            }
-            #else
-            try! await GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
-            LoggingSystem.bootstrap {
-                var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
-                handler.logLevel = logLevel
-                return handler
-            }
-            #endif
 
             // Error reporting
             // TODO: Implement

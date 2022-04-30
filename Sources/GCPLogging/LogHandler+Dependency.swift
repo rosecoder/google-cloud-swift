@@ -13,7 +13,7 @@ extension GoogleCloudLogHandler: Dependency {
         "https://www.googleapis.com/auth/logging.write",
     ])
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) {
         let channel = ClientConnection
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "logging.googleapis.com", port: 443)
