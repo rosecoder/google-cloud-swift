@@ -9,6 +9,7 @@ This project is work in progress and should not be used in production.
 This package includes infrastrucutre for running an app in GCP. The following packages are included and automatically bootstrapped:
 
 - GCPLogging
+- GCPErrorReporting
 
 The following packages are planned to be added:
 
