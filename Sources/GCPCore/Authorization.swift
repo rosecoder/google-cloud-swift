@@ -8,8 +8,16 @@ public struct Authorization {
 
     public let scopes: [String]
 
-    public init(scopes: [String]) {
+    public enum Authentication {
+        case autoResolve
+        case serviceAccount(Data)
+    }
+
+    private let authentication: Authentication
+
+    public init(scopes: [String], authentication: Authentication = .autoResolve) {
         self.scopes = scopes
+        self.authentication = authentication
     }
 
     // MARK: - Low-level usage
@@ -34,8 +42,9 @@ public struct Authorization {
             generateTask = existing
         } else {
             let scopes = self.scopes
+            let authentication = self.authentication
             generateTask = Task {
-                try await TokenGenerator.shared.generate(scopes: scopes)
+                try await TokenGenerator.shared.generate(scopes: scopes, authentication: authentication)
             }
             self.generateTask = generateTask
         }
@@ -86,9 +95,10 @@ private actor TokenGenerator {
         case noTokenProvider
         case tokenProviderFailed
         case expiresTooShort
+        case serviceAccountInvalid
     }
 
-    func generate(scopes: [String]) async throws -> Authorization.Token {
+    func generate(scopes: [String], authentication: Authorization.Authentication) async throws -> Authorization.Token {
         guard let provider = DefaultTokenProvider(scopes: scopes) else {
             throw GenerateError.noTokenProvider
         }
@@ -117,7 +127,15 @@ private actor TokenGenerator {
             }
 
             do {
-                try provider.withToken(completion)
+                switch authentication {
+                case .autoResolve:
+                    try provider.withToken(completion)
+                case .serviceAccount(let data):
+                    guard let provider = ServiceAccountTokenProvider(credentialsData: data, scopes: scopes) else {
+                        throw GenerateError.serviceAccountInvalid
+                    }
+                    try provider.withToken(completion)
+                }
             } catch {
                 continuation.resume(throwing: error)
             }
