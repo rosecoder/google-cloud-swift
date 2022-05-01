@@ -9,6 +9,13 @@ public protocol Entity: Codable, QueryFilterValue {
     ///
     /// Note: Must be mutating for new key to be set after a put/insert/update-operation.
     var key: Key { get set }
+
+    var propertyConfigurations: [String: PropertyConfiguration] { get }
+}
+
+extension Entity {
+
+    public var propertyConfigurations: [String: PropertyConfiguration] { [:] }
 }
 
 extension Entity where Key: AnyKey {

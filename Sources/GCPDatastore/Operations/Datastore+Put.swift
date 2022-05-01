@@ -8,7 +8,13 @@ extension Datastore {
           Entity.Key: GCPDatastore.AnyKey
     {
         let encoder = EntityEncoder()
-        let rawEntities: [Google_Datastore_V1_Entity] = try entities.map { try encoder.encode($0) }
+        let rawEntities: [Google_Datastore_V1_Entity] = try entities.map { entity in
+            var rawEntity = try encoder.encode(entity)
+            for (key, configuration) in entity.propertyConfigurations {
+                rawEntity.properties[key]?.excludeFromIndexes = configuration.excludeFromIndexes
+            }
+            return rawEntity
+        }
 
         try await client.ensureAuthentication(authorization: &authorization)
 
