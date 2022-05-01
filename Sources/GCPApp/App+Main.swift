@@ -3,21 +3,14 @@ import Logging
 import GCPErrorReporting
 import GCPLogging
 
+private enum InitializeMode {
+    case singleRun
+    case runLoop
+}
+
 extension App {
 
-    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
-    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
-    ///
-    /// Boostrapping order:
-    /// - Logging
-    /// - Error reporting
-    /// - Tracing
-    /// - Metrics
-    /// - App dependencies
-    /// - App (`bootstrap`-parameter)
-    ///
-    /// This function will never return if `runLoop` for the app is not `.custom`.
-    public func main(boostrap: @escaping () async throws -> Void = {}) {
+    private func initialize(mode: InitializeMode, bootstrap: @escaping () async throws -> Void = {}) {
 
         // Logging
 #if DEBUG
@@ -65,9 +58,17 @@ extension App {
                 }
             }
 
+            // Ready for action?
+            switch mode {
+            case .runLoop:
+                break
+            case .singleRun:
+                logger.info("Bootstrap completed")
+            }
+
             // App
             do {
-                try await boostrap()
+                try await bootstrap()
             } catch {
                 logger.critical("Error bootstrapping app", metadata: [
                     "error": .string(String(describing: error)),
@@ -77,14 +78,47 @@ extension App {
             }
 
             // Ready!
-            #if DEBUG
-            logger.debug("App running in debug 🚀")
-            #else
-            logger.info("Bootstrap completed")
-            #endif
+            switch mode {
+            case .runLoop:
+#if DEBUG
+                logger.debug("App running in debug 🚀")
+#else
+                logger.info("Bootstrap completed")
+#endif
+            case .singleRun:
+                terminate(exitCode: 0)
+            }
         }
 
         RunLoop.current.run()
+
         terminate(exitCode: 0)
+    }
+
+    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
+    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
+    ///
+    /// Boostrapping order:
+    /// - Logging
+    /// - Error reporting
+    /// - Tracing
+    /// - Metrics
+    /// - App dependencies
+    /// - App (`bootstrap`-parameter)
+    public func main(bootstrap: @escaping () async throws -> Void = {}) {
+        initialize(mode: .runLoop, bootstrap: bootstrap)
+    }
+
+    /// Intiaizlies the app with all bootstrapping defined for a single action run. After this the app is terminated with exit code 0.
+    /// - Parameter action: Action to run after bootstrap.
+    ///
+    /// Boostrapping order:
+    /// - Logging
+    /// - Error reporting
+    /// - Tracing
+    /// - Metrics
+    /// - App dependencies
+    public func run(action: @escaping () async throws -> Void = {}) {
+        initialize(mode: .singleRun, bootstrap: action)
     }
 }
