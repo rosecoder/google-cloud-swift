@@ -95,11 +95,18 @@ private actor TokenGenerator {
         case noTokenProvider
         case tokenProviderFailed
         case expiresTooShort
-        case serviceAccountInvalid
     }
 
     func generate(scopes: [String], authentication: Authorization.Authentication) async throws -> Authorization.Token {
-        guard let provider = DefaultTokenProvider(scopes: scopes) else {
+        let provider: TokenProvider?
+        switch authentication {
+        case .autoResolve:
+            provider = DefaultTokenProvider(scopes: scopes)
+        case .serviceAccount(let data):
+            provider = ServiceAccountTokenProvider(credentialsData: data, scopes: scopes)
+        }
+
+        guard let provider = provider else {
             throw GenerateError.noTokenProvider
         }
 
@@ -127,15 +134,7 @@ private actor TokenGenerator {
             }
 
             do {
-                switch authentication {
-                case .autoResolve:
-                    try provider.withToken(completion)
-                case .serviceAccount(let data):
-                    guard let provider = ServiceAccountTokenProvider(credentialsData: data, scopes: scopes) else {
-                        throw GenerateError.serviceAccountInvalid
-                    }
-                    try provider.withToken(completion)
-                }
+                try provider.withToken(completion)
             } catch {
                 continuation.resume(throwing: error)
             }
