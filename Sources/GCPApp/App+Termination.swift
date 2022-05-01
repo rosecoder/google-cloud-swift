@@ -1,7 +1,7 @@
 import Foundation
 import GCPLogging
 
-private var _unsafeTerminateReferences = [((Int32) -> Never)]()
+private var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
 
 extension App {
 
@@ -14,22 +14,28 @@ extension App {
             rawSignal = SIGTERM
 #endif
             signal(rawSignal) { _ in
-                _unsafeTerminateReferences.forEach { $0(0) }
+                _unsafeTerminateReferences.forEach {
+                    _ = $0(0)
+                }
             }
+        } else {
+            logger.warning("Catching graceful termination twice. This is not recommended.")
         }
 
         _unsafeTerminateReferences.append(terminate)
     }
 
-    public func terminate(exitCode: Int32) -> Never {
+    /// Initializes gracefull termination task
+    /// - Parameter exitCode: Exit code to terminate process with after shutdown completed.
+    @discardableResult
+    public func terminate(exitCode: Int32) -> Task<Void, Never> {
         #if DEBUG
         logger.debug("Shutdown initialized. Terminating... 👋")
         #else
-        print("Shutdown initialized. Terminating...") // debugging shutdown in production
         logger.info("Shutdown initialized. Terminating...")
         #endif
 
-        Task {
+        return Task(priority: .userInitiated) {
 
             // App
             do {
@@ -38,7 +44,7 @@ extension App {
                 logger.critical("Error shutting down app", metadata: [
                     "error": .string(String(describing: error)),
                 ])
-                terminate(exitCode: 1)
+                exit(1)
             }
 
             // App dependencies
@@ -51,17 +57,9 @@ extension App {
                     logger.critical("Error shutting down app dependency: \(dependency)", metadata: [
                         "error": .string(String(describing: error)),
                     ])
+                    exit(1)
                 }
             }
-
-            // Metrics
-            // TODO: Implement
-
-            // Tracing
-            // TODO: Implement
-
-            // Error reporting
-            // TODO: Implement
 
             // Logging
             #if !DEBUG
@@ -76,9 +74,5 @@ extension App {
             // It's time
             exit(exitCode)
         }
-
-        while RunLoop.current.run(mode: .default, before: .distantFuture) {}
-
-        fatalError("Expected to terminate with gracefully")
     }
 }

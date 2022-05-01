@@ -61,6 +61,7 @@ extension App {
                         "error": .string(String(describing: error)),
                     ])
                     terminate(exitCode: 1)
+                    return
                 }
             }
 
@@ -72,6 +73,7 @@ extension App {
                     "error": .string(String(describing: error)),
                 ])
                 terminate(exitCode: 1)
+                return
             }
 
             // Ready!
@@ -82,13 +84,7 @@ extension App {
             #endif
         }
 
-        switch runLoop {
-        case .current:
-            RunLoop.current.run()
-            terminate(exitCode: 0)
-            
-        case .custom:
-            break
-        }
+        RunLoop.current.run()
+        terminate(exitCode: 0)
     }
 }

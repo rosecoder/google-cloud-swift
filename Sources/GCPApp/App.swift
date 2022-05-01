@@ -38,16 +38,6 @@ public protocol App {
     ///
     /// Default implementation isn't doing anything.
     func shutdown() async throws
-
-    /// Run loop mode to use when calling `main`.
-    ///
-    /// Default `.current`. If you want to manage the run loop yourself, implement this and use `.custom`.
-    var runLoop: AppRunLoop { get }
-}
-
-public enum AppRunLoop {
-    case current
-    case custom
 }
 
 // MARK: - Default implementations
@@ -78,6 +68,4 @@ extension App {
     public var dependencies: [Dependency.Type] { [] }
 
     public func shutdown() async throws {}
-
-    public var runLoop: AppRunLoop { .current }
 }
