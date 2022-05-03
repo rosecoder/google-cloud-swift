@@ -54,9 +54,7 @@ public struct Authorization {
         do {
             token = try await generateTask.value
         } catch {
-            logger.error("Error generating authorization token", metadata: [
-                "error": .string(String(describing: error)),
-            ])
+            logger.error("Failed getting access token: \(error)")
 
             // If generating fails, fail for this call, but clear task to retry on next call
             self.generateTask = nil
@@ -89,6 +87,8 @@ public struct Authorization {
 
 private actor TokenGenerator {
 
+    private lazy var logger = Logger(label: "core.authorization")
+
     static let shared = TokenGenerator()
 
     enum GenerateError: Error {
@@ -115,7 +115,13 @@ private actor TokenGenerator {
             let completion: (OAuth2.Token?, Error?) -> Void = { token, error in
                 do {
                     guard let token = token, let accessToken = token.AccessToken else {
-                        throw error ?? GenerateError.tokenProviderFailed
+                        if let error = error {
+                            throw error
+                        }
+                        self.logger.warning("No error given from provider", metadata: [
+                            "token": .string(token.flatMap { "\($0)" } ?? "nil"),
+                        ])
+                        throw GenerateError.tokenProviderFailed
                     }
 
                     let expires: Date? = try token.ExpiresIn.flatMap { expiresIn in
