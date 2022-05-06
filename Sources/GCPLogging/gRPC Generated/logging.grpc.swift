@@ -77,7 +77,7 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_DeleteLogRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/DeleteLog",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.deleteLog.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogInterceptors() ?? []
@@ -101,7 +101,7 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_WriteLogEntriesRequest, Google_Logging_V2_WriteLogEntriesResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/WriteLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.writeLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeWriteLogEntriesInterceptors() ?? []
@@ -122,7 +122,7 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListLogEntriesRequest, Google_Logging_V2_ListLogEntriesResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogEntriesInterceptors() ?? []
@@ -140,7 +140,7 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListMonitoredResourceDescriptorsRequest, Google_Logging_V2_ListMonitoredResourceDescriptorsResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listMonitoredResourceDescriptors.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListMonitoredResourceDescriptorsInterceptors() ?? []
@@ -159,30 +159,12 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogs",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogs.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'deleteLog'.
-  func makeDeleteLogInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLogRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'writeLogEntries'.
-  func makeWriteLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_WriteLogEntriesRequest, Google_Logging_V2_WriteLogEntriesResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'listLogEntries'.
-  func makeListLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogEntriesRequest, Google_Logging_V2_ListLogEntriesResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'listMonitoredResourceDescriptors'.
-  func makeListMonitoredResourceDescriptorsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListMonitoredResourceDescriptorsRequest, Google_Logging_V2_ListMonitoredResourceDescriptorsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'listLogs'.
-  func makeListLogsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse>]
 }
 
 internal final class Google_Logging_V2_LoggingServiceV2Client: Google_Logging_V2_LoggingServiceV2ClientProtocol {
@@ -211,7 +193,7 @@ internal final class Google_Logging_V2_LoggingServiceV2Client: Google_Logging_V2
 /// Service for ingesting and querying logs.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Logging_V2_LoggingServiceV2AsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol? { get }
 
   func makeDeleteLogCall(
@@ -242,8 +224,8 @@ internal protocol Google_Logging_V2_LoggingServiceV2AsyncClientProtocol: GRPCCli
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.logging.v2.LoggingServiceV2"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Logging_V2_LoggingServiceV2ClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol? {
@@ -255,7 +237,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteLogRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/DeleteLog",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.deleteLog.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogInterceptors() ?? []
@@ -267,7 +249,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_WriteLogEntriesRequest, Google_Logging_V2_WriteLogEntriesResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/WriteLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.writeLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeWriteLogEntriesInterceptors() ?? []
@@ -279,7 +261,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLogEntriesRequest, Google_Logging_V2_ListLogEntriesResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogEntriesInterceptors() ?? []
@@ -291,7 +273,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListMonitoredResourceDescriptorsRequest, Google_Logging_V2_ListMonitoredResourceDescriptorsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listMonitoredResourceDescriptors.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListMonitoredResourceDescriptorsInterceptors() ?? []
@@ -303,7 +285,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogs",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogs.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
@@ -318,7 +300,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/DeleteLog",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.deleteLog.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogInterceptors() ?? []
@@ -330,7 +312,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_WriteLogEntriesResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/WriteLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.writeLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeWriteLogEntriesInterceptors() ?? []
@@ -342,7 +324,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListLogEntriesResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogEntries",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogEntries.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogEntriesInterceptors() ?? []
@@ -354,7 +336,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListMonitoredResourceDescriptorsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listMonitoredResourceDescriptors.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListMonitoredResourceDescriptorsInterceptors() ?? []
@@ -366,7 +348,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListLogsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.LoggingServiceV2/ListLogs",
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogs.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
@@ -392,4 +374,68 @@ internal struct Google_Logging_V2_LoggingServiceV2AsyncClient: Google_Logging_V2
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'deleteLog'.
+  func makeDeleteLogInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLogRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'writeLogEntries'.
+  func makeWriteLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_WriteLogEntriesRequest, Google_Logging_V2_WriteLogEntriesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listLogEntries'.
+  func makeListLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogEntriesRequest, Google_Logging_V2_ListLogEntriesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listMonitoredResourceDescriptors'.
+  func makeListMonitoredResourceDescriptorsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListMonitoredResourceDescriptorsRequest, Google_Logging_V2_ListMonitoredResourceDescriptorsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listLogs'.
+  func makeListLogsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse>]
+}
+
+internal enum Google_Logging_V2_LoggingServiceV2ClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "LoggingServiceV2",
+    fullName: "google.logging.v2.LoggingServiceV2",
+    methods: [
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.deleteLog,
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.writeLogEntries,
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogEntries,
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listMonitoredResourceDescriptors,
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogs,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let deleteLog = GRPCMethodDescriptor(
+      name: "DeleteLog",
+      path: "/google.logging.v2.LoggingServiceV2/DeleteLog",
+      type: GRPCCallType.unary
+    )
+
+    internal static let writeLogEntries = GRPCMethodDescriptor(
+      name: "WriteLogEntries",
+      path: "/google.logging.v2.LoggingServiceV2/WriteLogEntries",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listLogEntries = GRPCMethodDescriptor(
+      name: "ListLogEntries",
+      path: "/google.logging.v2.LoggingServiceV2/ListLogEntries",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listMonitoredResourceDescriptors = GRPCMethodDescriptor(
+      name: "ListMonitoredResourceDescriptors",
+      path: "/google.logging.v2.LoggingServiceV2/ListMonitoredResourceDescriptors",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listLogs = GRPCMethodDescriptor(
+      name: "ListLogs",
+      path: "/google.logging.v2.LoggingServiceV2/ListLogs",
+      type: GRPCCallType.unary
+    )
+  }
+}
 

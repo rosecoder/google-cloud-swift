@@ -41,8 +41,8 @@
         "package": "grpc-swift",
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {
-          "branch": "1.6.0-async-await.1",
-          "revision": "0dd42b5b1bafc56548bdbf3a0ba06898944dc4ba",
+          "branch": "1.7.1-async-await",
+          "revision": "65f7bee373df327c33d07460ae57e21e2e1895cc",
           "version": null
         }
       },
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
-          "revision": "7e2c5f3cbbeea68e004915e3a8961e20bd11d824",
-          "version": "1.18.0"
+          "revision": "e1499bc69b9040b29184f7f2996f7bab467c1639",
+          "version": "1.19.0"
         }
       }
     ]

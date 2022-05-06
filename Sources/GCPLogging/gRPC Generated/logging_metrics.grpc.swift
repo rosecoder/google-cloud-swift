@@ -74,7 +74,7 @@ extension Google_Logging_V2_MetricsServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListLogMetricsRequest, Google_Logging_V2_ListLogMetricsResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/ListLogMetrics",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.listLogMetrics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogMetricsInterceptors() ?? []
@@ -92,7 +92,7 @@ extension Google_Logging_V2_MetricsServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_GetLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/GetLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.getLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetLogMetricInterceptors() ?? []
@@ -110,7 +110,7 @@ extension Google_Logging_V2_MetricsServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_CreateLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/CreateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.createLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateLogMetricInterceptors() ?? []
@@ -128,7 +128,7 @@ extension Google_Logging_V2_MetricsServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_UpdateLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/UpdateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.updateLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateLogMetricInterceptors() ?? []
@@ -146,30 +146,12 @@ extension Google_Logging_V2_MetricsServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_DeleteLogMetricRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/DeleteLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.deleteLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogMetricInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Logging_V2_MetricsServiceV2ClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'listLogMetrics'.
-  func makeListLogMetricsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogMetricsRequest, Google_Logging_V2_ListLogMetricsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'getLogMetric'.
-  func makeGetLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetLogMetricRequest, Google_Logging_V2_LogMetric>]
-
-  /// - Returns: Interceptors to use when invoking 'createLogMetric'.
-  func makeCreateLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateLogMetricRequest, Google_Logging_V2_LogMetric>]
-
-  /// - Returns: Interceptors to use when invoking 'updateLogMetric'.
-  func makeUpdateLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateLogMetricRequest, Google_Logging_V2_LogMetric>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteLogMetric'.
-  func makeDeleteLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLogMetricRequest, SwiftProtobuf.Google_Protobuf_Empty>]
 }
 
 internal final class Google_Logging_V2_MetricsServiceV2Client: Google_Logging_V2_MetricsServiceV2ClientProtocol {
@@ -198,7 +180,7 @@ internal final class Google_Logging_V2_MetricsServiceV2Client: Google_Logging_V2
 /// Service for configuring logs-based metrics.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Logging_V2_MetricsServiceV2AsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Logging_V2_MetricsServiceV2ClientInterceptorFactoryProtocol? { get }
 
   func makeListLogMetricsCall(
@@ -229,8 +211,8 @@ internal protocol Google_Logging_V2_MetricsServiceV2AsyncClientProtocol: GRPCCli
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.logging.v2.MetricsServiceV2"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Logging_V2_MetricsServiceV2ClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Logging_V2_MetricsServiceV2ClientInterceptorFactoryProtocol? {
@@ -242,7 +224,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLogMetricsRequest, Google_Logging_V2_ListLogMetricsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/ListLogMetrics",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.listLogMetrics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogMetricsInterceptors() ?? []
@@ -254,7 +236,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/GetLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.getLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetLogMetricInterceptors() ?? []
@@ -266,7 +248,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/CreateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.createLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateLogMetricInterceptors() ?? []
@@ -278,7 +260,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateLogMetricRequest, Google_Logging_V2_LogMetric> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/UpdateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.updateLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateLogMetricInterceptors() ?? []
@@ -290,7 +272,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteLogMetricRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/DeleteLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.deleteLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogMetricInterceptors() ?? []
@@ -305,7 +287,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListLogMetricsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/ListLogMetrics",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.listLogMetrics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListLogMetricsInterceptors() ?? []
@@ -317,7 +299,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogMetric {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/GetLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.getLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetLogMetricInterceptors() ?? []
@@ -329,7 +311,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogMetric {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/CreateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.createLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateLogMetricInterceptors() ?? []
@@ -341,7 +323,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogMetric {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/UpdateLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.updateLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateLogMetricInterceptors() ?? []
@@ -353,7 +335,7 @@ extension Google_Logging_V2_MetricsServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.MetricsServiceV2/DeleteLogMetric",
+      path: Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.deleteLogMetric.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteLogMetricInterceptors() ?? []
@@ -379,4 +361,68 @@ internal struct Google_Logging_V2_MetricsServiceV2AsyncClient: Google_Logging_V2
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Logging_V2_MetricsServiceV2ClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'listLogMetrics'.
+  func makeListLogMetricsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogMetricsRequest, Google_Logging_V2_ListLogMetricsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getLogMetric'.
+  func makeGetLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetLogMetricRequest, Google_Logging_V2_LogMetric>]
+
+  /// - Returns: Interceptors to use when invoking 'createLogMetric'.
+  func makeCreateLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateLogMetricRequest, Google_Logging_V2_LogMetric>]
+
+  /// - Returns: Interceptors to use when invoking 'updateLogMetric'.
+  func makeUpdateLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateLogMetricRequest, Google_Logging_V2_LogMetric>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteLogMetric'.
+  func makeDeleteLogMetricInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLogMetricRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+}
+
+internal enum Google_Logging_V2_MetricsServiceV2ClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "MetricsServiceV2",
+    fullName: "google.logging.v2.MetricsServiceV2",
+    methods: [
+      Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.listLogMetrics,
+      Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.getLogMetric,
+      Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.createLogMetric,
+      Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.updateLogMetric,
+      Google_Logging_V2_MetricsServiceV2ClientMetadata.Methods.deleteLogMetric,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let listLogMetrics = GRPCMethodDescriptor(
+      name: "ListLogMetrics",
+      path: "/google.logging.v2.MetricsServiceV2/ListLogMetrics",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getLogMetric = GRPCMethodDescriptor(
+      name: "GetLogMetric",
+      path: "/google.logging.v2.MetricsServiceV2/GetLogMetric",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createLogMetric = GRPCMethodDescriptor(
+      name: "CreateLogMetric",
+      path: "/google.logging.v2.MetricsServiceV2/CreateLogMetric",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateLogMetric = GRPCMethodDescriptor(
+      name: "UpdateLogMetric",
+      path: "/google.logging.v2.MetricsServiceV2/UpdateLogMetric",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteLogMetric = GRPCMethodDescriptor(
+      name: "DeleteLogMetric",
+      path: "/google.logging.v2.MetricsServiceV2/DeleteLogMetric",
+      type: GRPCCallType.unary
+    )
+  }
+}
 

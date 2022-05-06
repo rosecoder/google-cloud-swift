@@ -89,7 +89,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_LookupRequest, Google_Datastore_V1_LookupResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/Lookup",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.lookup.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeLookupInterceptors() ?? []
@@ -107,7 +107,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/RunQuery",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runQuery.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRunQueryInterceptors() ?? []
@@ -125,7 +125,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_BeginTransactionRequest, Google_Datastore_V1_BeginTransactionResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/BeginTransaction",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.beginTransaction.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeBeginTransactionInterceptors() ?? []
@@ -144,7 +144,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_CommitRequest, Google_Datastore_V1_CommitResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/Commit",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.commit.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCommitInterceptors() ?? []
@@ -162,7 +162,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_RollbackRequest, Google_Datastore_V1_RollbackResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/Rollback",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.rollback.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRollbackInterceptors() ?? []
@@ -181,7 +181,7 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_AllocateIdsRequest, Google_Datastore_V1_AllocateIdsResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/AllocateIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.allocateIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAllocateIdsInterceptors() ?? []
@@ -200,36 +200,12 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Datastore_V1_ReserveIdsRequest, Google_Datastore_V1_ReserveIdsResponse> {
     return self.makeUnaryCall(
-      path: "/google.datastore.v1.Datastore/ReserveIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.reserveIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeReserveIdsInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'lookup'.
-  func makeLookupInterceptors() -> [ClientInterceptor<Google_Datastore_V1_LookupRequest, Google_Datastore_V1_LookupResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'runQuery'.
-  func makeRunQueryInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'beginTransaction'.
-  func makeBeginTransactionInterceptors() -> [ClientInterceptor<Google_Datastore_V1_BeginTransactionRequest, Google_Datastore_V1_BeginTransactionResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'commit'.
-  func makeCommitInterceptors() -> [ClientInterceptor<Google_Datastore_V1_CommitRequest, Google_Datastore_V1_CommitResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'rollback'.
-  func makeRollbackInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RollbackRequest, Google_Datastore_V1_RollbackResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'allocateIds'.
-  func makeAllocateIdsInterceptors() -> [ClientInterceptor<Google_Datastore_V1_AllocateIdsRequest, Google_Datastore_V1_AllocateIdsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'reserveIds'.
-  func makeReserveIdsInterceptors() -> [ClientInterceptor<Google_Datastore_V1_ReserveIdsRequest, Google_Datastore_V1_ReserveIdsResponse>]
 }
 
 internal final class Google_Datastore_V1_DatastoreClient: Google_Datastore_V1_DatastoreClientProtocol {
@@ -263,7 +239,7 @@ internal final class Google_Datastore_V1_DatastoreClient: Google_Datastore_V1_Da
 /// the request.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Datastore_V1_DatastoreAsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol? { get }
 
   func makeLookupCall(
@@ -304,8 +280,8 @@ internal protocol Google_Datastore_V1_DatastoreAsyncClientProtocol: GRPCClient {
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.datastore.v1.Datastore"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Datastore_V1_DatastoreClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol? {
@@ -317,7 +293,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_LookupRequest, Google_Datastore_V1_LookupResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Lookup",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.lookup.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeLookupInterceptors() ?? []
@@ -329,7 +305,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/RunQuery",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runQuery.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRunQueryInterceptors() ?? []
@@ -341,7 +317,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_BeginTransactionRequest, Google_Datastore_V1_BeginTransactionResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/BeginTransaction",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.beginTransaction.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeBeginTransactionInterceptors() ?? []
@@ -353,7 +329,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_CommitRequest, Google_Datastore_V1_CommitResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Commit",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.commit.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCommitInterceptors() ?? []
@@ -365,7 +341,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_RollbackRequest, Google_Datastore_V1_RollbackResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Rollback",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.rollback.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRollbackInterceptors() ?? []
@@ -377,7 +353,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_AllocateIdsRequest, Google_Datastore_V1_AllocateIdsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/AllocateIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.allocateIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAllocateIdsInterceptors() ?? []
@@ -389,7 +365,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_ReserveIdsRequest, Google_Datastore_V1_ReserveIdsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/ReserveIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.reserveIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeReserveIdsInterceptors() ?? []
@@ -404,7 +380,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_LookupResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Lookup",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.lookup.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeLookupInterceptors() ?? []
@@ -416,7 +392,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_RunQueryResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/RunQuery",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runQuery.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRunQueryInterceptors() ?? []
@@ -428,7 +404,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_BeginTransactionResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/BeginTransaction",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.beginTransaction.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeBeginTransactionInterceptors() ?? []
@@ -440,7 +416,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_CommitResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Commit",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.commit.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCommitInterceptors() ?? []
@@ -452,7 +428,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_RollbackResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/Rollback",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.rollback.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRollbackInterceptors() ?? []
@@ -464,7 +440,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_AllocateIdsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/AllocateIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.allocateIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAllocateIdsInterceptors() ?? []
@@ -476,7 +452,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Datastore_V1_ReserveIdsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.datastore.v1.Datastore/ReserveIds",
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.reserveIds.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeReserveIdsInterceptors() ?? []
@@ -502,4 +478,88 @@ internal struct Google_Datastore_V1_DatastoreAsyncClient: Google_Datastore_V1_Da
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'lookup'.
+  func makeLookupInterceptors() -> [ClientInterceptor<Google_Datastore_V1_LookupRequest, Google_Datastore_V1_LookupResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'runQuery'.
+  func makeRunQueryInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'beginTransaction'.
+  func makeBeginTransactionInterceptors() -> [ClientInterceptor<Google_Datastore_V1_BeginTransactionRequest, Google_Datastore_V1_BeginTransactionResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'commit'.
+  func makeCommitInterceptors() -> [ClientInterceptor<Google_Datastore_V1_CommitRequest, Google_Datastore_V1_CommitResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'rollback'.
+  func makeRollbackInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RollbackRequest, Google_Datastore_V1_RollbackResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'allocateIds'.
+  func makeAllocateIdsInterceptors() -> [ClientInterceptor<Google_Datastore_V1_AllocateIdsRequest, Google_Datastore_V1_AllocateIdsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'reserveIds'.
+  func makeReserveIdsInterceptors() -> [ClientInterceptor<Google_Datastore_V1_ReserveIdsRequest, Google_Datastore_V1_ReserveIdsResponse>]
+}
+
+internal enum Google_Datastore_V1_DatastoreClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "Datastore",
+    fullName: "google.datastore.v1.Datastore",
+    methods: [
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.lookup,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.runQuery,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.beginTransaction,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.commit,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.rollback,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.allocateIds,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.reserveIds,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let lookup = GRPCMethodDescriptor(
+      name: "Lookup",
+      path: "/google.datastore.v1.Datastore/Lookup",
+      type: GRPCCallType.unary
+    )
+
+    internal static let runQuery = GRPCMethodDescriptor(
+      name: "RunQuery",
+      path: "/google.datastore.v1.Datastore/RunQuery",
+      type: GRPCCallType.unary
+    )
+
+    internal static let beginTransaction = GRPCMethodDescriptor(
+      name: "BeginTransaction",
+      path: "/google.datastore.v1.Datastore/BeginTransaction",
+      type: GRPCCallType.unary
+    )
+
+    internal static let commit = GRPCMethodDescriptor(
+      name: "Commit",
+      path: "/google.datastore.v1.Datastore/Commit",
+      type: GRPCCallType.unary
+    )
+
+    internal static let rollback = GRPCMethodDescriptor(
+      name: "Rollback",
+      path: "/google.datastore.v1.Datastore/Rollback",
+      type: GRPCCallType.unary
+    )
+
+    internal static let allocateIds = GRPCMethodDescriptor(
+      name: "AllocateIds",
+      path: "/google.datastore.v1.Datastore/AllocateIds",
+      type: GRPCCallType.unary
+    )
+
+    internal static let reserveIds = GRPCMethodDescriptor(
+      name: "ReserveIds",
+      path: "/google.datastore.v1.Datastore/ReserveIds",
+      type: GRPCCallType.unary
+    )
+  }
+}
 

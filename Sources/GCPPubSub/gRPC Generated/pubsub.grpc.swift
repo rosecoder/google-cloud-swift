@@ -97,7 +97,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_Topic, Google_Pubsub_V1_Topic> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/CreateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.createTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateTopicInterceptors() ?? []
@@ -116,7 +116,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_UpdateTopicRequest, Google_Pubsub_V1_Topic> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/UpdateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.updateTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateTopicInterceptors() ?? []
@@ -135,7 +135,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_PublishRequest, Google_Pubsub_V1_PublishResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/Publish",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.publish.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePublishInterceptors() ?? []
@@ -153,7 +153,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_GetTopicRequest, Google_Pubsub_V1_Topic> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/GetTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.getTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetTopicInterceptors() ?? []
@@ -171,7 +171,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ListTopicsRequest, Google_Pubsub_V1_ListTopicsResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopics",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicsInterceptors() ?? []
@@ -189,7 +189,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ListTopicSubscriptionsRequest, Google_Pubsub_V1_ListTopicSubscriptionsResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSubscriptions",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSubscriptionsInterceptors() ?? []
@@ -212,7 +212,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ListTopicSnapshotsRequest, Google_Pubsub_V1_ListTopicSnapshotsResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSnapshots",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSnapshotsInterceptors() ?? []
@@ -234,7 +234,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_DeleteTopicRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DeleteTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.deleteTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteTopicInterceptors() ?? []
@@ -255,42 +255,12 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_DetachSubscriptionRequest, Google_Pubsub_V1_DetachSubscriptionResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DetachSubscription",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.detachSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDetachSubscriptionInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'createTopic'.
-  func makeCreateTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Topic, Google_Pubsub_V1_Topic>]
-
-  /// - Returns: Interceptors to use when invoking 'updateTopic'.
-  func makeUpdateTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateTopicRequest, Google_Pubsub_V1_Topic>]
-
-  /// - Returns: Interceptors to use when invoking 'publish'.
-  func makePublishInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_PublishRequest, Google_Pubsub_V1_PublishResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'getTopic'.
-  func makeGetTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetTopicRequest, Google_Pubsub_V1_Topic>]
-
-  /// - Returns: Interceptors to use when invoking 'listTopics'.
-  func makeListTopicsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicsRequest, Google_Pubsub_V1_ListTopicsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'listTopicSubscriptions'.
-  func makeListTopicSubscriptionsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicSubscriptionsRequest, Google_Pubsub_V1_ListTopicSubscriptionsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'listTopicSnapshots'.
-  func makeListTopicSnapshotsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicSnapshotsRequest, Google_Pubsub_V1_ListTopicSnapshotsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteTopic'.
-  func makeDeleteTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteTopicRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'detachSubscription'.
-  func makeDetachSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DetachSubscriptionRequest, Google_Pubsub_V1_DetachSubscriptionResponse>]
 }
 
 internal final class Google_Pubsub_V1_PublisherClient: Google_Pubsub_V1_PublisherClientProtocol {
@@ -320,7 +290,7 @@ internal final class Google_Pubsub_V1_PublisherClient: Google_Pubsub_V1_Publishe
 /// messages to a topic.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Pubsub_V1_PublisherAsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol? { get }
 
   func makeCreateTopicCall(
@@ -371,8 +341,8 @@ internal protocol Google_Pubsub_V1_PublisherAsyncClientProtocol: GRPCClient {
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.pubsub.v1.Publisher"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Pubsub_V1_PublisherClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol? {
@@ -384,7 +354,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_Topic, Google_Pubsub_V1_Topic> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/CreateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.createTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateTopicInterceptors() ?? []
@@ -396,7 +366,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_UpdateTopicRequest, Google_Pubsub_V1_Topic> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/UpdateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.updateTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateTopicInterceptors() ?? []
@@ -408,7 +378,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_PublishRequest, Google_Pubsub_V1_PublishResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/Publish",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.publish.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePublishInterceptors() ?? []
@@ -420,7 +390,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_GetTopicRequest, Google_Pubsub_V1_Topic> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/GetTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.getTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetTopicInterceptors() ?? []
@@ -432,7 +402,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListTopicsRequest, Google_Pubsub_V1_ListTopicsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopics",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicsInterceptors() ?? []
@@ -444,7 +414,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListTopicSubscriptionsRequest, Google_Pubsub_V1_ListTopicSubscriptionsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSubscriptions",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSubscriptionsInterceptors() ?? []
@@ -456,7 +426,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListTopicSnapshotsRequest, Google_Pubsub_V1_ListTopicSnapshotsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSnapshots",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSnapshotsInterceptors() ?? []
@@ -468,7 +438,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DeleteTopicRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DeleteTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.deleteTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteTopicInterceptors() ?? []
@@ -480,7 +450,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DetachSubscriptionRequest, Google_Pubsub_V1_DetachSubscriptionResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DetachSubscription",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.detachSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDetachSubscriptionInterceptors() ?? []
@@ -495,7 +465,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Topic {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/CreateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.createTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateTopicInterceptors() ?? []
@@ -507,7 +477,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Topic {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/UpdateTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.updateTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateTopicInterceptors() ?? []
@@ -519,7 +489,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_PublishResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/Publish",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.publish.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePublishInterceptors() ?? []
@@ -531,7 +501,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Topic {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/GetTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.getTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetTopicInterceptors() ?? []
@@ -543,7 +513,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_ListTopicsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopics",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopics.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicsInterceptors() ?? []
@@ -555,7 +525,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_ListTopicSubscriptionsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSubscriptions",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSubscriptionsInterceptors() ?? []
@@ -567,7 +537,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_ListTopicSnapshotsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/ListTopicSnapshots",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListTopicSnapshotsInterceptors() ?? []
@@ -579,7 +549,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DeleteTopic",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.deleteTopic.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteTopicInterceptors() ?? []
@@ -591,7 +561,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_DetachSubscriptionResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Publisher/DetachSubscription",
+      path: Google_Pubsub_V1_PublisherClientMetadata.Methods.detachSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDetachSubscriptionInterceptors() ?? []
@@ -617,6 +587,110 @@ internal struct Google_Pubsub_V1_PublisherAsyncClient: Google_Pubsub_V1_Publishe
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'createTopic'.
+  func makeCreateTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Topic, Google_Pubsub_V1_Topic>]
+
+  /// - Returns: Interceptors to use when invoking 'updateTopic'.
+  func makeUpdateTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateTopicRequest, Google_Pubsub_V1_Topic>]
+
+  /// - Returns: Interceptors to use when invoking 'publish'.
+  func makePublishInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_PublishRequest, Google_Pubsub_V1_PublishResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getTopic'.
+  func makeGetTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetTopicRequest, Google_Pubsub_V1_Topic>]
+
+  /// - Returns: Interceptors to use when invoking 'listTopics'.
+  func makeListTopicsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicsRequest, Google_Pubsub_V1_ListTopicsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listTopicSubscriptions'.
+  func makeListTopicSubscriptionsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicSubscriptionsRequest, Google_Pubsub_V1_ListTopicSubscriptionsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listTopicSnapshots'.
+  func makeListTopicSnapshotsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListTopicSnapshotsRequest, Google_Pubsub_V1_ListTopicSnapshotsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteTopic'.
+  func makeDeleteTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteTopicRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'detachSubscription'.
+  func makeDetachSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DetachSubscriptionRequest, Google_Pubsub_V1_DetachSubscriptionResponse>]
+}
+
+internal enum Google_Pubsub_V1_PublisherClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "Publisher",
+    fullName: "google.pubsub.v1.Publisher",
+    methods: [
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.createTopic,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.updateTopic,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.publish,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.getTopic,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopics,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSubscriptions,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.listTopicSnapshots,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.deleteTopic,
+      Google_Pubsub_V1_PublisherClientMetadata.Methods.detachSubscription,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let createTopic = GRPCMethodDescriptor(
+      name: "CreateTopic",
+      path: "/google.pubsub.v1.Publisher/CreateTopic",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateTopic = GRPCMethodDescriptor(
+      name: "UpdateTopic",
+      path: "/google.pubsub.v1.Publisher/UpdateTopic",
+      type: GRPCCallType.unary
+    )
+
+    internal static let publish = GRPCMethodDescriptor(
+      name: "Publish",
+      path: "/google.pubsub.v1.Publisher/Publish",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getTopic = GRPCMethodDescriptor(
+      name: "GetTopic",
+      path: "/google.pubsub.v1.Publisher/GetTopic",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listTopics = GRPCMethodDescriptor(
+      name: "ListTopics",
+      path: "/google.pubsub.v1.Publisher/ListTopics",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listTopicSubscriptions = GRPCMethodDescriptor(
+      name: "ListTopicSubscriptions",
+      path: "/google.pubsub.v1.Publisher/ListTopicSubscriptions",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listTopicSnapshots = GRPCMethodDescriptor(
+      name: "ListTopicSnapshots",
+      path: "/google.pubsub.v1.Publisher/ListTopicSnapshots",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteTopic = GRPCMethodDescriptor(
+      name: "DeleteTopic",
+      path: "/google.pubsub.v1.Publisher/DeleteTopic",
+      type: GRPCCallType.unary
+    )
+
+    internal static let detachSubscription = GRPCMethodDescriptor(
+      name: "DetachSubscription",
+      path: "/google.pubsub.v1.Publisher/DetachSubscription",
+      type: GRPCCallType.unary
+    )
+  }
+}
 
 /// The service that an application uses to manipulate subscriptions and to
 /// consume messages from a subscription via the `Pull` method or by
@@ -736,7 +810,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_Subscription, Google_Pubsub_V1_Subscription> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSubscriptionInterceptors() ?? []
@@ -754,7 +828,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_GetSubscriptionRequest, Google_Pubsub_V1_Subscription> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSubscriptionInterceptors() ?? []
@@ -773,7 +847,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_UpdateSubscriptionRequest, Google_Pubsub_V1_Subscription> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSubscriptionInterceptors() ?? []
@@ -791,7 +865,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ListSubscriptionsRequest, Google_Pubsub_V1_ListSubscriptionsResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSubscriptions",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSubscriptionsInterceptors() ?? []
@@ -813,7 +887,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_DeleteSubscriptionRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSubscriptionInterceptors() ?? []
@@ -835,7 +909,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ModifyAckDeadlineRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyAckDeadline",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyAckDeadline.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyAckDeadlineInterceptors() ?? []
@@ -859,7 +933,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_AcknowledgeRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Acknowledge",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.acknowledge.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAcknowledgeInterceptors() ?? []
@@ -879,7 +953,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_PullRequest, Google_Pubsub_V1_PullResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Pull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.pull.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePullInterceptors() ?? []
@@ -906,7 +980,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     handler: @escaping (Google_Pubsub_V1_StreamingPullResponse) -> Void
   ) -> BidirectionalStreamingCall<Google_Pubsub_V1_StreamingPullRequest, Google_Pubsub_V1_StreamingPullResponse> {
     return self.makeBidirectionalStreamingCall(
-      path: "/google.pubsub.v1.Subscriber/StreamingPull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull.path,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeStreamingPullInterceptors() ?? [],
       handler: handler
@@ -929,7 +1003,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ModifyPushConfigRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyPushConfig",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyPushConfig.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyPushConfigInterceptors() ?? []
@@ -951,7 +1025,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_GetSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSnapshotInterceptors() ?? []
@@ -974,7 +1048,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_ListSnapshotsRequest, Google_Pubsub_V1_ListSnapshotsResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSnapshots",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSnapshotsInterceptors() ?? []
@@ -1009,7 +1083,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_CreateSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSnapshotInterceptors() ?? []
@@ -1032,7 +1106,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_UpdateSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSnapshotInterceptors() ?? []
@@ -1059,7 +1133,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_DeleteSnapshotRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSnapshotInterceptors() ?? []
@@ -1084,63 +1158,12 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Pubsub_V1_SeekRequest, Google_Pubsub_V1_SeekResponse> {
     return self.makeUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Seek",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.seek.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeSeekInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'createSubscription'.
-  func makeCreateSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Subscription, Google_Pubsub_V1_Subscription>]
-
-  /// - Returns: Interceptors to use when invoking 'getSubscription'.
-  func makeGetSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetSubscriptionRequest, Google_Pubsub_V1_Subscription>]
-
-  /// - Returns: Interceptors to use when invoking 'updateSubscription'.
-  func makeUpdateSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateSubscriptionRequest, Google_Pubsub_V1_Subscription>]
-
-  /// - Returns: Interceptors to use when invoking 'listSubscriptions'.
-  func makeListSubscriptionsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSubscriptionsRequest, Google_Pubsub_V1_ListSubscriptionsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteSubscription'.
-  func makeDeleteSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSubscriptionRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'modifyAckDeadline'.
-  func makeModifyAckDeadlineInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ModifyAckDeadlineRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'acknowledge'.
-  func makeAcknowledgeInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_AcknowledgeRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'pull'.
-  func makePullInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_PullRequest, Google_Pubsub_V1_PullResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'streamingPull'.
-  func makeStreamingPullInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_StreamingPullRequest, Google_Pubsub_V1_StreamingPullResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'modifyPushConfig'.
-  func makeModifyPushConfigInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ModifyPushConfigRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'getSnapshot'.
-  func makeGetSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetSnapshotRequest, Google_Pubsub_V1_Snapshot>]
-
-  /// - Returns: Interceptors to use when invoking 'listSnapshots'.
-  func makeListSnapshotsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSnapshotsRequest, Google_Pubsub_V1_ListSnapshotsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'createSnapshot'.
-  func makeCreateSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_CreateSnapshotRequest, Google_Pubsub_V1_Snapshot>]
-
-  /// - Returns: Interceptors to use when invoking 'updateSnapshot'.
-  func makeUpdateSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateSnapshotRequest, Google_Pubsub_V1_Snapshot>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteSnapshot'.
-  func makeDeleteSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSnapshotRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'seek'.
-  func makeSeekInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_SeekRequest, Google_Pubsub_V1_SeekResponse>]
 }
 
 internal final class Google_Pubsub_V1_SubscriberClient: Google_Pubsub_V1_SubscriberClientProtocol {
@@ -1171,7 +1194,7 @@ internal final class Google_Pubsub_V1_SubscriberClient: Google_Pubsub_V1_Subscri
 /// establishing a bi-directional stream using the `StreamingPull` method.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Pubsub_V1_SubscriberAsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol? { get }
 
   func makeCreateSubscriptionCall(
@@ -1256,8 +1279,8 @@ internal protocol Google_Pubsub_V1_SubscriberAsyncClientProtocol: GRPCClient {
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.pubsub.v1.Subscriber"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Pubsub_V1_SubscriberClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol? {
@@ -1269,7 +1292,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_Subscription, Google_Pubsub_V1_Subscription> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSubscriptionInterceptors() ?? []
@@ -1281,7 +1304,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_GetSubscriptionRequest, Google_Pubsub_V1_Subscription> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSubscriptionInterceptors() ?? []
@@ -1293,7 +1316,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_UpdateSubscriptionRequest, Google_Pubsub_V1_Subscription> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSubscriptionInterceptors() ?? []
@@ -1305,7 +1328,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListSubscriptionsRequest, Google_Pubsub_V1_ListSubscriptionsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSubscriptions",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSubscriptionsInterceptors() ?? []
@@ -1317,7 +1340,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DeleteSubscriptionRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSubscriptionInterceptors() ?? []
@@ -1329,7 +1352,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ModifyAckDeadlineRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyAckDeadline",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyAckDeadline.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyAckDeadlineInterceptors() ?? []
@@ -1341,7 +1364,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_AcknowledgeRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Acknowledge",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.acknowledge.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAcknowledgeInterceptors() ?? []
@@ -1353,7 +1376,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_PullRequest, Google_Pubsub_V1_PullResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Pull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.pull.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePullInterceptors() ?? []
@@ -1364,7 +1387,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncBidirectionalStreamingCall<Google_Pubsub_V1_StreamingPullRequest, Google_Pubsub_V1_StreamingPullResponse> {
     return self.makeAsyncBidirectionalStreamingCall(
-      path: "/google.pubsub.v1.Subscriber/StreamingPull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull.path,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeStreamingPullInterceptors() ?? []
     )
@@ -1375,7 +1398,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ModifyPushConfigRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyPushConfig",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyPushConfig.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyPushConfigInterceptors() ?? []
@@ -1387,7 +1410,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_GetSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSnapshotInterceptors() ?? []
@@ -1399,7 +1422,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListSnapshotsRequest, Google_Pubsub_V1_ListSnapshotsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSnapshots",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSnapshotsInterceptors() ?? []
@@ -1411,7 +1434,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_CreateSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSnapshotInterceptors() ?? []
@@ -1423,7 +1446,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_UpdateSnapshotRequest, Google_Pubsub_V1_Snapshot> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSnapshotInterceptors() ?? []
@@ -1435,7 +1458,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DeleteSnapshotRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSnapshotInterceptors() ?? []
@@ -1447,7 +1470,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_SeekRequest, Google_Pubsub_V1_SeekResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Seek",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.seek.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeSeekInterceptors() ?? []
@@ -1462,7 +1485,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Subscription {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSubscriptionInterceptors() ?? []
@@ -1474,7 +1497,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Subscription {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSubscriptionInterceptors() ?? []
@@ -1486,7 +1509,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Subscription {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSubscriptionInterceptors() ?? []
@@ -1498,7 +1521,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_ListSubscriptionsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSubscriptions",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSubscriptions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSubscriptionsInterceptors() ?? []
@@ -1510,7 +1533,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSubscription",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSubscription.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSubscriptionInterceptors() ?? []
@@ -1522,7 +1545,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyAckDeadline",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyAckDeadline.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyAckDeadlineInterceptors() ?? []
@@ -1534,7 +1557,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Acknowledge",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.acknowledge.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAcknowledgeInterceptors() ?? []
@@ -1546,7 +1569,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_PullResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Pull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.pull.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makePullInterceptors() ?? []
@@ -1558,7 +1581,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncResponseStream<Google_Pubsub_V1_StreamingPullResponse> where RequestStream: Sequence, RequestStream.Element == Google_Pubsub_V1_StreamingPullRequest {
     return self.performAsyncBidirectionalStreamingCall(
-      path: "/google.pubsub.v1.Subscriber/StreamingPull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull.path,
       requests: requests,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeStreamingPullInterceptors() ?? []
@@ -1570,7 +1593,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncResponseStream<Google_Pubsub_V1_StreamingPullResponse> where RequestStream: AsyncSequence, RequestStream.Element == Google_Pubsub_V1_StreamingPullRequest {
     return self.performAsyncBidirectionalStreamingCall(
-      path: "/google.pubsub.v1.Subscriber/StreamingPull",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull.path,
       requests: requests,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeStreamingPullInterceptors() ?? []
@@ -1582,7 +1605,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ModifyPushConfig",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyPushConfig.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeModifyPushConfigInterceptors() ?? []
@@ -1594,7 +1617,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Snapshot {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/GetSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSnapshotInterceptors() ?? []
@@ -1606,7 +1629,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_ListSnapshotsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/ListSnapshots",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSnapshots.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSnapshotsInterceptors() ?? []
@@ -1618,7 +1641,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Snapshot {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/CreateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSnapshotInterceptors() ?? []
@@ -1630,7 +1653,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_Snapshot {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/UpdateSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSnapshotInterceptors() ?? []
@@ -1642,7 +1665,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/DeleteSnapshot",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSnapshot.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSnapshotInterceptors() ?? []
@@ -1654,7 +1677,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Pubsub_V1_SeekResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.pubsub.v1.Subscriber/Seek",
+      path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.seek.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeSeekInterceptors() ?? []
@@ -1680,4 +1703,178 @@ internal struct Google_Pubsub_V1_SubscriberAsyncClient: Google_Pubsub_V1_Subscri
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'createSubscription'.
+  func makeCreateSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Subscription, Google_Pubsub_V1_Subscription>]
+
+  /// - Returns: Interceptors to use when invoking 'getSubscription'.
+  func makeGetSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetSubscriptionRequest, Google_Pubsub_V1_Subscription>]
+
+  /// - Returns: Interceptors to use when invoking 'updateSubscription'.
+  func makeUpdateSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateSubscriptionRequest, Google_Pubsub_V1_Subscription>]
+
+  /// - Returns: Interceptors to use when invoking 'listSubscriptions'.
+  func makeListSubscriptionsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSubscriptionsRequest, Google_Pubsub_V1_ListSubscriptionsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteSubscription'.
+  func makeDeleteSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSubscriptionRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'modifyAckDeadline'.
+  func makeModifyAckDeadlineInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ModifyAckDeadlineRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'acknowledge'.
+  func makeAcknowledgeInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_AcknowledgeRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'pull'.
+  func makePullInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_PullRequest, Google_Pubsub_V1_PullResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'streamingPull'.
+  func makeStreamingPullInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_StreamingPullRequest, Google_Pubsub_V1_StreamingPullResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'modifyPushConfig'.
+  func makeModifyPushConfigInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ModifyPushConfigRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'getSnapshot'.
+  func makeGetSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_GetSnapshotRequest, Google_Pubsub_V1_Snapshot>]
+
+  /// - Returns: Interceptors to use when invoking 'listSnapshots'.
+  func makeListSnapshotsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSnapshotsRequest, Google_Pubsub_V1_ListSnapshotsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'createSnapshot'.
+  func makeCreateSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_CreateSnapshotRequest, Google_Pubsub_V1_Snapshot>]
+
+  /// - Returns: Interceptors to use when invoking 'updateSnapshot'.
+  func makeUpdateSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_UpdateSnapshotRequest, Google_Pubsub_V1_Snapshot>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteSnapshot'.
+  func makeDeleteSnapshotInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSnapshotRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'seek'.
+  func makeSeekInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_SeekRequest, Google_Pubsub_V1_SeekResponse>]
+}
+
+internal enum Google_Pubsub_V1_SubscriberClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "Subscriber",
+    fullName: "google.pubsub.v1.Subscriber",
+    methods: [
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSubscription,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSubscription,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSubscription,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSubscriptions,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSubscription,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyAckDeadline,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.acknowledge,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.pull,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.modifyPushConfig,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.getSnapshot,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.listSnapshots,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.createSnapshot,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.updateSnapshot,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.deleteSnapshot,
+      Google_Pubsub_V1_SubscriberClientMetadata.Methods.seek,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let createSubscription = GRPCMethodDescriptor(
+      name: "CreateSubscription",
+      path: "/google.pubsub.v1.Subscriber/CreateSubscription",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getSubscription = GRPCMethodDescriptor(
+      name: "GetSubscription",
+      path: "/google.pubsub.v1.Subscriber/GetSubscription",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateSubscription = GRPCMethodDescriptor(
+      name: "UpdateSubscription",
+      path: "/google.pubsub.v1.Subscriber/UpdateSubscription",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listSubscriptions = GRPCMethodDescriptor(
+      name: "ListSubscriptions",
+      path: "/google.pubsub.v1.Subscriber/ListSubscriptions",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteSubscription = GRPCMethodDescriptor(
+      name: "DeleteSubscription",
+      path: "/google.pubsub.v1.Subscriber/DeleteSubscription",
+      type: GRPCCallType.unary
+    )
+
+    internal static let modifyAckDeadline = GRPCMethodDescriptor(
+      name: "ModifyAckDeadline",
+      path: "/google.pubsub.v1.Subscriber/ModifyAckDeadline",
+      type: GRPCCallType.unary
+    )
+
+    internal static let acknowledge = GRPCMethodDescriptor(
+      name: "Acknowledge",
+      path: "/google.pubsub.v1.Subscriber/Acknowledge",
+      type: GRPCCallType.unary
+    )
+
+    internal static let pull = GRPCMethodDescriptor(
+      name: "Pull",
+      path: "/google.pubsub.v1.Subscriber/Pull",
+      type: GRPCCallType.unary
+    )
+
+    internal static let streamingPull = GRPCMethodDescriptor(
+      name: "StreamingPull",
+      path: "/google.pubsub.v1.Subscriber/StreamingPull",
+      type: GRPCCallType.bidirectionalStreaming
+    )
+
+    internal static let modifyPushConfig = GRPCMethodDescriptor(
+      name: "ModifyPushConfig",
+      path: "/google.pubsub.v1.Subscriber/ModifyPushConfig",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getSnapshot = GRPCMethodDescriptor(
+      name: "GetSnapshot",
+      path: "/google.pubsub.v1.Subscriber/GetSnapshot",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listSnapshots = GRPCMethodDescriptor(
+      name: "ListSnapshots",
+      path: "/google.pubsub.v1.Subscriber/ListSnapshots",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createSnapshot = GRPCMethodDescriptor(
+      name: "CreateSnapshot",
+      path: "/google.pubsub.v1.Subscriber/CreateSnapshot",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateSnapshot = GRPCMethodDescriptor(
+      name: "UpdateSnapshot",
+      path: "/google.pubsub.v1.Subscriber/UpdateSnapshot",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteSnapshot = GRPCMethodDescriptor(
+      name: "DeleteSnapshot",
+      path: "/google.pubsub.v1.Subscriber/DeleteSnapshot",
+      type: GRPCCallType.unary
+    )
+
+    internal static let seek = GRPCMethodDescriptor(
+      name: "Seek",
+      path: "/google.pubsub.v1.Subscriber/Seek",
+      type: GRPCCallType.unary
+    )
+  }
+}
 

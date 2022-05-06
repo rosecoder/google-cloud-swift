@@ -15,7 +15,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
-        .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.6.0-async-await.1")),
+        .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.7.1-async-await")),
         .package(name: "Auth", url: "https://github.com/googleapis/google-auth-library-swift.git", from: "0.5.2"),
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0")
 

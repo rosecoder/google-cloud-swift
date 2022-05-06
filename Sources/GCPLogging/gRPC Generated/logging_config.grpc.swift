@@ -124,7 +124,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListBucketsRequest, Google_Logging_V2_ListBucketsResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListBuckets",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListBucketsInterceptors() ?? []
@@ -142,7 +142,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetBucketInterceptors() ?? []
@@ -170,7 +170,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
@@ -188,7 +188,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListSinksRequest, Google_Logging_V2_ListSinksResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListSinks",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listSinks.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSinksInterceptors() ?? []
@@ -206,7 +206,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_GetSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSinkInterceptors() ?? []
@@ -227,7 +227,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_CreateSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSinkInterceptors() ?? []
@@ -249,7 +249,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_UpdateSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSinkInterceptors() ?? []
@@ -268,7 +268,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSinkInterceptors() ?? []
@@ -286,7 +286,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_ListExclusionsRequest, Google_Logging_V2_ListExclusionsResponse> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListExclusions",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listExclusions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListExclusionsInterceptors() ?? []
@@ -304,7 +304,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_GetExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetExclusionInterceptors() ?? []
@@ -324,7 +324,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_CreateExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateExclusionInterceptors() ?? []
@@ -342,7 +342,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_UpdateExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateExclusionInterceptors() ?? []
@@ -360,7 +360,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_DeleteExclusionRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteExclusionInterceptors() ?? []
@@ -386,7 +386,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_GetCmekSettingsRequest, Google_Logging_V2_CmekSettings> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetCmekSettingsInterceptors() ?? []
@@ -418,60 +418,12 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     callOptions: CallOptions? = nil
   ) -> UnaryCall<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings> {
     return self.makeUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
     )
   }
-}
-
-internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol {
-
-  /// - Returns: Interceptors to use when invoking 'listBuckets'.
-  func makeListBucketsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListBucketsRequest, Google_Logging_V2_ListBucketsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'getBucket'.
-  func makeGetBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>]
-
-  /// - Returns: Interceptors to use when invoking 'updateBucket'.
-  func makeUpdateBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket>]
-
-  /// - Returns: Interceptors to use when invoking 'listSinks'.
-  func makeListSinksInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListSinksRequest, Google_Logging_V2_ListSinksResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'getSink'.
-  func makeGetSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetSinkRequest, Google_Logging_V2_LogSink>]
-
-  /// - Returns: Interceptors to use when invoking 'createSink'.
-  func makeCreateSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateSinkRequest, Google_Logging_V2_LogSink>]
-
-  /// - Returns: Interceptors to use when invoking 'updateSink'.
-  func makeUpdateSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateSinkRequest, Google_Logging_V2_LogSink>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteSink'.
-  func makeDeleteSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'listExclusions'.
-  func makeListExclusionsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListExclusionsRequest, Google_Logging_V2_ListExclusionsResponse>]
-
-  /// - Returns: Interceptors to use when invoking 'getExclusion'.
-  func makeGetExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetExclusionRequest, Google_Logging_V2_LogExclusion>]
-
-  /// - Returns: Interceptors to use when invoking 'createExclusion'.
-  func makeCreateExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateExclusionRequest, Google_Logging_V2_LogExclusion>]
-
-  /// - Returns: Interceptors to use when invoking 'updateExclusion'.
-  func makeUpdateExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateExclusionRequest, Google_Logging_V2_LogExclusion>]
-
-  /// - Returns: Interceptors to use when invoking 'deleteExclusion'.
-  func makeDeleteExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteExclusionRequest, SwiftProtobuf.Google_Protobuf_Empty>]
-
-  /// - Returns: Interceptors to use when invoking 'getCmekSettings'.
-  func makeGetCmekSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetCmekSettingsRequest, Google_Logging_V2_CmekSettings>]
-
-  /// - Returns: Interceptors to use when invoking 'updateCmekSettings'.
-  func makeUpdateCmekSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings>]
 }
 
 internal final class Google_Logging_V2_ConfigServiceV2Client: Google_Logging_V2_ConfigServiceV2ClientProtocol {
@@ -500,7 +452,7 @@ internal final class Google_Logging_V2_ConfigServiceV2Client: Google_Logging_V2_
 /// Service for configuring sinks used to route log entries.
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClient {
-  var serviceName: String { get }
+  static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol? { get }
 
   func makeListBucketsCall(
@@ -581,8 +533,8 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
 extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
-  internal var serviceName: String {
-    return "google.logging.v2.ConfigServiceV2"
+  internal static var serviceDescriptor: GRPCServiceDescriptor {
+    return Google_Logging_V2_ConfigServiceV2ClientMetadata.serviceDescriptor
   }
 
   internal var interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol? {
@@ -594,7 +546,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListBucketsRequest, Google_Logging_V2_ListBucketsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListBuckets",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListBucketsInterceptors() ?? []
@@ -606,7 +558,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetBucketInterceptors() ?? []
@@ -618,7 +570,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
@@ -630,7 +582,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListSinksRequest, Google_Logging_V2_ListSinksResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListSinks",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listSinks.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSinksInterceptors() ?? []
@@ -642,7 +594,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSinkInterceptors() ?? []
@@ -654,7 +606,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSinkInterceptors() ?? []
@@ -666,7 +618,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateSinkRequest, Google_Logging_V2_LogSink> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSinkInterceptors() ?? []
@@ -678,7 +630,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSinkInterceptors() ?? []
@@ -690,7 +642,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListExclusionsRequest, Google_Logging_V2_ListExclusionsResponse> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListExclusions",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listExclusions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListExclusionsInterceptors() ?? []
@@ -702,7 +654,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetExclusionInterceptors() ?? []
@@ -714,7 +666,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateExclusionInterceptors() ?? []
@@ -726,7 +678,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateExclusionRequest, Google_Logging_V2_LogExclusion> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateExclusionInterceptors() ?? []
@@ -738,7 +690,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteExclusionRequest, SwiftProtobuf.Google_Protobuf_Empty> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteExclusionInterceptors() ?? []
@@ -750,7 +702,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetCmekSettingsRequest, Google_Logging_V2_CmekSettings> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetCmekSettingsInterceptors() ?? []
@@ -762,7 +714,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings> {
     return self.makeAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
@@ -777,7 +729,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListBucketsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListBuckets",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListBucketsInterceptors() ?? []
@@ -789,7 +741,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogBucket {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetBucketInterceptors() ?? []
@@ -801,7 +753,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogBucket {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateBucket",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
@@ -813,7 +765,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListSinksResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListSinks",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listSinks.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSinksInterceptors() ?? []
@@ -825,7 +777,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogSink {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetSinkInterceptors() ?? []
@@ -837,7 +789,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogSink {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateSinkInterceptors() ?? []
@@ -849,7 +801,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogSink {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateSinkInterceptors() ?? []
@@ -861,7 +813,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteSink",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteSink.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSinkInterceptors() ?? []
@@ -873,7 +825,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_ListExclusionsResponse {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/ListExclusions",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listExclusions.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListExclusionsInterceptors() ?? []
@@ -885,7 +837,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogExclusion {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetExclusionInterceptors() ?? []
@@ -897,7 +849,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogExclusion {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/CreateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeCreateExclusionInterceptors() ?? []
@@ -909,7 +861,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_LogExclusion {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateExclusionInterceptors() ?? []
@@ -921,7 +873,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/DeleteExclusion",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteExclusion.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteExclusionInterceptors() ?? []
@@ -933,7 +885,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_CmekSettings {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/GetCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetCmekSettingsInterceptors() ?? []
@@ -945,7 +897,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     callOptions: CallOptions? = nil
   ) async throws -> Google_Logging_V2_CmekSettings {
     return try await self.performAsyncUnaryCall(
-      path: "/google.logging.v2.ConfigServiceV2/UpdateCmekSettings",
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateCmekSettings.path,
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
@@ -971,4 +923,168 @@ internal struct Google_Logging_V2_ConfigServiceV2AsyncClient: Google_Logging_V2_
 }
 
 #endif // compiler(>=5.5) && canImport(_Concurrency)
+
+internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol {
+
+  /// - Returns: Interceptors to use when invoking 'listBuckets'.
+  func makeListBucketsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListBucketsRequest, Google_Logging_V2_ListBucketsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getBucket'.
+  func makeGetBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>]
+
+  /// - Returns: Interceptors to use when invoking 'updateBucket'.
+  func makeUpdateBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket>]
+
+  /// - Returns: Interceptors to use when invoking 'listSinks'.
+  func makeListSinksInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListSinksRequest, Google_Logging_V2_ListSinksResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getSink'.
+  func makeGetSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetSinkRequest, Google_Logging_V2_LogSink>]
+
+  /// - Returns: Interceptors to use when invoking 'createSink'.
+  func makeCreateSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateSinkRequest, Google_Logging_V2_LogSink>]
+
+  /// - Returns: Interceptors to use when invoking 'updateSink'.
+  func makeUpdateSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateSinkRequest, Google_Logging_V2_LogSink>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteSink'.
+  func makeDeleteSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'listExclusions'.
+  func makeListExclusionsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListExclusionsRequest, Google_Logging_V2_ListExclusionsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getExclusion'.
+  func makeGetExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetExclusionRequest, Google_Logging_V2_LogExclusion>]
+
+  /// - Returns: Interceptors to use when invoking 'createExclusion'.
+  func makeCreateExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateExclusionRequest, Google_Logging_V2_LogExclusion>]
+
+  /// - Returns: Interceptors to use when invoking 'updateExclusion'.
+  func makeUpdateExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateExclusionRequest, Google_Logging_V2_LogExclusion>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteExclusion'.
+  func makeDeleteExclusionInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteExclusionRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'getCmekSettings'.
+  func makeGetCmekSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetCmekSettingsRequest, Google_Logging_V2_CmekSettings>]
+
+  /// - Returns: Interceptors to use when invoking 'updateCmekSettings'.
+  func makeUpdateCmekSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings>]
+}
+
+internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
+  internal static let serviceDescriptor = GRPCServiceDescriptor(
+    name: "ConfigServiceV2",
+    fullName: "google.logging.v2.ConfigServiceV2",
+    methods: [
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listSinks,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteSink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listExclusions,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getExclusion,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createExclusion,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateExclusion,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteExclusion,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getCmekSettings,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateCmekSettings,
+    ]
+  )
+
+  internal enum Methods {
+    internal static let listBuckets = GRPCMethodDescriptor(
+      name: "ListBuckets",
+      path: "/google.logging.v2.ConfigServiceV2/ListBuckets",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getBucket = GRPCMethodDescriptor(
+      name: "GetBucket",
+      path: "/google.logging.v2.ConfigServiceV2/GetBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateBucket = GRPCMethodDescriptor(
+      name: "UpdateBucket",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listSinks = GRPCMethodDescriptor(
+      name: "ListSinks",
+      path: "/google.logging.v2.ConfigServiceV2/ListSinks",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getSink = GRPCMethodDescriptor(
+      name: "GetSink",
+      path: "/google.logging.v2.ConfigServiceV2/GetSink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createSink = GRPCMethodDescriptor(
+      name: "CreateSink",
+      path: "/google.logging.v2.ConfigServiceV2/CreateSink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateSink = GRPCMethodDescriptor(
+      name: "UpdateSink",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateSink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteSink = GRPCMethodDescriptor(
+      name: "DeleteSink",
+      path: "/google.logging.v2.ConfigServiceV2/DeleteSink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listExclusions = GRPCMethodDescriptor(
+      name: "ListExclusions",
+      path: "/google.logging.v2.ConfigServiceV2/ListExclusions",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getExclusion = GRPCMethodDescriptor(
+      name: "GetExclusion",
+      path: "/google.logging.v2.ConfigServiceV2/GetExclusion",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createExclusion = GRPCMethodDescriptor(
+      name: "CreateExclusion",
+      path: "/google.logging.v2.ConfigServiceV2/CreateExclusion",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateExclusion = GRPCMethodDescriptor(
+      name: "UpdateExclusion",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateExclusion",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteExclusion = GRPCMethodDescriptor(
+      name: "DeleteExclusion",
+      path: "/google.logging.v2.ConfigServiceV2/DeleteExclusion",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getCmekSettings = GRPCMethodDescriptor(
+      name: "GetCmekSettings",
+      path: "/google.logging.v2.ConfigServiceV2/GetCmekSettings",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateCmekSettings = GRPCMethodDescriptor(
+      name: "UpdateCmekSettings",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateCmekSettings",
+      type: GRPCCallType.unary
+    )
+  }
+}
 
