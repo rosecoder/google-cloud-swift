@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2015 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ enum Google_Api_LaunchStage: SwiftProtobuf.Enum {
   /// for widespread use. By Alpha, all significant design issues are resolved
   /// and we are in the process of verifying functionality. Alpha customers
   /// need to apply for access, agree to applicable terms, and have their
-  /// projects whitelisted. Alpha releases don’t have to be feature complete,
+  /// projects allowlisted. Alpha releases don’t have to be feature complete,
   /// no SLAs are provided, and there are no technical support obligations, but
   /// they will be far enough along that customers can actually use them in
   /// test environments or for limited-use tests -- just like they would in

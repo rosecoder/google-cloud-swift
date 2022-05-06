@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -53,12 +53,13 @@ struct Google_Logging_V2_LogEntry {
   ///
   /// `[LOG_ID]` must be URL-encoded within `log_name`. Example:
   /// `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+  ///
   /// `[LOG_ID]` must be less than 512 characters long and can only include the
   /// following characters: upper and lower case alphanumeric characters,
   /// forward-slash, underscore, hyphen, and period.
   ///
   /// For backward compatibility, if `log_name` begins with a forward-slash, such
-  /// as `/projects/...`, then the log entry is ingested as usual but the
+  /// as `/projects/...`, then the log entry is ingested as usual, but the
   /// forward-slash is removed. Listing the log entry will not show the leading
   /// slash and filtering for a log name with a leading slash will never return
   /// any results.
@@ -165,7 +166,7 @@ struct Google_Logging_V2_LogEntry {
   /// de-duplication in the export of logs.
   ///
   /// If the `insert_id` is omitted when writing a log entry, the Logging API
-  ///  assigns its own unique identifier in this field.
+  /// assigns its own unique identifier in this field.
   ///
   /// In queries, the `insert_id` is also used to order log entries that have
   /// the same `log_name` and `timestamp` values.
@@ -185,8 +186,20 @@ struct Google_Logging_V2_LogEntry {
   /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
   mutating func clearHTTPRequest() {_uniqueStorage()._httpRequest = nil}
 
-  /// Optional. A set of user-defined (key, value) data that provides additional
-  /// information about the log entry.
+  /// Optional. A map of key, value pairs that provides additional information about the
+  /// log entry. The labels can be user-defined or system-defined.
+  ///
+  /// User-defined labels are arbitrary key, value pairs that you can use to
+  /// classify logs.
+  ///
+  /// System-defined labels are defined by GCP services for platform logs.
+  /// They have two components - a service namespace component and the
+  /// attribute name. For example: `compute.googleapis.com/resource_name`.
+  ///
+  /// Cloud Logging truncates label keys that exceed 512 B and label
+  /// values that exceed 64 KB upon their associated log entry being
+  /// written. The truncation is indicated by an ellipsis at the
+  /// end of the character string.
   var labels: Dictionary<String,String> {
     get {return _storage._labels}
     set {_uniqueStorage()._labels = newValue}
@@ -243,6 +256,17 @@ struct Google_Logging_V2_LogEntry {
   var hasSourceLocation: Bool {return _storage._sourceLocation != nil}
   /// Clears the value of `sourceLocation`. Subsequent reads from it will return its default value.
   mutating func clearSourceLocation() {_uniqueStorage()._sourceLocation = nil}
+
+  /// Optional. Information indicating this LogEntry is part of a sequence of multiple log
+  /// entries split from a single LogEntry.
+  var split: Google_Logging_V2_LogSplit {
+    get {return _storage._split ?? Google_Logging_V2_LogSplit()}
+    set {_uniqueStorage()._split = newValue}
+  }
+  /// Returns true if `split` has been explicitly set.
+  var hasSplit: Bool {return _storage._split != nil}
+  /// Clears the value of `split`. Subsequent reads from it will return its default value.
+  mutating func clearSplit() {_uniqueStorage()._split = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -347,6 +371,32 @@ struct Google_Logging_V2_LogEntrySourceLocation {
   init() {}
 }
 
+/// Additional information used to correlate multiple log entries. Used when a
+/// single LogEntry would exceed the Google Cloud Logging size limit and is
+/// split across multiple log entries.
+struct Google_Logging_V2_LogSplit {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// A globally unique identifier for all log entries in a sequence of split log
+  /// entries. All log entries with the same |LogSplit.uid| are assumed to be
+  /// part of the same sequence of split log entries.
+  var uid: String = String()
+
+  /// The index of this LogEntry in the sequence of split log entries. Log
+  /// entries are given |index| values 0, 1, ..., n-1 for a sequence of n log
+  /// entries.
+  var index: Int32 = 0
+
+  /// The total number of log entries that the original LogEntry was split into.
+  var totalSplits: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.logging.v2"
@@ -370,6 +420,7 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
     27: .standard(proto: "span_id"),
     30: .standard(proto: "trace_sampled"),
     23: .standard(proto: "source_location"),
+    35: .same(proto: "split"),
   ]
 
   fileprivate class _StorageClass {
@@ -387,6 +438,7 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
     var _spanID: String = String()
     var _traceSampled: Bool = false
     var _sourceLocation: Google_Logging_V2_LogEntrySourceLocation? = nil
+    var _split: Google_Logging_V2_LogSplit? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -407,6 +459,7 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
       _spanID = source._spanID
       _traceSampled = source._traceSampled
       _sourceLocation = source._sourceLocation
+      _split = source._split
     }
   }
 
@@ -472,6 +525,7 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
         case 24: try { try decoder.decodeSingularMessageField(value: &_storage._receiveTimestamp) }()
         case 27: try { try decoder.decodeSingularStringField(value: &_storage._spanID) }()
         case 30: try { try decoder.decodeSingularBoolField(value: &_storage._traceSampled) }()
+        case 35: try { try decoder.decodeSingularMessageField(value: &_storage._split) }()
         default: break
         }
       }
@@ -537,6 +591,9 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if _storage._traceSampled != false {
         try visitor.visitSingularBoolField(value: _storage._traceSampled, fieldNumber: 30)
       }
+      try { if let v = _storage._split {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 35)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -560,6 +617,7 @@ extension Google_Logging_V2_LogEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
         if _storage._spanID != rhs_storage._spanID {return false}
         if _storage._traceSampled != rhs_storage._traceSampled {return false}
         if _storage._sourceLocation != rhs_storage._sourceLocation {return false}
+        if _storage._split != rhs_storage._split {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -658,6 +716,50 @@ extension Google_Logging_V2_LogEntrySourceLocation: SwiftProtobuf.Message, Swift
     if lhs.file != rhs.file {return false}
     if lhs.line != rhs.line {return false}
     if lhs.function != rhs.function {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_LogSplit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".LogSplit"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "uid"),
+    2: .same(proto: "index"),
+    3: .standard(proto: "total_splits"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.uid) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.index) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.totalSplits) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.uid.isEmpty {
+      try visitor.visitSingularStringField(value: self.uid, fieldNumber: 1)
+    }
+    if self.index != 0 {
+      try visitor.visitSingularInt32Field(value: self.index, fieldNumber: 2)
+    }
+    if self.totalSplits != 0 {
+      try visitor.visitSingularInt32Field(value: self.totalSplits, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_LogSplit, rhs: Google_Logging_V2_LogSplit) -> Bool {
+    if lhs.uid != rhs.uid {return false}
+    if lhs.index != rhs.index {return false}
+    if lhs.totalSplits != rhs.totalSplits {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

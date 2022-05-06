@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -42,14 +42,15 @@ struct Google_Logging_V2_DeleteLogRequest {
 
   /// Required. The resource name of the log to delete:
   ///
-  ///     "projects/[PROJECT_ID]/logs/[LOG_ID]"
-  ///     "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-  ///     "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
-  ///     "folders/[FOLDER_ID]/logs/[LOG_ID]"
+  /// * `projects/[PROJECT_ID]/logs/[LOG_ID]`
+  /// * `organizations/[ORGANIZATION_ID]/logs/[LOG_ID]`
+  /// * `billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]`
+  /// * `folders/[FOLDER_ID]/logs/[LOG_ID]`
   ///
   /// `[LOG_ID]` must be URL-encoded. For example,
   /// `"projects/my-project-id/logs/syslog"`,
-  /// `"organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"`.
+  /// `"organizations/123/logs/cloudaudit.googleapis.com%2Factivity"`.
+  ///
   /// For more information about log names, see
   /// [LogEntry][google.logging.v2.LogEntry].
   var logName: String = String()
@@ -68,15 +69,15 @@ struct Google_Logging_V2_WriteLogEntriesRequest {
   /// Optional. A default log resource name that is assigned to all log entries
   /// in `entries` that do not specify a value for `log_name`:
   ///
-  ///     "projects/[PROJECT_ID]/logs/[LOG_ID]"
-  ///     "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
-  ///     "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
-  ///     "folders/[FOLDER_ID]/logs/[LOG_ID]"
+  /// * `projects/[PROJECT_ID]/logs/[LOG_ID]`
+  /// * `organizations/[ORGANIZATION_ID]/logs/[LOG_ID]`
+  /// * `billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]`
+  /// * `folders/[FOLDER_ID]/logs/[LOG_ID]`
   ///
   /// `[LOG_ID]` must be URL-encoded. For example:
   ///
   ///     "projects/my-project-id/logs/syslog"
-  ///     "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"
+  ///     "organizations/123/logs/cloudaudit.googleapis.com%2Factivity"
   ///
   /// The permission `logging.logEntries.create` is needed on each project,
   /// organization, billing account, or folder that is receiving new log
@@ -121,14 +122,14 @@ struct Google_Logging_V2_WriteLogEntriesRequest {
   /// the entries later in the list. See the `entries.list` method.
   ///
   /// Log entries with timestamps that are more than the
-  /// [logs retention period](https://cloud.google.com/logging/quota-policy) in
+  /// [logs retention period](https://cloud.google.com/logging/quotas) in
   /// the past or more than 24 hours in the future will not be available when
   /// calling `entries.list`. However, those log entries can still be [exported
   /// with
   /// LogSinks](https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
   ///
   /// To improve throughput and to avoid exceeding the
-  /// [quota limit](https://cloud.google.com/logging/quota-policy) for calls to
+  /// [quota limit](https://cloud.google.com/logging/quotas) for calls to
   /// `entries.write`, you should try to include several log entries in this
   /// list, rather than calling this method for each individual log entry.
   var entries: [Google_Logging_V2_LogEntry] = []
@@ -191,11 +192,17 @@ struct Google_Logging_V2_ListLogEntriesRequest {
   /// Required. Names of one or more parent resources from which to
   /// retrieve log entries:
   ///
-  ///     "projects/[PROJECT_ID]"
-  ///     "organizations/[ORGANIZATION_ID]"
-  ///     "billingAccounts/[BILLING_ACCOUNT_ID]"
-  ///     "folders/[FOLDER_ID]"
+  /// *  `projects/[PROJECT_ID]`
+  /// *  `organizations/[ORGANIZATION_ID]`
+  /// *  `billingAccounts/[BILLING_ACCOUNT_ID]`
+  /// *  `folders/[FOLDER_ID]`
   ///
+  /// May alternatively be one or more views:
+  ///
+  ///  * `projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
   ///
   /// Projects listed in the `project_ids` field are added to this list.
   var resourceNames: [String] = []
@@ -217,10 +224,10 @@ struct Google_Logging_V2_ListLogEntriesRequest {
   /// timestamps are returned in order of their `insert_id` values.
   var orderBy: String = String()
 
-  /// Optional. The maximum number of results to return from this request.
-  /// Default is 50. If the value is negative or exceeds 1000,
-  /// the request is rejected. The presence of `next_page_token` in the
-  /// response indicates that more results might be available.
+  /// Optional. The maximum number of results to return from this request. Default is 50.
+  /// If the value is negative or exceeds 1000, the request is rejected. The
+  /// presence of `next_page_token` in the response indicates that more results
+  /// might be available.
   var pageSize: Int32 = 0
 
   /// Optional. If present, then retrieve the next batch of results from the
@@ -311,10 +318,10 @@ struct Google_Logging_V2_ListLogsRequest {
 
   /// Required. The resource name that owns the logs:
   ///
-  ///     "projects/[PROJECT_ID]"
-  ///     "organizations/[ORGANIZATION_ID]"
-  ///     "billingAccounts/[BILLING_ACCOUNT_ID]"
-  ///     "folders/[FOLDER_ID]"
+  /// *  `projects/[PROJECT_ID]`
+  /// *  `organizations/[ORGANIZATION_ID]`
+  /// *  `billingAccounts/[BILLING_ACCOUNT_ID]`
+  /// *  `folders/[FOLDER_ID]`
   var parent: String = String()
 
   /// Optional. The maximum number of results to return from this request.
@@ -327,6 +334,21 @@ struct Google_Logging_V2_ListLogsRequest {
   /// `nextPageToken` from the previous response.  The values of other method
   /// parameters should be identical to those in the previous call.
   var pageToken: String = String()
+
+  /// Optional. The resource name that owns the logs:
+  ///
+  ///  * `projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///
+  /// To support legacy queries, it could also be:
+  ///
+  /// *  `projects/[PROJECT_ID]`
+  /// *  `organizations/[ORGANIZATION_ID]`
+  /// *  `billingAccounts/[BILLING_ACCOUNT_ID]`
+  /// *  `folders/[FOLDER_ID]`
+  var resourceNames: [String] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -353,6 +375,151 @@ struct Google_Logging_V2_ListLogsResponse {
 
   init() {}
 }
+
+/// The parameters to `TailLogEntries`.
+struct Google_Logging_V2_TailLogEntriesRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. Name of a parent resource from which to retrieve log entries:
+  ///
+  /// *  `projects/[PROJECT_ID]`
+  /// *  `organizations/[ORGANIZATION_ID]`
+  /// *  `billingAccounts/[BILLING_ACCOUNT_ID]`
+  /// *  `folders/[FOLDER_ID]`
+  ///
+  /// May alternatively be one or more views:
+  ///
+  ///  * `projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  ///  * `folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
+  var resourceNames: [String] = []
+
+  /// Optional. A filter that chooses which log entries to return.  See [Advanced
+  /// Logs Filters](https://cloud.google.com/logging/docs/view/advanced_filters).
+  /// Only log entries that match the filter are returned.  An empty filter
+  /// matches all log entries in the resources listed in `resource_names`.
+  /// Referencing a parent resource that is not in `resource_names` will cause
+  /// the filter to return no results. The maximum length of the filter is 20000
+  /// characters.
+  var filter: String = String()
+
+  /// Optional. The amount of time to buffer log entries at the server before
+  /// being returned to prevent out of order results due to late arriving log
+  /// entries. Valid values are between 0-60000 milliseconds. Defaults to 2000
+  /// milliseconds.
+  var bufferWindow: SwiftProtobuf.Google_Protobuf_Duration {
+    get {return _bufferWindow ?? SwiftProtobuf.Google_Protobuf_Duration()}
+    set {_bufferWindow = newValue}
+  }
+  /// Returns true if `bufferWindow` has been explicitly set.
+  var hasBufferWindow: Bool {return self._bufferWindow != nil}
+  /// Clears the value of `bufferWindow`. Subsequent reads from it will return its default value.
+  mutating func clearBufferWindow() {self._bufferWindow = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _bufferWindow: SwiftProtobuf.Google_Protobuf_Duration? = nil
+}
+
+/// Result returned from `TailLogEntries`.
+struct Google_Logging_V2_TailLogEntriesResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// A list of log entries. Each response in the stream will order entries with
+  /// increasing values of `LogEntry.timestamp`. Ordering is not guaranteed
+  /// between separate responses.
+  var entries: [Google_Logging_V2_LogEntry] = []
+
+  /// If entries that otherwise would have been included in the session were not
+  /// sent back to the client, counts of relevant entries omitted from the
+  /// session with the reason that they were not included. There will be at most
+  /// one of each reason per response. The counts represent the number of
+  /// suppressed entries since the last streamed response.
+  var suppressionInfo: [Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// Information about entries that were omitted from the session.
+  struct SuppressionInfo {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// The reason that entries were omitted from the session.
+    var reason: Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason = .unspecified
+
+    /// A lower bound on the count of entries omitted due to `reason`.
+    var suppressedCount: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    /// An indicator of why entries were omitted.
+    enum Reason: SwiftProtobuf.Enum {
+      typealias RawValue = Int
+
+      /// Unexpected default.
+      case unspecified // = 0
+
+      /// Indicates suppression occurred due to relevant entries being
+      /// received in excess of rate limits. For quotas and limits, see
+      /// [Logging API quotas and
+      /// limits](https://cloud.google.com/logging/quotas#api-limits).
+      case rateLimit // = 1
+
+      /// Indicates suppression occurred due to the client not consuming
+      /// responses quickly enough.
+      case notConsumed // = 2
+      case UNRECOGNIZED(Int)
+
+      init() {
+        self = .unspecified
+      }
+
+      init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .unspecified
+        case 1: self = .rateLimit
+        case 2: self = .notConsumed
+        default: self = .UNRECOGNIZED(rawValue)
+        }
+      }
+
+      var rawValue: Int {
+        switch self {
+        case .unspecified: return 0
+        case .rateLimit: return 1
+        case .notConsumed: return 2
+        case .UNRECOGNIZED(let i): return i
+        }
+      }
+
+    }
+
+    init() {}
+  }
+
+  init() {}
+}
+
+#if swift(>=4.2)
+
+extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason] = [
+    .unspecified,
+    .rateLimit,
+    .notConsumed,
+  ]
+}
+
+#endif  // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -683,6 +850,7 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
     1: .same(proto: "parent"),
     2: .standard(proto: "page_size"),
     3: .standard(proto: "page_token"),
+    8: .standard(proto: "resource_names"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -694,6 +862,7 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
       case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
       case 2: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.pageToken) }()
+      case 8: try { try decoder.decodeRepeatedStringField(value: &self.resourceNames) }()
       default: break
       }
     }
@@ -709,6 +878,9 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
     if !self.pageToken.isEmpty {
       try visitor.visitSingularStringField(value: self.pageToken, fieldNumber: 3)
     }
+    if !self.resourceNames.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.resourceNames, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -716,6 +888,7 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
     if lhs.parent != rhs.parent {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageToken != rhs.pageToken {return false}
+    if lhs.resourceNames != rhs.resourceNames {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -757,4 +930,136 @@ extension Google_Logging_V2_ListLogsResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
+}
+
+extension Google_Logging_V2_TailLogEntriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TailLogEntriesRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "resource_names"),
+    2: .same(proto: "filter"),
+    3: .standard(proto: "buffer_window"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.resourceNames) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.filter) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._bufferWindow) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.resourceNames.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.resourceNames, fieldNumber: 1)
+    }
+    if !self.filter.isEmpty {
+      try visitor.visitSingularStringField(value: self.filter, fieldNumber: 2)
+    }
+    try { if let v = self._bufferWindow {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_TailLogEntriesRequest, rhs: Google_Logging_V2_TailLogEntriesRequest) -> Bool {
+    if lhs.resourceNames != rhs.resourceNames {return false}
+    if lhs.filter != rhs.filter {return false}
+    if lhs._bufferWindow != rhs._bufferWindow {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_TailLogEntriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TailLogEntriesResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "entries"),
+    2: .standard(proto: "suppression_info"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.entries) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.suppressionInfo) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.entries.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.entries, fieldNumber: 1)
+    }
+    if !self.suppressionInfo.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.suppressionInfo, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_TailLogEntriesResponse, rhs: Google_Logging_V2_TailLogEntriesResponse) -> Bool {
+    if lhs.entries != rhs.entries {return false}
+    if lhs.suppressionInfo != rhs.suppressionInfo {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Google_Logging_V2_TailLogEntriesResponse.protoMessageName + ".SuppressionInfo"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "reason"),
+    2: .standard(proto: "suppressed_count"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.reason) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.suppressedCount) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.reason != .unspecified {
+      try visitor.visitSingularEnumField(value: self.reason, fieldNumber: 1)
+    }
+    if self.suppressedCount != 0 {
+      try visitor.visitSingularInt32Field(value: self.suppressedCount, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo, rhs: Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo) -> Bool {
+    if lhs.reason != rhs.reason {return false}
+    if lhs.suppressedCount != rhs.suppressedCount {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "REASON_UNSPECIFIED"),
+    1: .same(proto: "RATE_LIMIT"),
+    2: .same(proto: "NOT_CONSUMED"),
+  ]
 }

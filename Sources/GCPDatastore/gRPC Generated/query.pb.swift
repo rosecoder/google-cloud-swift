@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2019 Google LLC.
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -60,6 +60,19 @@ struct Google_Datastore_V1_EntityResult {
   /// is the version of the snapshot that was used to look up the entity, and it
   /// is always set except for eventually consistent reads.
   var version: Int64 = 0
+
+  /// The time at which the entity was last changed.
+  /// This field is set for [`FULL`][google.datastore.v1.EntityResult.ResultType.FULL] entity
+  /// results.
+  /// If this entity is missing, this field will not be set.
+  var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _updateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_updateTime = newValue}
+  }
+  /// Returns true if `updateTime` has been explicitly set.
+  var hasUpdateTime: Bool {return self._updateTime != nil}
+  /// Clears the value of `updateTime`. Subsequent reads from it will return its default value.
+  mutating func clearUpdateTime() {self._updateTime = nil}
 
   /// A cursor that points to the position after the result entity.
   /// Set only when the `EntityResult` is part of a `QueryResultBatch` message.
@@ -117,6 +130,7 @@ struct Google_Datastore_V1_EntityResult {
   init() {}
 
   fileprivate var _entity: Google_Datastore_V1_Entity? = nil
+  fileprivate var _updateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 #if swift(>=4.2)
@@ -490,23 +504,68 @@ struct Google_Datastore_V1_PropertyFilter {
     /// Unspecified. This value must not be used.
     case unspecified // = 0
 
-    /// Less than.
+    /// The given `property` is less than the given `value`.
+    ///
+    /// Requires:
+    ///
+    /// * That `property` comes first in `order_by`.
     case lessThan // = 1
 
-    /// Less than or equal.
+    /// The given `property` is less than or equal to the given `value`.
+    ///
+    /// Requires:
+    ///
+    /// * That `property` comes first in `order_by`.
     case lessThanOrEqual // = 2
 
-    /// Greater than.
+    /// The given `property` is greater than the given `value`.
+    ///
+    /// Requires:
+    ///
+    /// * That `property` comes first in `order_by`.
     case greaterThan // = 3
 
-    /// Greater than or equal.
+    /// The given `property` is greater than or equal to the given `value`.
+    ///
+    /// Requires:
+    ///
+    /// * That `property` comes first in `order_by`.
     case greaterThanOrEqual // = 4
 
-    /// Equal.
+    /// The given `property` is equal to the given `value`.
     case equal // = 5
 
-    /// Has ancestor.
+    /// The given `property` is equal to at least one value in the given array.
+    ///
+    /// Requires:
+    ///
+    /// * That `value` is a non-empty `ArrayValue` with at most 10 values.
+    /// * No other `IN` or `NOT_IN` is in the same query.
+    case `in` // = 6
+
+    /// The given `property` is not equal to the given `value`.
+    ///
+    /// Requires:
+    ///
+    /// * No other `NOT_EQUAL` or `NOT_IN` is in the same query.
+    /// * That `property` comes first in the `order_by`.
+    case notEqual // = 9
+
+    /// Limit the result set to the given entity and its descendants.
+    ///
+    /// Requires:
+    ///
+    /// * That `value` is an entity key.
     case hasAncestor // = 11
+
+    /// The value of the `property` is not in the given array.
+    ///
+    /// Requires:
+    ///
+    /// * That `value` is a non-empty `ArrayValue` with at most 10 values.
+    /// * No other `IN`, `NOT_IN`, `NOT_EQUAL` is in the same query.
+    /// * That `field` comes first in the `order_by`.
+    case notIn // = 13
     case UNRECOGNIZED(Int)
 
     init() {
@@ -521,7 +580,10 @@ struct Google_Datastore_V1_PropertyFilter {
       case 3: self = .greaterThan
       case 4: self = .greaterThanOrEqual
       case 5: self = .equal
+      case 6: self = .in
+      case 9: self = .notEqual
       case 11: self = .hasAncestor
+      case 13: self = .notIn
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
@@ -534,7 +596,10 @@ struct Google_Datastore_V1_PropertyFilter {
       case .greaterThan: return 3
       case .greaterThanOrEqual: return 4
       case .equal: return 5
+      case .in: return 6
+      case .notEqual: return 9
       case .hasAncestor: return 11
+      case .notIn: return 13
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -558,7 +623,10 @@ extension Google_Datastore_V1_PropertyFilter.Operator: CaseIterable {
     .greaterThan,
     .greaterThanOrEqual,
     .equal,
+    .in,
+    .notEqual,
     .hasAncestor,
+    .notIn,
   ]
 }
 
@@ -697,6 +765,25 @@ struct Google_Datastore_V1_QueryResultBatch {
   /// The value will be zero for eventually consistent queries.
   var snapshotVersion: Int64 = 0
 
+  /// Read timestamp this batch was returned from.
+  /// This applies to the range of results from the query's `start_cursor` (or
+  /// the beginning of the query if no cursor was given) to this batch's
+  /// `end_cursor` (not the query's `end_cursor`).
+  ///
+  /// In a single transaction, subsequent query result batches for the same query
+  /// can have a greater timestamp. Each batch's read timestamp
+  /// is valid for all preceding batches.
+  /// This value will not be set for eventually consistent queries in Cloud
+  /// Datastore.
+  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_readTime = newValue}
+  }
+  /// Returns true if `readTime` has been explicitly set.
+  var hasReadTime: Bool {return self._readTime != nil}
+  /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
+  mutating func clearReadTime() {self._readTime = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The possible values for the `more_results` field.
@@ -749,6 +836,8 @@ struct Google_Datastore_V1_QueryResultBatch {
   }
 
   init() {}
+
+  fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 #if swift(>=4.2)
@@ -775,6 +864,7 @@ extension Google_Datastore_V1_EntityResult: SwiftProtobuf.Message, SwiftProtobuf
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entity"),
     4: .same(proto: "version"),
+    5: .standard(proto: "update_time"),
     3: .same(proto: "cursor"),
   ]
 
@@ -787,6 +877,7 @@ extension Google_Datastore_V1_EntityResult: SwiftProtobuf.Message, SwiftProtobuf
       case 1: try { try decoder.decodeSingularMessageField(value: &self._entity) }()
       case 3: try { try decoder.decodeSingularBytesField(value: &self.cursor) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.version) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._updateTime) }()
       default: break
       }
     }
@@ -806,12 +897,16 @@ extension Google_Datastore_V1_EntityResult: SwiftProtobuf.Message, SwiftProtobuf
     if self.version != 0 {
       try visitor.visitSingularInt64Field(value: self.version, fieldNumber: 4)
     }
+    try { if let v = self._updateTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Datastore_V1_EntityResult, rhs: Google_Datastore_V1_EntityResult) -> Bool {
     if lhs._entity != rhs._entity {return false}
     if lhs.version != rhs.version {return false}
+    if lhs._updateTime != rhs._updateTime {return false}
     if lhs.cursor != rhs.cursor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1232,7 +1327,10 @@ extension Google_Datastore_V1_PropertyFilter.Operator: SwiftProtobuf._ProtoNameP
     3: .same(proto: "GREATER_THAN"),
     4: .same(proto: "GREATER_THAN_OR_EQUAL"),
     5: .same(proto: "EQUAL"),
+    6: .same(proto: "IN"),
+    9: .same(proto: "NOT_EQUAL"),
     11: .same(proto: "HAS_ANCESTOR"),
+    13: .same(proto: "NOT_IN"),
   ]
 }
 
@@ -1361,6 +1459,7 @@ extension Google_Datastore_V1_QueryResultBatch: SwiftProtobuf.Message, SwiftProt
     4: .standard(proto: "end_cursor"),
     5: .standard(proto: "more_results"),
     7: .standard(proto: "snapshot_version"),
+    8: .standard(proto: "read_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1376,12 +1475,17 @@ extension Google_Datastore_V1_QueryResultBatch: SwiftProtobuf.Message, SwiftProt
       case 5: try { try decoder.decodeSingularEnumField(value: &self.moreResults) }()
       case 6: try { try decoder.decodeSingularInt32Field(value: &self.skippedResults) }()
       case 7: try { try decoder.decodeSingularInt64Field(value: &self.snapshotVersion) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._readTime) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if self.entityResultType != .unspecified {
       try visitor.visitSingularEnumField(value: self.entityResultType, fieldNumber: 1)
     }
@@ -1403,6 +1507,9 @@ extension Google_Datastore_V1_QueryResultBatch: SwiftProtobuf.Message, SwiftProt
     if self.snapshotVersion != 0 {
       try visitor.visitSingularInt64Field(value: self.snapshotVersion, fieldNumber: 7)
     }
+    try { if let v = self._readTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1414,6 +1521,7 @@ extension Google_Datastore_V1_QueryResultBatch: SwiftProtobuf.Message, SwiftProt
     if lhs.endCursor != rhs.endCursor {return false}
     if lhs.moreResults != rhs.moreResults {return false}
     if lhs.snapshotVersion != rhs.snapshotVersion {return false}
+    if lhs._readTime != rhs._readTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

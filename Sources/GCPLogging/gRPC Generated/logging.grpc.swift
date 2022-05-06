@@ -56,6 +56,11 @@ internal protocol Google_Logging_V2_LoggingServiceV2ClientProtocol: GRPCClient {
     _ request: Google_Logging_V2_ListLogsRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse>
+
+  func tailLogEntries(
+    callOptions: CallOptions?,
+    handler: @escaping (Google_Logging_V2_TailLogEntriesResponse) -> Void
+  ) -> BidirectionalStreamingCall<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse>
 }
 
 extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
@@ -63,10 +68,10 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
     return "google.logging.v2.LoggingServiceV2"
   }
 
-  /// Deletes all the log entries in a log. The log reappears if it receives new
-  /// entries. Log entries written shortly before the delete operation might not
-  /// be deleted. Entries received after the delete operation with a timestamp
-  /// before the operation will be deleted.
+  /// Deletes all the log entries in a log for the _Default Log Bucket. The log
+  /// reappears if it receives new entries. Log entries written shortly before
+  /// the delete operation might not be deleted. Entries received after the
+  /// delete operation with a timestamp before the operation will be deleted.
   ///
   /// - Parameters:
   ///   - request: Request to send to DeleteLog.
@@ -165,6 +170,28 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
     )
   }
+
+  /// Streaming read of log entries as they are ingested. Until the stream is
+  /// terminated, it will continue reading logs.
+  ///
+  /// Callers should use the `send` method on the returned object to send messages
+  /// to the server. The caller should send an `.end` after the final message has been sent.
+  ///
+  /// - Parameters:
+  ///   - callOptions: Call options.
+  ///   - handler: A closure called when each response is received from the server.
+  /// - Returns: A `ClientStreamingCall` with futures for the metadata and status.
+  internal func tailLogEntries(
+    callOptions: CallOptions? = nil,
+    handler: @escaping (Google_Logging_V2_TailLogEntriesResponse) -> Void
+  ) -> BidirectionalStreamingCall<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse> {
+    return self.makeBidirectionalStreamingCall(
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries.path,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeTailLogEntriesInterceptors() ?? [],
+      handler: handler
+    )
+  }
 }
 
 internal final class Google_Logging_V2_LoggingServiceV2Client: Google_Logging_V2_LoggingServiceV2ClientProtocol {
@@ -220,6 +247,10 @@ internal protocol Google_Logging_V2_LoggingServiceV2AsyncClientProtocol: GRPCCli
     _ request: Google_Logging_V2_ListLogsRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse>
+
+  func makeTailLogEntriesCall(
+    callOptions: CallOptions?
+  ) -> GRPCAsyncBidirectionalStreamingCall<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse>
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -291,6 +322,16 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
     )
   }
+
+  internal func makeTailLogEntriesCall(
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncBidirectionalStreamingCall<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse> {
+    return self.makeAsyncBidirectionalStreamingCall(
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries.path,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeTailLogEntriesInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -354,6 +395,30 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
       interceptors: self.interceptors?.makeListLogsInterceptors() ?? []
     )
   }
+
+  internal func tailLogEntries<RequestStream>(
+    _ requests: RequestStream,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncResponseStream<Google_Logging_V2_TailLogEntriesResponse> where RequestStream: Sequence, RequestStream.Element == Google_Logging_V2_TailLogEntriesRequest {
+    return self.performAsyncBidirectionalStreamingCall(
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries.path,
+      requests: requests,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeTailLogEntriesInterceptors() ?? []
+    )
+  }
+
+  internal func tailLogEntries<RequestStream>(
+    _ requests: RequestStream,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncResponseStream<Google_Logging_V2_TailLogEntriesResponse> where RequestStream: AsyncSequence, RequestStream.Element == Google_Logging_V2_TailLogEntriesRequest {
+    return self.performAsyncBidirectionalStreamingCall(
+      path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries.path,
+      requests: requests,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeTailLogEntriesInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -391,6 +456,9 @@ internal protocol Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProt
 
   /// - Returns: Interceptors to use when invoking 'listLogs'.
   func makeListLogsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLogsRequest, Google_Logging_V2_ListLogsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'tailLogEntries'.
+  func makeTailLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse>]
 }
 
 internal enum Google_Logging_V2_LoggingServiceV2ClientMetadata {
@@ -403,6 +471,7 @@ internal enum Google_Logging_V2_LoggingServiceV2ClientMetadata {
       Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogEntries,
       Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listMonitoredResourceDescriptors,
       Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.listLogs,
+      Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries,
     ]
   )
 
@@ -435,6 +504,12 @@ internal enum Google_Logging_V2_LoggingServiceV2ClientMetadata {
       name: "ListLogs",
       path: "/google.logging.v2.LoggingServiceV2/ListLogs",
       type: GRPCCallType.unary
+    )
+
+    internal static let tailLogEntries = GRPCMethodDescriptor(
+      name: "TailLogEntries",
+      path: "/google.logging.v2.LoggingServiceV2/TailLogEntries",
+      type: GRPCCallType.bidirectionalStreaming
     )
   }
 }

@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2015 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ struct Google_Api_Distribution {
   ///
   ///     Sum[i=1..n]((x_i - mean)^2)
   ///
-  /// Knuth, "The Art of Computer Programming", Vol. 2, page 323, 3rd edition
+  /// Knuth, "The Art of Computer Programming", Vol. 2, page 232, 3rd edition
   /// describes Welford's method for accumulating this sum in one pass.
   ///
   /// If `count` is zero then this field must be zero.

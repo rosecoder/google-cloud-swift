@@ -42,10 +42,50 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>
 
+  func createBucket(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket>
+
   func updateBucket(
     _ request: Google_Logging_V2_UpdateBucketRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket>
+
+  func deleteBucket(
+    _ request: Google_Logging_V2_DeleteBucketRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_DeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func undeleteBucket(
+    _ request: Google_Logging_V2_UndeleteBucketRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_UndeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func listViews(
+    _ request: Google_Logging_V2_ListViewsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_ListViewsRequest, Google_Logging_V2_ListViewsResponse>
+
+  func getView(
+    _ request: Google_Logging_V2_GetViewRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_GetViewRequest, Google_Logging_V2_LogView>
+
+  func createView(
+    _ request: Google_Logging_V2_CreateViewRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_CreateViewRequest, Google_Logging_V2_LogView>
+
+  func updateView(
+    _ request: Google_Logging_V2_UpdateViewRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_UpdateViewRequest, Google_Logging_V2_LogView>
+
+  func deleteView(
+    _ request: Google_Logging_V2_DeleteViewRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_DeleteViewRequest, SwiftProtobuf.Google_Protobuf_Empty>
 
   func listSinks(
     _ request: Google_Logging_V2_ListSinksRequest,
@@ -106,6 +146,21 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientProtocol: GRPCClient {
     _ request: Google_Logging_V2_UpdateCmekSettingsRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings>
+
+  func getSettings(
+    _ request: Google_Logging_V2_GetSettingsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_GetSettingsRequest, Google_Logging_V2_Settings>
+
+  func updateSettings(
+    _ request: Google_Logging_V2_UpdateSettingsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_UpdateSettingsRequest, Google_Logging_V2_Settings>
+
+  func copyLogEntries(
+    _ request: Google_Logging_V2_CopyLogEntriesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation>
 }
 
 extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
@@ -113,7 +168,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     return "google.logging.v2.ConfigServiceV2"
   }
 
-  /// Lists buckets (Beta).
+  /// Lists log buckets.
   ///
   /// - Parameters:
   ///   - request: Request to send to ListBuckets.
@@ -131,7 +186,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Gets a bucket (Beta).
+  /// Gets a log bucket.
   ///
   /// - Parameters:
   ///   - request: Request to send to GetBucket.
@@ -149,17 +204,35 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Updates a bucket. This method replaces the following fields in the
+  /// Creates a log bucket that can be used to store log entries. After a bucket
+  /// has been created, the bucket's location cannot be changed.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateBucket.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createBucket(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketInterceptors() ?? []
+    )
+  }
+
+  /// Updates a log bucket. This method replaces the following fields in the
   /// existing bucket with values from the new bucket: `retention_period`
   ///
   /// If the retention period is decreased and the bucket is locked,
-  /// FAILED_PRECONDITION will be returned.
+  /// `FAILED_PRECONDITION` will be returned.
   ///
-  /// If the bucket has a LifecycleState of DELETE_REQUESTED, FAILED_PRECONDITION
-  /// will be returned.
+  /// If the bucket has a `lifecycle_state` of `DELETE_REQUESTED`, then
+  /// `FAILED_PRECONDITION` will be returned.
   ///
-  /// A buckets region may not be modified after it is created.
-  /// This method is in Beta.
+  /// After a bucket has been created, the bucket's location cannot be changed.
   ///
   /// - Parameters:
   ///   - request: Request to send to UpdateBucket.
@@ -174,6 +247,145 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a log bucket.
+  ///
+  /// Changes the bucket's `lifecycle_state` to the `DELETE_REQUESTED` state.
+  /// After 7 days, the bucket will be purged and all log entries in the bucket
+  /// will be permanently deleted.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteBucket.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteBucket(
+    _ request: Google_Logging_V2_DeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_DeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteBucketInterceptors() ?? []
+    )
+  }
+
+  /// Undeletes a log bucket. A bucket that has been deleted can be undeleted
+  /// within the grace period of 7 days.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UndeleteBucket.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func undeleteBucket(
+    _ request: Google_Logging_V2_UndeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_UndeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.undeleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUndeleteBucketInterceptors() ?? []
+    )
+  }
+
+  /// Lists views on a log bucket.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListViews.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listViews(
+    _ request: Google_Logging_V2_ListViewsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_ListViewsRequest, Google_Logging_V2_ListViewsResponse> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listViews.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListViewsInterceptors() ?? []
+    )
+  }
+
+  /// Gets a view on a log bucket..
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetView.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getView(
+    _ request: Google_Logging_V2_GetViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_GetViewRequest, Google_Logging_V2_LogView> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetViewInterceptors() ?? []
+    )
+  }
+
+  /// Creates a view over log entries in a log bucket. A bucket may contain a
+  /// maximum of 30 views.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateView.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createView(
+    _ request: Google_Logging_V2_CreateViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_CreateViewRequest, Google_Logging_V2_LogView> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateViewInterceptors() ?? []
+    )
+  }
+
+  /// Updates a view on a log bucket. This method replaces the following fields
+  /// in the existing view with values from the new view: `filter`.
+  /// If an `UNAVAILABLE` error is returned, this indicates that system is not in
+  /// a state where it can update the view. If this occurs, please try again in a
+  /// few minutes.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UpdateView.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func updateView(
+    _ request: Google_Logging_V2_UpdateViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_UpdateViewRequest, Google_Logging_V2_LogView> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateViewInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a view on a log bucket.
+  /// If an `UNAVAILABLE` error is returned, this indicates that system is not in
+  /// a state where it can delete the view. If this occurs, please try again in a
+  /// few minutes.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteView.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteView(
+    _ request: Google_Logging_V2_DeleteViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_DeleteViewRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteViewInterceptors() ?? []
     )
   }
 
@@ -275,7 +487,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Lists all the exclusions in a parent resource.
+  /// Lists all the exclusions on the _Default sink in a parent resource.
   ///
   /// - Parameters:
   ///   - request: Request to send to ListExclusions.
@@ -293,7 +505,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Gets the description of an exclusion.
+  /// Gets the description of an exclusion in the _Default sink.
   ///
   /// - Parameters:
   ///   - request: Request to send to GetExclusion.
@@ -311,9 +523,9 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Creates a new exclusion in a specified parent resource.
-  /// Only log entries belonging to that resource can be excluded.
-  /// You can have up to 10 exclusions in a resource.
+  /// Creates a new exclusion in the _Default sink in a specified parent
+  /// resource. Only log entries belonging to that resource can be excluded. You
+  /// can have up to 10 exclusions in a resource.
   ///
   /// - Parameters:
   ///   - request: Request to send to CreateExclusion.
@@ -331,7 +543,8 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Changes one or more properties of an existing exclusion.
+  /// Changes one or more properties of an existing exclusion in the _Default
+  /// sink.
   ///
   /// - Parameters:
   ///   - request: Request to send to UpdateExclusion.
@@ -349,7 +562,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Deletes an exclusion.
+  /// Deletes an exclusion in the _Default sink.
   ///
   /// - Parameters:
   ///   - request: Request to send to DeleteExclusion.
@@ -367,13 +580,14 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Gets the Logs Router CMEK settings for the given resource.
+  /// Gets the Logging CMEK settings for the given resource.
   ///
-  /// Note: CMEK for the Logs Router can currently only be configured for GCP
-  /// organizations. Once configured, it applies to all projects and folders in
-  /// the GCP organization.
+  /// Note: CMEK for the Log Router can be configured for Google Cloud projects,
+  /// folders, organizations and billing accounts. Once configured for an
+  /// organization, it applies to all projects and folders in the Google Cloud
+  /// organization.
   ///
-  /// See [Enabling CMEK for Logs
+  /// See [Enabling CMEK for Log
   /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption)
   /// for more information.
   ///
@@ -393,11 +607,11 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Updates the Logs Router CMEK settings for the given resource.
+  /// Updates the Log Router CMEK settings for the given resource.
   ///
-  /// Note: CMEK for the Logs Router can currently only be configured for GCP
-  /// organizations. Once configured, it applies to all projects and folders in
-  /// the GCP organization.
+  /// Note: CMEK for the Log Router can currently only be configured for Google
+  /// Cloud organizations. Once configured, it applies to all projects and
+  /// folders in the Google Cloud organization.
   ///
   /// [UpdateCmekSettings][google.logging.v2.ConfigServiceV2.UpdateCmekSettings]
   /// will fail if 1) `kms_key_name` is invalid, or 2) the associated service
@@ -405,7 +619,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
   /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` role assigned for the key, or
   /// 3) access to the key is disabled.
   ///
-  /// See [Enabling CMEK for Logs
+  /// See [Enabling CMEK for Log
   /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption)
   /// for more information.
   ///
@@ -422,6 +636,84 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
+    )
+  }
+
+  /// Gets the Log Router settings for the given resource.
+  ///
+  /// Note: Settings for the Log Router can be get for Google Cloud projects,
+  /// folders, organizations and billing accounts. Currently it can only be
+  /// configured for organizations. Once configured for an organization, it
+  /// applies to all projects and folders in the Google Cloud organization.
+  ///
+  /// See [Enabling CMEK for Log
+  /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption)
+  /// for more information.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetSettings.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getSettings(
+    _ request: Google_Logging_V2_GetSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_GetSettingsRequest, Google_Logging_V2_Settings> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetSettingsInterceptors() ?? []
+    )
+  }
+
+  /// Updates the Log Router settings for the given resource.
+  ///
+  /// Note: Settings for the Log Router can currently only be configured for
+  /// Google Cloud organizations. Once configured, it applies to all projects and
+  /// folders in the Google Cloud organization.
+  ///
+  /// [UpdateSettings][google.logging.v2.ConfigServiceV2.UpdateSettings]
+  /// will fail if 1) `kms_key_name` is invalid, or 2) the associated service
+  /// account does not have the required
+  /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` role assigned for the key, or
+  /// 3) access to the key is disabled. 4) `location_id` is not supported by
+  /// Logging. 5) `location_id` violate OrgPolicy.
+  ///
+  /// See [Enabling CMEK for Log
+  /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption)
+  /// for more information.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UpdateSettings.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func updateSettings(
+    _ request: Google_Logging_V2_UpdateSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_UpdateSettingsRequest, Google_Logging_V2_Settings> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateSettingsInterceptors() ?? []
+    )
+  }
+
+  /// Copies a set of log entries from a log bucket to a Cloud Storage bucket.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CopyLogEntries.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func copyLogEntries(
+    _ request: Google_Logging_V2_CopyLogEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.copyLogEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCopyLogEntriesInterceptors() ?? []
     )
   }
 }
@@ -465,10 +757,50 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>
 
+  func makeCreateBucketCall(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket>
+
   func makeUpdateBucketCall(
     _ request: Google_Logging_V2_UpdateBucketRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket>
+
+  func makeDeleteBucketCall(
+    _ request: Google_Logging_V2_DeleteBucketRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeUndeleteBucketCall(
+    _ request: Google_Logging_V2_UndeleteBucketRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UndeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeListViewsCall(
+    _ request: Google_Logging_V2_ListViewsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListViewsRequest, Google_Logging_V2_ListViewsResponse>
+
+  func makeGetViewCall(
+    _ request: Google_Logging_V2_GetViewRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetViewRequest, Google_Logging_V2_LogView>
+
+  func makeCreateViewCall(
+    _ request: Google_Logging_V2_CreateViewRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateViewRequest, Google_Logging_V2_LogView>
+
+  func makeUpdateViewCall(
+    _ request: Google_Logging_V2_UpdateViewRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateViewRequest, Google_Logging_V2_LogView>
+
+  func makeDeleteViewCall(
+    _ request: Google_Logging_V2_DeleteViewRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteViewRequest, SwiftProtobuf.Google_Protobuf_Empty>
 
   func makeListSinksCall(
     _ request: Google_Logging_V2_ListSinksRequest,
@@ -529,6 +861,21 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
     _ request: Google_Logging_V2_UpdateCmekSettingsRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings>
+
+  func makeGetSettingsCall(
+    _ request: Google_Logging_V2_GetSettingsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetSettingsRequest, Google_Logging_V2_Settings>
+
+  func makeUpdateSettingsCall(
+    _ request: Google_Logging_V2_UpdateSettingsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateSettingsRequest, Google_Logging_V2_Settings>
+
+  func makeCopyLogEntriesCall(
+    _ request: Google_Logging_V2_CopyLogEntriesRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation>
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -565,6 +912,18 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     )
   }
 
+  internal func makeCreateBucketCall(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketInterceptors() ?? []
+    )
+  }
+
   internal func makeUpdateBucketCall(
     _ request: Google_Logging_V2_UpdateBucketRequest,
     callOptions: CallOptions? = nil
@@ -574,6 +933,90 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteBucketCall(
+    _ request: Google_Logging_V2_DeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteBucketInterceptors() ?? []
+    )
+  }
+
+  internal func makeUndeleteBucketCall(
+    _ request: Google_Logging_V2_UndeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UndeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.undeleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUndeleteBucketInterceptors() ?? []
+    )
+  }
+
+  internal func makeListViewsCall(
+    _ request: Google_Logging_V2_ListViewsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListViewsRequest, Google_Logging_V2_ListViewsResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listViews.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListViewsInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetViewCall(
+    _ request: Google_Logging_V2_GetViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetViewRequest, Google_Logging_V2_LogView> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetViewInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateViewCall(
+    _ request: Google_Logging_V2_CreateViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateViewRequest, Google_Logging_V2_LogView> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateViewInterceptors() ?? []
+    )
+  }
+
+  internal func makeUpdateViewCall(
+    _ request: Google_Logging_V2_UpdateViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateViewRequest, Google_Logging_V2_LogView> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateViewInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteViewCall(
+    _ request: Google_Logging_V2_DeleteViewRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteViewRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteViewInterceptors() ?? []
     )
   }
 
@@ -720,6 +1163,42 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
     )
   }
+
+  internal func makeGetSettingsCall(
+    _ request: Google_Logging_V2_GetSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetSettingsRequest, Google_Logging_V2_Settings> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetSettingsInterceptors() ?? []
+    )
+  }
+
+  internal func makeUpdateSettingsCall(
+    _ request: Google_Logging_V2_UpdateSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateSettingsRequest, Google_Logging_V2_Settings> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateSettingsInterceptors() ?? []
+    )
+  }
+
+  internal func makeCopyLogEntriesCall(
+    _ request: Google_Logging_V2_CopyLogEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.copyLogEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCopyLogEntriesInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -748,6 +1227,18 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     )
   }
 
+  internal func createBucket(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_LogBucket {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketInterceptors() ?? []
+    )
+  }
+
   internal func updateBucket(
     _ request: Google_Logging_V2_UpdateBucketRequest,
     callOptions: CallOptions? = nil
@@ -757,6 +1248,90 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeUpdateBucketInterceptors() ?? []
+    )
+  }
+
+  internal func deleteBucket(
+    _ request: Google_Logging_V2_DeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteBucketInterceptors() ?? []
+    )
+  }
+
+  internal func undeleteBucket(
+    _ request: Google_Logging_V2_UndeleteBucketRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.undeleteBucket.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUndeleteBucketInterceptors() ?? []
+    )
+  }
+
+  internal func listViews(
+    _ request: Google_Logging_V2_ListViewsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_ListViewsResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listViews.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListViewsInterceptors() ?? []
+    )
+  }
+
+  internal func getView(
+    _ request: Google_Logging_V2_GetViewRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_LogView {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetViewInterceptors() ?? []
+    )
+  }
+
+  internal func createView(
+    _ request: Google_Logging_V2_CreateViewRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_LogView {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateViewInterceptors() ?? []
+    )
+  }
+
+  internal func updateView(
+    _ request: Google_Logging_V2_UpdateViewRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_LogView {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateViewInterceptors() ?? []
+    )
+  }
+
+  internal func deleteView(
+    _ request: Google_Logging_V2_DeleteViewRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteView.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteViewInterceptors() ?? []
     )
   }
 
@@ -903,6 +1478,42 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       interceptors: self.interceptors?.makeUpdateCmekSettingsInterceptors() ?? []
     )
   }
+
+  internal func getSettings(
+    _ request: Google_Logging_V2_GetSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_Settings {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetSettingsInterceptors() ?? []
+    )
+  }
+
+  internal func updateSettings(
+    _ request: Google_Logging_V2_UpdateSettingsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_Settings {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSettings.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateSettingsInterceptors() ?? []
+    )
+  }
+
+  internal func copyLogEntries(
+    _ request: Google_Logging_V2_CopyLogEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.copyLogEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCopyLogEntriesInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
@@ -932,8 +1543,32 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProto
   /// - Returns: Interceptors to use when invoking 'getBucket'.
   func makeGetBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>]
 
+  /// - Returns: Interceptors to use when invoking 'createBucket'.
+  func makeCreateBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket>]
+
   /// - Returns: Interceptors to use when invoking 'updateBucket'.
   func makeUpdateBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateBucketRequest, Google_Logging_V2_LogBucket>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteBucket'.
+  func makeDeleteBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'undeleteBucket'.
+  func makeUndeleteBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_UndeleteBucketRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'listViews'.
+  func makeListViewsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListViewsRequest, Google_Logging_V2_ListViewsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getView'.
+  func makeGetViewInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetViewRequest, Google_Logging_V2_LogView>]
+
+  /// - Returns: Interceptors to use when invoking 'createView'.
+  func makeCreateViewInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateViewRequest, Google_Logging_V2_LogView>]
+
+  /// - Returns: Interceptors to use when invoking 'updateView'.
+  func makeUpdateViewInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateViewRequest, Google_Logging_V2_LogView>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteView'.
+  func makeDeleteViewInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteViewRequest, SwiftProtobuf.Google_Protobuf_Empty>]
 
   /// - Returns: Interceptors to use when invoking 'listSinks'.
   func makeListSinksInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListSinksRequest, Google_Logging_V2_ListSinksResponse>]
@@ -970,6 +1605,15 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProto
 
   /// - Returns: Interceptors to use when invoking 'updateCmekSettings'.
   func makeUpdateCmekSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateCmekSettingsRequest, Google_Logging_V2_CmekSettings>]
+
+  /// - Returns: Interceptors to use when invoking 'getSettings'.
+  func makeGetSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetSettingsRequest, Google_Logging_V2_Settings>]
+
+  /// - Returns: Interceptors to use when invoking 'updateSettings'.
+  func makeUpdateSettingsInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateSettingsRequest, Google_Logging_V2_Settings>]
+
+  /// - Returns: Interceptors to use when invoking 'copyLogEntries'.
+  func makeCopyLogEntriesInterceptors() -> [ClientInterceptor<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation>]
 }
 
 internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
@@ -979,7 +1623,15 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
     methods: [
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucket,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.undeleteBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listViews,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getView,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createView,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateView,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteView,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listSinks,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSink,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink,
@@ -992,6 +1644,9 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteExclusion,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getCmekSettings,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateCmekSettings,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getSettings,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSettings,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.copyLogEntries,
     ]
   )
 
@@ -1008,9 +1663,57 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
       type: GRPCCallType.unary
     )
 
+    internal static let createBucket = GRPCMethodDescriptor(
+      name: "CreateBucket",
+      path: "/google.logging.v2.ConfigServiceV2/CreateBucket",
+      type: GRPCCallType.unary
+    )
+
     internal static let updateBucket = GRPCMethodDescriptor(
       name: "UpdateBucket",
       path: "/google.logging.v2.ConfigServiceV2/UpdateBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteBucket = GRPCMethodDescriptor(
+      name: "DeleteBucket",
+      path: "/google.logging.v2.ConfigServiceV2/DeleteBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let undeleteBucket = GRPCMethodDescriptor(
+      name: "UndeleteBucket",
+      path: "/google.logging.v2.ConfigServiceV2/UndeleteBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listViews = GRPCMethodDescriptor(
+      name: "ListViews",
+      path: "/google.logging.v2.ConfigServiceV2/ListViews",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getView = GRPCMethodDescriptor(
+      name: "GetView",
+      path: "/google.logging.v2.ConfigServiceV2/GetView",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createView = GRPCMethodDescriptor(
+      name: "CreateView",
+      path: "/google.logging.v2.ConfigServiceV2/CreateView",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateView = GRPCMethodDescriptor(
+      name: "UpdateView",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateView",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteView = GRPCMethodDescriptor(
+      name: "DeleteView",
+      path: "/google.logging.v2.ConfigServiceV2/DeleteView",
       type: GRPCCallType.unary
     )
 
@@ -1083,6 +1786,24 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
     internal static let updateCmekSettings = GRPCMethodDescriptor(
       name: "UpdateCmekSettings",
       path: "/google.logging.v2.ConfigServiceV2/UpdateCmekSettings",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getSettings = GRPCMethodDescriptor(
+      name: "GetSettings",
+      path: "/google.logging.v2.ConfigServiceV2/GetSettings",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateSettings = GRPCMethodDescriptor(
+      name: "UpdateSettings",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateSettings",
+      type: GRPCCallType.unary
+    )
+
+    internal static let copyLogEntries = GRPCMethodDescriptor(
+      name: "CopyLogEntries",
+      path: "/google.logging.v2.ConfigServiceV2/CopyLogEntries",
       type: GRPCCallType.unary
     )
   }

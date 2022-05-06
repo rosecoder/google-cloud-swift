@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2019 Google LLC.
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -52,8 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// Foreign partition IDs (in which the project ID does
 /// not match the context project ID ) are discouraged.
-/// Reads and writes of foreign partition IDs may fail if the project is not in
-/// an active state.
+/// Reads and writes of foreign partition IDs may fail if the project is not in an active state.
 struct Google_Datastore_V1_PartitionId {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -277,8 +276,8 @@ struct Google_Datastore_V1_Value {
   }
 
   /// A UTF-8 encoded string value.
-  /// When `exclude_from_indexes` is false (it is indexed), may have at most
-  /// 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes.
+  /// When `exclude_from_indexes` is false (it is indexed) , may have at most 1500 bytes.
+  /// Otherwise, may be set to at most 1,000,000 bytes.
   var stringValue: String {
     get {
       if case .stringValue(let v)? = valueType {return v}
@@ -359,8 +358,8 @@ struct Google_Datastore_V1_Value {
     /// A key value.
     case keyValue(Google_Datastore_V1_Key)
     /// A UTF-8 encoded string value.
-    /// When `exclude_from_indexes` is false (it is indexed), may have at most
-    /// 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes.
+    /// When `exclude_from_indexes` is false (it is indexed) , may have at most 1500 bytes.
+    /// Otherwise, may be set to at most 1,000,000 bytes.
     case stringValue(String)
     /// A blob value.
     /// May have at most 1,000,000 bytes.

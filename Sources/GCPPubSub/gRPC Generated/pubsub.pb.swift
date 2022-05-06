@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -52,6 +52,26 @@ struct Google_Pubsub_V1_MessageStoragePolicy {
   init() {}
 }
 
+/// Settings for validating messages published against a schema.
+struct Google_Pubsub_V1_SchemaSettings {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The name of the schema that messages published should be
+  /// validated against. Format is `projects/{project}/schemas/{schema}`. The
+  /// value of this field will be `_deleted-schema_` if the schema has been
+  /// deleted.
+  var schema: String = String()
+
+  /// The encoding of messages validated against `schema`.
+  var encoding: Google_Pubsub_V1_Encoding = .unspecified
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// A topic resource.
 struct Google_Pubsub_V1_Topic {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -66,8 +86,8 @@ struct Google_Pubsub_V1_Topic {
   /// must not start with `"goog"`.
   var name: String = String()
 
-  /// See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
-  /// managing labels</a>.
+  /// See [Creating and managing labels]
+  /// (https://cloud.google.com/pubsub/docs/labels).
   var labels: Dictionary<String,String> = [:]
 
   /// Policy constraining the set of Google Cloud Platform regions where messages
@@ -88,21 +108,54 @@ struct Google_Pubsub_V1_Topic {
   /// The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
   var kmsKeyName: String = String()
 
+  /// Settings for validating messages published against a schema.
+  var schemaSettings: Google_Pubsub_V1_SchemaSettings {
+    get {return _schemaSettings ?? Google_Pubsub_V1_SchemaSettings()}
+    set {_schemaSettings = newValue}
+  }
+  /// Returns true if `schemaSettings` has been explicitly set.
+  var hasSchemaSettings: Bool {return self._schemaSettings != nil}
+  /// Clears the value of `schemaSettings`. Subsequent reads from it will return its default value.
+  mutating func clearSchemaSettings() {self._schemaSettings = nil}
+
+  /// Reserved for future use. This field is set only in responses from the
+  /// server; it is ignored if it is set in any requests.
+  var satisfiesPzs: Bool = false
+
+  /// Indicates the minimum duration to retain a message after it is published to
+  /// the topic. If this field is set, messages published to the topic in the
+  /// last `message_retention_duration` are always available to subscribers. For
+  /// instance, it allows any attached subscription to [seek to a
+  /// timestamp](https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time)
+  /// that is up to `message_retention_duration` in the past. If this field is
+  /// not set, message retention is controlled by settings on individual
+  /// subscriptions. Cannot be more than 7 days or less than 10 minutes.
+  var messageRetentionDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get {return _messageRetentionDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
+    set {_messageRetentionDuration = newValue}
+  }
+  /// Returns true if `messageRetentionDuration` has been explicitly set.
+  var hasMessageRetentionDuration: Bool {return self._messageRetentionDuration != nil}
+  /// Clears the value of `messageRetentionDuration`. Subsequent reads from it will return its default value.
+  mutating func clearMessageRetentionDuration() {self._messageRetentionDuration = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
   fileprivate var _messageStoragePolicy: Google_Pubsub_V1_MessageStoragePolicy? = nil
+  fileprivate var _schemaSettings: Google_Pubsub_V1_SchemaSettings? = nil
+  fileprivate var _messageRetentionDuration: SwiftProtobuf.Google_Protobuf_Duration? = nil
 }
 
 /// A message that is published by publishers and consumed by subscribers. The
 /// message must contain either a non-empty data field or at least one attribute.
 /// Note that client libraries represent this object differently
-/// depending on the language. See the corresponding
-/// <a href="https://cloud.google.com/pubsub/docs/reference/libraries">client
-/// library documentation</a> for more information. See
-/// <a href="https://cloud.google.com/pubsub/quotas">Quotas and limits</a>
-/// for more information about message limits.
+/// depending on the language. See the corresponding [client library
+/// documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
+/// more information. See [quotas and limits]
+/// (https://cloud.google.com/pubsub/quotas) for more information about message
+/// limits.
 struct Google_Pubsub_V1_PubsubMessage {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -141,9 +194,6 @@ struct Google_Pubsub_V1_PubsubMessage {
   /// delivered to subscribers in the order in which they are received by the
   /// Pub/Sub system. All `PubsubMessage`s published in a given `PublishRequest`
   /// must specify the same `ordering_key` value.
-  /// <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
-  /// API might be changed in backward-incompatible ways and is not recommended
-  /// for production use. It is not subject to any SLA or deprecation policy.
   var orderingKey: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -472,10 +522,9 @@ struct Google_Pubsub_V1_Subscription {
   /// Indicates whether to retain acknowledged messages. If true, then
   /// messages are not expunged from the subscription's backlog, even if they are
   /// acknowledged, until they fall out of the `message_retention_duration`
-  /// window. This must be true if you would like to
-  /// <a
-  /// href="https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time">
-  /// Seek to a timestamp</a>.
+  /// window. This must be true if you would like to [`Seek` to a timestamp]
+  /// (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time) in
+  /// the past to replay previously-acknowledged messages.
   var retainAckedMessages: Bool {
     get {return _storage._retainAckedMessages}
     set {_uniqueStorage()._retainAckedMessages = newValue}
@@ -507,9 +556,6 @@ struct Google_Pubsub_V1_Subscription {
   /// will be delivered to the subscribers in the order in which they
   /// are received by the Pub/Sub system. Otherwise, they may be delivered in
   /// any order.
-  /// <b>EXPERIMENTAL:</b> This feature is part of a closed alpha release. This
-  /// API might be changed in backward-incompatible ways and is not recommended
-  /// for production use. It is not subject to any SLA or deprecation policy.
   var enableMessageOrdering: Bool {
     get {return _storage._enableMessageOrdering}
     set {_uniqueStorage()._enableMessageOrdering = newValue}
@@ -582,6 +628,37 @@ struct Google_Pubsub_V1_Subscription {
     get {return _storage._detached}
     set {_uniqueStorage()._detached = newValue}
   }
+
+  /// If true, Pub/Sub provides the following guarantees for the delivery of
+  /// a message with a given value of `message_id` on this subscription:
+  ///
+  /// * The message sent to a subscriber is guaranteed not to be resent
+  /// before the message's acknowledgement deadline expires.
+  /// * An acknowledged message will not be resent to a subscriber.
+  ///
+  /// Note that subscribers may still receive multiple copies of a message
+  /// when `enable_exactly_once_delivery` is true if the message was published
+  /// multiple times by a publisher client. These copies are  considered distinct
+  /// by Pub/Sub and have distinct `message_id` values.
+  var enableExactlyOnceDelivery: Bool {
+    get {return _storage._enableExactlyOnceDelivery}
+    set {_uniqueStorage()._enableExactlyOnceDelivery = newValue}
+  }
+
+  /// Output only. Indicates the minimum duration for which a message is retained
+  /// after it is published to the subscription's topic. If this field is set,
+  /// messages published to the subscription's topic in the last
+  /// `topic_message_retention_duration` are always available to subscribers. See
+  /// the `message_retention_duration` field in `Topic`. This field is set only
+  /// in responses from the server; it is ignored if it is set in any requests.
+  var topicMessageRetentionDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get {return _storage._topicMessageRetentionDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
+    set {_uniqueStorage()._topicMessageRetentionDuration = newValue}
+  }
+  /// Returns true if `topicMessageRetentionDuration` has been explicitly set.
+  var hasTopicMessageRetentionDuration: Bool {return _storage._topicMessageRetentionDuration != nil}
+  /// Clears the value of `topicMessageRetentionDuration`. Subsequent reads from it will return its default value.
+  mutating func clearTopicMessageRetentionDuration() {_uniqueStorage()._topicMessageRetentionDuration = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1183,9 +1260,103 @@ struct Google_Pubsub_V1_StreamingPullResponse {
   /// Received Pub/Sub messages. This will not be empty.
   var receivedMessages: [Google_Pubsub_V1_ReceivedMessage] = []
 
+  /// This field will only be set if `enable_exactly_once_delivery` is set to
+  /// `true`.
+  var acknowledgeConfirmation: Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation {
+    get {return _acknowledgeConfirmation ?? Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation()}
+    set {_acknowledgeConfirmation = newValue}
+  }
+  /// Returns true if `acknowledgeConfirmation` has been explicitly set.
+  var hasAcknowledgeConfirmation: Bool {return self._acknowledgeConfirmation != nil}
+  /// Clears the value of `acknowledgeConfirmation`. Subsequent reads from it will return its default value.
+  mutating func clearAcknowledgeConfirmation() {self._acknowledgeConfirmation = nil}
+
+  /// This field will only be set if `enable_exactly_once_delivery` is set to
+  /// `true`.
+  var modifyAckDeadlineConfirmation: Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation {
+    get {return _modifyAckDeadlineConfirmation ?? Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation()}
+    set {_modifyAckDeadlineConfirmation = newValue}
+  }
+  /// Returns true if `modifyAckDeadlineConfirmation` has been explicitly set.
+  var hasModifyAckDeadlineConfirmation: Bool {return self._modifyAckDeadlineConfirmation != nil}
+  /// Clears the value of `modifyAckDeadlineConfirmation`. Subsequent reads from it will return its default value.
+  mutating func clearModifyAckDeadlineConfirmation() {self._modifyAckDeadlineConfirmation = nil}
+
+  /// Properties associated with this subscription.
+  var subscriptionProperties: Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties {
+    get {return _subscriptionProperties ?? Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties()}
+    set {_subscriptionProperties = newValue}
+  }
+  /// Returns true if `subscriptionProperties` has been explicitly set.
+  var hasSubscriptionProperties: Bool {return self._subscriptionProperties != nil}
+  /// Clears the value of `subscriptionProperties`. Subsequent reads from it will return its default value.
+  mutating func clearSubscriptionProperties() {self._subscriptionProperties = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// Acknowledgement IDs sent in one or more previous requests to acknowledge a
+  /// previously received message.
+  struct AcknowledgeConfirmation {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// Successfully processed acknowledgement IDs.
+    var ackIds: [String] = []
+
+    /// List of acknowledgement IDs that were malformed or whose acknowledgement
+    /// deadline has expired.
+    var invalidAckIds: [String] = []
+
+    /// List of acknowledgement IDs that were out of order.
+    var unorderedAckIds: [String] = []
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  /// Acknowledgement IDs sent in one or more previous requests to modify the
+  /// deadline for a specific message.
+  struct ModifyAckDeadlineConfirmation {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// Successfully processed acknowledgement IDs.
+    var ackIds: [String] = []
+
+    /// List of acknowledgement IDs that were malformed or whose acknowledgement
+    /// deadline has expired.
+    var invalidAckIds: [String] = []
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
+  /// Subscription properties sent as part of the response.
+  struct SubscriptionProperties {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    /// True iff exactly once delivery is enabled for this subscription.
+    var exactlyOnceDeliveryEnabled: Bool = false
+
+    /// True iff message ordering is enabled for this subscription.
+    var messageOrderingEnabled: Bool = false
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+  }
+
   init() {}
+
+  fileprivate var _acknowledgeConfirmation: Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation? = nil
+  fileprivate var _modifyAckDeadlineConfirmation: Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation? = nil
+  fileprivate var _subscriptionProperties: Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties? = nil
 }
 
 /// Request for the `CreateSnapshot` method.
@@ -1258,11 +1429,10 @@ struct Google_Pubsub_V1_UpdateSnapshotRequest {
 }
 
 /// A snapshot resource. Snapshots are used in
-/// <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
-/// operations, which allow
-/// you to manage message acknowledgments in bulk. That is, you can set the
-/// acknowledgment state of messages in an existing subscription to the state
-/// captured by a snapshot.
+/// [Seek](https://cloud.google.com/pubsub/docs/replay-overview)
+/// operations, which allow you to manage message acknowledgments in bulk. That
+/// is, you can set the acknowledgment state of messages in an existing
+/// subscription to the state captured by a snapshot.
 struct Google_Pubsub_V1_Snapshot {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -1293,8 +1463,8 @@ struct Google_Pubsub_V1_Snapshot {
   /// Clears the value of `expireTime`. Subsequent reads from it will return its default value.
   mutating func clearExpireTime() {self._expireTime = nil}
 
-  /// See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
-  /// managing labels</a>.
+  /// See [Creating and managing labels]
+  /// (https://cloud.google.com/pubsub/docs/labels).
   var labels: Dictionary<String,String> = [:]
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1506,6 +1676,44 @@ extension Google_Pubsub_V1_MessageStoragePolicy: SwiftProtobuf.Message, SwiftPro
   }
 }
 
+extension Google_Pubsub_V1_SchemaSettings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".SchemaSettings"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "schema"),
+    2: .same(proto: "encoding"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.schema) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.encoding) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.schema.isEmpty {
+      try visitor.visitSingularStringField(value: self.schema, fieldNumber: 1)
+    }
+    if self.encoding != .unspecified {
+      try visitor.visitSingularEnumField(value: self.encoding, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_SchemaSettings, rhs: Google_Pubsub_V1_SchemaSettings) -> Bool {
+    if lhs.schema != rhs.schema {return false}
+    if lhs.encoding != rhs.encoding {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Pubsub_V1_Topic: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Topic"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1513,6 +1721,9 @@ extension Google_Pubsub_V1_Topic: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     2: .same(proto: "labels"),
     3: .standard(proto: "message_storage_policy"),
     5: .standard(proto: "kms_key_name"),
+    6: .standard(proto: "schema_settings"),
+    7: .standard(proto: "satisfies_pzs"),
+    8: .standard(proto: "message_retention_duration"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1525,6 +1736,9 @@ extension Google_Pubsub_V1_Topic: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       case 2: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.labels) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._messageStoragePolicy) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.kmsKeyName) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._schemaSettings) }()
+      case 7: try { try decoder.decodeSingularBoolField(value: &self.satisfiesPzs) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._messageRetentionDuration) }()
       default: break
       }
     }
@@ -1547,6 +1761,15 @@ extension Google_Pubsub_V1_Topic: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if !self.kmsKeyName.isEmpty {
       try visitor.visitSingularStringField(value: self.kmsKeyName, fieldNumber: 5)
     }
+    try { if let v = self._schemaSettings {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
+    if self.satisfiesPzs != false {
+      try visitor.visitSingularBoolField(value: self.satisfiesPzs, fieldNumber: 7)
+    }
+    try { if let v = self._messageRetentionDuration {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1555,6 +1778,9 @@ extension Google_Pubsub_V1_Topic: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     if lhs.labels != rhs.labels {return false}
     if lhs._messageStoragePolicy != rhs._messageStoragePolicy {return false}
     if lhs.kmsKeyName != rhs.kmsKeyName {return false}
+    if lhs._schemaSettings != rhs._schemaSettings {return false}
+    if lhs.satisfiesPzs != rhs.satisfiesPzs {return false}
+    if lhs._messageRetentionDuration != rhs._messageRetentionDuration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2109,6 +2335,8 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
     13: .standard(proto: "dead_letter_policy"),
     14: .standard(proto: "retry_policy"),
     15: .same(proto: "detached"),
+    16: .standard(proto: "enable_exactly_once_delivery"),
+    17: .standard(proto: "topic_message_retention_duration"),
   ]
 
   fileprivate class _StorageClass {
@@ -2125,6 +2353,8 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
     var _deadLetterPolicy: Google_Pubsub_V1_DeadLetterPolicy? = nil
     var _retryPolicy: Google_Pubsub_V1_RetryPolicy? = nil
     var _detached: Bool = false
+    var _enableExactlyOnceDelivery: Bool = false
+    var _topicMessageRetentionDuration: SwiftProtobuf.Google_Protobuf_Duration? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -2144,6 +2374,8 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
       _deadLetterPolicy = source._deadLetterPolicy
       _retryPolicy = source._retryPolicy
       _detached = source._detached
+      _enableExactlyOnceDelivery = source._enableExactlyOnceDelivery
+      _topicMessageRetentionDuration = source._topicMessageRetentionDuration
     }
   }
 
@@ -2175,6 +2407,8 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
         case 13: try { try decoder.decodeSingularMessageField(value: &_storage._deadLetterPolicy) }()
         case 14: try { try decoder.decodeSingularMessageField(value: &_storage._retryPolicy) }()
         case 15: try { try decoder.decodeSingularBoolField(value: &_storage._detached) }()
+        case 16: try { try decoder.decodeSingularBoolField(value: &_storage._enableExactlyOnceDelivery) }()
+        case 17: try { try decoder.decodeSingularMessageField(value: &_storage._topicMessageRetentionDuration) }()
         default: break
         }
       }
@@ -2226,6 +2460,12 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
       if _storage._detached != false {
         try visitor.visitSingularBoolField(value: _storage._detached, fieldNumber: 15)
       }
+      if _storage._enableExactlyOnceDelivery != false {
+        try visitor.visitSingularBoolField(value: _storage._enableExactlyOnceDelivery, fieldNumber: 16)
+      }
+      try { if let v = _storage._topicMessageRetentionDuration {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+      } }()
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2248,6 +2488,8 @@ extension Google_Pubsub_V1_Subscription: SwiftProtobuf.Message, SwiftProtobuf._M
         if _storage._deadLetterPolicy != rhs_storage._deadLetterPolicy {return false}
         if _storage._retryPolicy != rhs_storage._retryPolicy {return false}
         if _storage._detached != rhs_storage._detached {return false}
+        if _storage._enableExactlyOnceDelivery != rhs_storage._enableExactlyOnceDelivery {return false}
+        if _storage._topicMessageRetentionDuration != rhs_storage._topicMessageRetentionDuration {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -2985,6 +3227,9 @@ extension Google_Pubsub_V1_StreamingPullResponse: SwiftProtobuf.Message, SwiftPr
   static let protoMessageName: String = _protobuf_package + ".StreamingPullResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "received_messages"),
+    5: .standard(proto: "acknowledge_confirmation"),
+    3: .standard(proto: "modify_ack_deadline_confirmation"),
+    4: .standard(proto: "subscription_properties"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2994,20 +3239,159 @@ extension Google_Pubsub_V1_StreamingPullResponse: SwiftProtobuf.Message, SwiftPr
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.receivedMessages) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._modifyAckDeadlineConfirmation) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._subscriptionProperties) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._acknowledgeConfirmation) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.receivedMessages.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.receivedMessages, fieldNumber: 1)
     }
+    try { if let v = self._modifyAckDeadlineConfirmation {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try { if let v = self._subscriptionProperties {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    } }()
+    try { if let v = self._acknowledgeConfirmation {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Pubsub_V1_StreamingPullResponse, rhs: Google_Pubsub_V1_StreamingPullResponse) -> Bool {
     if lhs.receivedMessages != rhs.receivedMessages {return false}
+    if lhs._acknowledgeConfirmation != rhs._acknowledgeConfirmation {return false}
+    if lhs._modifyAckDeadlineConfirmation != rhs._modifyAckDeadlineConfirmation {return false}
+    if lhs._subscriptionProperties != rhs._subscriptionProperties {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Google_Pubsub_V1_StreamingPullResponse.protoMessageName + ".AcknowledgeConfirmation"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "ack_ids"),
+    2: .standard(proto: "invalid_ack_ids"),
+    3: .standard(proto: "unordered_ack_ids"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.ackIds) }()
+      case 2: try { try decoder.decodeRepeatedStringField(value: &self.invalidAckIds) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.unorderedAckIds) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.ackIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.ackIds, fieldNumber: 1)
+    }
+    if !self.invalidAckIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.invalidAckIds, fieldNumber: 2)
+    }
+    if !self.unorderedAckIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.unorderedAckIds, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation, rhs: Google_Pubsub_V1_StreamingPullResponse.AcknowledgeConfirmation) -> Bool {
+    if lhs.ackIds != rhs.ackIds {return false}
+    if lhs.invalidAckIds != rhs.invalidAckIds {return false}
+    if lhs.unorderedAckIds != rhs.unorderedAckIds {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Google_Pubsub_V1_StreamingPullResponse.protoMessageName + ".ModifyAckDeadlineConfirmation"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "ack_ids"),
+    2: .standard(proto: "invalid_ack_ids"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.ackIds) }()
+      case 2: try { try decoder.decodeRepeatedStringField(value: &self.invalidAckIds) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.ackIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.ackIds, fieldNumber: 1)
+    }
+    if !self.invalidAckIds.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.invalidAckIds, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation, rhs: Google_Pubsub_V1_StreamingPullResponse.ModifyAckDeadlineConfirmation) -> Bool {
+    if lhs.ackIds != rhs.ackIds {return false}
+    if lhs.invalidAckIds != rhs.invalidAckIds {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = Google_Pubsub_V1_StreamingPullResponse.protoMessageName + ".SubscriptionProperties"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "exactly_once_delivery_enabled"),
+    2: .standard(proto: "message_ordering_enabled"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.exactlyOnceDeliveryEnabled) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.messageOrderingEnabled) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.exactlyOnceDeliveryEnabled != false {
+      try visitor.visitSingularBoolField(value: self.exactlyOnceDeliveryEnabled, fieldNumber: 1)
+    }
+    if self.messageOrderingEnabled != false {
+      try visitor.visitSingularBoolField(value: self.messageOrderingEnabled, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties, rhs: Google_Pubsub_V1_StreamingPullResponse.SubscriptionProperties) -> Bool {
+    if lhs.exactlyOnceDeliveryEnabled != rhs.exactlyOnceDeliveryEnabled {return false}
+    if lhs.messageOrderingEnabled != rhs.messageOrderingEnabled {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

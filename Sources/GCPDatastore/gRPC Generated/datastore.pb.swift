@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2019 Google LLC.
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -84,9 +84,21 @@ struct Google_Datastore_V1_LookupResponse {
   /// order of the keys in the input.
   var deferred: [Google_Datastore_V1_Key] = []
 
+  /// The time at which these entities were read or found missing.
+  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_readTime = newValue}
+  }
+  /// Returns true if `readTime` has been explicitly set.
+  var hasReadTime: Bool {return self._readTime != nil}
+  /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
+  mutating func clearReadTime() {self._readTime = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+
+  fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// The request for [Datastore.RunQuery][google.datastore.v1.Datastore.RunQuery].
@@ -420,9 +432,21 @@ struct Google_Datastore_V1_CommitResponse {
   /// updated.
   var indexUpdates: Int32 = 0
 
+  /// The transaction commit timestamp. Not set for non-transactional commits.
+  var commitTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _commitTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_commitTime = newValue}
+  }
+  /// Returns true if `commitTime` has been explicitly set.
+  var hasCommitTime: Bool {return self._commitTime != nil}
+  /// Clears the value of `commitTime`. Subsequent reads from it will return its default value.
+  mutating func clearCommitTime() {self._commitTime = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
+
+  fileprivate var _commitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// The request for [Datastore.AllocateIds][google.datastore.v1.Datastore.AllocateIds].
@@ -551,14 +575,26 @@ struct Google_Datastore_V1_Mutation {
   /// are not applied, and are marked as such in MutationResult.
   var conflictDetectionStrategy: Google_Datastore_V1_Mutation.OneOf_ConflictDetectionStrategy? = nil
 
-  /// The version of the entity that this mutation is being applied to. If this
-  /// does not match the current version on the server, the mutation conflicts.
+  /// The version of the entity that this mutation is being applied
+  /// to. If this does not match the current version on the server, the
+  /// mutation conflicts.
   var baseVersion: Int64 {
     get {
       if case .baseVersion(let v)? = conflictDetectionStrategy {return v}
       return 0
     }
     set {conflictDetectionStrategy = .baseVersion(newValue)}
+  }
+
+  /// The update time of the entity that this mutation is being applied
+  /// to. If this does not match the current update time on the server, the
+  /// mutation conflicts.
+  var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {
+      if case .updateTime(let v)? = conflictDetectionStrategy {return v}
+      return SwiftProtobuf.Google_Protobuf_Timestamp()
+    }
+    set {conflictDetectionStrategy = .updateTime(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -617,9 +653,14 @@ struct Google_Datastore_V1_Mutation {
   /// with the current version of the entity on the server. Conflicting mutations
   /// are not applied, and are marked as such in MutationResult.
   enum OneOf_ConflictDetectionStrategy: Equatable {
-    /// The version of the entity that this mutation is being applied to. If this
-    /// does not match the current version on the server, the mutation conflicts.
+    /// The version of the entity that this mutation is being applied
+    /// to. If this does not match the current version on the server, the
+    /// mutation conflicts.
     case baseVersion(Int64)
+    /// The update time of the entity that this mutation is being applied
+    /// to. If this does not match the current update time on the server, the
+    /// mutation conflicts.
+    case updateTime(SwiftProtobuf.Google_Protobuf_Timestamp)
 
   #if !swift(>=4.1)
     static func ==(lhs: Google_Datastore_V1_Mutation.OneOf_ConflictDetectionStrategy, rhs: Google_Datastore_V1_Mutation.OneOf_ConflictDetectionStrategy) -> Bool {
@@ -631,6 +672,11 @@ struct Google_Datastore_V1_Mutation {
         guard case .baseVersion(let l) = lhs, case .baseVersion(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
+      case (.updateTime, .updateTime): return {
+        guard case .updateTime(let l) = lhs, case .updateTime(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      default: return false
       }
     }
   #endif
@@ -663,6 +709,19 @@ struct Google_Datastore_V1_MutationResult {
   /// than the version of any possible future entity.
   var version: Int64 = 0
 
+  /// The update time of the entity on the server after processing the mutation.
+  /// If the mutation doesn't change anything on the server, then the timestamp
+  /// will be the update timestamp of the current entity. This field will not be
+  /// set after a 'delete'.
+  var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _updateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_updateTime = newValue}
+  }
+  /// Returns true if `updateTime` has been explicitly set.
+  var hasUpdateTime: Bool {return self._updateTime != nil}
+  /// Clears the value of `updateTime`. Subsequent reads from it will return its default value.
+  mutating func clearUpdateTime() {self._updateTime = nil}
+
   /// Whether a conflict was detected for this mutation. Always false when a
   /// conflict detection strategy field is not set in the mutation.
   var conflictDetected: Bool = false
@@ -672,6 +731,7 @@ struct Google_Datastore_V1_MutationResult {
   init() {}
 
   fileprivate var _key: Google_Datastore_V1_Key? = nil
+  fileprivate var _updateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// The options shared by read requests.
@@ -680,9 +740,16 @@ struct Google_Datastore_V1_ReadOptions {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// If not specified, lookups and ancestor queries default to
-  /// `read_consistency`=`STRONG`, global queries default to
-  /// `read_consistency`=`EVENTUAL`.
+  /// For Cloud Datastore, if read_consistency is not specified, then lookups and
+  /// ancestor queries default to `read_consistency`=`STRONG`, global queries
+  /// default to `read_consistency`=`EVENTUAL`.
+  ///
+  /// For Cloud Firestore in Datastore mode, if read_consistency is not specified
+  /// then lookups and all queries default to `read_consistency`=`STRONG`.
+  ///
+  /// Explicitly setting `read_consistency`=`EVENTUAL` will result in eventually
+  /// consistent lookups & queries in both Cloud Datastore & Cloud Firestore in
+  /// Datastore mode.
   var consistencyType: Google_Datastore_V1_ReadOptions.OneOf_ConsistencyType? = nil
 
   /// The non-transactional read consistency to use.
@@ -706,11 +773,29 @@ struct Google_Datastore_V1_ReadOptions {
     set {consistencyType = .transaction(newValue)}
   }
 
+  /// Reads entities as they were at the given time. This may not be older
+  /// than 270 seconds.  This value is only supported for Cloud Firestore in
+  /// Datastore mode.
+  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {
+      if case .readTime(let v)? = consistencyType {return v}
+      return SwiftProtobuf.Google_Protobuf_Timestamp()
+    }
+    set {consistencyType = .readTime(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  /// If not specified, lookups and ancestor queries default to
-  /// `read_consistency`=`STRONG`, global queries default to
-  /// `read_consistency`=`EVENTUAL`.
+  /// For Cloud Datastore, if read_consistency is not specified, then lookups and
+  /// ancestor queries default to `read_consistency`=`STRONG`, global queries
+  /// default to `read_consistency`=`EVENTUAL`.
+  ///
+  /// For Cloud Firestore in Datastore mode, if read_consistency is not specified
+  /// then lookups and all queries default to `read_consistency`=`STRONG`.
+  ///
+  /// Explicitly setting `read_consistency`=`EVENTUAL` will result in eventually
+  /// consistent lookups & queries in both Cloud Datastore & Cloud Firestore in
+  /// Datastore mode.
   enum OneOf_ConsistencyType: Equatable {
     /// The non-transactional read consistency to use.
     /// Cannot be set to `STRONG` for global queries.
@@ -719,6 +804,10 @@ struct Google_Datastore_V1_ReadOptions {
     /// transaction identifier is returned by a call to
     /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
     case transaction(Data)
+    /// Reads entities as they were at the given time. This may not be older
+    /// than 270 seconds.  This value is only supported for Cloud Firestore in
+    /// Datastore mode.
+    case readTime(SwiftProtobuf.Google_Protobuf_Timestamp)
 
   #if !swift(>=4.1)
     static func ==(lhs: Google_Datastore_V1_ReadOptions.OneOf_ConsistencyType, rhs: Google_Datastore_V1_ReadOptions.OneOf_ConsistencyType) -> Bool {
@@ -732,6 +821,10 @@ struct Google_Datastore_V1_ReadOptions {
       }()
       case (.transaction, .transaction): return {
         guard case .transaction(let l) = lhs, case .transaction(let r) = rhs else { preconditionFailure() }
+        return l == r
+      }()
+      case (.readTime, .readTime): return {
+        guard case .readTime(let l) = lhs, case .readTime(let r) = rhs else { preconditionFailure() }
         return l == r
       }()
       default: return false
@@ -876,9 +969,22 @@ struct Google_Datastore_V1_TransactionOptions {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    /// Reads entities at the given time.
+    /// This may not be older than 60 seconds.
+    var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+      get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+      set {_readTime = newValue}
+    }
+    /// Returns true if `readTime` has been explicitly set.
+    var hasReadTime: Bool {return self._readTime != nil}
+    /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
+    mutating func clearReadTime() {self._readTime = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
+
+    fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
   }
 
   init() {}
@@ -942,6 +1048,7 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     1: .same(proto: "found"),
     2: .same(proto: "missing"),
     3: .same(proto: "deferred"),
+    7: .standard(proto: "read_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -953,12 +1060,17 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.found) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.missing) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.deferred) }()
+      case 7: try { try decoder.decodeSingularMessageField(value: &self._readTime) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.found.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.found, fieldNumber: 1)
     }
@@ -968,6 +1080,9 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     if !self.deferred.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.deferred, fieldNumber: 3)
     }
+    try { if let v = self._readTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -975,6 +1090,7 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     if lhs.found != rhs.found {return false}
     if lhs.missing != rhs.missing {return false}
     if lhs.deferred != rhs.deferred {return false}
+    if lhs._readTime != rhs._readTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1387,6 +1503,7 @@ extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .standard(proto: "mutation_results"),
     4: .standard(proto: "index_updates"),
+    8: .standard(proto: "commit_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1397,24 +1514,33 @@ extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtob
       switch fieldNumber {
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.mutationResults) }()
       case 4: try { try decoder.decodeSingularInt32Field(value: &self.indexUpdates) }()
+      case 8: try { try decoder.decodeSingularMessageField(value: &self._commitTime) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.mutationResults.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.mutationResults, fieldNumber: 3)
     }
     if self.indexUpdates != 0 {
       try visitor.visitSingularInt32Field(value: self.indexUpdates, fieldNumber: 4)
     }
+    try { if let v = self._commitTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Datastore_V1_CommitResponse, rhs: Google_Datastore_V1_CommitResponse) -> Bool {
     if lhs.mutationResults != rhs.mutationResults {return false}
     if lhs.indexUpdates != rhs.indexUpdates {return false}
+    if lhs._commitTime != rhs._commitTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1561,6 +1687,7 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
     6: .same(proto: "upsert"),
     7: .same(proto: "delete"),
     8: .standard(proto: "base_version"),
+    11: .standard(proto: "update_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1629,6 +1756,19 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
           self.conflictDetectionStrategy = .baseVersion(v)
         }
       }()
+      case 11: try {
+        var v: SwiftProtobuf.Google_Protobuf_Timestamp?
+        var hadOneofValue = false
+        if let current = self.conflictDetectionStrategy {
+          hadOneofValue = true
+          if case .updateTime(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.conflictDetectionStrategy = .updateTime(v)
+        }
+      }()
       default: break
       }
     }
@@ -1658,9 +1798,17 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
     }()
     case nil: break
     }
-    try { if case .baseVersion(let v)? = self.conflictDetectionStrategy {
+    switch self.conflictDetectionStrategy {
+    case .baseVersion?: try {
+      guard case .baseVersion(let v)? = self.conflictDetectionStrategy else { preconditionFailure() }
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 8)
-    } }()
+    }()
+    case .updateTime?: try {
+      guard case .updateTime(let v)? = self.conflictDetectionStrategy else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+    }()
+    case nil: break
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1677,6 +1825,7 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .same(proto: "key"),
     4: .same(proto: "version"),
+    6: .standard(proto: "update_time"),
     5: .standard(proto: "conflict_detected"),
   ]
 
@@ -1689,6 +1838,7 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
       case 3: try { try decoder.decodeSingularMessageField(value: &self._key) }()
       case 4: try { try decoder.decodeSingularInt64Field(value: &self.version) }()
       case 5: try { try decoder.decodeSingularBoolField(value: &self.conflictDetected) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._updateTime) }()
       default: break
       }
     }
@@ -1708,12 +1858,16 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
     if self.conflictDetected != false {
       try visitor.visitSingularBoolField(value: self.conflictDetected, fieldNumber: 5)
     }
+    try { if let v = self._updateTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Datastore_V1_MutationResult, rhs: Google_Datastore_V1_MutationResult) -> Bool {
     if lhs._key != rhs._key {return false}
     if lhs.version != rhs.version {return false}
+    if lhs._updateTime != rhs._updateTime {return false}
     if lhs.conflictDetected != rhs.conflictDetected {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1725,6 +1879,7 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "read_consistency"),
     2: .same(proto: "transaction"),
+    4: .standard(proto: "read_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1749,6 +1904,19 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
           self.consistencyType = .transaction(v)
         }
       }()
+      case 4: try {
+        var v: SwiftProtobuf.Google_Protobuf_Timestamp?
+        var hadOneofValue = false
+        if let current = self.consistencyType {
+          hadOneofValue = true
+          if case .readTime(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.consistencyType = .readTime(v)
+        }
+      }()
       default: break
       }
     }
@@ -1767,6 +1935,10 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
     case .transaction?: try {
       guard case .transaction(let v)? = self.consistencyType else { preconditionFailure() }
       try visitor.visitSingularBytesField(value: v, fieldNumber: 2)
+    }()
+    case .readTime?: try {
+      guard case .readTime(let v)? = self.consistencyType else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }()
     case nil: break
     }
@@ -1892,18 +2064,35 @@ extension Google_Datastore_V1_TransactionOptions.ReadWrite: SwiftProtobuf.Messag
 
 extension Google_Datastore_V1_TransactionOptions.ReadOnly: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = Google_Datastore_V1_TransactionOptions.protoMessageName + ".ReadOnly"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "read_time"),
+  ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._readTime) }()
+      default: break
+      }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._readTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Datastore_V1_TransactionOptions.ReadOnly, rhs: Google_Datastore_V1_TransactionOptions.ReadOnly) -> Bool {
+    if lhs._readTime != rhs._readTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

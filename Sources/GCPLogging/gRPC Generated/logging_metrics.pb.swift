@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,8 +37,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Describes a logs-based metric. The value of the metric is the number of log
 /// entries that match a logs filter in a given time interval.
 ///
-/// Logs-based metric can also be used to extract values from logs and create a
-/// a distribution of the values. The distribution records the statistics of the
+/// Logs-based metrics can also be used to extract values from logs and create a
+/// distribution of the values. The distribution records the statistics of the
 /// extracted values along with an optional histogram of the values as specified
 /// by the bucket options.
 struct Google_Logging_V2_LogMetric {
@@ -54,11 +54,11 @@ struct Google_Logging_V2_LogMetric {
   /// `_-.,+!*',()%/`. The forward-slash character (`/`) denotes a hierarchy of
   /// name pieces, and it cannot be the first character of the name.
   ///
-  /// The metric identifier in this field must not be
-  /// [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding).
-  /// However, when the metric identifier appears as the `[METRIC_ID]` part of a
-  /// `metric_name` API parameter, then the metric identifier must be
-  /// URL-encoded. Example: `"projects/my-project/metrics/nginx%2Frequests"`.
+  /// This field is the `[METRIC_ID]` part of a metric resource name in the
+  /// format "projects/[PROJECT_ID]/metrics/[METRIC_ID]". Example: If the
+  /// resource name of a metric is
+  /// `"projects/my-project/metrics/nginx%2Frequests"`, this field's value is
+  /// `"nginx/requests"`.
   var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
@@ -81,6 +81,13 @@ struct Google_Logging_V2_LogMetric {
   var filter: String {
     get {return _storage._filter}
     set {_uniqueStorage()._filter = newValue}
+  }
+
+  /// Optional. If set to True, then this metric is disabled and it does not
+  /// generate any points.
+  var disabled: Bool {
+    get {return _storage._disabled}
+    set {_uniqueStorage()._disabled = newValue}
   }
 
   /// Optional. The metric descriptor associated with the logs-based metric.
@@ -402,6 +409,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
     1: .same(proto: "name"),
     2: .same(proto: "description"),
     3: .same(proto: "filter"),
+    12: .same(proto: "disabled"),
     5: .standard(proto: "metric_descriptor"),
     6: .standard(proto: "value_extractor"),
     7: .standard(proto: "label_extractors"),
@@ -415,6 +423,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _name: String = String()
     var _description_p: String = String()
     var _filter: String = String()
+    var _disabled: Bool = false
     var _metricDescriptor: Google_Api_MetricDescriptor? = nil
     var _valueExtractor: String = String()
     var _labelExtractors: Dictionary<String,String> = [:]
@@ -431,6 +440,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
       _name = source._name
       _description_p = source._description_p
       _filter = source._filter
+      _disabled = source._disabled
       _metricDescriptor = source._metricDescriptor
       _valueExtractor = source._valueExtractor
       _labelExtractors = source._labelExtractors
@@ -466,6 +476,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 8: try { try decoder.decodeSingularMessageField(value: &_storage._bucketOptions) }()
         case 9: try { try decoder.decodeSingularMessageField(value: &_storage._createTime) }()
         case 10: try { try decoder.decodeSingularMessageField(value: &_storage._updateTime) }()
+        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._disabled) }()
         default: break
         }
       }
@@ -508,6 +519,9 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
       try { if let v = _storage._updateTime {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
       } }()
+      if _storage._disabled != false {
+        try visitor.visitSingularBoolField(value: _storage._disabled, fieldNumber: 12)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -520,6 +534,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if _storage._name != rhs_storage._name {return false}
         if _storage._description_p != rhs_storage._description_p {return false}
         if _storage._filter != rhs_storage._filter {return false}
+        if _storage._disabled != rhs_storage._disabled {return false}
         if _storage._metricDescriptor != rhs_storage._metricDescriptor {return false}
         if _storage._valueExtractor != rhs_storage._valueExtractor {return false}
         if _storage._labelExtractors != rhs_storage._labelExtractors {return false}

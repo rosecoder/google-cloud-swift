@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -68,11 +68,13 @@ struct Google_Logging_Type_HttpRequest {
   var userAgent: String = String()
 
   /// The IP address (IPv4 or IPv6) of the client that issued the HTTP
-  /// request. Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
+  /// request. This field can include port information. Examples:
+  /// `"192.168.1.1"`, `"10.0.0.1:80"`, `"FE80::0202:B3FF:FE1E:8329"`.
   var remoteIp: String = String()
 
   /// The IP address (IPv4 or IPv6) of the origin server that the request was
-  /// sent to.
+  /// sent to. This field can include port information. Examples:
+  /// `"192.168.1.1"`, `"10.0.0.1:80"`, `"FE80::0202:B3FF:FE1E:8329"`.
   var serverIp: String = String()
 
   /// The referer URL of the request, as defined in
