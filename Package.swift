@@ -39,6 +39,7 @@ let package = Package(
 
         .target(name: "GCPDatastore", dependencies: [
             "GCPCore",
+            "GCPTrace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
         .testTarget(name: "GCPDatastoreTests", dependencies: ["GCPDatastore"]),

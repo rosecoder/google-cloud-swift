@@ -60,7 +60,7 @@ Client for [Google Cloud Datastore](https://cloud.google.com/datastore). Focuses
 | Query - Projection         | ❌          |
 | Query - Distinct on        | ❌          |
 | GQL                        | ❌          |
-| Trace reporting            | ❌          |
+| Trace reporting            | ✅          |
 
 ### GCPPubSub
 

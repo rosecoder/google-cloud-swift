@@ -53,6 +53,31 @@ public struct Trace {
         )
     }
 
+    @inlinable
+    public func recordSpan(named name: String, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Void) async rethrows {
+        var span = self.span(named: name, attributes: attributes)
+        do {
+            try await closure(&span)
+            span.end(statusCode: .ok)
+        } catch {
+            span.end(error: error)
+            throw error
+        }
+    }
+
+    @inlinable
+    public func recordSpan<Element>(named name: String, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Element) async rethrows -> Element {
+        var span = self.span(named: name, attributes: attributes)
+        do {
+            let element = try await closure(&span)
+            span.end(statusCode: .ok)
+            return element
+        } catch {
+            span.end(error: error)
+            throw error
+        }
+    }
+
     // MARK: - Ending
 
     @inlinable
