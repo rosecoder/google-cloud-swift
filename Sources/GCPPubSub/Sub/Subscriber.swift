@@ -163,6 +163,7 @@ public final class Subscriber: Dependency {
                         "message": rawMessage.messageID,
                     ])
                 )
+                message.logger.addMetadata(for: message.trace)
 
                 // Handle message
                 message.logger.debug("Handling message")

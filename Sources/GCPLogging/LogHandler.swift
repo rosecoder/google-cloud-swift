@@ -36,9 +36,20 @@ public struct GoogleCloudLogHandler: LogHandler {
         var textPayload = message.description
 
         var labels: [String: String] = resource.entryLabels
+        var trace: String?
+        var spanID: String?
         if let metadata = metadata {
             labels.reserveCapacity(metadata.count)
             for (key, value) in metadata {
+                if key == LogMetadataKeys.trace {
+                    trace = value.description
+                    continue
+                }
+                if key == LogMetadataKeys.spanID {
+                    spanID = value.description
+                    continue
+                }
+
                 labels[key] = value.description
             }
         }
@@ -74,6 +85,12 @@ public struct GoogleCloudLogHandler: LogHandler {
                     }
                     $0.textPayload = textPayload
                     $0.labels = labels
+
+                    if let trace = trace, let spanID = spanID {
+                        $0.trace = trace
+                        $0.spanID = spanID
+                        $0.traceSampled = true
+                    }
                 }
             ]
         }
