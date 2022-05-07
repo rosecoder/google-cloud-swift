@@ -71,8 +71,6 @@ public struct Tracing: Dependency {
         }
 #endif
 
-        logger.debug("Writing trace spans...")
-
         lastWriteTask = Task {
             do {
                 try await _client.ensureAuthentication(authorization: &authorization)
@@ -135,19 +133,15 @@ public struct Tracing: Dependency {
     // MARK: - Write Timer
 
     private static func scheduleRepeatingWriteTimer() {
-        logger.debug("Scheduling write timer...")
-
         let timer = Timer(timeInterval: writeInterval, repeats: true, block: writeTimerHit)
         RunLoop.current.add(timer, forMode: .common)
     }
 
     private static func writeTimerHit(timer: Timer) {
         guard !buffer.isEmpty else {
-            logger.debug("Write hit without any spans.")
             return
         }
 
-        logger.debug("Write hit with spans.")
         write()
     }
 }
