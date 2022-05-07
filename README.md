@@ -60,7 +60,19 @@ Client for [Google Cloud Datastore](https://cloud.google.com/datastore). Focuses
 | Query - Projection         | ❌          |
 | Query - Distinct on        | ❌          |
 | GQL                        | ❌          |
-| GCP - Traces               | ❌          |
+| Trace reporting            | ❌          |
+
+### GCPPubSub
+
+Client for [Google Pub/Sub](https://cloud.google.com/pubsub).
+
+| Feature                    | Implemented  |
+|:---------------------------|:-------------|
+| Publish messages           | ✅           |
+| Subscribe to messages      | ✅           |
+| Pub/Sub Lite               | ❌           |
+| Error reporting            | ✅           |
+| Trace reporting            | ❌ (only sub)|
 
 ### GCPCore
 
