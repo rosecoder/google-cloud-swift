@@ -12,10 +12,10 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization)
+        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
+            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
 
-        let response = try await trace.recordSpan(named: "datastore-lookup") { span in
-            try await client.lookup(.with {
+            return try await client.lookup(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map({ $0.raw })
             })
@@ -77,12 +77,14 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization)
-        
-        let response = try await client.lookup(.with {
-            $0.projectID = projectID
-            $0.keys = keys.map({ $0.raw })
-        })
+        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
+            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
+
+            return try await client.lookup(.with {
+                $0.projectID = projectID
+                $0.keys = keys.map({ $0.raw })
+            })
+        }
         return keys.map { key in
             response.found.contains(where: { $0.entity.key.path.last!.idType == key.id.raw })
         }

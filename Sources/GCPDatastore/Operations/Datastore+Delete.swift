@@ -7,9 +7,9 @@ extension Datastore {
     public static func deleteEntities<Key>(keys: [Key], trace: Trace?, projectID: String = defaultProjectID) async throws
     where Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization)
+        try await trace.recordSpan(named: "datastore-delete") { span in
+            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
 
-        try await trace.recordSpan(named: "datastore-delete") { _ in
             _ = try await client.commit(.with {
                 $0.projectID = projectID
                 $0.mutations = keys.map { key in

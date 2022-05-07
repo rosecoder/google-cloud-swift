@@ -105,8 +105,8 @@ public final class Subscriber: Dependency {
 
     // MARK: - Acknowledge
 
-    private static func acknowledge(id: String, subscription: Subscription) async throws {
-        try await client.ensureAuthentication(authorization: &authorization)
+    private static func acknowledge(id: String, subscription: Subscription, spanParent: Span) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, spanParent: spanParent)
 
         _ = try await client.acknowledge(.with {
             $0.subscription = subscription.rawValue
@@ -114,8 +114,8 @@ public final class Subscriber: Dependency {
         })
     }
 
-    private static func unacknowledge(id: String, subscription: Subscription) async throws {
-        try await client.ensureAuthentication(authorization: &authorization)
+    private static func unacknowledge(id: String, subscription: Subscription, spanParent: Span) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, spanParent: spanParent)
 
         _ = try await client.modifyAckDeadline(.with {
             $0.subscription = subscription.rawValue
@@ -177,7 +177,7 @@ public final class Subscriber: Dependency {
 
                     var unacknowledgeSpan = message.trace.span(named: "pubsub-unacknowledge")
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
+                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, spanParent: unacknowledgeSpan)
                         unacknowledgeSpan.end(statusCode: .ok)
                         message.logger.debug("Unacknowledged message")
                     } catch {
@@ -191,7 +191,7 @@ public final class Subscriber: Dependency {
 
                 var acknowledgeSpan = message.trace.span(named: "pubsub-acknowledge")
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription)
+                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, spanParent: acknowledgeSpan)
                     acknowledgeSpan.end(statusCode: .ok)
                     message.logger.debug("Acknowledged message")
                 } catch {

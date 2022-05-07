@@ -17,11 +17,11 @@ extension Datastore {
             }
             return rawEntity
         }
-        
-        try await client.ensureAuthentication(authorization: &authorization)
-        
-        let result = try await trace.recordSpan(named: "datastore-put") { _ in
-            try await client.commit(.with {
+
+        let result: Google_Datastore_V1_CommitResponse = try await trace.recordSpan(named: "datastore-put") { span in
+            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
+
+            return try await client.commit(.with {
                 $0.projectID = projectID
                 $0.mutations = rawEntities.map { raw in
                         .with {

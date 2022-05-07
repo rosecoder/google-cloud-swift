@@ -32,9 +32,12 @@ public struct Authorization {
     }
 
     private var generateTask: Task<Token, Error>?
+    private var generateTaskFinished = false
 
     /// Returns cached authorization token or generates a new one if needed.
-    public mutating func token() async throws -> String {
+    public mutating func token() async throws -> (token: String, wasCached: Bool) {
+
+        let wasCached = generateTaskFinished
 
         // Get existing generate task or start a new one
         let generateTask: Task<Token, Error>
@@ -47,17 +50,20 @@ public struct Authorization {
                 try await TokenGenerator.shared.generate(scopes: scopes, authentication: authentication)
             }
             self.generateTask = generateTask
+            self.generateTaskFinished = false
         }
 
         // Wait for token to be generated
         let token: Token
         do {
             token = try await generateTask.value
+            self.generateTaskFinished = true
         } catch {
             logger.error("Failed getting access token: \(error)")
 
             // If generating fails, fail for this call, but clear task to retry on next call
             self.generateTask = nil
+            self.generateTaskFinished = false
 
             throw error
         }
@@ -70,16 +76,18 @@ public struct Authorization {
             // Need refresh directly?
             if timeIntervalToExpiration < estimatedExpiresLatency {
                 self.generateTask = nil
+                self.generateTaskFinished = false
                 return try await self.token()
             }
 
             // Need refresh soon?
             if timeIntervalToExpiration < overestimatedExpiresLatency {
                 self.generateTask = nil
+                self.generateTaskFinished = false
             }
         }
 
-        return token.accessToken
+        return (token.accessToken, wasCached)
     }
 }
 

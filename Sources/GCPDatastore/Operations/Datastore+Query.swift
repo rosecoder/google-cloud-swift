@@ -12,10 +12,10 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization)
-        
-        let response = try await trace.recordSpan(named: "datastore-query") { _ in
-            try await client.runQuery(.with {
+        let response: Google_Datastore_V1_RunQueryResponse = try await trace.recordSpan(named: "datastore-query") { span in
+            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
+
+            return try await client.runQuery(.with {
                 $0.projectID = projectID
                 $0.partitionID = .with {
                     $0.namespaceID = query.namespace.rawValue
