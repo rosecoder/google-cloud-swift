@@ -160,6 +160,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPTrace"
+               BuildableName = "GCPTrace"
+               BlueprintName = "GCPTrace"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -236,6 +250,16 @@
                BlueprintIdentifier = "GCPErrorReportingTests"
                BuildableName = "GCPErrorReportingTests"
                BlueprintName = "GCPErrorReportingTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPTraceTests"
+               BuildableName = "GCPTraceTests"
+               BlueprintName = "GCPTraceTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

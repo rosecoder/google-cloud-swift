@@ -2,6 +2,7 @@ import Foundation
 import Logging
 import GCPErrorReporting
 import GCPLogging
+import GCPTrace
 
 private enum InitializeMode {
     case singleRun
@@ -37,10 +38,12 @@ extension App {
         ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup, resource: .autoResolve)
 #endif
 
-        Task {
+        // Trace
+#if !DEBUG
+        Tracing.bootstrap(eventLoopGroup: eventLoopGroup)
+#endif
 
-            // Tracing
-            // TODO: Implement
+        Task {
 
             // Metrics
             // TODO: Implement

@@ -3,6 +3,7 @@ import GRPC
 import NIO
 import Logging
 import GCPCore
+import GCPTrace
 
 public final class Subscriber: Dependency {
 
@@ -145,47 +146,62 @@ public final class Subscriber: Dependency {
             Task {
                 let rawMessage = receivedMessage.message
 
-                // Get a logger
-                var messageLogger = Logger(label: logger.label + ".message")
-                messageLogger[metadataKey: "message"] = .string(rawMessage.messageID)
-                // TODO: Add trace context to metadata
-
-                // Wrap message
+                // Note: Mutable non-reference properties (e.g. logger and trace) must be defined
+                // and only used on the message struct. Otherwise we will miss out on extra metadata.
                 var message = SubscriberMessage(
                     id: rawMessage.messageID,
                     published: rawMessage.publishTime.date,
                     data: rawMessage.data,
                     attributes: rawMessage.attributes,
-                    logger: messageLogger
+                    logger: {
+                        var messageLogger = Logger(label: logger.label + ".message")
+                        messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
+                        // TODO: Add trace context to metadata
+                        return messageLogger
+                    }(),
+                    trace: Trace(named: subscription.name, attributes: [
+                        "message": rawMessage.messageID,
+                    ])
                 )
 
                 // Handle message
-                messageLogger.debug("Handling message")
+                message.logger.debug("Handling message")
 
                 do {
                     try Task.checkCancellation()
                     try await handler.handle(message: &message)
                 } catch {
                     if !(error is CancellationError) {
-                        messageLogger.error("Failed to handle message: \(error)")
+                        message.logger.error("Failed to handle message: \(error)")
                     }
 
+                    var unacknowledgeSpan = message.trace.span(named: "pubsub-unacknowledge")
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscription: subscription)
-                        messageLogger.debug("Unacknowledged message")
+                        unacknowledgeSpan.end(statusCode: .ok)
+                        message.logger.debug("Unacknowledged message")
                     } catch {
-                        messageLogger.error("Failed to unacknowledge message: \(error)")
+                        unacknowledgeSpan.end(error: error)
+                        message.logger.error("Failed to unacknowledge message: \(error)")
                     }
+                    message.trace.end(error: error)
                     return
                 }
 
+
+                var acknowledgeSpan = message.trace.span(named: "pubsub-acknowledge")
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscription: subscription)
-                    messageLogger.debug("Acknowledged message")
+                    acknowledgeSpan.end(statusCode: .ok)
+                    message.logger.debug("Acknowledged message")
                 } catch {
-                    messageLogger.error("Failed to acknowledge message: \(error)")
-                    // Should we nack the message?
+                    acknowledgeSpan.end(error: error)
+                    message.logger.error("Failed to acknowledge message: \(error)")
+                    // TODO: Add retry
+                    // TODO: Should we nack the message?
                 }
+
+                message.trace.end(statusCode: .ok)
             }
         }
         for task in tasks {

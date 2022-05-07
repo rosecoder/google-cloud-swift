@@ -1,6 +1,7 @@
 import Foundation
 import SwiftProtobuf
 import Logging
+import GCPTrace
 
 public struct SubscriberMessage: Message {
 
@@ -11,13 +12,15 @@ public struct SubscriberMessage: Message {
     public let attributes: [String: String]
 
     public var logger: Logger
+    public var trace: Trace
 
-    init(id: String, published: Date, data: Data, attributes: [String: String], logger: Logger) {
+    init(id: String, published: Date, data: Data, attributes: [String: String], logger: Logger, trace: Trace) {
         self.id = id
         self.published = published
         self.data = data
         self.attributes = attributes
         self.logger = logger
+        self.trace = trace
     }
 
 #if DEBUG
@@ -41,7 +44,8 @@ public struct SubscriberMessage: Message {
             published: published,
             data: data,
             attributes: attributes,
-            logger: logger
+            logger: logger,
+            trace: Trace(id: .init(), spanID: nil)
         )
     }
 #endif

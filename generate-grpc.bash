@@ -26,3 +26,12 @@ protoc google/datastore/v1/*.proto google/type/latlng.proto \
 rm ../Sources/GCPDatastore/gRPC\ Generated/*.swift
 mv google/datastore/v1/*.swift google/type/*.swift \
    ../Sources/GCPDatastore/gRPC\ Generated
+
+echo "Generating gRPC code for GCPTrace..."
+protoc google/devtools/cloudtrace/v2/*.proto google/rpc/status.proto \
+  --swift_out=. \
+  --grpc-swift_out=Client=true,Server=false,ExperimentalAsyncClient=true:.
+
+rm ../Sources/GCPTrace/gRPC\ Generated/*.swift
+mv google/devtools/cloudtrace/v2/*.swift google/rpc/*.swift \
+   ../Sources/GCPTrace/gRPC\ Generated

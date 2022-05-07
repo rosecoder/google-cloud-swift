@@ -10,10 +10,10 @@ This package includes infrastrucutre for running an app in GCP. The following pa
 
 - GCPLogging
 - GCPErrorReporting
+- GCPTrace
 
 The following packages are planned to be added:
 
-- ❌ GCPTrace
 - ❌ GCPMetrics
 
 ### GCPLogging
@@ -25,6 +25,23 @@ GCPLogging also sends errors to Error Reporting.
 ### GCPErrorReporting
 
 Client for [Google Cloud Error Reporting](https://cloud.google.com/error-reporting). GCPLogging uses GCPErrorReporting to report all errors logged to error reporting as well.
+
+### GCPTrace
+
+Client for [Google Cloud Trace](https://cloud.google.com/trace).
+
+| Feature                    | Implemented |
+|:---------------------------|:------------|
+| Create root spans          | ✅          |
+| Create child spans         | ✅          |
+| Attributes                 | ✅          |
+| Same process property      | ✅          |
+| Status reporting           | ✅          |
+| Stack trace                | ❌          |
+| Time events                | ❌          |
+| Links                      | ❌          |
+| Child span counting        | ❌          |
+| Span kind                  | ❌          |
 
 ### GCPDatastore
 

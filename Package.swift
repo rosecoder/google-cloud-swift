@@ -25,6 +25,7 @@ let package = Package(
             "GCPCore",
             "GCPErrorReporting",
             "GCPLogging",
+            "GCPTrace",
             .product(name: "Logging", package: "swift-log"),
         ]),
         .testTarget(name: "GCPAppTests", dependencies: ["GCPApp"]),
@@ -58,8 +59,15 @@ let package = Package(
 
         .target(name: "GCPPubSub", dependencies: [
             "GCPCore",
+            "GCPTrace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
         .testTarget(name: "GCPPubSubTests", dependencies: ["GCPPubSub"]),
+
+        .target(name: "GCPTrace", dependencies: [
+            "GCPCore",
+            .product(name: "GRPC", package: "grpc-swift"),
+        ]),
+        .testTarget(name: "GCPTraceTests", dependencies: ["GCPTrace"]),
     ]
 )

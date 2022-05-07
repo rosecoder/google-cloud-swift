@@ -1,5 +1,6 @@
 import Foundation
 import GCPLogging
+import GCPTrace
 
 private var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
 
@@ -29,11 +30,11 @@ extension App {
     /// - Parameter exitCode: Exit code to terminate process with after shutdown completed.
     @discardableResult
     public func terminate(exitCode: Int32) -> Task<Void, Never> {
-        #if DEBUG
+#if DEBUG
         logger.debug("Shutdown initialized. Terminating... 👋")
-        #else
+#else
         logger.info("Shutdown initialized. Terminating...")
-        #endif
+#endif
 
         return Task(priority: .userInitiated) {
 
@@ -61,11 +62,20 @@ extension App {
                 }
             }
 
+            // Trace
+#if !DEBUG
+            do {
+                try await Tracing.shutdown()
+            } catch {
+                logger.error("Error shutting down tracing: \(error)")
+            }
+#endif
+
             // Logging
-            #if !DEBUG
+#if !DEBUG
             logger.debug("Shutting down logging...")
             try! await GoogleCloudLogHandler.shutdown()
-            #endif
+#endif
 
             // Just in case, hold on for 1 sec
             logger.debug("Delay shutting quickly...")
