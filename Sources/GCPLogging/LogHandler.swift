@@ -43,11 +43,11 @@ public struct GoogleCloudLogHandler: LogHandler {
             for (key, value) in metadata {
                 if key == LogMetadataKeys.trace {
                     trace = value.description
-                    continue
+//                    continue
                 }
                 if key == LogMetadataKeys.spanID {
                     spanID = value.description
-                    continue
+//                    continue
                 }
 
                 labels[key] = value.description
