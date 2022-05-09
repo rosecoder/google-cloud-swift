@@ -30,7 +30,7 @@ public final class Subscriber: Dependency {
         "https://www.googleapis.com/auth/pubsub",
     ])
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) {
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {

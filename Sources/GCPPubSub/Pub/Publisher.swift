@@ -8,15 +8,30 @@ import SwiftProtobuf
 
 public final class Publisher: Dependency {
 
-    private var _client: Google_Pubsub_V1_PublisherAsyncClient
-    private let logger = Logger(label: "pubsub.publisher")
+    private static var _client: Google_Pubsub_V1_PublisherAsyncClient?
+    private static let logger = Logger(label: "pubsub.publisher")
 
-    private var authorization = Authorization(scopes: [
+    private static var client: Google_Pubsub_V1_PublisherAsyncClient {
+        get {
+            guard let _client = _client else {
+                fatalError("Must call Publisher.bootstrap(eventLoopGroup:) first")
+            }
+
+            return _client
+        }
+        set {
+            _client = newValue
+        }
+    }
+
+    // MARK: - Bootstrap
+
+    private static var authorization = Authorization(scopes: [
         "https://www.googleapis.com/auth/cloud-platform",
         "https://www.googleapis.com/auth/pubsub",
     ])
 
-    private init(eventLoopGroup: EventLoopGroup) async throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) {
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
@@ -40,25 +55,17 @@ public final class Publisher: Dependency {
         }
     }
 
-    // MARK: - Bootstrap
-
-    public private(set) static var shared: Publisher!
-
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        shared = try await Self.init(eventLoopGroup: eventLoopGroup)
-    }
-
     // MARK: - Publish
 
     @discardableResult
-    public func publish(to topic: Topic, messages: [PublisherMessage]) async throws -> [PublishedMessage] {
-        try await _client.ensureAuthentication(authorization: &authorization)
+    public static func publish(to topic: Topic, messages: [PublisherMessage]) async throws -> [PublishedMessage] {
+        try await client.ensureAuthentication(authorization: &authorization)
 
 #if DEBUG
-        try await topic.createIfNeeded(creation: _client.createTopic)
+        try await topic.createIfNeeded(creation: client.createTopic)
 #endif
 
-        let response = try await _client.publish(.with {
+        let response = try await client.publish(.with {
             $0.topic = topic.rawValue
             $0.messages = messages.map { message in
                 Google_Pubsub_V1_PubsubMessage.with {
@@ -78,17 +85,17 @@ public final class Publisher: Dependency {
     }
 
     @discardableResult
-    public func publish(to topic: Topic, message: PublisherMessage) async throws -> PublishedMessage {
+    public static func publish(to topic: Topic, message: PublisherMessage) async throws -> PublishedMessage {
         (try await publish(to: topic, messages: [message]))[0]
     }
 
     @discardableResult
-    public func publish(to topic: Topic, data: Data, attributes: [String: String] = [:]) async throws -> PublishedMessage {
+    public static func publish(to topic: Topic, data: Data, attributes: [String: String] = [:]) async throws -> PublishedMessage {
         (try await publish(to: topic, messages: [PublisherMessage(data: data, attributes: attributes)]))[0]
     }
 
     @discardableResult
-    public func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:]) async throws -> PublishedMessage {
+    public static func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:]) async throws -> PublishedMessage {
         let message = try PublisherMessage(data: element, attributes: attributes)
         return (try await publish(to: topic, messages: [message]))[0]
     }

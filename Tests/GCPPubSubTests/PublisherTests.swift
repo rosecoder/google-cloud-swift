@@ -23,8 +23,8 @@ final class PublisherTests: XCTestCase {
     }
 
     func testPublish() async throws {
-        try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
+        Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
-        try await Publisher.shared.publish(to: .test, data: "Hello".data(using: .utf8)!)
+        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!)
     }
 }

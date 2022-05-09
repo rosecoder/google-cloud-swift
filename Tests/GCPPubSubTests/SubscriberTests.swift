@@ -27,8 +27,8 @@ final class SubscriberTestCase: XCTestCase {
     }
 
     func testSubscribe() async throws {
-        try await Subscriber.bootstrap(eventLoopGroup: eventLoopGroup)
-        try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
+        Subscriber.bootstrap(eventLoopGroup: eventLoopGroup)
+        Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Prepare
         let expectation = self.expectation(description: "Received message")
@@ -43,7 +43,7 @@ final class SubscriberTestCase: XCTestCase {
         try await Subscriber.startPull(subscription: .test, handler: handler)
 
         // Publish message
-        let publishedMessage = try! await Publisher.shared.publish(to: .test, data: "Hello".data(using: .utf8)!)
+        let publishedMessage = try! await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!)
 
         // Wait
         await waitForExpectations(timeout: 60, handler: nil)
