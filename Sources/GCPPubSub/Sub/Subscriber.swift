@@ -76,13 +76,19 @@ public final class Subscriber: Dependency {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
                     let delay: UInt64
-                    switch (error as? GRPCStatus)?.code ?? .unknown {
-                    case .unavailable, .deadlineExceeded:
+                    switch error as? ChannelError {
+                    case .ioOnClosedChannel:
                         logger.debug("Pull failed with short retry error code for \(subscription.name): \(error)")
                         delay = 50_000_000 // 50 ms
                     default:
-                        logger.warning("Pull failed for \(subscription.name): \(error)")
-                        delay = 1_000_000_000 // 1 sec
+                        switch (error as? GRPCStatus)?.code ?? .unknown {
+                        case .unavailable, .deadlineExceeded:
+                            logger.debug("Pull failed with short retry error code for \(subscription.name): \(error)")
+                            delay = 50_000_000 // 50 ms
+                        default:
+                            logger.warning("Pull failed for \(subscription.name): \(error)")
+                            delay = 1_000_000_000 // 1 sec
+                        }
                     }
 
                     try await Task.sleep(nanoseconds: delay)
