@@ -25,6 +25,6 @@ final class PublisherTests: XCTestCase {
     func testPublish() async throws {
         Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
-        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!)
+        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, trace: nil)
     }
 }

@@ -73,7 +73,7 @@ Client for [Google Pub/Sub](https://cloud.google.com/pubsub).
 | Subscribe to messages      | ✅           |
 | Pub/Sub Lite               | ❌           |
 | Error reporting            | ✅           |
-| Trace reporting            | ❌ (only sub)|
+| Trace reporting            | ✅           |
 
 ### GCPCore
 

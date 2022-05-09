@@ -43,7 +43,7 @@ final class SubscriberTestCase: XCTestCase {
         try await Subscriber.startPull(subscription: .test, handler: handler)
 
         // Publish message
-        let publishedMessage = try! await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!)
+        let publishedMessage = try! await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, trace: nil)
 
         // Wait
         await waitForExpectations(timeout: 60, handler: nil)
