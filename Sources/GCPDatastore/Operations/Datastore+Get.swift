@@ -12,10 +12,10 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
-            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
+        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "datastore")
 
-            return try await client.lookup(.with {
+        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
+            try await client.lookup(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map({ $0.raw })
             })
@@ -77,10 +77,10 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
-            try await client.ensureAuthentication(authorization: &authorization, spanParent: span)
+        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "datastore")
 
-            return try await client.lookup(.with {
+        let response: Google_Datastore_V1_LookupResponse = try await trace.recordSpan(named: "datastore-lookup") { span in
+            try await client.lookup(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map({ $0.raw })
             })

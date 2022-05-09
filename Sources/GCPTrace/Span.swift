@@ -86,19 +86,4 @@ public struct Span {
     public func abort() {
         // Currently this method do nothig, but it may be used in the future for keeping track of expected spans
     }
-
-    // MARK: - Child spans
-
-    public func childSpan(named name: String, attributes: [String: AttributableValue] = [:]) -> Span {
-        precondition(ended == nil, "Child span of trace was requested, but root span already ended.")
-
-        return Span(
-            traceID: traceID,
-            parentID: id,
-            sameProcessAsParent: true,
-            id: Span.Identifier(),
-            name: name,
-            attributes: attributes
-        )
-    }
 }

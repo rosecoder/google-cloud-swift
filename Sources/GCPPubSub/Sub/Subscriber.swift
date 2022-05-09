@@ -105,23 +105,27 @@ public final class Subscriber: Dependency {
 
     // MARK: - Acknowledge
 
-    private static func acknowledge(id: String, subscription: Subscription, spanParent: Span) async throws {
-        try await client.ensureAuthentication(authorization: &authorization, spanParent: spanParent)
+    private static func acknowledge(id: String, subscription: Subscription, trace: Trace) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "pubsub")
 
-        _ = try await client.acknowledge(.with {
-            $0.subscription = subscription.rawValue
-            $0.ackIds = [id]
-        })
+        try await trace.recordSpan(named: "pubsub-acknowledge") { span in
+            _ = try await client.acknowledge(.with {
+                $0.subscription = subscription.rawValue
+                $0.ackIds = [id]
+            })
+        }
     }
 
-    private static func unacknowledge(id: String, subscription: Subscription, spanParent: Span) async throws {
-        try await client.ensureAuthentication(authorization: &authorization, spanParent: spanParent)
+    private static func unacknowledge(id: String, subscription: Subscription, trace: Trace) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "pubsub")
 
-        _ = try await client.modifyAckDeadline(.with {
-            $0.subscription = subscription.rawValue
-            $0.ackIds = [id]
-            $0.ackDeadlineSeconds = 0
-        })
+        try await trace.recordSpan(named: "pubsub-unacknowledge") { span in
+            _ = try await client.modifyAckDeadline(.with {
+                $0.subscription = subscription.rawValue
+                $0.ackIds = [id]
+                $0.ackDeadlineSeconds = 0
+            })
+        }
     }
 
     // MARK: - Pull
@@ -176,27 +180,20 @@ public final class Subscriber: Dependency {
                         message.logger.error("Failed to handle message: \(error)")
                     }
 
-                    var unacknowledgeSpan = message.trace.span(named: "pubsub-unacknowledge")
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, spanParent: unacknowledgeSpan)
-                        unacknowledgeSpan.end(statusCode: .ok)
+                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
                         message.logger.debug("Unacknowledged message")
                     } catch {
-                        unacknowledgeSpan.end(error: error)
                         message.logger.error("Failed to unacknowledge message: \(error)")
                     }
                     message.trace.end(error: error)
                     return
                 }
 
-
-                var acknowledgeSpan = message.trace.span(named: "pubsub-acknowledge")
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, spanParent: acknowledgeSpan)
-                    acknowledgeSpan.end(statusCode: .ok)
+                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
                     message.logger.debug("Acknowledged message")
                 } catch {
-                    acknowledgeSpan.end(error: error)
                     message.logger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry
                     // TODO: Should we nack the message?
