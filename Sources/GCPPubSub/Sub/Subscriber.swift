@@ -164,7 +164,6 @@ public final class Subscriber: Dependency {
                     logger: {
                         var messageLogger = Logger(label: logger.label + ".message")
                         messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
-                        // TODO: Add trace context to metadata
                         return messageLogger
                     }(),
                     trace: Trace(named: subscription.name, attributes: [
