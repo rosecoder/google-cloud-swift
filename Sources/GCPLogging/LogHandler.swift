@@ -33,27 +33,34 @@ public struct GoogleCloudLogHandler: LogHandler {
         let now = Date()
         let logName = resource.logName(label: label)
 
-        var textPayload = message.description
-
         var labels: [String: String] = resource.entryLabels
+
+        // Existing metdata
         var trace: String?
         var spanID: String?
+        labels.reserveCapacity(self.metadata.count)
+        for (key, value) in self.metadata {
+            if key == LogMetadataKeys.trace {
+                trace = value.description
+                continue
+            }
+            if key == LogMetadataKeys.spanID {
+                spanID = value.description
+                continue
+            }
+            labels[key] = value.description
+        }
+
+        // New metdata
         if let metadata = metadata {
             labels.reserveCapacity(metadata.count)
             for (key, value) in metadata {
-                if key == LogMetadataKeys.trace {
-                    trace = value.description
-//                    continue
-                }
-                if key == LogMetadataKeys.spanID {
-                    spanID = value.description
-//                    continue
-                }
-
                 labels[key] = value.description
             }
         }
 
+        // Payload
+        var textPayload = message.description
         if level >= .error {
             let formattedLines: [String] = Thread.callStackSymbols
                 .compactMap { line in
