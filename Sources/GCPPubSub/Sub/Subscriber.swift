@@ -150,8 +150,6 @@ public final class Subscriber: Dependency {
             return
         }
 
-        logger.debug("Received \(response.receivedMessages.count) messages")
-
         let tasks: [Task<Void, Error>] = response.receivedMessages.map { receivedMessage in
             Task {
                 let rawMessage = receivedMessage.message
