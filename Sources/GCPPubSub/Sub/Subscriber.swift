@@ -170,8 +170,6 @@ public final class Subscriber: Dependency {
                 message.logger.addMetadata(for: message.trace)
 
                 // Handle message
-                message.logger.debug("Handling message")
-
                 do {
                     try Task.checkCancellation()
                     try await handler.handle(message: &message)
@@ -182,7 +180,6 @@ public final class Subscriber: Dependency {
 
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
-                        message.logger.debug("Unacknowledged message")
                     } catch {
                         message.logger.error("Failed to unacknowledge message: \(error)")
                     }
@@ -192,7 +189,6 @@ public final class Subscriber: Dependency {
 
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
-                    message.logger.debug("Acknowledged message")
                 } catch {
                     message.logger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry
