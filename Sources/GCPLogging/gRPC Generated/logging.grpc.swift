@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -194,8 +195,45 @@ extension Google_Logging_V2_LoggingServiceV2ClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Logging_V2_LoggingServiceV2Client: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Logging_V2_LoggingServiceV2NIOClient")
 internal final class Google_Logging_V2_LoggingServiceV2Client: Google_Logging_V2_LoggingServiceV2ClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.logging.v2.LoggingServiceV2 service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Logging_V2_LoggingServiceV2NIOClient: Google_Logging_V2_LoggingServiceV2ClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol?
 
@@ -216,9 +254,9 @@ internal final class Google_Logging_V2_LoggingServiceV2Client: Google_Logging_V2
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// Service for ingesting and querying logs.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Logging_V2_LoggingServiceV2AsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol? { get }
@@ -253,7 +291,7 @@ internal protocol Google_Logging_V2_LoggingServiceV2AsyncClientProtocol: GRPCCli
   ) -> GRPCAsyncBidirectionalStreamingCall<Google_Logging_V2_TailLogEntriesRequest, Google_Logging_V2_TailLogEntriesResponse>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Logging_V2_LoggingServiceV2ClientMetadata.serviceDescriptor
@@ -334,7 +372,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   internal func deleteLog(
     _ request: Google_Logging_V2_DeleteLogRequest,
@@ -411,7 +449,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   internal func tailLogEntries<RequestStream>(
     _ requests: RequestStream,
     callOptions: CallOptions? = nil
-  ) -> GRPCAsyncResponseStream<Google_Logging_V2_TailLogEntriesResponse> where RequestStream: AsyncSequence, RequestStream.Element == Google_Logging_V2_TailLogEntriesRequest {
+  ) -> GRPCAsyncResponseStream<Google_Logging_V2_TailLogEntriesResponse> where RequestStream: AsyncSequence & Sendable, RequestStream.Element == Google_Logging_V2_TailLogEntriesRequest {
     return self.performAsyncBidirectionalStreamingCall(
       path: Google_Logging_V2_LoggingServiceV2ClientMetadata.Methods.tailLogEntries.path,
       requests: requests,
@@ -421,7 +459,7 @@ extension Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Logging_V2_LoggingServiceV2AsyncClient: Google_Logging_V2_LoggingServiceV2AsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -438,9 +476,9 @@ internal struct Google_Logging_V2_LoggingServiceV2AsyncClient: Google_Logging_V2
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol {
+internal protocol Google_Logging_V2_LoggingServiceV2ClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'deleteLog'.
   func makeDeleteLogInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLogRequest, SwiftProtobuf.Google_Protobuf_Empty>]

@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -718,8 +719,45 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Logging_V2_ConfigServiceV2Client: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Logging_V2_ConfigServiceV2NIOClient")
 internal final class Google_Logging_V2_ConfigServiceV2Client: Google_Logging_V2_ConfigServiceV2ClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.logging.v2.ConfigServiceV2 service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Logging_V2_ConfigServiceV2NIOClient: Google_Logging_V2_ConfigServiceV2ClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol?
 
@@ -740,9 +778,9 @@ internal final class Google_Logging_V2_ConfigServiceV2Client: Google_Logging_V2_
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// Service for configuring sinks used to route log entries.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol? { get }
@@ -878,7 +916,7 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CopyLogEntriesRequest, Google_Longrunning_Operation>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Logging_V2_ConfigServiceV2ClientMetadata.serviceDescriptor
@@ -1201,7 +1239,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
   internal func listBuckets(
     _ request: Google_Logging_V2_ListBucketsRequest,
@@ -1516,7 +1554,7 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Logging_V2_ConfigServiceV2AsyncClient: Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -1533,9 +1571,9 @@ internal struct Google_Logging_V2_ConfigServiceV2AsyncClient: Google_Logging_V2_
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol {
+internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'listBuckets'.
   func makeListBucketsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListBucketsRequest, Google_Logging_V2_ListBucketsResponse>]

@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -193,8 +194,45 @@ extension Google_Longrunning_OperationsClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Longrunning_OperationsClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Longrunning_OperationsNIOClient")
 internal final class Google_Longrunning_OperationsClient: Google_Longrunning_OperationsClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Longrunning_OperationsClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Longrunning_OperationsClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.longrunning.Operations service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Longrunning_OperationsClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Longrunning_OperationsNIOClient: Google_Longrunning_OperationsClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Longrunning_OperationsClientInterceptorFactoryProtocol?
 
@@ -215,7 +253,7 @@ internal final class Google_Longrunning_OperationsClient: Google_Longrunning_Ope
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// Manages long-running operations with an API service.
 ///
 /// When an API method normally takes long time to complete, it can be designed
@@ -225,7 +263,7 @@ internal final class Google_Longrunning_OperationsClient: Google_Longrunning_Ope
 /// Google Cloud Pub/Sub API) to receive the response.  Any API service that
 /// returns long-running operations should implement the `Operations` interface
 /// so developers can have a consistent client experience.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Longrunning_OperationsAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Longrunning_OperationsClientInterceptorFactoryProtocol? { get }
@@ -256,7 +294,7 @@ internal protocol Google_Longrunning_OperationsAsyncClientProtocol: GRPCClient {
   ) -> GRPCAsyncUnaryCall<Google_Longrunning_WaitOperationRequest, Google_Longrunning_Operation>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Longrunning_OperationsAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Longrunning_OperationsClientMetadata.serviceDescriptor
@@ -327,7 +365,7 @@ extension Google_Longrunning_OperationsAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Longrunning_OperationsAsyncClientProtocol {
   internal func listOperations(
     _ request: Google_Longrunning_ListOperationsRequest,
@@ -390,7 +428,7 @@ extension Google_Longrunning_OperationsAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Longrunning_OperationsAsyncClient: Google_Longrunning_OperationsAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -407,9 +445,9 @@ internal struct Google_Longrunning_OperationsAsyncClient: Google_Longrunning_Ope
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Longrunning_OperationsClientInterceptorFactoryProtocol {
+internal protocol Google_Longrunning_OperationsClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'listOperations'.
   func makeListOperationsInterceptors() -> [ClientInterceptor<Google_Longrunning_ListOperationsRequest, Google_Longrunning_ListOperationsResponse>]

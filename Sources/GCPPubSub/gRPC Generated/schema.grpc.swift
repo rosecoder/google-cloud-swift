@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -177,8 +178,45 @@ extension Google_Pubsub_V1_SchemaServiceClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Pubsub_V1_SchemaServiceClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Pubsub_V1_SchemaServiceNIOClient")
 internal final class Google_Pubsub_V1_SchemaServiceClient: Google_Pubsub_V1_SchemaServiceClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.pubsub.v1.SchemaService service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Pubsub_V1_SchemaServiceNIOClient: Google_Pubsub_V1_SchemaServiceClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol?
 
@@ -199,9 +237,9 @@ internal final class Google_Pubsub_V1_SchemaServiceClient: Google_Pubsub_V1_Sche
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// Service for doing schema-related operations.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Pubsub_V1_SchemaServiceAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol? { get }
@@ -237,7 +275,7 @@ internal protocol Google_Pubsub_V1_SchemaServiceAsyncClientProtocol: GRPCClient 
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ValidateMessageRequest, Google_Pubsub_V1_ValidateMessageResponse>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Pubsub_V1_SchemaServiceClientMetadata.serviceDescriptor
@@ -320,7 +358,7 @@ extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
   internal func createSchema(
     _ request: Google_Pubsub_V1_CreateSchemaRequest,
@@ -395,7 +433,7 @@ extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Pubsub_V1_SchemaServiceAsyncClient: Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -412,9 +450,9 @@ internal struct Google_Pubsub_V1_SchemaServiceAsyncClient: Google_Pubsub_V1_Sche
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol {
+internal protocol Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'createSchema'.
   func makeCreateSchemaInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_CreateSchemaRequest, Google_Pubsub_V1_Schema>]

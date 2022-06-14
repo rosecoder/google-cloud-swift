@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -261,8 +262,45 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Pubsub_V1_PublisherClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Pubsub_V1_PublisherNIOClient")
 internal final class Google_Pubsub_V1_PublisherClient: Google_Pubsub_V1_PublisherClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.pubsub.v1.Publisher service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Pubsub_V1_PublisherNIOClient: Google_Pubsub_V1_PublisherClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol?
 
@@ -283,10 +321,10 @@ internal final class Google_Pubsub_V1_PublisherClient: Google_Pubsub_V1_Publishe
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// The service that an application uses to manipulate topics, and to send
 /// messages to a topic.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Pubsub_V1_PublisherAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol? { get }
@@ -337,7 +375,7 @@ internal protocol Google_Pubsub_V1_PublisherAsyncClientProtocol: GRPCClient {
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DetachSubscriptionRequest, Google_Pubsub_V1_DetachSubscriptionResponse>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Pubsub_V1_PublisherClientMetadata.serviceDescriptor
@@ -456,7 +494,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
   internal func createTopic(
     _ request: Google_Pubsub_V1_Topic,
@@ -567,7 +605,7 @@ extension Google_Pubsub_V1_PublisherAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Pubsub_V1_PublisherAsyncClient: Google_Pubsub_V1_PublisherAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -584,9 +622,9 @@ internal struct Google_Pubsub_V1_PublisherAsyncClient: Google_Pubsub_V1_Publishe
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol {
+internal protocol Google_Pubsub_V1_PublisherClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'createTopic'.
   func makeCreateTopicInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Topic, Google_Pubsub_V1_Topic>]
@@ -1157,8 +1195,45 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Pubsub_V1_SubscriberClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Pubsub_V1_SubscriberNIOClient")
 internal final class Google_Pubsub_V1_SubscriberClient: Google_Pubsub_V1_SubscriberClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.pubsub.v1.Subscriber service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Pubsub_V1_SubscriberNIOClient: Google_Pubsub_V1_SubscriberClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol?
 
@@ -1179,11 +1254,11 @@ internal final class Google_Pubsub_V1_SubscriberClient: Google_Pubsub_V1_Subscri
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// The service that an application uses to manipulate subscriptions and to
 /// consume messages from a subscription via the `Pull` method or by
 /// establishing a bi-directional stream using the `StreamingPull` method.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Pubsub_V1_SubscriberAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol? { get }
@@ -1268,7 +1343,7 @@ internal protocol Google_Pubsub_V1_SubscriberAsyncClientProtocol: GRPCClient {
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_SeekRequest, Google_Pubsub_V1_SeekResponse>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Pubsub_V1_SubscriberClientMetadata.serviceDescriptor
@@ -1469,7 +1544,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   internal func createSubscription(
     _ request: Google_Pubsub_V1_Subscription,
@@ -1582,7 +1657,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   internal func streamingPull<RequestStream>(
     _ requests: RequestStream,
     callOptions: CallOptions? = nil
-  ) -> GRPCAsyncResponseStream<Google_Pubsub_V1_StreamingPullResponse> where RequestStream: AsyncSequence, RequestStream.Element == Google_Pubsub_V1_StreamingPullRequest {
+  ) -> GRPCAsyncResponseStream<Google_Pubsub_V1_StreamingPullResponse> where RequestStream: AsyncSequence & Sendable, RequestStream.Element == Google_Pubsub_V1_StreamingPullRequest {
     return self.performAsyncBidirectionalStreamingCall(
       path: Google_Pubsub_V1_SubscriberClientMetadata.Methods.streamingPull.path,
       requests: requests,
@@ -1676,7 +1751,7 @@ extension Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Pubsub_V1_SubscriberAsyncClient: Google_Pubsub_V1_SubscriberAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -1693,9 +1768,9 @@ internal struct Google_Pubsub_V1_SubscriberAsyncClient: Google_Pubsub_V1_Subscri
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol {
+internal protocol Google_Pubsub_V1_SubscriberClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'createSubscription'.
   func makeCreateSubscriptionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_Subscription, Google_Pubsub_V1_Subscription>]

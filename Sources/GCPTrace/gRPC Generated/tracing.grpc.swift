@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -90,8 +91,45 @@ extension Google_Devtools_Cloudtrace_V2_TraceServiceClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Devtools_Cloudtrace_V2_TraceServiceClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Devtools_Cloudtrace_V2_TraceServiceNIOClient")
 internal final class Google_Devtools_Cloudtrace_V2_TraceServiceClient: Google_Devtools_Cloudtrace_V2_TraceServiceClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.devtools.cloudtrace.v2.TraceService service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Devtools_Cloudtrace_V2_TraceServiceNIOClient: Google_Devtools_Cloudtrace_V2_TraceServiceClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol?
 
@@ -112,13 +150,13 @@ internal final class Google_Devtools_Cloudtrace_V2_TraceServiceClient: Google_De
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// This file describes an API for collecting and viewing traces and spans
 /// within a trace.  A Trace is a collection of spans corresponding to a single
 /// operation or set of operations for an application. A span is an individual
 /// timed event which forms a node of the trace tree. A single trace may
 /// contain span(s) from multiple services.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol? { get }
@@ -134,7 +172,7 @@ internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol:
   ) -> GRPCAsyncUnaryCall<Google_Devtools_Cloudtrace_V2_Span, Google_Devtools_Cloudtrace_V2_Span>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Devtools_Cloudtrace_V2_TraceServiceClientMetadata.serviceDescriptor
@@ -169,7 +207,7 @@ extension Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol {
   internal func batchWriteSpans(
     _ request: Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest,
@@ -196,7 +234,7 @@ extension Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClient: Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -213,9 +251,9 @@ internal struct Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClient: Google_De
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol {
+internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'batchWriteSpans'.
   func makeBatchWriteSpansInterceptors() -> [ClientInterceptor<Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest, SwiftProtobuf.Google_Protobuf_Empty>]

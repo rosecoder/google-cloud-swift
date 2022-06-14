@@ -22,6 +22,7 @@
 //
 import GRPC
 import NIO
+import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
@@ -208,8 +209,45 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
   }
 }
 
+#if compiler(>=5.6)
+@available(*, deprecated)
+extension Google_Datastore_V1_DatastoreClient: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
+@available(*, deprecated, renamed: "Google_Datastore_V1_DatastoreNIOClient")
 internal final class Google_Datastore_V1_DatastoreClient: Google_Datastore_V1_DatastoreClientProtocol {
+  private let lock = Lock()
+  private var _defaultCallOptions: CallOptions
+  private var _interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol?
   internal let channel: GRPCChannel
+  internal var defaultCallOptions: CallOptions {
+    get { self.lock.withLock { return self._defaultCallOptions } }
+    set { self.lock.withLockVoid { self._defaultCallOptions = newValue } }
+  }
+  internal var interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol? {
+    get { self.lock.withLock { return self._interceptors } }
+    set { self.lock.withLockVoid { self._interceptors = newValue } }
+  }
+
+  /// Creates a client for the google.datastore.v1.Datastore service.
+  ///
+  /// - Parameters:
+  ///   - channel: `GRPCChannel` to the service host.
+  ///   - defaultCallOptions: Options to use for each service call if the user doesn't provide them.
+  ///   - interceptors: A factory providing interceptors for each RPC.
+  internal init(
+    channel: GRPCChannel,
+    defaultCallOptions: CallOptions = CallOptions(),
+    interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol? = nil
+  ) {
+    self.channel = channel
+    self._defaultCallOptions = defaultCallOptions
+    self._interceptors = interceptors
+  }
+}
+
+internal struct Google_Datastore_V1_DatastoreNIOClient: Google_Datastore_V1_DatastoreClientProtocol {
+  internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
   internal var interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol?
 
@@ -230,14 +268,14 @@ internal final class Google_Datastore_V1_DatastoreClient: Google_Datastore_V1_Da
   }
 }
 
-#if compiler(>=5.5) && canImport(_Concurrency)
+#if compiler(>=5.6)
 /// Each RPC normalizes the partition IDs of the keys in its input entities,
 /// and always returns entities with keys with normalized partition IDs.
 /// This applies to all keys and entities, including those in values, except keys
 /// with both an empty path and an empty or unset partition ID. Normalization of
 /// input keys sets the project ID (if not already set) to the project ID from
 /// the request.
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Datastore_V1_DatastoreAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }
   var interceptors: Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol? { get }
@@ -278,7 +316,7 @@ internal protocol Google_Datastore_V1_DatastoreAsyncClientProtocol: GRPCClient {
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_ReserveIdsRequest, Google_Datastore_V1_ReserveIdsResponse>
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
   internal static var serviceDescriptor: GRPCServiceDescriptor {
     return Google_Datastore_V1_DatastoreClientMetadata.serviceDescriptor
@@ -373,7 +411,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
   internal func lookup(
     _ request: Google_Datastore_V1_LookupRequest,
@@ -460,7 +498,7 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
   }
 }
 
-@available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
+@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal struct Google_Datastore_V1_DatastoreAsyncClient: Google_Datastore_V1_DatastoreAsyncClientProtocol {
   internal var channel: GRPCChannel
   internal var defaultCallOptions: CallOptions
@@ -477,9 +515,9 @@ internal struct Google_Datastore_V1_DatastoreAsyncClient: Google_Datastore_V1_Da
   }
 }
 
-#endif // compiler(>=5.5) && canImport(_Concurrency)
+#endif // compiler(>=5.6)
 
-internal protocol Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol {
+internal protocol Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol: GRPCSendable {
 
   /// - Returns: Interceptors to use when invoking 'lookup'.
   func makeLookupInterceptors() -> [ClientInterceptor<Google_Datastore_V1_LookupRequest, Google_Datastore_V1_LookupResponse>]
