@@ -43,8 +43,8 @@ struct SidecarLog: Encodable {
             self.severity = "ERROR"
         }
 
-        self.messageText = "\(source): \(message.description)"
-        self.message = "\(function) \(file):\(line)"
+        self.messageText = "\(function) \(file):\(line)"
+        self.message = "\(source): \(message.description)"
 
         self.context = metadata?.mapValues { $0.description } ?? [:]
     }
