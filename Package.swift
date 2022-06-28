@@ -11,6 +11,7 @@ let package = Package(
         .library(name: "GCPCore", targets: ["GCPCore"]),
         .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
+        .library(name: "GCPMemcache", targets: ["GCPMemcache"]),
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
         .library(name: "GCPTrace", targets: ["GCPTrace"]),
     ],
@@ -19,6 +20,7 @@ let package = Package(
         .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.8.0")),
         .package(name: "Auth", url: "https://github.com/rosecoder/google-auth-library-swift.git", .revision("main")),
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
+        .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
     ],
     targets: [
         .target(name: "GCPApp", dependencies: [
@@ -57,6 +59,13 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
         ]),
         .testTarget(name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
+
+        .target(name: "GCPMemcache", dependencies: [
+            "GCPCore",
+            "GCPTrace",
+            .product(name: "RediStack", package: "RediStack"),
+        ]),
+        .testTarget(name: "GCPMemcacheTests", dependencies: ["GCPMemcache"]),
 
         .target(name: "GCPPubSub", dependencies: [
             "GCPCore",
