@@ -30,11 +30,11 @@
       },
       {
         "package": "Auth",
-        "repositoryURL": "https://github.com/googleapis/google-auth-library-swift.git",
+        "repositoryURL": "https://github.com/rosecoder/google-auth-library-swift.git",
         "state": {
-          "branch": null,
-          "revision": "4b510d91fc74f1415eae6dabc9836b8c3e1f44f6",
-          "version": "0.5.3"
+          "branch": "main",
+          "revision": "cfaae3ec1117ea687f84006fc0c56fbaa16a603a",
+          "version": null
         }
       },
       {
