@@ -69,30 +69,38 @@ public final class Subscriber: Dependency {
         logger.debug("Subscribed to \(subscription.name)")
     }
 
-    private static func continuesPull(subscription: Subscription, handler: SubscriptionHandler) {
+    private static func continuesPull(subscription: Subscription, handler: SubscriptionHandler, retryCount: UInt64 = 0) {
         runningPullTasks[subscription] = Task {
             while !Task.isCancelled {
                 do {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
-                    let delay: UInt64
+                    var delay: UInt64
+                    let log: (String) -> Void
                     switch error as? ChannelError {
                     case .ioOnClosedChannel:
-                        logger.debug("Pull failed with short retry error code for \(subscription.name): \(error)")
+                        log = logger.debug
                         delay = 50_000_000 // 50 ms
                     default:
                         switch (error as? GRPCStatus)?.code ?? .unknown {
-                        case .unavailable, .deadlineExceeded:
-                            logger.debug("Pull failed with short retry error code for \(subscription.name): \(error)")
+                        case .unavailable:
+                            log = logger.debug
+                            delay = 200_000_000 // 200 ms
+                        case .deadlineExceeded:
+                            log = logger.debug
                             delay = 50_000_000 // 50 ms
                         default:
-                            logger.warning("Pull failed for \(subscription.name): \(error)")
+                            log = logger.warning
                             delay = 1_000_000_000 // 1 sec
                         }
                     }
+                    delay *= (retryCount + 1)
+
+                    log("Pull failed for \(subscription.name) (retry in \(delay / 1_000_000)ms): \(error)")
 
                     try await Task.sleep(nanoseconds: delay)
-                    self.continuesPull(subscription: subscription, handler: handler)
+
+                    self.continuesPull(subscription: subscription, handler: handler, retryCount: retryCount + 1)
                 }
             }
         }
