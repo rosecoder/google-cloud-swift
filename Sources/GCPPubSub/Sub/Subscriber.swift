@@ -75,6 +75,8 @@ public final class Subscriber: Dependency {
                 do {
                     try await singlePull(subscription: subscription, handler: handler)
                 } catch {
+                    try Task.checkCancellation()
+
                     var delay: UInt64
                     let log: (@autoclosure () -> Logger.Message, @autoclosure () -> Logger.Metadata?, String, String, UInt) -> ()
                     switch error as? ChannelError {
@@ -99,6 +101,8 @@ public final class Subscriber: Dependency {
                     log("Pull failed for \(subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
 
                     try await Task.sleep(nanoseconds: delay)
+
+                    try Task.checkCancellation()
 
                     self.continuesPull(subscription: subscription, handler: handler, retryCount: retryCount + 1)
                     break
