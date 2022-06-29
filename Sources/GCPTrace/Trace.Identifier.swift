@@ -2,7 +2,7 @@ import Foundation
 
 extension Trace {
 
-    public struct Identifier: Equatable {
+    public struct Identifier: Equatable, Codable {
 
         public typealias RawValue = (UInt64, UInt64)
 
@@ -45,6 +45,24 @@ extension Trace {
 
         public static func ==(lhs: Identifier, rhs: Identifier) -> Bool {
             lhs.rawValue == rhs.rawValue
+        }
+
+        // MARK: - Codable
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            try container.encode(stringValue)
+        }
+
+        public struct InvalidStringRepresentationError: Error {}
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            if let id = Identifier(stringValue: try container.decode(String.self)) {
+                self = id
+            } else {
+                throw InvalidStringRepresentationError()
+            }
         }
     }
 }

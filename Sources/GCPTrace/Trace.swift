@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Trace {
+public struct Trace: Codable, Equatable {
 
     public let id: Identifier
 
@@ -105,5 +105,11 @@ public struct Trace {
     ) {
         precondition(rootSpan != nil)
         rootSpan?.end(error: error, additionalAttributes: additionalAttributes)
+    }
+
+    // MARK: - Equatable
+
+    public static func ==(lhs: Trace, rhs: Trace) -> Bool {
+        lhs.id == rhs.id
     }
 }

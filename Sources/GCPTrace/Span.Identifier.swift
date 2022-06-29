@@ -2,7 +2,7 @@ import Foundation
 
 extension Span {
 
-    public struct Identifier: Equatable {
+    public struct Identifier: Equatable, Codable {
 
         public typealias RawValue = UInt64
 
@@ -23,6 +23,25 @@ extension Span {
 
         public var stringValue: String {
             rawValue.prefixedHexRepresentation
+        }
+
+        // MARK: - Codable
+
+        public func encode(to encoder: Encoder) throws {
+            var container = encoder.singleValueContainer()
+            try container.encode(stringValue)
+        }
+
+        public struct InvalidStringRepresentationError: Error {}
+
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let stringValue = try container.decode(String.self)
+            guard let rawValue = UInt64(stringValue, radix: 16) else {
+                throw InvalidStringRepresentationError()
+            }
+
+            self.rawValue = rawValue
         }
     }
 }
