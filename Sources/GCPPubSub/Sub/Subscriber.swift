@@ -101,6 +101,7 @@ public final class Subscriber: Dependency {
                     try await Task.sleep(nanoseconds: delay)
 
                     self.continuesPull(subscription: subscription, handler: handler, retryCount: retryCount + 1)
+                    break
                 }
             }
         }
