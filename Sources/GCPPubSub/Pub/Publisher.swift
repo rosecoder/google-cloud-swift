@@ -66,18 +66,22 @@ public final class Publisher: Dependency {
         try await topic.createIfNeeded(creation: client.createTopic)
 #endif
 
-        let response = try await client.publish(.with {
-            $0.topic = topic.rawValue
-            $0.messages = messages.map { message in
-                Google_Pubsub_V1_PubsubMessage.with {
-                    $0.data = message.data
-                    $0.attributes = message.attributes
-                    if let trace = trace, let spanID = trace.rootSpan?.id ?? trace.spanID {
-                        $0.attributes["__traceID"] = trace.id.stringValue
-                        $0.attributes["__spanID"] = spanID.stringValue
+        let response: Google_Pubsub_V1_PublishResponse = try await trace.recordSpan(named: "pubsub-publish", attributes: [
+            "pubsub/topic": topic.rawValue,
+        ], closure: { span in
+            try await client.publish(.with {
+                $0.topic = topic.rawValue
+                $0.messages = messages.map { message in
+                    Google_Pubsub_V1_PubsubMessage.with {
+                        $0.data = message.data
+                        $0.attributes = message.attributes
+                        if let trace = trace, let spanID = trace.rootSpan?.id ?? trace.spanID {
+                            $0.attributes["__traceID"] = trace.id.stringValue
+                            $0.attributes["__spanID"] = spanID.stringValue
+                        }
                     }
                 }
-            }
+            })
         })
 
         return response
