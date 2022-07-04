@@ -114,6 +114,15 @@ public struct Tracing: Dependency {
     }
 
     private static func encode(attributes: [String: AttributableValue]) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
+        var attributes = attributes
+        switch Resource.autoResolve {
+        case .k8sContainer(_, _, _, _, _, let containerName):
+            attributes["GAE_MODULE_NAME"] = containerName
+        }
+        if let version = Resource.version {
+            attributes["g.co/gae/app/version"] = version
+        }
+
         let limit: UInt8 = 32
 
         var encoded = Google_Devtools_Cloudtrace_V2_Span.Attributes.with {

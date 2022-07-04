@@ -36,4 +36,8 @@ public enum Resource {
         case .k8sContainer: return "k8s_container"
         }
     }
+
+    public static var version: String? {
+        ProcessInfo.processInfo.environment["APP_VERSION"]
+    }
 }
