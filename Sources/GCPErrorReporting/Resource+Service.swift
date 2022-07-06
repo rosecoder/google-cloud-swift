@@ -15,7 +15,7 @@ extension Resource {
         case .k8sContainer(_, _, _, _, _, let containerName):
             return .init(
                 service: containerName,
-                version: "0" // TODO: Set version
+                version: Resource.version ?? "0"
             )
         }
     }
