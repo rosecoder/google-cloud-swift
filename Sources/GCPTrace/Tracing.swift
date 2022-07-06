@@ -114,6 +114,9 @@ public struct Tracing: Dependency {
     }
 
     private static func encode(attributes: [String: AttributableValue]) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
+
+        // Well-known labels can be found here: https://github.com/googleapis/cloud-trace-nodejs/blob/c57a0b100d00fe0002544400c3958a17cc9751fb/src/trace-labels.ts
+
         var attributes = attributes
         switch Resource.autoResolve {
         case .k8sContainer(_, _, _, _, _, let containerName):
