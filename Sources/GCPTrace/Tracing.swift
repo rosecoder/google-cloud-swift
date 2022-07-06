@@ -117,7 +117,7 @@ public struct Tracing: Dependency {
         var attributes = attributes
         switch Resource.autoResolve {
         case .k8sContainer(_, _, _, _, _, let containerName):
-            attributes["GAE_MODULE_NAME"] = containerName
+            attributes["g.co/gae/app/module"] = containerName
         }
         if let version = Resource.version {
             attributes["g.co/gae/app/version"] = version
