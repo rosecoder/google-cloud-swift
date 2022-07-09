@@ -76,6 +76,8 @@ public struct Datastore: Dependency {
         let task = Task {
             let port = 7245
 
+            print("\(#function): Starting datastore emulator at port \(port).")
+
             // Start server
             let process = Process()
             process.executableURL = URL(fileURLWithPath: "/Applications/google-cloud-sdk/bin/gcloud")
