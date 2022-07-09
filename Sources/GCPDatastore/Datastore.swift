@@ -106,7 +106,7 @@ public struct Datastore: Dependency {
             }
 
             // Was already running?
-            if buffer.contains("Failed to bind") {
+            if buffer.contains("Failed to bind") || buffer.contains("BindException") {
                 print("\(#function): Datastore emulator already running.")
                 
                 process.interrupt()
