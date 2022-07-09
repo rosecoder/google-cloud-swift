@@ -95,8 +95,16 @@ public struct Datastore: Dependency {
             try process.run()
 
             // Wait for server to start or fail to bind (already started)
+            let unableToBindKeywords: [String] = [
+                "Failed to bind",
+                "BindException",
+            ]
+
             var buffer = ""
-            while !buffer.contains("Dev App Server is now running.") && !buffer.contains("Failed to bind") {
+            while
+                !buffer.contains("Dev App Server is now running.") &&
+                !unableToBindKeywords.contains(where: { buffer.contains($0) })
+            {
                 if
                     let outputData = try outputPipe.fileHandleForReading .read(upToCount: 10),
                     let output = String(data: outputData, encoding: .utf8)
@@ -106,7 +114,7 @@ public struct Datastore: Dependency {
             }
 
             // Was already running?
-            if buffer.contains("Failed to bind") || buffer.contains("BindException") {
+            if unableToBindKeywords.contains(where: { buffer.contains($0) }) {
                 print("\(#function): Datastore emulator already running.")
                 
                 process.interrupt()
