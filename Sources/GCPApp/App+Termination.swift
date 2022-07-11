@@ -50,8 +50,6 @@ extension App {
 
             // App dependencies
             for dependency in dependencies.reversed() {
-                logger.debug("Shutting down app dependency \(dependency)...")
-
                 do {
                     try await dependency.shutdown()
                 } catch {
@@ -73,7 +71,6 @@ extension App {
 
             // Logging
 #if !DEBUG
-            logger.debug("Shutting down logging...")
             try! await GoogleCloudLogHandler.shutdown()
 #endif
 
