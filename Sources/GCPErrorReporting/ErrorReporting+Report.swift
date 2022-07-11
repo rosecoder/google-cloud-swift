@@ -35,7 +35,7 @@ extension ErrorReporting {
 
         // Authorization
         let accessToken = try await authorization.token()
-        request.headers.add(name: "Authorization", value: "Bearer \(accessToken)")
+        request.headers.add(name: "Authorization", value: "Bearer " + accessToken.token)
 
         // Body
         let body = RequestBody(
