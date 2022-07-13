@@ -88,7 +88,6 @@ public final class Publisher: Dependency {
             .messageIds
             .enumerated()
             .map { (index, id) in
-                logger.debug("Published message", metadata: ["message": .string(id)])
                 return PublishedMessage(id: id, data: messages[index].data, attributes: messages[index].attributes)
             }
     }
