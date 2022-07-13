@@ -5,7 +5,7 @@ public struct Trace: Codable, Equatable {
     public let id: Identifier
 
     public var rootSpan: Span?
-    public let spanID: Span.Identifier?
+    public let spanID: Span.Identifier
 
     /// Initializes a new unique trace with no parent.
     public init(named name: String, attributes: [String: AttributableValue] = [:]) {
@@ -27,7 +27,7 @@ public struct Trace: Codable, Equatable {
     /// - Parameters:
     ///   - id: Identifier of the trace.
     ///   - spanID: Optional. Identifier of the parent span id.
-    public init(id: Identifier, spanID: Span.Identifier?) {
+    public init(id: Identifier, spanID: Span.Identifier) {
         self.id = id
         self.rootSpan = nil
         self.spanID = spanID

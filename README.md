@@ -39,7 +39,7 @@ Client for [Google Cloud Trace](https://cloud.google.com/trace).
 | Status reporting           | ✅          |
 | Stack trace                | ❌          |
 | Time events                | ❌          |
-| Links                      | ❌          |
+| Links                      | ✅          |
 | Child span counting        | ❌          |
 | Span kind                  | ❌          |
 | Sampling                   | ❌          |

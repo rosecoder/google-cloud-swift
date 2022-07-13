@@ -45,7 +45,7 @@ public struct SubscriberMessage: Message {
             data: data,
             attributes: attributes,
             logger: logger,
-            trace: Trace(id: .init(), spanID: nil)
+            trace: Trace(id: .init(), spanID: .init())
         )
     }
 #endif

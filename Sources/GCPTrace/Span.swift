@@ -23,7 +23,17 @@ public struct Span: Equatable, Codable {
 
     public var status: Status?
 
-    init(traceID: Trace.Identifier, parentID: Identifier?, sameProcessAsParent: Bool, id: Identifier, name: String, attributes: [String: AttributableValue]) {
+    public var links: [Span.Link]
+
+    init(
+        traceID: Trace.Identifier,
+        parentID: Identifier?,
+        sameProcessAsParent: Bool,
+        id: Identifier,
+        name: String,
+        attributes: [String: AttributableValue],
+        links: [Link] = []
+    ) {
         self.traceID = traceID
         self.parentID = parentID
         self.sameProcessAsParent = sameProcessAsParent
@@ -31,6 +41,7 @@ public struct Span: Equatable, Codable {
         self.name = name
         self.attributes = attributes
         self.started = Date()
+        self.links = links
     }
 
     // MARK: - Ending
@@ -105,6 +116,7 @@ public struct Span: Equatable, Codable {
         case started
         case ended
         case status
+        case links
     }
 
     private struct GenericStringKey: CodingKey {
@@ -131,6 +143,7 @@ public struct Span: Equatable, Codable {
         try container.encode(started, forKey: .started)
         try container.encode(ended, forKey: .ended)
         try container.encode(status, forKey: .status)
+        try container.encode(links, forKey: .links)
 
         var attributesContainer = container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
         for (key, value) in attributes {
@@ -148,6 +161,7 @@ public struct Span: Equatable, Codable {
         self.started = try container.decode(Date.self, forKey: .started)
         self.ended = try container.decodeIfPresent(Date.self, forKey: .ended)
         self.status = try container.decodeIfPresent(Status.self, forKey: .status)
+        self.links = try container.decodeIfPresent([Link].self, forKey: .links) ?? []
 
         let attributesContainer = try container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
         self.attributes = [:]

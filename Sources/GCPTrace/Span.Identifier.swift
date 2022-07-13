@@ -19,6 +19,18 @@ extension Span {
             self.rawValue = rawValue
         }
 
+        public init?(stringValue: String) {
+            guard
+                stringValue.count == 16,
+                let part = UInt64(stringValue[..<stringValue.index(stringValue.startIndex, offsetBy: 16)], radix: 16),
+                part != 0
+            else {
+                return nil
+            }
+
+            self.rawValue = part
+        }
+
         // MARK: - String Representation
 
         public var stringValue: String {

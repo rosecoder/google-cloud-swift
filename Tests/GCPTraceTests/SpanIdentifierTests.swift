@@ -21,4 +21,30 @@ final class SpanIdentifierTests: XCTestCase {
             "ffffffffffffffff"
         )
     }
+
+    func testStringDecode() {
+        XCTAssertEqual(
+            Span.Identifier(stringValue: "000035ebc3f5cf5e"),
+            Span.Identifier(rawValue: 59286721253214)
+        )
+        XCTAssertEqual(
+            Span.Identifier(stringValue: "ffffffffffffffff"),
+            Span.Identifier(rawValue: .max)
+        )
+        XCTAssertNil(
+            Span.Identifier(stringValue: "ff")
+        )
+        XCTAssertNil(
+            Span.Identifier(stringValue: "000035ebc3f5cfZZ0000000334262df4")
+        )
+        XCTAssertNil(
+            Span.Identifier(stringValue: "000035ebc3f5cf5e0000000334262dZZ")
+        )
+        XCTAssertNil(
+            Span.Identifier(stringValue: "00000000000000000")
+        )
+        XCTAssertNil(
+            Span.Identifier(stringValue: "🎉🎉🎉🎉🎉🎉🎉🎉")
+        )
+    }
 }

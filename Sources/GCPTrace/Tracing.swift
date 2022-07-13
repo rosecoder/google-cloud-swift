@@ -105,9 +105,9 @@ public struct Tracing: Dependency {
             $0.sameProcessAsParentSpan = .with {
                 $0.value = span.sameProcessAsParent
             }
+            $0.links = encode(links: span.links)
 //            $0.stackTrace
 //            $0.timeEvents
-//            $0.links
 //            $0.childSpanCount
 //            $0.spanKind
         }
@@ -139,6 +139,38 @@ public struct Tracing: Dependency {
                 break
             }
             encoded.attributeMap[key] = (value._gcpTraceRawValue as! Google_Devtools_Cloudtrace_V2_AttributeValue)
+        }
+        return encoded
+    }
+
+    private static func encode(links: [Span.Link]) -> Google_Devtools_Cloudtrace_V2_Span.Links {
+        let limit: UInt8 = 128
+
+        var encoded = Google_Devtools_Cloudtrace_V2_Span.Links.with {
+            $0.droppedLinksCount = 0
+            $0.link = []
+            $0.link.reserveCapacity(min(links.count, Int(limit)))
+        }
+        var count: UInt8 = 0
+        for link in links {
+            count += 1
+            if count == limit {
+                encoded.droppedLinksCount = Int32(links.count - Int(limit))
+                break
+            }
+            encoded.link.append(.with {
+                $0.traceID = link.trace.id.stringValue
+                $0.spanID = link.trace.spanID.stringValue
+                switch link.kind {
+                case .unspecified:
+                    $0.type = .unspecified
+                case .child:
+                    $0.type = .childLinkedSpan
+                case .parent:
+                    $0.type = .parentLinkedSpan
+                }
+                $0.attributes = encode(attributes: link.attributes)
+            })
         }
         return encoded
     }
