@@ -185,6 +185,18 @@ public final class Subscriber: Dependency {
                 )
                 message.logger.addMetadata(for: message.trace)
 
+                if
+                    let rawSourceTraceID = rawMessage.attributes["__traceID"],
+                    let rawSourceSpanID = rawMessage.attributes["__spanID"],
+                    let traceID = Trace.Identifier(stringValue: rawSourceTraceID),
+                    let spanID = Span.Identifier(stringValue: rawSourceSpanID)
+                {
+                    message.trace.rootSpan?.links.append(.init(
+                        trace: Trace(id: traceID, spanID: spanID),
+                        kind: .parent
+                    ))
+                }
+
                 // Handle message
                 do {
                     try Task.checkCancellation()
