@@ -6,7 +6,8 @@ import GCPCore
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).
-private var emulatorTask: Task<Void, Error>?
+private var emulatorStartTask: Task<Process, Error>?
+private var emulatorTeardownTimer: Timer?
 #endif
 
 public struct Datastore: Dependency {
@@ -68,12 +69,27 @@ public struct Datastore: Dependency {
     public static func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
         defaultProjectID = "test"
 
-        if let existing = emulatorTask {
-            try await existing.value
+        emulatorTeardownTimer?.invalidate()
+        emulatorTeardownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
+            print("\(#function): Stopping datastore emulator.")
+
+            emulatorTeardownTimer = nil
+            emulatorStartTask = nil
+            Task {
+                guard let process = try await emulatorStartTask?.value else {
+                    return
+                }
+                process.interrupt()
+                process.waitUntilExit()
+            }
+        }
+
+        if let existing = emulatorStartTask {
+            _ = try await existing.value
             return
         }
 
-        let task = Task {
+        let task: Task<Process, Error> = Task {
             let port = 7245
 
             print("\(#function): Starting datastore emulator at port \(port).")
@@ -127,9 +143,11 @@ public struct Datastore: Dependency {
 
             // Connect
             bootstraForEmulator(host: "localhost", port: port, eventLoopGroup: eventLoopGroup)
+
+            return process
         }
-        emulatorTask = task
-        try await task.value
+        emulatorStartTask = task
+        _ = try await task.value
     }
 #endif
 }
