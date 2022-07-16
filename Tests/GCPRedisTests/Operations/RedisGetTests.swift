@@ -1,9 +1,9 @@
 import XCTest
-import GCPMemcache
+@testable import GCPRedis
 
 final class RedisGetTests: EmulatorTestCase {
 
-    let existingKey: GCPMemcache.Key = "dw26cd"
+    let existingKey: GCPRedis.Key = "dw26cd"
 
     override func setUp() async throws {
         try await super.setUp()

@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "GCPCore", targets: ["GCPCore"]),
         .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
-        .library(name: "GCPMemcache", targets: ["GCPMemcache"]),
+        .library(name: "GCPRedis", targets: ["GCPRedis"]),
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
         .library(name: "GCPTrace", targets: ["GCPTrace"]),
     ],
@@ -60,12 +60,12 @@ let package = Package(
         ]),
         .testTarget(name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
 
-        .target(name: "GCPMemcache", dependencies: [
+        .target(name: "GCPRedis", dependencies: [
             "GCPCore",
             "GCPTrace",
             .product(name: "RediStack", package: "RediStack"),
         ]),
-        .testTarget(name: "GCPMemcacheTests", dependencies: ["GCPMemcache"]),
+        .testTarget(name: "GCPRedisTests", dependencies: ["GCPRedis"]),
 
         .target(name: "GCPPubSub", dependencies: [
             "GCPCore",

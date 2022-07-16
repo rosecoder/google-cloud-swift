@@ -182,9 +182,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GCPMemcache"
-               BuildableName = "GCPMemcache"
-               BlueprintName = "GCPMemcache"
+               BlueprintIdentifier = "GCPRedis"
+               BuildableName = "GCPRedis"
+               BlueprintName = "GCPRedis"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -258,7 +258,9 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "GCPErrorReportingTests"
@@ -268,7 +270,9 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "GCPTraceTests"
@@ -278,12 +282,14 @@
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GCPMemcacheTests"
-               BuildableName = "GCPMemcacheTests"
-               BlueprintName = "GCPMemcacheTests"
+               BlueprintIdentifier = "GCPRedisTests"
+               BuildableName = "GCPRedisTests"
+               BlueprintName = "GCPRedisTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

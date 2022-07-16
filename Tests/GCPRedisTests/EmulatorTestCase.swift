@@ -1,7 +1,7 @@
 import NIO
 import Foundation
 import XCTest
-@testable import GCPMemcache
+@testable import GCPRedis
 
 class EmulatorTestCase: XCTestCase {
 
