@@ -19,6 +19,30 @@ public enum ID: Hashable, Equatable, CustomStringConvertible, CustomDebugStringC
     /// A parent key must not have a incomplete key.
     case incomplete
 
+    /// Int64 (a.k.a. uniq) representation of the id.
+    public var int64Value: Int64 {
+        switch self {
+        case .uniq(let value):
+            return value
+        case .named(let value):
+            return Int64(value) ?? -1
+        case .incomplete:
+            return 0
+        }
+    }
+
+    /// String (a.k.a. named) representation of the id.
+    public var stringValue: String {
+        switch self {
+        case .named(let value):
+            return value
+        case .uniq(let value):
+            return String(value)
+        case .incomplete:
+            return ""
+        }
+    }
+
     // MARK: - Encoding
 
     public func encode(to encoder: Encoder) throws {
