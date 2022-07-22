@@ -58,22 +58,22 @@ public final class Subscriber: Dependency {
 
     private static var runningPullTasks = [Subscription: Task<Void, Error>]()
 
-    public static func startPull(subscription: Subscription, handler: SubscriptionHandler) async throws {
+    public static func startPull(subscription: Subscription, handler handlerType: Handler.Type) async throws {
 #if DEBUG
         try await client.ensureAuthentication(authorization: &authorization)
         try await subscription.createIfNeeded(creation: client.createSubscription)
 #endif
 
-        continuesPull(subscription: subscription, handler: handler)
+        continuesPull(subscription: subscription, handlerType: handlerType)
 
         logger.debug("Subscribed to \(subscription.name)")
     }
 
-    private static func continuesPull(subscription: Subscription, handler: SubscriptionHandler, retryCount: UInt64 = 0) {
+    private static func continuesPull(subscription: Subscription, handlerType: Handler.Type, retryCount: UInt64 = 0) {
         runningPullTasks[subscription] = Task {
             while !Task.isCancelled {
                 do {
-                    try await singlePull(subscription: subscription, handler: handler)
+                    try await singlePull(subscription: subscription, handlerType: handlerType)
                 } catch {
                     try Task.checkCancellation()
 
@@ -104,7 +104,7 @@ public final class Subscriber: Dependency {
 
                     try Task.checkCancellation()
 
-                    self.continuesPull(subscription: subscription, handler: handler, retryCount: retryCount + 1)
+                    self.continuesPull(subscription: subscription, handlerType: handlerType, retryCount: retryCount + 1)
                     break
                 }
             }
@@ -149,7 +149,7 @@ public final class Subscriber: Dependency {
 
     // MARK: - Pull
 
-    private static func singlePull(subscription: Subscription, handler: SubscriptionHandler) async throws {
+    private static func singlePull(subscription: Subscription, handlerType: Handler.Type) async throws {
         try await client.ensureAuthentication(authorization: &authorization)
 
         let response = try await client.pull(.with {
@@ -167,65 +167,63 @@ public final class Subscriber: Dependency {
             Task {
                 let rawMessage = receivedMessage.message
 
-                // Note: Mutable non-reference properties (e.g. logger and trace) must be defined
-                // and only used on the message struct. Otherwise we will miss out on extra metadata.
-                var message = SubscriberMessage(
+                var trace = Trace(named: subscription.name, attributes: [
+                    "message": rawMessage.messageID,
+                ])
+
+                var messageLogger = Logger(label: logger.label + ".message", trace: trace)
+                messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
+
+                let context = HandlerContext(logger: logger, trace: trace)
+
+                let message = SubscriberMessage(
                     id: rawMessage.messageID,
                     published: rawMessage.publishTime.date,
                     data: rawMessage.data,
-                    attributes: rawMessage.attributes,
-                    logger: {
-                        var messageLogger = Logger(label: logger.label + ".message")
-                        messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
-                        return messageLogger
-                    }(),
-                    trace: Trace(named: subscription.name, attributes: [
-                        "message": rawMessage.messageID,
-                    ])
+                    attributes: rawMessage.attributes
                 )
-                if let trace = message.trace {
-                    message.logger.addMetadata(for: trace)
-                }
 
+                // Link to parent trace if included in message
                 if
                     let rawSourceTraceID = rawMessage.attributes["__traceID"],
                     let rawSourceSpanID = rawMessage.attributes["__spanID"],
                     let traceID = Trace.Identifier(stringValue: rawSourceTraceID),
                     let spanID = Span.Identifier(stringValue: rawSourceSpanID)
                 {
-                    message.trace?.rootSpan?.links.append(.init(
+                    trace.rootSpan?.links.append(.init(
                         trace: Trace(id: traceID, spanID: spanID),
                         kind: .parent
                     ))
                 }
 
                 // Handle message
+                let handler = handlerType.init(context: context, message: message)
                 do {
                     try Task.checkCancellation()
-                    try await handler.handle(message: &message)
+                    try await handler.handle()
                 } catch {
                     if !(error is CancellationError) {
-                        message.logger.error("Failed to handle message: \(error)")
+                        messageLogger.error("Failed to handle message: \(error)")
                     }
 
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, context: message)
+                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, context: context)
                     } catch {
-                        message.logger.error("Failed to unacknowledge message: \(error)")
+                        messageLogger.error("Failed to unacknowledge message: \(error)")
                     }
-                    message.trace?.end(error: error)
+                    trace.end(error: error)
                     return
                 }
 
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, context: message)
+                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, context: context)
                 } catch {
-                    message.logger.error("Failed to acknowledge message: \(error)")
+                    messageLogger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry
                     // TODO: Should we nack the message?
                 }
 
-                message.trace?.end(statusCode: .ok)
+                trace.end(statusCode: .ok)
             }
         }
         for task in tasks {

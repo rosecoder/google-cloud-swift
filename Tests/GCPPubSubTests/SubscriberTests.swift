@@ -8,12 +8,15 @@ extension Subscription {
     static let test = Subscription(name: "test", topic: .test)
 }
 
-private struct CallbackHandler: SubscriptionHandler {
+private var callback: ((SubscriberMessage) async throws -> Void)?
 
-    let callback: (SubscriberMessage) async throws -> Void
+private struct CallbackHandler: Handler {
 
-    func handle(message: inout SubscriberMessage) async throws {
-        try await callback(message)
+    var context: Context
+    var message: SubscriberMessage
+
+    func handle() async throws {
+        try await callback?(message)
     }
 }
 
@@ -35,13 +38,13 @@ final class SubscriberTestCase: XCTestCase {
         let expectation = self.expectation(description: "Received message")
         var receivedMessage: SubscriberMessage?
 
-        let handler = CallbackHandler { message in
+        callback = { message in
             receivedMessage = message
             expectation.fulfill()
         }
 
         // Recive message
-        try await Subscriber.startPull(subscription: .test, handler: handler)
+        try await Subscriber.startPull(subscription: .test, handler: CallbackHandler.self)
 
         // Publish message
         let publishedMessage = try! await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, context: context)
