@@ -9,6 +9,8 @@ public struct Span: Equatable, Codable {
 
     public let id: Identifier
 
+    public let kind: Kind
+
     /// Display name of the span show in shown in Google Cloud Console. Limited to 128 bytes.
     public let name: String
 
@@ -30,6 +32,7 @@ public struct Span: Equatable, Codable {
         parentID: Identifier?,
         sameProcessAsParent: Bool,
         id: Identifier,
+        kind: Kind,
         name: String,
         attributes: [String: AttributableValue],
         links: [Link] = []
@@ -38,6 +41,7 @@ public struct Span: Equatable, Codable {
         self.parentID = parentID
         self.sameProcessAsParent = sameProcessAsParent
         self.id = id
+        self.kind = kind
         self.name = name
         self.attributes = attributes
         self.started = Date()
@@ -117,6 +121,7 @@ public struct Span: Equatable, Codable {
         case ended
         case status
         case links
+        case kind
     }
 
     private struct GenericStringKey: CodingKey {
@@ -144,6 +149,7 @@ public struct Span: Equatable, Codable {
         try container.encode(ended, forKey: .ended)
         try container.encode(status, forKey: .status)
         try container.encode(links, forKey: .links)
+        try container.encode(kind, forKey: .kind)
 
         var attributesContainer = container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
         for (key, value) in attributes {
@@ -162,6 +168,7 @@ public struct Span: Equatable, Codable {
         self.ended = try container.decodeIfPresent(Date.self, forKey: .ended)
         self.status = try container.decodeIfPresent(Status.self, forKey: .status)
         self.links = try container.decodeIfPresent([Link].self, forKey: .links) ?? []
+        self.kind = try container.decodeIfPresent(Kind.self, forKey: .kind) ?? .internal
 
         let attributesContainer = try container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
         self.attributes = [:]

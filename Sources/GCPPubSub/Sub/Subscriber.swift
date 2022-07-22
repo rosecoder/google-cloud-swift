@@ -134,7 +134,7 @@ public final class Subscriber: Dependency {
     private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
-        try await context.trace.recordSpan(named: "pubsub-acknowledge") { span in
+        try await context.trace.recordSpan(named: "pubsub-acknowledge", kind: .client) { span in
             _ = try await client.acknowledge(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
@@ -145,7 +145,7 @@ public final class Subscriber: Dependency {
     private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
-        try await context.trace.recordSpan(named: "pubsub-unacknowledge") { span in
+        try await context.trace.recordSpan(named: "pubsub-unacknowledge", kind: .client) { span in
             _ = try await client.modifyAckDeadline(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
@@ -183,9 +183,13 @@ public final class Subscriber: Dependency {
                         messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
                         return messageLogger
                     }(),
-                    trace: Trace(named: handlerType.subscription.name, attributes: [
-                        "message": rawMessage.messageID,
-                    ])
+                    trace: Trace(
+                        named: handlerType.subscription.name,
+                        kind: .consumer,
+                        attributes: [
+                            "message": rawMessage.messageID,
+                        ]
+                    )
                 )
                 if let trace = context.trace {
                     context.logger.addMetadata(for: trace)

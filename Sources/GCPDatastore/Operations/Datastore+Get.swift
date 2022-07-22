@@ -14,7 +14,7 @@ extension Datastore {
     {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
 
-        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup") { span in
+        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client) { span in
             try await client.lookup(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map({ $0.raw })
@@ -79,7 +79,7 @@ extension Datastore {
     {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
 
-        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup") { span in
+        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client) { span in
             try await client.lookup(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map({ $0.raw })

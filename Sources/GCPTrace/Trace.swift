@@ -8,7 +8,7 @@ public struct Trace: Codable, Equatable {
     public let spanID: Span.Identifier
 
     /// Initializes a new unique trace with no parent.
-    public init(named name: String, attributes: [String: AttributableValue] = [:]) {
+    public init(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:]) {
         self.id = Identifier()
 
         let rootSpanID = Span.Identifier()
@@ -18,6 +18,7 @@ public struct Trace: Codable, Equatable {
             parentID: nil,
             sameProcessAsParent: true, // TODO: Should this be true, false or nil? Documentation do not mention this.
             id: rootSpanID,
+            kind: kind,
             name: name,
             attributes: attributes
         )
@@ -68,7 +69,7 @@ public struct Trace: Codable, Equatable {
     ///   - name: Display name of the operation. Limited to 128 bytes.
     ///   - attributes: Initial key value attributes for the operation. Can later be modified during the operation or on end.
     /// - Returns: New span operation.
-    public func span(named name: String, attributes: [String: AttributableValue] = [:]) -> Span {
+    public func span(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:]) -> Span {
         precondition(rootSpan?.ended == nil, "Child span of trace was requested, but root span already ended.")
 
         return Span(
@@ -76,14 +77,15 @@ public struct Trace: Codable, Equatable {
             parentID: spanID,
             sameProcessAsParent: rootSpan != nil,
             id: Span.Identifier(),
+            kind: kind,
             name: name,
             attributes: attributes
         )
     }
 
     @inlinable
-    public func recordSpan(named name: String, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Void) async rethrows {
-        var span = self.span(named: name, attributes: attributes)
+    public func recordSpan(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Void) async rethrows {
+        var span = self.span(named: name, kind: kind, attributes: attributes)
         do {
             try await closure(&span)
             span.end(statusCode: .ok)
@@ -94,8 +96,8 @@ public struct Trace: Codable, Equatable {
     }
 
     @inlinable
-    public func recordSpan<Element>(named name: String, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Element) async rethrows -> Element {
-        var span = self.span(named: name, attributes: attributes)
+    public func recordSpan<Element>(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:], closure: (inout Span) async throws -> Element) async rethrows -> Element {
+        var span = self.span(named: name, kind: kind, attributes: attributes)
         do {
             let element = try await closure(&span)
             span.end(statusCode: .ok)

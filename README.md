@@ -41,7 +41,7 @@ Client for [Google Cloud Trace](https://cloud.google.com/trace).
 | Time events                | ❌          |
 | Links                      | ✅          |
 | Child span counting        | ❌          |
-| Span kind                  | ❌          |
+| Span kind                  | ✅          |
 | Sampling                   | ❌          |
 
 ### GCPDatastore

@@ -4,12 +4,12 @@ import XCTest
 final class CodableTests: XCTestCase {
 
     func testCodableTraceFull() throws {
-        let trace = Trace(named: "codable-test", attributes: [
+        let trace = Trace(named: "codable-test", kind: .producer, attributes: [
             "attr1": "yo",
             "attr2": 1,
             "attr3": false,
         ])
-        let span = trace.span(named: "span-1", attributes: [
+        let span = trace.span(named: "span-1", kind: .producer, attributes: [
             "attr1": "hello",
             "attr2": 2,
             "attr3": true,
@@ -34,5 +34,6 @@ final class CodableTests: XCTestCase {
         XCTAssertEqual(span.started, decodedSpan.started)
         XCTAssertEqual(span.ended, decodedSpan.ended)
         XCTAssertEqual(span.status, decodedSpan.status)
+        XCTAssertEqual(span.kind, decodedSpan.kind)
     }
 }

@@ -67,7 +67,7 @@ public final class Publisher: Dependency {
         try await topic.createIfNeeded(creation: client.createTopic)
 #endif
 
-        let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", attributes: [
+        let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
             "pubsub/topic": topic.rawValue,
         ], closure: { span in
             try await client.publish(.with {

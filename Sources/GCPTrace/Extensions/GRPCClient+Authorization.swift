@@ -14,7 +14,7 @@ extension GRPCClient {
         }
 #endif
 
-        var span = context.trace?.span(named: "authenticate-" + traceContext)
+        var span = context.trace?.span(named: "authenticate-" + traceContext, kind: .client)
         do {
             let result = try await authorization.token()
 

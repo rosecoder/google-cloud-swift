@@ -18,7 +18,7 @@ extension Redis {
         context: Context,
         closure: () async throws -> Result
     ) async throws -> Result {
-        var waitSpan = context.trace?.span(named: "lock-wait", attributes: [
+        var waitSpan = context.trace?.span(named: "lock-wait", kind: .client, attributes: [
             "redis/key": key,
         ])
 

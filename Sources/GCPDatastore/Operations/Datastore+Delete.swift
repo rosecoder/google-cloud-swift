@@ -9,7 +9,7 @@ extension Datastore {
     {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
         
-        try await context.trace.recordSpan(named: "datastore-delete") { span in
+        try await context.trace.recordSpan(named: "datastore-delete", kind: .client) { span in
             _ = try await client.commit(.with {
                 $0.projectID = projectID
                 $0.mutations = keys.map { key in

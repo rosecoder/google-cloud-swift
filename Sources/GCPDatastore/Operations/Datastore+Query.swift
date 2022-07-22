@@ -14,7 +14,7 @@ extension Datastore {
     {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
 
-        let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query") { span in
+        let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client) { span in
             try await client.runQuery(.with {
                 $0.projectID = projectID
                 $0.partitionID = .with {

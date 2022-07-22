@@ -37,6 +37,7 @@ public final class TraceInterceptor<Request, Response>: GRPC.ClientInterceptor<R
                     parentID: trace.spanID,
                     sameProcessAsParent: true,
                     id: Span.Identifier(),
+                    kind: .server, // TODO: Replace with .client?
                     name: context.path,
                     attributes: [:]
                 )

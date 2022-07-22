@@ -109,7 +109,7 @@ public struct Tracing: Dependency {
 //            $0.stackTrace
 //            $0.timeEvents
 //            $0.childSpanCount
-//            $0.spanKind
+            $0.spanKind = encode(kind: span.kind)
         }
     }
 
@@ -173,6 +173,21 @@ public struct Tracing: Dependency {
             })
         }
         return encoded
+    }
+
+    private static func encode(kind: Span.Kind) -> Google_Devtools_Cloudtrace_V2_Span.SpanKind {
+        switch kind {
+        case .internal:
+            return .internal
+        case .server:
+            return .server
+        case .client:
+            return .client
+        case .producer:
+            return .producer
+        case .consumer:
+            return .consumer
+        }
     }
 
     // MARK: - Write Timer
