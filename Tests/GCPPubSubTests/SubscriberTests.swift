@@ -3,17 +3,19 @@ import NIO
 import GCPPubSub
 import GCPTrace
 
-extension Subscription {
+extension Subscriptions {
 
-    static let test = Subscription(name: "test", topic: .test)
+    static let test = Subscription(name: "test", topic: Topics.test)
 }
 
-private var callback: ((SubscriberMessage) async throws -> Void)?
+private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
 private struct CallbackHandler: Handler {
 
+    typealias Message = PlainTextMessage
+
     var context: Context
-    var message: SubscriberMessage
+    var message: Message.Incoming
 
     func handle() async throws {
         try await callback?(message)
@@ -36,7 +38,7 @@ final class SubscriberTestCase: XCTestCase {
 
         // Prepare
         let expectation = self.expectation(description: "Received message")
-        var receivedMessage: SubscriberMessage?
+        var receivedMessage: IncomingPlainTextMessage?
 
         callback = { message in
             receivedMessage = message
@@ -44,10 +46,10 @@ final class SubscriberTestCase: XCTestCase {
         }
 
         // Recive message
-        try await Subscriber.startPull(subscription: .test, handler: CallbackHandler.self)
+        try await Subscriber.startPull(subscription: Subscriptions.test, handler: CallbackHandler.self)
 
         // Publish message
-        let publishedMessage = try! await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, context: context)
+        let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
 
         // Wait
         await waitForExpectations(timeout: 60, handler: nil)
@@ -56,6 +58,7 @@ final class SubscriberTestCase: XCTestCase {
         XCTAssertNotNil(publishedMessage)
         XCTAssertNotNil(receivedMessage)
         XCTAssertEqual(publishedMessage.id, receivedMessage?.id)
+        XCTAssertEqual("Hello", receivedMessage?.body)
 
         try await Subscriber.shutdown()
     }

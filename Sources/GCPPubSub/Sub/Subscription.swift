@@ -1,10 +1,14 @@
 import Foundation
 import GRPC
 
-public struct Subscription: Identifiable, Equatable, Hashable {
+private var verifiedHashValues = [Int]()
+
+public struct Subscriptions {}
+
+public struct Subscription<Message: GCPPubSub.Message>: Identifiable, Equatable, Hashable {
 
     public let name: String
-    public let topic: Topic
+    public let topic: Topic<Message>
 
     public let labels: [String: String]
 
@@ -15,10 +19,10 @@ public struct Subscription: Identifiable, Equatable, Hashable {
 
     public struct DeadLetterPolicy: Equatable, Hashable {
 
-        public let topic: Topic
+        public let topic: Topic<Message>
         public let maxDeliveryAttempts: Int32
 
-        public init(topic: Topic, maxDeliveryAttempts: Int32) {
+        public init(topic: Topic<Message>, maxDeliveryAttempts: Int32) {
             self.topic = topic
             self.maxDeliveryAttempts = maxDeliveryAttempts
         }
@@ -28,7 +32,7 @@ public struct Subscription: Identifiable, Equatable, Hashable {
 
     public init(
         name: String,
-        topic: Topic,
+        topic: Topic<Message>,
         labels: [String: String] = [:],
         retainAcknowledgedMessages: Bool = false,
         acknowledgeDeadline: TimeInterval = 10,
@@ -46,19 +50,6 @@ public struct Subscription: Identifiable, Equatable, Hashable {
         self.deadLetterPolicy = deadLetterPolicy
     }
 
-    public init(
-        name: String,
-        topic: String,
-        labels: [String: String] = [:],
-        retainAcknowledgedMessages: Bool = false,
-        acknowledgeDeadline: TimeInterval = 10,
-        expirationPolicyDuration: TimeInterval = 3600 * 24 * 31,
-        messageRetentionDuration: TimeInterval = 3600 * 24 * 6,
-        deadLetterPolicy: DeadLetterPolicy? = nil
-    ) {
-        self.init(name: name, topic: Topic(name: name))
-    }
-
     // MARK: - Identifiable
 
     public var id: String {
@@ -73,11 +64,9 @@ public struct Subscription: Identifiable, Equatable, Hashable {
 
     // MARK: - Creation
 
-    private static var verifiedHashValues = [Int]()
-
     func createIfNeeded(creation: (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription) async throws {
         let hashValue = rawValue.hashValue
-        guard !Self.verifiedHashValues.contains(hashValue) else {
+        guard !verifiedHashValues.contains(hashValue) else {
             return
         }
 
@@ -109,6 +98,6 @@ public struct Subscription: Identifiable, Equatable, Hashable {
             }
         }
 
-        Self.verifiedHashValues.append(hashValue)
+        verifiedHashValues.append(hashValue)
     }
 }

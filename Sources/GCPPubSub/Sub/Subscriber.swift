@@ -56,9 +56,15 @@ public final class Subscriber: Dependency {
 
     // MARK: - Subscribe
 
-    private static var runningPullTasks = [Subscription: Task<Void, Error>]()
+    private typealias SubscriptionHash = Int
+    private static var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
 
-    public static func startPull(subscription: Subscription, handler handlerType: Handler.Type) async throws {
+    public static func startPull<Handler>(subscription: Subscription<Handler.Message>, handler handlerType: Handler.Type) async throws
+    where Handler: GCPPubSub.Handler,
+          Handler.Message: Message,
+          Handler.Message.Incoming: IncomingMessage,
+          Handler.Message.Incoming == Handler.IncomingMessage
+    {
 #if DEBUG
         try await client.ensureAuthentication(authorization: &authorization)
         try await subscription.createIfNeeded(creation: client.createSubscription)
@@ -69,8 +75,13 @@ public final class Subscriber: Dependency {
         logger.debug("Subscribed to \(subscription.name)")
     }
 
-    private static func continuesPull(subscription: Subscription, handlerType: Handler.Type, retryCount: UInt64 = 0) {
-        runningPullTasks[subscription] = Task {
+    private static func continuesPull<Handler>(subscription: Subscription<Handler.Message>, handlerType: Handler.Type, retryCount: UInt64 = 0)
+    where Handler: GCPPubSub.Handler,
+          Handler.Message: Message,
+          Handler.Message.Incoming: IncomingMessage,
+          Handler.Message.Incoming == Handler.IncomingMessage
+    {
+        runningPullTasks[subscription.name.hashValue] = Task {
             while !Task.isCancelled {
                 do {
                     try await singlePull(subscription: subscription, handlerType: handlerType)
@@ -124,23 +135,23 @@ public final class Subscriber: Dependency {
 
     // MARK: - Acknowledge
 
-    private static func acknowledge(id: String, subscription: Subscription, context: Context) async throws {
+    private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
         try await context.trace.recordSpan(named: "pubsub-acknowledge") { span in
             _ = try await client.acknowledge(.with {
-                $0.subscription = subscription.rawValue
+                $0.subscription = subscriptionName
                 $0.ackIds = [id]
             })
         }
     }
 
-    private static func unacknowledge(id: String, subscription: Subscription, context: Context) async throws {
+    private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
         try await context.trace.recordSpan(named: "pubsub-unacknowledge") { span in
             _ = try await client.modifyAckDeadline(.with {
-                $0.subscription = subscription.rawValue
+                $0.subscription = subscriptionName
                 $0.ackIds = [id]
                 $0.ackDeadlineSeconds = 0
             })
@@ -149,7 +160,12 @@ public final class Subscriber: Dependency {
 
     // MARK: - Pull
 
-    private static func singlePull(subscription: Subscription, handlerType: Handler.Type) async throws {
+    private static func singlePull<Handler>(subscription: Subscription<Handler.Message>, handlerType: Handler.Type) async throws
+    where Handler: GCPPubSub.Handler,
+          Handler.Message: Message,
+          Handler.Message.Incoming: IncomingMessage,
+          Handler.Message.Incoming == Handler.IncomingMessage
+    {
         try await client.ensureAuthentication(authorization: &authorization)
 
         let response = try await client.pull(.with {
@@ -176,13 +192,6 @@ public final class Subscriber: Dependency {
 
                 let context = HandlerContext(logger: logger, trace: trace)
 
-                let message = SubscriberMessage(
-                    id: rawMessage.messageID,
-                    published: rawMessage.publishTime.date,
-                    data: rawMessage.data,
-                    attributes: rawMessage.attributes
-                )
-
                 // Link to parent trace if included in message
                 if
                     let rawSourceTraceID = rawMessage.attributes["__traceID"],
@@ -197,17 +206,22 @@ public final class Subscriber: Dependency {
                 }
 
                 // Handle message
-                let handler = handlerType.init(context: context, message: message)
                 do {
+                    let message = try Handler.IncomingMessage.init(
+                        id: rawMessage.messageID,
+                        published: rawMessage.publishTime.date,
+                        data: rawMessage.data,
+                        attributes: rawMessage.attributes
+                    )
                     try Task.checkCancellation()
-                    try await handler.handle()
+                    try await Handler.init(context: context, message: message).handle()
                 } catch {
                     if !(error is CancellationError) {
                         messageLogger.error("Failed to handle message: \(error)")
                     }
 
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, context: context)
+                        try await unacknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
                     } catch {
                         messageLogger.error("Failed to unacknowledge message: \(error)")
                     }
@@ -216,7 +230,7 @@ public final class Subscriber: Dependency {
                 }
 
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, context: context)
+                    try await acknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
                 } catch {
                     messageLogger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry

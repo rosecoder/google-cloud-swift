@@ -59,7 +59,8 @@ public final class Publisher: Dependency {
     // MARK: - Publish
 
     @discardableResult
-    public static func publish(to topic: Topic, messages: [PublisherMessage], context: Context) async throws -> [PublishedMessage] {
+    public static func publish<Message>(to topic: Topic<Message>, messages: [Message.Outgoing], context: Context) async throws -> [PublishedMessage]
+    where Message.Outgoing: OutgoingMessage {
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
 #if DEBUG
@@ -86,25 +87,12 @@ public final class Publisher: Dependency {
 
         return response
             .messageIds
-            .enumerated()
-            .map { (index, id) in
-                return PublishedMessage(id: id, data: messages[index].data, attributes: messages[index].attributes)
-            }
+            .map { PublishedMessage(id: $0) }
     }
 
     @discardableResult
-    public static func publish(to topic: Topic, message: PublisherMessage, context: Context) async throws -> PublishedMessage {
+    public static func publish<Message>(to topic: Topic<Message>, message: Message.Outgoing, context: Context) async throws -> PublishedMessage
+    where Message.Outgoing: OutgoingMessage {
         (try await publish(to: topic, messages: [message], context: context))[0]
-    }
-
-    @discardableResult
-    public static func publish(to topic: Topic, data: Data, attributes: [String: String] = [:], context: Context) async throws -> PublishedMessage {
-        (try await publish(to: topic, messages: [PublisherMessage(data: data, attributes: attributes)], context: context))[0]
-    }
-
-    @discardableResult
-    public static func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:], context: Context) async throws -> PublishedMessage {
-        let message = try PublisherMessage(data: element, attributes: attributes)
-        return (try await publish(to: topic, messages: [message], context: context))[0]
     }
 }

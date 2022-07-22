@@ -4,10 +4,13 @@ import Logging
 
 public protocol Handler {
 
-    var context: Context { get }
-    var message: SubscriberMessage { get }
+    associatedtype Message
+    associatedtype IncomingMessage
 
-    init(context: Context, message: SubscriberMessage)
+    var context: Context { get }
+    var message: IncomingMessage { get }
+
+    init(context: Context, message: IncomingMessage)
 
     func handle() async throws
 }

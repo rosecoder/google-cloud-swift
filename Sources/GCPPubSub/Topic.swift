@@ -1,7 +1,11 @@
 import Foundation
 import GRPC
 
-public struct Topic: Identifiable, Equatable, Hashable {
+private var verifiedHashValues = [Int]()
+
+public struct Topics {}
+
+public struct Topic<Message: GCPPubSub.Message>: Identifiable, Equatable, Hashable{
 
     public let name: String
 
@@ -26,11 +30,9 @@ public struct Topic: Identifiable, Equatable, Hashable {
 
     // MARK: - Creation
 
-    private static var verifiedHashValues = [Int]()
-
     func createIfNeeded(creation: (Google_Pubsub_V1_Topic, CallOptions?) async throws -> Google_Pubsub_V1_Topic) async throws {
         let hashValue = rawValue.hashValue
-        guard !Self.verifiedHashValues.contains(hashValue) else {
+        guard !verifiedHashValues.contains(hashValue) else {
             return
         }
 
@@ -45,6 +47,6 @@ public struct Topic: Identifiable, Equatable, Hashable {
             }
         }
 
-        Self.verifiedHashValues.append(hashValue)
+        verifiedHashValues.append(hashValue)
     }
 }

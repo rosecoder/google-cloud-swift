@@ -3,14 +3,9 @@ import NIO
 import GCPPubSub
 import GCPTrace
 
-struct Message: Codable {
+extension Topics {
 
-    let text: String
-}
-
-extension Topic {
-
-    static let test = Topic(name: "test")
+    static let test = Topic<PlainTextMessage>(name: "test")
 }
 
 final class PublisherTests: XCTestCase {
@@ -26,6 +21,6 @@ final class PublisherTests: XCTestCase {
     func testPublish() async throws {
         Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
-        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, context: context)
+        try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
     }
 }

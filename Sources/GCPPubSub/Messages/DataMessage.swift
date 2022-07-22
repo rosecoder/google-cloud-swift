@@ -1,0 +1,64 @@
+import Foundation
+import GCPTrace
+
+public struct DataMessage: Message {
+
+    public typealias Incoming = IncomingDataMessage
+    public typealias Outgoing = OutgoingDataMessage
+}
+
+// MARK: - Outgoing
+
+public struct OutgoingDataMessage: OutgoingMessage {
+
+    public var data: Data
+    public var attributes: [String: String]
+
+    public init(body: Data, attributes: [String: String] = [:]) throws {
+        self.data = body
+        self.attributes = attributes
+    }
+}
+
+extension Publisher {
+
+    @discardableResult
+    public static func publish(
+        to topic: Topic<DataMessage>,
+        body: Data,
+        attributes: [String: String] = [:],
+        context: Context
+    ) async throws -> PublishedMessage {
+        (try await publish(to: topic, messages: [try .init(body: body, attributes: attributes)], context: context))[0]
+    }
+}
+
+// MARK: - Incoming
+
+public struct IncomingDataMessage: IncomingMessage {
+
+    public let id: String
+    public let published: Date
+    public let attributes: [String: String]
+
+    public let body: Data
+
+    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+        self.id = id
+        self.published = published
+        self.attributes = attributes
+        self.body = data
+    }
+}
+
+#if DEBUG
+extension IncomingDataMessage {
+
+    public init(
+        body: Data,
+        attributes: [String: String] = [:]
+    ) throws {
+        try self.init(data: body, attributes: attributes)
+    }
+}
+#endif
