@@ -1,6 +1,5 @@
 import Foundation
 import GRPC
-import GCPTrace
 import Logging
 
 extension GRPCAsyncServerCallContext: Context {
