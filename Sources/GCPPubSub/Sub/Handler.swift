@@ -13,7 +13,7 @@ public protocol Handler {
 
     init(context: Context, message: Message.Incoming)
 
-    func handle() async throws
+    mutating func handle() async throws
 }
 
 struct HandlerContext: Context {

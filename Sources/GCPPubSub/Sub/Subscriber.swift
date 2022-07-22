@@ -205,17 +205,7 @@ public final class Subscriber: Dependency {
                 }
 
                 // Handle message
-                do {
-                    let message = try Handler.Message.Incoming.init(
-                        id: rawMessage.messageID,
-                        published: rawMessage.publishTime.date,
-                        data: rawMessage.data,
-                        attributes: rawMessage.attributes,
-                        context: &context
-                    )
-                    try Task.checkCancellation()
-                    try await Handler.init(context: context, message: message).handle()
-                } catch {
+                func handleHandler(error: Error) async throws {
                     if !(error is CancellationError) {
                         context.logger.error("Failed to handle message: \(error)")
                     }
@@ -226,6 +216,30 @@ public final class Subscriber: Dependency {
                         context.logger.error("Failed to unacknowledge message: \(error)")
                     }
                     context.trace?.end(error: error)
+                }
+
+                let message: Handler.Message.Incoming
+                do {
+                    message = try .init(
+                        id: rawMessage.messageID,
+                        published: rawMessage.publishTime.date,
+                        data: rawMessage.data,
+                        attributes: rawMessage.attributes,
+                        context: &context
+                    )
+                    try Task.checkCancellation()
+                } catch {
+                    try await handleHandler(error: error)
+                    return
+                }
+
+                var handler = Handler.init(context: context, message: message)
+                do {
+                    try await handler.handle()
+                    context = handler.context
+                } catch {
+                    context = handler.context
+                    try await handleHandler(error: error)
                     return
                 }
 
