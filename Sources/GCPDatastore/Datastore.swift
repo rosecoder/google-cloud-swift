@@ -54,6 +54,7 @@ public struct Datastore: Dependency {
             .connect(host: "datastore.googleapis.com", port: 443)
 
         self._client = .init(channel: channel)
+        try await authorization.warmup()
     }
 
     static func bootstraForEmulator(host: String, port: Int, eventLoopGroup: EventLoopGroup) {

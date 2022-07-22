@@ -89,6 +89,10 @@ public struct Authorization {
 
         return (token.accessToken, wasCached)
     }
+
+    public mutating func warmup() async throws {
+        _ = try await token()
+    }
 }
 
 // MARK: - Generate

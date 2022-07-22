@@ -32,7 +32,7 @@ public final class Publisher: Dependency {
         "https://www.googleapis.com/auth/pubsub",
     ])
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
@@ -53,6 +53,7 @@ public final class Publisher: Dependency {
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
             self._client = .init(channel: channel)
+            try await authorization.warmup()
         }
     }
 
