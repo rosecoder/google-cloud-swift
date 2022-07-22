@@ -21,20 +21,18 @@ public final class TraceInterceptor<Request, Response>: GRPC.ClientInterceptor<R
     private var span: Span?
 
     public override func send(_ part: GRPCClientRequestPart<Request>, promise: EventLoopPromise<Void>?, context: ClientInterceptorContext<Request, Response>) {
-        defer {
-            context.send(part, promise: promise)
-        }
         guard context.type == .unary else {
+            context.send(part, promise: promise)
             return
         }
 
         switch part {
-        case .metadata(let headers):
+        case .metadata(var headers):
             if
                 let headerValue = headers.first(name: "X-Cloud-Trace-Context"),
                 let trace = Trace(headerValue: headerValue)
             {
-                span = Span(
+                let span = Span(
                     traceID: trace.id,
                     parentID: trace.spanID,
                     sameProcessAsParent: true,
@@ -42,9 +40,17 @@ public final class TraceInterceptor<Request, Response>: GRPC.ClientInterceptor<R
                     name: context.path,
                     attributes: [:]
                 )
+                self.span = span
+
+                let childProcessTrace = Trace(id: trace.id, spanID: span.id)
+                headers.replaceOrAdd(name: "X-Cloud-Trace-Context", value: childProcessTrace.headerValue)
+
+                context.send(.metadata(headers), promise: promise)
+            } else {
+                context.send(part, promise: promise)
             }
         default:
-            break
+            context.send(part, promise: promise)
         }
     }
 
