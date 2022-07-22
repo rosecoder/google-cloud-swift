@@ -33,6 +33,37 @@ public struct Trace: Codable, Equatable {
         self.spanID = spanID
     }
 
+    /// Initialize from a trace header (`X-Cloud-Trace-Context`).
+    /// - Parameter headerValue: Value of header.
+    ///
+    /// Valid format: `TRACE_ID/SPAN_ID;o=TRACE_TRUE`
+    public init?(headerValue: String, name: String) {
+        guard
+            let optionsValueIndex = headerValue.firstIndex(of: "="),
+            headerValue[headerValue.index(optionsValueIndex, offsetBy: -1)] == "o", // TODO: Check bounds
+            headerValue[headerValue.index(optionsValueIndex, offsetBy: 1)] == "1", // TODO: Check bounds
+
+            let slashIndex = headerValue.firstIndex(of: "/"),
+            let optionsIndex = headerValue.firstIndex(of: ";"),
+
+            let id = Identifier(stringValue: String(headerValue[..<slashIndex])),
+            let spanID = Span.Identifier(stringValue: String(headerValue[headerValue.index(slashIndex, offsetBy: 1)..<optionsIndex]))
+        else {
+            return nil
+        }
+
+        self.id = id
+        self.spanID = spanID
+        self.rootSpan = Span(
+            traceID: id,
+            parentID: nil,
+            sameProcessAsParent: false,
+            id: spanID,
+            name: name,
+            attributes: [:]
+        )
+    }
+
     // MARK: - Child spans
 
     /// Initializes a new span operation with this trace as parent.
