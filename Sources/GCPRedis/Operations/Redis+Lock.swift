@@ -15,10 +15,10 @@ extension Redis {
 
     public static func lock<Result>(
         key: String,
-        trace: Trace?,
+        context: Context,
         closure: () async throws -> Result
     ) async throws -> Result {
-        var waitSpan = trace?.span(named: "lock-wait", attributes: [
+        var waitSpan = context.trace?.span(named: "lock-wait", attributes: [
             "redis/key": key,
         ])
 

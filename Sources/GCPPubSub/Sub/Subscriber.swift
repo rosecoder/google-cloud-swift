@@ -124,10 +124,10 @@ public final class Subscriber: Dependency {
 
     // MARK: - Acknowledge
 
-    private static func acknowledge(id: String, subscription: Subscription, trace: Trace) async throws {
-        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "pubsub")
+    private static func acknowledge(id: String, subscription: Subscription, context: Context) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
-        try await trace.recordSpan(named: "pubsub-acknowledge") { span in
+        try await context.trace.recordSpan(named: "pubsub-acknowledge") { span in
             _ = try await client.acknowledge(.with {
                 $0.subscription = subscription.rawValue
                 $0.ackIds = [id]
@@ -135,10 +135,10 @@ public final class Subscriber: Dependency {
         }
     }
 
-    private static func unacknowledge(id: String, subscription: Subscription, trace: Trace) async throws {
-        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "pubsub")
+    private static func unacknowledge(id: String, subscription: Subscription, context: Context) async throws {
+        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
-        try await trace.recordSpan(named: "pubsub-unacknowledge") { span in
+        try await context.trace.recordSpan(named: "pubsub-unacknowledge") { span in
             _ = try await client.modifyAckDeadline(.with {
                 $0.subscription = subscription.rawValue
                 $0.ackIds = [id]
@@ -183,7 +183,9 @@ public final class Subscriber: Dependency {
                         "message": rawMessage.messageID,
                     ])
                 )
-                message.logger.addMetadata(for: message.trace)
+                if let trace = message.trace {
+                    message.logger.addMetadata(for: trace)
+                }
 
                 if
                     let rawSourceTraceID = rawMessage.attributes["__traceID"],
@@ -191,7 +193,7 @@ public final class Subscriber: Dependency {
                     let traceID = Trace.Identifier(stringValue: rawSourceTraceID),
                     let spanID = Span.Identifier(stringValue: rawSourceSpanID)
                 {
-                    message.trace.rootSpan?.links.append(.init(
+                    message.trace?.rootSpan?.links.append(.init(
                         trace: Trace(id: traceID, spanID: spanID),
                         kind: .parent
                     ))
@@ -207,23 +209,23 @@ public final class Subscriber: Dependency {
                     }
 
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
+                        try await unacknowledge(id: receivedMessage.ackID, subscription: subscription, context: message)
                     } catch {
                         message.logger.error("Failed to unacknowledge message: \(error)")
                     }
-                    message.trace.end(error: error)
+                    message.trace?.end(error: error)
                     return
                 }
 
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, trace: message.trace)
+                    try await acknowledge(id: receivedMessage.ackID, subscription: subscription, context: message)
                 } catch {
                     message.logger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry
                     // TODO: Should we nack the message?
                 }
 
-                message.trace.end(statusCode: .ok)
+                message.trace?.end(statusCode: .ok)
             }
         }
         for task in tasks {

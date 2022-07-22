@@ -1,5 +1,6 @@
 import XCTest
 @testable import GCPRedis
+import GCPTrace
 
 final class LockTests: EmulatorTestCase {
 
@@ -9,7 +10,7 @@ final class LockTests: EmulatorTestCase {
         typealias ReturnType = (id: UInt8, start: Date, end: Date)
 
         let task1 = Task.detached { () -> ReturnType in
-            return try await Redis.lock(key: lockKey, trace: nil) { () -> ReturnType in
+            return try await Redis.lock(key: lockKey, context: self.context) { () -> ReturnType in
                 let start = Date()
                 try await Task.sleep(nanoseconds: 500_000_000) // 500ms
                 return (1, start, Date())
@@ -17,7 +18,7 @@ final class LockTests: EmulatorTestCase {
         }
         try await Task.sleep(nanoseconds: 1_000_000) // 1ms
         let task2 = Task.detached { () -> ReturnType in
-            return try await Redis.lock(key: lockKey, trace: nil) { () -> ReturnType in
+            return try await Redis.lock(key: lockKey, context: self.context) { () -> ReturnType in
                 let start = Date()
                 return (2, start, Date())
             }

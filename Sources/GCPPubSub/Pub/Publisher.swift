@@ -59,14 +59,14 @@ public final class Publisher: Dependency {
     // MARK: - Publish
 
     @discardableResult
-    public static func publish(to topic: Topic, messages: [PublisherMessage], trace: Trace?) async throws -> [PublishedMessage] {
-        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "pubsub")
+    public static func publish(to topic: Topic, messages: [PublisherMessage], context: Context) async throws -> [PublishedMessage] {
+        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
 #if DEBUG
         try await topic.createIfNeeded(creation: client.createTopic)
 #endif
 
-        let response: Google_Pubsub_V1_PublishResponse = try await trace.recordSpan(named: "pubsub-publish", attributes: [
+        let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", attributes: [
             "pubsub/topic": topic.rawValue,
         ], closure: { span in
             try await client.publish(.with {
@@ -75,7 +75,7 @@ public final class Publisher: Dependency {
                     Google_Pubsub_V1_PubsubMessage.with {
                         $0.data = message.data
                         $0.attributes = message.attributes
-                        if let trace = trace  {
+                        if let trace = context.trace {
                             $0.attributes["__traceID"] = trace.id.stringValue
                             $0.attributes["__spanID"] = (trace.rootSpan?.id ?? trace.spanID).stringValue
                         }
@@ -93,18 +93,18 @@ public final class Publisher: Dependency {
     }
 
     @discardableResult
-    public static func publish(to topic: Topic, message: PublisherMessage, trace: Trace?) async throws -> PublishedMessage {
-        (try await publish(to: topic, messages: [message], trace: trace))[0]
+    public static func publish(to topic: Topic, message: PublisherMessage, context: Context) async throws -> PublishedMessage {
+        (try await publish(to: topic, messages: [message], context: context))[0]
     }
 
     @discardableResult
-    public static func publish(to topic: Topic, data: Data, attributes: [String: String] = [:], trace: Trace?) async throws -> PublishedMessage {
-        (try await publish(to: topic, messages: [PublisherMessage(data: data, attributes: attributes)], trace: trace))[0]
+    public static func publish(to topic: Topic, data: Data, attributes: [String: String] = [:], context: Context) async throws -> PublishedMessage {
+        (try await publish(to: topic, messages: [PublisherMessage(data: data, attributes: attributes)], context: context))[0]
     }
 
     @discardableResult
-    public static func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:], trace: Trace?) async throws -> PublishedMessage {
+    public static func publish<Element: SwiftProtobuf.Message>(to topic: Topic, data element: Element, attributes: [String: String] = [:], context: Context) async throws -> PublishedMessage {
         let message = try PublisherMessage(data: element, attributes: attributes)
-        return (try await publish(to: topic, messages: [message], trace: trace))[0]
+        return (try await publish(to: topic, messages: [message], context: context))[0]
     }
 }

@@ -5,8 +5,8 @@ import Foundation
 
 extension Redis {
 
-    public static func get(key: Key, trace: Trace?) async throws -> RESPValue {
-        try await trace.recordSpan(named: "redis-get", attributes: [
+    public static func get(key: Key, context: Context) async throws -> RESPValue {
+        try await context.trace.recordSpan(named: "redis-get", attributes: [
             "redis/key": key.rawValue,
         ]) { span in
             try await connection.get(key).get()
@@ -16,11 +16,11 @@ extension Redis {
     public static func get<Element>(
         _ type: Element.Type,
         key: Key,
-        trace: Trace?
+        context: Context
     ) async throws -> Element?
     where Element: Codable
     {
-        let value = try await get(key: key, trace: trace)
+        let value = try await get(key: key, context: context)
         guard let byteBuffer = value.byteBuffer else {
             return nil
         }
@@ -31,11 +31,11 @@ extension Redis {
         _ type: Element.Type,
         key: Key,
         or fallback: () async throws -> Element,
-        trace: Trace?
+        context: Context
     ) async throws -> Element
     where Element: Codable
     {
-        let value = try await get(key: key, trace: trace)
+        let value = try await get(key: key, context: context)
         if
             let byteBuffer = value.byteBuffer,
             let result = try? defaultDecoder.decode(type, from: byteBuffer)
@@ -49,11 +49,11 @@ extension Redis {
         _ type: Element.Type,
         key: Key,
         orAndSet fallback: () async throws -> Element,
-        trace: Trace?
+        context: Context
     ) async throws -> Element
     where Element: Codable
     {
-        let value = try await get(key: key, trace: trace)
+        let value = try await get(key: key, context: context)
         if
             let byteBuffer = value.byteBuffer,
             let result = try? defaultDecoder.decode(type, from: byteBuffer)
@@ -65,7 +65,7 @@ extension Redis {
 
         Task {
             do {
-                try await Self.set(key: key, to: result, trace: trace)
+                try await Self.set(key: key, to: result, context: context)
             } catch {
                 let logger = Logger(label: "redis")
                 logger.error("Failed to set fallback value: \(error)")

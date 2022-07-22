@@ -1,11 +1,12 @@
 import XCTest
 import GCPDatastore
+import GCPTrace
 
 final class PutTests: EmulatorTestCase {
 
     func testPutNewWithIncompleteKey() async throws {
         var user = User(key: .incomplete, email: "testing")
-        try await Datastore.put(entity: &user, trace: nil)
+        try await Datastore.put(entity: &user, context: context)
 
         switch user.key.id {
         case .uniq(let id):
@@ -14,7 +15,7 @@ final class PutTests: EmulatorTestCase {
             XCTFail("Key is not set: \(user.key)")
         }
 
-        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, trace: nil)
+        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, context: context)
         let putUser = try XCTUnwrap(wrappedPutUser)
         XCTAssertEqual(putUser, user)
     }
@@ -22,14 +23,14 @@ final class PutTests: EmulatorTestCase {
     func testPutNewWithUniqKey() async throws {
         let key = User.Key.uniq(235798)
 
-        let exists = try await Datastore.containsEntity(key: key, trace: nil)
+        let exists = try await Datastore.containsEntity(key: key, context: context)
         XCTAssertFalse(exists, "Precondition: User should not exist before test starts.")
 
         var user = User(key: key, email: "testing")
-        try await Datastore.put(entity: &user, trace: nil)
+        try await Datastore.put(entity: &user, context: context)
         XCTAssertEqual(user.key, key)
 
-        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, trace: nil)
+        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, context: context)
         let putUser = try XCTUnwrap(wrappedPutUser)
         XCTAssertEqual(putUser, user)
     }
@@ -37,14 +38,14 @@ final class PutTests: EmulatorTestCase {
     func testPutNewWithNamedKey() async throws {
         let key = User.Key.named("zg4bi")
 
-        let exists = try await Datastore.containsEntity(key: key, trace: nil)
+        let exists = try await Datastore.containsEntity(key: key, context: context)
         XCTAssertFalse(exists, "Precondition: User should not exist before test starts.")
 
         var user = User(key: key, email: "testing")
-        try await Datastore.put(entity: &user, trace: nil)
+        try await Datastore.put(entity: &user, context: context)
         XCTAssertEqual(user.key, key)
 
-        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, trace: nil)
+        let wrappedPutUser: User? = try await Datastore.getEntity(key: user.key, context: context)
         let putUser = try XCTUnwrap(wrappedPutUser)
         XCTAssertEqual(putUser, user)
     }

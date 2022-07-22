@@ -5,7 +5,7 @@ extension Datastore {
     /// Creates or updates given entities.  Also updates the key for entities where the key is incomplete.
     /// - Parameter entities: Entities to create or update.
     /// - Returns: Future result.
-    public static func put<Entity>(entities: inout [Entity], trace: Trace?, projectID: String = defaultProjectID) async throws
+    public static func put<Entity>(entities: inout [Entity], context: Context, projectID: String = defaultProjectID) async throws
     where Entity: GCPDatastore.Entity,
           Entity.Key: GCPDatastore.AnyKey
     {
@@ -18,9 +18,9 @@ extension Datastore {
             return rawEntity
         }
 
-        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "datastore")
+        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
 
-        let result: Google_Datastore_V1_CommitResponse = try await trace.recordSpan(named: "datastore-put") { span in
+        let result: Google_Datastore_V1_CommitResponse = try await context.trace.recordSpan(named: "datastore-put") { span in
             try await client.commit(.with {
                 $0.projectID = projectID
                 $0.mutations = rawEntities.map { raw in
@@ -44,12 +44,12 @@ extension Datastore {
     /// Creates or updates given entity.  Also updates the key if the entity's  key is incomplete.
     /// - Parameter entity: Entity to create or update.
     /// - Returns: Future result.
-    public static func put<Entity>(entity: inout Entity, trace: Trace?, projectID: String = defaultProjectID) async throws
+    public static func put<Entity>(entity: inout Entity, context: Context, projectID: String = defaultProjectID) async throws
     where Entity: GCPDatastore.Entity,
           Entity.Key: GCPDatastore.AnyKey
     {
         var entities = [entity]
-        try await put(entities: &entities, trace: trace, projectID: projectID)
+        try await put(entities: &entities, context: context, projectID: projectID)
         entity = entities[0]
     }
 }

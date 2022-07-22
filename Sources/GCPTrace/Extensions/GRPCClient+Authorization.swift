@@ -6,7 +6,7 @@ extension GRPCClient {
 
     /// Ensures the GRPC client has a valid authorization header for communication with GCP APIs.
     /// - Parameter client: The client to set authorization header on.
-    public mutating func ensureAuthentication(authorization: inout Authorization, trace: Trace?, traceContext: String) async throws {
+    public mutating func ensureAuthentication(authorization: inout Authorization, context: Context, traceContext: String) async throws {
 #if DEBUG
         // Don't authorize in debug, unless we have credentials
         if ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"]?.isEmpty != false {
@@ -14,7 +14,7 @@ extension GRPCClient {
         }
 #endif
 
-        var span = trace?.span(named: "authenticate-" + traceContext)
+        var span = context.trace?.span(named: "authenticate-" + traceContext)
         do {
             let result = try await authorization.token()
 

@@ -1,6 +1,7 @@
 import XCTest
 import NIO
 import GCPPubSub
+import GCPTrace
 
 struct Message: Codable {
 
@@ -25,6 +26,6 @@ final class PublisherTests: XCTestCase {
     func testPublish() async throws {
         Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
-        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, trace: nil)
+        try await Publisher.publish(to: .test, data: "Hello".data(using: .utf8)!, context: context)
     }
 }

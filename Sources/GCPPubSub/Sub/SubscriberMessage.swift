@@ -3,7 +3,7 @@ import SwiftProtobuf
 import Logging
 import GCPTrace
 
-public struct SubscriberMessage: Message {
+public struct SubscriberMessage: Message, Context {
 
     public let id: String
     public let published: Date
@@ -12,9 +12,9 @@ public struct SubscriberMessage: Message {
     public let attributes: [String: String]
 
     public var logger: Logger
-    public var trace: Trace
+    public var trace: Trace?
 
-    init(id: String, published: Date, data: Data, attributes: [String: String], logger: Logger, trace: Trace) {
+    init(id: String, published: Date, data: Data, attributes: [String: String], logger: Logger, trace: Trace?) {
         self.id = id
         self.published = published
         self.data = data

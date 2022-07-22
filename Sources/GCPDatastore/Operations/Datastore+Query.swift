@@ -5,16 +5,16 @@ extension Datastore {
     private static func performQuery<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         projection: [Google_Datastore_V1_Projection],
-        trace: Trace?,
+        context: Context,
         projectID: String
     ) async throws -> [Google_Datastore_V1_EntityResult]
     where
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization, trace: trace, traceContext: "datastore")
+        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
 
-        let response: Google_Datastore_V1_RunQueryResponse = try await trace.recordSpan(named: "datastore-query") { span in
+        let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query") { span in
             try await client.runQuery(.with {
                 $0.projectID = projectID
                 $0.partitionID = .with {
@@ -55,14 +55,14 @@ extension Datastore {
 
     public static func getEntities<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
-        trace: Trace?,
+        context: Context,
         projectID: String = defaultProjectID
     ) async throws -> [Entity]
     where
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        let raws = try await performQuery(query: query, projection: [], trace: trace, projectID: projectID)
+        let raws = try await performQuery(query: query, projection: [], context: context, projectID: projectID)
 
         let decoder = EntityDecoder()
         return try raws.map {
@@ -72,7 +72,7 @@ extension Datastore {
 
     public static func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
-        trace: Trace?,
+        context: Context,
         projectID: String = defaultProjectID
     ) async throws -> [Entity.Key]
     where
@@ -86,7 +86,7 @@ extension Datastore {
                     $0.name = "__key__"
                 }
             }],
-            trace: trace,
+            context: context,
             projectID: projectID
         )
         return raws.map { Entity.Key.init(raw: $0.entity.key) }

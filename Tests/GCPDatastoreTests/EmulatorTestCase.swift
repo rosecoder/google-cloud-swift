@@ -15,7 +15,7 @@ class EmulatorTestCase: XCTestCase {
     }
 
     override func tearDown() async throws {
-        try await Datastore.deleteEntities(query: Query(User.self), trace: nil)
+        try await Datastore.deleteEntities(query: Query(User.self), context: context)
 
         // Wait for emulated datastore to complete it's writes
         try await Task.sleep(nanoseconds: 10_000_000) // 10ms
