@@ -59,32 +59,28 @@ public final class Subscriber: Dependency {
     private typealias SubscriptionHash = Int
     private static var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
 
-    public static func startPull<Handler>(subscription: Subscription<Handler.Message>, handler handlerType: Handler.Type) async throws
+    public static func startPull<Handler>(handler handlerType: Handler.Type) async throws
     where Handler: GCPPubSub.Handler,
-          Handler.Message: Message,
-          Handler.Message.Incoming: IncomingMessage,
-          Handler.Message.Incoming == Handler.IncomingMessage
+          Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
         try await client.ensureAuthentication(authorization: &authorization)
-        try await subscription.createIfNeeded(creation: client.createSubscription)
+        try await handlerType.subscription.createIfNeeded(creation: client.createSubscription)
 #endif
 
-        continuesPull(subscription: subscription, handlerType: handlerType)
+        continuesPull(handlerType: handlerType)
 
-        logger.debug("Subscribed to \(subscription.name)")
+        logger.debug("Subscribed to \(handlerType.subscription.name)")
     }
 
-    private static func continuesPull<Handler>(subscription: Subscription<Handler.Message>, handlerType: Handler.Type, retryCount: UInt64 = 0)
+    private static func continuesPull<Handler>(handlerType: Handler.Type, retryCount: UInt64 = 0)
     where Handler: GCPPubSub.Handler,
-          Handler.Message: Message,
-          Handler.Message.Incoming: IncomingMessage,
-          Handler.Message.Incoming == Handler.IncomingMessage
+          Handler.Message.Incoming: IncomingMessage
     {
-        runningPullTasks[subscription.name.hashValue] = Task {
+        runningPullTasks[handlerType.subscription.name.hashValue] = Task {
             while !Task.isCancelled {
                 do {
-                    try await singlePull(subscription: subscription, handlerType: handlerType)
+                    try await singlePull(handlerType: handlerType)
                 } catch {
                     try Task.checkCancellation()
 
@@ -109,13 +105,13 @@ public final class Subscriber: Dependency {
                     }
                     delay *= (retryCount + 1)
 
-                    log("Pull failed for \(subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
+                    log("Pull failed for \(handlerType.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
 
                     try await Task.sleep(nanoseconds: delay)
 
                     try Task.checkCancellation()
 
-                    self.continuesPull(subscription: subscription, handlerType: handlerType, retryCount: retryCount + 1)
+                    self.continuesPull(handlerType: handlerType, retryCount: retryCount + 1)
                     break
                 }
             }
@@ -160,16 +156,14 @@ public final class Subscriber: Dependency {
 
     // MARK: - Pull
 
-    private static func singlePull<Handler>(subscription: Subscription<Handler.Message>, handlerType: Handler.Type) async throws
+    private static func singlePull<Handler>(handlerType: Handler.Type) async throws
     where Handler: GCPPubSub.Handler,
-          Handler.Message: Message,
-          Handler.Message.Incoming: IncomingMessage,
-          Handler.Message.Incoming == Handler.IncomingMessage
+          Handler.Message.Incoming: IncomingMessage
     {
         try await client.ensureAuthentication(authorization: &authorization)
 
         let response = try await client.pull(.with {
-            $0.subscription = subscription.rawValue
+            $0.subscription = handlerType.subscription.rawValue
             $0.maxMessages = 1_000
         }, callOptions: .init(
             customMetadata: client.defaultCallOptions.customMetadata,
@@ -183,7 +177,7 @@ public final class Subscriber: Dependency {
             Task {
                 let rawMessage = receivedMessage.message
 
-                var trace = Trace(named: subscription.name, attributes: [
+                var trace = Trace(named: handlerType.subscription.name, attributes: [
                     "message": rawMessage.messageID,
                 ])
 
@@ -207,7 +201,7 @@ public final class Subscriber: Dependency {
 
                 // Handle message
                 do {
-                    let message = try Handler.IncomingMessage.init(
+                    let message = try Handler.Message.Incoming.init(
                         id: rawMessage.messageID,
                         published: rawMessage.publishTime.date,
                         data: rawMessage.data,
@@ -221,7 +215,7 @@ public final class Subscriber: Dependency {
                     }
 
                     do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
+                        try await unacknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
                     } catch {
                         messageLogger.error("Failed to unacknowledge message: \(error)")
                     }
@@ -230,7 +224,7 @@ public final class Subscriber: Dependency {
                 }
 
                 do {
-                    try await acknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
+                    try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
                 } catch {
                     messageLogger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry

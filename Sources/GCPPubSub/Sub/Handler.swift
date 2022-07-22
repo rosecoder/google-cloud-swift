@@ -4,13 +4,14 @@ import Logging
 
 public protocol Handler {
 
-    associatedtype Message
-    associatedtype IncomingMessage
+    associatedtype Message: GCPPubSub.Message
+
+    static var subscription: Subscription<Message> { get }
 
     var context: Context { get }
-    var message: IncomingMessage { get }
+    var message: Message.Incoming { get }
 
-    init(context: Context, message: IncomingMessage)
+    init(context: Context, message: Message.Incoming)
 
     func handle() async throws
 }

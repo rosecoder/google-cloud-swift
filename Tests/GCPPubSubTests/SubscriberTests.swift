@@ -3,19 +3,14 @@ import NIO
 import GCPPubSub
 import GCPTrace
 
-extension Subscriptions {
-
-    static let test = Subscription(name: "test", topic: Topics.test)
-}
-
 private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
 private struct CallbackHandler: Handler {
 
-    typealias Message = PlainTextMessage
+    static let subscription = Subscription(name: "test", topic: Topics.test)
 
-    var context: Context
-    var message: Message.Incoming
+    let context: Context
+    let message: PlainTextMessage.Incoming
 
     func handle() async throws {
         try await callback?(message)
@@ -46,7 +41,7 @@ final class SubscriberTestCase: XCTestCase {
         }
 
         // Recive message
-        try await Subscriber.startPull(subscription: Subscriptions.test, handler: CallbackHandler.self)
+        try await Subscriber.startPull(handler: CallbackHandler.self)
 
         // Publish message
         let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
