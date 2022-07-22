@@ -37,7 +37,7 @@ public struct Trace: Codable, Equatable {
     /// - Parameter headerValue: Value of header.
     ///
     /// Valid format: `TRACE_ID/SPAN_ID;o=TRACE_TRUE`
-    public init?(headerValue: String, name: String) {
+    public init?(headerValue: String) {
         guard
             let optionsValueIndex = headerValue.firstIndex(of: "="),
             headerValue[headerValue.index(optionsValueIndex, offsetBy: -1)] == "o", // TODO: Check bounds
@@ -54,14 +54,11 @@ public struct Trace: Codable, Equatable {
 
         self.id = id
         self.spanID = spanID
-        self.rootSpan = Span(
-            traceID: id,
-            parentID: nil,
-            sameProcessAsParent: false,
-            id: spanID,
-            name: name,
-            attributes: [:]
-        )
+        self.rootSpan = nil
+    }
+
+    public var headerValue: String {
+        id.stringValue + "/" + spanID.stringValue + ";o=1"
     }
 
     // MARK: - Child spans
