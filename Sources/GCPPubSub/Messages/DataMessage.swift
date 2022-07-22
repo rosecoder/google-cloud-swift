@@ -43,7 +43,7 @@ public struct IncomingDataMessage: IncomingMessage {
 
     public let body: Data
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws {
         self.id = id
         self.published = published
         self.attributes = attributes

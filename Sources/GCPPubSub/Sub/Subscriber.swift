@@ -177,14 +177,19 @@ public final class Subscriber: Dependency {
             Task {
                 let rawMessage = receivedMessage.message
 
-                var trace = Trace(named: handlerType.subscription.name, attributes: [
-                    "message": rawMessage.messageID,
-                ])
-
-                var messageLogger = Logger(label: logger.label + ".message", trace: trace)
-                messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
-
-                let context = HandlerContext(logger: logger, trace: trace)
+                var context: Context = HandlerContext(
+                    logger: {
+                        var messageLogger = Logger(label: logger.label + ".message")
+                        messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
+                        return messageLogger
+                    }(),
+                    trace: Trace(named: handlerType.subscription.name, attributes: [
+                        "message": rawMessage.messageID,
+                    ])
+                )
+                if let trace = context.trace {
+                    context.logger.addMetadata(for: trace)
+                }
 
                 // Link to parent trace if included in message
                 if
@@ -193,7 +198,7 @@ public final class Subscriber: Dependency {
                     let traceID = Trace.Identifier(stringValue: rawSourceTraceID),
                     let spanID = Span.Identifier(stringValue: rawSourceSpanID)
                 {
-                    trace.rootSpan?.links.append(.init(
+                    context.trace?.rootSpan?.links.append(.init(
                         trace: Trace(id: traceID, spanID: spanID),
                         kind: .parent
                     ))
@@ -205,33 +210,34 @@ public final class Subscriber: Dependency {
                         id: rawMessage.messageID,
                         published: rawMessage.publishTime.date,
                         data: rawMessage.data,
-                        attributes: rawMessage.attributes
+                        attributes: rawMessage.attributes,
+                        context: &context
                     )
                     try Task.checkCancellation()
                     try await Handler.init(context: context, message: message).handle()
                 } catch {
                     if !(error is CancellationError) {
-                        messageLogger.error("Failed to handle message: \(error)")
+                        context.logger.error("Failed to handle message: \(error)")
                     }
 
                     do {
                         try await unacknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
                     } catch {
-                        messageLogger.error("Failed to unacknowledge message: \(error)")
+                        context.logger.error("Failed to unacknowledge message: \(error)")
                     }
-                    trace.end(error: error)
+                    context.trace?.end(error: error)
                     return
                 }
 
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
                 } catch {
-                    messageLogger.error("Failed to acknowledge message: \(error)")
+                    context.logger.error("Failed to acknowledge message: \(error)")
                     // TODO: Add retry
                     // TODO: Should we nack the message?
                 }
 
-                trace.end(statusCode: .ok)
+                context.trace?.end(statusCode: .ok)
             }
         }
         for task in tasks {

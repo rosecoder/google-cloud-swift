@@ -37,13 +37,13 @@ extension Publisher {
 
 public struct IncomingJSONMessage<Element: Decodable>: IncomingMessage {
 
-    public var id: String
-    public var published: Date
-    public var attributes: [String: String]
+    public let id: String
+    public let published: Date
+    public let attributes: [String: String]
 
-    public var body: Element
+    public let body: Element
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws {
         self.body = try JSONDecoder().decode(Element.self, from: data)
         self.id = id
         self.published = published

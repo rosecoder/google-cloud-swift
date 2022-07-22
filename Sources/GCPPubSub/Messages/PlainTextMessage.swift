@@ -51,7 +51,7 @@ public struct IncomingPlainTextMessage: IncomingMessage {
 
     struct DecodingError: Error {}
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws {
         guard let text = String(data: data, encoding: .utf8) else {
             throw DecodingError()
         }

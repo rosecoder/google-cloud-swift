@@ -1,4 +1,5 @@
 import Foundation
+import GCPTrace
 
 public protocol Message {
 
@@ -21,7 +22,7 @@ public protocol IncomingMessage {
     var id: String { get }
     var published: Date { get }
 
-    init(id: String, published: Date, data: Data, attributes: [String: String]) throws
+    init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws
 }
 
 #if DEBUG
@@ -31,7 +32,8 @@ extension IncomingMessage {
         data: Data,
         attributes: [String: String] = [:]
     ) throws {
-        try self.init(id: "0", published: Date(), data: data, attributes: attributes)
+        var context: Context = TestContext()
+        try self.init(id: "0", published: Date(), data: data, attributes: attributes, context: &context)
     }
 }
 #endif
