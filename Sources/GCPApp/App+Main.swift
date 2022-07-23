@@ -80,6 +80,15 @@ extension App {
                 return
             }
 
+            // Readiness indication file
+            if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
+                do {
+                    try Data([0x1]).write(to: URL(fileURLWithPath: path))
+                } catch {
+                    logger.warning("Failed to write readiness indication file: \(error)")
+                }
+            }
+
             // Ready!
             switch mode {
             case .runLoop:

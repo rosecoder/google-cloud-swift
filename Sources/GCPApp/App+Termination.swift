@@ -38,6 +38,15 @@ extension App {
 
         return Task(priority: .userInitiated) {
 
+            // Readiness indication file
+            if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
+                do {
+                    try FileManager.default.removeItem(atPath: path)
+                } catch {
+                    logger.warning("Failed to remove readiness indication file: \(error)")
+                }
+            }
+
             // App
             do {
                 try await shutdown()
