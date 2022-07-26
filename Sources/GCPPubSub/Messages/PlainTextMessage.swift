@@ -35,7 +35,7 @@ extension Publisher {
         attributes: [String: String] = [:],
         context: Context
     ) async throws -> PublishedMessage {
-        (try await publish(to: topic, bodies: [body], context: context))[0]
+        (try await publish(to: topic, bodies: [body], attributes: attributes, context: context))[0]
     }
 
     @discardableResult
