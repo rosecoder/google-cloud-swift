@@ -29,7 +29,18 @@ extension Publisher {
         attributes: [String: String] = [:],
         context: Context
     ) async throws -> PublishedMessage {
-        (try await publish(to: topic, messages: [try .init(body: body, attributes: attributes)], context: context))[0]
+        (try await publish(to: topic, bodies: [body], context: context))[0]
+    }
+
+    @discardableResult
+    public static func publish(
+        to topic: Topic<DataMessage>,
+        bodies: [Data],
+        attributes: [String: String] = [:],
+        context: Context
+    ) async throws -> [PublishedMessage] {
+        let messages = try bodies.map { try DataMessage.Outgoing(body: $0, attributes: attributes) }
+        return try await publish(to: topic, messages: messages, context: context)
     }
 }
 
