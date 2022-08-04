@@ -12,6 +12,15 @@ public final class Publisher: Dependency {
     private static var _client: Google_Pubsub_V1_PublisherAsyncClient?
     private static let logger = Logger(label: "pubsub.publisher")
 
+#if DEBUG
+    /// If `true` (default), publishing messges are preformed on remote, else, if set to `false`, publishing message only encodes the messages, but never actually publishes.
+    ///
+    /// This property is set to `false`, when `bootstrapForTesting(eventLoopGroup:)` is called.
+    ///
+    /// Note: This property is only available in DEBUG to avoid unexpected behaviours in production.
+    public static var isEnabled = true
+#endif
+
     private static var client: Google_Pubsub_V1_PublisherAsyncClient {
         get {
             guard let _client = _client else {
@@ -57,11 +66,27 @@ public final class Publisher: Dependency {
         }
     }
 
+#if DEBUG
+    /// Bootstraps for testing only by setting `isEnabled` to `false`.
+    /// - Parameter eventLoopGroup: NIO event loop group to use. This property is currently never used, but may change in the future.
+    public static func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
+        isEnabled = false
+    }
+#endif
+
     // MARK: - Publish
 
     @discardableResult
     public static func publish<Message>(to topic: Topic<Message>, messages: [Message.Outgoing], context: Context) async throws -> [PublishedMessage]
     where Message.Outgoing: OutgoingMessage {
+#if DEBUG
+        guard isEnabled else {
+            return messages.map { _ in
+                PublishedMessage(id: "xctest")
+            }
+        }
+#endif
+
         try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
 
 #if DEBUG
