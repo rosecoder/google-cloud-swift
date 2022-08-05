@@ -4,8 +4,6 @@ import NIO
 import GCPCore
 import GCPLogging
 
-public typealias Dependency = GCPCore.Dependency
-
 public protocol App {
 
     var eventLoopGroup: EventLoopGroup { get }
@@ -29,10 +27,10 @@ public protocol App {
     /// - critical
     var logLevel: Logger.Level { get }
 
-    /// All dependency types to bootstrap on main.
+    /// All dependencies to bootstrap on main.
     ///
     /// Bootstrapping is run one at a time in the order given.
-    var dependencies: [Dependency.Type] { get }
+    var dependencies: [DependencyOptions] { get }
 
     /// Implement this to do any extra work needed before termination.
     ///

@@ -60,7 +60,7 @@ extension App {
             // App dependencies
             for dependency in dependencies.reversed() {
                 do {
-                    try await dependency.shutdown()
+                    try await dependency.type.shutdown()
                 } catch {
                     logger.critical("Error shutting down app dependency: \(dependency)", metadata: [
                         "error": .string(String(describing: error)),

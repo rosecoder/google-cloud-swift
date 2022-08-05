@@ -49,15 +49,16 @@ extension App {
             // TODO: Implement
 
             // App dependencies
-            for dependency in dependencies {
+            for options in dependencies {
                 do {
-                    try await dependency.bootstrap(eventLoopGroup: eventLoopGroup)
+                    try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
                 } catch {
-                    logger.critical("Error bootstrapping app dependency: \(dependency)", metadata: [
-                        "error": .string(String(describing: error)),
-                    ])
-                    terminate(exitCode: 1)
-                    return
+                    if options.isRequired {
+                        logger.critical("\(options.type) failed to bootstrap: \(error)")
+                        terminate(exitCode: 1)
+                        return
+                    }
+                    logger.warning("\(options.type) (optional) failed to bootstrap: \(error)")
                 }
             }
 

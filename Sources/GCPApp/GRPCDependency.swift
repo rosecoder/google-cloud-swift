@@ -1,6 +1,7 @@
 import Foundation
 import NIO
 import GRPC
+import GCPCore
 
 public protocol GRPCDependency: Dependency {
 
