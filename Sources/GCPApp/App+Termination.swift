@@ -37,6 +37,7 @@ extension App {
 #endif
 
         return Task(priority: .userInitiated) {
+            var hasFail = false
 
             // Readiness indication file
             if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
@@ -54,7 +55,7 @@ extension App {
                 logger.critical("Error shutting down app", metadata: [
                     "error": .string(String(describing: error)),
                 ])
-                exit(1)
+                hasFail = true
             }
 
             // App dependencies
@@ -65,7 +66,7 @@ extension App {
                     logger.critical("Error shutting down app dependency: \(dependency)", metadata: [
                         "error": .string(String(describing: error)),
                     ])
-                    exit(1)
+                    hasFail = true
                 }
             }
 
@@ -87,6 +88,9 @@ extension App {
             try! await Task.sleep(nanoseconds: 1_000_000_000)
 
             // It's time
+            if hasFail && exitCode == 0 {
+                exit(1)
+            }
             exit(exitCode)
         }
     }
