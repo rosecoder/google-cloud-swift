@@ -32,16 +32,18 @@ public struct Storage: Dependency {
 
     // MARK: - Requests
 
-    struct UnparsableRemoteError: Error {
+    public struct UnparsableRemoteError: Error {
 
-        let statusCode: UInt
-        let description: String
+        public let statusCode: UInt
+        public let description: String
     }
 
-    struct RemoteError: Error, Decodable {
+    public struct NotFoundError: Error {}
 
-       let code: String  // TODO: Find all error codes and parse into an enum?
-       let message: String
+    public struct RemoteError: Error, Decodable {
+
+        public let code: Int
+        public let message: String
 
        // MARK: - Decodable
 
@@ -54,11 +56,11 @@ public struct Storage: Dependency {
            case message = "message"
        }
 
-       init(from decoder: Decoder) throws {
+        public init(from decoder: Decoder) throws {
            let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
            let container = try rootContainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .error)
 
-           self.code = try container.decode(String.self, forKey: .code)
+           self.code = try container.decode(Int.self, forKey: .code)
            self.message = try container.decode(String.self, forKey: .message)
        }
    }
@@ -77,8 +79,10 @@ public struct Storage: Dependency {
         let response = try await client.execute(request, timeout: .seconds(30), context: context)
 
         switch response.status {
-        case .ok, .created:
+        case .ok, .created, .accepted, .noContent:
             return
+        case .notFound:
+            throw NotFoundError()
         default:
             let body = try await response.body.collect(upTo: 1024 * 10) // 10 KB
 
