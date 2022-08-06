@@ -76,7 +76,7 @@ public struct Storage: Dependency {
         request.headers.add(name: "Authorization", value: "Bearer " + accessToken.token)
 
         // Perform
-        let response = try await client.execute(request, timeout: .seconds(30), context: context)
+        let response = try await client.execute(request, timeout: .seconds(30))
 
         switch response.status {
         case .ok, .created, .accepted, .noContent:
