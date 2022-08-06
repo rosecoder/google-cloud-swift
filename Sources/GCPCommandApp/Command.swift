@@ -31,7 +31,8 @@ extension Command {
             context.trace?.end(statusCode: .ok)
         } catch {
             context.trace?.end(error: error)
-            throw error
+            context.logger.error("\(error)")
+            commandApp!.terminate(exitCode: 1)
         }
     }
 }
