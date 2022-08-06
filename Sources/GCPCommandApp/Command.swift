@@ -32,7 +32,7 @@ extension Command {
         } catch {
             context.trace?.end(error: error)
             context.logger.error("\(error)")
-            commandApp!.terminate(exitCode: 1)
+            commandApp!.terminate(exitCode: ExitCode.failure.rawValue)
         }
     }
 }
