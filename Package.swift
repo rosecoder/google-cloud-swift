@@ -84,6 +84,7 @@ let package = Package(
         .target(name: "GCPTrace", dependencies: [
             "GCPCore",
             .product(name: "GRPC", package: "grpc-swift"),
+            .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "GCPTraceTests", dependencies: ["GCPTrace"]),
     ]

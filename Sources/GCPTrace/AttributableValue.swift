@@ -99,6 +99,10 @@ extension Int: AttributableValue {
     public var _gcpTraceRawValue: Any { Int64(self)._gcpTraceRawValue }
     public var _codableValue: AttributableValueCodableValue { .int(Int64(self)) }
 }
+extension UInt: AttributableValue {
+    public var _gcpTraceRawValue: Any { Int64(self)._gcpTraceRawValue }
+    public var _codableValue: AttributableValueCodableValue { .int(Int64(self)) }
+}
 extension Int8: AttributableValue {
     public var _gcpTraceRawValue: Any { Int64(self)._gcpTraceRawValue }
     public var _codableValue: AttributableValueCodableValue { .int(Int64(self)) }
