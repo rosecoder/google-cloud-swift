@@ -15,7 +15,7 @@ extension Command {
     public var context: Context {
         get {
             if _context == nil {
-                _context = CommandContext(name: Self.configuration.commandName ?? "unnamed")
+                _context = CommandContext(name: Self._commandName)
             }
             return _context!
         }
