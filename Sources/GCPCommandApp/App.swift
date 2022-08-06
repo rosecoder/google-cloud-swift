@@ -3,7 +3,6 @@ import GCPApp
 import ArgumentParser
 
 public typealias DependencyOptions = GCPApp.DependencyOptions
-public typealias Command = ArgumentParser.AsyncParsableCommand
 
 public protocol App: GCPApp.App, AsyncParsableCommand {
 
@@ -14,7 +13,7 @@ public protocol App: GCPApp.App, AsyncParsableCommand {
 
 extension App {
 
-    static var configuration: CommandConfiguration {
+    public static var configuration: CommandConfiguration {
         CommandConfiguration(
             version: Resource.version ?? "",
             subcommands: commands
