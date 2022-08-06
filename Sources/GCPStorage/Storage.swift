@@ -32,7 +32,11 @@ public struct Storage: Dependency {
 
     // MARK: - Requests
 
-    struct UnparsableRemoteError: Error {}
+    struct UnparsableRemoteError: Error {
+
+        let statusCode: UInt
+        let description: String
+    }
 
     struct RemoteError: Error, Decodable {
 
@@ -76,13 +80,13 @@ public struct Storage: Dependency {
         case .ok, .created:
             return
         default:
-            let body = try await response.body.collect(upTo: 1024) // 1 KB
+            let body = try await response.body.collect(upTo: 1024 * 10) // 10 KB
 
             let remoteError: RemoteError
             do {
                 remoteError = try JSONDecoder().decode(RemoteError.self, from: body)
             } catch {
-                throw UnparsableRemoteError()
+                throw UnparsableRemoteError(statusCode: response.status.code, description: String(buffer: body))
             }
             throw remoteError
         }
