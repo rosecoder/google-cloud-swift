@@ -30,10 +30,8 @@ extension App {
     /// - Parameter exitCode: Exit code to terminate process with after shutdown completed.
     @discardableResult
     public func terminate(exitCode: Int32) -> Task<Void, Never> {
-#if DEBUG
-        logger.debug("Shutdown initialized. Terminating... 👋")
-#else
-        logger.info("Shutdown initialized. Terminating...")
+#if !DEBUG
+        logger.debug("Shutdown initialized. Terminating...")
 #endif
 
         return Task(priority: .userInitiated) {
