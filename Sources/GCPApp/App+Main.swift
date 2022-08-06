@@ -4,14 +4,14 @@ import GCPErrorReporting
 import GCPLogging
 import GCPTrace
 
-private enum InitializeMode {
+public enum InitializeMode {
     case singleRun
     case runLoop
 }
 
 extension App {
 
-    private func initialize(mode: InitializeMode, bootstrap: @escaping () async throws -> Void = {}) {
+    public func initialize(mode: InitializeMode, bootstrap: @escaping () async throws -> Void = {}) {
 
         // Logging
 #if DEBUG
@@ -118,20 +118,7 @@ extension App {
     /// - Metrics
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
-    public func main(bootstrap: @escaping () async throws -> Void = {}) {
+    public func serverMain(bootstrap: @escaping () async throws -> Void = {}) {
         initialize(mode: .runLoop, bootstrap: bootstrap)
-    }
-
-    /// Intiaizlies the app with all bootstrapping defined for a single action run. After this the app is terminated with exit code 0.
-    /// - Parameter action: Action to run after bootstrap.
-    ///
-    /// Boostrapping order:
-    /// - Logging
-    /// - Error reporting
-    /// - Tracing
-    /// - Metrics
-    /// - App dependencies
-    public func run(action: @escaping () async throws -> Void = {}) {
-        initialize(mode: .singleRun, bootstrap: action)
     }
 }

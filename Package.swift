@@ -8,6 +8,7 @@ let package = Package(
     ],
     products: [
         .library(name: "GCPApp", targets: ["GCPApp"]),
+        .library(name: "GCPCommandApp", targets: ["GCPCommandApp"]),
         .library(name: "GCPCore", targets: ["GCPCore"]),
         .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
@@ -21,6 +22,7 @@ let package = Package(
         .package(name: "Auth", url: "https://github.com/rosecoder/google-auth-library-swift.git", .revision("a2aae84e922ecc87e8ab63e7af80b4cb7b444566")),
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
+        .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
     targets: [
         .target(name: "GCPApp", dependencies: [
@@ -31,6 +33,11 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
         ]),
         .testTarget(name: "GCPAppTests", dependencies: ["GCPApp"]),
+
+        .target(name: "GCPCommandApp", dependencies: [
+            "GCPApp",
+            .product(name: "ArgumentParser", package: "swift-argument-parser"),
+        ]),
 
         .target(name: "GCPCore", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
