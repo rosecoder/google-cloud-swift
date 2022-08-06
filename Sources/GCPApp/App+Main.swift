@@ -3,15 +3,11 @@ import Logging
 import GCPErrorReporting
 import GCPLogging
 import GCPTrace
-
-public enum InitializeMode {
-    case singleRun
-    case runLoop
-}
+import GRPC
 
 extension App {
 
-    public func initialize(mode: InitializeMode, bootstrap: @escaping () async throws -> Void = {}) {
+    public func initialize(bootstrap: @escaping () async throws -> Void = {}, completion: @escaping () async throws -> Void) {
 
         // Logging
 #if DEBUG
@@ -62,14 +58,6 @@ extension App {
                 }
             }
 
-            // Ready for action?
-            switch mode {
-            case .runLoop:
-                break
-            case .singleRun:
-                logger.info("Bootstrap completed")
-            }
-
             // App
             do {
                 try await bootstrap()
@@ -91,16 +79,7 @@ extension App {
             }
 
             // Ready!
-            switch mode {
-            case .runLoop:
-#if DEBUG
-                logger.debug("App running in debug 🚀")
-#else
-                logger.info("Bootstrap completed")
-#endif
-            case .singleRun:
-                terminate(exitCode: 0)
-            }
+            try await completion()
         }
 
         RunLoop.current.run()
@@ -118,7 +97,69 @@ extension App {
     /// - Metrics
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
-    public func serverMain(bootstrap: @escaping () async throws -> Void = {}) {
-        initialize(mode: .runLoop, bootstrap: bootstrap)
+    public func processMain(bootstrap: @escaping () async throws -> Void = {}) {
+        initialize(bootstrap: bootstrap) {
+#if DEBUG
+            logger.debug("App running in debug 🚀")
+#else
+            logger.info("Bootstrap completed")
+#endif
+        }
+    }
+
+    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
+    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
+    ///
+    /// Boostrapping order:
+    /// - Logging
+    /// - Error reporting
+    /// - Tracing
+    /// - Metrics
+    /// - App dependencies
+    /// - App (`bootstrap`-parameter)
+    public func serverMain(
+        serviceProviders: [CallHandlerProvider],
+        defaultPort: Int,
+        bootstrap: @escaping () async throws -> Void = {}
+    ) {
+        let port: Int
+        if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
+            port = environmentPort
+        } else {
+            port = defaultPort
+        }
+
+        initialize(bootstrap: {
+            _ = try await Server.insecure(group: eventLoopGroup)
+                .withServiceProviders(serviceProviders)
+                .bind(host: "0.0.0.0", port: port)
+                .get()
+
+            try await bootstrap()
+        }, completion: {
+#if DEBUG
+            logger.debug("App running in debug on port \(port) 🚀")
+#else
+            logger.info("Bootstrap completed on port \(port)")
+#endif
+        })
+    }
+
+    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
+    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
+    ///
+    /// Boostrapping order:
+    /// - Logging
+    /// - Error reporting
+    /// - Tracing
+    /// - Metrics
+    /// - App dependencies
+    /// - App (`bootstrap`-parameter)
+    public func serverMain(
+        serviceProvider: CallHandlerProvider,
+        defaultPort: Int,
+        bootstrap: @escaping () async throws -> Void = {}
+    ) {
+        serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
     }
 }

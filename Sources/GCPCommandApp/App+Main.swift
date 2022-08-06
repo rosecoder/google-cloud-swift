@@ -10,9 +10,9 @@ extension App {
     /// - Metrics
     /// - App dependencies
     public func commandMain(bootstrap: @escaping () async throws -> Void = {}) {
-        initialize(mode: .singleRun, bootstrap: {
-            try await bootstrap()
+        initialize(bootstrap: bootstrap, completion: {
             await Self.main()
+            terminate(exitCode: 0)
         })
     }
 }
