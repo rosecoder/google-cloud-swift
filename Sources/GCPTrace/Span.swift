@@ -18,7 +18,7 @@ public struct Span: Equatable, Codable {
     public var attributes: [String: AttributableValue]
 
     /// Date of when the operation started.
-    public let started: Date
+    public var started: Date
 
     /// Date of when the operation ended or nil if the operation has not ended yet.
     public private(set) var ended: Date?
@@ -46,6 +46,13 @@ public struct Span: Equatable, Codable {
         self.attributes = attributes
         self.started = Date()
         self.links = links
+    }
+
+    // MARK: - Starting
+
+    /// Resets the start time to now.
+    public mutating func restart() {
+        started = Date()
     }
 
     // MARK: - Ending

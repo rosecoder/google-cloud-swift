@@ -7,6 +7,8 @@ public struct Trace: Codable, Equatable {
     public var rootSpan: Span?
     public let spanID: Span.Identifier
 
+    public let childrenSameProcessAsParent: Bool
+
     /// Initializes a new unique trace with no parent.
     public init(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:]) {
         self.id = Identifier()
@@ -22,23 +24,25 @@ public struct Trace: Codable, Equatable {
             name: name,
             attributes: attributes
         )
+        self.childrenSameProcessAsParent = true
     }
 
     /// Initializes a existing trace.
     /// - Parameters:
     ///   - id: Identifier of the trace.
     ///   - spanID: Optional. Identifier of the parent span id.
-    public init(id: Identifier, spanID: Span.Identifier) {
+    public init(id: Identifier, spanID: Span.Identifier, childrenSameProcessAsParent: Bool = false) {
         self.id = id
         self.rootSpan = nil
         self.spanID = spanID
+        self.childrenSameProcessAsParent = childrenSameProcessAsParent
     }
 
     /// Initialize from a trace header (`X-Cloud-Trace-Context`).
     /// - Parameter headerValue: Value of header.
     ///
     /// Valid format: `TRACE_ID/SPAN_ID;o=TRACE_TRUE`
-    public init?(headerValue: String) {
+    public init?(headerValue: String, childrenSameProcessAsParent: Bool = false) {
         guard
             let optionsValueIndex = headerValue.firstIndex(of: "="),
             headerValue[headerValue.index(optionsValueIndex, offsetBy: -1)] == "o", // TODO: Check bounds
@@ -56,6 +60,7 @@ public struct Trace: Codable, Equatable {
         self.id = id
         self.spanID = spanID
         self.rootSpan = nil
+        self.childrenSameProcessAsParent = childrenSameProcessAsParent
     }
 
     public var headerValue: String {
@@ -75,7 +80,7 @@ public struct Trace: Codable, Equatable {
         return Span(
             traceID: id,
             parentID: spanID,
-            sameProcessAsParent: rootSpan != nil,
+            sameProcessAsParent: childrenSameProcessAsParent,
             id: Span.Identifier(),
             kind: kind,
             name: name,

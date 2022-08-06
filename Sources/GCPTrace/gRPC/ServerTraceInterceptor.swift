@@ -2,19 +2,11 @@ import Foundation
 import GRPC
 import NIO
 
-private enum TraceKey: UserInfoKey {
-  typealias Value = Trace
-}
 private enum SpanKey: UserInfoKey {
   typealias Value = Span
 }
 
 extension UserInfo {
-
-    fileprivate var trace: Trace? {
-        get { self[TraceKey.self] }
-        set { self[TraceKey.self] = newValue }
-    }
 
     fileprivate var span: Span? {
         get { self[SpanKey.self] }
@@ -26,15 +18,11 @@ public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterce
 
     public override func receive(_ part: GRPCServerRequestPart<Request>, context: ServerInterceptorContext<Request, Response>) {
         switch part {
-        case .metadata(let headers):
+        case .metadata(var headers):
             if
                 let headerValue = headers.first(name: "X-Cloud-Trace-Context"),
-                let trace = Trace(headerValue: headerValue)
+                let trace = Trace(headerValue: headerValue, childrenSameProcessAsParent: false)
             {
-                context.userInfo.trace = trace
-            }
-        case .end:
-            if let trace = context.userInfo.trace {
                 let span = Span(
                     traceID: trace.id,
                     parentID: trace.spanID,
@@ -45,11 +33,18 @@ public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterce
                     attributes: [:]
                 )
                 context.userInfo.span = span
+                headers.replaceOrAdd(name: "X-Cloud-Trace-Context", value: trace.id.stringValue + "/" + span.id.stringValue + ";o=1")
+                context.receive(.metadata(headers))
+            } else {
+                // TODO: Create new trace?
+                context.receive(part)
             }
+        case .end:
+            context.userInfo.span?.restart()
+            context.receive(part)
         default:
-            break
+            context.receive(part)
         }
-        context.receive(part)
     }
 
     public override func send(_ part: GRPCServerResponsePart<Response>, promise: EventLoopPromise<Void>?, context: ServerInterceptorContext<Request, Response>) {
