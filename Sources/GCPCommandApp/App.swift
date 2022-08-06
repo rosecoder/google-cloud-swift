@@ -2,9 +2,12 @@ import GCPCore
 import GCPApp
 import ArgumentParser
 
+public typealias DependencyOptions = GCPApp.DependencyOptions
+public typealias Command = ArgumentParser.AsyncParsableCommand
+
 public protocol App: GCPApp.App, AsyncParsableCommand {
 
-    static var commands: [ParsableCommand.Type] { get }
+    static var commands: [Command.Type] { get }
 }
 
 // MARK: - Default implementations
