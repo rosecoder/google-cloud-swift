@@ -5,7 +5,13 @@ import Logging
 extension GRPCAsyncServerCallContext: Context {
 
     public var logger: Logger {
-        get { request.logger }
+        get {
+            var logger = request.logger
+            if let trace = trace {
+                logger.addMetadata(for: trace)
+            }
+            return logger
+        }
         set { request.logger = newValue }
     }
 
