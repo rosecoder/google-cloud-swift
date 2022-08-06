@@ -84,6 +84,7 @@ let package = Package(
 
         .target(name: "GCPStorage", dependencies: [
             "GCPCore",
+            "GCPTrace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
 
