@@ -1,0 +1,90 @@
+import Foundation
+import GCPCore
+import NIO
+import AsyncHTTPClient
+import NIOHTTP1
+import GCPTrace
+
+public struct Storage: Dependency {
+
+    static var authorization = Authorization(scopes: [
+        "https://www.googleapis.com/auth/devstorage.read_write",
+    ])
+
+    private static var _client: HTTPClient?
+
+    static var client: HTTPClient {
+        get {
+            guard let _client = _client else {
+                fatalError("Must call Storage.bootstrap(eventLoopGroup:) first")
+            }
+            return _client
+        }
+        set { _client = newValue }
+    }
+
+    // MARK: - Bootstrap
+
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+        _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
+        try await authorization.warmup()
+    }
+
+    // MARK: - Requests
+
+    struct UnparsableRemoteError: Error {}
+
+    struct RemoteError: Error, Decodable {
+
+       let code: String  // TODO: Find all error codes and parse into an enum?
+       let message: String
+
+       // MARK: - Decodable
+
+       private enum RootCodingKeys: String, CodingKey {
+           case error = "error"
+       }
+
+       private enum CodingKeys: String, CodingKey {
+           case code = "code"
+           case message = "message"
+       }
+
+       init(from decoder: Decoder) throws {
+           let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
+           let container = try rootContainer.nestedContainer(keyedBy: CodingKeys.self, forKey: .error)
+
+           self.code = try container.decode(String.self, forKey: .code)
+           self.message = try container.decode(String.self, forKey: .message)
+       }
+   }
+
+    static func execute(method: HTTPMethod, path: String, context: Context) async throws {
+        var request = HTTPClientRequest(
+            url: "https://storage.googleapis.com/storage/v1" + path
+        )
+        request.method = method
+
+        // Authorization
+        let accessToken = try await authorization.token()
+        request.headers.add(name: "Authorization", value: "Bearer " + accessToken.token)
+
+        // Perform
+        let response = try await client.execute(request, timeout: .seconds(30), context: context)
+
+        switch response.status {
+        case .ok, .created:
+            return
+        default:
+            let body = try await response.body.collect(upTo: 1024) // 1 KB
+
+            let remoteError: RemoteError
+            do {
+                remoteError = try JSONDecoder().decode(RemoteError.self, from: body)
+            } catch {
+                throw UnparsableRemoteError()
+            }
+            throw remoteError
+        }
+    }
+}

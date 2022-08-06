@@ -14,6 +14,7 @@ let package = Package(
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
         .library(name: "GCPRedis", targets: ["GCPRedis"]),
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
+        .library(name: "GCPStorage", targets: ["GCPStorage"]),
         .library(name: "GCPTrace", targets: ["GCPTrace"]),
     ],
     dependencies: [
@@ -80,6 +81,11 @@ let package = Package(
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
         .testTarget(name: "GCPPubSubTests", dependencies: ["GCPPubSub"]),
+
+        .target(name: "GCPStorage", dependencies: [
+            "GCPCore",
+            .product(name: "AsyncHTTPClient", package: "async-http-client"),
+        ]),
 
         .target(name: "GCPTrace", dependencies: [
             "GCPCore",
