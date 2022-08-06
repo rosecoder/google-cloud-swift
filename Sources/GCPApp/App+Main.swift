@@ -49,7 +49,7 @@ extension App {
             // TODO: Implement
 
             // App dependencies
-            for options in dependencies {
+            for options in Self.dependencies {
                 do {
                     try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
                 } catch {

@@ -30,7 +30,7 @@ public protocol App {
     /// All dependencies to bootstrap on main.
     ///
     /// Bootstrapping is run one at a time in the order given.
-    var dependencies: [DependencyOptions] { get }
+    static var dependencies: [DependencyOptions] { get }
 
     /// Implement this to do any extra work needed before termination.
     ///

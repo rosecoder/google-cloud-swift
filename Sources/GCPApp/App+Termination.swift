@@ -59,7 +59,7 @@ extension App {
             }
 
             // App dependencies
-            for dependency in dependencies.reversed() {
+            for dependency in Self.dependencies.reversed() {
                 do {
                     try await dependency.type.shutdown()
                 } catch {
