@@ -16,7 +16,7 @@ extension GRPC.CallOptions {
     }
 }
 
-public final class TraceInterceptor<Request, Response>: GRPC.ClientInterceptor<Request, Response> {
+public final class ClientTraceInterceptor<Request, Response>: GRPC.ClientInterceptor<Request, Response> {
 
     private var span: Span?
 
@@ -37,7 +37,7 @@ public final class TraceInterceptor<Request, Response>: GRPC.ClientInterceptor<R
                     parentID: trace.spanID,
                     sameProcessAsParent: true,
                     id: Span.Identifier(),
-                    kind: .server, // TODO: Replace with .client?
+                    kind: .client,
                     name: context.path,
                     attributes: [:]
                 )
