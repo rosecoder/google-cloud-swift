@@ -42,4 +42,8 @@ extension HTTPDependency {
         self.initClient(eventLoopGroup: eventLoopGroup)
     }
 #endif
+
+    public static func shutdown() async throws {
+        try await client.shutdown()
+    }
 }
