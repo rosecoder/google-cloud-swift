@@ -32,6 +32,7 @@ let package = Package(
             "GCPLogging",
             "GCPTrace",
             .product(name: "Logging", package: "swift-log"),
+            .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "GCPAppTests", dependencies: ["GCPApp"]),
 
