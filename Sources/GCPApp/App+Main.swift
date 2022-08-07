@@ -17,11 +17,17 @@ extension App {
             return handler
         }
 #else
-        GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
-        LoggingSystem.bootstrap {
-            var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
-            handler.logLevel = logLevel
-            return handler
+        do {
+            try GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
+            LoggingSystem.bootstrap {
+                var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
+                handler.logLevel = logLevel
+                return handler
+            }
+        } catch {
+            logger.critical("Logging failed to bootstrap: \(error)")
+            terminate(exitCode: 1)
+            return
         }
 #endif
         _ = logger // Initializes default logger
@@ -31,12 +37,20 @@ extension App {
 
         // Error reporting
 #if !DEBUG
-        ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup, resource: .autoResolve)
+        do {
+            try ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup, resource: .autoResolve)
+        } catch {
+            logger.warning("ErrorReporting (optional) failed to bootstrap: \(error)")
+        }
 #endif
 
         // Trace
 #if !DEBUG
-        Tracing.bootstrap(eventLoopGroup: eventLoopGroup)
+        do {
+            try Tracing.bootstrap(eventLoopGroup: eventLoopGroup)
+        } catch {
+            logger.warning("Tracing (optional) failed to bootstrap: \(error)")
+        }
 #endif
 
         Task {
