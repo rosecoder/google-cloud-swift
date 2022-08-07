@@ -6,11 +6,11 @@ extension GRPCAsyncServerCallContext: Context {
 
     public var logger: Logger {
         get {
-            var logger = request.logger
-            if let trace = trace {
-                logger.addMetadata(for: trace)
+            // TODO: Make this pretty somehow
+            guard request.logger.label == "io.grpc" else {
+                return request.logger
             }
-            return logger
+            return Logger(label: "grpc.request", trace: trace)
         }
         set { request.logger = newValue }
     }
