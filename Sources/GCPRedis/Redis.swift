@@ -15,7 +15,7 @@ public struct Redis: Dependency {
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         connection = try await RedisConnection.make(
             configuration: try .init(
-                hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? "127.0.0.1"
+                hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? ProcessInfo.processInfo.environment["REDIS_SERVICE_HOST"] ?? "127.0.0.1"
             ),
             boundEventLoop: eventLoopGroup.next()
         ).get()
