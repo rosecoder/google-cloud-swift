@@ -7,24 +7,20 @@ public protocol GRPCDependency: Dependency {
 
     associatedtype Client
 
-    static var hostEnvironmentName: String { get }
+    static var serviceEnvironmentName: String { get }
     static var developmentPort: Int { get }
 
     static var _client: Client? { get }
     static func initClient(channel: GRPCChannel)
 }
 
-private enum APIBootstrapError: Error {
-    case hostNotConfigured
+private enum GRPCDependencyBootstrapError: Error {
+    case serviceHostNotFound
+    case servicePortNotFound
+    case invalidServicePort(String)
 }
 
 extension GRPCDependency where Client: GRPCClient {
-
-#if DEBUG
-    public static var port: Int { developmentPort }
-#else
-    public static var port: Int { 80 }
-#endif
 
     public static var client: Client {
         guard let _client = _client else {
@@ -42,8 +38,15 @@ extension GRPCDependency where Client: GRPCClient {
     }
 
     private static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        guard let host = ProcessInfo.processInfo.environment[hostEnvironmentName] else {
-            throw APIBootstrapError.hostNotConfigured
+        // Using kuberentes-standard of naming env vars: https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables
+        guard let host = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_HOST"] else {
+            throw GRPCDependencyBootstrapError.serviceHostNotFound
+        }
+        guard let rawPort = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_PORT"] else {
+            throw GRPCDependencyBootstrapError.servicePortNotFound
+        }
+        guard let port = Int(rawPort) else {
+            throw GRPCDependencyBootstrapError.invalidServicePort(rawPort)
         }
 
         self.initClient(channel: ClientConnection
@@ -54,10 +57,9 @@ extension GRPCDependency where Client: GRPCClient {
 
 #if DEBUG
     private static func bootstrapForDevelopment(eventLoopGroup: EventLoopGroup) async throws {
-        let host = ProcessInfo.processInfo.environment[hostEnvironmentName] ?? "localhost"
         self.initClient(channel: ClientConnection
             .insecure(group: eventLoopGroup)
-            .connect(host: host, port: port)
+            .connect(host: "localhost", port: developmentPort)
         )
     }
 #endif
