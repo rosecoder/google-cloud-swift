@@ -24,5 +24,6 @@ extension GoogleCloudLogHandler: Dependency {
 
     public static func shutdown() async throws {
         try await lastLogTask?.value
+        try await authorization?.shutdown()
     }
 }

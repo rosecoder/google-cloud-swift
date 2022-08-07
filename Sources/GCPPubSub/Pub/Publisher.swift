@@ -75,6 +75,12 @@ public final class Publisher: Dependency {
     }
 #endif
 
+    // MARK: - Termination
+
+    public static func shutdown() async throws {
+        try await authorization?.shutdown()
+    }
+
     // MARK: - Publish
 
     @discardableResult

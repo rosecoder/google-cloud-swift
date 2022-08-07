@@ -42,4 +42,10 @@ public struct ErrorReporting {
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         _resource = resource
     }
+
+    // MARK: - Termination
+
+    public static func shutdown() async throws {
+        try await authorization?.shutdown()
+    }
 }

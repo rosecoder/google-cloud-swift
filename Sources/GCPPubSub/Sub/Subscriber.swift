@@ -56,6 +56,19 @@ public final class Subscriber: Dependency {
         }
     }
 
+    // MARK: - Termination
+
+    public static func shutdown() async throws {
+        logger.debug("Shutting down subscriptions...")
+
+        runningPullTasks.values.forEach { $0.cancel() }
+        for task in runningPullTasks.values {
+            _ = await task.result
+        }
+
+        try await authorization?.shutdown()
+    }
+
     // MARK: - Subscribe
 
     private typealias SubscriptionHash = Int
@@ -117,17 +130,6 @@ public final class Subscriber: Dependency {
                     break
                 }
             }
-        }
-    }
-
-    // MARK: - Shutdown
-
-    public static func shutdown() async throws {
-        logger.info("Shutting down subscriptions...")
-
-        runningPullTasks.values.forEach { $0.cancel() }
-        for task in runningPullTasks.values {
-            _ = await task.result
         }
     }
 

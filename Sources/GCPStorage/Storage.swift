@@ -32,6 +32,12 @@ public struct Storage: Dependency {
         try await authorization.warmup()
     }
 
+    // MARK: - Termination
+
+    public static func shutdown() async throws {
+        try await authorization?.shutdown()
+    }
+
     // MARK: - Requests
 
     public struct UnparsableRemoteError: Error {

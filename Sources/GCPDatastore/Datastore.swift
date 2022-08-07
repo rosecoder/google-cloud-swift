@@ -152,4 +152,10 @@ public struct Datastore: Dependency {
         _ = try await task.value
     }
 #endif
+
+    // MARK: - Termination
+
+    public static func shutdown() async throws {
+        try await authorization?.shutdown()
+    }
 }

@@ -48,4 +48,8 @@ public actor Authorization {
     public func warmup() async throws {
         _ = try await token()
     }
+
+    public func shutdown() async throws {
+        try await provider.shutdown()
+    }
 }

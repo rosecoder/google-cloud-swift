@@ -30,6 +30,7 @@ public struct Tracing: Dependency {
     public static func shutdown() async throws {
         write()
         try await lastWriteTask?.value
+        try await authorization?.shutdown()
     }
 
     // MARK: - Config
