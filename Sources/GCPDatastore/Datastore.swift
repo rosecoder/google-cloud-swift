@@ -1,7 +1,6 @@
 import Foundation
 import GRPC
 import NIO
-import OAuth2
 import GCPCore
 
 #if DEBUG
@@ -29,9 +28,7 @@ public struct Datastore: Dependency {
 
     public static var defaultProjectID: String = ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? ""
 
-    static var authorization = Authorization(scopes: [
-        "https://www.googleapis.com/auth/datastore",
-    ])
+    static var authorization: Authorization?
 
     // MARK: - Bootstrap
 
@@ -49,12 +46,16 @@ public struct Datastore: Dependency {
     }
 
     static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+        authorization = try Authorization(scopes: [
+            "https://www.googleapis.com/auth/datastore",
+        ], eventLoopGroup: eventLoopGroup)
+
         let channel = ClientConnection
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "datastore.googleapis.com", port: 443)
 
         self._client = .init(channel: channel)
-        try await authorization.warmup()
+        try await authorization?.warmup()
     }
 
     static func bootstraForEmulator(host: String, port: Int, eventLoopGroup: EventLoopGroup) {

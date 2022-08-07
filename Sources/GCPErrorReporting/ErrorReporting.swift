@@ -5,10 +5,7 @@ import AsyncHTTPClient
 
 public struct ErrorReporting {
 
-    static var authorization = Authorization(scopes: [
-        "https://www.googleapis.com/auth/cloud-platform",
-        "https://www.googleapis.com/auth/stackdriver-integration",
-    ])
+    static var authorization: Authorization!
 
     private static var _client: HTTPClient?
 
@@ -37,7 +34,11 @@ public struct ErrorReporting {
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup, resource: Resource = .autoResolve) {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup, resource: Resource = .autoResolve) throws {
+        authorization = try Authorization(scopes: [
+            "https://www.googleapis.com/auth/cloud-platform",
+            "https://www.googleapis.com/auth/stackdriver-integration",
+        ], eventLoopGroup: eventLoopGroup)
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         _resource = resource
     }

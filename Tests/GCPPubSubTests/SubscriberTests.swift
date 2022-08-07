@@ -28,7 +28,7 @@ final class SubscriberTestCase: XCTestCase {
     }
 
     func testSubscribe() async throws {
-        Subscriber.bootstrap(eventLoopGroup: eventLoopGroup)
+        try Subscriber.bootstrap(eventLoopGroup: eventLoopGroup)
         try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Prepare

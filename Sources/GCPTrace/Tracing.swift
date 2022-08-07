@@ -1,6 +1,5 @@
 import Foundation
 import Logging
-import OAuth2
 import GRPC
 import NIO
 import GCPCore
@@ -11,12 +10,14 @@ public struct Tracing: Dependency {
 
     static var _client: Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClient!
 
-    static var authorization = Authorization(scopes: [
-        "https://www.googleapis.com/auth/trace.append",
-        "https://www.googleapis.com/auth/cloud-platform",
-    ])
+    static var authorization: Authorization!
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
+        authorization = try Authorization(scopes: [
+            "https://www.googleapis.com/auth/trace.append",
+            "https://www.googleapis.com/auth/cloud-platform",
+        ], eventLoopGroup: eventLoopGroup)
+
         let channel = ClientConnection
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "cloudtrace.googleapis.com", port: 443)
@@ -74,7 +75,7 @@ public struct Tracing: Dependency {
 
         lastWriteTask = Task {
             do {
-                try await _client.ensureAuthentication(authorization: &authorization)
+                try await _client.ensureAuthentication(authorization: authorization)
 
                 _ = try await _client.batchWriteSpans(.with {
                     $0.name = "projects/\(projectID)"

@@ -20,7 +20,7 @@ let package = Package(
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
         .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.8.0")),
-        .package(name: "Auth", url: "https://github.com/rosecoder/google-auth-library-swift.git", .revision("a2aae84e922ecc87e8ab63e7af80b4cb7b444566")),
+        .package(name: "Auth", url: "https://github.com/rosecoder/google-auth-library-swift.git", .revision("5a1413f06a57e4e43dc5f34a365e29b512d83ffe")),
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
         .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
@@ -43,7 +43,7 @@ let package = Package(
         .target(name: "GCPCore", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
-            .product(name: "OAuth2", package: "Auth"),
+            .product(name: "OAuth2Server", package: "Auth"),
         ]),
         .testTarget(name: "GCPCoreTests", dependencies: ["GCPCore"]),
 

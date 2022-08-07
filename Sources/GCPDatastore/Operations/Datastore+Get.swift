@@ -12,7 +12,7 @@ extension Datastore {
         Entity: GCPDatastore.Entity,
         Entity.Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
+        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
 
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
@@ -79,7 +79,7 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
+        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
 
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
             "datastore/kind": Key.kind,

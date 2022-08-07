@@ -7,9 +7,7 @@ import GCPTrace
 
 public struct Storage: Dependency {
 
-    static var authorization = Authorization(scopes: [
-        "https://www.googleapis.com/auth/devstorage.read_write",
-    ])
+    static var authorization: Authorization!
 
     private static var _client: HTTPClient?
 
@@ -26,6 +24,10 @@ public struct Storage: Dependency {
     // MARK: - Bootstrap
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+        authorization =  try Authorization(scopes: [
+            "https://www.googleapis.com/auth/devstorage.read_write",
+        ], eventLoopGroup: eventLoopGroup)
+
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         try await authorization.warmup()
     }

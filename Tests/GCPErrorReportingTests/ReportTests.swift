@@ -7,7 +7,7 @@ final class ReportTests: XCTestCase {
     private let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
     func testReportError() async throws {
-        ErrorReporting.bootstrap(
+        try ErrorReporting.bootstrap(
             eventLoopGroup: eventLoopGroup,
             resource: .k8sContainer(
                 projectID: "nightshift-habits-poc",

@@ -7,7 +7,7 @@ extension Datastore {
     public static func deleteEntities<Key>(keys: [Key], context: Context, projectID: String = defaultProjectID) async throws
     where Key: GCPDatastore.AnyKey
     {
-        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "datastore")
+        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
         
         try await context.trace.recordSpan(named: "datastore-delete", kind: .client, attributes: [
             "datastore/kind": Key.kind,

@@ -1,7 +1,6 @@
 import Foundation
 import GRPC
 import NIO
-import OAuth2
 import Logging
 import GCPCore
 import SwiftProtobuf
@@ -36,10 +35,7 @@ public final class Publisher: Dependency {
 
     // MARK: - Bootstrap
 
-    private static var authorization = Authorization(scopes: [
-        "https://www.googleapis.com/auth/cloud-platform",
-        "https://www.googleapis.com/auth/pubsub",
-    ])
+    private static var authorization: Authorization?
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 
@@ -57,12 +53,17 @@ public final class Publisher: Dependency {
 
         // Production
         else {
+            authorization = try Authorization(scopes: [
+               "https://www.googleapis.com/auth/cloud-platform",
+               "https://www.googleapis.com/auth/pubsub",
+           ], eventLoopGroup: eventLoopGroup)
+
             let channel = ClientConnection
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
 
             self._client = .init(channel: channel)
-            try await authorization.warmup()
+            try await authorization?.warmup()
         }
     }
 
@@ -87,7 +88,7 @@ public final class Publisher: Dependency {
         }
 #endif
 
-        try await client.ensureAuthentication(authorization: &authorization, context: context, traceContext: "pubsub")
+        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "pubsub")
 
 #if DEBUG
         try await topic.createIfNeeded(creation: client.createTopic)

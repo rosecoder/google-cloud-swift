@@ -1,5 +1,4 @@
 import Logging
-import OAuth2
 import GRPC
 import NIO
 import Foundation
@@ -104,7 +103,7 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         Self.lastLogTask = Task {
             do {
-                try await Self._client.ensureAuthentication(authorization: &Self.authorization)
+                try await Self._client.ensureAuthentication(authorization: Self.authorization)
                 _ = try await Self._client.writeLogEntries(request)
             } catch {
 
