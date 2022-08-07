@@ -34,8 +34,8 @@ extension ErrorReporting {
         request.method = .POST
 
         // Authorization
-        let accessToken = try await authorization.token()
-        request.headers.add(name: "Authorization", value: "Bearer " + accessToken.token)
+        let accessToken = try await authorization.accessToken()
+        request.headers.add(name: "Authorization", value: "Bearer " + accessToken)
 
         // Body
         let body = RequestBody(

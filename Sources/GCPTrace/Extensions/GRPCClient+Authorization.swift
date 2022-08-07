@@ -13,17 +13,19 @@ extension GRPCClient {
 
         var span = context.trace?.span(named: "authenticate-" + traceContext, kind: .client)
         do {
-            let result = try await authorization.token()
+            let accessToken = try await authorization.accessToken()
 
-            if result.wasCached {
-                span?.abort()
-            } else {
-                span?.end(statusCode: .ok)
+            if var span = span {
+                if -span.started.timeIntervalSinceNow < 0.01 {
+                    span.abort()
+                } else {
+                    span.end(statusCode: .ok)
+                }
             }
 
             defaultCallOptions.customMetadata.replaceOrAdd(
                 name: "authorization",
-                value: "Bearer " + result.token
+                value: "Bearer " + accessToken
             )
         } catch {
             span?.end(error: error)

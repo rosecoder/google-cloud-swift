@@ -10,11 +10,11 @@ extension GRPCClient {
             return
         }
 
-        let result = try await authorization.token()
+        let accessToken = try await authorization.accessToken()
 
         defaultCallOptions.customMetadata.replaceOrAdd(
             name: "authorization",
-            value: "Bearer " + result.token
+            value: "Bearer " + accessToken
         )
     }
 }

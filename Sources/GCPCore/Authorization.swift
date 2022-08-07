@@ -30,23 +30,16 @@ public actor Authorization {
     }
 
     /// Returns cached authorization token or generates a new one if needed.
-    public func token() async throws -> (token: String, wasCached: Bool) {
+    public func accessToken() async throws -> String {
         let rawToken = try await provider.token()
         guard let accessToken = rawToken.AccessToken else {
             throw GenerateError.noAccessToken
         }
-
-        let wasCached: Bool
-        if let creationTime = rawToken.CreationTime {
-            wasCached = -creationTime.timeIntervalSinceNow > 60
-        } else {
-            wasCached = false
-        }
-        return (accessToken, wasCached)
+        return accessToken
     }
 
     public func warmup() async throws {
-        _ = try await token()
+        _ = try await accessToken()
     }
 
     public func shutdown() async throws {
