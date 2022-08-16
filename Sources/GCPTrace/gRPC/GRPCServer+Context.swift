@@ -6,11 +6,10 @@ extension GRPCAsyncServerCallContext: Context {
 
     public var logger: Logger {
         get {
-            // TODO: Make this pretty somehow
-            guard request.logger.label == "io.grpc" else {
-                return request.logger
+            if request.logger.label == "io.grpc" {
+                return Logger(label: "grpc.request", trace: trace)
             }
-            return Logger(label: "grpc.request", trace: trace)
+            return request.logger
         }
         set { request.logger = newValue }
     }

@@ -1,16 +1,17 @@
 import Foundation
 import GRPC
 import NIO
+import Logging
 
-private enum SpanKey: UserInfoKey {
-  typealias Value = Span
+private enum TraceKey: UserInfoKey {
+  typealias Value = Trace
 }
 
 extension UserInfo {
 
-    fileprivate var span: Span? {
-        get { self[SpanKey.self] }
-        set { self[SpanKey.self] = newValue }
+    fileprivate var trace: Trace? {
+        get { self[TraceKey.self] }
+        set { self[TraceKey.self] = newValue }
     }
 }
 
@@ -19,28 +20,31 @@ public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterce
     public override func receive(_ part: GRPCServerRequestPart<Request>, context: ServerInterceptorContext<Request, Response>) {
         switch part {
         case .metadata(var headers):
+
+            // Reusable trace included in header?
             if
                 let headerValue = headers.first(name: "X-Cloud-Trace-Context"),
                 let trace = Trace(headerValue: headerValue, childrenSameProcessAsParent: false)
             {
-                let span = Span(
-                    traceID: trace.id,
-                    parentID: trace.spanID,
-                    sameProcessAsParent: false,
-                    id: Span.Identifier(),
+                context.userInfo.trace = trace
+                context.receive(part)
+            } else {
+
+                // No, create our own trace instead
+                let trace = Trace(
+                    named: context.path,
                     kind: .server,
-                    name: context.path,
                     attributes: [:]
                 )
-                context.userInfo.span = span
-                headers.replaceOrAdd(name: "X-Cloud-Trace-Context", value: trace.id.stringValue + "/" + span.id.stringValue + ";o=1")
+                context.userInfo.trace = trace
+                headers.replaceOrAdd(name: "X-Cloud-Trace-Context", value: trace.headerValue)
                 context.receive(.metadata(headers))
-            } else {
-                // TODO: Create new trace?
-                context.receive(part)
             }
         case .end:
-            context.userInfo.span?.restart()
+
+            // Make sure we only trace server request handling
+            context.userInfo.trace?.rootSpan?.restart()
+
             context.receive(part)
         default:
             context.receive(part)
@@ -50,7 +54,27 @@ public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterce
     public override func send(_ part: GRPCServerResponsePart<Response>, promise: EventLoopPromise<Void>?, context: ServerInterceptorContext<Request, Response>) {
         switch part {
         case .end(let status, _):
-            context.userInfo.span?.end(statusCode: status.code)
+
+            // End trace of root span is owned by this process
+            context.userInfo.trace?.rootSpan?.end(statusCode: status.code)
+
+            // Logging
+            let logger = Logger(label: "grpc.request", trace: context.userInfo.trace)
+            if status.isOk {
+                logger.debug("\(context.path): OK")
+            } else {
+                switch status.code {
+                case
+                        .unknown,
+                        .deadlineExceeded,
+                        .unimplemented,
+                        .internalError,
+                        .unavailable:
+                    logger.error("\(context.path): \(status)")
+                default:
+                    logger.info("\(context.path): \(status)")
+                }
+            }
         default:
             break
         }
