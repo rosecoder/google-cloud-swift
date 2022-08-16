@@ -2,6 +2,7 @@ import Foundation
 import OAuth2Server
 import Logging
 import NIO
+import RetryableTask
 
 public actor Authorization {
 
@@ -31,11 +32,13 @@ public actor Authorization {
 
     /// Returns cached authorization token or generates a new one if needed.
     public func accessToken() async throws -> String {
-        let rawToken = try await provider.token()
-        guard let accessToken = rawToken.AccessToken else {
-            throw GenerateError.noAccessToken
+        try await withRetryableTask(logger: logger) {
+            let rawToken = try await provider.token()
+            guard let accessToken = rawToken.AccessToken else {
+                throw GenerateError.noAccessToken
+            }
+            return accessToken
         }
-        return accessToken
     }
 
     public func warmup() async throws {
