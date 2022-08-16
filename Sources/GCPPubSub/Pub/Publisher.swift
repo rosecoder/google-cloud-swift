@@ -5,6 +5,7 @@ import Logging
 import GCPCore
 import SwiftProtobuf
 import GCPTrace
+import RetryableTask
 
 public final class Publisher: Dependency {
 
@@ -86,41 +87,43 @@ public final class Publisher: Dependency {
     @discardableResult
     public static func publish<Message>(to topic: Topic<Message>, messages: [Message.Outgoing], context: Context) async throws -> [PublishedMessage]
     where Message.Outgoing: OutgoingMessage {
+        try await withRetryableTask(logger: context.logger) {
 #if DEBUG
-        guard isEnabled else {
-            return messages.map { _ in
-                PublishedMessage(id: "xctest")
+            guard isEnabled else {
+                return messages.map { _ in
+                    PublishedMessage(id: "xctest")
+                }
             }
-        }
 #endif
 
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "pubsub")
+            try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "pubsub")
 
 #if DEBUG
-        try await topic.createIfNeeded(creation: client.createTopic)
+            try await topic.createIfNeeded(creation: client.createTopic)
 #endif
 
-        let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
-            "pubsub/topic": topic.rawValue,
-        ], closure: { span in
-            try await client.publish(.with {
-                $0.topic = topic.rawValue
-                $0.messages = messages.map { message in
-                    Google_Pubsub_V1_PubsubMessage.with {
-                        $0.data = message.data
-                        $0.attributes = message.attributes
-                        if let trace = context.trace {
-                            $0.attributes["__traceID"] = trace.id.stringValue
-                            $0.attributes["__spanID"] = (trace.rootSpan?.id ?? trace.spanID).stringValue
+            let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
+                "pubsub/topic": topic.rawValue,
+            ], closure: { span in
+                try await client.publish(.with {
+                    $0.topic = topic.rawValue
+                    $0.messages = messages.map { message in
+                        Google_Pubsub_V1_PubsubMessage.with {
+                            $0.data = message.data
+                            $0.attributes = message.attributes
+                            if let trace = context.trace {
+                                $0.attributes["__traceID"] = trace.id.stringValue
+                                $0.attributes["__spanID"] = (trace.rootSpan?.id ?? trace.spanID).stringValue
+                            }
                         }
                     }
-                }
+                })
             })
-        })
 
-        return response
-            .messageIds
-            .map { PublishedMessage(id: $0) }
+            return response
+                .messageIds
+                .map { PublishedMessage(id: $0) }
+        }
     }
 
     @discardableResult
