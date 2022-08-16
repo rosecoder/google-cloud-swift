@@ -56,6 +56,15 @@
         }
       },
       {
+        "package": "RetryableTask",
+        "repositoryURL": "https://github.com/rosecoder/retryable-task.git",
+        "state": {
+          "branch": null,
+          "revision": "47f7ef30028fa2655a37e64ab3791a8296148a6d",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "swift-argument-parser",
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {

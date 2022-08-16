@@ -4,6 +4,7 @@ import GCPErrorReporting
 import GCPLogging
 import GCPTrace
 import GRPC
+import RetryableTask
 
 extension App {
 
@@ -112,6 +113,14 @@ extension App {
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
     public func processMain(bootstrap: @escaping () async throws -> Void = {}) {
+
+        // Retries
+        DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+            delay: 50_000_000, // 50 ms
+            maxRetries: 1
+        )
+
+        // Shared init
         initialize(bootstrap: bootstrap) {
 #if DEBUG
             logger.debug("App running in debug 🚀")
@@ -136,6 +145,14 @@ extension App {
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
     ) {
+
+        // Retries
+        DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+            delay: 10_000_000, // 10 ms
+            maxRetries: 1
+        )
+
+        // Init
         let port: Int
         if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
             port = environmentPort

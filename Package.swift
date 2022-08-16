@@ -24,6 +24,7 @@ let package = Package(
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
         .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
+        .package(name: "retryable-task", url: "https://github.com/rosecoder/retryable-task.git", from: "1.0.0"),
     ],
     targets: [
         .target(name: "GCPApp", dependencies: [
@@ -45,6 +46,7 @@ let package = Package(
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2Server", package: "Auth"),
+            .product(name: "RetryableTask", package: "retryable-task"),
         ]),
         .testTarget(name: "GCPCoreTests", dependencies: ["GCPCore"]),
 
