@@ -75,9 +75,7 @@ public struct Trace: Codable, Equatable {
     ///   - attributes: Initial key value attributes for the operation. Can later be modified during the operation or on end.
     /// - Returns: New span operation.
     public func span(named name: String, kind: Span.Kind, attributes: [String: AttributableValue] = [:]) -> Span {
-        precondition(rootSpan?.ended == nil, "Child span of trace was requested, but root span already ended.")
-
-        return Span(
+        Span(
             traceID: id,
             parentID: spanID,
             sameProcessAsParent: childrenSameProcessAsParent,
