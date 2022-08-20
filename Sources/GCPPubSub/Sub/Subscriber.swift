@@ -4,6 +4,7 @@ import NIO
 import Logging
 import GCPCore
 import GCPTrace
+import RetryableTask
 
 public final class Subscriber: Dependency {
 
@@ -132,7 +133,7 @@ public final class Subscriber: Dependency {
     private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
 
-        try await context.trace.recordSpan(named: "pubsub-acknowledge", kind: .client) { span in
+        try await withRetryableTask(logger: context.logger) {
             _ = try await client.acknowledge(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
@@ -143,7 +144,7 @@ public final class Subscriber: Dependency {
     private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
 
-        try await context.trace.recordSpan(named: "pubsub-unacknowledge", kind: .client) { span in
+        try await withRetryableTask(logger: context.logger) {
             _ = try await client.modifyAckDeadline(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
@@ -209,7 +210,10 @@ public final class Subscriber: Dependency {
                 // Handle message
                 func handleHandler(error: Error) async throws {
                     if !(error is CancellationError) {
-                        context.logger.error("Failed to handle message: \(error)")
+                        context.logger.error("\(error)")
+                        context.trace?.end(error: error)
+                    } else {
+                        context.trace?.end(statusCode: .cancelled)
                     }
 
                     do {
@@ -217,7 +221,6 @@ public final class Subscriber: Dependency {
                     } catch {
                         context.logger.error("Failed to unacknowledge message: \(error)")
                     }
-                    context.trace?.end(error: error)
                 }
 
                 let message: Handler.Message.Incoming
@@ -245,15 +248,13 @@ public final class Subscriber: Dependency {
                     return
                 }
 
+                context.trace?.end(statusCode: .ok)
+
                 do {
                     try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
                 } catch {
-                    context.logger.error("Failed to acknowledge message: \(error)")
-                    // TODO: Add retry
-                    // TODO: Should we nack the message?
+                    context.logger.critical("Failed to acknowledge message: \(error)")
                 }
-
-                context.trace?.end(statusCode: .ok)
             }
         }
         for task in tasks {
