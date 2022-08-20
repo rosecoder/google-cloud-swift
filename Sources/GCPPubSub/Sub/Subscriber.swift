@@ -25,9 +25,8 @@ public final class Subscriber: Dependency {
 
     // MARK: - Bootstrap
 
-    private static var authorization: Authorization?
-
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+        try await PubSub.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
@@ -43,11 +42,6 @@ public final class Subscriber: Dependency {
 
         // Production
         else {
-            authorization = try Authorization(scopes: [
-                "https://www.googleapis.com/auth/cloud-platform",
-                "https://www.googleapis.com/auth/pubsub",
-            ], eventLoopGroup: eventLoopGroup)
-
             let channel = ClientConnection
                 .usingTLSBackedByNIOSSL(on: eventLoopGroup)
                 .connect(host: "pubsub.googleapis.com", port: 443)
@@ -66,7 +60,7 @@ public final class Subscriber: Dependency {
             _ = await task.result
         }
 
-        try await authorization?.shutdown()
+        try await PubSub.shutdown()
     }
 
     // MARK: - Subscribe
@@ -79,7 +73,7 @@ public final class Subscriber: Dependency {
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
-        try await client.ensureAuthentication(authorization: authorization)
+        try await client.ensureAuthentication(authorization: PubSub.authorization)
         try await handlerType.subscription.createIfNeeded(creation: client.createSubscription)
 #endif
 
@@ -136,7 +130,7 @@ public final class Subscriber: Dependency {
     // MARK: - Acknowledge
 
     private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "pubsub")
+        try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
 
         try await context.trace.recordSpan(named: "pubsub-acknowledge", kind: .client) { span in
             _ = try await client.acknowledge(.with {
@@ -147,7 +141,7 @@ public final class Subscriber: Dependency {
     }
 
     private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "pubsub")
+        try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
 
         try await context.trace.recordSpan(named: "pubsub-unacknowledge", kind: .client) { span in
             _ = try await client.modifyAckDeadline(.with {
@@ -164,7 +158,7 @@ public final class Subscriber: Dependency {
     where Handler: GCPPubSub.Handler,
           Handler.Message.Incoming: IncomingMessage
     {
-        try await client.ensureAuthentication(authorization: authorization)
+        try await client.ensureAuthentication(authorization: PubSub.authorization)
 
         let response = try await client.pull(.with {
             $0.subscription = handlerType.subscription.rawValue
