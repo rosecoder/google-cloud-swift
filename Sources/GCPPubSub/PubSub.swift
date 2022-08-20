@@ -29,6 +29,7 @@ struct PubSub {
         guard !isShutdown else {
             return
         }
+        isShutdown = true
 
         try await authorization?.shutdown()
     }
