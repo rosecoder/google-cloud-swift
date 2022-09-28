@@ -29,8 +29,7 @@ extension App {
             }
         } catch {
             logger.critical("Logging failed to bootstrap: \(error)")
-            terminate(exitCode: 1)
-            return
+            await terminate(exitCode: 1)
         }
 #endif
         _ = logger // Initializes default logger
