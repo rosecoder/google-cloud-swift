@@ -100,26 +100,30 @@ extension App {
     /// - Metrics
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
-    public func processMain(bootstrap: @escaping () async throws -> Void = {}) async -> Never {
-
-        // Retries
-        DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
-            delay: 50_000_000, // 50 ms
-            maxRetries: 1
-        )
-
-        // Init
-        await initialize(bootstrap: bootstrap)
-
-        // Ready!
+    public func processMain(bootstrap: @escaping () async throws -> Void = {}) {
+        Task {
+            // Retries
+            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+                delay: 50_000_000, // 50 ms
+                maxRetries: 1
+            )
+            
+            // Init
+            await initialize(bootstrap: bootstrap)
+            
+            // Ready!
 #if DEBUG
-        logger.debug("App running in debug 🚀")
+            logger.debug("App running in debug 🚀")
 #else
-        logger.info("Bootstrap completed")
+            logger.info("Bootstrap completed")
 #endif
+        }
 
         RunLoop.current.run()
-        await terminate(exitCode: 0)
+
+        Task {
+            await terminate(exitCode: 0)
+        }
     }
 
     /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
@@ -136,40 +140,44 @@ extension App {
         serviceProviders: [CallHandlerProvider],
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
-    ) async -> Never {
+    ) {
+        Task {
+            // Retries
+            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+                delay: 10_000_000, // 10 ms
+                maxRetries: 1
+            )
 
-        // Retries
-        DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
-            delay: 10_000_000, // 10 ms
-            maxRetries: 1
-        )
+            // Init
+            let port: Int
+            if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
+                port = environmentPort
+            } else {
+                port = defaultPort
+            }
 
-        // Init
-        let port: Int
-        if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
-            port = environmentPort
-        } else {
-            port = defaultPort
+            await initialize(bootstrap: {
+                _ = try await Server.insecure(group: eventLoopGroup)
+                    .withServiceProviders(serviceProviders)
+                    .bind(host: "0.0.0.0", port: port)
+                    .get()
+
+                try await bootstrap()
+            })
+
+            // Ready!
+#if DEBUG
+            logger.debug("App running in debug on port \(port) 🚀")
+#else
+            logger.info("Bootstrap completed on port \(port)")
+#endif
         }
 
-        await initialize(bootstrap: {
-            _ = try await Server.insecure(group: eventLoopGroup)
-                .withServiceProviders(serviceProviders)
-                .bind(host: "0.0.0.0", port: port)
-                .get()
-
-            try await bootstrap()
-        })
-
-        // Ready!
-#if DEBUG
-        logger.debug("App running in debug on port \(port) 🚀")
-#else
-        logger.info("Bootstrap completed on port \(port)")
-#endif
-
         RunLoop.current.run()
-        await terminate(exitCode: 0)
+
+        Task {
+            await terminate(exitCode: 0)
+        }
     }
 
     /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
@@ -186,7 +194,7 @@ extension App {
         serviceProvider: CallHandlerProvider,
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
-    ) async {
-        await serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
+    ) {
+        serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
     }
 }
