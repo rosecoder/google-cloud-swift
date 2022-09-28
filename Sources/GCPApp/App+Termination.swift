@@ -59,6 +59,7 @@ extension App {
         }
 
         // App dependencies
+#if !DEBUG
         for dependency in Self.dependencies.reversed() {
             do {
                 try await dependency.type.shutdown()
@@ -67,6 +68,7 @@ extension App {
                 hasFail = true
             }
         }
+#endif
 
         // Trace
 #if !DEBUG
