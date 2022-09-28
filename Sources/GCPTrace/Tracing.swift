@@ -3,6 +3,7 @@ import Logging
 import GRPC
 import NIO
 import GCPCore
+import RetryableTask
 
 public struct Tracing: Dependency {
 
@@ -76,12 +77,14 @@ public struct Tracing: Dependency {
 
         lastWriteTask = Task {
             do {
-                try await _client.ensureAuthentication(authorization: authorization)
+                try await withRetryableTask(logger: logger) {
+                    try await _client.ensureAuthentication(authorization: authorization)
 
-                _ = try await _client.batchWriteSpans(.with {
-                    $0.name = "projects/\(projectID)"
-                    $0.spans = spans.map(encode)
-                })
+                    _ = try await _client.batchWriteSpans(.with {
+                        $0.name = "projects/\(projectID)"
+                        $0.spans = spans.map(encode)
+                    })
+                }
             } catch {
                 logger.error("Error writing trace spans: \(error)")
             }
