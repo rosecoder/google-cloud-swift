@@ -8,10 +8,7 @@ import RetryableTask
 
 extension App {
 
-    public func initialize(
-        bootstrap: () async throws -> Void = {},
-        completion: () async -> Void
-    ) async {
+    public func initialize(bootstrap: () async throws -> Void = {}) async {
 
         // Logging
 #if DEBUG
@@ -67,8 +64,7 @@ extension App {
             } catch {
                 if options.isRequired {
                     logger.critical("\(options.type) failed to bootstrap: \(error)")
-                    terminate(exitCode: 1)
-                    return
+                    await terminate(exitCode: 1)
                 }
                 logger.warning("\(options.type) (optional) failed to bootstrap: \(error)")
             }
@@ -81,8 +77,7 @@ extension App {
             logger.critical("Error bootstrapping app", metadata: [
                 "error": .string(String(describing: error)),
             ])
-            terminate(exitCode: 1)
-            return
+            await terminate(exitCode: 1)
         }
 
         // Readiness indication file
@@ -93,13 +88,6 @@ extension App {
                 logger.warning("Failed to write readiness indication file: \(error)")
             }
         }
-
-        // Ready!
-        await completion()
-
-        RunLoop.current.run()
-
-        terminate(exitCode: 0)
     }
 
     /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
@@ -112,7 +100,7 @@ extension App {
     /// - Metrics
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
-    public func processMain(bootstrap: @escaping () async throws -> Void = {}) async {
+    public func processMain(bootstrap: @escaping () async throws -> Void = {}) async -> Never {
 
         // Retries
         DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
@@ -120,14 +108,18 @@ extension App {
             maxRetries: 1
         )
 
-        // Shared init
-        await initialize(bootstrap: bootstrap) {
+        // Init
+        await initialize(bootstrap: bootstrap)
+
+        // Ready!
 #if DEBUG
-            logger.debug("App running in debug 🚀")
+        logger.debug("App running in debug 🚀")
 #else
-            logger.info("Bootstrap completed")
+        logger.info("Bootstrap completed")
 #endif
-        }
+
+        RunLoop.current.run()
+        await terminate(exitCode: 0)
     }
 
     /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
@@ -144,7 +136,7 @@ extension App {
         serviceProviders: [CallHandlerProvider],
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
-    ) async {
+    ) async -> Never {
 
         // Retries
         DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
@@ -167,13 +159,17 @@ extension App {
                 .get()
 
             try await bootstrap()
-        }, completion: {
-#if DEBUG
-            logger.debug("App running in debug on port \(port) 🚀")
-#else
-            logger.info("Bootstrap completed on port \(port)")
-#endif
         })
+
+        // Ready!
+#if DEBUG
+        logger.debug("App running in debug on port \(port) 🚀")
+#else
+        logger.info("Bootstrap completed on port \(port)")
+#endif
+
+        RunLoop.current.run()
+        await terminate(exitCode: 0)
     }
 
     /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
