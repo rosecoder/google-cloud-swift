@@ -61,9 +61,7 @@ extension App {
                 do {
                     try await dependency.type.shutdown()
                 } catch {
-                    logger.error("Error shutting down app dependency: \(dependency)", metadata: [
-                        "error": .string(String(describing: error)),
-                    ])
+                    logger.error("Error shutting down app dependency, \(dependency.type): \(error)")
                     hasFail = true
                 }
             }
