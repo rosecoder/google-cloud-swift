@@ -3,12 +3,14 @@ import Logging
 import GCPErrorReporting
 import GCPLogging
 import GCPTrace
+import GCPCore
 import GRPC
 import RetryableTask
 
 extension App {
 
     public func initialize(bootstrap: () async throws -> Void = {}) async {
+        _unsafeInitializedEventLoopGroup = eventLoopGroup
 
         // Logging
 #if DEBUG

@@ -75,7 +75,7 @@ public final class Subscriber: Dependency {
     {
 #if DEBUG
         try await client.ensureAuthentication(authorization: PubSub.authorization)
-        try await handlerType.subscription.createIfNeeded(creation: client.createSubscription)
+        try await handlerType.subscription.createIfNeeded(creation: client.createSubscription, logger: logger)
 #endif
 
         continuesPull(handlerType: handlerType)

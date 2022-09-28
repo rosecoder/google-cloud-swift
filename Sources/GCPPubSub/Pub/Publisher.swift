@@ -9,7 +9,7 @@ import RetryableTask
 
 public final class Publisher: Dependency {
 
-    private static var _client: Google_Pubsub_V1_PublisherAsyncClient?
+    static var _client: Google_Pubsub_V1_PublisherAsyncClient?
     private static let logger = Logger(label: "pubsub.publisher")
 
 #if DEBUG

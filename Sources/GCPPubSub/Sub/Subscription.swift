@@ -1,5 +1,7 @@
 import Foundation
 import GRPC
+import Logging
+import GCPCore
 
 private var verifiedHashValues = [Int]()
 
@@ -64,7 +66,7 @@ public struct Subscription<Message: GCPPubSub.Message>: Identifiable, Equatable,
 
     // MARK: - Creation
 
-    func createIfNeeded(creation: (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription) async throws {
+    func createIfNeeded(creation: (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription, logger: Logger) async throws {
         let hashValue = rawValue.hashValue
         guard !verifiedHashValues.contains(hashValue) else {
             return
@@ -93,9 +95,18 @@ public struct Subscription<Message: GCPPubSub.Message>: Identifiable, Equatable,
                 }
             }, nil)
         } catch {
-            if !"\(error)".hasPrefix("already exists (6):") {
-                throw error
+            if "\(error)".hasPrefix("already exists (6):") {
+                return
             }
+            if "\(error)".hasPrefix("not found (5):") {
+                if Publisher._client == nil {
+                    logger.warning("Bootstrapping GCPPubSub.Publisher due to subscription topic needs to be created. This is only done in DEBUG!")
+                    try await Publisher.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+                }
+                try await topic.createIfNeeded(creation: Publisher._client!.createTopic)
+                return
+            }
+            throw error
         }
 
         verifiedHashValues.append(hashValue)
