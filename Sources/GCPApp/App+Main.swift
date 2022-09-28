@@ -8,7 +8,10 @@ import RetryableTask
 
 extension App {
 
-    public func initialize(bootstrap: @escaping () async throws -> Void = {}, completion: @escaping () async throws -> Void) {
+    public func initialize(
+        bootstrap: () async throws -> Void = {},
+        completion: () async -> Void
+    ) async {
 
         // Logging
 #if DEBUG
@@ -54,48 +57,45 @@ extension App {
         }
 #endif
 
-        Task {
+        // Metrics
+        // TODO: Implement
 
-            // Metrics
-            // TODO: Implement
-
-            // App dependencies
-            for options in Self.dependencies {
-                do {
-                    try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
-                } catch {
-                    if options.isRequired {
-                        logger.critical("\(options.type) failed to bootstrap: \(error)")
-                        terminate(exitCode: 1)
-                        return
-                    }
-                    logger.warning("\(options.type) (optional) failed to bootstrap: \(error)")
-                }
-            }
-
-            // App
+        // App dependencies
+        for options in Self.dependencies {
             do {
-                try await bootstrap()
+                try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
             } catch {
-                logger.critical("Error bootstrapping app", metadata: [
-                    "error": .string(String(describing: error)),
-                ])
-                terminate(exitCode: 1)
-                return
-            }
-
-            // Readiness indication file
-            if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
-                do {
-                    try Data([0x1]).write(to: URL(fileURLWithPath: path))
-                } catch {
-                    logger.warning("Failed to write readiness indication file: \(error)")
+                if options.isRequired {
+                    logger.critical("\(options.type) failed to bootstrap: \(error)")
+                    terminate(exitCode: 1)
+                    return
                 }
+                logger.warning("\(options.type) (optional) failed to bootstrap: \(error)")
             }
-
-            // Ready!
-            try await completion()
         }
+
+        // App
+        do {
+            try await bootstrap()
+        } catch {
+            logger.critical("Error bootstrapping app", metadata: [
+                "error": .string(String(describing: error)),
+            ])
+            terminate(exitCode: 1)
+            return
+        }
+
+        // Readiness indication file
+        if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
+            do {
+                try Data([0x1]).write(to: URL(fileURLWithPath: path))
+            } catch {
+                logger.warning("Failed to write readiness indication file: \(error)")
+            }
+        }
+
+        // Ready!
+        await completion()
 
         RunLoop.current.run()
 
@@ -112,7 +112,7 @@ extension App {
     /// - Metrics
     /// - App dependencies
     /// - App (`bootstrap`-parameter)
-    public func processMain(bootstrap: @escaping () async throws -> Void = {}) {
+    public func processMain(bootstrap: @escaping () async throws -> Void = {}) async {
 
         // Retries
         DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
@@ -121,7 +121,7 @@ extension App {
         )
 
         // Shared init
-        initialize(bootstrap: bootstrap) {
+        await initialize(bootstrap: bootstrap) {
 #if DEBUG
             logger.debug("App running in debug 🚀")
 #else
@@ -144,7 +144,7 @@ extension App {
         serviceProviders: [CallHandlerProvider],
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
-    ) {
+    ) async {
 
         // Retries
         DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
@@ -160,7 +160,7 @@ extension App {
             port = defaultPort
         }
 
-        initialize(bootstrap: {
+        await initialize(bootstrap: {
             _ = try await Server.insecure(group: eventLoopGroup)
                 .withServiceProviders(serviceProviders)
                 .bind(host: "0.0.0.0", port: port)
@@ -190,7 +190,7 @@ extension App {
         serviceProvider: CallHandlerProvider,
         defaultPort: Int,
         bootstrap: @escaping () async throws -> Void = {}
-    ) {
-        serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
+    ) async {
+        await serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
     }
 }

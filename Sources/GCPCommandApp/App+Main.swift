@@ -13,7 +13,7 @@ extension App {
     /// - Tracing
     /// - Metrics
     /// - App dependencies
-    public func commandMain(bootstrap: @escaping () async throws -> Void = {}) {
+    public func commandMain(bootstrap: @escaping () async throws -> Void = {}) async {
         commandApp = self
 
         // Retries
@@ -24,7 +24,7 @@ extension App {
         )
 
         // Shared init
-        initialize(bootstrap: bootstrap, completion: {
+        await initialize(bootstrap: bootstrap, completion: {
             await Self.main()
             terminate(exitCode: 0)
         })
