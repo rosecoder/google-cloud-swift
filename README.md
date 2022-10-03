@@ -57,7 +57,7 @@ Client for [Google Cloud Datastore](https://cloud.google.com/datastore). Focuses
 | Allocate/Reserve IDs       | ❌          |
 | Transactions               | ❌          |
 | Query                      | ✅          |
-| Query - Cursors            | ❌          |
+| Query - Cursors            | ✅          |
 | Query - Projection         | ❌          |
 | Query - Distinct on        | ❌          |
 | GQL                        | ❌          |
