@@ -58,7 +58,15 @@ extension Datastore {
         switch response.batch.moreResults {
         case .moreResultsAfterCursor, .moreResultsAfterLimit, .notFinished:
             if !response.batch.endCursor.isEmpty {
-                cursor = Cursor(rawValue: response.batch.endCursor)
+                // Can we determine if there's really are more results?
+                if let limit = query.limit {
+                    cursor = response.batch.entityResults.count >= limit
+                        ? Cursor(rawValue: response.batch.endCursor)
+                        : nil
+                } else {
+                    // No
+                    cursor = Cursor(rawValue: response.batch.endCursor)
+                }
             } else {
                 context.logger.error("Datastore query was paginated, but cursor is missing. This may break pagination.")
                 cursor = nil
