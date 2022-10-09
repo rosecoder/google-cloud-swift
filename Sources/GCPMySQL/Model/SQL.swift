@@ -23,6 +23,18 @@ public struct SQL: ExpressibleByStringLiteral, ExpressibleByStringInterpolation 
             output.append("?")
             binds.append(data)
         }
+
+        public mutating func appendInterpolation(_ database: Database) {
+            output.append("`" + database.rawValue + "`")
+        }
+
+        public mutating func appendInterpolation(_ table: Table) {
+            if let database = table.database {
+                output.append("`" + database.rawValue + "`.`" + table.rawValue + "`")
+            } else {
+                output.append("`" + table.rawValue + "`")
+            }
+        }
     }
 
     let query: String
