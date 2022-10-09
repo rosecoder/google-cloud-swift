@@ -47,6 +47,15 @@
         }
       },
       {
+        "package": "mysql-nio",
+        "repositoryURL": "https://github.com/vapor/mysql-nio.git",
+        "state": {
+          "branch": null,
+          "revision": "f0e8ad7e18e870e8665311d70bf3f01dcd6024a8",
+          "version": "1.4.0"
+        }
+      },
+      {
         "package": "RediStack",
         "repositoryURL": "https://gitlab.com/mordil/RediStack.git",
         "state": {
@@ -80,6 +89,15 @@
           "branch": null,
           "revision": "919eb1d83e02121cdb434c7bfc1f0c66ef17febe",
           "version": "1.0.2"
+        }
+      },
+      {
+        "package": "swift-crypto",
+        "repositoryURL": "https://github.com/apple/swift-crypto.git",
+        "state": {
+          "branch": null,
+          "revision": "d9825fa541df64b1a7b182178d61b9a82730d01f",
+          "version": "2.1.0"
         }
       },
       {

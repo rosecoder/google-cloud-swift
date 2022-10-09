@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "GCPCore", targets: ["GCPCore"]),
         .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
         .library(name: "GCPLogging", targets: ["GCPLogging"]),
+        .library(name: "GCPMySQL", targets: ["GCPMySQL"]),
         .library(name: "GCPRedis", targets: ["GCPRedis"]),
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
         .library(name: "GCPStorage", targets: ["GCPStorage"]),
@@ -25,6 +26,7 @@ let package = Package(
         .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
         .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(name: "retryable-task", url: "https://github.com/rosecoder/retryable-task.git", from: "1.0.0"),
+        .package(url: "https://github.com/vapor/mysql-nio.git", from: "1.4.0"),
     ],
     targets: [
         .target(name: "GCPApp", dependencies: [
@@ -70,6 +72,13 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
         ]),
         .testTarget(name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
+
+        .target(name: "GCPMySQL", dependencies: [
+            "GCPCore",
+            "GCPTrace",
+            .product(name: "MySQLNIO", package: "mysql-nio"),
+        ]),
+        .testTarget(name: "GCPMySQLTests", dependencies: ["GCPMySQL"]),
 
         .target(name: "GCPRedis", dependencies: [
             "GCPCore",
