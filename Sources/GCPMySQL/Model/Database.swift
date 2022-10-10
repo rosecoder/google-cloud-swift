@@ -6,6 +6,12 @@ public struct Database: Equatable, Hashable, CustomStringConvertible, CustomDebu
         self.rawValue = rawValue
     }
 
+    // MARK: - SQL
+
+    func sql() -> String {
+        "`" + rawValue + "`"
+    }
+
     // MARK: - CustomStringConvertible
 
     public var description: String { rawValue }

@@ -25,15 +25,11 @@ public struct SQL: ExpressibleByStringLiteral, ExpressibleByStringInterpolation 
         }
 
         public mutating func appendInterpolation(_ database: Database) {
-            output.append("`" + database.rawValue + "`")
+            output.append(database.sql())
         }
 
         public mutating func appendInterpolation(_ table: Table) {
-            if let database = table.database {
-                output.append("`" + database.rawValue + "`.`" + table.rawValue + "`")
-            } else {
-                output.append("`" + table.rawValue + "`")
-            }
+            output.append(table.sql())
         }
     }
 

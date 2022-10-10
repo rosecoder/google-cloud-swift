@@ -1,3 +1,5 @@
+import MySQLNIO
+
 public struct Table: Equatable, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
 
     public let rawValue: String
@@ -6,6 +8,15 @@ public struct Table: Equatable, Hashable, CustomStringConvertible, CustomDebugSt
     public init(rawValue: String, database: Database? = nil) {
         self.rawValue = rawValue
         self.database = database
+    }
+
+    // MARK: - SQL
+
+    func sql() -> String {
+        if let database {
+            return database.sql() + ".`" + rawValue + "`"
+        }
+        return "`" + rawValue + "`"
     }
 
     // MARK: - CustomStringConvertible
