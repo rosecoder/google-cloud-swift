@@ -42,7 +42,7 @@ public struct SQL: ExpressibleByStringLiteral, ExpressibleByStringInterpolation 
 
     public init(unsafeQuery query: String, binds: [MySQLData] = []) {
         self.query = query
-        self.binds = []
+        self.binds = binds
     }
 
     public init(query: StaticString, binds: [MySQLData] = []) {
