@@ -1,7 +1,7 @@
 import Foundation
 import MySQLNIO
 
-public struct SQL: ExpressibleByStringLiteral, ExpressibleByStringInterpolation {
+public struct SQL: ExpressibleByStringLiteral, ExpressibleByStringInterpolation, Equatable {
 
     public typealias StringLiteralType = StaticString
 
