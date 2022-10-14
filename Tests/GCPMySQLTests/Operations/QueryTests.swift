@@ -13,7 +13,7 @@ final class QueryTests: XCTestCase {
         try await MySQL.bootstrap(eventLoopGroup: eventLoopGroup)
     }
 
-    // MARK: - Get
+    // MARK: -
 
     func testOperations() async throws {
         _ = try await MySQL.queryWithMetadata("DELETE FROM dev.Test", context: context)
