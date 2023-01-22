@@ -13,14 +13,16 @@ public struct GoogleCloudLogHandler: LogHandler {
     public let resource: Resource
 
     public var metadata: Logger.Metadata = [:]
+    public var metadataProvider: Logger.MetadataProvider?
 
     public var logLevel: Logger.Level
 
-    public init(label: String, resource: Resource = .autoResolve, level: Logger.Level = .debug, metadata: Logger.Metadata = [:]) {
+    public init(label: String, resource: Resource = .autoResolve, level: Logger.Level = .debug, metadata: Logger.Metadata = [:], metadataProvider: Logger.MetadataProvider? = nil) {
         self.label = label
         self.resource = resource
         self.metadata = metadata
         self.logLevel = level
+        self.metadataProvider = metadataProvider
     }
 
     public subscript(metadataKey key: String) -> Logger.Metadata.Value? {
@@ -52,6 +54,13 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         // New metdata
         if let metadata = metadata {
+            labels.reserveCapacity(metadata.count)
+            for (key, value) in metadata {
+                labels[key] = value.description
+            }
+        }
+        if let metadataProvider = metadataProvider {
+            let metadata = metadataProvider.get()
             labels.reserveCapacity(metadata.count)
             for (key, value) in metadata {
                 labels[key] = value.description

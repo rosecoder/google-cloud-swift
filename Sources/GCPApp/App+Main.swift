@@ -14,16 +14,16 @@ extension App {
 
         // Logging
 #if DEBUG
-        LoggingSystem.bootstrap {
-            var handler = StreamLogHandler.standardOutput(label: $0)
+        LoggingSystem.bootstrap { label in
+            var handler = StreamLogHandler.standardOutput(label: label)
             handler.logLevel = logLevel
             return handler
         }
 #else
         do {
             try GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
-            LoggingSystem.bootstrap {
-                var handler = GoogleCloudLogHandler(label: $0, resource: .autoResolve)
+            LoggingSystem.bootstrap { label in
+                var handler = GoogleCloudLogHandler(label: label, resource: .autoResolve)
                 handler.logLevel = logLevel
                 return handler
             }
