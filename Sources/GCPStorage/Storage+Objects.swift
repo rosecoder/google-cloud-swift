@@ -14,7 +14,7 @@ extension Storage {
                 path: "/upload/storage/v1/b/\(bucket.urlEncoded)/o",
                 queryItems: [
                     .init(name: "uploadType", value: "media"),
-                    .init(name: "name", value: object.urlEncoded),
+                    .init(name: "name", value: object.path),
                 ],
                 headers: [
                     "Content-Type": contentType,
