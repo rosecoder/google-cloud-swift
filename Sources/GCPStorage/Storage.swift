@@ -81,7 +81,7 @@ public struct Storage: Dependency {
         body: HTTPClientRequest.Body? = nil,
         context: Context
     ) async throws {
-        var urlComponents = URLComponents(string: "https://storage.googleapis.com/storage/v1" + path)!
+        var urlComponents = URLComponents(string: "https://storage.googleapis.com" + path)!
         urlComponents.queryItems = queryItems
 
         var request = HTTPClientRequest(url: urlComponents.string!)

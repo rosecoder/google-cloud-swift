@@ -11,7 +11,7 @@ extension Storage {
         ]) { span in
             try await execute(
                 method: .POST,
-                path: "/b/\(bucket.urlEncoded)/o",
+                path: "/upload/storage/v1/b/\(bucket.urlEncoded)/o",
                 queryItems: [
                     .init(name: "uploadType", value: "media"),
                     .init(name: "name", value: object.urlEncoded),
@@ -32,7 +32,11 @@ extension Storage {
         try await context.trace.recordSpan(named: "storage-delete", kind: .client, attributes: [
             "storage/bucket": bucket.name,
         ]) { span in
-            try await execute(method: .DELETE, path: "/b/\(bucket.urlEncoded)/o/\(object.urlEncoded)", context: context)
+            try await execute(
+                method: .DELETE,
+                path: "/storage/v1/b/\(bucket.urlEncoded)/o/\(object.urlEncoded)",
+                context: context
+            )
         }
     }
 }
