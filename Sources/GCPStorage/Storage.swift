@@ -73,11 +73,25 @@ public struct Storage: Dependency {
        }
    }
 
-    static func execute(method: HTTPMethod, path: String, context: Context) async throws {
-        var request = HTTPClientRequest(
-            url: "https://storage.googleapis.com/storage/v1" + path
-        )
+    static func execute(
+        method: HTTPMethod,
+        path: String,
+        queryItems: [URLQueryItem]? = nil,
+        headers: HTTPHeaders? = nil,
+        body: HTTPClientRequest.Body? = nil,
+        context: Context
+    ) async throws {
+        var urlComponents = URLComponents(string: "https://storage.googleapis.com/storage/v1" + path)!
+        urlComponents.queryItems = queryItems
+
+        var request = HTTPClientRequest(url: urlComponents.string!)
         request.method = method
+        if let headers {
+            request.headers = headers
+        }
+        if let body {
+            request.body = body
+        }
 
         // Authorization
         let accessToken = try await authorization.accessToken()
