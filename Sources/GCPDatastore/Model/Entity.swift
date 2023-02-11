@@ -1,21 +1,23 @@
 public protocol Entity: Codable, QueryFilterValue {
-
+    
     associatedtype Key
     associatedtype CodingKeys
-
+    
     /// Entity key property identifying the entity.
     ///
     /// **Important**: When using custom `CodingKeys`, make sure this property is encoded to `"key"`.
     ///
     /// Note: Must be mutating for new key to be set after a put/insert/update-operation.
     var key: Key { get set }
-
-    var propertyConfigurations: [String: PropertyConfiguration] { get }
+    
+    static func propertyConfiguration(key: CodingKeys) -> PropertyConfiguration
 }
 
 extension Entity {
 
-    public var propertyConfigurations: [String: PropertyConfiguration] { [:] }
+    public static func propertyConfiguration(key: CodingKeys) -> PropertyConfiguration {
+        .init()
+    }
 }
 
 extension Entity where Key: AnyKey {
