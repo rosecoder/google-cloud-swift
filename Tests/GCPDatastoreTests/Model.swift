@@ -213,4 +213,13 @@ struct AllPropertyTypeEntity: Entity, Equatable {
         try container.encode(array, forKey: .array)
         try container.encode(dictionary, forKey: .dictionary)
     }
+
+    static func propertyConfiguration(key: CodingKeys) -> PropertyConfiguration {
+        switch key {
+        case .string:
+            return .init(excludeFromIndexes: true)
+        default:
+            return .init()
+        }
+    }
 }

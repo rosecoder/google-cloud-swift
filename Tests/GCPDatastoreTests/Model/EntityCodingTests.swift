@@ -6,6 +6,21 @@ final class EntityCodingTests: XCTestCase {
     private let encoder = EntityEncoder()
     private let decoder = EntityDecoder()
 
+    // MARK: - Coding Property Configuration
+
+    func testCodingPropertyConfiguration() throws {
+        let source = entity(key: .incomplete)
+
+        let raw = try encoder.encode(source)
+
+        let stringProperty = try XCTUnwrap(raw.properties["String"])
+        let intProperty = try XCTUnwrap(raw.properties["Int"])
+
+        XCTAssertTrue(stringProperty.excludeFromIndexes)
+        XCTAssertFalse(intProperty.excludeFromIndexes)
+        assert(raw: raw, matching: source)
+    }
+
     // MARK: - Coding Properties
 
     func testWithIncompleteKey() throws {
