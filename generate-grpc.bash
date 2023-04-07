@@ -35,3 +35,12 @@ protoc google/devtools/cloudtrace/v2/*.proto google/rpc/status.proto \
 rm ../Sources/GCPTrace/gRPC\ Generated/*.swift
 mv google/devtools/cloudtrace/v2/*.swift google/rpc/*.swift \
    ../Sources/GCPTrace/gRPC\ Generated
+
+echo "Generating gRPC code for GCPTranslate..."
+protoc google/cloud/translate/v3/*.proto google/rpc/status.proto google/longrunning/operations.proto \
+  --swift_out=. \
+  --grpc-swift_out=Client=true,Server=false:.
+
+rm ../Sources/GCPTranslation/gRPC\ Generated/*.swift
+mv google/cloud/translate/v3/*.swift google/rpc/*.swift google/longrunning/*.swift \
+   ../Sources/GCPTranslation/gRPC\ Generated

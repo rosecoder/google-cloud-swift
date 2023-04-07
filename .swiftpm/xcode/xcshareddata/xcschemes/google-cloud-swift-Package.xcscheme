@@ -230,6 +230,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPTranslation"
+               BuildableName = "GCPTranslation"
+               BlueprintName = "GCPTranslation"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -352,6 +366,16 @@
                BlueprintIdentifier = "GCPStorageTests"
                BuildableName = "GCPStorageTests"
                BlueprintName = "GCPStorageTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GCPTranslationTests"
+               BuildableName = "GCPTranslationTests"
+               BlueprintName = "GCPTranslationTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

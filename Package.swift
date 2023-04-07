@@ -107,5 +107,11 @@ let package = Package(
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "GCPTraceTests", dependencies: ["GCPTrace"]),
+
+        .target(name: "GCPTranslation", dependencies: [
+            "GCPCore",
+            "GCPTrace",
+        ]),
+        .testTarget(name: "GCPTranslationTests", dependencies: ["GCPTranslation"]),
     ]
 )
