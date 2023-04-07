@@ -13,4 +13,13 @@ public struct Bucket {
     var urlEncoded: String {
         name.addingPercentEncoding(withAllowedCharacters: .alphanumerics)!
     }
+
+#if DEBUG
+    var localStorageURL: URL {
+        FileManager.default.temporaryDirectory
+            .appendingPathComponent("GCPStorage")
+            .appendingPathComponent("buckets")
+            .appendingPathComponent(name)
+    }
+#endif
 }

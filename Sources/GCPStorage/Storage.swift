@@ -21,9 +21,25 @@ public struct Storage: Dependency {
         set { _client = newValue }
     }
 
+#if DEBUG
+    static var isUsingLocalStorage = false
+#endif
+
     // MARK: - Bootstrap
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+#if DEBUG
+        if ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"]?.isEmpty == false {
+            try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
+        } else {
+            try await bootstrapForDebug()
+        }
+#else
+        try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
+#endif
+    }
+
+    static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         authorization =  try Authorization(scopes: [
             "https://www.googleapis.com/auth/devstorage.read_write",
         ], eventLoopGroup: eventLoopGroup)
@@ -31,6 +47,12 @@ public struct Storage: Dependency {
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         try await authorization.warmup()
     }
+
+#if DEBUG
+    static func bootstrapForDebug() async throws {
+        isUsingLocalStorage = true
+    }
+#endif
 
     // MARK: - Termination
 
