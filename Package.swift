@@ -17,6 +17,7 @@ let package = Package(
         .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
         .library(name: "GCPStorage", targets: ["GCPStorage"]),
         .library(name: "GCPTrace", targets: ["GCPTrace"]),
+        .library(name: "GCPTranslation", targets: ["GCPTranslation"]),
     ],
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
