@@ -1,6 +1,7 @@
 import Foundation
 
 private var _current: Environment?
+private var __projectID: String?
 
 public enum Environment {
 #if DEBUG
@@ -40,7 +41,12 @@ public enum Environment {
 
     // MARK: - Convenience
 
-    public var projectID: String {
+    private struct ServiceAccount: Decodable {
+
+        let project_id: String
+    }
+
+    private var _projectID: String {
         switch self {
         case .k8sContainer(let projectID, _, _, _, _, _):
             return projectID
@@ -51,7 +57,21 @@ public enum Environment {
         default:
             break
         }
+        if
+            let path = ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"],
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
+            let serviceAccount = try? JSONDecoder().decode(ServiceAccount.self, from: data)
+        {
+            return serviceAccount.project_id
+        }
         return ProcessInfo.processInfo.environment["GCP_PROJECT_ID"]!
+    }
+
+    public var projectID: String {
+        if __projectID == nil {
+            __projectID = _projectID
+        }
+        return __projectID!
     }
 
     public var locationID: String {
