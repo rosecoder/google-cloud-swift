@@ -1,5 +1,6 @@
 import Foundation
 import GRPC
+import GCPCore
 
 private var verifiedHashValues = [Int]()
 
@@ -19,7 +20,7 @@ public struct Topic<Message: GCPPubSub.Message>: Identifiable, Equatable, Hashab
     // MARK: - Identifiable
 
     public var id: String {
-        "projects/\(ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? "")/topics/\(name)"
+        "projects/\(Environment.current.projectID)/topics/\(name)"
     }
 
     // MARK: - Hashable

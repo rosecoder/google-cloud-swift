@@ -26,7 +26,7 @@ public struct Datastore: Dependency {
         }
     }
 
-    public static var defaultProjectID: String = ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? ""
+    public static var defaultProjectID: String = Environment.current.projectID
 
     static var authorization: Authorization?
 

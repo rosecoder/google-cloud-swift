@@ -1,5 +1,6 @@
 import Foundation
 import GCPTrace
+import GCPCore
 
 extension Translation {
 
@@ -41,7 +42,7 @@ extension Translation {
                     $0.sourceLanguageCode = sourceLanguageCode
                 }
                 $0.targetLanguageCode = targetLanguageCode
-                $0.parent = "projects/" + ProcessInfo.processInfo.environment["GCP_PROJECT_ID"]! + "/locations/global" // TODO: remove force unwrap
+                $0.parent = "projects/" + Environment.current.projectID + "/locations/global"
                 if let labels {
                     $0.labels = labels
                 }

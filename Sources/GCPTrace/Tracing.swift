@@ -36,7 +36,7 @@ public struct Tracing: Dependency {
 
     // MARK: - Config
 
-    public static var projectID: String = ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? ""
+    public static var projectID: String = Environment.current.projectID
 
     public static var writeInterval: TimeInterval = 30
 

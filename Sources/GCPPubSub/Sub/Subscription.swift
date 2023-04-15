@@ -55,7 +55,7 @@ public struct Subscription<Message: GCPPubSub.Message>: Identifiable, Equatable,
     // MARK: - Identifiable
 
     public var id: String {
-        "projects/\(ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? "")/subscriptions/\(name)"
+        "projects/\(Environment.current.projectID)/subscriptions/\(name)"
     }
 
     // MARK: - Hashable
