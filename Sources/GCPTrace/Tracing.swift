@@ -123,11 +123,9 @@ public struct Tracing: Dependency {
         // Well-known labels can be found here: https://github.com/googleapis/cloud-trace-nodejs/blob/c57a0b100d00fe0002544400c3958a17cc9751fb/src/trace-labels.ts
 
         var attributes = attributes
-        switch Resource.autoResolve {
-        case .k8sContainer(_, _, _, _, _, let containerName):
-            attributes["g.co/gae/app/module"] = containerName
-        }
-        if let version = Resource.version {
+        let environment = Environment.current
+        attributes["g.co/gae/app/module"] = environment.serviceName
+        if let version = environment.version {
             attributes["g.co/gae/app/version"] = version
         }
 

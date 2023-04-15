@@ -7,17 +7,7 @@ final class ReportTests: XCTestCase {
     private let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
     func testReportError() async throws {
-        try ErrorReporting.bootstrap(
-            eventLoopGroup: eventLoopGroup,
-            resource: .k8sContainer(
-                projectID: "nightshift-habits-poc",
-                location: "europe-west3-b",
-                clusterName: "kubernetes",
-                namespaceName: "default",
-                podName: "swift-test-1234",
-                containerName: "swift-test"
-            )
-        )
+        try ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup)
 
         try await ErrorReporting.report(
             date: Date(),

@@ -23,7 +23,7 @@ extension App {
         do {
             try GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
             LoggingSystem.bootstrap { label in
-                var handler = GoogleCloudLogHandler(label: label, resource: .autoResolve)
+                var handler = GoogleCloudLogHandler(label: label)
                 handler.logLevel = logLevel
                 return handler
             }
@@ -40,7 +40,7 @@ extension App {
         // Error reporting
 #if !DEBUG
         do {
-            try ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup, resource: .autoResolve)
+            try ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup)
         } catch {
             logger.warning("ErrorReporting (optional) failed to bootstrap: \(error)")
         }

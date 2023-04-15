@@ -1,5 +1,6 @@
 import Foundation
 import AsyncHTTPClient
+import GCPCore
 
 extension ErrorReporting {
 
@@ -28,8 +29,9 @@ extension ErrorReporting {
         function: String,
         line: UInt
     ) async throws -> HTTPClientRequest {
+        let environment = Environment.current
         var request = HTTPClientRequest(
-            url: "https://clouderrorreporting.googleapis.com/v1beta1/projects/\(resource.projectID)/events:report" // TODO: Encode project id
+            url: "https://clouderrorreporting.googleapis.com/v1beta1/projects/\(environment.projectID)/events:report" // TODO: Encode project id
         )
         request.method = .POST
 
@@ -40,7 +42,10 @@ extension ErrorReporting {
         // Body
         let body = RequestBody(
             eventTime: RequestBody.dateFormatter.string(from: date),
-            serviceContext: resource.serviceContext,
+            serviceContext: .init(
+                service: environment.serviceName,
+                version: environment.version ?? "0"
+            ),
             message: "\(source): \(message)",
             context: .init(
                 httpRequest: nil,

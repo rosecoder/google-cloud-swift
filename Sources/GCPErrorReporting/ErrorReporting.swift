@@ -22,25 +22,14 @@ public struct ErrorReporting {
         }
     }
 
-    private static var _resource: Resource?
-
-    static var resource: Resource {
-        guard let _resource = _resource else {
-            fatalError("Must call ErrorReporting.bootstrap(eventLoopGroup:) first")
-        }
-
-        return _resource
-    }
-
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup, resource: Resource = .autoResolve) throws {
+    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
         authorization = try Authorization(scopes: [
             "https://www.googleapis.com/auth/cloud-platform",
             "https://www.googleapis.com/auth/stackdriver-integration",
         ], eventLoopGroup: eventLoopGroup)
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
-        _resource = resource
     }
 
     // MARK: - Termination

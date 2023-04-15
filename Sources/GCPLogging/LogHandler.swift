@@ -10,16 +10,14 @@ public struct GoogleCloudLogHandler: LogHandler {
     // MARK: - LogHandler implementation
 
     public let label: String
-    public let resource: Resource
 
     public var metadata: Logger.Metadata = [:]
     public var metadataProvider: Logger.MetadataProvider?
 
     public var logLevel: Logger.Level
 
-    public init(label: String, resource: Resource = .autoResolve, level: Logger.Level = .debug, metadata: Logger.Metadata = [:], metadataProvider: Logger.MetadataProvider? = nil) {
+    public init(label: String, level: Logger.Level = .debug, metadata: Logger.Metadata = [:], metadataProvider: Logger.MetadataProvider? = nil) {
         self.label = label
-        self.resource = resource
         self.metadata = metadata
         self.logLevel = level
         self.metadataProvider = metadataProvider
@@ -32,9 +30,10 @@ public struct GoogleCloudLogHandler: LogHandler {
 
     public func log(level: Logger.Level, message: Logger.Message, metadata: Logger.Metadata?, source: String, file: String, function: String, line: UInt) {
         let now = Date()
-        let logName = resource.logName(label: label)
+        let environment = Environment.current
+        let logName = environment.logName(label: label)
 
-        var labels: [String: String] = resource.entryLabels
+        var labels: [String: String] = environment.entryLabels
 
         // Existing metdata
         var trace: String?
@@ -86,8 +85,8 @@ public struct GoogleCloudLogHandler: LogHandler {
         let request = Google_Logging_V2_WriteLogEntriesRequest.with {
             $0.logName = logName
             $0.resource = .with {
-                $0.type = resource.rawValue
-                $0.labels = resource.labels
+                $0.type = environment.type
+                $0.labels = environment.labels
             }
             $0.entries = [
                 .with {
