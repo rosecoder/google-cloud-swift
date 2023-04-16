@@ -95,8 +95,16 @@ private func requestIDToken(targetAudience: String, eventLoop: EventLoop) -> Eve
             guard jwtComponents.count >= 3 else {
                 throw IDTokenError.notJWT(idToken)
             }
-            guard let payloadData = Data(base64Encoded: jwtComponents[1]) else {
-                throw IDTokenError.invalidJWTPayload(jwtComponents[1])
+            var payloadBase64String = jwtComponents[1]
+
+            // Add missing padding
+            let remainder = payloadBase64String.count % 4
+            if remainder > 0 {
+                payloadBase64String = payloadBase64String.padding(toLength: payloadBase64String.count + 4 - remainder, withPad: "=", startingAt: 0)
+            }
+
+            guard let payloadData = Data(base64Encoded: payloadBase64String) else {
+                throw IDTokenError.invalidJWTPayload(payloadBase64String)
             }
 
             let payload = try JSONDecoder().decode(IDTokenPayload.self, from: payloadData)
