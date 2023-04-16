@@ -38,7 +38,10 @@ public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType
                     }
                 }
         default:
-            context.send(part, promise: promise)
+            idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
+                .whenComplete { _ in
+                    context.send(part, promise: promise)
+                }
         }
     }
 }
