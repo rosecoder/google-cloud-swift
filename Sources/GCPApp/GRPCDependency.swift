@@ -14,7 +14,9 @@ public protocol GRPCDependency: Dependency {
     static func initClient(channel: GRPCChannel)
 }
 
-private enum GRPCDependencyBootstrapError: Error {
+enum GRPCDependencyBootstrapError: Error {
+    case serviceSchemeNotFound
+    case unsupportedServiceScheme(String)
     case serviceHostNotFound
     case servicePortNotFound
     case invalidServicePort(String)
@@ -38,6 +40,28 @@ extension GRPCDependency where Client: GRPCClient {
     }
 
     private static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+
+        // Try to connect via address
+        if let address = ProcessInfo.processInfo.environment[serviceEnvironmentName] {
+            let (scheme, host, port) = try address.parsedAddressComponents()
+
+            switch scheme {
+            case "https":
+                self.initClient(channel: ClientConnection
+                    .usingTLSBackedByNIOSSL(on: eventLoopGroup)
+                    .connect(host: host, port: port ?? 443)
+                )
+            case "http":
+                self.initClient(channel: ClientConnection
+                    .insecure(group: eventLoopGroup)
+                    .connect(host: host, port: port ?? 80)
+                )
+            default:
+                throw GRPCDependencyBootstrapError.unsupportedServiceScheme(String(scheme))
+            }
+            return
+        }
+
         // Using kuberentes-standard of naming env vars: https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables
         guard let host = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_HOST"] else {
             throw GRPCDependencyBootstrapError.serviceHostNotFound
@@ -63,4 +87,29 @@ extension GRPCDependency where Client: GRPCClient {
         )
     }
 #endif
+}
+
+extension String {
+
+    func parsedAddressComponents() throws -> (scheme: Substring, host: String, port: Int?) {
+        guard let schemeEndRange = range(of: "://") else {
+            throw GRPCDependencyBootstrapError.serviceSchemeNotFound
+        }
+        let scheme = self[..<schemeEndRange.lowerBound]
+
+        let hostEndRange = range(of: ":", range: schemeEndRange.upperBound..<endIndex) ?? endIndex..<endIndex
+        let host = String(self[schemeEndRange.upperBound..<hostEndRange.lowerBound])
+
+        let port: Int?
+        if hostEndRange.isEmpty {
+            port = nil
+        } else {
+            let portString = self[hostEndRange.upperBound...]
+            guard let portFromAddress = Int(portString) else {
+                throw GRPCDependencyBootstrapError.invalidServicePort(String(portString))
+            }
+            port = portFromAddress
+        }
+        return (scheme, host, port)
+    }
 }
