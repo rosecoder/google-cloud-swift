@@ -8,9 +8,9 @@ public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType
 
     private let targetAudience: String
 
-    public init(_ dependencyType: DependencyType.Type) {
+    public init?(_ dependencyType: DependencyType.Type) {
         guard let address = ProcessInfo.processInfo.environment[dependencyType.serviceEnvironmentName] else {
-            fatalError("Missing service address: \(dependencyType.serviceEnvironmentName)")
+            return nil
         }
 
         let (scheme, host, _) = try! address.parsedAddressComponents() // safe to force unwrap because address has already been parsed in bootstrap (it's not pretty though)
