@@ -18,7 +18,7 @@ extension HTTPDependency {
     // MARK: - Default Implementation
 
     public static var endpoint: String {
-        (isSecure ? "https" : "http") + "://" + host + (defaultPort == port ? (":" + String(port)) : "")
+        (isSecure ? "https" : "http") + "://" + host + (defaultPort != port ? (":" + String(port)) : "")
     }
 
     public static var defaultPort: Int {
