@@ -52,7 +52,7 @@ public enum Environment {
             return projectID
 #if DEBUG
         case .localDevelopment:
-            return "dev"
+            return ProcessInfo.processInfo.environment["GCP_PROJECT_ID"] ?? "dev"
 #endif
         default:
             break
