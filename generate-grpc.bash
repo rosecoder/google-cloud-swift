@@ -1,46 +1,46 @@
 cd googleapis/
 
-echo "Generating gRPC code for GCPLogging..."
+echo "Generating gRPC code for Logger..."
 protoc google/logging/v2/*.proto google/logging/type/*.proto google/api/monitored_resource.proto google/api/metric.proto google/api/distribution.proto google/api/label.proto google/api/launch_stage.proto google/rpc/status.proto google/longrunning/operations.proto \
   --swift_out=. \
   --grpc-swift_out=Client=true,Server=false:.
 
-rm ../Sources/GCPLogging/gRPC\ Generated/*.swift
+rm ../Sources/Logger/gRPC\ Generated/*.swift
 mv google/logging/v2/*.swift google/logging/type/*.swift google/api/*.swift google/rpc/*.swift google/longrunning/*.swift \
-   ../Sources/GCPLogging/gRPC\ Generated
+   ../Sources/Logger/gRPC\ Generated
 
-echo "Generating gRPC code for GCPPubSub..."
+echo "Generating gRPC code for PubSub..."
 protoc google/pubsub/v1/*.proto \
  --swift_out=. \
  --grpc-swift_out=Client=true,Server=false:.
 
-rm ../Sources/GCPPubSub/gRPC\ Generated/*.swift
+rm ../Sources/PubSub/gRPC\ Generated/*.swift
 mv google/pubsub/v1/*.swift \
-  ../Sources/GCPPubSub/gRPC\ Generated
+  ../Sources/PubSub/gRPC\ Generated
 
-echo "Generating gRPC code for GCPDatastore..."
+echo "Generating gRPC code for Datastore..."
 protoc google/datastore/v1/*.proto google/type/latlng.proto \
   --swift_out=. \
   --grpc-swift_out=Client=true,Server=false:.
 
-rm ../Sources/GCPDatastore/gRPC\ Generated/*.swift
+rm ../Sources/Datastore/gRPC\ Generated/*.swift
 mv google/datastore/v1/*.swift google/type/*.swift \
-   ../Sources/GCPDatastore/gRPC\ Generated
+   ../Sources/Datastore/gRPC\ Generated
 
-echo "Generating gRPC code for GCPTrace..."
+echo "Generating gRPC code for Trace..."
 protoc google/devtools/cloudtrace/v2/*.proto google/rpc/status.proto \
   --swift_out=. \
   --grpc-swift_out=Client=true,Server=false:.
 
-rm ../Sources/GCPTrace/gRPC\ Generated/*.swift
+rm ../Sources/Trace/gRPC\ Generated/*.swift
 mv google/devtools/cloudtrace/v2/*.swift google/rpc/*.swift \
-   ../Sources/GCPTrace/gRPC\ Generated
+   ../Sources/Trace/gRPC\ Generated
 
-echo "Generating gRPC code for GCPTranslate..."
+echo "Generating gRPC code for Translate..."
 protoc google/cloud/translate/v3/*.proto google/rpc/status.proto google/longrunning/operations.proto \
   --swift_out=. \
   --grpc-swift_out=Client=true,Server=false:.
 
-rm ../Sources/GCPTranslation/gRPC\ Generated/*.swift
+rm ../Sources/Translation/gRPC\ Generated/*.swift
 mv google/cloud/translate/v3/*.swift google/rpc/*.swift google/longrunning/*.swift \
-   ../Sources/GCPTranslation/gRPC\ Generated
+   ../Sources/Translation/gRPC\ Generated
