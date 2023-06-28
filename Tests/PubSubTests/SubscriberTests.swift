@@ -47,7 +47,7 @@ final class SubscriberTestCase: XCTestCase {
         let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
 
         // Wait
-        await waitForExpectations(timeout: 60, handler: nil)
+        await fulfillment(of: [expectation], timeout: 60)
 
         // Assert
         XCTAssertNotNil(publishedMessage)
