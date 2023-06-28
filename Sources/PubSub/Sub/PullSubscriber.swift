@@ -6,7 +6,7 @@ import Core
 import Trace
 import RetryableTask
 
-public final class Subscriber: Dependency {
+public final class PullSubscriber: Dependency {
 
     private static var _client: Google_Pubsub_V1_SubscriberAsyncClient?
     private static let logger = Logger(label: "pubsub.subscriber")
@@ -14,7 +14,7 @@ public final class Subscriber: Dependency {
     private static var client: Google_Pubsub_V1_SubscriberAsyncClient {
         get {
             guard let _client = _client else {
-                fatalError("Must call Subscriber.bootstrap(eventLoopGroup:) first")
+                fatalError("Must call PullSubscriber.bootstrap(eventLoopGroup:) first")
             }
 
             return _client

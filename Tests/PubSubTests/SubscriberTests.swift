@@ -28,7 +28,7 @@ final class SubscriberTestCase: XCTestCase {
     }
 
     func testSubscribe() async throws {
-        try await Subscriber.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await PullSubscriber.bootstrap(eventLoopGroup: eventLoopGroup)
         try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Prepare
@@ -41,7 +41,7 @@ final class SubscriberTestCase: XCTestCase {
         }
 
         // Recive message
-        try await Subscriber.startPull(handler: CallbackHandler.self)
+        try await PullSubscriber.startPull(handler: CallbackHandler.self)
 
         // Publish message
         let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
@@ -55,6 +55,6 @@ final class SubscriberTestCase: XCTestCase {
         XCTAssertEqual(publishedMessage.id, receivedMessage?.id)
         XCTAssertEqual("Hello", receivedMessage?.body)
 
-        try await Subscriber.shutdown()
+        try await PullSubscriber.shutdown()
     }
 }
