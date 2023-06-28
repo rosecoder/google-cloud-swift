@@ -5,8 +5,13 @@ import Core
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).
-private var emulatorStartTask: Task<Process, Error>?
+private var emulatorStartTask: Task<UnsafeSendableProcess, Error>?
 private var emulatorTeardownTimer: Timer?
+
+struct UnsafeSendableProcess: @unchecked Sendable {
+
+    let value: Process
+}
 #endif
 
 public struct Datastore: Dependency {
@@ -78,7 +83,7 @@ public struct Datastore: Dependency {
             emulatorTeardownTimer = nil
             emulatorStartTask = nil
             Task {
-                guard let process = try await emulatorStartTask?.value else {
+                guard let process = try await emulatorStartTask?.value.value else {
                     return
                 }
                 process.interrupt()
@@ -91,7 +96,7 @@ public struct Datastore: Dependency {
             return
         }
 
-        let task: Task<Process, Error> = Task {
+        let task: Task<UnsafeSendableProcess, Error> = Task {
             let port = 7245
 
             print("\(#function): Starting datastore emulator at port \(port).")
@@ -146,7 +151,7 @@ public struct Datastore: Dependency {
             // Connect
             bootstraForEmulator(host: "localhost", port: port, eventLoopGroup: eventLoopGroup)
 
-            return process
+            return .init(value: process)
         }
         emulatorStartTask = task
         _ = try await task.value
