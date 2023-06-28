@@ -7,17 +7,21 @@ let package = Package(
        .macOS("12.0"),
     ],
     products: [
-        .library(name: "GCPApp", targets: ["GCPApp"]),
-        .library(name: "GCPCommandApp", targets: ["GCPCommandApp"]),
-        .library(name: "GCPCore", targets: ["GCPCore"]),
-        .library(name: "GCPDatastore", targets: ["GCPDatastore"]),
-        .library(name: "GCPLogging", targets: ["GCPLogging"]),
-        .library(name: "GCPMySQL", targets: ["GCPMySQL"]),
-        .library(name: "GCPRedis", targets: ["GCPRedis"]),
-        .library(name: "GCPPubSub", targets: ["GCPPubSub"]),
-        .library(name: "GCPStorage", targets: ["GCPStorage"]),
-        .library(name: "GCPTrace", targets: ["GCPTrace"]),
-        .library(name: "GCPTranslation", targets: ["GCPTranslation"]),
+        .library(name: "CloudApp", targets: ["CloudApp", "Core"]),
+        .library(name: "CloudJob", targets: ["CloudJob", "Core"]),
+
+        // Infrastructure
+        .library(name: "ErrorReporting", targets: ["ErrorReporting"]),
+        .library(name: "Logger", targets: ["Logger"]),
+        .library(name: "Trace", targets: ["Trace"]),
+
+        // Services
+        .library(name: "Datastore", targets: ["Datastore"]),
+        .library(name: "MySQL", targets: ["MySQL"]),
+        .library(name: "Redis", targets: ["Redis"]),
+        .library(name: "PubSub", targets: ["PubSub"]),
+        .library(name: "Storage", targets: ["Storage"]),
+        .library(name: "Translation", targets: ["Translation"]),
     ],
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
@@ -30,89 +34,89 @@ let package = Package(
         .package(url: "https://github.com/vapor/mysql-nio.git", from: "1.4.0"),
     ],
     targets: [
-        .target(name: "GCPApp", dependencies: [
-            "GCPCore",
-            "GCPErrorReporting",
-            "GCPLogging",
-            "GCPTrace",
+        .target(name: "CloudApp", dependencies: [
+            "Core",
+            "ErrorReporting",
+            "Logger",
+            "Trace",
             .product(name: "Logging", package: "swift-log"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "GCPAppTests", dependencies: ["GCPApp"]),
+        .testTarget(name: "CloudAppTests", dependencies: ["CloudApp"]),
 
-        .target(name: "GCPCommandApp", dependencies: [
-            "GCPApp",
+        .target(name: "CloudJob", dependencies: [
+            "CloudApp",
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
         ]),
 
-        .target(name: "GCPCore", dependencies: [
+        .target(name: "Core", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2Server", package: "Auth"),
             .product(name: "RetryableTask", package: "retryable-task"),
         ]),
-        .testTarget(name: "GCPCoreTests", dependencies: ["GCPCore"]),
+        .testTarget(name: "CoreTests", dependencies: ["Core"]),
 
-        .target(name: "GCPDatastore", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "Datastore", dependencies: [
+            "Core",
+            "Trace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
-        .testTarget(name: "GCPDatastoreTests", dependencies: ["GCPDatastore"]),
+        .testTarget(name: "DatastoreTests", dependencies: ["Datastore"]),
 
-        .target(name: "GCPErrorReporting", dependencies: [
-            "GCPCore",
+        .target(name: "ErrorReporting", dependencies: [
+            "Core",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "GCPErrorReportingTests", dependencies: ["GCPErrorReporting"]),
+        .testTarget(name: "ErrorReportingTests", dependencies: ["ErrorReporting"]),
 
-        .target(name: "GCPLogging", dependencies: [
-            "GCPCore",
-            "GCPErrorReporting",
+        .target(name: "Logger", dependencies: [
+            "Core",
+            "ErrorReporting",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
         ]),
-        .testTarget(name: "GCPLoggingTests", dependencies: ["GCPLogging"]),
+        .testTarget(name: "LoggerTests", dependencies: ["Logger"]),
 
-        .target(name: "GCPMySQL", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "MySQL", dependencies: [
+            "Core",
+            "Trace",
             .product(name: "MySQLNIO", package: "mysql-nio"),
         ]),
-        .testTarget(name: "GCPMySQLTests", dependencies: ["GCPMySQL"]),
+        .testTarget(name: "MySQLTests", dependencies: ["MySQL"]),
 
-        .target(name: "GCPRedis", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "Redis", dependencies: [
+            "Core",
+            "Trace",
             .product(name: "RediStack", package: "RediStack"),
         ]),
-        .testTarget(name: "GCPRedisTests", dependencies: ["GCPRedis"]),
+        .testTarget(name: "RedisTests", dependencies: ["Redis"]),
 
-        .target(name: "GCPPubSub", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "PubSub", dependencies: [
+            "Core",
+            "Trace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
-        .testTarget(name: "GCPPubSubTests", dependencies: ["GCPPubSub"]),
+        .testTarget(name: "PubSubTests", dependencies: ["PubSub"]),
 
-        .target(name: "GCPStorage", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "Storage", dependencies: [
+            "Core",
+            "Trace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "GCPStorageTests", dependencies: ["GCPStorage"]),
+        .testTarget(name: "StorageTests", dependencies: ["Storage"]),
 
-        .target(name: "GCPTrace", dependencies: [
-            "GCPCore",
+        .target(name: "Trace", dependencies: [
+            "Core",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "GCPTraceTests", dependencies: ["GCPTrace"]),
+        .testTarget(name: "TraceTests", dependencies: ["Trace"]),
 
-        .target(name: "GCPTranslation", dependencies: [
-            "GCPCore",
-            "GCPTrace",
+        .target(name: "Translation", dependencies: [
+            "Core",
+            "Trace",
         ]),
-        .testTarget(name: "GCPTranslationTests", dependencies: ["GCPTranslation"]),
+        .testTarget(name: "TranslationTests", dependencies: ["Translation"]),
     ]
 )
