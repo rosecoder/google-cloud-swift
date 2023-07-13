@@ -7,8 +7,9 @@ let package = Package(
        .macOS("12.0"),
     ],
     products: [
-        .library(name: "CloudApp", targets: ["CloudApp", "CloudCore"]),
-        .library(name: "CloudJob", targets: ["CloudJob", "CloudCore"]),
+        .library(name: "CloudCore", targets: ["CloudCore", "Trace"]),
+        .library(name: "CloudApp", targets: ["CloudApp", "CloudCore", "Trace"]),
+        .library(name: "CloudJob", targets: ["CloudJob", "CloudCore", "Trace"]),
 
         // Infrastructure
         .library(name: "ErrorReporting", targets: ["ErrorReporting"]),
