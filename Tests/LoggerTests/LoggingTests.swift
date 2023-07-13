@@ -8,7 +8,7 @@ final class GoogleCloudLoggingTests: XCTestCase {
     private let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
     override func tearDown() async throws {
-        try eventLoopGroup.syncShutdownGracefully()
+        try await eventLoopGroup.shutdownGracefully()
 
         try await super.tearDown()
     }

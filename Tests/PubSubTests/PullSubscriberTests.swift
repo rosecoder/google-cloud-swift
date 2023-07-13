@@ -17,12 +17,12 @@ private struct CallbackHandler: Handler {
     }
 }
 
-final class SubscriberTestCase: XCTestCase {
+final class PullSubscriberTestCase: XCTestCase {
 
     private let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
     override func tearDown() async throws {
-        try eventLoopGroup.syncShutdownGracefully()
+        try await eventLoopGroup.shutdownGracefully()
 
         try await super.tearDown()
     }

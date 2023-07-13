@@ -6,10 +6,10 @@ import Core
 import Trace
 import RetryableTask
 
-public final class PullSubscriber: Dependency {
+public final class PullSubscriber: Subscriber, Dependency {
 
     private static var _client: Google_Pubsub_V1_SubscriberAsyncClient?
-    private static let logger = Logger(label: "pubsub.subscriber")
+    static let logger = Logger(label: "pubsub.subscriber")
 
     private static var client: Google_Pubsub_V1_SubscriberAsyncClient {
         get {
@@ -174,91 +174,68 @@ public final class PullSubscriber: Dependency {
 
         let tasks: [Task<Void, Error>] = response.receivedMessages.map { receivedMessage in
             Task {
-                let rawMessage = receivedMessage.message
-
-                var context: Context = HandlerContext(
-                    logger: {
-                        var messageLogger = Logger(label: logger.label + ".message")
-                        messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.messageID)
-                        return messageLogger
-                    }(),
-                    trace: Trace(
-                        named: handlerType.subscription.name,
-                        kind: .consumer,
-                        attributes: [
-                            "message": rawMessage.messageID,
-                        ]
-                    )
-                )
-                if let trace = context.trace {
-                    context.logger.addMetadata(for: trace)
-                }
-
-                // Link to parent trace if included in message
-                if
-                    let rawSourceTraceID = rawMessage.attributes["__traceID"],
-                    let rawSourceSpanID = rawMessage.attributes["__spanID"],
-                    let traceID = Trace.Identifier(stringValue: rawSourceTraceID),
-                    let spanID = Span.Identifier(stringValue: rawSourceSpanID)
-                {
-                    context.trace?.rootSpan?.links.append(.init(
-                        trace: Trace(id: traceID, spanID: spanID),
-                        kind: .parent
-                    ))
-                }
-
-                // Handle message
-                func handleHandler(error: Error) async throws {
-                    if !(error is CancellationError) {
-                        context.logger.error("\(error)")
-                        context.trace?.end(error: error)
-                    } else {
-                        context.trace?.end(statusCode: .cancelled)
-                    }
-
-                    do {
-                        try await unacknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
-                    } catch {
-                        context.logger.error("Failed to unacknowledge message: \(error)")
-                    }
-                }
-
-                let message: Handler.Message.Incoming
-                do {
-                    message = try .init(
-                        id: rawMessage.messageID,
-                        published: rawMessage.publishTime.date,
-                        data: rawMessage.data,
-                        attributes: rawMessage.attributes,
-                        context: &context
-                    )
-                    try Task.checkCancellation()
-                } catch {
-                    try await handleHandler(error: error)
-                    return
-                }
-
-                var handler = Handler.init(context: context, message: message)
-                do {
-                    try await handler.handle()
-                    context = handler.context
-                } catch {
-                    context = handler.context
-                    try await handleHandler(error: error)
-                    return
-                }
-
-                context.trace?.end(statusCode: .ok)
-
-                do {
-                    try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
-                } catch {
-                    context.logger.critical("Failed to acknowledge message: \(error)")
-                }
+                try await handle(receivedMessage: receivedMessage, handlerType: handlerType)
             }
         }
         for task in tasks {
             _ = try await task.value
+        }
+    }
+
+    private static func handle<Handler>(receivedMessage: Google_Pubsub_V1_ReceivedMessage, handlerType: Handler.Type) async throws
+    where Handler: _Handler,
+          Handler.Message.Incoming: IncomingMessage
+    {
+        let rawMessage = receivedMessage.message
+
+        var context = messageContext(subscriptionName: handlerType.subscription.name, rawMessage: rawMessage)
+
+        func handleHandler(error: Error) async throws {
+            if !(error is CancellationError) {
+                context.logger.error("\(error)")
+                context.trace?.end(error: error)
+            } else {
+                context.trace?.end(statusCode: .cancelled)
+            }
+
+            do {
+                try await unacknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
+            } catch {
+                context.logger.error("Failed to unacknowledge message: \(error)")
+            }
+        }
+
+        let message: Handler.Message.Incoming
+        do {
+            message = try .init(
+                id: rawMessage.messageID,
+                published: rawMessage.publishTime.date,
+                data: rawMessage.data,
+                attributes: rawMessage.attributes,
+                context: &context
+            )
+            try Task.checkCancellation()
+        } catch {
+            try await handleHandler(error: error)
+            return
+        }
+
+        var handler = Handler.init(context: context, message: message)
+        do {
+            try await handler.handle()
+            context = handler.context
+        } catch {
+            context = handler.context
+            try await handleHandler(error: error)
+            return
+        }
+
+        context.trace?.end(statusCode: .ok)
+
+        do {
+            try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
+        } catch {
+            context.logger.critical("Failed to acknowledge message: \(error)")
         }
     }
 }

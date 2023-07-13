@@ -32,6 +32,7 @@ let package = Package(
         .package(name: "swift-argument-parser", url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(name: "retryable-task", url: "https://github.com/rosecoder/retryable-task.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/mysql-nio.git", from: "1.4.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.54.0"),
     ],
     targets: [
         .target(name: "CloudApp", dependencies: [
@@ -96,6 +97,7 @@ let package = Package(
             "Core",
             "Trace",
             .product(name: "GRPC", package: "grpc-swift"),
+            .product(name: "NIOHTTP1", package: "swift-nio"),
         ]),
         .testTarget(name: "PubSubTests", dependencies: ["PubSub"]),
 
