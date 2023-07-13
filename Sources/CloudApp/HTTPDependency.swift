@@ -1,5 +1,5 @@
 import NIO
-import Core
+import CloudCore
 import AsyncHTTPClient
 
 public protocol HTTPDependency: Dependency {

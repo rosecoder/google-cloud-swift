@@ -2,7 +2,7 @@ import Logging
 import GRPC
 import NIO
 import Foundation
-import Core
+import CloudCore
 import ErrorReporting
 
 public struct GoogleCloudLogHandler: LogHandler {

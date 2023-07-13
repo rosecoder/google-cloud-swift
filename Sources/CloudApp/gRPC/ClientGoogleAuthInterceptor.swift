@@ -2,7 +2,7 @@ import Foundation
 import GRPC
 import NIO
 import AsyncHTTPClient
-import Core
+import CloudCore
 
 public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response> {
 

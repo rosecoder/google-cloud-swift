@@ -1,7 +1,7 @@
 import Foundation
 import GRPC
 import NIO
-import Core
+import CloudCore
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).

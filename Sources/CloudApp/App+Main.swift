@@ -3,7 +3,7 @@ import Logging
 import ErrorReporting
 import Logger
 import Trace
-import Core
+import CloudCore
 import GRPC
 import RetryableTask
 

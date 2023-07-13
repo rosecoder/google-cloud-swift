@@ -3,7 +3,7 @@ import GRPC
 import NIO
 import NIOHTTP1
 import Logging
-import Core
+import CloudCore
 import Trace
 import RetryableTask
 

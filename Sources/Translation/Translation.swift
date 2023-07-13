@@ -1,7 +1,7 @@
 import Foundation
 import GRPC
 import NIO
-import Core
+import CloudCore
 
 public struct Translation: Dependency {
 

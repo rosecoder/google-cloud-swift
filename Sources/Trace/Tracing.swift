@@ -2,7 +2,7 @@ import Foundation
 import Logging
 import GRPC
 import NIO
-import Core
+import CloudCore
 import RetryableTask
 
 public struct Tracing: Dependency {

@@ -7,8 +7,8 @@ let package = Package(
        .macOS("12.0"),
     ],
     products: [
-        .library(name: "CloudApp", targets: ["CloudApp", "Core"]),
-        .library(name: "CloudJob", targets: ["CloudJob", "Core"]),
+        .library(name: "CloudApp", targets: ["CloudApp", "CloudCore"]),
+        .library(name: "CloudJob", targets: ["CloudJob", "CloudCore"]),
 
         // Infrastructure
         .library(name: "ErrorReporting", targets: ["ErrorReporting"]),
@@ -36,7 +36,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "CloudApp", dependencies: [
-            "Core",
+            "CloudCore",
             "ErrorReporting",
             "Logger",
             "Trace",
@@ -50,29 +50,29 @@ let package = Package(
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
         ]),
 
-        .target(name: "Core", dependencies: [
+        .target(name: "CloudCore", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2Server", package: "Auth"),
             .product(name: "RetryableTask", package: "retryable-task"),
         ]),
-        .testTarget(name: "CoreTests", dependencies: ["Core"]),
+        .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
 
         .target(name: "Datastore", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
         .testTarget(name: "DatastoreTests", dependencies: ["Datastore"]),
 
         .target(name: "ErrorReporting", dependencies: [
-            "Core",
+            "CloudCore",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "ErrorReportingTests", dependencies: ["ErrorReporting"]),
 
         .target(name: "Logger", dependencies: [
-            "Core",
+            "CloudCore",
             "ErrorReporting",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
@@ -80,21 +80,21 @@ let package = Package(
         .testTarget(name: "LoggerTests", dependencies: ["Logger"]),
 
         .target(name: "MySQL", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
             .product(name: "MySQLNIO", package: "mysql-nio"),
         ]),
         .testTarget(name: "MySQLTests", dependencies: ["MySQL"]),
 
         .target(name: "Redis", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
             .product(name: "RediStack", package: "RediStack"),
         ]),
         .testTarget(name: "RedisTests", dependencies: ["Redis"]),
 
         .target(name: "PubSub", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "NIOHTTP1", package: "swift-nio"),
@@ -102,21 +102,21 @@ let package = Package(
         .testTarget(name: "PubSubTests", dependencies: ["PubSub"]),
 
         .target(name: "Storage", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "StorageTests", dependencies: ["Storage"]),
 
         .target(name: "Trace", dependencies: [
-            "Core",
+            "CloudCore",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "TraceTests", dependencies: ["Trace"]),
 
         .target(name: "Translation", dependencies: [
-            "Core",
+            "CloudCore",
             "Trace",
         ]),
         .testTarget(name: "TranslationTests", dependencies: ["Translation"]),

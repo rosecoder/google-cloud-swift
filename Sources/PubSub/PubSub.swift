@@ -1,6 +1,6 @@
 import Foundation
 import NIO
-import Core
+import CloudCore
 
 struct PubSub {
 

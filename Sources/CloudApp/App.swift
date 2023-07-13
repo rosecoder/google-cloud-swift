@@ -1,7 +1,7 @@
 import Foundation
 import Logging
 import NIO
-import Core
+import CloudCore
 import Logger
 
 public protocol App {

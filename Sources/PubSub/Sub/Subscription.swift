@@ -1,7 +1,7 @@
 import Foundation
 import GRPC
 import Logging
-import Core
+import CloudCore
 
 private var verifiedHashValues = [Int]()
 

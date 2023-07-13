@@ -1,6 +1,6 @@
 import Foundation
 import Trace
-import Core
+import CloudCore
 
 extension Translation {
 

@@ -1,6 +1,6 @@
 import Foundation
 import AsyncHTTPClient
-import Core
+import CloudCore
 
 extension ErrorReporting {
 

@@ -1,5 +1,5 @@
 import Foundation
-import Core
+import CloudCore
 
 private var resolvedEntryLabels: [String: String]?
 

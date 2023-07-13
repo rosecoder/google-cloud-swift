@@ -1,7 +1,7 @@
 import Foundation
 import NIO
 import RediStack
-import Core
+import CloudCore
 
 public struct Redis: Dependency {
 

@@ -2,7 +2,7 @@ import Foundation
 import GRPC
 import NIO
 import Logging
-import Core
+import CloudCore
 import SwiftProtobuf
 import Trace
 import RetryableTask

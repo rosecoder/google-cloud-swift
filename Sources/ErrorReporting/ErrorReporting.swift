@@ -1,5 +1,5 @@
 import Foundation
-import Core
+import CloudCore
 import NIO
 import AsyncHTTPClient
 

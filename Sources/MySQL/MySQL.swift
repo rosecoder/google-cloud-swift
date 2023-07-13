@@ -1,7 +1,7 @@
 import Foundation
 import MySQLNIO
 import NIO
-import Core
+import CloudCore
 
 public struct MySQL: Dependency {
 

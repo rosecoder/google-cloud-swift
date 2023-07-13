@@ -1,6 +1,6 @@
 import Foundation
 import Logging
-import Core
+import CloudCore
 
 extension Logger {
 

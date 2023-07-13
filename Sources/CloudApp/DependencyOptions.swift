@@ -1,4 +1,4 @@
-import Core
+import CloudCore
 
 /// Set of options for a dependency.
 public struct DependencyOptions {
