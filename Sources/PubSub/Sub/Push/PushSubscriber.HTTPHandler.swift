@@ -8,10 +8,10 @@ extension PushSubscriber {
 
         typealias InboundIn = HTTPServerRequestPart
 
-        let handle: (Incoming) async -> Bool
+        let handle: (Incoming) async -> Response
         let decoder: JSONDecoder
 
-        init(handle: @escaping (Incoming) async -> Bool) {
+        init(handle: @escaping (Incoming) async -> Response) {
             self.handle = handle
             self.decoder = JSONDecoder()
 
@@ -29,18 +29,18 @@ extension PushSubscriber {
                 break
             case .body(let body):
                 Task {
-                    let isSuccess: Bool
+                    let response: Response
                     do {
                         let incoming = try decoder.decode(Incoming.self, from: body)
-                        isSuccess = await handle(incoming)
+                        response = await handle(incoming)
                     } catch {
                         PushSubscriber.logger.warning("Error parsing incoming message: \(error)", metadata: [
                             "data": .string(String(buffer: body)),
                         ])
-                        isSuccess = false
+                        response = .unexpectedCallerBehavior
                     }
 
-                    var head = HTTPResponseHead(version: .http1_1, status: isSuccess ? .noContent : .internalServerError)
+                    var head = HTTPResponseHead(version: .http1_1, status: response.httpStatus)
                     head.headers.add(name: "Keep-Alive", value: "timeout=5, max=1000")
                     _ = channel.write(HTTPServerResponsePart.head(head))
                     _ = channel.write(HTTPServerResponsePart.body(.byteBuffer(.init())))

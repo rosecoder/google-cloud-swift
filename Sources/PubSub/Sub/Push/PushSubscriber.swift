@@ -68,7 +68,7 @@ public final class PushSubscriber: Subscriber, Dependency {
 
     // MARK: - Subscribe
 
-    private static var handlings = [String: (Incoming, inout Context) async -> Bool]()
+    private static var handlings = [String: (Incoming, inout Context) async -> Response]()
 
     public static func register<Handler>(handler handlerType: Handler.Type) async throws
     where Handler: _Handler,
@@ -88,18 +88,18 @@ public final class PushSubscriber: Subscriber, Dependency {
         logger.debug("Subscribed to \(handlerType.subscription.name)")
     }
 
-    private static func handle(incoming: Incoming) async -> Bool {
+    private static func handle(incoming: Incoming) async -> Response {
         var context = messageContext(subscriptionName: incoming.subscription, rawMessage: incoming.message)
 
         guard let handling = handlings[incoming.subscription] else {
             context.logger.error("Handler for subscription could not be found: \(incoming.subscription)")
             context.trace?.end(statusCode: .notFound)
-            return false
+            return .notFound
         }
         return await handling(incoming, &context)
     }
 
-    private static func handle<Handler>(incoming: Incoming, handlerType: Handler.Type, context: inout Context) async -> Bool
+    private static func handle<Handler>(incoming: Incoming, handlerType: Handler.Type, context: inout Context) async -> Response
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
@@ -126,7 +126,7 @@ public final class PushSubscriber: Subscriber, Dependency {
             try Task.checkCancellation()
         } catch {
             handleHandler(error: error)
-            return false
+            return .failure
         }
 
         var handler = handlerType.init(context: context, message: message)
@@ -136,11 +136,11 @@ public final class PushSubscriber: Subscriber, Dependency {
         } catch {
             context = handler.context
             handleHandler(error: error)
-            return false
+            return .failure
         }
 
         context.trace?.end(statusCode: .ok)
 
-        return true
+        return .success
     }
 }
