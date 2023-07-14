@@ -34,7 +34,9 @@ extension PushSubscriber {
                         let incoming = try decoder.decode(Incoming.self, from: body)
                         isSuccess = await handle(incoming)
                     } catch {
-                        PushSubscriber.logger.warning("Error parsing incoming message: \(error)")
+                        PushSubscriber.logger.warning("Error parsing incoming message: \(error)", metadata: [
+                            "data": .string(String(buffer: body)),
+                        ])
                         isSuccess = false
                     }
 
