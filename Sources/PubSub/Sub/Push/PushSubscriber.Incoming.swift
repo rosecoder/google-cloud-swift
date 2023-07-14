@@ -28,12 +28,7 @@ extension PushSubscriber {
                 self.id = try container.decodeIfPresent(String.self, forKey: .messageId) ?? (try container.decode(String.self, forKey: .message_id))
                 self.published = try container.decodeIfPresent(Date.self, forKey: .publishTime) ?? (try container.decode(Date.self, forKey: .publish_time))
                 self.attributes = try container.decode([String: String].self, forKey: .attributes)
-
-                let dataBase64 = try container.decode(String.self, forKey: .data)
-                guard let data = Data(base64Encoded: dataBase64) else {
-                    throw DecodingError.dataCorrupted(.init(codingPath: decoder.codingPath + [CodingKeys.data], debugDescription: "Data is not base64 encoded: \(dataBase64)"))
-                }
-                self.data = data
+                self.data = try container.decode(Data.self, forKey: .data)
             }
         }
     }
