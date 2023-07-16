@@ -16,7 +16,11 @@ extension PushSubscriber {
         private static let decoder: JSONDecoder = {
             let decoder = JSONDecoder()
             decoder.dataDecodingStrategy = .base64
-            decoder.dateDecodingStrategy = .iso8601
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
             return decoder
         }()
 
