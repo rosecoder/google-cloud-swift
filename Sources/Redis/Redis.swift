@@ -18,6 +18,10 @@ public struct Redis: Dependency {
     }
 
     private static func createConnection() async throws {
+        guard let _unsafeInitializedEventLoopGroup else {
+            return
+        }
+
         connection = try await RedisConnection.make(
             configuration: try .init(
                 hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? ProcessInfo.processInfo.environment["REDIS_SERVICE_HOST"] ?? "127.0.0.1"
