@@ -11,7 +11,8 @@ extension Redis {
     where Value: Codable
     {
         let encoded = try defaultEncoder.encode(value)
-
+        
+        try await ensureConnection(context: context)
         try await context.trace.recordSpan(named: "redis-set", kind: .client, attributes: [
             "redis/key": key.rawValue,
         ]) { span in

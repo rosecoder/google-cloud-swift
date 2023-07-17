@@ -28,7 +28,7 @@ extension Redis {
         // Set lock
         let overestimatedSetDate = Date()
         do {
-            try await setLock(key: key, value: value)
+            try await setLock(key: key, value: value, context: context)
         } catch {
             waitSpan?.end(error: error)
             throw error
@@ -41,11 +41,16 @@ extension Redis {
         defer {
             let duration = Date().timeIntervalSince1970 - overestimatedSetDate.timeIntervalSince1970
             if duration < TimeInterval(timeoutMiliseconds) / 1_000 {
-                connection.delete(RedisKey(key)).whenFailure { error in
-                    print("Failed to delete Redis lock: \(key)", error)
+                Task {
+                    do {
+                        try await ensureConnection(context: context)
+                        _ = try await connection.delete(RedisKey(key)).get()
+                    } catch {
+                        context.logger.error("Failed to delete Redis lock: \(key) \(error)")
+                    }
                 }
             } else {
-                print("Lock execution took longer than timeout: \(key)")
+                context.logger.error("Lock execution took longer than timeout: \(key)")
             }
         }
 
@@ -53,7 +58,8 @@ extension Redis {
         return try await closure()
     }
 
-    private static func setLock(key: String, value: String, tryCount: UInt8 = 0) async throws {
+    private static func setLock(key: String, value: String, tryCount: UInt8 = 0, context: Context) async throws {
+        try await ensureConnection(context: context)
         let wasSet = try await connection.set(RedisKey(key), to: value, onCondition: .keyDoesNotExist, expiration: .milliseconds(timeoutMiliseconds)).get()
         if wasSet == .ok {
             return
@@ -65,9 +71,9 @@ extension Redis {
 
         let waitDuration = (minimumRetryDelayNanoseconds..<maximumRetryDelayNanoseconds).randomElement()!
 
-        print("Lock \(key) is locked. Retry in \(waitDuration)ns.")
+        context.logger.debug("Lock \(key) is locked. Retry in \(waitDuration)ns.")
         try await Task.sleep(nanoseconds: waitDuration)
 
-        try await setLock(key: key, value: value, tryCount: tryCount + 1)
+        try await setLock(key: key, value: value, tryCount: tryCount + 1, context: context)
   }
 }
