@@ -75,7 +75,7 @@ public struct GoogleCloudLogHandler: LogHandler {
             switch Self.preferredMethod {
             case .rpc:
                 do {
-                    try await logViaRPC(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, metadata: metadata, source: source, file: file, function: function, line: line)
+                    try await logViaRPC(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
                 } catch {
                     // Using forceable tries below.
                     // If fallback fails this is a critical issue and the app should be terminated on error.
@@ -85,17 +85,19 @@ public struct GoogleCloudLogHandler: LogHandler {
                         date: Date(),
                         level: .error,
                         message: "Error creating log entry: \(error)",
-                        metadata: nil,
+                        labels: [:],
                         source: "logging.log",
+                        trace: trace,
+                        spanID: spanID,
                         file: #file,
                         function: #function,
                         line: #line
                     ).write()
 
-                    try! logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, metadata: metadata, source: source, file: file, function: function, line: line)
+                    try! logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
                 }
             case .sidecar:
-                try logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, metadata: metadata, source: source, file: file, function: function, line: line)
+                try logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
             }
 
             // Report to error reporting if error
@@ -132,7 +134,7 @@ public struct GoogleCloudLogHandler: LogHandler {
     /// Last task for publishing logging to GCP. Intended only for internal use while testing.
     static var lastLogTask: Task<(), Error>?
 
-    private func logViaRPC(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, metadata: Logger.Metadata?, source: String, file: String, function: String, line: UInt) async throws {
+    private func logViaRPC(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, source: String, file: String, function: String, line: UInt) async throws {
         let environment = Environment.current
         let logName = environment.logName(label: label)
         var textPayload = message.description
@@ -180,13 +182,15 @@ public struct GoogleCloudLogHandler: LogHandler {
         _ = try await Self._client!.writeLogEntries(request)
     }
 
-    private func logViaSidecar(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, metadata: Logger.Metadata?, source: String, file: String, function: String, line: UInt) throws {
+    private func logViaSidecar(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, source: String, file: String, function: String, line: UInt) throws {
         try SidecarLog(
             date: now,
             level: level,
             message: message,
-            metadata: metadata,
+            labels: labels,
             source: source,
+            trace: trace,
+            spanID: spanID,
             file: file,
             function: function,
             line: line

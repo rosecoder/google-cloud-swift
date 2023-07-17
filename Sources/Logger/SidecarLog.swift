@@ -3,23 +3,36 @@ import Logging
 
 /// Log which is formatted to use a format parsable structured logging in GCP.
 ///
-/// Note that this format is not well documented by Google.
+/// https://cloud.google.com/logging/docs/structured-logging#special-payload-fields
 struct SidecarLog: Encodable {
 
     let time: String
     let severity: String
 
-    let messageText: String
     let message: String
+    let labels: [String: String]
 
-    let context: [String: String]
+    let spanID: String?
+    let trace: String?
+    let traceSampled: Bool
+
+    let sourceLocation: SourceLocation
+
+    struct SourceLocation: Encodable {
+
+        let file: String
+        let line: String
+        let function: String
+    }
 
     init(
         date: Date,
         level: Logger.Level,
         message: Logger.Message,
-        metadata: Logger.Metadata?,
+        labels: [String: String],
         source: String,
+        trace: String?,
+        spanID: String?,
         file: String,
         function: String,
         line: UInt
@@ -43,10 +56,28 @@ struct SidecarLog: Encodable {
             self.severity = "ERROR"
         }
 
-        self.messageText = "\(function) \(file):\(line)"
-        self.message = "\(source): \(message.description)"
+        self.message = message.description
 
-        self.context = metadata?.mapValues { $0.description } ?? [:]
+        var labels = labels
+        labels["logger"] = source
+        self.labels = labels
+
+        self.sourceLocation = .init(file: file, line: String(line), function: function)
+
+        self.trace = trace
+        self.spanID = spanID
+        self.traceSampled = trace != nil
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case time
+        case severity
+        case message
+        case labels = "logging.googleapis.com/labels"
+        case sourceLocation = "logging.googleapis.com/sourceLocation"
+        case spanID = "logging.googleapis.com/spanId"
+        case trace = "logging.googleapis.com/trace"
+        case traceSampled = "logging.googleapis.com/trace_sampled"
     }
 
     // MARK: - Formatters
@@ -54,7 +85,7 @@ struct SidecarLog: Encodable {
     private static let timeDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         return dateFormatter
     }()
