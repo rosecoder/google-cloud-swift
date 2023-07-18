@@ -1,6 +1,6 @@
 import Foundation
-import Logger
-import Trace
+import CloudLogger
+import CloudTrace
 
 private var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
 

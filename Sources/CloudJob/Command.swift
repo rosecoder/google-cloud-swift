@@ -1,5 +1,5 @@
 import ArgumentParser
-import Trace
+import CloudTrace
 
 public protocol Command: ArgumentParser.AsyncParsableCommand {
 

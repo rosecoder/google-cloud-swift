@@ -1,6 +1,6 @@
 import Foundation
 import GRPC
-import Trace
+import CloudTrace
 
 public func defaultClientInterceptors<Request, Response, DependencyType: GRPCDependency>(_ dependencyType: DependencyType.Type) -> [ClientInterceptor<Request, Response>] {
     [

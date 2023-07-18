@@ -1,8 +1,8 @@
 import Foundation
 import Logging
-import ErrorReporting
-import Logger
-import Trace
+import CloudErrorReporting
+import CloudLogger
+import CloudTrace
 import CloudCore
 import GRPC
 import RetryableTask

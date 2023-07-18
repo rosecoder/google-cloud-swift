@@ -2,7 +2,7 @@ import Foundation
 import Logging
 import NIO
 import CloudCore
-import Logger
+import CloudLogger
 
 public protocol App {
 

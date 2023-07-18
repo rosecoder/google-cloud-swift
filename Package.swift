@@ -7,22 +7,22 @@ let package = Package(
        .macOS("12.0"),
     ],
     products: [
-        .library(name: "CloudCore", targets: ["CloudCore", "Trace"]),
-        .library(name: "CloudApp", targets: ["CloudApp", "CloudCore", "Trace"]),
-        .library(name: "CloudJob", targets: ["CloudJob", "CloudCore", "Trace"]),
+        .library(name: "CloudCore", targets: ["CloudCore"]),
+        .library(name: "CloudApp", targets: ["CloudApp"]),
+        .library(name: "CloudJob", targets: ["CloudJob"]),
 
         // Infrastructure
-        .library(name: "ErrorReporting", targets: ["ErrorReporting"]),
-        .library(name: "Logger", targets: ["Logger"]),
-        .library(name: "Trace", targets: ["Trace"]),
+        .library(name: "CloudErrorReporting", targets: ["CloudErrorReporting"]),
+        .library(name: "CloudLogger", targets: ["CloudLogger"]),
+        .library(name: "CloudTrace", targets: ["CloudTrace"]),
 
         // Services
-        .library(name: "Datastore", targets: ["Datastore"]),
-        .library(name: "MySQL", targets: ["MySQL"]),
-        .library(name: "Redis", targets: ["Redis"]),
-        .library(name: "PubSub", targets: ["PubSub"]),
-        .library(name: "Storage", targets: ["Storage"]),
-        .library(name: "Translation", targets: ["Translation"]),
+        .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
+        .library(name: "CloudMySQL", targets: ["CloudMySQL"]),
+        .library(name: "CloudRedis", targets: ["CloudRedis"]),
+        .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
+        .library(name: "CloudStorage", targets: ["CloudStorage"]),
+        .library(name: "CloudTranslation", targets: ["CloudTranslation"]),
     ],
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
@@ -38,9 +38,9 @@ let package = Package(
     targets: [
         .target(name: "CloudApp", dependencies: [
             "CloudCore",
-            "ErrorReporting",
-            "Logger",
-            "Trace",
+            "CloudErrorReporting",
+            "CloudLogger",
+            "CloudTrace",
             .product(name: "Logging", package: "swift-log"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
@@ -59,67 +59,67 @@ let package = Package(
         ]),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
 
-        .target(name: "Datastore", dependencies: [
+        .target(name: "CloudDatastore", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
             .product(name: "GRPC", package: "grpc-swift"),
         ]),
-        .testTarget(name: "DatastoreTests", dependencies: ["Datastore"]),
+        .testTarget(name: "CloudDatastoreTests", dependencies: ["CloudDatastore"]),
 
-        .target(name: "ErrorReporting", dependencies: [
+        .target(name: "CloudErrorReporting", dependencies: [
             "CloudCore",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "ErrorReportingTests", dependencies: ["ErrorReporting"]),
+        .testTarget(name: "CloudErrorReportingTests", dependencies: ["CloudErrorReporting"]),
 
-        .target(name: "Logger", dependencies: [
+        .target(name: "CloudLogger", dependencies: [
             "CloudCore",
-            "ErrorReporting",
+            "CloudErrorReporting",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
         ]),
-        .testTarget(name: "LoggerTests", dependencies: ["Logger"]),
+        .testTarget(name: "CloudLoggerTests", dependencies: ["CloudLogger"]),
 
-        .target(name: "MySQL", dependencies: [
+        .target(name: "CloudMySQL", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
             .product(name: "MySQLNIO", package: "mysql-nio"),
         ]),
-        .testTarget(name: "MySQLTests", dependencies: ["MySQL"]),
+        .testTarget(name: "CloudMySQLTests", dependencies: ["CloudMySQL"]),
 
-        .target(name: "Redis", dependencies: [
+        .target(name: "CloudRedis", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
             .product(name: "RediStack", package: "RediStack"),
         ]),
-        .testTarget(name: "RedisTests", dependencies: ["Redis"]),
+        .testTarget(name: "CloudRedisTests", dependencies: ["CloudRedis"]),
 
-        .target(name: "PubSub", dependencies: [
+        .target(name: "CloudPubSub", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "NIOHTTP1", package: "swift-nio"),
         ]),
-        .testTarget(name: "PubSubTests", dependencies: ["PubSub"]),
+        .testTarget(name: "CloudPubSubTests", dependencies: ["CloudPubSub"]),
 
-        .target(name: "Storage", dependencies: [
+        .target(name: "CloudStorage", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "StorageTests", dependencies: ["Storage"]),
+        .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
 
-        .target(name: "Trace", dependencies: [
+        .target(name: "CloudTrace", dependencies: [
             "CloudCore",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
-        .testTarget(name: "TraceTests", dependencies: ["Trace"]),
+        .testTarget(name: "CloudTraceTests", dependencies: ["CloudTrace"]),
 
-        .target(name: "Translation", dependencies: [
+        .target(name: "CloudTranslation", dependencies: [
             "CloudCore",
-            "Trace",
+            "CloudTrace",
         ]),
-        .testTarget(name: "TranslationTests", dependencies: ["Translation"]),
+        .testTarget(name: "CloudTranslationTests", dependencies: ["CloudTranslation"]),
     ]
 )

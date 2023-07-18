@@ -1,5 +1,5 @@
 import Logging
-import Trace
+import CloudTrace
 
 struct CommandContext: Context {
 
