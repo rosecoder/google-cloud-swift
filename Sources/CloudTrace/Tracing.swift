@@ -38,7 +38,7 @@ public struct Tracing: Dependency {
 
     public static var projectID: String = Environment.current.projectID
 
-    public static var writeInterval: TimeInterval = 30
+    public static var writeInterval: TimeInterval = 10
 
     public static var maximumBatchSize = 500
 
