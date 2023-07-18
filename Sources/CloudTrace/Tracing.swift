@@ -75,6 +75,8 @@ public struct Tracing: Dependency {
         }
 #endif
 
+        logger.debug("Writing \(spans.count) trace span(s)...")
+
         lastWriteTask = Task {
             do {
                 try await withRetryableTask(logger: logger) {
@@ -85,6 +87,7 @@ public struct Tracing: Dependency {
                         $0.spans = spans.map(encode)
                     })
                 }
+                logger.debug("Successfully wrote spans.")
             } catch {
                 logger.error("Error writing trace spans: \(error)")
             }
