@@ -65,7 +65,14 @@ public struct Tracing: Dependency {
         buffer.append(span)
     }
 
-    static func write() {
+    public static func writeIfNeeded() {
+        guard !buffer.isEmpty else {
+            return
+        }
+        write()
+    }
+
+    private static func write() {
         let spans = buffer
         buffer.removeAll(keepingCapacity: true)
 
@@ -204,10 +211,6 @@ public struct Tracing: Dependency {
     }
 
     private static func writeTimerHit(timer: Timer) {
-        guard !buffer.isEmpty else {
-            return
-        }
-
-        write()
+        writeIfNeeded()
     }
 }
