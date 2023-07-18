@@ -88,8 +88,8 @@ public final class PushSubscriber: Subscriber, Dependency {
         logger.debug("Subscribed to \(handlerType.subscription.name)")
     }
 
-    private static func handle(incoming: Incoming) async -> Response {
-        var context = messageContext(subscriptionName: incoming.subscription, rawMessage: incoming.message)
+    private static func handle(incoming: Incoming, trace: Trace?) async -> Response {
+        var context = messageContext(subscriptionName: incoming.subscription, rawMessage: incoming.message, trace: trace)
 
         guard let handling = handlings[incoming.subscription] else {
             context.logger.error("Handler for subscription could not be found: \(incoming.subscription)")

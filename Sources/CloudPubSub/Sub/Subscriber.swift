@@ -16,14 +16,14 @@ protocol IncomingRawMessage {
 
 extension Subscriber {
 
-    static func messageContext(subscriptionName: String, rawMessage: IncomingRawMessage) -> Context {
+    static func messageContext(subscriptionName: String, rawMessage: IncomingRawMessage, trace: Trace?) -> Context {
         var context: Context = HandlerContext(
             logger: {
                 var messageLogger = Logger(label: logger.label + ".message")
                 messageLogger[metadataKey: "pubsub.message"] = .string(rawMessage.id)
                 return messageLogger
             }(),
-            trace: Trace(
+            trace: trace ?? Trace(
                 named: subscriptionName,
                 kind: .consumer,
                 attributes: [

@@ -188,7 +188,7 @@ public final class PullSubscriber: Subscriber, Dependency {
     {
         let rawMessage = receivedMessage.message
 
-        var context = messageContext(subscriptionName: handlerType.subscription.name, rawMessage: rawMessage)
+        var context = messageContext(subscriptionName: handlerType.subscription.name, rawMessage: rawMessage, trace: nil)
 
         func handleHandler(error: Error) async throws {
             if !(error is CancellationError) {
