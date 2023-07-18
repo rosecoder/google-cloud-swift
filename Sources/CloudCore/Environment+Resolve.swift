@@ -73,7 +73,8 @@ extension Environment {
         return .cloudRunRevision(
             serviceName: serviceName,
             revisionName: revisionName,
-            configurationName: configurationName
+            configurationName: configurationName,
+            isCPUAlwaysAllocated: ProcessInfo.processInfo.environment.keys.contains("CLOUD_RUN_CPU_ALWAYS_ALLOCATED")
         )
     }
 }

@@ -41,7 +41,7 @@ extension Environment {
                 "job_name": jobName,
                 "location": locationID
             ]
-        case .cloudRunRevision(let serviceName, let revisionName, let configurationName):
+        case .cloudRunRevision(let serviceName, let revisionName, let configurationName, _):
             return [
                 "project_id": projectID,
                 "service_name": serviceName,

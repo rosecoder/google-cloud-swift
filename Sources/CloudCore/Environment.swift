@@ -25,7 +25,8 @@ public enum Environment {
     case cloudRunRevision(
         serviceName: String, // The name of the Cloud Run service being run.
         revisionName: String, // The name of the Cloud Run revision being run.
-        configurationName: String // The name of the Cloud Run configuration that created the revision.
+        configurationName: String, // The name of the Cloud Run configuration that created the revision.
+        isCPUAlwaysAllocated: Bool
     )
 
     public static var current: Environment {
@@ -92,7 +93,7 @@ public enum Environment {
             return containerName
         case .cloudRunJob(let jobName, _, _, _, _):
             return jobName
-        case .cloudRunRevision(let serviceName, _, _):
+        case .cloudRunRevision(let serviceName, _, _, _):
             return serviceName
 #if DEBUG
         case .localDevelopment:
@@ -117,7 +118,7 @@ public enum Environment {
 
     public var version: String? {
         switch self {
-        case .cloudRunRevision(_, let revisionName, _):
+        case .cloudRunRevision(_, let revisionName, _, _):
             return revisionName
 #if DEBUG
         case .localDevelopment:
@@ -127,5 +128,14 @@ public enum Environment {
             break
         }
         return ProcessInfo.processInfo.environment["APP_VERSION"]
+    }
+
+    public var isCPUAlwaysAllocated: Bool {
+        switch self {
+        case .cloudRunRevision(_, _, _, let isCPUAlwaysAllocated):
+            return isCPUAlwaysAllocated
+        default:
+            return true
+        }
     }
 }
