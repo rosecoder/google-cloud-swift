@@ -14,26 +14,22 @@ public struct Redis: Dependency {
     // MARK: - Bootstrap
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        try await createConnection()
+        try await createConnection(eventLoopGroup: eventLoopGroup)
     }
 
-    private static func createConnection() async throws {
-        guard let _unsafeInitializedEventLoopGroup else {
-            return
-        }
-
+    private static func createConnection(eventLoopGroup: EventLoopGroup) async throws {
         connection = try await RedisConnection.make(
             configuration: try .init(
                 hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? ProcessInfo.processInfo.environment["REDIS_SERVICE_HOST"] ?? "127.0.0.1"
             ),
-            boundEventLoop: _unsafeInitializedEventLoopGroup.next()
+            boundEventLoop: eventLoopGroup.next()
         ).get()
     }
 
     static func ensureConnection(context: Context) async throws {
-        if connection?.isConnected != true {
+        if connection?.isConnected != true, let eventLoopGroup = _unsafeInitializedEventLoopGroup {
             try await context.trace.recordSpan(named: "redis-connect", kind: .client) { span in
-                try await createConnection()
+                try await createConnection(eventLoopGroup: eventLoopGroup)
             }
         }
     }
