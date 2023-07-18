@@ -1,6 +1,8 @@
 import Foundation
 import NIO
 import NIOHTTP1
+import CloudCore
+import CloudTrace
 
 extension PushSubscriber {
 
@@ -63,6 +65,11 @@ extension PushSubscriber {
                             "data": .string(String(buffer: buffer)),
                         ])
                         response = .unexpectedCallerBehavior
+                    }
+
+                    if !Environment.current.isCPUAlwaysAllocated {
+                        Tracing.writeIfNeeded()
+                        await Tracing.waitForWrite()
                     }
 
                     var head = HTTPResponseHead(version: .http1_1, status: response.httpStatus)

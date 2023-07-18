@@ -72,6 +72,10 @@ public struct Tracing: Dependency {
         write()
     }
 
+    public static func waitForWrite() async {
+        try? await lastWriteTask?.value
+    }
+
     private static func write() {
         let spans = buffer
         buffer.removeAll(keepingCapacity: true)
