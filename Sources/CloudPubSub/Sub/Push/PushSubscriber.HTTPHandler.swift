@@ -84,7 +84,7 @@ extension PushSubscriber {
                         let incoming = try Self.decoder.decode(Incoming.self, from: buffer)
                         response = await handle(incoming, trace)
                     } catch {
-                        PushSubscriber.logger.warning("Error parsing incoming message: \(error)", metadata: [
+                        PushSubscriber.logger.error("Error parsing incoming message: \(error)", metadata: [
                             "data": .string(String(buffer: buffer)),
                         ])
                         response = .unexpectedCallerBehavior
