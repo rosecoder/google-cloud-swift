@@ -34,6 +34,7 @@ let package = Package(
         .package(name: "retryable-task", url: "https://github.com/rosecoder/retryable-task.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/mysql-nio.git", from: "1.4.0"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.54.0"),
+        .package(url: "https://github.com/apple/swift-crypto.git", from: "2.5.0"),
     ],
     targets: [
         .target(name: "CloudApp", dependencies: [
@@ -106,6 +107,7 @@ let package = Package(
             "CloudCore",
             "CloudTrace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
+            .product(name: "Crypto", package: "swift-crypto"),
         ]),
         .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
 

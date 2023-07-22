@@ -41,6 +41,8 @@ public struct Storage: Dependency {
 
     static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         authorization =  try Authorization(scopes: [
+            "https://www.googleapis.com/auth/cloud-platform",
+            "https://www.googleapis.com/auth/iam",
             "https://www.googleapis.com/auth/devstorage.read_write",
         ], eventLoopGroup: eventLoopGroup)
 
