@@ -16,16 +16,35 @@ extension PushSubscriber {
         private var trace: Trace?
         private var buffer: ByteBuffer?
 
-        private static let decoder: JSONDecoder = {
+        static let decoder: JSONDecoder = {
             let decoder = JSONDecoder()
             decoder.dataDecodingStrategy = .base64
 
-            let dateFormatter = DateFormatter()
-            dateFormatter.calendar = Calendar(identifier: .iso8601)
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-            decoder.dateDecodingStrategy = .formatted(dateFormatter)
+            let dateFormats: [String] = [
+                "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX",
+                "yyyy-MM-dd'T'HH:mm:ss'Z'",
+            ]
+            let dateFormatters = dateFormats.map {
+                let formatter = DateFormatter()
+                formatter.calendar = Calendar(identifier: .iso8601)
+                formatter.locale = Locale(identifier: "en_US_POSIX")
+                formatter.timeZone = TimeZone(secondsFromGMT: 0)
+                formatter.dateFormat = $0
+                return formatter
+            }
+            decoder.dateDecodingStrategy = .custom({ decoder in
+                let container = try decoder.singleValueContainer()
+                let string = try container.decode(String.self)
+                for formatter in dateFormatters {
+                    if let date = formatter.date(from: string) {
+                        return date
+                    }
+                }
+                throw DecodingError.dataCorrupted(.init(
+                    codingPath: decoder.codingPath,
+                    debugDescription: "Date string does not match format expected by formatter."
+                ))
+            })
 
             return decoder
         }()
