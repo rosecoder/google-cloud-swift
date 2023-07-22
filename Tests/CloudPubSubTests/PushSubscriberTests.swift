@@ -1,6 +1,6 @@
 import XCTest
 import NIO
-import CloudPubSub
+@testable import CloudPubSub
 import CloudTrace
 
 private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
@@ -98,5 +98,28 @@ final class PushSubscriberTests: XCTestCase {
         XCTAssertEqual("Hello", receivedMessage?.body)
 
         try await PushSubscriber.shutdown()
+    }
+
+    func testParseIncoming() throws {
+        let decoder = PushSubscriber.HTTPHandler.decoder
+
+        do {
+            let incoming = try decoder.decode(PushSubscriber.Incoming.self, from: """
+{
+  \"message\": {
+    \"attributes\": {},
+    \"data\": \"SGVq\",
+    \"messageId\": \"7893897826387963\",
+    \"message_id\": \"7893897826387963\",
+    \"publishTime\": \"2023-07-21T14:00:07Z\",
+    \"publish_time\": \"2023-07-21T14:00:07Z\"
+  },
+  \"subscription\": \"projects/proj/subscriptions/sub\"
+}
+""".data(using: .utf8)!)
+            XCTAssertEqual(incoming.message.data, "Hej".data(using: .utf8)!)
+            XCTAssertEqual(incoming.message.id, "7893897826387963")
+            XCTAssertEqual(incoming.message.published.timeIntervalSince1970, 1689948007.0)
+        }
     }
 }
