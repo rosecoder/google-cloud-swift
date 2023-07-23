@@ -1,6 +1,7 @@
 import XCTest
 import NIO
 @testable import CloudStorage
+import CloudCore
 import CloudTrace
 
 final class SigningTests: XCTestCase {
@@ -13,14 +14,10 @@ final class SigningTests: XCTestCase {
     override func setUp() async throws {
         try await super.setUp()
 
-        struct ServiceAccount: Decodable {
-            let client_email: String
-        }
-
         let serviceAccountData = try Data(contentsOf: URL(fileURLWithPath:  "<#service account url#>"))
         let serviceAccount = try JSONDecoder().decode(ServiceAccount.self, from: serviceAccountData)
 
-        Storage.signingServiceAccountEmail = serviceAccount.client_email
+        ServiceAccount.custom = serviceAccount
 
         Storage.authorization = try .init(scopes: [
             "https://www.googleapis.com/auth/cloud-platform",

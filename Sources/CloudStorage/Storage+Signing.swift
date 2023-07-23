@@ -1,14 +1,13 @@
 import Foundation
+import CloudCore
 import CloudTrace
 import AsyncHTTPClient
 import NIOHTTP1
 import Crypto
-import Logging
 
 extension Storage {
 
     public static var signingMethod: SigningMethod = .iam
-    public static var signingServiceAccountEmail: String?
 
     /// Method of signing. See https://cloud.google.com/storage/docs/access-control/signed-urls#signing-iam
     public enum SigningMethod {
@@ -97,7 +96,7 @@ extension Storage {
             let datestamp = dateFormatter.string(from: now)
 
             // Service account
-            let serviceAccount = try await serviceAccount.value
+            let serviceAccount = try await ServiceAccount.current
             let credentialScope = datestamp + "/auto/storage/goog4_request"
 
             // Headers
@@ -203,67 +202,5 @@ extension Storage {
         decoder.dataDecodingStrategy = .base64
         let result = try decoder.decode(Response.self, from: responseBody)
         return result.signedBlob
-    }
-
-    // MARK: - Service Account
-
-    private static let serviceAccountLogger = Logger(label: "storage.serviceAccount")
-
-    private struct ServiceAccount: Decodable {
-
-        let email: String
-
-        enum CodingKeys: String, CodingKey {
-            case email = "client_email"
-        }
-    }
-
-    private static var _serviceAccount: Task<ServiceAccount, Error>?
-    private static var serviceAccount: Task<ServiceAccount, Error> {
-        if _serviceAccount == nil {
-            _serviceAccount = Task {
-                if let email = signingServiceAccountEmail {
-                    serviceAccountLogger.debug("Using service account given for signing.")
-                    return .init(email: email)
-                }
-                if let serviceAccount = try serviceAccountUsingFile {
-                    serviceAccountLogger.debug("Using service account from file.")
-                    return serviceAccount
-                }
-                serviceAccountLogger.debug("Using service account from metadata server.")
-                return try await serviceAccountUsingMetadata
-            }
-        }
-        return _serviceAccount!
-    }
-
-    private static var serviceAccountUsingFile: ServiceAccount? {
-        get throws {
-            guard let credentialsPath = ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"] else {
-                return nil
-            }
-
-            let credentialsURL = URL(fileURLWithPath: credentialsPath)
-            let data = try Data(contentsOf: credentialsURL)
-            return try JSONDecoder().decode(ServiceAccount.self, from: data)
-        }
-    }
-
-    private static var serviceAccountUsingMetadata: ServiceAccount {
-        get async throws {
-            var request = HTTPClientRequest(url: "http://metadata/computeMetadata/v1/instance/service-accounts/default/email")
-            request.method = .GET
-            request.headers.add(name: "Metadata-Flavor", value: "Google")
-
-            let response = try await client.execute(request, timeout: .seconds(10))
-
-            switch response.status {
-            case .ok:
-                let body = try await response.body.collect(upTo: 1024 * 10) // 10 KB
-                return .init(email: String(buffer: body))
-            default:
-                throw SignError.unexpectedMetdataStatus(response.status)
-            }
-        }
     }
 }

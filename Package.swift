@@ -43,7 +43,6 @@ let package = Package(
             "CloudLogger",
             "CloudTrace",
             .product(name: "Logging", package: "swift-log"),
-            .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "CloudAppTests", dependencies: ["CloudApp"]),
 
@@ -57,6 +56,7 @@ let package = Package(
             .product(name: "Logging", package: "swift-log"),
             .product(name: "OAuth2Server", package: "Auth"),
             .product(name: "RetryableTask", package: "retryable-task"),
+            .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ]),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
 
