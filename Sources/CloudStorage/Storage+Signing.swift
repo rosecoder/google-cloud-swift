@@ -3,6 +3,7 @@ import CloudTrace
 import AsyncHTTPClient
 import NIOHTTP1
 import Crypto
+import Logging
 
 extension Storage {
 
@@ -206,9 +207,15 @@ extension Storage {
 
     // MARK: - Service Account
 
-    private struct ServiceAccount {
+    private static let serviceAccountLogger = Logger(label: "storage.serviceAccount")
+
+    private struct ServiceAccount: Decodable {
 
         let email: String
+
+        enum CodingKeys: String, CodingKey {
+            case email = "client_email"
+        }
     }
 
     private static var _serviceAccount: Task<ServiceAccount, Error>?
@@ -216,12 +223,30 @@ extension Storage {
         if _serviceAccount == nil {
             _serviceAccount = Task {
                 if let email = signingServiceAccountEmail {
+                    serviceAccountLogger.debug("Using service account given for signing.")
                     return .init(email: email)
                 }
+                if let serviceAccount = try serviceAccountUsingFile {
+                    serviceAccountLogger.debug("Using service account from file.")
+                    return serviceAccount
+                }
+                serviceAccountLogger.debug("Using service account from metadata server.")
                 return try await serviceAccountUsingMetadata
             }
         }
         return _serviceAccount!
+    }
+
+    private static var serviceAccountUsingFile: ServiceAccount? {
+        get throws {
+            guard let credentialsPath = ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"] else {
+                return nil
+            }
+
+            let credentialsURL = URL(fileURLWithPath: credentialsPath)
+            let data = try Data(contentsOf: credentialsURL)
+            return try JSONDecoder().decode(ServiceAccount.self, from: data)
+        }
     }
 
     private static var serviceAccountUsingMetadata: ServiceAccount {
