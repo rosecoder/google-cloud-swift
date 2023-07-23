@@ -39,7 +39,7 @@ final class SigningTests: XCTestCase {
         let boundary = "__GC-SWIFT_BOUNDARY__"
 
         var request = URLRequest(url: URL(string: urlForWrite)!)
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 
         var requestBody = ""

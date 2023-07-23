@@ -53,7 +53,7 @@ extension Storage {
         case .reading:
             httpMethod = "GET"
         case .writing:
-            httpMethod = "POST"
+            httpMethod = "PUT"
         }
         return try await generateSignedURL(
             bucket: bucket,
