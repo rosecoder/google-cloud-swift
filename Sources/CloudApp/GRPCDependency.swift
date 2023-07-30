@@ -25,10 +25,12 @@ enum GRPCDependencyBootstrapError: Error {
 extension GRPCDependency where Client: GRPCClient {
 
     public static var client: Client {
-        guard let _client = _client else {
-            fatalError("\(self) has not been bootstrapped yet.")
+        get async throws {
+            if _client == nil {
+                try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+            }
+            return _client!
         }
-        return _client
     }
 
     public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
