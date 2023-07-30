@@ -7,12 +7,10 @@ extension Datastore {
     public static func deleteEntities<Key>(keys: [Key], context: Context, projectID: String = defaultProjectID) async throws
     where Key: AnyKey
     {
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
-        
         try await context.trace.recordSpan(named: "datastore-delete", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            _ = try await client.commit(.with {
+            _ = try await client(context: context).commit(.with {
                 $0.projectID = projectID
                 $0.mutations = keys.map { key in
                     .with {

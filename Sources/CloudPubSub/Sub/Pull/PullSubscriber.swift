@@ -11,17 +11,12 @@ public final class PullSubscriber: Subscriber, Dependency {
     private static var _client: Google_Pubsub_V1_SubscriberAsyncClient?
     static let logger = Logger(label: "pubsub.subscriber")
 
-    private static var client: Google_Pubsub_V1_SubscriberAsyncClient {
-        get {
-            guard let _client = _client else {
-                fatalError("Must call PullSubscriber.bootstrap(eventLoopGroup:) first")
-            }
-
-            return _client
+    private static func client(context: Context?) async throws -> Google_Pubsub_V1_SubscriberAsyncClient {
+        if _client == nil {
+            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        set {
-            _client = newValue
-        }
+        try await _client!.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        return _client!
     }
 
     // MARK: - Bootstrap
@@ -74,8 +69,7 @@ public final class PullSubscriber: Subscriber, Dependency {
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
-        try await client.ensureAuthentication(authorization: PubSub.authorization)
-        try await handlerType.subscription.createIfNeeded(creation: client.createSubscription, logger: logger)
+        try await handlerType.subscription.createIfNeeded(creation: try await client(context: nil).createSubscription, logger: logger)
 #endif
 
         continuesPull(handlerType: handlerType)
@@ -131,10 +125,8 @@ public final class PullSubscriber: Subscriber, Dependency {
     // MARK: - Acknowledge
 
     private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
-
         try await withRetryableTask(logger: context.logger) {
-            _ = try await client.acknowledge(.with {
+            _ = try await client(context: context).acknowledge(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
             })
@@ -142,10 +134,8 @@ public final class PullSubscriber: Subscriber, Dependency {
     }
 
     private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
-
         try await withRetryableTask(logger: context.logger) {
-            _ = try await client.modifyAckDeadline(.with {
+            _ = try await client(context: context).modifyAckDeadline(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
                 $0.ackDeadlineSeconds = 0
@@ -159,13 +149,11 @@ public final class PullSubscriber: Subscriber, Dependency {
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
-        try await client.ensureAuthentication(authorization: PubSub.authorization)
-
-        let response = try await client.pull(.with {
+        let response = try await client(context: nil).pull(.with {
             $0.subscription = handlerType.subscription.rawValue
             $0.maxMessages = 1_000
         }, callOptions: .init(
-            customMetadata: client.defaultCallOptions.customMetadata,
+            customMetadata: try await client(context: nil).defaultCallOptions.customMetadata,
             timeLimit: .deadline(.distantFuture)
         ))
         guard !response.receivedMessages.isEmpty else {

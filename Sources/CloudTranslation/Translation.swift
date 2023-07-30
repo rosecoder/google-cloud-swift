@@ -2,22 +2,18 @@ import Foundation
 import GRPC
 import NIO
 import CloudCore
+import CloudTrace
 
 public struct Translation: Dependency {
 
     private static var _client: Google_Cloud_Translation_V3_TranslationServiceAsyncClient?
 
-    static var client: Google_Cloud_Translation_V3_TranslationServiceAsyncClient {
-        get {
-            guard let _client = _client else {
-                fatalError("Must call Translation.bootstrap(eventLoopGroup:) first")
-            }
-
-            return _client
+    static func client(context: Context) async throws -> Google_Cloud_Translation_V3_TranslationServiceAsyncClient {
+        if _client == nil {
+            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        set {
-            _client = newValue
-        }
+        try await _client!.ensureAuthentication(authorization: authorization, context: context, traceContext: "translation")
+        return _client!
     }
 
     static var authorization: Authorization?

@@ -12,12 +12,10 @@ extension Datastore {
         let rawEntities: [Google_Datastore_V1_Entity] = try entities
             .map { try encoder.encode($0) }
 
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
-
         let result: Google_Datastore_V1_CommitResponse = try await context.trace.recordSpan(named: "datastore-put", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await client.commit(.with {
+            try await client(context: context).commit(.with {
                 $0.projectID = projectID
                 $0.mutations = rawEntities.map { raw in
                         .with {
@@ -58,12 +56,10 @@ extension Datastore {
     {
         precondition(!keys.contains(where: { $0.id != .incomplete }))
 
-        try await client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
-
         let result: Google_Datastore_V1_AllocateIdsResponse = try await context.trace.recordSpan(named: "datastore-allocate-ids", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            try await client.allocateIds(.with {
+            try await client(context: context).allocateIds(.with {
                 $0.projectID = projectID
                 $0.keys = keys.map { $0.raw }
             })

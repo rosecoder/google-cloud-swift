@@ -9,11 +9,10 @@ public struct MySQL: Dependency {
 
     static var connection: MySQLConnection {
         get async throws {
-            guard let _connection = _connection else {
-                fatalError("Must call MySQL.bootstrap(eventLoopGroup:) first")
+            if _connection == nil {
+                try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
             }
-
-            return try await _connection.get()
+            return try await _connection!.get()
         }
     }
 

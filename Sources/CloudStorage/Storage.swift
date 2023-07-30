@@ -11,14 +11,11 @@ public struct Storage: Dependency {
 
     private static var _client: HTTPClient?
 
-    static var client: HTTPClient {
-        get {
-            guard let _client = _client else {
-                fatalError("Must call Storage.bootstrap(eventLoopGroup:) first")
-            }
-            return _client
+    static func client() async throws -> HTTPClient {
+        if _client == nil {
+            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        set { _client = newValue }
+        return _client!
     }
 
 #if DEBUG
@@ -122,7 +119,7 @@ public struct Storage: Dependency {
         request.headers.add(name: "Authorization", value: "Bearer " + accessToken)
 
         // Perform
-        let response = try await client.execute(request, timeout: .seconds(30))
+        let response = try await client().execute(request, timeout: .seconds(30))
 
         switch response.status {
         case .ok, .created, .accepted, .noContent:

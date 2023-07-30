@@ -192,7 +192,7 @@ extension Storage {
         request.headers.add(name: "Authorization", value: "Bearer " + (try await authorization.accessToken()))
         request.body = .bytes(requestBody)
 
-        let response = try await client.execute(request, timeout: .seconds(60))
+        let response = try await client().execute(request, timeout: .seconds(60))
         let responseBody = try await response.body.collect(upTo: 1024 * 10) // 10 KB
         guard response.status == .ok else {
             throw SignError.signingFailed(response.status, body: String(buffer: responseBody))

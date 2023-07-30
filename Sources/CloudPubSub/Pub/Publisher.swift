@@ -21,17 +21,12 @@ public final class Publisher: Dependency {
     public static var isEnabled = true
 #endif
 
-    private static var client: Google_Pubsub_V1_PublisherAsyncClient {
-        get {
-            guard let _client = _client else {
-                fatalError("Must call Publisher.bootstrap(eventLoopGroup:) first")
-            }
-
-            return _client
+    private static func client(context: Context) async throws -> Google_Pubsub_V1_PublisherAsyncClient {
+        if _client == nil {
+            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        set {
-            _client = newValue
-        }
+        try await _client!.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        return _client!
     }
 
     // MARK: - Bootstrap
@@ -89,16 +84,14 @@ public final class Publisher: Dependency {
             }
 #endif
 
-            try await client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
-
 #if DEBUG
-            try await topic.createIfNeeded(creation: client.createTopic)
+            try await topic.createIfNeeded(creation: try await client(context: context).createTopic)
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
                 "pubsub/topic": topic.rawValue,
             ], closure: { span in
-                try await client.publish(.with {
+                try await client(context: context).publish(.with {
                     $0.topic = topic.rawValue
                     $0.messages = messages.map { message in
                         Google_Pubsub_V1_PubsubMessage.with {

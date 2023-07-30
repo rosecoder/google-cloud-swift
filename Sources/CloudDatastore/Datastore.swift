@@ -2,6 +2,7 @@ import Foundation
 import GRPC
 import NIO
 import CloudCore
+import CloudTrace
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).
@@ -18,17 +19,12 @@ public struct Datastore: Dependency {
 
     private static var _client: Google_Datastore_V1_DatastoreAsyncClient?
 
-    static var client: Google_Datastore_V1_DatastoreAsyncClient {
-        get {
-            guard let _client = _client else {
-                fatalError("Must call Datastore.bootstrap(eventLoopGroup:) first")
-            }
-
-            return _client
+    static func client(context: Context) async throws -> Google_Datastore_V1_DatastoreAsyncClient {
+        if _client == nil {
+            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        set {
-            _client = newValue
-        }
+        try await _client!.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
+        return _client!
     }
 
     public static var defaultProjectID: String = Environment.current.projectID

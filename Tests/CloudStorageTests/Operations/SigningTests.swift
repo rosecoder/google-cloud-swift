@@ -18,13 +18,6 @@ final class SigningTests: XCTestCase {
         let serviceAccount = try JSONDecoder().decode(ServiceAccount.self, from: serviceAccountData)
 
         ServiceAccount.custom = serviceAccount
-
-        Storage.authorization = try .init(scopes: [
-            "https://www.googleapis.com/auth/cloud-platform",
-            "https://www.googleapis.com/auth/iam",
-            "https://www.googleapis.com/auth/devstorage.read_write",
-        ], authentication: .serviceAccount(serviceAccountData), eventLoopGroup: eventLoopGroup)
-        Storage.client = .init(eventLoopGroupProvider: .shared(eventLoopGroup))
     }
 
     func testSignForWrite() async throws {
