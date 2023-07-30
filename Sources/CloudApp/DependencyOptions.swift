@@ -4,13 +4,8 @@ import CloudCore
 public struct DependencyOptions {
 
     public let type: Dependency.Type
-    public let isRequired: Bool
 
-    public init(
-        _ type: Dependency.Type,
-        isRequired: Bool = true
-    ) {
+    public init(_ type: Dependency.Type) {
         self.type = type
-        self.isRequired = isRequired
     }
 }

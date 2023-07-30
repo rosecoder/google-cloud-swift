@@ -63,11 +63,7 @@ extension App {
             do {
                 try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
             } catch {
-                if options.isRequired {
-                    logger.critical("\(options.type) failed to bootstrap: \(error)")
-                    await terminate(exitCode: 1)
-                }
-                logger.warning("\(options.type) (optional) failed to bootstrap: \(error)")
+                logger.warning("\(options.type) failed to bootstrap: \(error)")
             }
         }
 
