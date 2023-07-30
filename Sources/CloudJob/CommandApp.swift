@@ -1,8 +1,10 @@
 import RetryableTask
 
-var commandApp: App?
+var commandApp: CommandApp.Type?
 
-extension App {
+public protocol CommandApp: App {}
+
+extension CommandApp {
 
     /// Intiaizlies the app with all bootstrapping defined for a single action run. After this the app is terminated with exit code 0.
     /// - Parameter action: Action to run after bootstrap.
@@ -13,7 +15,7 @@ extension App {
     /// - Tracing
     /// - Metrics
     /// - App dependencies
-    public func commandMain(bootstrap: @escaping () async throws -> Void = {}) async -> Never {
+    public static func run() async -> Never {
         commandApp = self
 
         // Retries
@@ -24,7 +26,7 @@ extension App {
         )
 
         // Init
-        await initialize(bootstrap: bootstrap)
+        await initialize()
 
         // Execute
         await Self.main()

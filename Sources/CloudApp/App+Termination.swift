@@ -6,7 +6,7 @@ private var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
 
 extension App {
 
-    func catchGracefulTermination() {
+    static func catchGracefulTermination() {
         if _unsafeTerminateReferences.isEmpty {
             let rawSignal: Int32
 #if DEBUG
@@ -32,7 +32,7 @@ extension App {
 
     /// Initializes gracefull termination task
     /// - Parameter exitCode: Exit code to terminate process with after shutdown completed.
-    public func terminate(exitCode: Int32) async -> Never {
+    public static func terminate(exitCode: Int32) async -> Never {
 #if !DEBUG
         logger.debug("Shutdown initialized. Terminating...")
 #endif

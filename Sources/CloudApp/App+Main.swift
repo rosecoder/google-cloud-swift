@@ -4,12 +4,11 @@ import CloudErrorReporting
 import CloudLogger
 import CloudTrace
 import CloudCore
-import GRPC
 import RetryableTask
 
 extension App {
 
-    public func initialize(bootstrap: () async throws -> Void = {}) async {
+    public static func initialize(preBootstrap: () async throws -> Void = {}) async {
         _unsafeInitializedEventLoopGroup = eventLoopGroup
 
         // Logging
@@ -69,7 +68,8 @@ extension App {
 
         // App
         do {
-            try await bootstrap()
+            try await preBootstrap()
+            try await self.bootstrap()
         } catch {
             logger.critical("Error bootstrapping app", metadata: [
                 "error": .string(String(describing: error)),
@@ -85,113 +85,5 @@ extension App {
                 logger.warning("Failed to write readiness indication file: \(error)")
             }
         }
-    }
-
-    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
-    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
-    ///
-    /// Boostrapping order:
-    /// - Logging
-    /// - Error reporting
-    /// - Tracing
-    /// - Metrics
-    /// - App dependencies
-    /// - App (`bootstrap`-parameter)
-    public func processMain(bootstrap: @escaping () async throws -> Void = {}) {
-        Task {
-            // Retries
-            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
-                delay: 50_000_000, // 50 ms
-                maxRetries: 1
-            )
-            
-            // Init
-            await initialize(bootstrap: bootstrap)
-            
-            // Ready!
-#if DEBUG
-            logger.debug("App running in debug 🚀")
-#else
-            logger.info("Bootstrap completed")
-#endif
-        }
-
-        RunLoop.current.run()
-
-        Task {
-            await terminate(exitCode: 0)
-        }
-    }
-
-    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
-    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
-    ///
-    /// Boostrapping order:
-    /// - Logging
-    /// - Error reporting
-    /// - Tracing
-    /// - Metrics
-    /// - App dependencies
-    /// - App (`bootstrap`-parameter)
-    public func serverMain(
-        serviceProviders: [CallHandlerProvider],
-        defaultPort: Int,
-        bootstrap: @escaping () async throws -> Void = {}
-    ) {
-        Task {
-            // Retries
-            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
-                delay: 10_000_000, // 10 ms
-                maxRetries: 1
-            )
-
-            // Init
-            let port: Int
-            if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
-                port = environmentPort
-            } else {
-                port = defaultPort
-            }
-
-            await initialize(bootstrap: {
-                _ = try await Server.insecure(group: eventLoopGroup)
-                    .withServiceProviders(serviceProviders)
-                    .bind(host: "0.0.0.0", port: port)
-                    .get()
-
-                try await bootstrap()
-            })
-
-            // Ready!
-#if DEBUG
-            logger.debug("App running in debug on port \(port) 🚀")
-#else
-            logger.info("Bootstrap completed on port \(port)")
-#endif
-        }
-
-        RunLoop.current.run()
-
-        Task {
-            await terminate(exitCode: 0)
-        }
-    }
-
-    /// Intiaizlies the app with all bootstrapping defined and starting the run loop.
-    /// - Parameter boostrap: Additional bootstrapping work that should be done. This bootstrap is run last.
-    ///
-    /// Boostrapping order:
-    /// - Logging
-    /// - Error reporting
-    /// - Tracing
-    /// - Metrics
-    /// - App dependencies
-    /// - App (`bootstrap`-parameter)
-    public func serverMain(
-        serviceProvider: CallHandlerProvider,
-        defaultPort: Int,
-        bootstrap: @escaping () async throws -> Void = {}
-    ) {
-        serverMain(serviceProviders: [serviceProvider], defaultPort: defaultPort, bootstrap: bootstrap)
     }
 }

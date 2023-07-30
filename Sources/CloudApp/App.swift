@@ -6,12 +6,12 @@ import CloudLogger
 
 public protocol App {
 
-    var eventLoopGroup: EventLoopGroup { get }
+    static var eventLoopGroup: EventLoopGroup { get }
 
     /// Logger to be used for app during bootstrap and shutdown.
     ///
     /// Default implementation uses a logger with the label `"main"`.
-    var logger: Logger { get }
+    static var logger: Logger { get }
 
     /// Log level to be used when bootstrapping the logging system.
     ///
@@ -25,17 +25,22 @@ public protocol App {
     /// - warning
     /// - error
     /// - critical
-    var logLevel: Logger.Level { get }
+    static var logLevel: Logger.Level { get }
 
     /// All dependencies to bootstrap on main.
     ///
     /// Bootstrapping is run one at a time in the order given.
     static var dependencies: [DependencyOptions] { get }
 
+    /// Implement this to do any extra work at bootstrap.
+    ///
+    /// Default implementation isn't doing anything.
+    static func bootstrap() async throws -> Void
+
     /// Implement this to do any extra work needed before termination.
     ///
     /// Default implementation isn't doing anything.
-    func shutdown() async throws
+    static func shutdown() async throws
 }
 
 // MARK: - Default implementations
@@ -45,11 +50,11 @@ private let defaultLogger = Logger(label: "main")
 
 extension App {
 
-    public var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
+    public static var eventLoopGroup: EventLoopGroup { defaultEventLoopGroup }
 
-    public var logger: Logger { defaultLogger }
+    public static var logger: Logger { defaultLogger }
 
-    public var logLevel: Logger.Level {
+    public static var logLevel: Logger.Level {
         if
             let raw = ProcessInfo.processInfo.environment["LOG_LEVEL"],
             let level = Logger.Level(rawValue: raw.lowercased())
@@ -65,5 +70,7 @@ extension App {
 
     public static var dependencies: [DependencyOptions] { [] }
 
-    public func shutdown() async throws {}
+    public static func bootstrap() async throws {}
+
+    public static func shutdown() async throws {}
 }
