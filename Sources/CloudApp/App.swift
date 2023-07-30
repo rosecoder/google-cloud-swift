@@ -63,7 +63,7 @@ extension App {
 #endif
     }
 
-    public var dependencies: [Dependency.Type] { [] }
+    public static var dependencies: [DependencyOptions] { [] }
 
     public func shutdown() async throws {}
 }
