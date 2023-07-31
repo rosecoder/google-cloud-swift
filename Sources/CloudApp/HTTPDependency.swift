@@ -38,10 +38,12 @@ extension HTTPDependency {
     // MARK: - Client
 
     public static var client: HTTPClient {
-        guard let _client = _client else {
-            fatalError("\(self) has not been bootstrapped yet.")
+        get async throws {
+            if _client == nil {
+                try await bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+            }
+            return _client!
         }
-        return _client
     }
 
     // MARK: - Bootstrap
