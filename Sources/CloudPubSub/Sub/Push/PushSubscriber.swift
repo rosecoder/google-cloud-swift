@@ -81,6 +81,10 @@ public final class PushSubscriber: Subscriber, Dependency {
         }
 #endif
 
+        if channel == nil {
+            try await bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+        }
+
         handlings[handlerType.subscription.id] = {
             await self.handle(incoming: $0, handlerType: handlerType, context: &$1)
         }
