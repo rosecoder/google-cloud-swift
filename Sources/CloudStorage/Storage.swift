@@ -7,7 +7,20 @@ import CloudTrace
 
 public struct Storage: Dependency {
 
-    static var authorization: Authorization!
+    static var _authorization: Authorization?
+
+    static var authorization: Authorization {
+        get throws {
+            if _authorization == nil {
+                _authorization = try Authorization(scopes: [
+                    "https://www.googleapis.com/auth/cloud-platform",
+                    "https://www.googleapis.com/auth/iam",
+                    "https://www.googleapis.com/auth/devstorage.read_write",
+                ], eventLoopGroup: _unsafeInitializedEventLoopGroup)
+            }
+            return _authorization!
+        }
+    }
 
     private static var _client: HTTPClient?
 
@@ -37,12 +50,6 @@ public struct Storage: Dependency {
     }
 
     static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        authorization =  try Authorization(scopes: [
-            "https://www.googleapis.com/auth/cloud-platform",
-            "https://www.googleapis.com/auth/iam",
-            "https://www.googleapis.com/auth/devstorage.read_write",
-        ], eventLoopGroup: eventLoopGroup)
-
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         try await authorization.warmup()
     }
@@ -56,7 +63,7 @@ public struct Storage: Dependency {
     // MARK: - Termination
 
     public static func shutdown() async throws {
-        try await authorization?.shutdown()
+        try await _authorization?.shutdown()
     }
 
     // MARK: - Requests
