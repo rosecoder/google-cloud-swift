@@ -38,11 +38,11 @@ public actor Tracing: Dependency {
 
     // MARK: - Config
 
-    public var projectID: String = Environment.current.projectID
+    public static var projectID: String = Environment.current.projectID
 
-    public var writeInterval: TimeInterval = 10
+    public static var writeInterval: TimeInterval = 10
 
-    public var maximumBatchSize = 500
+    public static var maximumBatchSize = 500
 
     // MARK: - Write
 
@@ -61,7 +61,7 @@ public actor Tracing: Dependency {
         }
 #endif
 
-        if buffer.count + 1 > maximumBatchSize {
+        if buffer.count + 1 > Self.maximumBatchSize {
             write()
         }
         buffer.append(span)
@@ -108,7 +108,7 @@ public actor Tracing: Dependency {
         self._client = _client
 
         _ = try await _client.batchWriteSpans(.with {
-            $0.name = "projects/\(projectID)"
+            $0.name = "projects/\(Self.projectID)"
             $0.spans = spans.map(encode)
         })
     }
@@ -116,7 +116,7 @@ public actor Tracing: Dependency {
     private func encode(span: Span) -> Google_Devtools_Cloudtrace_V2_Span {
         let spanIDString = span.id.stringValue
         return .with {
-            $0.name = "projects/\(projectID)/traces/\(span.traceID.stringValue)/spans/\(spanIDString)"
+            $0.name = "projects/\(Self.projectID)/traces/\(span.traceID.stringValue)/spans/\(spanIDString)"
             $0.spanID = spanIDString
             $0.parentSpanID = span.parentID?.stringValue ?? ""
             $0.displayName = Google_Devtools_Cloudtrace_V2_TruncatableString(span.name, limit: 128)
@@ -218,7 +218,7 @@ public actor Tracing: Dependency {
     // MARK: - Write Timer
 
     private func scheduleRepeatingWriteTimer() {
-        let timer = Timer(timeInterval: writeInterval, repeats: true) { _ in
+        let timer = Timer(timeInterval: Self.writeInterval, repeats: true) { _ in
             Task {
                 await self.writeIfNeeded()
             }
