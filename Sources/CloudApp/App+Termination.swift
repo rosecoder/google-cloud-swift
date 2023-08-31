@@ -62,7 +62,7 @@ extension App {
 #if !DEBUG
         for dependency in Self.dependencies.reversed() {
             do {
-                try await dependency.type.shutdown()
+                try await dependency.type.shared.shutdown()
             } catch {
                 logger.error("Error shutting down app dependency, \(dependency.type): \(error)")
                 hasFail = true
@@ -73,7 +73,7 @@ extension App {
         // Trace
 #if !DEBUG
         do {
-            try await Tracing.shutdown()
+            try await Tracing.shared.shutdown()
         } catch {
             logger.error("Error shutting down tracing: \(error)")
         }
@@ -81,7 +81,7 @@ extension App {
 
         // Logging
 #if !DEBUG
-        try! await GoogleCloudLogHandler.shutdown()
+        try! await GoogleCloudLogging.shared.shutdown()
 #endif
 
         // Just in case, hold on for 1 sec

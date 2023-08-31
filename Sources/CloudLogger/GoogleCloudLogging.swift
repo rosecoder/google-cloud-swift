@@ -4,9 +4,9 @@ import GRPC
 import NIO
 import CloudCore
 
-actor GoogleCloudLogging: Dependency {
+public actor GoogleCloudLogging: Dependency {
 
-    static var shared = GoogleCloudLogging()
+    public static var shared = GoogleCloudLogging()
 
     private var _client: Google_Logging_V2_LoggingServiceV2AsyncClient?
 
