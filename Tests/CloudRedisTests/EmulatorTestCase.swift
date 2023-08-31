@@ -12,6 +12,6 @@ class EmulatorTestCase: XCTestCase {
 
         // TODO: Bootstrap with emulator
 
-        try await Redis.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await Redis.shared.bootstrap(eventLoopGroup: eventLoopGroup)
     }
 }

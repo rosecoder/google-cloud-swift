@@ -7,9 +7,11 @@ import SwiftProtobuf
 import CloudTrace
 import RetryableTask
 
-public final class Publisher: Dependency {
+public actor Publisher: Dependency {
 
-    static var _client: Google_Pubsub_V1_PublisherAsyncClient?
+    public static var shared = Publisher()
+
+    var _client: Google_Pubsub_V1_PublisherAsyncClient?
     private static let logger = Logger(label: "pubsub.publisher")
 
 #if DEBUG
@@ -21,17 +23,19 @@ public final class Publisher: Dependency {
     public static var isEnabled = true
 #endif
 
-    private static func client(context: Context) async throws -> Google_Pubsub_V1_PublisherAsyncClient {
+    private func client(context: Context) async throws -> Google_Pubsub_V1_PublisherAsyncClient {
         if _client == nil {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        try await _client!.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
-        return _client!
+        var _client = _client!
+        try await _client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        self._client = _client
+        return _client
     }
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         try await PubSub.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Emulator
@@ -59,14 +63,14 @@ public final class Publisher: Dependency {
 #if DEBUG
     /// Bootstraps for testing only by setting `isEnabled` to `false`.
     /// - Parameter eventLoopGroup: NIO event loop group to use. This property is currently never used, but may change in the future.
-    public static func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
-        isEnabled = false
+    public func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
+        Self.isEnabled = false
     }
 #endif
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await PubSub.shutdown()
     }
 
@@ -85,13 +89,13 @@ public final class Publisher: Dependency {
 #endif
 
 #if DEBUG
-            try await topic.createIfNeeded(creation: try await client(context: context).createTopic)
+            try await topic.createIfNeeded(creation: try await shared.client(context: context).createTopic)
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
                 "pubsub/topic": topic.rawValue,
             ], closure: { span in
-                try await client(context: context).publish(.with {
+                try await shared.client(context: context).publish(.with {
                     $0.topic = topic.rawValue
                     $0.messages = messages.map { message in
                         Google_Pubsub_V1_PubsubMessage.with {

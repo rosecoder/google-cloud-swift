@@ -12,11 +12,11 @@ extension Redis {
     {
         let encoded = try defaultEncoder.encode(value)
         
-        try await ensureConnection(context: context)
+        try await shared.ensureConnection(context: context)
         try await context.trace.recordSpan(named: "redis-set", kind: .client, attributes: [
             "redis/key": key.rawValue,
         ]) { span in
-            _ = try await connection.set(key, to: encoded).get()
+            _ = try await shared.connection.set(key, to: encoded).get()
         }
     }
 }

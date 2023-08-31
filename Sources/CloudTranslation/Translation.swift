@@ -4,23 +4,27 @@ import NIO
 import CloudCore
 import CloudTrace
 
-public struct Translation: Dependency {
+public actor Translation: Dependency {
 
-    private static var _client: Google_Cloud_Translation_V3_TranslationServiceAsyncClient?
+    public static var shared = Translation()
 
-    static func client(context: Context) async throws -> Google_Cloud_Translation_V3_TranslationServiceAsyncClient {
+    private var _client: Google_Cloud_Translation_V3_TranslationServiceAsyncClient?
+
+    func client(context: Context) async throws -> Google_Cloud_Translation_V3_TranslationServiceAsyncClient {
         if _client == nil {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        try await _client!.ensureAuthentication(authorization: authorization, context: context, traceContext: "translation")
-        return _client!
+        var _client = _client!
+        try await _client.ensureAuthentication(authorization: authorization, context: context, traceContext: "translation")
+        self._client = _client
+        return _client
     }
 
-    static var authorization: Authorization?
+    var authorization: Authorization?
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 #if DEBUG
         try await bootstrapForDebug(eventLoopGroup: eventLoopGroup)
 #else
@@ -28,7 +32,7 @@ public struct Translation: Dependency {
 #endif
     }
 
-    static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         let channel = ClientConnection
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
             .connect(host: "translate.googleapis.com", port: 443)
@@ -47,7 +51,7 @@ public struct Translation: Dependency {
         let errorDescription: String? = "Make sure the environment key TRANSLATION_GOOGLE_APPLICATION_CREDENTIALS is set with a correct value."
     }
 
-    static func bootstrapForDebug(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrapForDebug(eventLoopGroup: EventLoopGroup) async throws {
         guard let credentialsPath = ProcessInfo.processInfo.environment["TRANSLATION_GOOGLE_APPLICATION_CREDENTIALS"] else {
             throw NotSetUpForDebugError()
         }
@@ -68,7 +72,7 @@ public struct Translation: Dependency {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await authorization?.shutdown()
     }
 }

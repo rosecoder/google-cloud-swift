@@ -3,13 +3,15 @@ import CloudCore
 import NIO
 import AsyncHTTPClient
 
-public struct ErrorReporting {
+public actor ErrorReporting: Dependency {
 
-    static var authorization: Authorization!
+    public static var shared = ErrorReporting()
 
-    private static var _client: HTTPClient?
+    var authorization: Authorization!
 
-    static var client: HTTPClient {
+    private var _client: HTTPClient?
+
+    var client: HTTPClient {
         get {
             guard let _client = _client else {
                 fatalError("Must call ErrorReporting.bootstrap(eventLoopGroup:) first")
@@ -24,7 +26,7 @@ public struct ErrorReporting {
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) throws {
         authorization = try Authorization(scopes: [
             "https://www.googleapis.com/auth/cloud-platform",
             "https://www.googleapis.com/auth/stackdriver-integration",
@@ -34,7 +36,7 @@ public struct ErrorReporting {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await authorization?.shutdown()
     }
 }

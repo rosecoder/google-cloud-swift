@@ -16,7 +16,7 @@ extension Datastore {
         let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await client(context: context).runQuery(.with {
+            try await shared.client(context: context).runQuery(.with {
                 $0.projectID = projectID
                 $0.partitionID = .with {
                     $0.namespaceID = query.namespace.rawValue

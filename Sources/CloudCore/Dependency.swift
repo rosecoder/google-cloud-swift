@@ -3,14 +3,16 @@ import NIO
 
 public var _unsafeInitializedEventLoopGroup: EventLoopGroup!
 
-public protocol Dependency {
+public protocol Dependency: Actor {
 
-    static func bootstrap(eventLoopGroup: EventLoopGroup) async throws
+    static var shared: Self { get }
 
-    static func shutdown() async throws
+    func bootstrap(eventLoopGroup: EventLoopGroup) async throws
+
+    func shutdown() async throws
 }
 
 extension Dependency {
 
-    public static func shutdown() async throws {}
+    public func shutdown() async throws {}
 }

@@ -99,11 +99,11 @@ public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable
                 return
             }
             if "\(error)".hasPrefix("not found (5):") {
-                if Publisher._client == nil {
+                if await Publisher.shared._client == nil {
                     logger.warning("Bootstrapping PubSub.Publisher due to subscription topic needs to be created. This is only done in DEBUG!")
-                    try await Publisher.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+                    try await Publisher.shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
                 }
-                try await topic.createIfNeeded(creation: Publisher._client!.createTopic)
+                try await topic.createIfNeeded(creation: await Publisher.shared._client!.createTopic)
                 return
             }
             throw error

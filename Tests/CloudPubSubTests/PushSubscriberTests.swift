@@ -50,8 +50,8 @@ final class PushSubscriberTests: XCTestCase {
     }
 
     func testSubscribe() async throws {
-        try await PushSubscriber.bootstrap(eventLoopGroup: eventLoopGroup)
-        try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await PushSubscriber.shared.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await Publisher.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Prepare
         let expectation = self.expectation(description: "Received message")
@@ -97,7 +97,7 @@ final class PushSubscriberTests: XCTestCase {
         XCTAssertEqual(publishedMessage.message.messageId, receivedMessage?.id)
         XCTAssertEqual("Hello", receivedMessage?.body)
 
-        try await PushSubscriber.shutdown()
+        try await PushSubscriber.shared.shutdown()
     }
 
     func testParseIncoming() throws {

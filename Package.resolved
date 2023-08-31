@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/swift-server/async-http-client.git",
         "state": {
           "branch": null,
-          "revision": "78db67e5bf4a8543075787f228e8920097319281",
-          "version": "1.18.0"
+          "revision": "16f7e62c08c6969899ce6cc277041e868364e5cf",
+          "version": "1.19.0"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://gitlab.com/mordil/RediStack.git",
         "state": {
           "branch": null,
-          "revision": "43ea6af8623cb4b93c41719a3cbf9af6439d8b10",
-          "version": "1.5.0"
+          "revision": "30a43b019569625d2d9972c4fe89e06dbdc09e64",
+          "version": "1.5.1"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/apple/swift-argument-parser",
         "state": {
           "branch": null,
-          "revision": "fee6933f37fde9a5e12a1e4aeaa93fe60116ff2a",
-          "version": "1.2.2"
+          "revision": "8f4d2753f0e4778c76d5f05ad16c74f707390531",
+          "version": "1.2.3"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-crypto.git",
         "state": {
           "branch": null,
-          "revision": "33a20e650c33f6d72d822d558333f2085effa3dc",
-          "version": "2.5.0"
+          "revision": "60f13f60c4d093691934dc6cfdf5f508ada1f894",
+          "version": "2.6.0"
         }
       },
       {
@@ -114,8 +114,8 @@
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": null,
-          "revision": "32e8d724467f8fe623624570367e3d50c5638e46",
-          "version": "1.5.2"
+          "revision": "532d8b529501fb73a2455b179e0bbb6d49b652ed",
+          "version": "1.5.3"
         }
       },
       {
@@ -132,8 +132,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "a2e487b77f17edbce9a65f2b7415f2f479dc8e48",
-          "version": "2.57.0"
+          "revision": "cf281631ff10ec6111f2761052aa81896a83a007",
+          "version": "2.58.0"
         }
       },
       {
@@ -159,8 +159,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "e866a626e105042a6a72a870c88b4c531ba05f83",
-          "version": "2.24.0"
+          "revision": "320bd978cceb8e88c125dcbb774943a92f6286e9",
+          "version": "2.25.0"
         }
       },
       {
@@ -168,8 +168,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-transport-services.git",
         "state": {
           "branch": null,
-          "revision": "41f4098903878418537020075a4d8a6e20a0b182",
-          "version": "1.17.0"
+          "revision": "e7403c35ca6bb539a7ca353b91cc2d8ec0362d58",
+          "version": "1.19.0"
         }
       },
       {

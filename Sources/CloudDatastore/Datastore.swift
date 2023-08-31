@@ -15,25 +15,29 @@ struct UnsafeSendableProcess: @unchecked Sendable {
 }
 #endif
 
-public struct Datastore: Dependency {
+public actor Datastore: Dependency {
 
-    private static var _client: Google_Datastore_V1_DatastoreAsyncClient?
+    public static var shared = Datastore()
 
-    static func client(context: Context) async throws -> Google_Datastore_V1_DatastoreAsyncClient {
+    private var _client: Google_Datastore_V1_DatastoreAsyncClient?
+
+    func client(context: Context) async throws -> Google_Datastore_V1_DatastoreAsyncClient {
         if _client == nil {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        try await _client!.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
-        return _client!
+        var _client = _client!
+        try await _client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
+        self._client = _client
+        return _client
     }
 
     public static var defaultProjectID: String = Environment.current.projectID
 
-    static var authorization: Authorization?
+    var authorization: Authorization?
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         if let host = ProcessInfo.processInfo.environment["DATASTORE_EMULATOR_HOST"] {
             let components = host.components(separatedBy: ":")
             bootstraForEmulator(
@@ -46,7 +50,7 @@ public struct Datastore: Dependency {
         }
     }
 
-    static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         authorization = try Authorization(scopes: [
             "https://www.googleapis.com/auth/datastore",
         ], eventLoopGroup: eventLoopGroup)
@@ -59,7 +63,7 @@ public struct Datastore: Dependency {
         try await authorization?.warmup()
     }
 
-    static func bootstraForEmulator(host: String, port: Int, eventLoopGroup: EventLoopGroup) {
+    func bootstraForEmulator(host: String, port: Int, eventLoopGroup: EventLoopGroup) {
         let channel = ClientConnection
             .insecure(group: eventLoopGroup)
             .connect(host: host, port: port)
@@ -69,8 +73,8 @@ public struct Datastore: Dependency {
 
 #if DEBUG
 
-    public static func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
-        defaultProjectID = "test"
+    public func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
+        Self.defaultProjectID = "test"
 
         emulatorTeardownTimer?.invalidate()
         emulatorTeardownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
@@ -156,7 +160,7 @@ public struct Datastore: Dependency {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await authorization?.shutdown()
     }
 }

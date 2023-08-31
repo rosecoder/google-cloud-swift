@@ -15,7 +15,7 @@ extension ErrorReporting {
         line: UInt
     ) async throws {
         let request = try await self.request(date: date, message: message, source: source, file: file, function: function, line: line)
-        let response = try await client.execute(request, timeout: .seconds(15))
+        let response = try await shared.client.execute(request, timeout: .seconds(15))
         try await handle(response: response)
     }
 
@@ -36,7 +36,7 @@ extension ErrorReporting {
         request.method = .POST
 
         // Authorization
-        let accessToken = try await authorization.accessToken()
+        let accessToken = try await shared.authorization.accessToken()
         request.headers.add(name: "Authorization", value: "Bearer " + accessToken)
 
         // Body

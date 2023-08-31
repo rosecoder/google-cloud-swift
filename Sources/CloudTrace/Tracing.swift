@@ -5,15 +5,17 @@ import NIO
 import CloudCore
 import RetryableTask
 
-public struct Tracing: Dependency {
+public actor Tracing: Dependency {
 
-    private static let logger = Logger(label: "trace.write")
+    public static var shared = Tracing()
 
-    static var _client: Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClient!
+    private let logger = Logger(label: "trace.write")
 
-    static var authorization: Authorization!
+    var _client: Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClient!
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) throws {
+    var authorization: Authorization!
+
+    public func bootstrap(eventLoopGroup: EventLoopGroup) throws {
         authorization = try Authorization(scopes: [
             "https://www.googleapis.com/auth/trace.append",
             "https://www.googleapis.com/auth/cloud-platform",
@@ -28,7 +30,7 @@ public struct Tracing: Dependency {
         scheduleRepeatingWriteTimer()
     }
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         writeIfNeeded()
         await waitForWrite()
         try await authorization?.shutdown()
@@ -36,19 +38,19 @@ public struct Tracing: Dependency {
 
     // MARK: - Config
 
-    public static var projectID: String = Environment.current.projectID
+    public var projectID: String = Environment.current.projectID
 
-    public static var writeInterval: TimeInterval = 10
+    public var writeInterval: TimeInterval = 10
 
-    public static var maximumBatchSize = 500
+    public var maximumBatchSize = 500
 
     // MARK: - Write
 
-    static var lastWriteTask: Task<(), Error>?
+    var lastWriteTask: Task<(), Error>?
 
-    static var buffer = [Span]() // TODO: Should we reserve capacity from `maximumBatchSize`?
+    var buffer = [Span]() // TODO: Should we reserve capacity from `maximumBatchSize`?
 
-    static func bufferWrite(span: Span) {
+    func bufferWrite(span: Span) {
         assert(span.ended != nil, "Scheduled span has not ended.")
 
 #if DEBUG
@@ -65,18 +67,18 @@ public struct Tracing: Dependency {
         buffer.append(span)
     }
 
-    public static func writeIfNeeded() {
+    public func writeIfNeeded() {
         guard !buffer.isEmpty else {
             return
         }
         write()
     }
 
-    public static func waitForWrite() async {
+    public func waitForWrite() async {
         try? await lastWriteTask?.value
     }
 
-    private static func write() {
+    private func write() {
         let spans = buffer
         buffer.removeAll(keepingCapacity: true)
 
@@ -91,12 +93,7 @@ public struct Tracing: Dependency {
         lastWriteTask = Task {
             do {
                 try await withRetryableTask(logger: logger) {
-                    try await _client.ensureAuthentication(authorization: authorization)
-
-                    _ = try await _client.batchWriteSpans(.with {
-                        $0.name = "projects/\(projectID)"
-                        $0.spans = spans.map(encode)
-                    })
+                    try await _write(spans: spans)
                 }
                 logger.debug("Successfully wrote spans.")
             } catch {
@@ -105,7 +102,18 @@ public struct Tracing: Dependency {
         }
     }
 
-    private static func encode(span: Span) -> Google_Devtools_Cloudtrace_V2_Span {
+    private func _write(spans: [Span]) async throws {
+        var _client = _client!
+        try await _client.ensureAuthentication(authorization: authorization)
+        self._client = _client
+
+        _ = try await _client.batchWriteSpans(.with {
+            $0.name = "projects/\(projectID)"
+            $0.spans = spans.map(encode)
+        })
+    }
+
+    private func encode(span: Span) -> Google_Devtools_Cloudtrace_V2_Span {
         let spanIDString = span.id.stringValue
         return .with {
             $0.name = "projects/\(projectID)/traces/\(span.traceID.stringValue)/spans/\(spanIDString)"
@@ -132,7 +140,7 @@ public struct Tracing: Dependency {
         }
     }
 
-    private static func encode(attributes: [String: AttributableValue]) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
+    private func encode(attributes: [String: AttributableValue]) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
 
         // Well-known labels can be found here: https://github.com/googleapis/cloud-trace-nodejs/blob/c57a0b100d00fe0002544400c3958a17cc9751fb/src/trace-labels.ts
 
@@ -160,7 +168,7 @@ public struct Tracing: Dependency {
         return encoded
     }
 
-    private static func encode(links: [Span.Link]) -> Google_Devtools_Cloudtrace_V2_Span.Links {
+    private func encode(links: [Span.Link]) -> Google_Devtools_Cloudtrace_V2_Span.Links {
         let limit: UInt8 = 128
 
         var encoded = Google_Devtools_Cloudtrace_V2_Span.Links.with {
@@ -192,7 +200,7 @@ public struct Tracing: Dependency {
         return encoded
     }
 
-    private static func encode(kind: Span.Kind) -> Google_Devtools_Cloudtrace_V2_Span.SpanKind {
+    private func encode(kind: Span.Kind) -> Google_Devtools_Cloudtrace_V2_Span.SpanKind {
         switch kind {
         case .internal:
             return .internal
@@ -209,12 +217,12 @@ public struct Tracing: Dependency {
 
     // MARK: - Write Timer
 
-    private static func scheduleRepeatingWriteTimer() {
-        let timer = Timer(timeInterval: writeInterval, repeats: true, block: writeTimerHit)
+    private func scheduleRepeatingWriteTimer() {
+        let timer = Timer(timeInterval: writeInterval, repeats: true) { _ in
+            Task {
+                await self.writeIfNeeded()
+            }
+        }
         RunLoop.current.add(timer, forMode: .common)
-    }
-
-    private static func writeTimerHit(timer: Timer) {
-        writeIfNeeded()
     }
 }

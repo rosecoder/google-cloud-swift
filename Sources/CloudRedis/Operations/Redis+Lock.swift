@@ -43,8 +43,8 @@ extension Redis {
             if duration < TimeInterval(timeoutMiliseconds) / 1_000 {
                 Task {
                     do {
-                        try await ensureConnection(context: context)
-                        _ = try await connection.delete(RedisKey(key)).get()
+                        try await shared.ensureConnection(context: context)
+                        _ = try await shared.connection.delete(RedisKey(key)).get()
                     } catch {
                         context.logger.error("Failed to delete Redis lock: \(key) \(error)")
                     }
@@ -59,8 +59,8 @@ extension Redis {
     }
 
     private static func setLock(key: String, value: String, tryCount: UInt8 = 0, context: Context) async throws {
-        try await ensureConnection(context: context)
-        let wasSet = try await connection.set(RedisKey(key), to: value, onCondition: .keyDoesNotExist, expiration: .milliseconds(timeoutMiliseconds)).get()
+        try await shared.ensureConnection(context: context)
+        let wasSet = try await shared.connection.set(RedisKey(key), to: value, onCondition: .keyDoesNotExist, expiration: .milliseconds(timeoutMiliseconds)).get()
         if wasSet == .ok {
             return
         }

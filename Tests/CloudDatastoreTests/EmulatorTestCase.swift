@@ -11,7 +11,7 @@ class EmulatorTestCase: XCTestCase {
         try await super.setUp()
 
         Datastore.defaultProjectID = "testing"
-        Datastore.bootstraForEmulator(host: "localhost", port: 8081, eventLoopGroup: eventLoopGroup)
+        await Datastore.shared.bootstraForEmulator(host: "localhost", port: 8081, eventLoopGroup: eventLoopGroup)
     }
 
     override func tearDown() async throws {

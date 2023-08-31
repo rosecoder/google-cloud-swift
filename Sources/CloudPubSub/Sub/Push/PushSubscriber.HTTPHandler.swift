@@ -91,8 +91,8 @@ extension PushSubscriber {
                     }
 
                     if !Environment.current.isCPUAlwaysAllocated {
-                        Tracing.writeIfNeeded()
-                        await Tracing.waitForWrite()
+                        await Tracing.shared.writeIfNeeded()
+                        await Tracing.shared.waitForWrite()
                     }
 
                     var head = HTTPResponseHead(version: .http1_1, status: response.httpStatus)

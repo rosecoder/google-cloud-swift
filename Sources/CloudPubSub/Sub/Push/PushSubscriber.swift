@@ -7,23 +7,25 @@ import CloudCore
 import CloudTrace
 import RetryableTask
 
-public final class PushSubscriber: Subscriber, Dependency {
+public actor PushSubscriber: Subscriber, Dependency {
+
+    public static var shared = PushSubscriber()
 
     static let logger = Logger(label: "pubsub.subscriber")
 
     // MARK: - Bootstrap
 
-    private static var channel: Channel?
+    private var channel: Channel?
 
 #if DEBUG
     public static var isDebugUsingPull = true
 #endif
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 #if DEBUG
-        if isDebugUsingPull {
-            logger.info("Using pull subscriber instead of push. Push is not supported during local development.")
-            try await PullSubscriber.bootstrap(eventLoopGroup: eventLoopGroup)
+        if Self.isDebugUsingPull {
+            Self.logger.info("Using pull subscriber instead of push. Push is not supported during local development.")
+            try await PullSubscriber.shared.bootstrap(eventLoopGroup: eventLoopGroup)
             return
         }
 #endif
@@ -40,7 +42,7 @@ public final class PushSubscriber: Subscriber, Dependency {
             .serverChannelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
             .childChannelInitializer { channel in
                 channel.pipeline.configureHTTPServerPipeline().flatMap { _ in
-                    channel.pipeline.addHandler(HTTPHandler(handle: self.handle))
+                    channel.pipeline.addHandler(HTTPHandler(handle: Self.handle))
                 }
             }
             .childChannelOption(ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
@@ -52,15 +54,15 @@ public final class PushSubscriber: Subscriber, Dependency {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
 #if DEBUG
-        if isDebugUsingPull {
-            try await PullSubscriber.shutdown()
+        if Self.isDebugUsingPull {
+            try await PullSubscriber.shared.shutdown()
             return
         }
 #endif
 
-        logger.debug("Shutting down subscriptions...")
+        Self.logger.debug("Shutting down subscriptions...")
 
         try await channel?.close()
         try await PubSub.shutdown()
@@ -81,8 +83,8 @@ public final class PushSubscriber: Subscriber, Dependency {
         }
 #endif
 
-        if channel == nil {
-            try await bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+        if await shared.channel == nil {
+            try await shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
 
         handlings[handlerType.subscription.id] = {

@@ -19,7 +19,7 @@ final class PublisherTests: XCTestCase {
     }
 
     func testPublish() async throws {
-        try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await Publisher.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
     }

@@ -9,6 +9,6 @@ class EmulatorTestCase: XCTestCase {
     override func setUp() async throws {
         try await super.setUp()
 
-        try await Translation.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await Translation.shared.bootstrap(eventLoopGroup: eventLoopGroup)
     }
 }

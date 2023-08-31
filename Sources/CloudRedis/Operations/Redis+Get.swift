@@ -6,11 +6,11 @@ import Foundation
 extension Redis {
 
     public static func get(key: Key, context: Context) async throws -> RESPValue {
-        try await ensureConnection(context: context)
+        try await shared.ensureConnection(context: context)
         return try await context.trace.recordSpan(named: "redis-get", kind: .client, attributes: [
             "redis/key": key.rawValue,
         ]) { span in
-            try await connection.get(key).get()
+            try await shared.connection.get(key).get()
         }
     }
 

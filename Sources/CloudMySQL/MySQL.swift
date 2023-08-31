@@ -3,11 +3,13 @@ import MySQLNIO
 import NIO
 import CloudCore
 
-public struct MySQL: Dependency {
+public actor MySQL: Dependency {
 
-    private static var _connection: EventLoopFuture<MySQLConnection>?
+    public static var shared = MySQL()
 
-    static var connection: MySQLConnection {
+    private var _connection: EventLoopFuture<MySQLConnection>?
+
+    var connection: MySQLConnection {
         get async throws {
             if _connection == nil {
                 try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
@@ -18,11 +20,11 @@ public struct MySQL: Dependency {
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
     }
 
-    static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         _connection = try MySQLConnection.connect(
             to: .makeAddressResolvingHost(ProcessInfo.processInfo.environment["MYSQL_HOST"] ?? "127.0.0.1", port: 3306),
             username: ProcessInfo.processInfo.environment["MYSQL_USER"] ?? "dev",
@@ -35,7 +37,7 @@ public struct MySQL: Dependency {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await _connection?.get().close().get()
     }
 }

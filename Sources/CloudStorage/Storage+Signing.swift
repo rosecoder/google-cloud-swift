@@ -189,10 +189,10 @@ extension Storage {
 
         var request = HTTPClientRequest(url: "https://iamcredentials.googleapis.com/v1/\(name):signBlob")
         request.method = .POST
-        request.headers.add(name: "Authorization", value: "Bearer " + (try await authorization.accessToken()))
+        request.headers.add(name: "Authorization", value: "Bearer " + (try await shared.authorization.accessToken()))
         request.body = .bytes(requestBody)
 
-        let response = try await client().execute(request, timeout: .seconds(60))
+        let response = try await shared.client().execute(request, timeout: .seconds(60))
         let responseBody = try await response.body.collect(upTo: 1024 * 10) // 10 KB
         guard response.status == .ok else {
             throw SignError.signingFailed(response.status, body: String(buffer: responseBody))

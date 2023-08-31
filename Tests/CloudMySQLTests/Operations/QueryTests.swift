@@ -10,7 +10,7 @@ final class QueryTests: XCTestCase {
     override func setUp() async throws {
         try await super.setUp()
 
-        try await MySQL.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await MySQL.shared.bootstrap(eventLoopGroup: eventLoopGroup)
     }
 
     // MARK: -

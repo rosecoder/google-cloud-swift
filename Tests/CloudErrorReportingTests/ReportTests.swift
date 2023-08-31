@@ -7,7 +7,7 @@ final class ReportTests: XCTestCase {
     private let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 
     func testReportError() async throws {
-        try ErrorReporting.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await ErrorReporting.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         try await ErrorReporting.report(
             date: Date(),

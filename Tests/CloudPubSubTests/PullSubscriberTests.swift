@@ -28,8 +28,8 @@ final class PullSubscriberTestCase: XCTestCase {
     }
 
     func testSubscribe() async throws {
-        try await PullSubscriber.bootstrap(eventLoopGroup: eventLoopGroup)
-        try await Publisher.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await PullSubscriber.shared.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await Publisher.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Prepare
         let expectation = self.expectation(description: "Received message")
@@ -55,6 +55,6 @@ final class PullSubscriberTestCase: XCTestCase {
         XCTAssertEqual(publishedMessage.id, receivedMessage?.id)
         XCTAssertEqual("Hello", receivedMessage?.body)
 
-        try await PullSubscriber.shutdown()
+        try await PullSubscriber.shared.shutdown()
     }
 }

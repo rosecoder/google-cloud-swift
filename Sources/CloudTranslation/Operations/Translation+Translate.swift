@@ -33,7 +33,7 @@ extension Translation {
         context: Context
     ) async throws -> [TranslationResult] {
         let response: Google_Cloud_Translation_V3_TranslateTextResponse = try await context.trace.recordSpan(named: "translation-translate", kind: .client) { span in
-            try await client(context: context).translateText(.with {
+            try await shared.client(context: context).translateText(.with {
                 $0.contents = contents
                 $0.mimeType = mimeType.rawValue
                 if let sourceLanguageCode {

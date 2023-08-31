@@ -38,101 +38,100 @@ public struct GoogleCloudLogHandler: LogHandler {
     public func log(level: Logger.Level, message: Logger.Message, metadata: Logger.Metadata?, source: String, file: String, function: String, line: UInt) {
         let now = Date()
 
-        Self.lastLogTask = Task {
-            var labels: [String: String] = Environment.current.entryLabels
+        Task {
+            await GoogleCloudLogging.shared.log {
+                var labels: [String: String] = Environment.current.entryLabels
 
-            // Existing metdata
-            var trace: String?
-            var spanID: String?
-            labels.reserveCapacity(self.metadata.count)
-            for (key, value) in self.metadata {
-                if key == LogMetadataKeys.trace {
-                    trace = value.description
-                    continue
-                }
-                if key == LogMetadataKeys.spanID {
-                    spanID = value.description
-                    continue
-                }
-                labels[key] = value.description
-            }
-
-            // New metdata
-            if let metadata = metadata {
-                labels.reserveCapacity(metadata.count)
-                for (key, value) in metadata {
+                // Existing metdata
+                var trace: String?
+                var spanID: String?
+                labels.reserveCapacity(self.metadata.count)
+                for (key, value) in self.metadata {
+                    if key == LogMetadataKeys.trace {
+                        trace = value.description
+                        continue
+                    }
+                    if key == LogMetadataKeys.spanID {
+                        spanID = value.description
+                        continue
+                    }
                     labels[key] = value.description
                 }
-            }
-            if let metadataProvider = metadataProvider {
-                let metadata = metadataProvider.get()
-                labels.reserveCapacity(metadata.count)
-                for (key, value) in metadata {
-                    labels[key] = value.description
-                }
-            }
 
-            switch Self.preferredMethod {
-            case .rpc:
+                // New metdata
+                if let metadata = metadata {
+                    labels.reserveCapacity(metadata.count)
+                    for (key, value) in metadata {
+                        labels[key] = value.description
+                    }
+                }
+                if let metadataProvider = metadataProvider {
+                    let metadata = metadataProvider.get()
+                    labels.reserveCapacity(metadata.count)
+                    for (key, value) in metadata {
+                        labels[key] = value.description
+                    }
+                }
+
+                switch Self.preferredMethod {
+                case .rpc:
+                    do {
+                        try await logViaRPC(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
+                    } catch {
+                        // Using forceable tries below.
+                        // If fallback fails this is a critical issue and the app should be terminated on error.
+
+                        // First, log the error resulting in create failure
+                        try! SidecarLog(
+                            date: Date(),
+                            level: .error,
+                            message: "Error creating log entry: \(error)",
+                            labels: [:],
+                            source: "logging.log",
+                            trace: trace,
+                            spanID: spanID,
+                            file: #file,
+                            function: #function,
+                            line: #line
+                        ).write()
+
+                        try! logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
+                    }
+                case .sidecar:
+                    try logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
+                }
+
+                // Report to error reporting if error
                 do {
-                    try await logViaRPC(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
+                    switch level {
+                    case .error, .critical:
+                        try await ErrorReporting.report(
+                            date: now,
+                            message: message.description,
+                            source: source,
+                            file: file,
+                            function: function,
+                            line: line
+                        )
+                    case .trace, .debug, .info, .notice, .warning:
+                        break
+                    }
                 } catch {
-                    // Using forceable tries below.
-                    // If fallback fails this is a critical issue and the app should be terminated on error.
-
-                    // First, log the error resulting in create failure
-                    try! SidecarLog(
-                        date: Date(),
-                        level: .error,
-                        message: "Error creating log entry: \(error)",
-                        labels: [:],
-                        source: "logging.log",
-                        trace: trace,
-                        spanID: spanID,
-                        file: #file,
-                        function: #function,
-                        line: #line
-                    ).write()
-
-                    try! logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
-                }
-            case .sidecar:
-                try logViaSidecar(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)
-            }
-
-            // Report to error reporting if error
-            do {
-                switch level {
-                case .error, .critical:
-                    try await ErrorReporting.report(
-                        date: now,
-                        message: message.description,
+                    log(
+                        level: .warning,
+                        message: "Error reporting error to error reporting: \(error)",
+                        metadata: nil,
                         source: source,
                         file: file,
                         function: function,
                         line: line
                     )
-                case .trace, .debug, .info, .notice, .warning:
-                    break
                 }
-            } catch {
-                log(
-                    level: .warning,
-                    message: "Error reporting error to error reporting: \(error)",
-                    metadata: nil,
-                    source: source,
-                    file: file,
-                    function: function,
-                    line: line
-                )
             }
         }
     }
 
     // MARK: - Internal
-
-    /// Last task for publishing logging to GCP. Intended only for internal use while testing.
-    static var lastLogTask: Task<(), Error>?
 
     private func logViaRPC(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, source: String, file: String, function: String, line: UInt) async throws {
         let environment = Environment.current
@@ -178,8 +177,7 @@ public struct GoogleCloudLogHandler: LogHandler {
                 }
             ]
         }
-        try await Self._client!.ensureAuthentication(authorization: Self.authorization)
-        _ = try await Self._client!.writeLogEntries(request)
+        _ = try await GoogleCloudLogging.shared.client.writeLogEntries(request)
     }
 
     private func logViaSidecar(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, source: String, file: String, function: String, line: UInt) throws {

@@ -10,7 +10,7 @@ extension MySQL {
         try await context.trace.recordSpan(named: "mysql-query", kind: .client, attributes: [
             "query": sql.query,
         ]) { span in
-            let connection = try await self.connection
+            let connection = try await shared.connection
             let metadataPromise = connection.eventLoop.makePromise(of: MySQLQueryMetadata.self)
             let rowsFuture = connection.query(sql.query, sql.binds, onMetadata: {
                 metadataPromise.succeed($0)
@@ -26,7 +26,7 @@ extension MySQL {
         try await context.trace.recordSpan(named: "mysql-query", kind: .client, attributes: [
             "query": sql.query,
         ]) { span in
-            let connection = try await self.connection
+            let connection = try await shared.connection
             return try await connection.query(sql.query, sql.binds).get()
         }
     }

@@ -10,7 +10,7 @@ extension Datastore {
         try await context.trace.recordSpan(named: "datastore-delete", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            _ = try await client(context: context).commit(.with {
+            _ = try await shared.client(context: context).commit(.with {
                 $0.projectID = projectID
                 $0.mutations = keys.map { key in
                     .with {

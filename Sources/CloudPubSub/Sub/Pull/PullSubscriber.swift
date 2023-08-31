@@ -6,22 +6,26 @@ import CloudCore
 import CloudTrace
 import RetryableTask
 
-public final class PullSubscriber: Subscriber, Dependency {
+public actor PullSubscriber: Subscriber, Dependency {
 
-    private static var _client: Google_Pubsub_V1_SubscriberAsyncClient?
+    public static var shared = PullSubscriber()
+
+    private var _client: Google_Pubsub_V1_SubscriberAsyncClient?
     static let logger = Logger(label: "pubsub.subscriber")
 
-    private static func client(context: Context?) async throws -> Google_Pubsub_V1_SubscriberAsyncClient {
+    private func client(context: Context?) async throws -> Google_Pubsub_V1_SubscriberAsyncClient {
         if _client == nil {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
-        try await _client!.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
-        return _client!
+        var _client = _client!
+        try await _client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        self._client = _client
+        return _client
     }
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         try await PubSub.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Emulator
@@ -48,8 +52,8 @@ public final class PullSubscriber: Subscriber, Dependency {
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
-        logger.debug("Shutting down subscriptions...")
+    public func shutdown() async throws {
+        Self.logger.debug("Shutting down subscriptions...")
 
         runningPullTasks.values.forEach { $0.cancel() }
         for task in runningPullTasks.values {
@@ -62,14 +66,20 @@ public final class PullSubscriber: Subscriber, Dependency {
     // MARK: - Subscribe
 
     private typealias SubscriptionHash = Int
-    private static var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
+    private var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
+
+    private func runPull(hashValue: SubscriptionHash, operation: @escaping () async throws -> Void) {
+        runningPullTasks[hashValue] = Task {
+            try await operation()
+        }
+    }
 
     public static func startPull<Handler>(handler handlerType: Handler.Type) async throws
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
-        try await handlerType.subscription.createIfNeeded(creation: try await client(context: nil).createSubscription, logger: logger)
+        try await handlerType.subscription.createIfNeeded(creation: try await shared.client(context: nil).createSubscription, logger: logger)
 #endif
 
         continuesPull(handlerType: handlerType)
@@ -81,42 +91,44 @@ public final class PullSubscriber: Subscriber, Dependency {
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
-        runningPullTasks[handlerType.subscription.name.hashValue] = Task {
-            while !Task.isCancelled {
-                do {
-                    try await singlePull(handlerType: handlerType)
-                } catch {
-                    try Task.checkCancellation()
+        Task {
+            await shared.runPull(hashValue: handlerType.subscription.name.hashValue) {
+                while !Task.isCancelled {
+                    do {
+                        try await singlePull(handlerType: handlerType)
+                    } catch {
+                        try Task.checkCancellation()
 
-                    var delay: UInt64
-                    let log: (@autoclosure () -> Logger.Message, @autoclosure () -> Logger.Metadata?, String, String, UInt) -> ()
-                    switch error as? ChannelError {
-                    case .ioOnClosedChannel:
-                        log = logger.debug
-                        delay = 50_000_000 // 50 ms
-                    default:
-                        switch (error as? GRPCStatus)?.code ?? .unknown {
-                        case .unavailable:
-                            log = logger.debug
-                            delay = 200_000_000 // 200 ms
-                        case .deadlineExceeded:
+                        var delay: UInt64
+                        let log: (@autoclosure () -> Logger.Message, @autoclosure () -> Logger.Metadata?, String, String, UInt) -> ()
+                        switch error as? ChannelError {
+                        case .ioOnClosedChannel:
                             log = logger.debug
                             delay = 50_000_000 // 50 ms
                         default:
-                            log = logger.warning
-                            delay = 1_000_000_000 // 1 sec
+                            switch (error as? GRPCStatus)?.code ?? .unknown {
+                            case .unavailable:
+                                log = logger.debug
+                                delay = 200_000_000 // 200 ms
+                            case .deadlineExceeded:
+                                log = logger.debug
+                                delay = 50_000_000 // 50 ms
+                            default:
+                                log = logger.warning
+                                delay = 1_000_000_000 // 1 sec
+                            }
                         }
+                        delay *= (retryCount + 1)
+
+                        log("Pull failed for \(handlerType.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
+
+                        try await Task.sleep(nanoseconds: delay)
+
+                        try Task.checkCancellation()
+
+                        self.continuesPull(handlerType: handlerType, retryCount: retryCount + 1)
+                        break
                     }
-                    delay *= (retryCount + 1)
-
-                    log("Pull failed for \(handlerType.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
-
-                    try await Task.sleep(nanoseconds: delay)
-
-                    try Task.checkCancellation()
-
-                    self.continuesPull(handlerType: handlerType, retryCount: retryCount + 1)
-                    break
                 }
             }
         }
@@ -126,7 +138,7 @@ public final class PullSubscriber: Subscriber, Dependency {
 
     private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await withRetryableTask(logger: context.logger) {
-            _ = try await client(context: context).acknowledge(.with {
+            _ = try await shared.client(context: context).acknowledge(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
             })
@@ -135,7 +147,7 @@ public final class PullSubscriber: Subscriber, Dependency {
 
     private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
         try await withRetryableTask(logger: context.logger) {
-            _ = try await client(context: context).modifyAckDeadline(.with {
+            _ = try await shared.client(context: context).modifyAckDeadline(.with {
                 $0.subscription = subscriptionName
                 $0.ackIds = [id]
                 $0.ackDeadlineSeconds = 0
@@ -149,11 +161,11 @@ public final class PullSubscriber: Subscriber, Dependency {
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
-        let response = try await client(context: nil).pull(.with {
+        let response = try await shared.client(context: nil).pull(.with {
             $0.subscription = handlerType.subscription.rawValue
             $0.maxMessages = 1_000
         }, callOptions: .init(
-            customMetadata: try await client(context: nil).defaultCallOptions.customMetadata,
+            customMetadata: try await shared.client(context: nil).defaultCallOptions.customMetadata,
             timeLimit: .deadline(.distantFuture)
         ))
         guard !response.receivedMessages.isEmpty else {

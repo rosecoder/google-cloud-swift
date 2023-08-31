@@ -76,7 +76,10 @@ public struct Span: Equatable, Codable {
             attributes[key] = value
         }
 
-        Tracing.bufferWrite(span: self)
+        let span = self
+        Task {
+            await Tracing.shared.bufferWrite(span: span)
+        }
     }
 
     public mutating func end(

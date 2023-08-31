@@ -10,8 +10,8 @@ public protocol GRPCDependency: Dependency {
     static var serviceEnvironmentName: String { get }
     static var developmentPort: Int { get }
 
-    static var _client: Client? { get }
-    static func initClient(channel: GRPCChannel)
+    var _client: Client? { get }
+    func initClient(channel: GRPCChannel)
 }
 
 enum GRPCDependencyBootstrapError: Error {
@@ -24,7 +24,7 @@ enum GRPCDependencyBootstrapError: Error {
 
 extension GRPCDependency where Client: GRPCClient {
 
-    public static var client: Client {
+    public var client: Client {
         get async throws {
             if _client == nil {
                 try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
@@ -33,7 +33,7 @@ extension GRPCDependency where Client: GRPCClient {
         }
     }
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 #if DEBUG
         try await bootstrapForDevelopment(eventLoopGroup: eventLoopGroup)
 #else
@@ -41,10 +41,10 @@ extension GRPCDependency where Client: GRPCClient {
 #endif
     }
 
-    private static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+    private func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
 
         // Try to connect via address
-        if let address = ProcessInfo.processInfo.environment[serviceEnvironmentName] {
+        if let address = ProcessInfo.processInfo.environment[Self.serviceEnvironmentName] {
             let (scheme, host, port) = try address.parsedAddressComponents()
 
             switch scheme {
@@ -65,10 +65,10 @@ extension GRPCDependency where Client: GRPCClient {
         }
 
         // Using kuberentes-standard of naming env vars: https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables
-        guard let host = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_HOST"] else {
+        guard let host = ProcessInfo.processInfo.environment[Self.serviceEnvironmentName + "_SERVICE_HOST"] else {
             throw GRPCDependencyBootstrapError.serviceHostNotFound
         }
-        guard let rawPort = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_PORT"] else {
+        guard let rawPort = ProcessInfo.processInfo.environment[Self.serviceEnvironmentName + "_SERVICE_PORT"] else {
             throw GRPCDependencyBootstrapError.servicePortNotFound
         }
         guard let port = Int(rawPort) else {
@@ -82,10 +82,10 @@ extension GRPCDependency where Client: GRPCClient {
     }
 
 #if DEBUG
-    private static func bootstrapForDevelopment(eventLoopGroup: EventLoopGroup) async throws {
+    private func bootstrapForDevelopment(eventLoopGroup: EventLoopGroup) async throws {
         self.initClient(channel: ClientConnection
             .insecure(group: eventLoopGroup)
-            .connect(host: "localhost", port: developmentPort)
+            .connect(host: "localhost", port: Self.developmentPort)
         )
     }
 #endif

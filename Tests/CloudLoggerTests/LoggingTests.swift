@@ -14,7 +14,7 @@ final class GoogleCloudLoggingTests: XCTestCase {
     }
 
     func testLog() async throws {
-        try GoogleCloudLogHandler.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await GoogleCloudLogging.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         LoggingSystem.bootstrapInternal { label -> LogHandler in
             GoogleCloudLogHandler(label: label)
@@ -25,7 +25,7 @@ final class GoogleCloudLoggingTests: XCTestCase {
         logger.info("Hello world")
 
         // Wait for logging to complete
-        let task = try XCTUnwrap(GoogleCloudLogHandler.lastLogTask)
+        let task = await GoogleCloudLogging.shared.lastLogTask!
         try await task.value
     }
 }

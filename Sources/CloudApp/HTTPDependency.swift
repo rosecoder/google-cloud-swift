@@ -10,7 +10,7 @@ public protocol HTTPDependency: Dependency {
 
     static var configuration: HTTPClient.Configuration { get }
 
-    static var _client: HTTPClient? { get set }
+    var _client: HTTPClient? { get set }
 }
 
 extension HTTPDependency {
@@ -37,7 +37,7 @@ extension HTTPDependency {
 
     // MARK: - Client
 
-    public static var client: HTTPClient {
+    public var client: HTTPClient {
         get async throws {
             if _client == nil {
                 try await bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
@@ -48,13 +48,13 @@ extension HTTPDependency {
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup), configuration: configuration)
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+        _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup), configuration: Self.configuration)
     }
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await client.shutdown()
     }
 }

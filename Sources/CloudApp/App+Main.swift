@@ -60,7 +60,7 @@ extension App {
         // App dependencies
         for options in Self.dependencies {
             do {
-                try await options.type.bootstrap(eventLoopGroup: eventLoopGroup)
+                try await options.type.shared.bootstrap(eventLoopGroup: eventLoopGroup)
             } catch {
                 logger.warning("\(options.type) failed to bootstrap: \(error)")
             }

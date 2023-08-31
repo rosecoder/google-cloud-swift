@@ -5,11 +5,13 @@ import AsyncHTTPClient
 import NIOHTTP1
 import CloudTrace
 
-public struct Storage: Dependency {
+public actor Storage: Dependency {
 
-    static var _authorization: Authorization?
+    public static var shared = Storage()
 
-    static var authorization: Authorization {
+    var _authorization: Authorization?
+
+    var authorization: Authorization {
         get throws {
             if _authorization == nil {
                 _authorization = try Authorization(scopes: [
@@ -22,9 +24,9 @@ public struct Storage: Dependency {
         }
     }
 
-    private static var _client: HTTPClient?
+    private var _client: HTTPClient?
 
-    static func client() async throws -> HTTPClient {
+    func client() async throws -> HTTPClient {
         if _client == nil {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
@@ -37,7 +39,7 @@ public struct Storage: Dependency {
 
     // MARK: - Bootstrap
 
-    public static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
 #if DEBUG
         if ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"]?.isEmpty == false {
             try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
@@ -49,20 +51,20 @@ public struct Storage: Dependency {
 #endif
     }
 
-    static func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
         try await authorization.warmup()
     }
 
 #if DEBUG
-    static func bootstrapForDebug() async throws {
-        isUsingLocalStorage = true
+    func bootstrapForDebug() async throws {
+        Self.isUsingLocalStorage = true
     }
 #endif
 
     // MARK: - Termination
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         try await _authorization?.shutdown()
     }
 
@@ -122,11 +124,11 @@ public struct Storage: Dependency {
         }
 
         // Authorization
-        let accessToken = try await authorization.accessToken()
+        let accessToken = try await shared.authorization.accessToken()
         request.headers.add(name: "Authorization", value: "Bearer " + accessToken)
 
         // Perform
-        let response = try await client().execute(request, timeout: .seconds(30))
+        let response = try await shared.client().execute(request, timeout: .seconds(30))
 
         switch response.status {
         case .ok, .created, .accepted, .noContent:
