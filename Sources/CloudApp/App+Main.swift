@@ -20,7 +20,7 @@ extension App {
         }
 #else
         do {
-            try GoogleCloudLogging.shared.bootstrap(eventLoopGroup: eventLoopGroup)
+            try await GoogleCloudLogging.shared.bootstrap(eventLoopGroup: eventLoopGroup)
             LoggingSystem.bootstrap { label in
                 var handler = GoogleCloudLogHandler(label: label)
                 handler.logLevel = logLevel
@@ -39,7 +39,7 @@ extension App {
         // Error reporting
 #if !DEBUG
         do {
-            try ErrorReporting.shared.bootstrap(eventLoopGroup: eventLoopGroup)
+            try await ErrorReporting.shared.bootstrap(eventLoopGroup: eventLoopGroup)
         } catch {
             logger.warning("ErrorReporting (optional) failed to bootstrap: \(error)")
         }
@@ -48,7 +48,7 @@ extension App {
         // Trace
 #if !DEBUG
         do {
-            try Tracing.shared.bootstrap(eventLoopGroup: eventLoopGroup)
+            try await Tracing.shared.bootstrap(eventLoopGroup: eventLoopGroup)
         } catch {
             logger.warning("Tracing (optional) failed to bootstrap: \(error)")
         }
