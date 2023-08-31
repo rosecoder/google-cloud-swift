@@ -24,6 +24,12 @@ enum GRPCDependencyBootstrapError: Error {
 
 extension GRPCDependency where Client: GRPCClient {
 
+    public static var client: Client {
+        get async throws {
+            try await shared.client
+        }
+    }
+
     public var client: Client {
         get async throws {
             if _client == nil {
