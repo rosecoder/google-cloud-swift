@@ -1,4 +1,5 @@
 import CloudTrace
+import RetryableTask
 
 extension Datastore {
 
@@ -15,10 +16,12 @@ extension Datastore {
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await shared.client(context: context).lookup(.with {
-                $0.projectID = projectID
-                $0.keys = keys.map({ $0.raw })
-            })
+            try await withRetryableTask(logger: context.logger) {
+                try await shared.client(context: context).lookup(.with {
+                    $0.projectID = projectID
+                    $0.keys = keys.map({ $0.raw })
+                })
+            }
         }
 
         let decoder = EntityDecoder()
@@ -80,10 +83,12 @@ extension Datastore {
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            try await shared.client(context: context).lookup(.with {
-                $0.projectID = projectID
-                $0.keys = keys.map({ $0.raw })
-            })
+            try await withRetryableTask(logger: context.logger) {
+                try await shared.client(context: context).lookup(.with {
+                    $0.projectID = projectID
+                    $0.keys = keys.map({ $0.raw })
+                })
+            }
         }
         return keys.map { key in
             response.found.contains(where: { $0.entity.key.path.last!.idType == key.id.raw })

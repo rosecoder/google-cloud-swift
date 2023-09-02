@@ -1,4 +1,5 @@
 import CloudTrace
+import RetryableTask
 
 extension Datastore {
 
@@ -16,42 +17,44 @@ extension Datastore {
         let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await shared.client(context: context).runQuery(.with {
-                $0.projectID = projectID
-                $0.partitionID = .with {
-                    $0.namespaceID = query.namespace.rawValue
-                }
-                $0.queryType = .query(.with {
-                    $0.projection = projection
-                    $0.kind = [.with {
-                        $0.name = query.kind
-                    }]
-                    if !query.filters.isEmpty {
-                        $0.filter = .with {
-                            $0.filterType = .compositeFilter(.with {
-                                $0.op = .and
-                                $0.filters = query.filters.map { filter in
-                                    Google_Datastore_V1_Filter.with {
-                                        $0.propertyFilter = filter
+            try await withRetryableTask(logger: context.logger) {
+                try await shared.client(context: context).runQuery(.with {
+                    $0.projectID = projectID
+                    $0.partitionID = .with {
+                        $0.namespaceID = query.namespace.rawValue
+                    }
+                    $0.queryType = .query(.with {
+                        $0.projection = projection
+                        $0.kind = [.with {
+                            $0.name = query.kind
+                        }]
+                        if !query.filters.isEmpty {
+                            $0.filter = .with {
+                                $0.filterType = .compositeFilter(.with {
+                                    $0.op = .and
+                                    $0.filters = query.filters.map { filter in
+                                        Google_Datastore_V1_Filter.with {
+                                            $0.propertyFilter = filter
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }
                         }
-                    }
-                    $0.order = query.orders
-                    $0.distinctOn = [] // TODO: Implement distinct on
-                    if let cursor {
-                        $0.startCursor = cursor.rawValue
-                    }
-//                  $0.endCursor =
-//                  $0.offset =
-                    if let limit = query.limit {
-                        $0.limit = .with {
-                            $0.value = limit
+                        $0.order = query.orders
+                        $0.distinctOn = [] // TODO: Implement distinct on
+                        if let cursor {
+                            $0.startCursor = cursor.rawValue
                         }
-                    }
+                        //                  $0.endCursor =
+                        //                  $0.offset =
+                        if let limit = query.limit {
+                            $0.limit = .with {
+                                $0.value = limit
+                            }
+                        }
+                    })
                 })
-            })
+            }
         }
         switch response.batch.moreResults {
         case .moreResultsAfterCursor, .moreResultsAfterLimit, .notFinished:

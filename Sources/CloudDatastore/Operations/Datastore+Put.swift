@@ -1,4 +1,5 @@
 import CloudTrace
+import RetryableTask
 
 extension Datastore {
 
@@ -15,15 +16,17 @@ extension Datastore {
         let result: Google_Datastore_V1_CommitResponse = try await context.trace.recordSpan(named: "datastore-put", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await shared.client(context: context).commit(.with {
-                $0.projectID = projectID
-                $0.mutations = rawEntities.map { raw in
-                        .with {
-                            $0.operation = .upsert(raw)
-                        }
-                }
-                $0.mode = .nonTransactional
-            })
+            try await withRetryableTask(logger: context.logger) {
+                try await shared.client(context: context).commit(.with {
+                    $0.projectID = projectID
+                    $0.mutations = rawEntities.map { raw in
+                            .with {
+                                $0.operation = .upsert(raw)
+                            }
+                    }
+                    $0.mode = .nonTransactional
+                })
+            }
         }
 
         // Update keys for all entities
@@ -59,10 +62,12 @@ extension Datastore {
         let result: Google_Datastore_V1_AllocateIdsResponse = try await context.trace.recordSpan(named: "datastore-allocate-ids", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            try await shared.client(context: context).allocateIds(.with {
-                $0.projectID = projectID
-                $0.keys = keys.map { $0.raw }
-            })
+            try await withRetryableTask(logger: context.logger) {
+                try await shared.client(context: context).allocateIds(.with {
+                    $0.projectID = projectID
+                    $0.keys = keys.map { $0.raw }
+                })
+            }
         }
         for (index, key) in result.keys.enumerated() {
             keys[index] = .init(raw: key)

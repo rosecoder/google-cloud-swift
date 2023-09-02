@@ -1,4 +1,5 @@
 import CloudTrace
+import RetryableTask
 
 extension Datastore {
 
@@ -10,15 +11,17 @@ extension Datastore {
         try await context.trace.recordSpan(named: "datastore-delete", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            _ = try await shared.client(context: context).commit(.with {
-                $0.projectID = projectID
-                $0.mutations = keys.map { key in
-                    .with {
-                        $0.operation = .delete(key.raw)
+            try await withRetryableTask(logger: context.logger) {
+                _ = try await shared.client(context: context).commit(.with {
+                    $0.projectID = projectID
+                    $0.mutations = keys.map { key in
+                            .with {
+                                $0.operation = .delete(key.raw)
+                            }
                     }
-                }
-                $0.mode = .nonTransactional
-            })
+                    $0.mode = .nonTransactional
+                })
+            }
         }
     }
 
