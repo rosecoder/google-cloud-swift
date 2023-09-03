@@ -26,10 +26,10 @@ public actor MySQL: Dependency {
 
     func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         _connection = try MySQLConnection.connect(
-            to: .makeAddressResolvingHost(ProcessInfo.processInfo.environment["MYSQL_HOST"] ?? "127.0.0.1", port: 3306),
-            username: ProcessInfo.processInfo.environment["MYSQL_USER"] ?? "dev",
-            database: ProcessInfo.processInfo.environment["MYSQL_DATABASE"] ?? "dev",
-            password: ProcessInfo.processInfo.environment["MYSQL_PASSWORD"] ?? "dev",
+            to: .makeAddressResolvingHost(ProcessInfo.processInfo.environment["MYSQL_HOST"] ?? ProcessInfo.processInfo.environment["INSTANCE_CONNECTION_NAME"] ?? "127.0.0.1", port: 3306),
+            username: ProcessInfo.processInfo.environment["MYSQL_USER"] ?? ProcessInfo.processInfo.environment["DB_USER"] ?? "dev",
+            database: ProcessInfo.processInfo.environment["MYSQL_DATABASE"] ?? ProcessInfo.processInfo.environment["DB_NAME"] ?? "dev",
+            password: ProcessInfo.processInfo.environment["MYSQL_PASSWORD"] ?? ProcessInfo.processInfo.environment["DB_PASS"] ?? "dev",
             tlsConfiguration: nil,
             on: eventLoopGroup.next()
         )
