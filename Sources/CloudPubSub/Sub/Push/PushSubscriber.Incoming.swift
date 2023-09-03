@@ -28,7 +28,7 @@ extension PushSubscriber {
                 self.id = try container.decodeIfPresent(String.self, forKey: .messageId) ?? (try container.decode(String.self, forKey: .message_id))
                 self.published = try container.decodeIfPresent(Date.self, forKey: .publishTime) ?? (try container.decode(Date.self, forKey: .publish_time))
                 self.attributes = try container.decode([String: String].self, forKey: .attributes)
-                self.data = try container.decode(Data.self, forKey: .data)
+                self.data = try container.decodeIfPresent(Data.self, forKey: .data) ?? Data()
             }
         }
     }
