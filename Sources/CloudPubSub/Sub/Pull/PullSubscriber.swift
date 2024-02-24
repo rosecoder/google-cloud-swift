@@ -18,7 +18,7 @@ public actor PullSubscriber: Subscriber, Dependency {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
         var _client = _client!
-        try await _client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        try await _client.ensureAuthentication(authorization: PubSub.shared.authorization, context: context, traceContext: "pubsub")
         self._client = _client
         return _client
     }
@@ -26,7 +26,7 @@ public actor PullSubscriber: Subscriber, Dependency {
     // MARK: - Bootstrap
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        try await PubSub.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await PubSub.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
@@ -60,7 +60,7 @@ public actor PullSubscriber: Subscriber, Dependency {
             _ = await task.result
         }
 
-        try await PubSub.shutdown()
+        try await PubSub.shared.shutdown()
     }
 
     // MARK: - Subscribe

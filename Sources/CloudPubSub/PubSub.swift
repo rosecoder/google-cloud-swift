@@ -2,13 +2,15 @@ import Foundation
 import NIO
 import CloudCore
 
-struct PubSub {
+actor PubSub {
 
-    static var authorization: Authorization?
+    static let shared = PubSub()
+
+    var authorization: Authorization?
 
     // MARK: - Booostrap
 
-    static func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
+    func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
         guard ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"]?.isEmpty != false else {
             return
         }
@@ -25,9 +27,9 @@ struct PubSub {
 
     // MARK: - Termination
 
-    private static var isShutdown = false
+    private var isShutdown = false
 
-    public static func shutdown() async throws {
+    public func shutdown() async throws {
         guard !isShutdown else {
             return
         }

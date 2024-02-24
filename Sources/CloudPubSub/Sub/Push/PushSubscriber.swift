@@ -65,7 +65,7 @@ public actor PushSubscriber: Subscriber, Dependency {
         Self.logger.debug("Shutting down subscriptions...")
 
         try await channel?.close()
-        try await PubSub.shutdown()
+        try await PubSub.shared.shutdown()
     }
 
     // MARK: - Subscribe

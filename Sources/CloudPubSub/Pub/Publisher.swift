@@ -28,7 +28,7 @@ public actor Publisher: Dependency {
             try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
         var _client = _client!
-        try await _client.ensureAuthentication(authorization: PubSub.authorization, context: context, traceContext: "pubsub")
+        try await _client.ensureAuthentication(authorization: PubSub.shared.authorization, context: context, traceContext: "pubsub")
         self._client = _client
         return _client
     }
@@ -36,7 +36,7 @@ public actor Publisher: Dependency {
     // MARK: - Bootstrap
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        try await PubSub.bootstrap(eventLoopGroup: eventLoopGroup)
+        try await PubSub.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
         // Emulator
         if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
@@ -71,7 +71,7 @@ public actor Publisher: Dependency {
     // MARK: - Termination
 
     public func shutdown() async throws {
-        try await PubSub.shutdown()
+        try await PubSub.shared.shutdown()
     }
 
     // MARK: - Publish
@@ -80,6 +80,8 @@ public actor Publisher: Dependency {
     public static func publish<Message>(to topic: Topic<Message>, messages: [Message.Outgoing], context: Context) async throws -> [PublishedMessage]
     where Message.Outgoing: OutgoingMessage {
         try await withRetryableTask(logger: context.logger) {
+            context.logger.debug("Publishing \(messages.count) message(s)...")
+
 #if DEBUG
             guard isEnabled else {
                 return messages.map { _ in
