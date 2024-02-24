@@ -109,17 +109,11 @@ public actor PushSubscriber: Subscriber, Dependency {
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
+        context.logger[metadataKey: "subscription"] = .string(incoming.subscription)
+        context.logger[metadataKey: "message"] = .string(incoming.message.id)
+        context.logger.debug("Handling incoming message. Decoding...")
+
         let rawMessage = incoming.message
-
-        func handleHandler(error: Error) {
-            if !(error is CancellationError) {
-                context.logger.error("\(error)")
-                context.trace?.end(error: error)
-            } else {
-                context.trace?.end(statusCode: .cancelled)
-            }
-        }
-
         let message: Handler.Message.Incoming
         do {
             message = try .init(
@@ -131,9 +125,11 @@ public actor PushSubscriber: Subscriber, Dependency {
             )
             try Task.checkCancellation()
         } catch {
-            handleHandler(error: error)
+            handleFailure(error: error, context: &context)
             return .failure
         }
+
+        context.logger.debug("Handling incoming message. Running handler...")
 
         var handler = handlerType.init(context: context, message: message)
         do {
@@ -141,12 +137,23 @@ public actor PushSubscriber: Subscriber, Dependency {
             context = handler.context
         } catch {
             context = handler.context
-            handleHandler(error: error)
+            handleFailure(error: error, context: &context)
             return .failure
         }
 
+        context.logger.debug("Handling successful.")
         context.trace?.end(statusCode: .ok)
 
         return .success
+    }
+
+    private static func handleFailure(error: Error, context: inout Context) {
+        if !(error is CancellationError) {
+            context.logger.error("\(error)")
+            context.trace?.end(error: error)
+        } else {
+            context.logger.debug("Handling cancelled.")
+            context.trace?.end(statusCode: .cancelled)
+        }
     }
 }
