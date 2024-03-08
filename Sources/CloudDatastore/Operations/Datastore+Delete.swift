@@ -54,6 +54,8 @@ extension Datastore {
           Entity.Key: AnyKey
     {
         let keys = try await getKeys(query: query, context: context, projectID: projectID)
-        try await deleteEntities(keys: keys, context: context, projectID: projectID)
+        if !keys.isEmpty {
+            try await deleteEntities(keys: keys, context: context, projectID: projectID)
+        }
     }
 }
