@@ -26,7 +26,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "swift-log", url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
-        .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", .revision("1.8.0")),
+        .package(name: "grpc-swift", url: "https://github.com/grpc/grpc-swift.git", from: "1.8.0"),
         .package(name: "Auth", url: "https://github.com/rosecoder/google-auth-library-swift.git", .revision("3a8e3c6d3141ba38017b2b87cb6961ac97360b62")),
         .package(name: "async-http-client", url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(name: "RediStack", url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
@@ -34,7 +34,7 @@ let package = Package(
         .package(name: "retryable-task", url: "https://github.com/rosecoder/retryable-task.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/mysql-nio.git", from: "1.4.0"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.54.0"),
-        .package(url: "https://github.com/apple/swift-crypto.git", from: "2.5.0"),
+        .package(url: "https://github.com/apple/swift-crypto.git", from: "3.3.0"),
     ],
     targets: [
         .target(name: "CloudApp", dependencies: [
