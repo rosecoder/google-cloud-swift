@@ -15,6 +15,8 @@ public actor Tracing: Dependency {
 
     var authorization: Authorization!
 
+    private var writeTimer: Timer?
+
     public func bootstrap(eventLoopGroup: EventLoopGroup) throws {
         authorization = try Authorization(scopes: [
             "https://www.googleapis.com/auth/trace.append",
@@ -31,6 +33,9 @@ public actor Tracing: Dependency {
     }
 
     public func shutdown() async throws {
+        writeTimer?.invalidate()
+        writeTimer = nil
+
         writeIfNeeded()
         await waitForWrite()
         try await authorization?.shutdown()
@@ -223,6 +228,7 @@ public actor Tracing: Dependency {
                 await self.writeIfNeeded()
             }
         }
+        self.writeTimer = timer
         RunLoop.current.add(timer, forMode: .common)
     }
 }
