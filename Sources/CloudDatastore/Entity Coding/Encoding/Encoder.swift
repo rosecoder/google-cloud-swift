@@ -7,7 +7,7 @@ struct EntityEncoder {
           T.Key: AnyKey
     {
         let encoder = RootEncoder(propertyConfiguration: {
-            T.propertyConfiguration(key: $0 as! T.CodingKeys) // this should never fail due to enforcemant of CodingKeys being CodingKey
+            ($0 as? T.CodingKeys).flatMap { T.propertyConfiguration(key: $0) } ?? T.propertyConfiguration(otherKey: $0)
         })
         try value.encode(to: encoder)
         return encoder.container!.computedRaw.entityValue

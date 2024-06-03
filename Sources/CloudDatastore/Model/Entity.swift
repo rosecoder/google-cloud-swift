@@ -13,11 +13,16 @@ public protocol Entity: Codable, QueryFilterValue {
     var key: Key { get set }
     
     static func propertyConfiguration(key: CodingKeys) -> PropertyConfiguration
+    static func propertyConfiguration(otherKey: any CodingKey) -> PropertyConfiguration
 }
 
 extension Entity {
 
     public static func propertyConfiguration(key: CodingKeys) -> PropertyConfiguration {
+        .init()
+    }
+
+    public static func propertyConfiguration(otherKey: any CodingKey) -> PropertyConfiguration {
         .init()
     }
 }
