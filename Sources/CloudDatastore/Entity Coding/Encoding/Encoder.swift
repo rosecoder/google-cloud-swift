@@ -24,10 +24,18 @@ struct EntityEncoder {
             self.propertyConfiguration = propertyConfiguration
         }
 
-        var container: EncodingContainer?
+        var container: _EncodingContainer?
 
         func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key: CodingKey {
-            assert(container == nil)
+            if let primaryContainer = container {
+                let referencedContainer = ReferncedKeyedContainer<Key>(
+                    codingPath: codingPath,
+                    propertyConfiguration: propertyConfiguration,
+                    propertiesReference: &primaryContainer.properties,
+                    propertiesExcludedFromIndexReference: &primaryContainer.propertiesExcludedFromIndex
+                )
+                return KeyedEncodingContainer(referencedContainer)
+            }
 
             let container = KeyedContainer<Key>(codingPath: codingPath, propertyConfiguration: propertyConfiguration)
             self.container = container
