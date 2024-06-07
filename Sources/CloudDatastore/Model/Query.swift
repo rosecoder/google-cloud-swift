@@ -68,7 +68,11 @@ Entity.Key: AnyKey
     public mutating func filter(by key: CodingKey, where condition: Condition) {
         filters.append(.with {
             $0.property = .with {
-                $0.name = key.stringValue
+                if case .hasAncestor = condition {
+                    $0.name = "__key__"
+                } else {
+                    $0.name = key.stringValue
+                }
             }
             $0.op = condition.rawOp
             $0.value = condition.rawValue
