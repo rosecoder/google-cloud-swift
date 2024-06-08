@@ -4,9 +4,13 @@ import NIO
 import AsyncHTTPClient
 import CloudCore
 
+private let coordinator = IDTokenCoordinator()
+
 public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response> {
 
     private let targetAudience: String
+
+    private var idTokenPromise: EventLoopFuture<Void>?
 
     public init?(_ dependencyType: DependencyType.Type) {
         guard let address = ProcessInfo.processInfo.environment[dependencyType.serviceEnvironmentName] else {
@@ -27,94 +31,99 @@ public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType
 
         switch part {
         case .metadata(var headers):
-            idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
-                .whenComplete { result in
+            idTokenPromise = coordinator.idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
+                .map { accessToken, _ in
+                    headers.replaceOrAdd(name: "Authorization", value: "Bearer " + accessToken)
+                    context.send(.metadata(headers), promise: promise)
+                }
+        default:
+            if let idTokenPromise {
+                idTokenPromise.whenComplete { result in
                     switch result {
                     case .failure(let error):
                         context.errorCaught(error)
-                    case .success((let accessToken, _)):
-                        headers.replaceOrAdd(name: "Authorization", value: "Bearer " + accessToken)
-                        context.send(.metadata(headers), promise: promise)
+                    case .success:
+                        context.send(part, promise: promise)
                     }
                 }
-        default:
-            idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
-                .whenComplete { _ in
-                    context.send(part, promise: promise)
-                }
+            } else {
+                context.send(part, promise: promise)
+            }
         }
     }
 }
 
-private var activeIDTokenFutures = [String: EventLoopFuture<(String, Date)>]()
-private var client: HTTPClient?
+private actor IDTokenCoordinator {
 
-private struct IDTokenPayload: Decodable {
+    private var activeIDTokenTasks = [String: Task<(String, Date), Error>]()
+    private let client = HTTPClient(eventLoopGroupProvider: .shared(_unsafeInitializedEventLoopGroup))
 
-    let exp: TimeInterval
-}
+    private struct IDTokenPayload: Decodable {
 
-private enum IDTokenError: Error {
-    case noData
-    case notJWT(String)
-    case invalidJWTPayload(String)
-}
-
-private func idToken(targetAudience: String, eventLoop: EventLoop) -> EventLoopFuture<(String, Date)> {
-    if let future = activeIDTokenFutures[targetAudience] {
-        return future.flatMap { (idToken, expiration) in
-            if expiration < Date() {
-                return requestIDToken(targetAudience: targetAudience, eventLoop: eventLoop)
-            }
-            return eventLoop.makeSucceededFuture((idToken, expiration))
-        }
+        let exp: TimeInterval
     }
 
-    return requestIDToken(targetAudience: targetAudience, eventLoop: eventLoop)
-}
-
-private func requestIDToken(targetAudience: String, eventLoop: EventLoop) -> EventLoopFuture<(String, Date)> {
-    if client == nil {
-        client = HTTPClient(eventLoopGroupProvider: .shared(_unsafeInitializedEventLoopGroup))
+    private enum IDTokenError: Error {
+        case noData
+        case notJWT(String)
+        case invalidJWTPayload(String)
     }
 
-    var urlComponents = URLComponents(string: "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity")!
-    urlComponents.queryItems = [
-        .init(name: "audience", value: targetAudience),
-    ]
-
-    let request = try! HTTPClient.Request(url: urlComponents.string!, headers: [
-        "Metadata-Flavor": "Google",
-    ])
-
-    let future = client!.execute(request: request, eventLoop: .delegate(on: eventLoop))
-        .flatMapThrowing { response in
-            guard let body = response.body else {
-                throw IDTokenError.noData
-            }
-
-            let idToken = String(buffer: body)
-            let jwtComponents = idToken.components(separatedBy: ".")
-            guard jwtComponents.count >= 3 else {
-                throw IDTokenError.notJWT(idToken)
-            }
-            var payloadBase64String = jwtComponents[1]
-
-            // Add missing padding
-            let remainder = payloadBase64String.count % 4
-            if remainder > 0 {
-                payloadBase64String = payloadBase64String.padding(toLength: payloadBase64String.count + 4 - remainder, withPad: "=", startingAt: 0)
-            }
-
-            guard let payloadData = Data(base64Encoded: payloadBase64String) else {
-                throw IDTokenError.invalidJWTPayload(payloadBase64String)
-            }
-
-            let payload = try JSONDecoder().decode(IDTokenPayload.self, from: payloadData)
-            let expiration = Date(timeIntervalSince1970: payload.exp)
-
-            return (idToken, expiration)
+    fileprivate nonisolated func idToken(targetAudience: String, eventLoop: EventLoop) -> EventLoopFuture<(String, Date)> {
+        let promise = eventLoop.makePromise(of: (String, Date).self)
+        promise.completeWithTask {
+            try await self.idToken(targetAudience: targetAudience)
         }
-    activeIDTokenFutures[targetAudience] = future // TODO: lock needed?
-    return future
+        return promise.futureResult
+    }
+
+    fileprivate func idToken(targetAudience: String) async throws -> (String, Date) {
+        if let task = activeIDTokenTasks[targetAudience] {
+            let (idToken, expiration) = try await task.value
+            if expiration >= Date() {
+                return (idToken, expiration)
+            }
+        }
+
+        let task = Task {
+            return try await requestIDToken(targetAudience: targetAudience)
+        }
+        activeIDTokenTasks[targetAudience] = task
+        return try await task.value
+    }
+
+    private func requestIDToken(targetAudience: String) async throws -> (String, Date) {
+        var urlComponents = URLComponents(string: "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity")!
+        urlComponents.queryItems = [
+            .init(name: "audience", value: targetAudience),
+        ]
+
+        var request = HTTPClientRequest(url: urlComponents.string!)
+        request.headers.add(name: "Metadata-Flavor", value: "Google")
+
+        let response = try await client.execute(request, timeout: .seconds(5))
+        let body = try await response.body.collect(upTo: 1024 * 10) // 10 KB
+
+        let idToken = String(buffer: body)
+        let jwtComponents = idToken.components(separatedBy: ".")
+        guard jwtComponents.count >= 3 else {
+            throw IDTokenError.notJWT(idToken)
+        }
+        var payloadBase64String = jwtComponents[1]
+
+        // Add missing padding
+        let remainder = payloadBase64String.count % 4
+        if remainder > 0 {
+            payloadBase64String = payloadBase64String.padding(toLength: payloadBase64String.count + 4 - remainder, withPad: "=", startingAt: 0)
+        }
+
+        guard let payloadData = Data(base64Encoded: payloadBase64String) else {
+            throw IDTokenError.invalidJWTPayload(payloadBase64String)
+        }
+
+        let payload = try JSONDecoder().decode(IDTokenPayload.self, from: payloadData)
+        let expiration = Date(timeIntervalSince1970: payload.exp)
+
+        return (idToken, expiration)
+    }
 }
