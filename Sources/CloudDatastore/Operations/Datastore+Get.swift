@@ -46,6 +46,7 @@ extension Datastore {
     /// - Parameter key: Key representing the entity to lookup.
     /// - Returns: Decoded entity. May be `nil` if it didn't exist.
     public static func getEntity<Entity>(
+        _ type: Entity.Type = Entity.self,
         key: Entity.Key,
         context: Context,
         projectID: String = defaultProjectID,
