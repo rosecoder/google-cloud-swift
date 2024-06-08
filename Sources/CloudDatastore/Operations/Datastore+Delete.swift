@@ -5,13 +5,19 @@ extension Datastore {
 
     // MARK: - By Key
 
-    public static func deleteEntities<Key>(keys: [Key], context: Context, projectID: String = defaultProjectID) async throws
+    public static func deleteEntities<Key>(
+        keys: [Key], context: Context,
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws
     where Key: AnyKey
     {
         try await context.trace.recordSpan(named: "datastore-delete", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            try await withRetryableTask(logger: context.logger) {
+            try await withRetryableTask(logger: context.logger, operation: {
                 _ = try await shared.client(context: context).commit(.with {
                     $0.projectID = projectID
                     $0.mutations = keys.map { key in
@@ -21,41 +27,69 @@ extension Datastore {
                     }
                     $0.mode = .nonTransactional
                 })
-            }
+            }, file: file, function: function, line: line)
         }
     }
 
-    public static func deleteEntity<Key>(key: Key, context: Context, projectID: String = defaultProjectID) async throws
+    public static func deleteEntity<Key>(
+        key: Key,
+        context: Context,
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws
     where Key: AnyKey
     {
-        try await deleteEntities(keys: [key], context: context, projectID: projectID)
+        try await deleteEntities(keys: [key], context: context, projectID: projectID, file: file, function: function, line: line)
     }
 
     // MARK: - By Entity
 
-    public static func delete<Entity>(entities: [Entity], context: Context, projectID: String = defaultProjectID) async throws
+    public static func delete<Entity>(
+        entities: [Entity],
+        context: Context,
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws
     where Entity: _Entity,
           Entity.Key: AnyKey
     {
-        try await deleteEntities(keys: entities.map({ $0.key}), context: context, projectID: projectID)
+        try await deleteEntities(keys: entities.map({ $0.key}), context: context, projectID: projectID, file: file, function: function, line: line)
     }
 
-    public static func delete<Entity>(_ entity: Entity, context: Context, projectID: String = defaultProjectID) async throws
+    public static func delete<Entity>(
+        _ entity: Entity, 
+        context: Context,
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws
     where Entity: _Entity,
           Entity.Key: AnyKey
     {
-        try await deleteEntity(key: entity.key, context: context, projectID: projectID)
+        try await deleteEntity(key: entity.key, context: context, projectID: projectID, file: file, function: function, line: line)
     }
 
     // MARK: - By Query
 
-    public static func deleteEntities<Entity, CodingKeys>(query: Query<Entity, CodingKeys>, context: Context, projectID: String = defaultProjectID) async throws
+    public static func deleteEntities<Entity, CodingKeys>(
+        query: Query<Entity, CodingKeys>,
+        context: Context,
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws
     where Entity: _Entity,
           Entity.Key: AnyKey
     {
-        let keys = try await getKeys(query: query, context: context, projectID: projectID)
+        let keys = try await getKeys(query: query, context: context, projectID: projectID, file: file, function: function, line: line)
         if !keys.isEmpty {
-            try await deleteEntities(keys: keys, context: context, projectID: projectID)
+            try await deleteEntities(keys: keys, context: context, projectID: projectID, file: file, function: function, line: line)
         }
     }
 }

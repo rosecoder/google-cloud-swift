@@ -8,7 +8,10 @@ extension Datastore {
         projection: [Google_Datastore_V1_Projection],
         cursor: inout Cursor?,
         context: Context,
-        projectID: String
+        projectID: String,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [Google_Datastore_V1_EntityResult]
     where
         Entity: _Entity,
@@ -17,7 +20,7 @@ extension Datastore {
         let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await withRetryableTask(logger: context.logger) {
+            try await withRetryableTask(logger: context.logger, operation: {
                 try await shared.client(context: context).runQuery(.with {
                     $0.projectID = projectID
                     $0.partitionID = .with {
@@ -54,7 +57,7 @@ extension Datastore {
                         }
                     })
                 })
-            }
+            }, file: file, function: function, line: line)
         }
         switch response.batch.moreResults {
         case .moreResultsAfterCursor, .moreResultsAfterLimit, .notFinished:
@@ -92,13 +95,16 @@ extension Datastore {
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
         context: Context,
-        projectID: String = defaultProjectID
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [Entity]
     where
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, context: context, projectID: projectID)
+        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
 
         let decoder = EntityDecoder()
         return try raws.map {
@@ -109,21 +115,27 @@ extension Datastore {
     public static func getEntities<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         context: Context,
-        projectID: String = defaultProjectID
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [Entity]
     where
         Entity: _Entity,
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getEntities(query: query, cursor: &cursor, context: context, projectID: projectID)
+        return try await getEntities(query: query, cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
     }
 
     public static func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
         context: Context,
-        projectID: String = defaultProjectID
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [Entity.Key]
     where
         Entity: _Entity,
@@ -138,7 +150,10 @@ extension Datastore {
             }],
             cursor: &cursor,
             context: context,
-            projectID: projectID
+            projectID: projectID,
+            file: file,
+            function: function,
+            line: line
         )
         return raws.map { Entity.Key.init(raw: $0.entity.key) }
     }
@@ -146,13 +161,16 @@ extension Datastore {
     public static func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         context: Context,
-        projectID: String = defaultProjectID
+        projectID: String = defaultProjectID,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [Entity.Key]
     where
         Entity: _Entity,
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getKeys(query: query, cursor: &cursor, context: context, projectID: projectID)
+        return try await getKeys(query: query, cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
     }
 }

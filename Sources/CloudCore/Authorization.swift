@@ -31,18 +31,18 @@ public actor Authorization {
     }
 
     /// Returns cached authorization token or generates a new one if needed.
-    public func accessToken() async throws -> String {
-        try await withRetryableTask(logger: logger) {
+    public func accessToken(file: String = #fileID, function: String = #function, line: UInt = #line) async throws -> String {
+        try await withRetryableTask(logger: logger, operation: {
             let rawToken = try await provider.token()
             guard let accessToken = rawToken.AccessToken else {
                 throw GenerateError.noAccessToken
             }
             return accessToken
-        }
+        }, file: file, function: function, line: line)
     }
 
-    public func warmup() async throws {
-        _ = try await accessToken()
+    public func warmup(file: String = #fileID, function: String = #function, line: UInt = #line) async throws {
+        _ = try await accessToken(file: file, function: function, line: line)
     }
 
     public func shutdown() async throws {

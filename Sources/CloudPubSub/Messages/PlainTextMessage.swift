@@ -33,9 +33,12 @@ extension Publisher {
         to topic: Topic<PlainTextMessage>,
         body: String,
         attributes: [String: String] = [:],
-        context: Context
+        context: Context,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> PublishedMessage {
-        (try await publish(to: topic, bodies: [body], attributes: attributes, context: context))[0]
+        (try await publish(to: topic, bodies: [body], attributes: attributes, context: context, file: file, function: function, line: line))[0]
     }
 
     @discardableResult
@@ -43,10 +46,13 @@ extension Publisher {
         to topic: Topic<PlainTextMessage>,
         bodies: [String],
         attributes: [String: String] = [:],
-        context: Context
+        context: Context,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
     ) async throws -> [PublishedMessage] {
         let messages = try bodies.map { try PlainTextMessage.Outgoing(body: $0, attributes: attributes) }
-        return try await publish(to: topic, messages: messages, context: context)
+        return try await publish(to: topic, messages: messages, context: context, file: file, function: function, line: line)
     }
 }
 

@@ -77,9 +77,16 @@ public actor Publisher: Dependency {
     // MARK: - Publish
 
     @discardableResult
-    public static func publish<Message>(to topic: Topic<Message>, messages: [Message.Outgoing], context: Context) async throws -> [PublishedMessage]
+    public static func publish<Message>(
+        to topic: Topic<Message>,
+        messages: [Message.Outgoing],
+        context: Context,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws -> [PublishedMessage]
     where Message.Outgoing: OutgoingMessage {
-        try await withRetryableTask(logger: context.logger) {
+        try await withRetryableTask(logger: context.logger, operation: {
             context.logger.debug("Publishing \(messages.count) message(s)...")
 
 #if DEBUG
@@ -115,11 +122,18 @@ public actor Publisher: Dependency {
             return response
                 .messageIds
                 .map { PublishedMessage(id: $0) }
-        }
+        }, file: file, function: function, line: line)
     }
 
     @discardableResult
-    public static func publish<Message>(to topic: Topic<Message>, message: Message.Outgoing, context: Context) async throws -> PublishedMessage
+    public static func publish<Message>(
+        to topic: Topic<Message>,
+        message: Message.Outgoing,
+        context: Context,
+        file: String = #fileID,
+        function: String = #function,
+        line: UInt = #line
+    ) async throws -> PublishedMessage
     where Message.Outgoing: OutgoingMessage {
         (try await publish(to: topic, messages: [message], context: context))[0]
     }
