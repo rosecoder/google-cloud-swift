@@ -5,8 +5,8 @@ private var resolvedEntryLabels: [String: String]?
 
 extension Environment {
 
-    func logName(label: String) -> String {
-        "projects/\(projectID)/logs/\(label.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? label)"
+    func logName(label: String) async -> String {
+        await "projects/\(projectID)/logs/\(label.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? label)"
     }
 
     var type: String {
@@ -25,34 +25,36 @@ extension Environment {
     }
 
     var labels: [String: String] {
-        switch self {
-        case .k8sContainer(let projectID, let location, let clusterName, let namespaceName, let podName, let containerName):
-            return [
-                "project_id": projectID,
-                "location": location,
-                "cluster_name": clusterName,
-                "namespace_name": namespaceName,
-                "pod_name": podName,
-                "container_name": containerName,
-            ]
-        case .cloudRunJob(let jobName, _, _, _, _):
-            return [
-                "project_id": projectID,
-                "job_name": jobName,
-                "location": locationID
-            ]
-        case .cloudRunRevision(let serviceName, let revisionName, let configurationName, _):
-            return [
-                "project_id": projectID,
-                "service_name": serviceName,
-                "revision_name": revisionName,
-                "location": locationID,
-                "configuration_name": configurationName
-            ]
+        get async {
+            switch self {
+            case .k8sContainer(let projectID, let location, let clusterName, let namespaceName, let podName, let containerName):
+                return [
+                    "project_id": projectID,
+                    "location": location,
+                    "cluster_name": clusterName,
+                    "namespace_name": namespaceName,
+                    "pod_name": podName,
+                    "container_name": containerName,
+                ]
+            case .cloudRunJob(let jobName, _, _, _, _):
+                return await [
+                    "project_id": projectID,
+                    "job_name": jobName,
+                    "location": locationID
+                ]
+            case .cloudRunRevision(let serviceName, let revisionName, let configurationName, _):
+                return await [
+                    "project_id": projectID,
+                    "service_name": serviceName,
+                    "revision_name": revisionName,
+                    "location": locationID,
+                    "configuration_name": configurationName
+                ]
 #if DEBUG
-        case .localDevelopment:
-            return [:]
+            case .localDevelopment:
+                return [:]
 #endif
+            }
         }
     }
 

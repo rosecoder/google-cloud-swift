@@ -15,7 +15,7 @@ extension UserInfo {
     }
 }
 
-public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterceptor<Request, Response> {
+public final class ServerTraceInterceptor<Request, Response>: GRPC.ServerInterceptor<Request, Response>, @unchecked Sendable {
 
     public override func receive(_ part: GRPCServerRequestPart<Request>, context: ServerInterceptorContext<Request, Response>) {
         switch part {

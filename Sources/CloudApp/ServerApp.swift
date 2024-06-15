@@ -23,10 +23,10 @@ extension ServerApp {
     public static func main() {
         Task {
             // Retries
-            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+            await DefaultRetryPolicyConfiguration.shared.use(retryPolicy: DelayedRetryPolicy(
                 delay: 10_000_000, // 10 ms
                 maxRetries: 1
-            )
+            ))
 
             // Init
             let port: Int

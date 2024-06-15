@@ -2,7 +2,7 @@ import Foundation
 
 extension Environment {
 
-    static func resolveCurrent() -> Environment? {
+    public static func resolveCurrent() -> Environment? {
         if let resolved = kubernetes() {
             return resolved
         }

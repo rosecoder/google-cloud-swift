@@ -1,3 +1,4 @@
+import CloudCore
 import CloudTrace
 import RetryableTask
 
@@ -8,7 +9,6 @@ extension Datastore {
         projection: [Google_Datastore_V1_Projection],
         cursor: inout Cursor?,
         context: Context,
-        projectID: String,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -17,10 +17,11 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
+        let projectID = await Environment.current.projectID
         let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client, attributes: [
             "datastore/kind": Entity.Key.kind,
         ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: {
+            try await withRetryableTask(logger: context.logger, operation: { [cursor] in
                 try await shared.client(context: context).runQuery(.with {
                     $0.projectID = projectID
                     $0.partitionID = .with {
@@ -95,7 +96,6 @@ extension Datastore {
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -104,7 +104,7 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
+        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, context: context, file: file, function: function, line: line)
 
         let decoder = EntityDecoder()
         return try raws.map {
@@ -115,7 +115,6 @@ extension Datastore {
     public static func getEntities<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -125,14 +124,13 @@ extension Datastore {
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getEntities(query: query, cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
+        return try await getEntities(query: query, cursor: &cursor, context: context, file: file, function: function, line: line)
     }
 
     public static func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -150,7 +148,6 @@ extension Datastore {
             }],
             cursor: &cursor,
             context: context,
-            projectID: projectID,
             file: file,
             function: function,
             line: line
@@ -161,7 +158,6 @@ extension Datastore {
     public static func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -171,6 +167,6 @@ extension Datastore {
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getKeys(query: query, cursor: &cursor, context: context, projectID: projectID, file: file, function: function, line: line)
+        return try await getKeys(query: query, cursor: &cursor, context: context, file: file, function: function, line: line)
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import NIO
 
-public var _unsafeInitializedEventLoopGroup: EventLoopGroup!
+nonisolated(unsafe) public var _unsafeInitializedEventLoopGroup: EventLoopGroup!
 
 public protocol Dependency: Actor {
 

@@ -31,8 +31,6 @@ public actor Datastore: Dependency {
         return _client
     }
 
-    public static var defaultProjectID: String = Environment.current.projectID
-
     var authorization: Authorization?
 
     // MARK: - Bootstrap
@@ -74,8 +72,6 @@ public actor Datastore: Dependency {
 #if DEBUG
 
     public func bootstrapForTesting(eventLoopGroup: EventLoopGroup) async throws {
-        Self.defaultProjectID = "test"
-
         emulatorTeardownTimer?.invalidate()
         emulatorTeardownTimer = Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { _ in
             print("\(#function): Stopping datastore emulator.")

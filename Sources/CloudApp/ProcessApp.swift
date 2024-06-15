@@ -18,10 +18,10 @@ extension ProcessApp {
     public static func main() {
         Task {
             // Retries
-            DefaultRetryPolicy.retryPolicy = DelayedRetryPolicy(
+            await DefaultRetryPolicyConfiguration.shared.use(retryPolicy: DelayedRetryPolicy(
                 delay: 50_000_000, // 50 ms
                 maxRetries: 1
-            )
+            ))
 
             // Init
             await initialize()

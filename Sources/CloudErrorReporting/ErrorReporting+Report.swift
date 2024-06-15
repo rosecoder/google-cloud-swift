@@ -29,9 +29,10 @@ extension ErrorReporting {
         function: String,
         line: UInt
     ) async throws -> HTTPClientRequest {
-        let environment = Environment.current
+        let environment = await Environment.current
+        let projectID = await environment.projectID
         var request = HTTPClientRequest(
-            url: "https://clouderrorreporting.googleapis.com/v1beta1/projects/\(environment.projectID)/events:report" // TODO: Encode project id
+            url: "https://clouderrorreporting.googleapis.com/v1beta1/projects/\(projectID)/events:report" // TODO: Encode project id
         )
         request.method = .POST
 

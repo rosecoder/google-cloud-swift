@@ -1,9 +1,33 @@
 import Foundation
 
-private var _current: Environment?
-private var __projectID: String?
+private actor EnvironmentCoordinator {
 
-public enum Environment {
+    static let shared = EnvironmentCoordinator()
+
+    var _current: Environment?
+    var __projectID: String?
+
+    private init() {}
+
+    public var current: Environment {
+        if _current == nil {
+            _current = Environment.resolveCurrent()
+            if _current == nil {
+                fatalError("Could not automatically resolve environment")
+            }
+        }
+        return _current!
+    }
+
+    public var projectID: String {
+        if __projectID == nil {
+            __projectID = current._projectID
+        }
+        return __projectID!
+    }
+}
+
+public enum Environment: Sendable {
 #if DEBUG
     case localDevelopment
 #endif
@@ -30,14 +54,9 @@ public enum Environment {
     )
 
     public static var current: Environment {
-        if _current == nil {
-            _current = resolveCurrent()
-            if _current == nil {
-                fatalError("Could not automatically resolve environment")
-            }
+        get async {
+            await EnvironmentCoordinator.shared.current
         }
-
-        return _current!
     }
 
     // MARK: - Convenience
@@ -47,7 +66,7 @@ public enum Environment {
         let project_id: String
     }
 
-    private var _projectID: String {
+    public var _projectID: String {
         switch self {
         case .k8sContainer(let projectID, _, _, _, _, _):
             return projectID
@@ -69,10 +88,9 @@ public enum Environment {
     }
 
     public var projectID: String {
-        if __projectID == nil {
-            __projectID = _projectID
+        get async {
+            await EnvironmentCoordinator.shared.projectID
         }
-        return __projectID!
     }
 
     public var locationID: String {

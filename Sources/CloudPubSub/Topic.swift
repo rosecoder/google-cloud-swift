@@ -9,18 +9,19 @@ public struct Topics {}
 public struct Topic<Message: _Message>: Identifiable, Equatable, Hashable{
 
     public let name: String
-
     public let labels: [String: String]
+    public let projectID: String
 
     public init(name: String, labels: [String: String] = [:]) {
         self.name = name
         self.labels = labels
+        self.projectID = Environment.resolveCurrent()!._projectID
     }
 
     // MARK: - Identifiable
 
     public var id: String {
-        "projects/\(Environment.current.projectID)/topics/\(name)"
+        "projects/\(projectID)/topics/\(name)"
     }
 
     // MARK: - Hashable

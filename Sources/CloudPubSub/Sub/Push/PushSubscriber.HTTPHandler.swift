@@ -90,7 +90,7 @@ extension PushSubscriber {
                         response = .unexpectedCallerBehavior
                     }
 
-                    if !Environment.current.isCPUAlwaysAllocated {
+                    if !(await Environment.current.isCPUAlwaysAllocated) {
                         await Tracing.shared.writeIfNeeded()
                         await Tracing.shared.waitForWrite()
                     }

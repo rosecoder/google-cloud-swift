@@ -1,3 +1,4 @@
+import CloudCore
 import CloudTrace
 import RetryableTask
 
@@ -8,7 +9,6 @@ extension Datastore {
     public static func put<Entity>(
         entities: inout [Entity],
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -16,6 +16,7 @@ extension Datastore {
     where Entity: _Entity,
           Entity.Key: AnyKey
     {
+        let projectID = await Environment.current.projectID
         let encoder = EntityEncoder()
         let rawEntities: [Google_Datastore_V1_Entity] = try entities
             .map { try encoder.encode($0) }
@@ -50,7 +51,6 @@ extension Datastore {
     public static func put<Entity>(
         entity: inout Entity,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -59,7 +59,7 @@ extension Datastore {
           Entity.Key: AnyKey
     {
         var entities = [entity]
-        try await put(entities: &entities, context: context, projectID: projectID, file: file, function: function, line: line)
+        try await put(entities: &entities, context: context, file: file, function: function, line: line)
         entity = entities[0]
     }
 
@@ -71,7 +71,6 @@ extension Datastore {
     public static func allocateIDs<Key>(
         _ keys: inout [Key],
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -80,10 +79,11 @@ extension Datastore {
     {
         precondition(!keys.contains(where: { $0.id != .incomplete }))
 
+        let projectID = await Environment.current.projectID
         let result: Google_Datastore_V1_AllocateIdsResponse = try await context.trace.recordSpan(named: "datastore-allocate-ids", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: {
+            try await withRetryableTask(logger: context.logger, operation: { [keys] in
                 try await shared.client(context: context).allocateIds(.with {
                     $0.projectID = projectID
                     $0.keys = keys.map { $0.raw }
@@ -98,7 +98,6 @@ extension Datastore {
     public static func allocateID<Key>(
         _ key: inout Key,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -106,14 +105,13 @@ extension Datastore {
     where Key: AnyKey
     {
         var keys = [key]
-        try await allocateIDs(&keys, context: context, projectID: projectID, file: file, function: function, line: line)
+        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
         key = keys[0]
     }
 
     public static func allocateKey<Key>(
         _ keyType: Key.Type,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -121,7 +119,7 @@ extension Datastore {
     where Key: IndependentKey
     {
         var keys = [Key.init(id: .incomplete)]
-        try await allocateIDs(&keys, context: context, projectID: projectID, file: file, function: function, line: line)
+        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
         return keys[0]
     }
 
@@ -129,7 +127,6 @@ extension Datastore {
         _ keyType: Key.Type,
         namespace: Namespace,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -137,7 +134,7 @@ extension Datastore {
     where Key: IndependentNamespaceableKey
     {
         var keys = [Key.init(id: .incomplete, namespace: namespace)]
-        try await allocateIDs(&keys, context: context, projectID: projectID, file: file, function: function, line: line)
+        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
         return keys[0]
     }
 }

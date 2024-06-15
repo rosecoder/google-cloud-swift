@@ -40,7 +40,7 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         Task {
             await GoogleCloudLogging.shared.log {
-                var labels: [String: String] = Environment.current.entryLabels
+                var labels: [String: String] = await Environment.current.entryLabels
 
                 // Existing metdata
                 var trace: String?
@@ -134,8 +134,8 @@ public struct GoogleCloudLogHandler: LogHandler {
     // MARK: - Internal
 
     private func logViaRPC(now: Date, labels: [String: String], trace: String?, spanID: String?, level: Logger.Level, message: Logger.Message, source: String, file: String, function: String, line: UInt) async throws {
-        let environment = Environment.current
-        let logName = environment.logName(label: label)
+        let environment = await Environment.current
+        let logName = await environment.logName(label: label)
         var textPayload = message.description
         if level >= .error {
             let formattedLines: [String] = Thread.callStackSymbols
@@ -151,11 +151,12 @@ public struct GoogleCloudLogHandler: LogHandler {
             textPayload += "\n" + formattedLines.joined(separator: "\n")
         }
 
+        let labels = await environment.labels
         let request = Google_Logging_V2_WriteLogEntriesRequest.with {
             $0.logName = logName
             $0.resource = .with {
                 $0.type = environment.type
-                $0.labels = environment.labels
+                $0.labels = labels
             }
             $0.entries = [
                 .with {

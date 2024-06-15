@@ -15,7 +15,7 @@ extension App {
 
     public static var configuration: CommandConfiguration {
         CommandConfiguration(
-            version: Environment.current.version ?? "",
+            version: Environment.resolveCurrent()?.version ?? "",
             subcommands: commands
         )
     }

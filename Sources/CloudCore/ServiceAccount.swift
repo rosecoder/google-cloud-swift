@@ -3,40 +3,38 @@ import Logging
 import AsyncHTTPClient
 import NIOHTTP1
 
-private var currentTask: Task<ServiceAccount, Error>?
-private var _client: HTTPClient?
+public actor ServiceAccountCoordinator {
 
-private var client: HTTPClient {
-    if _client == nil {
-        _client = HTTPClient(eventLoopGroupProvider: .shared(_unsafeInitializedEventLoopGroup))
-    }
-    return _client!
-}
+    public static let shared = ServiceAccountCoordinator()
 
-public struct ServiceAccount: Decodable {
+    private init() {}
 
-    public let email: String
+    private var currentTask: Task<ServiceAccount, Error>?
+    private var _client: HTTPClient?
 
-    public init(email: String) {
-        self.email = email
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case email = "client_email"
+    private var client: HTTPClient {
+        if _client == nil {
+            _client = HTTPClient(eventLoopGroupProvider: .shared(_unsafeInitializedEventLoopGroup))
+        }
+        return _client!
     }
 
     // MARK: - Resolve
 
-    private static let logger = Logger(label: "core.serviceAccount")
+    private let logger = Logger(label: "core.serviceAccount")
 
     public enum ServiceAccountError: Error {
         case unexpectedMetdataStatus(HTTPResponseStatus, body: String)
     }
 
-    public static var custom: ServiceAccount?
+    public var custom: ServiceAccount?
+
+    public func use(custom: ServiceAccount?) {
+        self.custom = custom
+    }
 
     /// The current service account. Automatically resolved depending on environment.
-    public static var current: ServiceAccount {
+    public var current: ServiceAccount {
         get async throws {
             if let custom {
                 logger.debug("Using custom service account.")
@@ -63,7 +61,7 @@ public struct ServiceAccount: Decodable {
     }
 
     /// Resolves service account using a file.
-    private static func usingFile() throws -> ServiceAccount? {
+    private func usingFile() throws -> ServiceAccount? {
         guard let credentialsPath = ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"] else {
             return nil
         }
@@ -74,7 +72,7 @@ public struct ServiceAccount: Decodable {
     }
 
     /// Resolves service account using the metadata server.
-    private static func usingMetadata() async throws -> ServiceAccount {
+    private func usingMetadata() async throws -> ServiceAccount {
         var request = HTTPClientRequest(url: "http://metadata/computeMetadata/v1/instance/service-accounts/default/email")
         request.method = .GET
         request.headers.add(name: "Metadata-Flavor", value: "Google")
@@ -88,5 +86,18 @@ public struct ServiceAccount: Decodable {
         default:
             throw ServiceAccountError.unexpectedMetdataStatus(response.status, body: String(buffer: body))
         }
+    }
+}
+
+public struct ServiceAccount: Decodable, Sendable {
+
+    public let email: String
+
+    public init(email: String) {
+        self.email = email
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case email = "client_email"
     }
 }

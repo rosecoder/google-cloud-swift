@@ -32,6 +32,8 @@ public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable
 
     public let deadLetterPolicy: DeadLetterPolicy?
 
+    public let projectID: String
+
     public init(
         name: String,
         topic: Topic<Message>,
@@ -50,12 +52,13 @@ public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable
         self.expirationPolicyDuration = expirationPolicyDuration
         self.messageRetentionDuration = messageRetentionDuration
         self.deadLetterPolicy = deadLetterPolicy
+        self.projectID = Environment.resolveCurrent()!._projectID
     }
 
     // MARK: - Identifiable
 
     public var id: String {
-        "projects/\(Environment.current.projectID)/subscriptions/\(name)"
+        "projects/\(projectID)/subscriptions/\(name)"
     }
 
     // MARK: - Hashable

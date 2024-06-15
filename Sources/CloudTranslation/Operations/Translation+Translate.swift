@@ -32,6 +32,7 @@ extension Translation {
         labels: [String: String]? = nil,
         context: Context
     ) async throws -> [TranslationResult] {
+        let projectID = await Environment.current.projectID
         let response: Google_Cloud_Translation_V3_TranslateTextResponse = try await context.trace.recordSpan(named: "translation-translate", kind: .client) { span in
             try await shared.client(context: context).translateText(.with {
                 $0.contents = contents
@@ -40,7 +41,7 @@ extension Translation {
                     $0.sourceLanguageCode = sourceLanguageCode
                 }
                 $0.targetLanguageCode = targetLanguageCode
-                $0.parent = "projects/" + Environment.current.projectID + "/locations/global"
+                $0.parent = "projects/" + projectID + "/locations/global"
                 if let labels {
                     $0.labels = labels
                 }

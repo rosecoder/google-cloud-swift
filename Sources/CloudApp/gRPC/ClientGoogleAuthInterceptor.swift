@@ -6,7 +6,7 @@ import CloudCore
 
 private let coordinator = IDTokenCoordinator()
 
-public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response> {
+public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response>, @unchecked Sendable {
 
     private let targetAudience: String
 

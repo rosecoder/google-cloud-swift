@@ -43,8 +43,6 @@ public actor Tracing: Dependency {
 
     // MARK: - Config
 
-    public static var projectID: String = Environment.current.projectID
-
     public static var writeInterval: TimeInterval = 10
 
     public static var maximumBatchSize = 500
@@ -112,22 +110,24 @@ public actor Tracing: Dependency {
         try await _client.ensureAuthentication(authorization: authorization)
         self._client = _client
 
+        let environment = await Environment.current
+        let projectID = await environment.projectID
         _ = try await _client.batchWriteSpans(.with {
-            $0.name = "projects/\(Self.projectID)"
-            $0.spans = spans.map(encode)
+            $0.name = "projects/\(projectID)"
+            $0.spans = spans.map { encode(span: $0, projectID: projectID, environment: environment) }
         })
     }
 
-    private func encode(span: Span) -> Google_Devtools_Cloudtrace_V2_Span {
+    private func encode(span: Span, projectID: String, environment: Environment) -> Google_Devtools_Cloudtrace_V2_Span {
         let spanIDString = span.id.stringValue
         return .with {
-            $0.name = "projects/\(Self.projectID)/traces/\(span.traceID.stringValue)/spans/\(spanIDString)"
+            $0.name = "projects/\(projectID)/traces/\(span.traceID.stringValue)/spans/\(spanIDString)"
             $0.spanID = spanIDString
             $0.parentSpanID = span.parentID?.stringValue ?? ""
             $0.displayName = Google_Devtools_Cloudtrace_V2_TruncatableString(span.name, limit: 128)
             $0.startTime = .init(date: span.started)
             $0.endTime = .init(date: span.ended!)
-            $0.attributes = encode(attributes: span.attributes)
+            $0.attributes = encode(attributes: span.attributes, environment: environment)
             if let status = span.status {
                 $0.status = .with {
                     $0.code = Int32(status.code.rawValue)
@@ -137,7 +137,7 @@ public actor Tracing: Dependency {
             $0.sameProcessAsParentSpan = .with {
                 $0.value = span.sameProcessAsParent
             }
-            $0.links = encode(links: span.links)
+            $0.links = encode(links: span.links, environment: environment)
 //            $0.stackTrace
 //            $0.timeEvents
 //            $0.childSpanCount
@@ -145,12 +145,11 @@ public actor Tracing: Dependency {
         }
     }
 
-    private func encode(attributes: [String: AttributableValue]) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
+    private func encode(attributes: [String: AttributableValue], environment: Environment) -> Google_Devtools_Cloudtrace_V2_Span.Attributes {
 
         // Well-known labels can be found here: https://github.com/googleapis/cloud-trace-nodejs/blob/c57a0b100d00fe0002544400c3958a17cc9751fb/src/trace-labels.ts
 
         var attributes = attributes
-        let environment = Environment.current
         attributes["g.co/gae/app/module"] = environment.serviceName
         if let version = environment.version {
             attributes["g.co/gae/app/version"] = version
@@ -173,7 +172,7 @@ public actor Tracing: Dependency {
         return encoded
     }
 
-    private func encode(links: [Span.Link]) -> Google_Devtools_Cloudtrace_V2_Span.Links {
+    private func encode(links: [Span.Link], environment: Environment) -> Google_Devtools_Cloudtrace_V2_Span.Links {
         let limit: UInt8 = 128
 
         var encoded = Google_Devtools_Cloudtrace_V2_Span.Links.with {
@@ -199,7 +198,7 @@ public actor Tracing: Dependency {
                 case .parent:
                     $0.type = .parentLinkedSpan
                 }
-                $0.attributes = encode(attributes: link.attributes)
+                $0.attributes = encode(attributes: link.attributes, environment: environment)
             })
         }
         return encoded

@@ -19,11 +19,11 @@ extension CommandApp {
         commandApp = self
 
         // Retries
-        DefaultRetryPolicy.retryPolicy = ExponentialBackoffDelayRetryPolicy(
+        await DefaultRetryPolicyConfiguration.shared.use(retryPolicy: ExponentialBackoffDelayRetryPolicy(
             minimumBackoffDelay: 200_000_000, // 200 ms
             maximumBackoffDelay: 5_000_000_000, // 5 000 ms
             maxRetries: 7
-        )
+        ))
 
         // Init
         await initialize()

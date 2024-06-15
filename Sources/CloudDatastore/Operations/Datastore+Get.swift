@@ -1,3 +1,4 @@
+import CloudCore
 import CloudTrace
 import RetryableTask
 
@@ -11,7 +12,6 @@ extension Datastore {
     public static func getEntities<Entity>(
         keys: [Entity.Key],
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -20,6 +20,7 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
+        let projectID = await Environment.current.projectID
         let rawKeys = keys.map { $0.raw }
 
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
@@ -61,7 +62,6 @@ extension Datastore {
         _ type: Entity.Type = Entity.self,
         key: Entity.Key,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -70,7 +70,7 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        (try await getEntities(keys: [key], context: context, projectID: projectID, file: file, function: function, line: line))[0]
+        (try await getEntities(keys: [key], context: context, file: file, function: function, line: line))[0]
     }
 
     enum RegetError: Error {
@@ -81,7 +81,6 @@ extension Datastore {
     public static func reget<Entity>(
         entity: inout Entity,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -99,7 +98,7 @@ extension Datastore {
         }
 #endif
 
-        guard let updated: Entity = (try await getEntities(keys: [entity.key], context: context, projectID: projectID, file: file, function: function, line: line))[0] else {
+        guard let updated: Entity = (try await getEntities(keys: [entity.key], context: context, file: file, function: function, line: line))[0] else {
             throw RegetError.entityNotFound
         }
 
@@ -113,7 +112,6 @@ extension Datastore {
     public static func containsEntities<Key>(
         keys: [Key],
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -121,6 +119,7 @@ extension Datastore {
     where
         Key: AnyKey
     {
+        let projectID = await Environment.current.projectID
         let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
             "datastore/kind": Key.kind,
         ]) { span in
@@ -141,7 +140,6 @@ extension Datastore {
     public static func containsEntity<Key>(
         key: Key,
         context: Context,
-        projectID: String = defaultProjectID,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -149,6 +147,6 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        (try await containsEntities(keys: [key], context: context, projectID: projectID, file: file, function: function, line: line))[0]
+        (try await containsEntities(keys: [key], context: context, file: file, function: function, line: line))[0]
     }
 }

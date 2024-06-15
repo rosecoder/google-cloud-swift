@@ -1,5 +1,5 @@
 {
-  "originHash" : "722551ea48396502ee601e2c5ea0e798b7e6803326b5d6de0bef600fd86a0ae8",
+  "originHash" : "128c51decdf737eb2e57e3a3c8a437a81271a7ec64fac340009b82ac1ca78370",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/retryable-task.git",
       "state" : {
-        "revision" : "47012924f4c700328890082d468602811cba14af",
-        "version" : "1.0.1"
+        "revision" : "1a6bce9b174ca1ad5a5b4505fe89fefd64b83efa",
+        "version" : "1.1.1"
       }
     },
     {

@@ -1,14 +1,14 @@
 import Foundation
-import OAuth2Server
+@preconcurrency import OAuth2Server
 import Logging
 import NIO
 import RetryableTask
 
-public actor Authorization {
+public actor Authorization: Sendable {
 
     private lazy var logger = Logger(label: "core.authorization")
 
-    private var provider: TokenProvider
+    private var provider: TokenProvider & Sendable
 
     public enum Authentication {
         case autoResolve

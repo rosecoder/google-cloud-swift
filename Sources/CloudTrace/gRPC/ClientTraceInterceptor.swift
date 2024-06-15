@@ -16,7 +16,7 @@ extension GRPC.CallOptions {
     }
 }
 
-public final class ClientTraceInterceptor<Request, Response>: GRPC.ClientInterceptor<Request, Response> {
+public final class ClientTraceInterceptor<Request, Response>: GRPC.ClientInterceptor<Request, Response>, @unchecked Sendable {
 
     private var span: Span?
 

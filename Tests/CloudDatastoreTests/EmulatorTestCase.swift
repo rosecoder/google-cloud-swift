@@ -10,7 +10,6 @@ class EmulatorTestCase: XCTestCase {
     override func setUp() async throws {
         try await super.setUp()
 
-        Datastore.defaultProjectID = "testing"
         await Datastore.shared.bootstraForEmulator(host: "localhost", port: 8081, eventLoopGroup: eventLoopGroup)
     }
 

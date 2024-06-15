@@ -96,7 +96,7 @@ extension Storage {
             let datestamp = dateFormatter.string(from: now)
 
             // Service account
-            let serviceAccount = try await ServiceAccount.current
+            let serviceAccount = try await ServiceAccountCoordinator.shared.current
             let credentialScope = datestamp + "/auto/storage/goog4_request"
 
             // Headers

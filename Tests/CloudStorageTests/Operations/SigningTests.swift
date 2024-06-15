@@ -17,7 +17,7 @@ final class SigningTests: XCTestCase {
         let serviceAccountData = try Data(contentsOf: URL(fileURLWithPath:  "<#service account url#>"))
         let serviceAccount = try JSONDecoder().decode(ServiceAccount.self, from: serviceAccountData)
 
-        ServiceAccount.custom = serviceAccount
+        await ServiceAccountCoordinator.shared.use(custom: serviceAccount)
     }
 
     func testSignForWrite() async throws {
