@@ -13,9 +13,15 @@ extension Logger {
     }
 
     public mutating func addMetadata(for trace: Trace) {
-#if !DEBUG
-        self[metadataKey: LogMetadataKeys.trace] = .string("projects/\(Tracing.projectID)/traces/\(trace.id.stringValue)")
-        self[metadataKey: LogMetadataKeys.spanID] = .string(trace.spanID.stringValue)
+        let traceString = trace.id.stringValue
+        let spanString = trace.spanID.stringValue
+#if DEBUG
+        // ignore unused warnings
+         _ = traceString
+        _ = spanString
+#else
+        self[metadataKey: LogMetadataKeys.traceID] = .string(traceString)
+        self[metadataKey: LogMetadataKeys.spanID] = .string(spanString)
 #endif
     }
 }

@@ -40,22 +40,23 @@ public struct GoogleCloudLogHandler: LogHandler {
 
         Task {
             await GoogleCloudLogging.shared.log {
-                var labels: [String: String] = await Environment.current.entryLabels
+                let environment = await Environment.current
+                let projectID = await environment.projectID
+                var labels: [String: String] = environment.entryLabels
 
                 // Existing metdata
                 var trace: String?
                 var spanID: String?
                 labels.reserveCapacity(self.metadata.count)
                 for (key, value) in self.metadata {
-                    if key == LogMetadataKeys.trace {
-                        trace = value.description
-                        continue
-                    }
-                    if key == LogMetadataKeys.spanID {
+                    switch key {
+                    case LogMetadataKeys.traceID:
+                        trace = "projects/\(projectID)/traces/\(value.description)"
+                    case LogMetadataKeys.spanID:
                         spanID = value.description
-                        continue
+                    default:
+                        labels[key] = value.description
                     }
-                    labels[key] = value.description
                 }
 
                 // New metdata
