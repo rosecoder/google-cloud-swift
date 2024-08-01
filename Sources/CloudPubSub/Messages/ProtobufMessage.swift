@@ -62,7 +62,7 @@ public struct IncomingProtobufMessage<Element: SwiftProtobuf.Message>: IncomingM
     public let body: Element
 
     public init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws {
-        self.body = try Element.init(serializedData: data)
+        self.body = try Element.init(serializedBytes: data)
         self.id = id
         self.published = published
         self.attributes = attributes
