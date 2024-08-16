@@ -68,7 +68,7 @@ public actor PullSubscriber: Subscriber, Dependency {
     private typealias SubscriptionHash = Int
     private var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
 
-    private func runPull(hashValue: SubscriptionHash, operation: @escaping () async throws -> Void) {
+    private func runPull(hashValue: SubscriptionHash, operation: @Sendable @escaping () async throws -> Void) {
         runningPullTasks[hashValue] = Task {
             try await operation()
         }
@@ -79,7 +79,9 @@ public actor PullSubscriber: Subscriber, Dependency {
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
-        try await handlerType.subscription.createIfNeeded(creation: try await shared.client(context: nil).createSubscription, logger: logger)
+        try await handlerType.subscription.createIfNeeded(creation: {
+            try await shared.client(context: nil).createSubscription($0, callOptions: $1)
+        }, logger: logger)
 #endif
 
         continuesPull(handlerType: handlerType)

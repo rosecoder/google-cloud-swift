@@ -37,4 +37,19 @@ actor PubSub {
 
         try await authorization?.shutdown()
     }
+
+    // MARK: - Create if needed
+
+    private var verifiedHashValues = [Int]()
+
+    func createIfNeeded(
+        hashValue: Int,
+        creation: @Sendable () async throws -> Void
+    ) async throws {
+        guard !verifiedHashValues.contains(hashValue) else {
+            return
+        }
+        try await creation()
+        verifiedHashValues.append(hashValue)
+    }
 }

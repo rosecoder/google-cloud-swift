@@ -94,7 +94,7 @@ public actor PushSubscriber: Subscriber, Dependency {
         logger.debug("Subscribed to \(handlerType.subscription.name)")
     }
 
-    private static func handle(incoming: Incoming, trace: Trace?) async -> Response {
+    @Sendable private static func handle(incoming: Incoming, trace: Trace?) async -> Response {
         var context = messageContext(subscriptionName: incoming.subscription, rawMessage: incoming.message, trace: trace)
 
         guard let handling = handlings[incoming.subscription] else {

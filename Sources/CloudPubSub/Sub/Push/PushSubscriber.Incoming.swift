@@ -2,12 +2,12 @@ import Foundation
 
 extension PushSubscriber {
 
-    struct Incoming: Decodable {
+    struct Incoming: Sendable, Decodable {
 
         let message: Message
         let subscription: String
 
-        struct Message: Decodable, IncomingRawMessage {
+        struct Message: Sendable, Decodable, IncomingRawMessage {
 
             let id: String
             let data: Data

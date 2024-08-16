@@ -3,11 +3,9 @@ import GRPC
 import Logging
 import CloudCore
 
-private var verifiedHashValues = [Int]()
-
 public struct Subscriptions {}
 
-public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable {
+public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable, Hashable {
 
     public let name: String
     public let topic: Topic<Message>
@@ -19,7 +17,7 @@ public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable
     public let expirationPolicyDuration: TimeInterval
     public let messageRetentionDuration: TimeInterval
 
-    public struct DeadLetterPolicy: Equatable, Hashable {
+    public struct DeadLetterPolicy: Sendable, Equatable, Hashable {
 
         public let topic: Topic<Message>
         public let maxDeliveryAttempts: Int32
@@ -69,49 +67,50 @@ public struct Subscription<Message: _Message>: Identifiable, Equatable, Hashable
 
     // MARK: - Creation
 
-    func createIfNeeded(creation: (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription, logger: Logger) async throws {
-        let hashValue = rawValue.hashValue
-        guard !verifiedHashValues.contains(hashValue) else {
-            return
-        }
-
-        do {
-            _ = try await creation(.with {
-                $0.name = id
-                $0.labels = labels
-                $0.topic = topic.rawValue
-                $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
-                $0.retainAckedMessages = retainAcknowledgedMessages
-                $0.messageRetentionDuration = .with {
-                    $0.seconds = Int64(messageRetentionDuration)
-                }
-                $0.expirationPolicy = .with {
-                    $0.ttl = .with {
-                        $0.seconds = Int64(expirationPolicyDuration)
+    func createIfNeeded(
+        creation: @Sendable (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription,
+        logger: Logger
+    ) async throws {
+        try await PubSub.shared.createIfNeeded(hashValue: rawValue.hashValue) {
+            do {
+                _ = try await creation(.with {
+                    $0.name = id
+                    $0.labels = labels
+                    $0.topic = topic.rawValue
+                    $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
+                    $0.retainAckedMessages = retainAcknowledgedMessages
+                    $0.messageRetentionDuration = .with {
+                        $0.seconds = Int64(messageRetentionDuration)
                     }
-                }
-                if let deadLetterPolicy = deadLetterPolicy {
-                    $0.deadLetterPolicy = .with {
-                        $0.deadLetterTopic = deadLetterPolicy.topic.rawValue
-                        $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
+                    $0.expirationPolicy = .with {
+                        $0.ttl = .with {
+                            $0.seconds = Int64(expirationPolicyDuration)
+                        }
                     }
+                    if let deadLetterPolicy = deadLetterPolicy {
+                        $0.deadLetterPolicy = .with {
+                            $0.deadLetterTopic = deadLetterPolicy.topic.rawValue
+                            $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
+                        }
+                    }
+                }, nil)
+            } catch {
+                if "\(error)".hasPrefix("already exists (6):") {
+                    return
                 }
-            }, nil)
-        } catch {
-            if "\(error)".hasPrefix("already exists (6):") {
-                return
-            }
-            if "\(error)".hasPrefix("not found (5):") {
-                if await Publisher.shared._client == nil {
-                    logger.warning("Bootstrapping PubSub.Publisher due to subscription topic needs to be created. This is only done in DEBUG!")
-                    try await Publisher.shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+                if "\(error)".hasPrefix("not found (5):") {
+                    if await Publisher.shared._client == nil {
+                        logger.warning("Bootstrapping PubSub.Publisher due to subscription topic needs to be created. This is only done in DEBUG!")
+                        try await Publisher.shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+                    }
+                    try await topic.createIfNeeded(creation: {
+                        try await Publisher.shared._client!.createTopic($0, callOptions: $1)
+                    })
+                    try await createIfNeeded(creation: creation, logger: logger)
+                    return
                 }
-                try await topic.createIfNeeded(creation: await Publisher.shared._client!.createTopic)
-                return
+                throw error
             }
-            throw error
         }
-
-        verifiedHashValues.append(hashValue)
     }
 }

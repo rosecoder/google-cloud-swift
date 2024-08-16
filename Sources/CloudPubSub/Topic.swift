@@ -2,11 +2,9 @@ import Foundation
 import GRPC
 import CloudCore
 
-private var verifiedHashValues = [Int]()
-
 public struct Topics {}
 
-public struct Topic<Message: _Message>: Identifiable, Equatable, Hashable{
+public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hashable {
 
     public let name: String
     public let labels: [String: String]
@@ -32,23 +30,18 @@ public struct Topic<Message: _Message>: Identifiable, Equatable, Hashable{
 
     // MARK: - Creation
 
-    func createIfNeeded(creation: (Google_Pubsub_V1_Topic, CallOptions?) async throws -> Google_Pubsub_V1_Topic) async throws {
-        let hashValue = rawValue.hashValue
-        guard !verifiedHashValues.contains(hashValue) else {
-            return
-        }
-
-        do {
-            _ = try await creation(.with {
-                $0.name = id
-                $0.labels = labels
-            }, nil)
-        } catch {
-            if !"\(error)".hasPrefix("already exists (6):") {
-                throw error
+    func createIfNeeded(creation: @Sendable (Google_Pubsub_V1_Topic, CallOptions?) async throws -> Google_Pubsub_V1_Topic) async throws {
+        try await PubSub.shared.createIfNeeded(hashValue: rawValue.hashValue) {
+            do {
+                _ = try await creation(.with {
+                    $0.name = id
+                    $0.labels = labels
+                }, nil)
+            } catch {
+                if !"\(error)".hasPrefix("already exists (6):") {
+                    throw error
+                }
             }
         }
-
-        verifiedHashValues.append(hashValue)
     }
 }

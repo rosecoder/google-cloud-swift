@@ -3,7 +3,7 @@ import NIOHTTP1
 
 extension PushSubscriber {
 
-    enum Response {
+    enum Response: Sendable {
         case success
         case failure
         case notFound

@@ -7,7 +7,7 @@ import RetryableTask
 
 public actor Tracing: Dependency {
 
-    public static var shared = Tracing()
+    public static let shared = Tracing()
 
     private let logger = Logger(label: "trace.write")
 

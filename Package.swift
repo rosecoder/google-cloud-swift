@@ -110,6 +110,8 @@ let package = Package(
             "CloudTrace",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "NIOHTTP1", package: "swift-nio"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudPubSubTests", dependencies: ["CloudPubSub"]),
 

@@ -10,7 +10,7 @@ extension PushSubscriber {
 
         typealias InboundIn = HTTPServerRequestPart
 
-        private let handle: (Incoming, Trace?) async -> Response
+        private let handle: @Sendable (Incoming, Trace?) async -> Response
 
         private var isKeepAlive = false
         private var trace: Trace?
@@ -49,7 +49,7 @@ extension PushSubscriber {
             return decoder
         }()
 
-        init(handle: @escaping (Incoming, Trace?) async -> Response) {
+        init(handle: @Sendable @escaping (Incoming, Trace?) async -> Response) {
             self.handle = handle
         }
 
@@ -78,10 +78,11 @@ extension PushSubscriber {
                 self.buffer = nil
                 self.trace = nil
 
-                Task {
+                Task { [handle, isKeepAlive] in
                     let response: Response
                     do {
-                        let incoming = try Self.decoder.decode(Incoming.self, from: buffer)
+                        _ = buffer
+                        let incoming = try HTTPHandler.decoder.decode(Incoming.self, from: buffer)
                         response = await handle(incoming, trace)
                     } catch {
                         PushSubscriber.logger.error("Error parsing incoming message: \(error)", metadata: [

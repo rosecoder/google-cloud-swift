@@ -98,7 +98,9 @@ public actor Publisher: Dependency {
 #endif
 
 #if DEBUG
-            try await topic.createIfNeeded(creation: try await shared.client(context: context).createTopic)
+            try await topic.createIfNeeded(creation: {
+                try await shared.client(context: context).createTopic($0, callOptions: $1)
+            })
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await context.trace.recordSpan(named: "pubsub-publish", kind: .producer, attributes: [
