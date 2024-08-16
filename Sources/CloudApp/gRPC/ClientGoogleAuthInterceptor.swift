@@ -1,12 +1,12 @@
 import Foundation
-import GRPC
+@preconcurrency import GRPC
 import NIO
 import AsyncHTTPClient
 import CloudCore
 
 private let coordinator = IDTokenCoordinator()
 
-public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response>, @unchecked Sendable {
+public final class ClientGoogleAuthInterceptor<Request: Sendable, Response, DependencyType: GRPCDependency>: GRPC.ClientInterceptor<Request, Response>, @unchecked Sendable {
 
     private let targetAudience: String
 
@@ -30,9 +30,10 @@ public final class ClientGoogleAuthInterceptor<Request, Response, DependencyType
         }
 
         switch part {
-        case .metadata(var headers):
+        case .metadata(let headers):
             idTokenPromise = coordinator.idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
                 .map { accessToken, _ in
+                    var headers = headers
                     headers.replaceOrAdd(name: "Authorization", value: "Bearer " + accessToken)
                     context.send(.metadata(headers), promise: promise)
                 }

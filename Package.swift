@@ -43,6 +43,8 @@ let package = Package(
             "CloudLogger",
             "CloudTrace",
             .product(name: "Logging", package: "swift-log"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudAppTests", dependencies: ["CloudApp"]),
 

@@ -2,7 +2,8 @@ import Foundation
 import CloudLogger
 import CloudTrace
 
-private var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
+// safe to be nonisolated because only called once on main
+private nonisolated(unsafe) var _unsafeTerminateReferences = [((Int32) -> Task<Void, Never>)]()
 
 extension App {
 
