@@ -6,7 +6,7 @@ import CloudCore
 
 public actor GoogleCloudLogging: Dependency {
 
-    public static var shared = GoogleCloudLogging()
+    public static let shared = GoogleCloudLogging()
 
     private var _client: Google_Logging_V2_LoggingServiceV2AsyncClient?
 
@@ -37,14 +37,14 @@ public actor GoogleCloudLogging: Dependency {
     /// Last task for publishing logging to GCP. Intended only for internal use while testing.
     private(set) var lastLogTask: Task<(), Error>?
 
-    func log(operation: @escaping () async throws -> Void) {
+    func log(operation: @Sendable @escaping () async throws -> Void) {
         lastLogTask = Task {
             try await operation()
         }
     }
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        if GoogleCloudLogHandler.preferredMethod == .rpc {
+        if configuration.preferredMethod == .rpc {
             _ = try await client
         }
     }
@@ -52,5 +52,27 @@ public actor GoogleCloudLogging: Dependency {
     public func shutdown() async throws {
         try await lastLogTask?.value
         try await authorization?.shutdown()
+    }
+
+    public struct Configuration: Sendable {
+
+        public enum Method: Sendable {
+            case rpc
+            case sidecar
+        }
+
+        public let preferredMethod: Method
+
+        public init(
+            preferredMethod: Method = .sidecar
+        ) {
+            self.preferredMethod = preferredMethod
+        }
+    }
+
+    var configuration: Configuration = .init()
+
+    public func configure(_ configuration: Configuration) {
+        self.configuration = configuration
     }
 }

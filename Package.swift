@@ -80,6 +80,8 @@ let package = Package(
             "CloudErrorReporting",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudLoggerTests", dependencies: ["CloudLogger"]),
 

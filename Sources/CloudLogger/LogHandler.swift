@@ -7,13 +7,6 @@ import CloudErrorReporting
 
 public struct GoogleCloudLogHandler: LogHandler {
 
-    public enum Method {
-        case rpc
-        case sidecar
-    }
-
-    public static var preferredMethod: Method = .sidecar
-
     // MARK: - LogHandler implementation
 
     public let label: String
@@ -42,7 +35,7 @@ public struct GoogleCloudLogHandler: LogHandler {
             await GoogleCloudLogging.shared.log {
                 let environment = await Environment.current
                 let projectID = await environment.projectID
-                var labels: [String: String] = environment.entryLabels
+                var labels: [String: String] = await environment.entryLabels
 
                 // Existing metdata
                 var trace: String?
@@ -74,7 +67,7 @@ public struct GoogleCloudLogHandler: LogHandler {
                     }
                 }
 
-                switch Self.preferredMethod {
+                switch await GoogleCloudLogging.shared.configuration.preferredMethod {
                 case .rpc:
                     do {
                         try await logViaRPC(now: now, labels: labels, trace: trace, spanID: spanID, level: level, message: message, source: source, file: file, function: function, line: line)

@@ -1,7 +1,49 @@
 import Foundation
 import CloudCore
 
-private var resolvedEntryLabels: [String: String]?
+private actor ResolvedEntryLabelsCache {
+
+    static let shared = ResolvedEntryLabelsCache()
+
+    private var cache: [String: String]?
+
+    func labels(environment: Environment) -> [String: String] {
+        if let cache {
+            return cache
+        }
+
+        let labels: [String: String]
+        switch environment {
+        case .k8sContainer(_, _, _, _, let podName, _):
+            let podNameComponents = podName.components(separatedBy: "-")
+            guard podNameComponents.count >= 3 else {
+                return [:]
+            }
+
+            labels = [
+                "k8s-pod/pod-template-hash": podNameComponents[podNameComponents.count - 2],
+                "k8s-pod/run": podNameComponents[0..<podNameComponents.count - 2].joined(separator: "-"),
+            ]
+        case .cloudRunJob(_, let executionName, let taskIndex, let taskAttempt, _):
+            labels = [
+                "instanceId": environment.instanceID ?? "0",
+                "run.googleapis.com/execution_name": executionName,
+                "run.googleapis.com/task_attempt": String(taskAttempt),
+                "run.googleapis.com/task_index": String(taskIndex),
+            ]
+        case .cloudRunRevision:
+            labels = [
+                "instanceId": environment.instanceID ?? "0"
+            ]
+#if DEBUG
+        case .localDevelopment:
+            labels = [:]
+#endif
+        }
+        cache = labels
+        return labels
+    }
+}
 
 extension Environment {
 
@@ -59,35 +101,8 @@ extension Environment {
     }
 
     var entryLabels: [String: String] {
-        if resolvedEntryLabels == nil {
-            switch self {
-            case .k8sContainer(_, _, _, _, let podName, _):
-                let podNameComponents = podName.components(separatedBy: "-")
-                guard podNameComponents.count >= 3
-                    else { return [:] }
-
-                resolvedEntryLabels = [
-                    "k8s-pod/pod-template-hash": podNameComponents[podNameComponents.count - 2],
-                    "k8s-pod/run": podNameComponents[0..<podNameComponents.count - 2].joined(separator: "-"),
-                ]
-            case .cloudRunJob(_, let executionName, let taskIndex, let taskAttempt, _):
-                resolvedEntryLabels = [
-                    "instanceId": instanceID ?? "0",
-                    "run.googleapis.com/execution_name": executionName,
-                    "run.googleapis.com/task_attempt": String(taskAttempt),
-                    "run.googleapis.com/task_index": String(taskIndex),
-                ]
-            case .cloudRunRevision:
-                resolvedEntryLabels = [
-                    "instanceId": instanceID ?? "0"
-                ]
-#if DEBUG
-        case .localDevelopment:
-                resolvedEntryLabels = [:]
-#endif
-            }
+        get async {
+            await ResolvedEntryLabelsCache.shared.labels(environment: self)
         }
-
-        return resolvedEntryLabels ?? [:]
     }
 }
