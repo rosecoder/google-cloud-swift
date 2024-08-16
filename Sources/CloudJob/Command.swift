@@ -1,5 +1,6 @@
 import ArgumentParser
 import CloudTrace
+import Foundation
 
 public protocol Command: ArgumentParser.AsyncParsableCommand {
 
@@ -8,18 +9,25 @@ public protocol Command: ArgumentParser.AsyncParsableCommand {
     mutating func execute() async throws
 }
 
-private var _context: Context?
+private nonisolated(unsafe) var _context: Context?
+private let contextLock = NSLock()
 
 extension Command {
 
     public var context: Context {
         get {
+            contextLock.lock()
+            defer { contextLock.unlock() }
+
             if _context == nil {
                 _context = CommandContext(name: Self._commandName)
             }
             return _context!
         }
         set {
+            contextLock.lock()
+            defer { contextLock.unlock() }
+
             _context = newValue
         }
     }

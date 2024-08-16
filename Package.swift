@@ -51,6 +51,8 @@ let package = Package(
         .target(name: "CloudJob", dependencies: [
             "CloudApp",
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
 
         .target(name: "CloudCore", dependencies: [

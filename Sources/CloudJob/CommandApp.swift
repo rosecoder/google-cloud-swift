@@ -1,6 +1,6 @@
 import RetryableTask
 
-var commandApp: CommandApp.Type?
+nonisolated(unsafe) var commandApp: CommandApp.Type?
 
 public protocol CommandApp: App {}
 
