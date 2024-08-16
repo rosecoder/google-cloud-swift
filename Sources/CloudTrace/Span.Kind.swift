@@ -2,7 +2,7 @@ import Foundation
 
 extension Span {
 
-    public enum Kind: Hashable, Codable {
+    public enum Kind: Sendable, Hashable, Codable {
 
         /// Indicates that the span is used internally.
         case `internal`

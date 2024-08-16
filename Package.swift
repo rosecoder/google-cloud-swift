@@ -117,6 +117,8 @@ let package = Package(
             "CloudCore",
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudTraceTests", dependencies: ["CloudTrace"]),
 

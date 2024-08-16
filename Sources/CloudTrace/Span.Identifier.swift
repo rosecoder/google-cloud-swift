@@ -2,7 +2,7 @@ import Foundation
 
 extension Span {
 
-    public struct Identifier: Equatable, Codable {
+    public struct Identifier: Sendable, Equatable, Codable {
 
         public typealias RawValue = UInt64
 

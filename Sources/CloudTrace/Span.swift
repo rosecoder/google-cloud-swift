@@ -1,7 +1,7 @@
 import Foundation
 import GRPC
 
-public struct Span: Equatable, Codable {
+public struct Span: Sendable, Equatable, Codable {
 
     let traceID: Trace.Identifier
     let parentID: Identifier?

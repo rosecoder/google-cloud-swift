@@ -2,7 +2,7 @@ import Foundation
 
 extension Trace {
 
-    public struct Identifier: Equatable, Codable {
+    public struct Identifier: Sendable, Equatable, Codable {
 
         public typealias RawValue = (UInt64, UInt64)
 

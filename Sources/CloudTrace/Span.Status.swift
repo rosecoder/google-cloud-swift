@@ -3,7 +3,7 @@ import GRPC
 
 extension Span {
 
-    public struct Status: Equatable, Codable {
+    public struct Status: Sendable, Equatable, Codable {
 
         public typealias Code = GRPCStatus.Code
 

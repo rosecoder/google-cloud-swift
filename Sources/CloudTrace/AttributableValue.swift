@@ -3,7 +3,7 @@ import Foundation
 /// Value for a span attributes.
 ///
 /// Never implement this protocol for your own types. It's just used for type safety on supporting types.
-public protocol AttributableValue {
+public protocol AttributableValue: Sendable {
 
     var _gcpTraceRawValue: Any { get }
 

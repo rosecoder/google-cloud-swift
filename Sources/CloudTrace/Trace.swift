@@ -1,7 +1,7 @@
 import Foundation
 import GRPC
 
-public struct Trace: Codable, Equatable {
+public struct Trace: Sendable, Codable, Equatable {
 
     public let id: Identifier
 

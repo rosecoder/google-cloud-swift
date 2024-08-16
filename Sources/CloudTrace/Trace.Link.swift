@@ -2,7 +2,7 @@ import Foundation
 
 extension Span {
 
-    public struct Link: Codable, Equatable {
+    public struct Link: Sendable, Codable, Equatable {
 
         public let trace: Trace
         public var kind: Kind
@@ -18,7 +18,7 @@ extension Span {
             self.attributes = attributes
         }
 
-        public enum Kind: Codable, Equatable {
+        public enum Kind: Sendable, Codable, Equatable {
             case unspecified
             case child
             case parent
