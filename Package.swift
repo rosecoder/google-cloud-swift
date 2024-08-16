@@ -72,6 +72,8 @@ let package = Package(
         .target(name: "CloudErrorReporting", dependencies: [
             "CloudCore",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudErrorReportingTests", dependencies: ["CloudErrorReporting"]),
 
