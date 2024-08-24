@@ -17,6 +17,7 @@ let package = Package(
         .library(name: "CloudTrace", targets: ["CloudTrace"]),
 
         // Services
+        .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
         .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
         .library(name: "CloudMySQL", targets: ["CloudMySQL"]),
         .library(name: "CloudRedis", targets: ["CloudRedis"]),
@@ -37,6 +38,12 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-crypto.git", from: "3.3.0"),
     ],
     targets: [
+        .target(name: "CloudAIPlatform", dependencies: [
+            "CloudCore",
+            "CloudTrace",
+            .product(name: "GRPC", package: "grpc-swift"),
+        ]),
+
         .target(name: "CloudApp", dependencies: [
             "CloudCore",
             "CloudErrorReporting",
