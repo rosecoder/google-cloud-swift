@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2015 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,16 +34,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-/// An object that describes the schema of a [MonitoredResource][google.api.MonitoredResource] object using a
-/// type name and a set of labels.  For example, the monitored resource
-/// descriptor for Google Compute Engine VM instances has a type of
+/// An object that describes the schema of a
+/// [MonitoredResource][google.api.MonitoredResource] object using a type name
+/// and a set of labels.  For example, the monitored resource descriptor for
+/// Google Compute Engine VM instances has a type of
 /// `"gce_instance"` and specifies the use of the labels `"instance_id"` and
 /// `"zone"` to identify particular VM instances.
 ///
 /// Different APIs can support different monitored resource types. APIs generally
 /// provide a `list` method that returns the monitored resource descriptors used
 /// by the API.
-struct Google_Api_MonitoredResourceDescriptor {
+struct Google_Api_MonitoredResourceDescriptor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -58,6 +59,10 @@ struct Google_Api_MonitoredResourceDescriptor {
 
   /// Required. The monitored resource type. For example, the type
   /// `"cloudsql_database"` represents databases in Google Cloud SQL.
+  ///  For a list of types, see [Monitored resource
+  ///  types](https://cloud.google.com/monitoring/api/resources)
+  /// and [Logging resource
+  /// types](https://cloud.google.com/logging/docs/api/v2/resource-list).
   var type: String = String()
 
   /// Optional. A concise name for the monitored resource type that might be
@@ -86,24 +91,31 @@ struct Google_Api_MonitoredResourceDescriptor {
 /// An object representing a resource that can be used for monitoring, logging,
 /// billing, or other purposes. Examples include virtual machine instances,
 /// databases, and storage devices such as disks. The `type` field identifies a
-/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] object that describes the resource's
-/// schema. Information in the `labels` field identifies the actual resource and
-/// its attributes according to the schema. For example, a particular Compute
-/// Engine VM instance could be represented by the following object, because the
-/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] for `"gce_instance"` has labels
-/// `"instance_id"` and `"zone"`:
+/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] object
+/// that describes the resource's schema. Information in the `labels` field
+/// identifies the actual resource and its attributes according to the schema.
+/// For example, a particular Compute Engine VM instance could be represented by
+/// the following object, because the
+/// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] for
+/// `"gce_instance"` has labels
+/// `"project_id"`, `"instance_id"` and `"zone"`:
 ///
 ///     { "type": "gce_instance",
-///       "labels": { "instance_id": "12345678901234",
+///       "labels": { "project_id": "my-project",
+///                   "instance_id": "12345678901234",
 ///                   "zone": "us-central1-a" }}
-struct Google_Api_MonitoredResource {
+struct Google_Api_MonitoredResource: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The monitored resource type. This field must match
-  /// the `type` field of a [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor] object. For
-  /// example, the type of a Compute Engine VM instance is `gce_instance`.
+  /// the `type` field of a
+  /// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor]
+  /// object. For example, the type of a Compute Engine VM instance is
+  /// `gce_instance`. Some descriptors include the service name in the type; for
+  /// example, the type of a Datastream stream is
+  /// `datastream.googleapis.com/Stream`.
   var type: String = String()
 
   /// Required. Values for all of the labels listed in the associated monitored
@@ -116,13 +128,13 @@ struct Google_Api_MonitoredResource {
   init() {}
 }
 
-/// Auxiliary metadata for a [MonitoredResource][google.api.MonitoredResource] object.
-/// [MonitoredResource][google.api.MonitoredResource] objects contain the minimum set of information to
-/// uniquely identify a monitored resource instance. There is some other useful
-/// auxiliary metadata. Monitoring and Logging use an ingestion
-/// pipeline to extract metadata for cloud resources of all types, and store
-/// the metadata in this message.
-struct Google_Api_MonitoredResourceMetadata {
+/// Auxiliary metadata for a [MonitoredResource][google.api.MonitoredResource]
+/// object. [MonitoredResource][google.api.MonitoredResource] objects contain the
+/// minimum set of information to uniquely identify a monitored resource
+/// instance. There is some other useful auxiliary metadata. Monitoring and
+/// Logging use an ingestion pipeline to extract metadata for cloud resources of
+/// all types, and store the metadata in this message.
+struct Google_Api_MonitoredResourceMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -155,12 +167,6 @@ struct Google_Api_MonitoredResourceMetadata {
 
   fileprivate var _systemLabels: SwiftProtobuf.Google_Protobuf_Struct? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Api_MonitoredResourceDescriptor: @unchecked Sendable {}
-extension Google_Api_MonitoredResource: @unchecked Sendable {}
-extension Google_Api_MonitoredResourceMetadata: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

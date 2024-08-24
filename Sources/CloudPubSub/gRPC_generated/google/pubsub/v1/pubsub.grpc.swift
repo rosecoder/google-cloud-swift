@@ -71,7 +71,7 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
   }
 
   /// Creates the given topic with the given name. See the [resource name rules]
-  /// (https://cloud.google.com/pubsub/docs/admin#resource_names).
+  /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
   ///
   /// - Parameters:
   ///   - request: Request to send to CreateTopic.
@@ -89,8 +89,8 @@ extension Google_Pubsub_V1_PublisherClientProtocol {
     )
   }
 
-  /// Updates an existing topic. Note that certain properties of a
-  /// topic are not modifiable.
+  /// Updates an existing topic by updating the fields specified in the update
+  /// mask. Note that certain properties of a topic are not modifiable.
   ///
   /// - Parameters:
   ///   - request: Request to send to UpdateTopic.
@@ -804,16 +804,16 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
   }
 
   /// Creates a subscription to a given topic. See the [resource name rules]
-  /// (https://cloud.google.com/pubsub/docs/admin#resource_names).
+  /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
   /// If the subscription already exists, returns `ALREADY_EXISTS`.
   /// If the corresponding topic doesn't exist, returns `NOT_FOUND`.
   ///
   /// If the name is not provided in the request, the server will assign a random
   /// name for this subscription on the same project as the topic, conforming
   /// to the [resource name format]
-  /// (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
-  /// name is populated in the returned Subscription object. Note that for REST
-  /// API requests, you must specify a name in the request.
+  /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+  /// generated name is populated in the returned Subscription object. Note that
+  /// for REST API requests, you must specify a name in the request.
   ///
   /// - Parameters:
   ///   - request: Request to send to CreateSubscription.
@@ -849,8 +849,9 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     )
   }
 
-  /// Updates an existing subscription. Note that certain properties of a
-  /// subscription, such as its topic, are not modifiable.
+  /// Updates an existing subscription by updating the fields specified in the
+  /// update mask. Note that certain properties of a subscription, such as its
+  /// topic, are not modifiable.
   ///
   /// - Parameters:
   ///   - request: Request to send to UpdateSubscription.
@@ -954,9 +955,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     )
   }
 
-  /// Pulls messages from the server. The server may return `UNAVAILABLE` if
-  /// there are too many concurrent pull requests pending for the given
-  /// subscription.
+  /// Pulls messages from the server.
   ///
   /// - Parameters:
   ///   - request: Request to send to Pull.
@@ -1025,10 +1024,10 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
   }
 
   /// Gets the configuration details of a snapshot. Snapshots are used in
-  /// <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
-  /// operations, which allow you to manage message acknowledgments in bulk. That
-  /// is, you can set the acknowledgment state of messages in an existing
-  /// subscription to the state captured by a snapshot.
+  /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+  /// which allow you to manage message acknowledgments in bulk. That is, you can
+  /// set the acknowledgment state of messages in an existing subscription to the
+  /// state captured by a snapshot.
   ///
   /// - Parameters:
   ///   - request: Request to send to GetSnapshot.
@@ -1081,7 +1080,7 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
   /// the request, the server will assign a random
   /// name for this snapshot on the same project as the subscription, conforming
   /// to the [resource name format]
-  /// (https://cloud.google.com/pubsub/docs/admin#resource_names). The
+  /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
   /// generated name is populated in the returned Snapshot object. Note that for
   /// REST API requests, you must specify a name in the request.
   ///
@@ -1101,12 +1100,12 @@ extension Google_Pubsub_V1_SubscriberClientProtocol {
     )
   }
 
-  /// Updates an existing snapshot. Snapshots are used in
-  /// <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
-  /// operations, which allow
-  /// you to manage message acknowledgments in bulk. That is, you can set the
-  /// acknowledgment state of messages in an existing subscription to the state
-  /// captured by a snapshot.
+  /// Updates an existing snapshot by updating the fields specified in the update
+  /// mask. Snapshots are used in
+  /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+  /// which allow you to manage message acknowledgments in bulk. That is, you can
+  /// set the acknowledgment state of messages in an existing subscription to the
+  /// state captured by a snapshot.
   ///
   /// - Parameters:
   ///   - request: Request to send to UpdateSnapshot.

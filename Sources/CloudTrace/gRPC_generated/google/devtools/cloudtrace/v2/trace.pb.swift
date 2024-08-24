@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,35 +37,40 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// A span represents a single operation within a trace. Spans can be
 /// nested to form a trace tree. Often, a trace contains a root span
 /// that describes the end-to-end latency, and one or more subspans for
-/// its sub-operations. A trace can also contain multiple root spans,
-/// or none at all. Spans do not need to be contiguous&mdash;there may be
+/// its sub-operations.
+///
+/// A trace can also contain multiple root spans, or none at all.
+/// Spans do not need to be contiguous. There might be
 /// gaps or overlaps between spans in a trace.
-struct Google_Devtools_Cloudtrace_V2_Span {
+struct Google_Devtools_Cloudtrace_V2_Span: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The resource name of the span in the following format:
   ///
-  ///     projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
+  ///  * `projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]`
   ///
-  /// [TRACE_ID] is a unique identifier for a trace within a project;
-  /// it is a 32-character hexadecimal encoding of a 16-byte array.
+  /// `[TRACE_ID]` is a unique identifier for a trace within a project;
+  /// it is a 32-character hexadecimal encoding of a 16-byte array. It should
+  /// not be zero.
   ///
-  /// [SPAN_ID] is a unique identifier for a span within a trace; it
-  /// is a 16-character hexadecimal encoding of an 8-byte array.
+  /// `[SPAN_ID]` is a unique identifier for a span within a trace; it
+  /// is a 16-character hexadecimal encoding of an 8-byte array. It should not
+  /// be zero.
+  /// .
   var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  /// Required. The [SPAN_ID] portion of the span's resource name.
+  /// Required. The `[SPAN_ID]` portion of the span's resource name.
   var spanID: String {
     get {return _storage._spanID}
     set {_uniqueStorage()._spanID = newValue}
   }
 
-  /// The [SPAN_ID] of this span's parent span. If this is a root span,
+  /// The `[SPAN_ID]` of this span's parent span. If this is a root span,
   /// then this field must be empty.
   var parentSpanID: String {
     get {return _storage._parentSpanID}
@@ -73,8 +78,8 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   }
 
   /// Required. A description of the span's operation (up to 128 bytes).
-  /// Stackdriver Trace displays the description in the
-  /// Google Cloud Platform Console.
+  /// Cloud Trace displays the description in the
+  /// Cloud console.
   /// For example, the display name can be a qualified method name or a file name
   /// and a line number where the operation is called. A best practice is to use
   /// the same display name within an application and at the same call point.
@@ -88,9 +93,10 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   /// Clears the value of `displayName`. Subsequent reads from it will return its default value.
   mutating func clearDisplayName() {_uniqueStorage()._displayName = nil}
 
-  /// Required. The start time of the span. On the client side, this is the time kept by
-  /// the local machine where the span execution starts. On the server side, this
-  /// is the time when the server's application handler starts running.
+  /// Required. The start time of the span. On the client side, this is the time
+  /// kept by the local machine where the span execution starts. On the server
+  /// side, this is the time when the server's application handler starts
+  /// running.
   var startTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._startTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._startTime = newValue}
@@ -100,9 +106,9 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
   mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
 
-  /// Required. The end time of the span. On the client side, this is the time kept by
-  /// the local machine where the span execution ends. On the server side, this
-  /// is the time when the server application handler stops running.
+  /// Required. The end time of the span. On the client side, this is the time
+  /// kept by the local machine where the span execution ends. On the server
+  /// side, this is the time when the server application handler stops running.
   var endTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._endTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._endTime = newValue}
@@ -166,8 +172,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
 
   /// Optional. Set this parameter to indicate whether this span is in
   /// the same process as its parent. If you do not set this parameter,
-  /// Stackdriver Trace is unable to take advantage of this helpful
-  /// information.
+  /// Trace is unable to take advantage of this helpful information.
   var sameProcessAsParentSpan: SwiftProtobuf.Google_Protobuf_BoolValue {
     get {return _storage._sameProcessAsParentSpan ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._sameProcessAsParentSpan = newValue}
@@ -188,9 +193,9 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   /// Clears the value of `childSpanCount`. Subsequent reads from it will return its default value.
   mutating func clearChildSpanCount() {_uniqueStorage()._childSpanCount = nil}
 
-  /// Optional. Distinguishes between spans generated in a particular context. For example,
-  /// two spans with the same name may be distinguished using `CLIENT` (caller)
-  /// and `SERVER` (callee) to identify an RPC call.
+  /// Optional. Distinguishes between spans generated in a particular context.
+  /// For example, two spans with the same name may be distinguished using
+  /// `CLIENT` (caller) and `SERVER` (callee) to identify an RPC call.
   var spanKind: Google_Devtools_Cloudtrace_V2_Span.SpanKind {
     get {return _storage._spanKind}
     set {_uniqueStorage()._spanKind = newValue}
@@ -200,7 +205,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
 
   /// Type of span. Can be used to specify additional relationships between spans
   /// in addition to a parent/child relationship.
-  enum SpanKind: SwiftProtobuf.Enum {
+  enum SpanKind: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Unspecified. Do NOT use as default.
@@ -259,17 +264,27 @@ struct Google_Devtools_Cloudtrace_V2_Span {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Devtools_Cloudtrace_V2_Span.SpanKind] = [
+      .unspecified,
+      .internal,
+      .server,
+      .client,
+      .producer,
+      .consumer,
+    ]
+
   }
 
-  /// A set of attributes, each in the format `[KEY]:[VALUE]`.
-  struct Attributes {
+  /// A set of attributes as key-value pairs.
+  struct Attributes: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// The set of attributes. Each attribute's key can be up to 128 bytes
+    /// A set of attributes. Each attribute's key can be up to 128 bytes
     /// long. The value can be a string up to 256 bytes, a signed 64-bit integer,
-    /// or the Boolean values `true` and `false`. For example:
+    /// or the boolean values `true` or `false`. For example:
     ///
     ///     "/instance_id": { "string_value": { "value": "my-instance" } }
     ///     "/http/request_bytes": { "int_value": 300 }
@@ -287,7 +302,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   }
 
   /// A time-stamped annotation or message event in the Span.
-  struct TimeEvent {
+  struct TimeEvent: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -328,34 +343,16 @@ struct Google_Devtools_Cloudtrace_V2_Span {
 
     /// A `TimeEvent` can contain either an `Annotation` object or a
     /// `MessageEvent` object, but not both.
-    enum OneOf_Value: Equatable {
+    enum OneOf_Value: Equatable, Sendable {
       /// Text annotation with a set of attributes.
       case annotation(Google_Devtools_Cloudtrace_V2_Span.TimeEvent.Annotation)
       /// An event describing a message sent/received between Spans.
       case messageEvent(Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent)
 
-    #if !swift(>=4.1)
-      static func ==(lhs: Google_Devtools_Cloudtrace_V2_Span.TimeEvent.OneOf_Value, rhs: Google_Devtools_Cloudtrace_V2_Span.TimeEvent.OneOf_Value) -> Bool {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch (lhs, rhs) {
-        case (.annotation, .annotation): return {
-          guard case .annotation(let l) = lhs, case .annotation(let r) = rhs else { preconditionFailure() }
-          return l == r
-        }()
-        case (.messageEvent, .messageEvent): return {
-          guard case .messageEvent(let l) = lhs, case .messageEvent(let r) = rhs else { preconditionFailure() }
-          return l == r
-        }()
-        default: return false
-        }
-      }
-    #endif
     }
 
     /// Text annotation with a set of attributes.
-    struct Annotation {
+    struct Annotation: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -391,7 +388,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
     }
 
     /// An event describing a message sent/received between Spans.
-    struct MessageEvent {
+    struct MessageEvent: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -401,21 +398,21 @@ struct Google_Devtools_Cloudtrace_V2_Span {
       var type: Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent.TypeEnum = .unspecified
 
       /// An identifier for the MessageEvent's message that can be used to match
-      /// SENT and RECEIVED MessageEvents. It is recommended to be unique within
-      /// a Span.
+      /// `SENT` and `RECEIVED` MessageEvents.
       var id: Int64 = 0
 
       /// The number of uncompressed bytes sent or received.
       var uncompressedSizeBytes: Int64 = 0
 
-      /// The number of compressed bytes sent or received. If missing assumed to
-      /// be the same size as uncompressed.
+      /// The number of compressed bytes sent or received. If missing, the
+      /// compressed size is assumed to be the same size as the uncompressed
+      /// size.
       var compressedSizeBytes: Int64 = 0
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
       /// Indicates whether the message was sent or received.
-      enum TypeEnum: SwiftProtobuf.Enum {
+      enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
         typealias RawValue = Int
 
         /// Unknown event type.
@@ -450,6 +447,13 @@ struct Google_Devtools_Cloudtrace_V2_Span {
           }
         }
 
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static let allCases: [Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent.TypeEnum] = [
+          .unspecified,
+          .sent,
+          .received,
+        ]
+
       }
 
       init() {}
@@ -463,7 +467,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   /// A collection of `TimeEvent`s. A `TimeEvent` is a time-stamped annotation
   /// on the span, consisting of either user-supplied key:value pairs, or
   /// details of a message sent/received between Spans.
-  struct TimeEvents {
+  struct TimeEvents: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -488,22 +492,22 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   /// different trace. For example, this can be used in batching operations,
   /// where a single batch handler processes multiple requests from different
   /// traces or when the handler receives a request from a different project.
-  struct Link {
+  struct Link: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// The [TRACE_ID] for a trace within a project.
+    /// The `[TRACE_ID]` for a trace within a project.
     var traceID: String = String()
 
-    /// The [SPAN_ID] for a span within a trace.
+    /// The `[SPAN_ID]` for a span within a trace.
     var spanID: String = String()
 
     /// The relationship of the current span relative to the linked span.
     var type: Google_Devtools_Cloudtrace_V2_Span.Link.TypeEnum = .unspecified
 
-    /// A set of attributes on the link. You have have up to  32 attributes per
-    /// link.
+    /// A set of attributes on the link. Up to 32 attributes can be
+    /// specified per link.
     var attributes: Google_Devtools_Cloudtrace_V2_Span.Attributes {
       get {return _attributes ?? Google_Devtools_Cloudtrace_V2_Span.Attributes()}
       set {_attributes = newValue}
@@ -517,7 +521,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
 
     /// The relationship of the current span relative to the linked span: child,
     /// parent, or unspecified.
-    enum TypeEnum: SwiftProtobuf.Enum {
+    enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
       typealias RawValue = Int
 
       /// The relationship of the two spans is unknown.
@@ -552,6 +556,13 @@ struct Google_Devtools_Cloudtrace_V2_Span {
         }
       }
 
+      // The compiler won't synthesize support with the UNRECOGNIZED case.
+      static let allCases: [Google_Devtools_Cloudtrace_V2_Span.Link.TypeEnum] = [
+        .unspecified,
+        .childLinkedSpan,
+        .parentLinkedSpan,
+      ]
+
     }
 
     init() {}
@@ -561,7 +572,7 @@ struct Google_Devtools_Cloudtrace_V2_Span {
 
   /// A collection of links, which are references from this span to a span
   /// in the same or different trace.
-  struct Links {
+  struct Links: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -583,42 +594,8 @@ struct Google_Devtools_Cloudtrace_V2_Span {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-#if swift(>=4.2)
-
-extension Google_Devtools_Cloudtrace_V2_Span.SpanKind: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Devtools_Cloudtrace_V2_Span.SpanKind] = [
-    .unspecified,
-    .internal,
-    .server,
-    .client,
-    .producer,
-    .consumer,
-  ]
-}
-
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent.TypeEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent.TypeEnum] = [
-    .unspecified,
-    .sent,
-    .received,
-  ]
-}
-
-extension Google_Devtools_Cloudtrace_V2_Span.Link.TypeEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Devtools_Cloudtrace_V2_Span.Link.TypeEnum] = [
-    .unspecified,
-    .childLinkedSpan,
-    .parentLinkedSpan,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
-/// The allowed types for [VALUE] in a `[KEY]:[VALUE]` attribute.
-struct Google_Devtools_Cloudtrace_V2_AttributeValue {
+/// The allowed types for `[VALUE]` in a `[KEY]:[VALUE]` attribute.
+struct Google_Devtools_Cloudtrace_V2_AttributeValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -656,7 +633,7 @@ struct Google_Devtools_Cloudtrace_V2_AttributeValue {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The type of the value.
-  enum OneOf_Value: Equatable {
+  enum OneOf_Value: Equatable, Sendable {
     /// A string up to 256 bytes long.
     case stringValue(Google_Devtools_Cloudtrace_V2_TruncatableString)
     /// A 64-bit signed integer.
@@ -664,35 +641,13 @@ struct Google_Devtools_Cloudtrace_V2_AttributeValue {
     /// A Boolean value represented by `true` or `false`.
     case boolValue(Bool)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Devtools_Cloudtrace_V2_AttributeValue.OneOf_Value, rhs: Google_Devtools_Cloudtrace_V2_AttributeValue.OneOf_Value) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.stringValue, .stringValue): return {
-        guard case .stringValue(let l) = lhs, case .stringValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.intValue, .intValue): return {
-        guard case .intValue(let l) = lhs, case .intValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.boolValue, .boolValue): return {
-        guard case .boolValue(let l) = lhs, case .boolValue(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// A call stack appearing in a trace.
-struct Google_Devtools_Cloudtrace_V2_StackTrace {
+struct Google_Devtools_Cloudtrace_V2_StackTrace: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -721,7 +676,7 @@ struct Google_Devtools_Cloudtrace_V2_StackTrace {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Represents a single stack frame in a stack trace.
-  struct StackFrame {
+  struct StackFrame: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -737,9 +692,10 @@ struct Google_Devtools_Cloudtrace_V2_StackTrace {
     /// Clears the value of `functionName`. Subsequent reads from it will return its default value.
     mutating func clearFunctionName() {self._functionName = nil}
 
-    /// An un-mangled function name, if `function_name` is
-    /// [mangled](http://www.avabodh.com/cxxin/namemangling.html). The name can
-    /// be fully-qualified (up to 1024 bytes).
+    /// An un-mangled function name, if `function_name` is mangled.
+    /// To get information about name mangling, run
+    /// [this search](https://www.google.com/search?q=cxx+name+mangling).
+    /// The name can be fully-qualified (up to 1024 bytes).
     var originalFunctionName: Google_Devtools_Cloudtrace_V2_TruncatableString {
       get {return _originalFunctionName ?? Google_Devtools_Cloudtrace_V2_TruncatableString()}
       set {_originalFunctionName = newValue}
@@ -799,7 +755,7 @@ struct Google_Devtools_Cloudtrace_V2_StackTrace {
   }
 
   /// A collection of stack frames, which can be truncated.
-  struct StackFrames {
+  struct StackFrames: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -823,7 +779,7 @@ struct Google_Devtools_Cloudtrace_V2_StackTrace {
 }
 
 /// Binary module.
-struct Google_Devtools_Cloudtrace_V2_Module {
+struct Google_Devtools_Cloudtrace_V2_Module: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -859,7 +815,7 @@ struct Google_Devtools_Cloudtrace_V2_Module {
 }
 
 /// Represents a string that might be shortened to a specified length.
-struct Google_Devtools_Cloudtrace_V2_TruncatableString {
+struct Google_Devtools_Cloudtrace_V2_TruncatableString: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -881,28 +837,6 @@ struct Google_Devtools_Cloudtrace_V2_TruncatableString {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Devtools_Cloudtrace_V2_Span: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.SpanKind: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.Attributes: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent.OneOf_Value: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent.Annotation: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvent.MessageEvent.TypeEnum: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.TimeEvents: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.Link: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.Link.TypeEnum: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Span.Links: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_AttributeValue: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_AttributeValue.OneOf_Value: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_StackTrace: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_StackTrace.StackFrame: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_StackTrace.StackFrames: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_Module: @unchecked Sendable {}
-extension Google_Devtools_Cloudtrace_V2_TruncatableString: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

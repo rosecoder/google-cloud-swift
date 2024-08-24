@@ -33,6 +33,11 @@ internal protocol Google_Datastore_V1_DatastoreClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse>
 
+  func runAggregationQuery(
+    _ request: Google_Datastore_V1_RunAggregationQueryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Datastore_V1_RunAggregationQueryRequest, Google_Datastore_V1_RunAggregationQueryResponse>
+
   func beginTransaction(
     _ request: Google_Datastore_V1_BeginTransactionRequest,
     callOptions: CallOptions?
@@ -97,6 +102,24 @@ extension Google_Datastore_V1_DatastoreClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRunQueryInterceptors() ?? []
+    )
+  }
+
+  /// Runs an aggregation query.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to RunAggregationQuery.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func runAggregationQuery(
+    _ request: Google_Datastore_V1_RunAggregationQueryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Datastore_V1_RunAggregationQueryRequest, Google_Datastore_V1_RunAggregationQueryResponse> {
+    return self.makeUnaryCall(
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runAggregationQuery.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRunAggregationQueryInterceptors() ?? []
     )
   }
 
@@ -272,6 +295,11 @@ internal protocol Google_Datastore_V1_DatastoreAsyncClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse>
 
+  func makeRunAggregationQueryCall(
+    _ request: Google_Datastore_V1_RunAggregationQueryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_RunAggregationQueryRequest, Google_Datastore_V1_RunAggregationQueryResponse>
+
   func makeBeginTransactionCall(
     _ request: Google_Datastore_V1_BeginTransactionRequest,
     callOptions: CallOptions?
@@ -329,6 +357,18 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeRunQueryInterceptors() ?? []
+    )
+  }
+
+  internal func makeRunAggregationQueryCall(
+    _ request: Google_Datastore_V1_RunAggregationQueryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Datastore_V1_RunAggregationQueryRequest, Google_Datastore_V1_RunAggregationQueryResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runAggregationQuery.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRunAggregationQueryInterceptors() ?? []
     )
   }
 
@@ -419,6 +459,18 @@ extension Google_Datastore_V1_DatastoreAsyncClientProtocol {
     )
   }
 
+  internal func runAggregationQuery(
+    _ request: Google_Datastore_V1_RunAggregationQueryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Datastore_V1_RunAggregationQueryResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Datastore_V1_DatastoreClientMetadata.Methods.runAggregationQuery.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRunAggregationQueryInterceptors() ?? []
+    )
+  }
+
   internal func beginTransaction(
     _ request: Google_Datastore_V1_BeginTransactionRequest,
     callOptions: CallOptions? = nil
@@ -505,6 +557,9 @@ internal protocol Google_Datastore_V1_DatastoreClientInterceptorFactoryProtocol:
   /// - Returns: Interceptors to use when invoking 'runQuery'.
   func makeRunQueryInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RunQueryRequest, Google_Datastore_V1_RunQueryResponse>]
 
+  /// - Returns: Interceptors to use when invoking 'runAggregationQuery'.
+  func makeRunAggregationQueryInterceptors() -> [ClientInterceptor<Google_Datastore_V1_RunAggregationQueryRequest, Google_Datastore_V1_RunAggregationQueryResponse>]
+
   /// - Returns: Interceptors to use when invoking 'beginTransaction'.
   func makeBeginTransactionInterceptors() -> [ClientInterceptor<Google_Datastore_V1_BeginTransactionRequest, Google_Datastore_V1_BeginTransactionResponse>]
 
@@ -528,6 +583,7 @@ internal enum Google_Datastore_V1_DatastoreClientMetadata {
     methods: [
       Google_Datastore_V1_DatastoreClientMetadata.Methods.lookup,
       Google_Datastore_V1_DatastoreClientMetadata.Methods.runQuery,
+      Google_Datastore_V1_DatastoreClientMetadata.Methods.runAggregationQuery,
       Google_Datastore_V1_DatastoreClientMetadata.Methods.beginTransaction,
       Google_Datastore_V1_DatastoreClientMetadata.Methods.commit,
       Google_Datastore_V1_DatastoreClientMetadata.Methods.rollback,
@@ -546,6 +602,12 @@ internal enum Google_Datastore_V1_DatastoreClientMetadata {
     internal static let runQuery = GRPCMethodDescriptor(
       name: "RunQuery",
       path: "/google.datastore.v1.Datastore/RunQuery",
+      type: GRPCCallType.unary
+    )
+
+    internal static let runAggregationQuery = GRPCMethodDescriptor(
+      name: "RunAggregationQuery",
+      path: "/google.datastore.v1.Datastore/RunAggregationQuery",
       type: GRPCCallType.unary
     )
 

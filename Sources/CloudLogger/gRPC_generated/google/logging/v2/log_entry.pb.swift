@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// An individual entry in a log.
-struct Google_Logging_V2_LogEntry {
+struct Google_Logging_V2_LogEntry: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -123,11 +123,12 @@ struct Google_Logging_V2_LogEntry {
     set {_uniqueStorage()._payload = .jsonPayload(newValue)}
   }
 
-  /// Optional. The time the event described by the log entry occurred. This time is used
-  /// to compute the log entry's age and to enforce the logs retention period.
-  /// If this field is omitted in a new log entry, then Logging assigns it the
-  /// current time. Timestamps have nanosecond accuracy, but trailing zeros in
-  /// the fractional seconds might be omitted when the timestamp is displayed.
+  /// Optional. The time the event described by the log entry occurred. This time
+  /// is used to compute the log entry's age and to enforce the logs retention
+  /// period. If this field is omitted in a new log entry, then Logging assigns
+  /// it the current time. Timestamps have nanosecond accuracy, but trailing
+  /// zeros in the fractional seconds might be omitted when the timestamp is
+  /// displayed.
   ///
   /// Incoming log entries must have timestamps that don't exceed the
   /// [logs retention
@@ -153,14 +154,15 @@ struct Google_Logging_V2_LogEntry {
   /// Clears the value of `receiveTimestamp`. Subsequent reads from it will return its default value.
   mutating func clearReceiveTimestamp() {_uniqueStorage()._receiveTimestamp = nil}
 
-  /// Optional. The severity of the log entry. The default value is `LogSeverity.DEFAULT`.
+  /// Optional. The severity of the log entry. The default value is
+  /// `LogSeverity.DEFAULT`.
   var severity: Google_Logging_Type_LogSeverity {
     get {return _storage._severity}
     set {_uniqueStorage()._severity = newValue}
   }
 
-  /// Optional. A unique identifier for the log entry. If you provide a value, then
-  /// Logging considers other log entries in the same project, with the same
+  /// Optional. A unique identifier for the log entry. If you provide a value,
+  /// then Logging considers other log entries in the same project, with the same
   /// `timestamp`, and with the same `insert_id` to be duplicates which are
   /// removed in a single query result. However, there are no guarantees of
   /// de-duplication in the export of logs.
@@ -175,8 +177,8 @@ struct Google_Logging_V2_LogEntry {
     set {_uniqueStorage()._insertID = newValue}
   }
 
-  /// Optional. Information about the HTTP request associated with this log entry, if
-  /// applicable.
+  /// Optional. Information about the HTTP request associated with this log
+  /// entry, if applicable.
   var httpRequest: Google_Logging_Type_HttpRequest {
     get {return _storage._httpRequest ?? Google_Logging_Type_HttpRequest()}
     set {_uniqueStorage()._httpRequest = newValue}
@@ -186,8 +188,8 @@ struct Google_Logging_V2_LogEntry {
   /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
   mutating func clearHTTPRequest() {_uniqueStorage()._httpRequest = nil}
 
-  /// Optional. A map of key, value pairs that provides additional information about the
-  /// log entry. The labels can be user-defined or system-defined.
+  /// Optional. A map of key, value pairs that provides additional information
+  /// about the log entry. The labels can be user-defined or system-defined.
   ///
   /// User-defined labels are arbitrary key, value pairs that you can use to
   /// classify logs.
@@ -216,20 +218,50 @@ struct Google_Logging_V2_LogEntry {
   /// Clears the value of `operation`. Subsequent reads from it will return its default value.
   mutating func clearOperation() {_uniqueStorage()._operation = nil}
 
-  /// Optional. Resource name of the trace associated with the log entry, if any. If it
-  /// contains a relative resource name, the name is assumed to be relative to
-  /// `//tracing.googleapis.com`. Example:
-  /// `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
+  /// Optional. The REST resource name of the trace being written to
+  /// [Cloud Trace](https://cloud.google.com/trace) in
+  /// association with this log entry. For example, if your trace data is stored
+  /// in the Cloud project "my-trace-project" and if the service that is creating
+  /// the log entry receives a trace header that includes the trace ID "12345",
+  /// then the service should use "projects/my-tracing-project/traces/12345".
+  ///
+  /// The `trace` field provides the link between logs and traces. By using
+  /// this field, you can navigate from a log entry to a trace.
   var trace: String {
     get {return _storage._trace}
     set {_uniqueStorage()._trace = newValue}
   }
 
-  /// Optional. The span ID within the trace associated with the log entry.
+  /// Optional. The ID of the [Cloud Trace](https://cloud.google.com/trace) span
+  /// associated with the current operation in which the log is being written.
+  /// For example, if a span has the REST resource name of
+  /// "projects/some-project/traces/some-trace/spans/some-span-id", then the
+  /// `span_id` field is "some-span-id".
   ///
-  /// For Trace spans, this is the same format that the Trace API v2 uses: a
-  /// 16-character hexadecimal encoding of an 8-byte array, such as
-  /// `000000000000004a`.
+  /// A
+  /// [Span](https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span)
+  /// represents a single operation within a trace. Whereas a trace may involve
+  /// multiple different microservices running on multiple different machines,
+  /// a span generally corresponds to a single logical operation being performed
+  /// in a single instance of a microservice on one specific machine. Spans
+  /// are the nodes within the tree that is a trace.
+  ///
+  /// Applications that are [instrumented for
+  /// tracing](https://cloud.google.com/trace/docs/setup) will generally assign a
+  /// new, unique span ID on each incoming request. It is also common to create
+  /// and record additional spans corresponding to internal processing elements
+  /// as well as issuing requests to dependencies.
+  ///
+  /// The span ID is expected to be a 16-character, hexadecimal encoding of an
+  /// 8-byte array and should not be zero. It should be unique within the trace
+  /// and should, ideally, be generated in a manner that is uniformly random.
+  ///
+  /// Example values:
+  ///
+  ///   - `000000000000004a`
+  ///   - `7a2190356c3fc94b`
+  ///   - `0000f00300090021`
+  ///   - `d39223e101960076`
   var spanID: String {
     get {return _storage._spanID}
     set {_uniqueStorage()._spanID = newValue}
@@ -247,7 +279,8 @@ struct Google_Logging_V2_LogEntry {
     set {_uniqueStorage()._traceSampled = newValue}
   }
 
-  /// Optional. Source code location information associated with the log entry, if any.
+  /// Optional. Source code location information associated with the log entry,
+  /// if any.
   var sourceLocation: Google_Logging_V2_LogEntrySourceLocation {
     get {return _storage._sourceLocation ?? Google_Logging_V2_LogEntrySourceLocation()}
     set {_uniqueStorage()._sourceLocation = newValue}
@@ -257,8 +290,8 @@ struct Google_Logging_V2_LogEntry {
   /// Clears the value of `sourceLocation`. Subsequent reads from it will return its default value.
   mutating func clearSourceLocation() {_uniqueStorage()._sourceLocation = nil}
 
-  /// Optional. Information indicating this LogEntry is part of a sequence of multiple log
-  /// entries split from a single LogEntry.
+  /// Optional. Information indicating this LogEntry is part of a sequence of
+  /// multiple log entries split from a single LogEntry.
   var split: Google_Logging_V2_LogSplit {
     get {return _storage._split ?? Google_Logging_V2_LogSplit()}
     set {_uniqueStorage()._split = newValue}
@@ -271,7 +304,7 @@ struct Google_Logging_V2_LogEntry {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The log entry payload, which can be one of multiple types.
-  enum OneOf_Payload: Equatable {
+  enum OneOf_Payload: Equatable, Sendable {
     /// The log entry payload, represented as a protocol buffer. Some Google
     /// Cloud Platform services use this field for their log entry payloads.
     ///
@@ -287,28 +320,6 @@ struct Google_Logging_V2_LogEntry {
     /// expressed as a JSON object.
     case jsonPayload(SwiftProtobuf.Google_Protobuf_Struct)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Logging_V2_LogEntry.OneOf_Payload, rhs: Google_Logging_V2_LogEntry.OneOf_Payload) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.protoPayload, .protoPayload): return {
-        guard case .protoPayload(let l) = lhs, case .protoPayload(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.textPayload, .textPayload): return {
-        guard case .textPayload(let l) = lhs, case .textPayload(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.jsonPayload, .jsonPayload): return {
-        guard case .jsonPayload(let l) = lhs, case .jsonPayload(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -318,7 +329,7 @@ struct Google_Logging_V2_LogEntry {
 
 /// Additional information about a potentially long-running operation with which
 /// a log entry is associated.
-struct Google_Logging_V2_LogEntryOperation {
+struct Google_Logging_V2_LogEntryOperation: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -345,7 +356,7 @@ struct Google_Logging_V2_LogEntryOperation {
 
 /// Additional information about the source code location that produced the log
 /// entry.
-struct Google_Logging_V2_LogEntrySourceLocation {
+struct Google_Logging_V2_LogEntrySourceLocation: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -374,7 +385,7 @@ struct Google_Logging_V2_LogEntrySourceLocation {
 /// Additional information used to correlate multiple log entries. Used when a
 /// single LogEntry would exceed the Google Cloud Logging size limit and is
 /// split across multiple log entries.
-struct Google_Logging_V2_LogSplit {
+struct Google_Logging_V2_LogSplit: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -396,14 +407,6 @@ struct Google_Logging_V2_LogSplit {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_V2_LogEntry: @unchecked Sendable {}
-extension Google_Logging_V2_LogEntry.OneOf_Payload: @unchecked Sendable {}
-extension Google_Logging_V2_LogEntryOperation: @unchecked Sendable {}
-extension Google_Logging_V2_LogEntrySourceLocation: @unchecked Sendable {}
-extension Google_Logging_V2_LogSplit: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2021 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,24 +34,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-/// Configures which glossary should be used for a specific target language,
-/// and defines options for applying that glossary.
-struct Google_Cloud_Translation_V3_TranslateTextGlossaryConfig {
+/// Configures transliteration feature on top of translation.
+struct Google_Cloud_Translation_V3_TransliterationConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required. The `glossary` to be applied for this translation.
-  ///
-  /// The format depends on glossary:
-  ///
-  /// - User provided custom glossary:
-  ///   `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
-  var glossary: String = String()
-
-  /// Optional. Indicates match is case-insensitive.
-  /// Default value is false if missing.
-  var ignoreCase: Bool = false
+  /// If true, source text in romanized form can be translated to the target
+  /// language.
+  var enableTransliteration: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -59,29 +50,28 @@ struct Google_Cloud_Translation_V3_TranslateTextGlossaryConfig {
 }
 
 /// The request message for synchronous translation.
-struct Google_Cloud_Translation_V3_TranslateTextRequest {
+struct Google_Cloud_Translation_V3_TranslateTextRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The content of the input in string format.
-  /// We recommend the total content be less than 30k codepoints. The max length
-  /// of this field is 1024.
-  /// Use BatchTranslateText for larger text.
+  /// We recommend the total content be less than 30,000 codepoints. The max
+  /// length of this field is 1024. Use BatchTranslateText for larger text.
   var contents: [String] = []
 
   /// Optional. The format of the source text, for example, "text/html",
   ///  "text/plain". If left blank, the MIME type defaults to "text/html".
   var mimeType: String = String()
 
-  /// Optional. The BCP-47 language code of the input text if
+  /// Optional. The ISO-639 language code of the input text if
   /// known, for example, "en-US" or "sr-Latn". Supported language codes are
   /// listed in Language Support. If the source language isn't specified, the API
   /// attempts to identify the source language automatically and returns the
   /// source language within the response.
   var sourceLanguageCode: String = String()
 
-  /// Required. The BCP-47 language code to use for translation of the input
+  /// Required. The ISO-639 language code to use for translation of the input
   /// text, set to one of the language codes listed in Language Support.
   var targetLanguageCode: String = String()
 
@@ -111,12 +101,14 @@ struct Google_Cloud_Translation_V3_TranslateTextRequest {
   /// - General (built-in) models:
   ///   `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
   ///
+  /// - Translation LLM models:
+  ///   `projects/{project-number-or-id}/locations/{location-id}/models/general/translation-llm`,
   ///
   /// For global (non-regionalized) requests, use `location-id` `global`.
   /// For example,
   /// `projects/{project-number-or-id}/locations/global/models/general/nmt`.
   ///
-  /// If not provided, the default Google model (NMT) will be used.
+  /// If not provided, the default Google model (NMT) will be used
   var model: String = String()
 
   /// Optional. Glossary to be applied. The glossary must be
@@ -130,6 +122,16 @@ struct Google_Cloud_Translation_V3_TranslateTextRequest {
   var hasGlossaryConfig: Bool {return self._glossaryConfig != nil}
   /// Clears the value of `glossaryConfig`. Subsequent reads from it will return its default value.
   mutating func clearGlossaryConfig() {self._glossaryConfig = nil}
+
+  /// Optional. Transliteration to be applied.
+  var transliterationConfig: Google_Cloud_Translation_V3_TransliterationConfig {
+    get {return _transliterationConfig ?? Google_Cloud_Translation_V3_TransliterationConfig()}
+    set {_transliterationConfig = newValue}
+  }
+  /// Returns true if `transliterationConfig` has been explicitly set.
+  var hasTransliterationConfig: Bool {return self._transliterationConfig != nil}
+  /// Clears the value of `transliterationConfig`. Subsequent reads from it will return its default value.
+  mutating func clearTransliterationConfig() {self._transliterationConfig = nil}
 
   /// Optional. The labels with user-defined metadata for the request.
   ///
@@ -147,9 +149,10 @@ struct Google_Cloud_Translation_V3_TranslateTextRequest {
   init() {}
 
   fileprivate var _glossaryConfig: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig? = nil
+  fileprivate var _transliterationConfig: Google_Cloud_Translation_V3_TransliterationConfig? = nil
 }
 
-struct Google_Cloud_Translation_V3_TranslateTextResponse {
+struct Google_Cloud_Translation_V3_TranslateTextResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -172,7 +175,7 @@ struct Google_Cloud_Translation_V3_TranslateTextResponse {
 }
 
 /// A single translation response.
-struct Google_Cloud_Translation_V3_Translation {
+struct Google_Cloud_Translation_V3_Translation: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -192,7 +195,7 @@ struct Google_Cloud_Translation_V3_Translation {
   /// `projects/{project-number}/locations/{location-id}/models/general/nmt`.
   var model: String = String()
 
-  /// The BCP-47 language code of source text in the initial request, detected
+  /// The ISO-639 language code of source text in the initial request, detected
   /// automatically, if no source language was passed within the initial
   /// request. If the source language was passed, auto-detection of the language
   /// does not occur and this field is empty.
@@ -215,8 +218,76 @@ struct Google_Cloud_Translation_V3_Translation {
   fileprivate var _glossaryConfig: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig? = nil
 }
 
+/// The request message for synchronous romanization.
+struct Google_Cloud_Translation_V3_RomanizeTextRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. Project or location to make a call. Must refer to a caller's
+  /// project.
+  ///
+  /// Format: `projects/{project-number-or-id}/locations/{location-id}` or
+  /// `projects/{project-number-or-id}`.
+  ///
+  /// For global calls, use `projects/{project-number-or-id}/locations/global` or
+  /// `projects/{project-number-or-id}`.
+  var parent: String = String()
+
+  /// Required. The content of the input in string format.
+  var contents: [String] = []
+
+  /// Optional. The ISO-639 language code of the input text if
+  /// known, for example, "hi" or "zh". If the source language isn't specified,
+  /// the API attempts to identify the source language automatically and returns
+  /// the source language for each content in the response.
+  var sourceLanguageCode: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// A single romanization response.
+struct Google_Cloud_Translation_V3_Romanization: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Romanized text.
+  /// If an error occurs during romanization, this field might be excluded from
+  /// the response.
+  var romanizedText: String = String()
+
+  /// The ISO-639 language code of source text in the initial request, detected
+  /// automatically, if no source language was passed within the initial
+  /// request. If the source language was passed, auto-detection of the language
+  /// does not occur and this field is empty.
+  var detectedLanguageCode: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// The response message for synchronous romanization.
+struct Google_Cloud_Translation_V3_RomanizeTextResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Text romanization responses.
+  /// This field has the same length as
+  /// [`contents`][google.cloud.translation.v3.RomanizeTextRequest.contents].
+  var romanizations: [Google_Cloud_Translation_V3_Romanization] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// The request message for language detection.
-struct Google_Cloud_Translation_V3_DetectLanguageRequest {
+struct Google_Cloud_Translation_V3_DetectLanguageRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -275,35 +346,22 @@ struct Google_Cloud_Translation_V3_DetectLanguageRequest {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Required. The source of the document from which to detect the language.
-  enum OneOf_Source: Equatable {
+  enum OneOf_Source: Equatable, Sendable {
     /// The content of the input stored as a string.
     case content(String)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_DetectLanguageRequest.OneOf_Source, rhs: Google_Cloud_Translation_V3_DetectLanguageRequest.OneOf_Source) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.content, .content): return {
-        guard case .content(let l) = lhs, case .content(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// The response message for language detection.
-struct Google_Cloud_Translation_V3_DetectedLanguage {
+struct Google_Cloud_Translation_V3_DetectedLanguage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// The BCP-47 language code of source content in the request, detected
+  /// The ISO-639 language code of the source content in the request, detected
   /// automatically.
   var languageCode: String = String()
 
@@ -316,7 +374,7 @@ struct Google_Cloud_Translation_V3_DetectedLanguage {
 }
 
 /// The response message for language detection.
-struct Google_Cloud_Translation_V3_DetectLanguageResponse {
+struct Google_Cloud_Translation_V3_DetectLanguageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -331,7 +389,7 @@ struct Google_Cloud_Translation_V3_DetectLanguageResponse {
 }
 
 /// The request message for discovering supported languages.
-struct Google_Cloud_Translation_V3_GetSupportedLanguagesRequest {
+struct Google_Cloud_Translation_V3_GetSupportedLanguagesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -377,7 +435,7 @@ struct Google_Cloud_Translation_V3_GetSupportedLanguagesRequest {
 }
 
 /// The response message for discovering supported languages.
-struct Google_Cloud_Translation_V3_SupportedLanguages {
+struct Google_Cloud_Translation_V3_SupportedLanguages: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -393,25 +451,25 @@ struct Google_Cloud_Translation_V3_SupportedLanguages {
 
 /// A single supported language response corresponds to information related
 /// to one supported language.
-struct Google_Cloud_Translation_V3_SupportedLanguage {
+struct Google_Cloud_Translation_V3_SupportedLanguage: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Supported language code, generally consisting of its ISO 639-1
-  /// identifier, for example, 'en', 'ja'. In certain cases, BCP-47 codes
+  /// identifier, for example, 'en', 'ja'. In certain cases, ISO-639 codes
   /// including language and region identifiers are returned (for example,
-  /// 'zh-TW' and 'zh-CN')
+  /// 'zh-TW' and 'zh-CN').
   var languageCode: String = String()
 
-  /// Human readable name of the language localized in the display language
+  /// Human-readable name of the language localized in the display language
   /// specified in the request.
   var displayName: String = String()
 
-  /// Can be used as source language.
+  /// Can be used as a source language.
   var supportSource: Bool = false
 
-  /// Can be used as target language.
+  /// Can be used as a target language.
   var supportTarget: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -420,7 +478,7 @@ struct Google_Cloud_Translation_V3_SupportedLanguage {
 }
 
 /// The Google Cloud Storage location for the input content.
-struct Google_Cloud_Translation_V3_GcsSource {
+struct Google_Cloud_Translation_V3_GcsSource: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -434,7 +492,7 @@ struct Google_Cloud_Translation_V3_GcsSource {
 }
 
 /// Input configuration for BatchTranslateText request.
-struct Google_Cloud_Translation_V3_InputConfig {
+struct Google_Cloud_Translation_V3_InputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -477,7 +535,7 @@ struct Google_Cloud_Translation_V3_InputConfig {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Required. Specify the input.
-  enum OneOf_Source: Equatable {
+  enum OneOf_Source: Equatable, Sendable {
     /// Required. Google Cloud Storage location for the source input.
     /// This can be a single file (for example,
     /// `gs://translation-test/input.tsv`) or a wildcard (for example,
@@ -498,26 +556,13 @@ struct Google_Cloud_Translation_V3_InputConfig {
     /// treated as a single large chunk of text.
     case gcsSource(Google_Cloud_Translation_V3_GcsSource)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_InputConfig.OneOf_Source, rhs: Google_Cloud_Translation_V3_InputConfig.OneOf_Source) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsSource, .gcsSource): return {
-        guard case .gcsSource(let l) = lhs, case .gcsSource(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// The Google Cloud Storage location for the output content.
-struct Google_Cloud_Translation_V3_GcsDestination {
+struct Google_Cloud_Translation_V3_GcsDestination: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -535,7 +580,7 @@ struct Google_Cloud_Translation_V3_GcsDestination {
 }
 
 /// Output configuration for BatchTranslateText request.
-struct Google_Cloud_Translation_V3_OutputConfig {
+struct Google_Cloud_Translation_V3_OutputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -578,10 +623,10 @@ struct Google_Cloud_Translation_V3_OutputConfig {
   /// Since index.csv will be keeping updated during the process, please make
   /// sure there is no custom retention policy applied on the output bucket
   /// that may avoid file updating.
-  /// (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
+  /// (https://cloud.google.com/storage/docs/bucket-lock#retention-policy)
   ///
   /// The format of translations_file (for target language code 'trg') is:
-  /// gs://translation_test/a_b_c_'trg'_translations.[extension]
+  /// `gs://translation_test/a_b_c_'trg'_translations.[extension]`
   ///
   /// If the input file extension is tsv, the output has the following
   /// columns:
@@ -598,10 +643,10 @@ struct Google_Cloud_Translation_V3_OutputConfig {
   /// If input file extension is a txt or html, the translation is directly
   /// written to the output file. If glossary is requested, a separate
   /// glossary_translations_file has format of
-  /// gs://translation_test/a_b_c_'trg'_glossary_translations.[extension]
+  /// `gs://translation_test/a_b_c_'trg'_glossary_translations.[extension]`
   ///
   /// The format of errors file (for target language code 'trg') is:
-  /// gs://translation_test/a_b_c_'trg'_errors.[extension]
+  /// `gs://translation_test/a_b_c_'trg'_errors.[extension]`
   ///
   /// If the input file extension is tsv, errors_file contains the following:
   /// Column 1: ID of the request provided in the input, if it's not
@@ -613,7 +658,7 @@ struct Google_Cloud_Translation_V3_OutputConfig {
   ///
   /// If the input file extension is txt or html, glossary_error_file will be
   /// generated that contains error details. glossary_error_file has format of
-  /// gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]
+  /// `gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]`
   var gcsDestination: Google_Cloud_Translation_V3_GcsDestination {
     get {
       if case .gcsDestination(let v)? = destination {return v}
@@ -625,7 +670,7 @@ struct Google_Cloud_Translation_V3_OutputConfig {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Required. The destination of output.
-  enum OneOf_Destination: Equatable {
+  enum OneOf_Destination: Equatable, Sendable {
     /// Google Cloud Storage destination for output content.
     /// For every single input file (for example, gs://a/b/c.[extension]), we
     /// generate at most 2 * n output files. (n is the # of target_language_codes
@@ -661,10 +706,10 @@ struct Google_Cloud_Translation_V3_OutputConfig {
     /// Since index.csv will be keeping updated during the process, please make
     /// sure there is no custom retention policy applied on the output bucket
     /// that may avoid file updating.
-    /// (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
+    /// (https://cloud.google.com/storage/docs/bucket-lock#retention-policy)
     ///
     /// The format of translations_file (for target language code 'trg') is:
-    /// gs://translation_test/a_b_c_'trg'_translations.[extension]
+    /// `gs://translation_test/a_b_c_'trg'_translations.[extension]`
     ///
     /// If the input file extension is tsv, the output has the following
     /// columns:
@@ -681,10 +726,10 @@ struct Google_Cloud_Translation_V3_OutputConfig {
     /// If input file extension is a txt or html, the translation is directly
     /// written to the output file. If glossary is requested, a separate
     /// glossary_translations_file has format of
-    /// gs://translation_test/a_b_c_'trg'_glossary_translations.[extension]
+    /// `gs://translation_test/a_b_c_'trg'_glossary_translations.[extension]`
     ///
     /// The format of errors file (for target language code 'trg') is:
-    /// gs://translation_test/a_b_c_'trg'_errors.[extension]
+    /// `gs://translation_test/a_b_c_'trg'_errors.[extension]`
     ///
     /// If the input file extension is tsv, errors_file contains the following:
     /// Column 1: ID of the request provided in the input, if it's not
@@ -696,29 +741,16 @@ struct Google_Cloud_Translation_V3_OutputConfig {
     ///
     /// If the input file extension is txt or html, glossary_error_file will be
     /// generated that contains error details. glossary_error_file has format of
-    /// gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]
+    /// `gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]`
     case gcsDestination(Google_Cloud_Translation_V3_GcsDestination)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_OutputConfig.OneOf_Destination, rhs: Google_Cloud_Translation_V3_OutputConfig.OneOf_Destination) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsDestination, .gcsDestination): return {
-        guard case .gcsDestination(let l) = lhs, case .gcsDestination(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// A document translation request input config.
-struct Google_Cloud_Translation_V3_DocumentInputConfig {
+struct Google_Cloud_Translation_V3_DocumentInputConfig: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -772,38 +804,20 @@ struct Google_Cloud_Translation_V3_DocumentInputConfig {
   /// - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
   /// The input file size should be <= 20MB and the maximum page limit is 20 for
   /// - application/pdf
-  enum OneOf_Source: Equatable {
+  enum OneOf_Source: Equatable, @unchecked Sendable {
     /// Document's content represented as a stream of bytes.
     case content(Data)
     /// Google Cloud Storage location. This must be a single file.
     /// For example: gs://example_bucket/example_file.pdf
     case gcsSource(Google_Cloud_Translation_V3_GcsSource)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_DocumentInputConfig.OneOf_Source, rhs: Google_Cloud_Translation_V3_DocumentInputConfig.OneOf_Source) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.content, .content): return {
-        guard case .content(let l) = lhs, case .content(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.gcsSource, .gcsSource): return {
-        guard case .gcsSource(let l) = lhs, case .gcsSource(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// A document translation request output config.
-struct Google_Cloud_Translation_V3_DocumentOutputConfig {
+struct Google_Cloud_Translation_V3_DocumentOutputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -832,9 +846,9 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
   ///
   /// For a DocumentInputConfig.gcs_uri provided document, the output file will
   /// have a name according to its URI. For example: an input file with URI:
-  /// "gs://a/b/c.[extension]" stored in a gcs_destination bucket with name
+  /// `gs://a/b/c.[extension]` stored in a gcs_destination bucket with name
   /// "my_bucket" will have an output URI:
-  /// "gs://my_bucket/a_b_c_[trg]_translations.[ext]", where
+  /// `gs://my_bucket/a_b_c_[trg]_translations.[ext]`, where
   /// - [trg] corresponds to the translated file's language code,
   /// - [ext] corresponds to the translated file's extension according to its
   /// mime type.
@@ -842,7 +856,7 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
   ///
   /// If the document was directly provided through the request, then the
   /// output document will have the format:
-  /// "gs://my_bucket/translated_document_[trg]_translations.[ext], where
+  /// `gs://my_bucket/translated_document_[trg]_translations.[ext]`, where
   /// - [trg] corresponds to the translated file's language code,
   /// - [ext] corresponds to the translated file's extension according to its
   /// mime type.
@@ -851,7 +865,7 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
   /// translation will be equal to the default output URI but have
   /// `glossary_translations` instead of `translations`. For the previous
   /// example, its glossary URI would be:
-  /// "gs://my_bucket/a_b_c_[trg]_glossary_translations.[ext]".
+  /// `gs://my_bucket/a_b_c_[trg]_glossary_translations.[ext]`.
   ///
   /// Thus the max number of output files will be 2 (Translated document,
   /// Glossary translated document).
@@ -886,7 +900,7 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
   /// Whether a destination is provided or not, the translated documents will be
   /// returned within TranslateDocumentResponse.document_translation and
   /// TranslateDocumentResponse.glossary_document_translation.
-  enum OneOf_Destination: Equatable {
+  enum OneOf_Destination: Equatable, Sendable {
     /// Optional. Google Cloud Storage destination for the translation output,
     /// e.g., `gs://my_bucket/my_directory/`.
     ///
@@ -903,9 +917,9 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
     ///
     /// For a DocumentInputConfig.gcs_uri provided document, the output file will
     /// have a name according to its URI. For example: an input file with URI:
-    /// "gs://a/b/c.[extension]" stored in a gcs_destination bucket with name
+    /// `gs://a/b/c.[extension]` stored in a gcs_destination bucket with name
     /// "my_bucket" will have an output URI:
-    /// "gs://my_bucket/a_b_c_[trg]_translations.[ext]", where
+    /// `gs://my_bucket/a_b_c_[trg]_translations.[ext]`, where
     /// - [trg] corresponds to the translated file's language code,
     /// - [ext] corresponds to the translated file's extension according to its
     /// mime type.
@@ -913,7 +927,7 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
     ///
     /// If the document was directly provided through the request, then the
     /// output document will have the format:
-    /// "gs://my_bucket/translated_document_[trg]_translations.[ext], where
+    /// `gs://my_bucket/translated_document_[trg]_translations.[ext]`, where
     /// - [trg] corresponds to the translated file's language code,
     /// - [ext] corresponds to the translated file's extension according to its
     /// mime type.
@@ -922,7 +936,7 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
     /// translation will be equal to the default output URI but have
     /// `glossary_translations` instead of `translations`. For the previous
     /// example, its glossary URI would be:
-    /// "gs://my_bucket/a_b_c_[trg]_glossary_translations.[ext]".
+    /// `gs://my_bucket/a_b_c_[trg]_glossary_translations.[ext]`.
     ///
     /// Thus the max number of output files will be 2 (Translated document,
     /// Glossary translated document).
@@ -932,26 +946,13 @@ struct Google_Cloud_Translation_V3_DocumentOutputConfig {
     /// bucket.
     case gcsDestination(Google_Cloud_Translation_V3_GcsDestination)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_DocumentOutputConfig.OneOf_Destination, rhs: Google_Cloud_Translation_V3_DocumentOutputConfig.OneOf_Destination) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsDestination, .gcsDestination): return {
-        guard case .gcsDestination(let l) = lhs, case .gcsDestination(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// A document translation request.
-struct Google_Cloud_Translation_V3_TranslateDocumentRequest {
+struct Google_Cloud_Translation_V3_TranslateDocumentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -970,7 +971,7 @@ struct Google_Cloud_Translation_V3_TranslateDocumentRequest {
   /// location-id), otherwise an INVALID_ARGUMENT (400) error is returned.
   var parent: String = String()
 
-  /// Optional. The BCP-47 language code of the input document if known, for
+  /// Optional. The ISO-639 language code of the input document if known, for
   /// example, "en-US" or "sr-Latn". Supported language codes are listed in
   /// Language Support. If the source language isn't specified, the API attempts
   /// to identify the source language automatically and returns the source
@@ -978,7 +979,7 @@ struct Google_Cloud_Translation_V3_TranslateDocumentRequest {
   /// request contains a glossary or a custom model.
   var sourceLanguageCode: String = String()
 
-  /// Required. The BCP-47 language code to use for translation of the input
+  /// Required. The ISO-639 language code to use for translation of the input
   /// document, set to one of the language codes listed in Language Support.
   var targetLanguageCode: String = String()
 
@@ -1044,6 +1045,26 @@ struct Google_Cloud_Translation_V3_TranslateDocumentRequest {
   /// information.
   var labels: Dictionary<String,String> = [:]
 
+  /// Optional. This flag is to support user customized attribution.
+  /// If not provided, the default is `Machine Translated by Google`.
+  /// Customized attribution should follow rules in
+  /// https://cloud.google.com/translate/attribution#attribution_and_logos
+  var customizedAttribution: String = String()
+
+  /// Optional. is_translate_native_pdf_only field for external customers.
+  /// If true, the page limit of online native pdf translation is 300 and only
+  /// native pdf pages will be translated.
+  var isTranslateNativePdfOnly: Bool = false
+
+  /// Optional. If true, use the text removal server to remove the shadow text on
+  /// background image for native pdf translation.
+  /// Shadow removal feature can only be enabled when
+  /// is_translate_native_pdf_only: false && pdf_native_only: false
+  var enableShadowRemovalNativePdf: Bool = false
+
+  /// Optional. If true, enable auto rotation correction in DVS.
+  var enableRotationCorrection: Bool = false
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -1054,7 +1075,7 @@ struct Google_Cloud_Translation_V3_TranslateDocumentRequest {
 }
 
 /// A translated document message.
-struct Google_Cloud_Translation_V3_DocumentTranslation {
+struct Google_Cloud_Translation_V3_DocumentTranslation: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1080,7 +1101,7 @@ struct Google_Cloud_Translation_V3_DocumentTranslation {
 }
 
 /// A translated document response message.
-struct Google_Cloud_Translation_V3_TranslateDocumentResponse {
+struct Google_Cloud_Translation_V3_TranslateDocumentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1137,7 +1158,7 @@ struct Google_Cloud_Translation_V3_TranslateDocumentResponse {
 }
 
 /// The batch translation request.
-struct Google_Cloud_Translation_V3_BatchTranslateTextRequest {
+struct Google_Cloud_Translation_V3_BatchTranslateTextRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1217,7 +1238,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateTextRequest {
 }
 
 /// State metadata for the batch translation operation.
-struct Google_Cloud_Translation_V3_BatchTranslateMetadata {
+struct Google_Cloud_Translation_V3_BatchTranslateMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1250,7 +1271,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateMetadata {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// State of the job.
-  enum State: SwiftProtobuf.Enum {
+  enum State: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Invalid.
@@ -1304,6 +1325,16 @@ struct Google_Cloud_Translation_V3_BatchTranslateMetadata {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Cloud_Translation_V3_BatchTranslateMetadata.State] = [
+      .unspecified,
+      .running,
+      .succeeded,
+      .failed,
+      .cancelling,
+      .cancelled,
+    ]
+
   }
 
   init() {}
@@ -1311,27 +1342,11 @@ struct Google_Cloud_Translation_V3_BatchTranslateMetadata {
   fileprivate var _submitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-#if swift(>=4.2)
-
-extension Google_Cloud_Translation_V3_BatchTranslateMetadata.State: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Cloud_Translation_V3_BatchTranslateMetadata.State] = [
-    .unspecified,
-    .running,
-    .succeeded,
-    .failed,
-    .cancelling,
-    .cancelled,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 /// Stored in the
 /// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by BatchTranslateText if at least one sentence is translated
 /// successfully.
-struct Google_Cloud_Translation_V3_BatchTranslateResponse {
+struct Google_Cloud_Translation_V3_BatchTranslateResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1376,7 +1391,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateResponse {
 }
 
 /// Input configuration for glossaries.
-struct Google_Cloud_Translation_V3_GlossaryInputConfig {
+struct Google_Cloud_Translation_V3_GlossaryInputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1392,10 +1407,10 @@ struct Google_Cloud_Translation_V3_GlossaryInputConfig {
   ///
   /// For unidirectional glossaries:
   ///
-  /// - TSV/CSV (`.tsv`/`.csv`): 2 column file, tab- or comma-separated.
+  /// - TSV/CSV (`.tsv`/`.csv`): Two column file, tab- or comma-separated.
   ///   The first column is source text. The second column is target text.
-  ///   The file must not contain headers. That is, the first row is data, not
-  ///   column names.
+  ///   No headers in this file. The first row contains data and not column
+  ///   names.
   ///
   /// - TMX (`.tmx`): TMX file with parallel data defining source/target term
   /// pairs.
@@ -1416,7 +1431,7 @@ struct Google_Cloud_Translation_V3_GlossaryInputConfig {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Required. Specify the input.
-  enum OneOf_Source: Equatable {
+  enum OneOf_Source: Equatable, Sendable {
     /// Required. Google Cloud Storage location of glossary data.
     /// File format is determined based on the filename extension. API returns
     /// [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file
@@ -1425,10 +1440,10 @@ struct Google_Cloud_Translation_V3_GlossaryInputConfig {
     ///
     /// For unidirectional glossaries:
     ///
-    /// - TSV/CSV (`.tsv`/`.csv`): 2 column file, tab- or comma-separated.
+    /// - TSV/CSV (`.tsv`/`.csv`): Two column file, tab- or comma-separated.
     ///   The first column is source text. The second column is target text.
-    ///   The file must not contain headers. That is, the first row is data, not
-    ///   column names.
+    ///   No headers in this file. The first row contains data and not column
+    ///   names.
     ///
     /// - TMX (`.tmx`): TMX file with parallel data defining source/target term
     /// pairs.
@@ -1440,26 +1455,13 @@ struct Google_Cloud_Translation_V3_GlossaryInputConfig {
     ///   [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
     case gcsSource(Google_Cloud_Translation_V3_GcsSource)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_GlossaryInputConfig.OneOf_Source, rhs: Google_Cloud_Translation_V3_GlossaryInputConfig.OneOf_Source) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsSource, .gcsSource): return {
-        guard case .gcsSource(let l) = lhs, case .gcsSource(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
-/// Represents a glossary built from user provided data.
-struct Google_Cloud_Translation_V3_Glossary {
+/// Represents a glossary built from user-provided data.
+struct Google_Cloud_Translation_V3_Glossary: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1523,46 +1525,31 @@ struct Google_Cloud_Translation_V3_Glossary {
   /// Clears the value of `endTime`. Subsequent reads from it will return its default value.
   mutating func clearEndTime() {self._endTime = nil}
 
+  /// Optional. The display name of the glossary.
+  var displayName: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Languages supported by the glossary.
-  enum OneOf_Languages: Equatable {
+  enum OneOf_Languages: Equatable, Sendable {
     /// Used with unidirectional glossaries.
     case languagePair(Google_Cloud_Translation_V3_Glossary.LanguageCodePair)
     /// Used with equivalent term set glossaries.
     case languageCodesSet(Google_Cloud_Translation_V3_Glossary.LanguageCodesSet)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_Glossary.OneOf_Languages, rhs: Google_Cloud_Translation_V3_Glossary.OneOf_Languages) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.languagePair, .languagePair): return {
-        guard case .languagePair(let l) = lhs, case .languagePair(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.languageCodesSet, .languageCodesSet): return {
-        guard case .languageCodesSet(let l) = lhs, case .languageCodesSet(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   /// Used with unidirectional glossaries.
-  struct LanguageCodePair {
+  struct LanguageCodePair: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// Required. The BCP-47 language code of the input text, for example,
+    /// Required. The ISO-639 language code of the input text, for example,
     /// "en-US". Expected to be an exact match for GlossaryTerm.language_code.
     var sourceLanguageCode: String = String()
 
-    /// Required. The BCP-47 language code for translation output, for example,
+    /// Required. The ISO-639 language code for translation output, for example,
     /// "zh-CN". Expected to be an exact match for GlossaryTerm.language_code.
     var targetLanguageCode: String = String()
 
@@ -1572,12 +1559,12 @@ struct Google_Cloud_Translation_V3_Glossary {
   }
 
   /// Used with equivalent term set glossaries.
-  struct LanguageCodesSet {
+  struct LanguageCodesSet: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// The BCP-47 language code(s) for terms defined in the glossary.
+    /// The ISO-639 language code(s) for terms defined in the glossary.
     /// All entries are unique. The list contains at least two entries.
     /// Expected to be an exact match for GlossaryTerm.language_code.
     var languageCodes: [String] = []
@@ -1595,7 +1582,7 @@ struct Google_Cloud_Translation_V3_Glossary {
 }
 
 /// Request message for CreateGlossary.
-struct Google_Cloud_Translation_V3_CreateGlossaryRequest {
+struct Google_Cloud_Translation_V3_CreateGlossaryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1620,8 +1607,43 @@ struct Google_Cloud_Translation_V3_CreateGlossaryRequest {
   fileprivate var _glossary: Google_Cloud_Translation_V3_Glossary? = nil
 }
 
+/// Request message for the update glossary flow
+struct Google_Cloud_Translation_V3_UpdateGlossaryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The glossary entry to update.
+  var glossary: Google_Cloud_Translation_V3_Glossary {
+    get {return _glossary ?? Google_Cloud_Translation_V3_Glossary()}
+    set {_glossary = newValue}
+  }
+  /// Returns true if `glossary` has been explicitly set.
+  var hasGlossary: Bool {return self._glossary != nil}
+  /// Clears the value of `glossary`. Subsequent reads from it will return its default value.
+  mutating func clearGlossary() {self._glossary = nil}
+
+  /// The list of fields to be updated. Currently only `display_name` and
+  /// 'input_config'
+  var updateMask: SwiftProtobuf.Google_Protobuf_FieldMask {
+    get {return _updateMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
+    set {_updateMask = newValue}
+  }
+  /// Returns true if `updateMask` has been explicitly set.
+  var hasUpdateMask: Bool {return self._updateMask != nil}
+  /// Clears the value of `updateMask`. Subsequent reads from it will return its default value.
+  mutating func clearUpdateMask() {self._updateMask = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _glossary: Google_Cloud_Translation_V3_Glossary? = nil
+  fileprivate var _updateMask: SwiftProtobuf.Google_Protobuf_FieldMask? = nil
+}
+
 /// Request message for GetGlossary.
-struct Google_Cloud_Translation_V3_GetGlossaryRequest {
+struct Google_Cloud_Translation_V3_GetGlossaryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1635,7 +1657,7 @@ struct Google_Cloud_Translation_V3_GetGlossaryRequest {
 }
 
 /// Request message for DeleteGlossary.
-struct Google_Cloud_Translation_V3_DeleteGlossaryRequest {
+struct Google_Cloud_Translation_V3_DeleteGlossaryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1649,7 +1671,7 @@ struct Google_Cloud_Translation_V3_DeleteGlossaryRequest {
 }
 
 /// Request message for ListGlossaries.
-struct Google_Cloud_Translation_V3_ListGlossariesRequest {
+struct Google_Cloud_Translation_V3_ListGlossariesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1691,7 +1713,7 @@ struct Google_Cloud_Translation_V3_ListGlossariesRequest {
 }
 
 /// Response message for ListGlossaries.
-struct Google_Cloud_Translation_V3_ListGlossariesResponse {
+struct Google_Cloud_Translation_V3_ListGlossariesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1709,10 +1731,130 @@ struct Google_Cloud_Translation_V3_ListGlossariesResponse {
   init() {}
 }
 
+/// Request message for the Get Glossary Entry Api
+struct Google_Cloud_Translation_V3_GetGlossaryEntryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The resource name of the glossary entry to get
+  var name: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Request message for Delete Glossary Entry
+struct Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The resource name of the glossary entry to delete
+  var name: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Request message for ListGlossaryEntries
+struct Google_Cloud_Translation_V3_ListGlossaryEntriesRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The parent glossary resource name for listing the glossary's
+  /// entries.
+  var parent: String = String()
+
+  /// Optional. Requested page size. The server may return fewer glossary entries
+  /// than requested. If unspecified, the server picks an appropriate default.
+  var pageSize: Int32 = 0
+
+  /// Optional. A token identifying a page of results the server should return.
+  /// Typically, this is the value of
+  /// [ListGlossaryEntriesResponse.next_page_token] returned from the previous
+  /// call. The first page is returned if `page_token`is empty or missing.
+  var pageToken: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Response message for ListGlossaryEntries
+struct Google_Cloud_Translation_V3_ListGlossaryEntriesResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Optional. The Glossary Entries
+  var glossaryEntries: [Google_Cloud_Translation_V3_GlossaryEntry] = []
+
+  /// Optional. A token to retrieve a page of results. Pass this value in the
+  /// [ListGLossaryEntriesRequest.page_token] field in the subsequent calls.
+  var nextPageToken: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Request message for CreateGlossaryEntry
+struct Google_Cloud_Translation_V3_CreateGlossaryEntryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The resource name of the glossary to create the entry under.
+  var parent: String = String()
+
+  /// Required. The glossary entry to create
+  var glossaryEntry: Google_Cloud_Translation_V3_GlossaryEntry {
+    get {return _glossaryEntry ?? Google_Cloud_Translation_V3_GlossaryEntry()}
+    set {_glossaryEntry = newValue}
+  }
+  /// Returns true if `glossaryEntry` has been explicitly set.
+  var hasGlossaryEntry: Bool {return self._glossaryEntry != nil}
+  /// Clears the value of `glossaryEntry`. Subsequent reads from it will return its default value.
+  mutating func clearGlossaryEntry() {self._glossaryEntry = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _glossaryEntry: Google_Cloud_Translation_V3_GlossaryEntry? = nil
+}
+
+/// Request message for UpdateGlossaryEntry
+struct Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The glossary entry to update.
+  var glossaryEntry: Google_Cloud_Translation_V3_GlossaryEntry {
+    get {return _glossaryEntry ?? Google_Cloud_Translation_V3_GlossaryEntry()}
+    set {_glossaryEntry = newValue}
+  }
+  /// Returns true if `glossaryEntry` has been explicitly set.
+  var hasGlossaryEntry: Bool {return self._glossaryEntry != nil}
+  /// Clears the value of `glossaryEntry`. Subsequent reads from it will return its default value.
+  mutating func clearGlossaryEntry() {self._glossaryEntry = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _glossaryEntry: Google_Cloud_Translation_V3_GlossaryEntry? = nil
+}
+
 /// Stored in the
 /// [google.longrunning.Operation.metadata][google.longrunning.Operation.metadata]
 /// field returned by CreateGlossary.
-struct Google_Cloud_Translation_V3_CreateGlossaryMetadata {
+struct Google_Cloud_Translation_V3_CreateGlossaryMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1736,7 +1878,7 @@ struct Google_Cloud_Translation_V3_CreateGlossaryMetadata {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Enumerates the possible states that the creation request can be in.
-  enum State: SwiftProtobuf.Enum {
+  enum State: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Invalid.
@@ -1787,6 +1929,16 @@ struct Google_Cloud_Translation_V3_CreateGlossaryMetadata {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Cloud_Translation_V3_CreateGlossaryMetadata.State] = [
+      .unspecified,
+      .running,
+      .succeeded,
+      .failed,
+      .cancelling,
+      .cancelled,
+    ]
+
   }
 
   init() {}
@@ -1794,26 +1946,114 @@ struct Google_Cloud_Translation_V3_CreateGlossaryMetadata {
   fileprivate var _submitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-#if swift(>=4.2)
+/// Stored in the
+/// [google.longrunning.Operation.metadata][google.longrunning.Operation.metadata]
+/// field returned by UpdateGlossary.
+struct Google_Cloud_Translation_V3_UpdateGlossaryMetadata: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
-extension Google_Cloud_Translation_V3_CreateGlossaryMetadata.State: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Cloud_Translation_V3_CreateGlossaryMetadata.State] = [
-    .unspecified,
-    .running,
-    .succeeded,
-    .failed,
-    .cancelling,
-    .cancelled,
-  ]
+  /// The updated glossary object.
+  var glossary: Google_Cloud_Translation_V3_Glossary {
+    get {return _glossary ?? Google_Cloud_Translation_V3_Glossary()}
+    set {_glossary = newValue}
+  }
+  /// Returns true if `glossary` has been explicitly set.
+  var hasGlossary: Bool {return self._glossary != nil}
+  /// Clears the value of `glossary`. Subsequent reads from it will return its default value.
+  mutating func clearGlossary() {self._glossary = nil}
+
+  /// The current state of the glossary update operation. If the glossary input
+  /// file was not updated this will be completed immediately
+  var state: Google_Cloud_Translation_V3_UpdateGlossaryMetadata.State = .unspecified
+
+  /// The time when the operation was submitted to the server.
+  var submitTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _submitTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_submitTime = newValue}
+  }
+  /// Returns true if `submitTime` has been explicitly set.
+  var hasSubmitTime: Bool {return self._submitTime != nil}
+  /// Clears the value of `submitTime`. Subsequent reads from it will return its default value.
+  mutating func clearSubmitTime() {self._submitTime = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// Enumerates the possible states that the update request can be in.
+  enum State: SwiftProtobuf.Enum, Swift.CaseIterable {
+    typealias RawValue = Int
+
+    /// Invalid.
+    case unspecified // = 0
+
+    /// Request is being processed.
+    case running // = 1
+
+    /// The glossary was successfully updated.
+    case succeeded // = 2
+
+    /// Failed to update the glossary.
+    case failed // = 3
+
+    /// Request is in the process of being canceled after caller invoked
+    /// longrunning.Operations.CancelOperation on the request id.
+    case cancelling // = 4
+
+    /// The glossary update request was successfully canceled.
+    case cancelled // = 5
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .unspecified
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .unspecified
+      case 1: self = .running
+      case 2: self = .succeeded
+      case 3: self = .failed
+      case 4: self = .cancelling
+      case 5: self = .cancelled
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .unspecified: return 0
+      case .running: return 1
+      case .succeeded: return 2
+      case .failed: return 3
+      case .cancelling: return 4
+      case .cancelled: return 5
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Cloud_Translation_V3_UpdateGlossaryMetadata.State] = [
+      .unspecified,
+      .running,
+      .succeeded,
+      .failed,
+      .cancelling,
+      .cancelled,
+    ]
+
+  }
+
+  init() {}
+
+  fileprivate var _glossary: Google_Cloud_Translation_V3_Glossary? = nil
+  fileprivate var _submitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
-
-#endif  // swift(>=4.2)
 
 /// Stored in the
 /// [google.longrunning.Operation.metadata][google.longrunning.Operation.metadata]
 /// field returned by DeleteGlossary.
-struct Google_Cloud_Translation_V3_DeleteGlossaryMetadata {
+struct Google_Cloud_Translation_V3_DeleteGlossaryMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1837,7 +2077,7 @@ struct Google_Cloud_Translation_V3_DeleteGlossaryMetadata {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Enumerates the possible states that the creation request can be in.
-  enum State: SwiftProtobuf.Enum {
+  enum State: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Invalid.
@@ -1888,6 +2128,16 @@ struct Google_Cloud_Translation_V3_DeleteGlossaryMetadata {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Cloud_Translation_V3_DeleteGlossaryMetadata.State] = [
+      .unspecified,
+      .running,
+      .succeeded,
+      .failed,
+      .cancelling,
+      .cancelled,
+    ]
+
   }
 
   init() {}
@@ -1895,26 +2145,10 @@ struct Google_Cloud_Translation_V3_DeleteGlossaryMetadata {
   fileprivate var _submitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-#if swift(>=4.2)
-
-extension Google_Cloud_Translation_V3_DeleteGlossaryMetadata.State: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Cloud_Translation_V3_DeleteGlossaryMetadata.State] = [
-    .unspecified,
-    .running,
-    .succeeded,
-    .failed,
-    .cancelling,
-    .cancelled,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 /// Stored in the
 /// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by DeleteGlossary.
-struct Google_Cloud_Translation_V3_DeleteGlossaryResponse {
+struct Google_Cloud_Translation_V3_DeleteGlossaryResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1953,7 +2187,7 @@ struct Google_Cloud_Translation_V3_DeleteGlossaryResponse {
 }
 
 /// The BatchTranslateDocument request.
-struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest {
+struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1969,12 +2203,12 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest {
   /// error is returned.
   var parent: String = String()
 
-  /// Required. The BCP-47 language code of the input document if known, for
+  /// Required. The ISO-639 language code of the input document if known, for
   /// example, "en-US" or "sr-Latn". Supported language codes are listed in
-  /// Language Support (https://cloud.google.com/translate/docs/languages).
+  /// [Language Support](https://cloud.google.com/translate/docs/languages).
   var sourceLanguageCode: String = String()
 
-  /// Required. The BCP-47 language code to use for translation of the input
+  /// Required. The ISO-639 language code to use for translation of the input
   /// document. Specify up to 10 language codes here.
   var targetLanguageCodes: [String] = []
 
@@ -2016,9 +2250,9 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest {
   /// Optional. Glossaries to be applied. It's keyed by target language code.
   var glossaries: Dictionary<String,Google_Cloud_Translation_V3_TranslateTextGlossaryConfig> = [:]
 
-  /// Optional. File format conversion map to be applied to all input files.
-  /// Map's key is the original mime_type. Map's value is the target mime_type of
-  /// translated documents.
+  /// Optional. The file format conversion map that is applied to all input
+  /// files. The map key is the original mime_type. The map value is the target
+  /// mime_type of translated documents.
   ///
   /// Supported file format conversion includes:
   /// - `application/pdf` to
@@ -2028,6 +2262,21 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest {
   /// original file.
   var formatConversions: Dictionary<String,String> = [:]
 
+  /// Optional. This flag is to support user customized attribution.
+  /// If not provided, the default is `Machine Translated by Google`.
+  /// Customized attribution should follow rules in
+  /// https://cloud.google.com/translate/attribution#attribution_and_logos
+  var customizedAttribution: String = String()
+
+  /// Optional. If true, use the text removal server to remove the shadow text on
+  /// background image for native pdf translation.
+  /// Shadow removal feature can only be enabled when
+  /// is_translate_native_pdf_only: false && pdf_native_only: false
+  var enableShadowRemovalNativePdf: Bool = false
+
+  /// Optional. If true, enable auto rotation correction in DVS.
+  var enableRotationCorrection: Bool = false
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -2036,7 +2285,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentRequest {
 }
 
 /// Input configuration for BatchTranslateDocument request.
-struct Google_Cloud_Translation_V3_BatchDocumentInputConfig {
+struct Google_Cloud_Translation_V3_BatchDocumentInputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2074,7 +2323,7 @@ struct Google_Cloud_Translation_V3_BatchDocumentInputConfig {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Specify the input.
-  enum OneOf_Source: Equatable {
+  enum OneOf_Source: Equatable, Sendable {
     /// Google Cloud Storage location for the source input.
     /// This can be a single file (for example,
     /// `gs://translation-test/input.docx`) or a wildcard (for example,
@@ -2096,26 +2345,13 @@ struct Google_Cloud_Translation_V3_BatchDocumentInputConfig {
     /// The max file size to support for all input documents is 1GB.
     case gcsSource(Google_Cloud_Translation_V3_GcsSource)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_BatchDocumentInputConfig.OneOf_Source, rhs: Google_Cloud_Translation_V3_BatchDocumentInputConfig.OneOf_Source) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsSource, .gcsSource): return {
-        guard case .gcsSource(let l) = lhs, case .gcsSource(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
 }
 
 /// Output configuration for BatchTranslateDocument request.
-struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig {
+struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2155,19 +2391,19 @@ struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig {
   /// Since index.csv will be keeping updated during the process, please make
   /// sure there is no custom retention policy applied on the output bucket
   /// that may avoid file updating.
-  /// (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
+  /// (https://cloud.google.com/storage/docs/bucket-lock#retention-policy)
   ///
   /// The naming format of translation output files follows (for target
   /// language code [trg]): `translation_output`:
-  /// gs://translation_output/a_b_c_[trg]_translation.[extension]
+  /// `gs://translation_output/a_b_c_[trg]_translation.[extension]`
   /// `glossary_translation_output`:
-  /// gs://translation_test/a_b_c_[trg]_glossary_translation.[extension] The
+  /// `gs://translation_test/a_b_c_[trg]_glossary_translation.[extension]`. The
   /// output document will maintain the same file format as the input document.
   ///
   /// The naming format of error output files follows (for target language code
-  /// [trg]): `error_output`: gs://translation_test/a_b_c_[trg]_errors.txt
+  /// [trg]): `error_output`: `gs://translation_test/a_b_c_[trg]_errors.txt`
   /// `glossary_error_output`:
-  /// gs://translation_test/a_b_c_[trg]_glossary_translation.txt The error
+  /// `gs://translation_test/a_b_c_[trg]_glossary_translation.txt`. The error
   /// output is a txt file containing error details.
   var gcsDestination: Google_Cloud_Translation_V3_GcsDestination {
     get {
@@ -2181,7 +2417,7 @@ struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig {
 
   /// The destination of output. The destination directory provided must exist
   /// and be empty.
-  enum OneOf_Destination: Equatable {
+  enum OneOf_Destination: Equatable, Sendable {
     /// Google Cloud Storage destination for output content.
     /// For every single input document (for example, gs://a/b/c.[extension]), we
     /// generate at most 2 * n output files. (n is the # of target_language_codes
@@ -2213,35 +2449,22 @@ struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig {
     /// Since index.csv will be keeping updated during the process, please make
     /// sure there is no custom retention policy applied on the output bucket
     /// that may avoid file updating.
-    /// (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
+    /// (https://cloud.google.com/storage/docs/bucket-lock#retention-policy)
     ///
     /// The naming format of translation output files follows (for target
     /// language code [trg]): `translation_output`:
-    /// gs://translation_output/a_b_c_[trg]_translation.[extension]
+    /// `gs://translation_output/a_b_c_[trg]_translation.[extension]`
     /// `glossary_translation_output`:
-    /// gs://translation_test/a_b_c_[trg]_glossary_translation.[extension] The
+    /// `gs://translation_test/a_b_c_[trg]_glossary_translation.[extension]`. The
     /// output document will maintain the same file format as the input document.
     ///
     /// The naming format of error output files follows (for target language code
-    /// [trg]): `error_output`: gs://translation_test/a_b_c_[trg]_errors.txt
+    /// [trg]): `error_output`: `gs://translation_test/a_b_c_[trg]_errors.txt`
     /// `glossary_error_output`:
-    /// gs://translation_test/a_b_c_[trg]_glossary_translation.txt The error
+    /// `gs://translation_test/a_b_c_[trg]_glossary_translation.txt`. The error
     /// output is a txt file containing error details.
     case gcsDestination(Google_Cloud_Translation_V3_GcsDestination)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Cloud_Translation_V3_BatchDocumentOutputConfig.OneOf_Destination, rhs: Google_Cloud_Translation_V3_BatchDocumentOutputConfig.OneOf_Destination) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.gcsDestination, .gcsDestination): return {
-        guard case .gcsDestination(let l) = lhs, case .gcsDestination(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -2251,7 +2474,7 @@ struct Google_Cloud_Translation_V3_BatchDocumentOutputConfig {
 /// [google.longrunning.Operation.response][google.longrunning.Operation.response]
 /// field returned by BatchTranslateDocument if at least one document is
 /// translated successfully.
-struct Google_Cloud_Translation_V3_BatchTranslateDocumentResponse {
+struct Google_Cloud_Translation_V3_BatchTranslateDocumentResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2318,7 +2541,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentResponse {
 }
 
 /// State metadata for the batch translation operation.
-struct Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata {
+struct Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -2370,7 +2593,7 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// State of the job.
-  enum State: SwiftProtobuf.Enum {
+  enum State: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Invalid.
@@ -2423,6 +2646,16 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata.State] = [
+      .unspecified,
+      .running,
+      .succeeded,
+      .failed,
+      .cancelling,
+      .cancelled,
+    ]
+
   }
 
   init() {}
@@ -2430,86 +2663,38 @@ struct Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata {
   fileprivate var _submitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-#if swift(>=4.2)
+/// Configures which glossary is used for a specific target language and defines
+/// options for applying that glossary.
+struct Google_Cloud_Translation_V3_TranslateTextGlossaryConfig: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
-extension Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata.State: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata.State] = [
-    .unspecified,
-    .running,
-    .succeeded,
-    .failed,
-    .cancelling,
-    .cancelled,
-  ]
+  /// Required. The `glossary` to be applied for this translation.
+  ///
+  /// The format depends on the glossary:
+  ///
+  /// - User-provided custom glossary:
+  ///   `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
+  var glossary: String = String()
+
+  /// Optional. Indicates match is case insensitive. The default value is `false`
+  /// if missing.
+  var ignoreCase: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 }
-
-#endif  // swift(>=4.2)
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Cloud_Translation_V3_TranslateTextGlossaryConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_TranslateTextRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_TranslateTextResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_Translation: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DetectLanguageRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DetectLanguageRequest.OneOf_Source: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DetectedLanguage: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DetectLanguageResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GetSupportedLanguagesRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_SupportedLanguages: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_SupportedLanguage: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GcsSource: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_InputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_InputConfig.OneOf_Source: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GcsDestination: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_OutputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_OutputConfig.OneOf_Destination: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DocumentInputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DocumentInputConfig.OneOf_Source: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DocumentOutputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DocumentOutputConfig.OneOf_Destination: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_TranslateDocumentRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DocumentTranslation: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_TranslateDocumentResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateTextRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateMetadata: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateMetadata.State: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GlossaryInputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GlossaryInputConfig.OneOf_Source: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_Glossary: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_Glossary.OneOf_Languages: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_Glossary.LanguageCodePair: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_Glossary.LanguageCodesSet: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_CreateGlossaryRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_GetGlossaryRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DeleteGlossaryRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_ListGlossariesRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_ListGlossariesResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_CreateGlossaryMetadata: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_CreateGlossaryMetadata.State: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DeleteGlossaryMetadata: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DeleteGlossaryMetadata.State: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_DeleteGlossaryResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchDocumentInputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchDocumentInputConfig.OneOf_Source: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchDocumentOutputConfig: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchDocumentOutputConfig.OneOf_Destination: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateDocumentResponse: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata: @unchecked Sendable {}
-extension Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata.State: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.cloud.translation.v3"
 
-extension Google_Cloud_Translation_V3_TranslateTextGlossaryConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TranslateTextGlossaryConfig"
+extension Google_Cloud_Translation_V3_TransliterationConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TransliterationConfig"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "glossary"),
-    2: .standard(proto: "ignore_case"),
+    1: .standard(proto: "enable_transliteration"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2518,26 +2703,21 @@ extension Google_Cloud_Translation_V3_TranslateTextGlossaryConfig: SwiftProtobuf
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.glossary) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.ignoreCase) }()
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.enableTransliteration) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.glossary.isEmpty {
-      try visitor.visitSingularStringField(value: self.glossary, fieldNumber: 1)
-    }
-    if self.ignoreCase != false {
-      try visitor.visitSingularBoolField(value: self.ignoreCase, fieldNumber: 2)
+    if self.enableTransliteration != false {
+      try visitor.visitSingularBoolField(value: self.enableTransliteration, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig, rhs: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig) -> Bool {
-    if lhs.glossary != rhs.glossary {return false}
-    if lhs.ignoreCase != rhs.ignoreCase {return false}
+  static func ==(lhs: Google_Cloud_Translation_V3_TransliterationConfig, rhs: Google_Cloud_Translation_V3_TransliterationConfig) -> Bool {
+    if lhs.enableTransliteration != rhs.enableTransliteration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2553,6 +2733,7 @@ extension Google_Cloud_Translation_V3_TranslateTextRequest: SwiftProtobuf.Messag
     8: .same(proto: "parent"),
     6: .same(proto: "model"),
     7: .standard(proto: "glossary_config"),
+    13: .standard(proto: "transliteration_config"),
     10: .same(proto: "labels"),
   ]
 
@@ -2570,6 +2751,7 @@ extension Google_Cloud_Translation_V3_TranslateTextRequest: SwiftProtobuf.Messag
       case 7: try { try decoder.decodeSingularMessageField(value: &self._glossaryConfig) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.parent) }()
       case 10: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.labels) }()
+      case 13: try { try decoder.decodeSingularMessageField(value: &self._transliterationConfig) }()
       default: break
       }
     }
@@ -2604,6 +2786,9 @@ extension Google_Cloud_Translation_V3_TranslateTextRequest: SwiftProtobuf.Messag
     if !self.labels.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.labels, fieldNumber: 10)
     }
+    try { if let v = self._transliterationConfig {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2615,6 +2800,7 @@ extension Google_Cloud_Translation_V3_TranslateTextRequest: SwiftProtobuf.Messag
     if lhs.parent != rhs.parent {return false}
     if lhs.model != rhs.model {return false}
     if lhs._glossaryConfig != rhs._glossaryConfig {return false}
+    if lhs._transliterationConfig != rhs._transliterationConfig {return false}
     if lhs.labels != rhs.labels {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2713,6 +2899,120 @@ extension Google_Cloud_Translation_V3_Translation: SwiftProtobuf.Message, SwiftP
   }
 }
 
+extension Google_Cloud_Translation_V3_RomanizeTextRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RomanizeTextRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .same(proto: "parent"),
+    1: .same(proto: "contents"),
+    2: .standard(proto: "source_language_code"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.contents) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.sourceLanguageCode) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.contents.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.contents, fieldNumber: 1)
+    }
+    if !self.sourceLanguageCode.isEmpty {
+      try visitor.visitSingularStringField(value: self.sourceLanguageCode, fieldNumber: 2)
+    }
+    if !self.parent.isEmpty {
+      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_RomanizeTextRequest, rhs: Google_Cloud_Translation_V3_RomanizeTextRequest) -> Bool {
+    if lhs.parent != rhs.parent {return false}
+    if lhs.contents != rhs.contents {return false}
+    if lhs.sourceLanguageCode != rhs.sourceLanguageCode {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_Romanization: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Romanization"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "romanized_text"),
+    2: .standard(proto: "detected_language_code"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.romanizedText) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.detectedLanguageCode) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.romanizedText.isEmpty {
+      try visitor.visitSingularStringField(value: self.romanizedText, fieldNumber: 1)
+    }
+    if !self.detectedLanguageCode.isEmpty {
+      try visitor.visitSingularStringField(value: self.detectedLanguageCode, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_Romanization, rhs: Google_Cloud_Translation_V3_Romanization) -> Bool {
+    if lhs.romanizedText != rhs.romanizedText {return false}
+    if lhs.detectedLanguageCode != rhs.detectedLanguageCode {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_RomanizeTextResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RomanizeTextResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "romanizations"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.romanizations) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.romanizations.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.romanizations, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_RomanizeTextResponse, rhs: Google_Cloud_Translation_V3_RomanizeTextResponse) -> Bool {
+    if lhs.romanizations != rhs.romanizations {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Cloud_Translation_V3_DetectLanguageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DetectLanguageRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2804,7 +3104,7 @@ extension Google_Cloud_Translation_V3_DetectedLanguage: SwiftProtobuf.Message, S
     if !self.languageCode.isEmpty {
       try visitor.visitSingularStringField(value: self.languageCode, fieldNumber: 1)
     }
-    if self.confidence != 0 {
+    if self.confidence.bitPattern != 0 {
       try visitor.visitSingularFloatField(value: self.confidence, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -3278,6 +3578,10 @@ extension Google_Cloud_Translation_V3_TranslateDocumentRequest: SwiftProtobuf.Me
     6: .same(proto: "model"),
     7: .standard(proto: "glossary_config"),
     8: .same(proto: "labels"),
+    10: .standard(proto: "customized_attribution"),
+    11: .standard(proto: "is_translate_native_pdf_only"),
+    12: .standard(proto: "enable_shadow_removal_native_pdf"),
+    13: .standard(proto: "enable_rotation_correction"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3294,6 +3598,10 @@ extension Google_Cloud_Translation_V3_TranslateDocumentRequest: SwiftProtobuf.Me
       case 6: try { try decoder.decodeSingularStringField(value: &self.model) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._glossaryConfig) }()
       case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.labels) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.customizedAttribution) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.isTranslateNativePdfOnly) }()
+      case 12: try { try decoder.decodeSingularBoolField(value: &self.enableShadowRemovalNativePdf) }()
+      case 13: try { try decoder.decodeSingularBoolField(value: &self.enableRotationCorrection) }()
       default: break
       }
     }
@@ -3328,6 +3636,18 @@ extension Google_Cloud_Translation_V3_TranslateDocumentRequest: SwiftProtobuf.Me
     if !self.labels.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.labels, fieldNumber: 8)
     }
+    if !self.customizedAttribution.isEmpty {
+      try visitor.visitSingularStringField(value: self.customizedAttribution, fieldNumber: 10)
+    }
+    if self.isTranslateNativePdfOnly != false {
+      try visitor.visitSingularBoolField(value: self.isTranslateNativePdfOnly, fieldNumber: 11)
+    }
+    if self.enableShadowRemovalNativePdf != false {
+      try visitor.visitSingularBoolField(value: self.enableShadowRemovalNativePdf, fieldNumber: 12)
+    }
+    if self.enableRotationCorrection != false {
+      try visitor.visitSingularBoolField(value: self.enableRotationCorrection, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3340,6 +3660,10 @@ extension Google_Cloud_Translation_V3_TranslateDocumentRequest: SwiftProtobuf.Me
     if lhs.model != rhs.model {return false}
     if lhs._glossaryConfig != rhs._glossaryConfig {return false}
     if lhs.labels != rhs.labels {return false}
+    if lhs.customizedAttribution != rhs.customizedAttribution {return false}
+    if lhs.isTranslateNativePdfOnly != rhs.isTranslateNativePdfOnly {return false}
+    if lhs.enableShadowRemovalNativePdf != rhs.enableShadowRemovalNativePdf {return false}
+    if lhs.enableRotationCorrection != rhs.enableRotationCorrection {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3710,6 +4034,7 @@ extension Google_Cloud_Translation_V3_Glossary: SwiftProtobuf.Message, SwiftProt
     6: .standard(proto: "entry_count"),
     7: .standard(proto: "submit_time"),
     8: .standard(proto: "end_time"),
+    9: .standard(proto: "display_name"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3749,6 +4074,7 @@ extension Google_Cloud_Translation_V3_Glossary: SwiftProtobuf.Message, SwiftProt
       case 6: try { try decoder.decodeSingularInt32Field(value: &self.entryCount) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._submitTime) }()
       case 8: try { try decoder.decodeSingularMessageField(value: &self._endTime) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.displayName) }()
       default: break
       }
     }
@@ -3785,6 +4111,9 @@ extension Google_Cloud_Translation_V3_Glossary: SwiftProtobuf.Message, SwiftProt
     try { if let v = self._endTime {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
     } }()
+    if !self.displayName.isEmpty {
+      try visitor.visitSingularStringField(value: self.displayName, fieldNumber: 9)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3795,6 +4124,7 @@ extension Google_Cloud_Translation_V3_Glossary: SwiftProtobuf.Message, SwiftProt
     if lhs.entryCount != rhs.entryCount {return false}
     if lhs._submitTime != rhs._submitTime {return false}
     if lhs._endTime != rhs._endTime {return false}
+    if lhs.displayName != rhs.displayName {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3907,6 +4237,48 @@ extension Google_Cloud_Translation_V3_CreateGlossaryRequest: SwiftProtobuf.Messa
   static func ==(lhs: Google_Cloud_Translation_V3_CreateGlossaryRequest, rhs: Google_Cloud_Translation_V3_CreateGlossaryRequest) -> Bool {
     if lhs.parent != rhs.parent {return false}
     if lhs._glossary != rhs._glossary {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_UpdateGlossaryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".UpdateGlossaryRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "glossary"),
+    2: .standard(proto: "update_mask"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._glossary) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._updateMask) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._glossary {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._updateMask {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_UpdateGlossaryRequest, rhs: Google_Cloud_Translation_V3_UpdateGlossaryRequest) -> Bool {
+    if lhs._glossary != rhs._glossary {return false}
+    if lhs._updateMask != rhs._updateMask {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4064,6 +4436,230 @@ extension Google_Cloud_Translation_V3_ListGlossariesResponse: SwiftProtobuf.Mess
   }
 }
 
+extension Google_Cloud_Translation_V3_GetGlossaryEntryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".GetGlossaryEntryRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_GetGlossaryEntryRequest, rhs: Google_Cloud_Translation_V3_GetGlossaryEntryRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".DeleteGlossaryEntryRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, rhs: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_ListGlossaryEntriesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListGlossaryEntriesRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "parent"),
+    2: .standard(proto: "page_size"),
+    3: .standard(proto: "page_token"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.pageToken) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.parent.isEmpty {
+      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 2)
+    }
+    if !self.pageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.pageToken, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, rhs: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest) -> Bool {
+    if lhs.parent != rhs.parent {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.pageToken != rhs.pageToken {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_ListGlossaryEntriesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListGlossaryEntriesResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "glossary_entries"),
+    2: .standard(proto: "next_page_token"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.glossaryEntries) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.nextPageToken) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.glossaryEntries.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.glossaryEntries, fieldNumber: 1)
+    }
+    if !self.nextPageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.nextPageToken, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_ListGlossaryEntriesResponse, rhs: Google_Cloud_Translation_V3_ListGlossaryEntriesResponse) -> Bool {
+    if lhs.glossaryEntries != rhs.glossaryEntries {return false}
+    if lhs.nextPageToken != rhs.nextPageToken {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_CreateGlossaryEntryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".CreateGlossaryEntryRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "parent"),
+    2: .standard(proto: "glossary_entry"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._glossaryEntry) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.parent.isEmpty {
+      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
+    }
+    try { if let v = self._glossaryEntry {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, rhs: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest) -> Bool {
+    if lhs.parent != rhs.parent {return false}
+    if lhs._glossaryEntry != rhs._glossaryEntry {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".UpdateGlossaryEntryRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "glossary_entry"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._glossaryEntry) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._glossaryEntry {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, rhs: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest) -> Bool {
+    if lhs._glossaryEntry != rhs._glossaryEntry {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Cloud_Translation_V3_CreateGlossaryMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CreateGlossaryMetadata"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -4113,6 +4709,65 @@ extension Google_Cloud_Translation_V3_CreateGlossaryMetadata: SwiftProtobuf.Mess
 }
 
 extension Google_Cloud_Translation_V3_CreateGlossaryMetadata.State: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STATE_UNSPECIFIED"),
+    1: .same(proto: "RUNNING"),
+    2: .same(proto: "SUCCEEDED"),
+    3: .same(proto: "FAILED"),
+    4: .same(proto: "CANCELLING"),
+    5: .same(proto: "CANCELLED"),
+  ]
+}
+
+extension Google_Cloud_Translation_V3_UpdateGlossaryMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".UpdateGlossaryMetadata"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "glossary"),
+    2: .same(proto: "state"),
+    3: .standard(proto: "submit_time"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._glossary) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.state) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._submitTime) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._glossary {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    if self.state != .unspecified {
+      try visitor.visitSingularEnumField(value: self.state, fieldNumber: 2)
+    }
+    try { if let v = self._submitTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_UpdateGlossaryMetadata, rhs: Google_Cloud_Translation_V3_UpdateGlossaryMetadata) -> Bool {
+    if lhs._glossary != rhs._glossary {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs._submitTime != rhs._submitTime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Cloud_Translation_V3_UpdateGlossaryMetadata.State: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "STATE_UNSPECIFIED"),
     1: .same(proto: "RUNNING"),
@@ -4241,6 +4896,9 @@ extension Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: SwiftProtob
     6: .same(proto: "models"),
     7: .same(proto: "glossaries"),
     8: .standard(proto: "format_conversions"),
+    10: .standard(proto: "customized_attribution"),
+    11: .standard(proto: "enable_shadow_removal_native_pdf"),
+    12: .standard(proto: "enable_rotation_correction"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -4257,6 +4915,9 @@ extension Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: SwiftProtob
       case 6: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.models) }()
       case 7: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Cloud_Translation_V3_TranslateTextGlossaryConfig>.self, value: &self.glossaries) }()
       case 8: try { try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &self.formatConversions) }()
+      case 10: try { try decoder.decodeSingularStringField(value: &self.customizedAttribution) }()
+      case 11: try { try decoder.decodeSingularBoolField(value: &self.enableShadowRemovalNativePdf) }()
+      case 12: try { try decoder.decodeSingularBoolField(value: &self.enableRotationCorrection) }()
       default: break
       }
     }
@@ -4291,6 +4952,15 @@ extension Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: SwiftProtob
     if !self.formatConversions.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: self.formatConversions, fieldNumber: 8)
     }
+    if !self.customizedAttribution.isEmpty {
+      try visitor.visitSingularStringField(value: self.customizedAttribution, fieldNumber: 10)
+    }
+    if self.enableShadowRemovalNativePdf != false {
+      try visitor.visitSingularBoolField(value: self.enableShadowRemovalNativePdf, fieldNumber: 11)
+    }
+    if self.enableRotationCorrection != false {
+      try visitor.visitSingularBoolField(value: self.enableRotationCorrection, fieldNumber: 12)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -4303,6 +4973,9 @@ extension Google_Cloud_Translation_V3_BatchTranslateDocumentRequest: SwiftProtob
     if lhs.models != rhs.models {return false}
     if lhs.glossaries != rhs.glossaries {return false}
     if lhs.formatConversions != rhs.formatConversions {return false}
+    if lhs.customizedAttribution != rhs.customizedAttribution {return false}
+    if lhs.enableShadowRemovalNativePdf != rhs.enableShadowRemovalNativePdf {return false}
+    if lhs.enableRotationCorrection != rhs.enableRotationCorrection {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -4593,4 +5266,42 @@ extension Google_Cloud_Translation_V3_BatchTranslateDocumentMetadata.State: Swif
     4: .same(proto: "CANCELLING"),
     5: .same(proto: "CANCELLED"),
   ]
+}
+
+extension Google_Cloud_Translation_V3_TranslateTextGlossaryConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".TranslateTextGlossaryConfig"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "glossary"),
+    2: .standard(proto: "ignore_case"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.glossary) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.ignoreCase) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.glossary.isEmpty {
+      try visitor.visitSingularStringField(value: self.glossary, fieldNumber: 1)
+    }
+    if self.ignoreCase != false {
+      try visitor.visitSingularBoolField(value: self.ignoreCase, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig, rhs: Google_Cloud_Translation_V3_TranslateTextGlossaryConfig) -> Bool {
+    if lhs.glossary != rhs.glossary {return false}
+    if lhs.ignoreCase != rhs.ignoreCase {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
 }

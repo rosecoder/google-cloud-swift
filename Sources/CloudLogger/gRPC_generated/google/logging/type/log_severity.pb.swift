@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// one of these standard levels. For example, you might map all of Java's FINE,
 /// FINER, and FINEST levels to `LogSeverity.DEBUG`. You can preserve the
 /// original severity level in the log entry payload if you wish.
-enum Google_Logging_Type_LogSeverity: SwiftProtobuf.Enum {
+enum Google_Logging_Type_LogSeverity: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// (0) The log entry has no assigned severity level.
@@ -115,11 +115,6 @@ enum Google_Logging_Type_LogSeverity: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Google_Logging_Type_LogSeverity: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [Google_Logging_Type_LogSeverity] = [
     .default,
@@ -132,13 +127,8 @@ extension Google_Logging_Type_LogSeverity: CaseIterable {
     .alert,
     .emergency,
   ]
+
 }
-
-#endif  // swift(>=4.2)
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_Type_LogSeverity: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// distribution of the values. The distribution records the statistics of the
 /// extracted values along with an optional histogram of the values as specified
 /// by the bucket options.
-struct Google_Logging_V2_LogMetric {
+struct Google_Logging_V2_LogMetric: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -81,6 +81,20 @@ struct Google_Logging_V2_LogMetric {
   var filter: String {
     get {return _storage._filter}
     set {_uniqueStorage()._filter = newValue}
+  }
+
+  /// Optional. The resource name of the Log Bucket that owns the Log Metric.
+  /// Only Log Buckets in projects are supported. The bucket has to be in the
+  /// same project as the metric.
+  ///
+  /// For example:
+  ///
+  ///   `projects/my-project/locations/global/buckets/my-bucket`
+  ///
+  /// If empty, then the Log Metric is considered a non-Bucket Log Metric.
+  var bucketName: String {
+    get {return _storage._bucketName}
+    set {_uniqueStorage()._bucketName = newValue}
   }
 
   /// Optional. If set to True, then this metric is disabled and it does not
@@ -123,7 +137,8 @@ struct Google_Logging_V2_LogMetric {
   /// Optional. A `value_extractor` is required when using a distribution
   /// logs-based metric to extract the values to record from a log entry.
   /// Two functions are supported for value extraction: `EXTRACT(field)` or
-  /// `REGEXP_EXTRACT(field, regex)`. The argument are:
+  /// `REGEXP_EXTRACT(field, regex)`. The arguments are:
+  ///
   ///   1. field: The name of the log entry field from which the value is to be
   ///      extracted.
   ///   2. regex: A regular expression using the Google RE2 syntax
@@ -151,7 +166,7 @@ struct Google_Logging_V2_LogMetric {
   /// is the same as for the `value_extractor` field.
   ///
   /// The extracted value is converted to the type defined in the label
-  /// descriptor. If the either the extraction or the type conversion fails,
+  /// descriptor. If either the extraction or the type conversion fails,
   /// the label will have a default value. The default value for a string
   /// label is an empty string, for an integer label its 0, and for a boolean
   /// label its `false`.
@@ -201,6 +216,8 @@ struct Google_Logging_V2_LogMetric {
 
   /// Deprecated. The API version that created or updated this metric.
   /// The v2 format is used by default and cannot be changed.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var version: Google_Logging_V2_LogMetric.ApiVersion {
     get {return _storage._version}
     set {_uniqueStorage()._version = newValue}
@@ -209,7 +226,7 @@ struct Google_Logging_V2_LogMetric {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Logging API version.
-  enum ApiVersion: SwiftProtobuf.Enum {
+  enum ApiVersion: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Logging API v2.
@@ -239,6 +256,12 @@ struct Google_Logging_V2_LogMetric {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Logging_V2_LogMetric.ApiVersion] = [
+      .v2,
+      .v1,
+    ]
+
   }
 
   init() {}
@@ -246,20 +269,8 @@ struct Google_Logging_V2_LogMetric {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-#if swift(>=4.2)
-
-extension Google_Logging_V2_LogMetric.ApiVersion: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Logging_V2_LogMetric.ApiVersion] = [
-    .v2,
-    .v1,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 /// The parameters to ListLogMetrics.
-struct Google_Logging_V2_ListLogMetricsRequest {
+struct Google_Logging_V2_ListLogMetricsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -286,7 +297,7 @@ struct Google_Logging_V2_ListLogMetricsRequest {
 }
 
 /// Result returned from ListLogMetrics.
-struct Google_Logging_V2_ListLogMetricsResponse {
+struct Google_Logging_V2_ListLogMetricsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -305,7 +316,7 @@ struct Google_Logging_V2_ListLogMetricsResponse {
 }
 
 /// The parameters to GetLogMetric.
-struct Google_Logging_V2_GetLogMetricRequest {
+struct Google_Logging_V2_GetLogMetricRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -321,7 +332,7 @@ struct Google_Logging_V2_GetLogMetricRequest {
 }
 
 /// The parameters to CreateLogMetric.
-struct Google_Logging_V2_CreateLogMetricRequest {
+struct Google_Logging_V2_CreateLogMetricRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -352,7 +363,7 @@ struct Google_Logging_V2_CreateLogMetricRequest {
 }
 
 /// The parameters to UpdateLogMetric.
-struct Google_Logging_V2_UpdateLogMetricRequest {
+struct Google_Logging_V2_UpdateLogMetricRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -384,7 +395,7 @@ struct Google_Logging_V2_UpdateLogMetricRequest {
 }
 
 /// The parameters to DeleteLogMetric.
-struct Google_Logging_V2_DeleteLogMetricRequest {
+struct Google_Logging_V2_DeleteLogMetricRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -399,17 +410,6 @@ struct Google_Logging_V2_DeleteLogMetricRequest {
   init() {}
 }
 
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_V2_LogMetric: @unchecked Sendable {}
-extension Google_Logging_V2_LogMetric.ApiVersion: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogMetricsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogMetricsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_GetLogMetricRequest: @unchecked Sendable {}
-extension Google_Logging_V2_CreateLogMetricRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateLogMetricRequest: @unchecked Sendable {}
-extension Google_Logging_V2_DeleteLogMetricRequest: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
-
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.logging.v2"
@@ -420,6 +420,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
     1: .same(proto: "name"),
     2: .same(proto: "description"),
     3: .same(proto: "filter"),
+    13: .standard(proto: "bucket_name"),
     12: .same(proto: "disabled"),
     5: .standard(proto: "metric_descriptor"),
     6: .standard(proto: "value_extractor"),
@@ -434,6 +435,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _name: String = String()
     var _description_p: String = String()
     var _filter: String = String()
+    var _bucketName: String = String()
     var _disabled: Bool = false
     var _metricDescriptor: Google_Api_MetricDescriptor? = nil
     var _valueExtractor: String = String()
@@ -459,6 +461,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
       _name = source._name
       _description_p = source._description_p
       _filter = source._filter
+      _bucketName = source._bucketName
       _disabled = source._disabled
       _metricDescriptor = source._metricDescriptor
       _valueExtractor = source._valueExtractor
@@ -496,6 +499,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 9: try { try decoder.decodeSingularMessageField(value: &_storage._createTime) }()
         case 10: try { try decoder.decodeSingularMessageField(value: &_storage._updateTime) }()
         case 12: try { try decoder.decodeSingularBoolField(value: &_storage._disabled) }()
+        case 13: try { try decoder.decodeSingularStringField(value: &_storage._bucketName) }()
         default: break
         }
       }
@@ -541,6 +545,9 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if _storage._disabled != false {
         try visitor.visitSingularBoolField(value: _storage._disabled, fieldNumber: 12)
       }
+      if !_storage._bucketName.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._bucketName, fieldNumber: 13)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -553,6 +560,7 @@ extension Google_Logging_V2_LogMetric: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if _storage._name != rhs_storage._name {return false}
         if _storage._description_p != rhs_storage._description_p {return false}
         if _storage._filter != rhs_storage._filter {return false}
+        if _storage._bucketName != rhs_storage._bucketName {return false}
         if _storage._disabled != rhs_storage._disabled {return false}
         if _storage._metricDescriptor != rhs_storage._metricDescriptor {return false}
         if _storage._valueExtractor != rhs_storage._valueExtractor {return false}

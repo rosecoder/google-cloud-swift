@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2021 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// View of Schema object fields to be returned by GetSchema and ListSchemas.
-enum Google_Pubsub_V1_SchemaView: SwiftProtobuf.Enum {
+enum Google_Pubsub_V1_SchemaView: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// The default / unset value.
@@ -71,23 +71,17 @@ enum Google_Pubsub_V1_SchemaView: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Google_Pubsub_V1_SchemaView: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [Google_Pubsub_V1_SchemaView] = [
     .unspecified,
     .basic,
     .full,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
 /// Possible encoding types for messages.
-enum Google_Pubsub_V1_Encoding: SwiftProtobuf.Enum {
+enum Google_Pubsub_V1_Encoding: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// Unspecified
@@ -123,23 +117,17 @@ enum Google_Pubsub_V1_Encoding: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Google_Pubsub_V1_Encoding: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [Google_Pubsub_V1_Encoding] = [
     .unspecified,
     .json,
     .binary,
   ]
+
 }
 
-#endif  // swift(>=4.2)
-
 /// A schema resource.
-struct Google_Pubsub_V1_Schema {
+struct Google_Pubsub_V1_Schema: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -156,10 +144,23 @@ struct Google_Pubsub_V1_Schema {
   /// the type specified in `type`.
   var definition: String = String()
 
+  /// Output only. Immutable. The revision ID of the schema.
+  var revisionID: String = String()
+
+  /// Output only. The timestamp that the revision was created.
+  var revisionCreateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _revisionCreateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_revisionCreateTime = newValue}
+  }
+  /// Returns true if `revisionCreateTime` has been explicitly set.
+  var hasRevisionCreateTime: Bool {return self._revisionCreateTime != nil}
+  /// Clears the value of `revisionCreateTime`. Subsequent reads from it will return its default value.
+  mutating func clearRevisionCreateTime() {self._revisionCreateTime = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Possible schema definition types.
-  enum TypeEnum: SwiftProtobuf.Enum {
+  enum TypeEnum: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Default value. This value is unused.
@@ -194,26 +195,22 @@ struct Google_Pubsub_V1_Schema {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Pubsub_V1_Schema.TypeEnum] = [
+      .unspecified,
+      .protocolBuffer,
+      .avro,
+    ]
+
   }
 
   init() {}
+
+  fileprivate var _revisionCreateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
-
-#if swift(>=4.2)
-
-extension Google_Pubsub_V1_Schema.TypeEnum: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Pubsub_V1_Schema.TypeEnum] = [
-    .unspecified,
-    .protocolBuffer,
-    .avro,
-  ]
-}
-
-#endif  // swift(>=4.2)
 
 /// Request for the CreateSchema method.
-struct Google_Pubsub_V1_CreateSchemaRequest {
+struct Google_Pubsub_V1_CreateSchemaRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -239,8 +236,8 @@ struct Google_Pubsub_V1_CreateSchemaRequest {
   /// The ID to use for the schema, which will become the final component of
   /// the schema's resource name.
   ///
-  /// See https://cloud.google.com/pubsub/docs/admin#resource_names for resource
-  /// name constraints.
+  /// See https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names for
+  /// resource name constraints.
   var schemaID: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -251,7 +248,7 @@ struct Google_Pubsub_V1_CreateSchemaRequest {
 }
 
 /// Request for the GetSchema method.
-struct Google_Pubsub_V1_GetSchemaRequest {
+struct Google_Pubsub_V1_GetSchemaRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -261,8 +258,7 @@ struct Google_Pubsub_V1_GetSchemaRequest {
   var name: String = String()
 
   /// The set of fields to return in the response. If not set, returns a Schema
-  /// with `name` and `type`, but not `definition`. Set to `FULL` to retrieve all
-  /// fields.
+  /// with all fields filled out. Set to `BASIC` to omit the `definition`.
   var view: Google_Pubsub_V1_SchemaView = .unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -271,7 +267,7 @@ struct Google_Pubsub_V1_GetSchemaRequest {
 }
 
 /// Request for the `ListSchemas` method.
-struct Google_Pubsub_V1_ListSchemasRequest {
+struct Google_Pubsub_V1_ListSchemasRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -299,7 +295,7 @@ struct Google_Pubsub_V1_ListSchemasRequest {
 }
 
 /// Response for the `ListSchemas` method.
-struct Google_Pubsub_V1_ListSchemasResponse {
+struct Google_Pubsub_V1_ListSchemasResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -316,8 +312,123 @@ struct Google_Pubsub_V1_ListSchemasResponse {
   init() {}
 }
 
+/// Request for the `ListSchemaRevisions` method.
+struct Google_Pubsub_V1_ListSchemaRevisionsRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The name of the schema to list revisions for.
+  var name: String = String()
+
+  /// The set of Schema fields to return in the response. If not set, returns
+  /// Schemas with `name` and `type`, but not `definition`. Set to `FULL` to
+  /// retrieve all fields.
+  var view: Google_Pubsub_V1_SchemaView = .unspecified
+
+  /// The maximum number of revisions to return per page.
+  var pageSize: Int32 = 0
+
+  /// The page token, received from a previous ListSchemaRevisions call.
+  /// Provide this to retrieve the subsequent page.
+  var pageToken: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Response for the `ListSchemaRevisions` method.
+struct Google_Pubsub_V1_ListSchemaRevisionsResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The revisions of the schema.
+  var schemas: [Google_Pubsub_V1_Schema] = []
+
+  /// A token that can be sent as `page_token` to retrieve the next page.
+  /// If this field is empty, there are no subsequent pages.
+  var nextPageToken: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Request for CommitSchema method.
+struct Google_Pubsub_V1_CommitSchemaRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The name of the schema we are revising.
+  /// Format is `projects/{project}/schemas/{schema}`.
+  var name: String = String()
+
+  /// Required. The schema revision to commit.
+  var schema: Google_Pubsub_V1_Schema {
+    get {return _schema ?? Google_Pubsub_V1_Schema()}
+    set {_schema = newValue}
+  }
+  /// Returns true if `schema` has been explicitly set.
+  var hasSchema: Bool {return self._schema != nil}
+  /// Clears the value of `schema`. Subsequent reads from it will return its default value.
+  mutating func clearSchema() {self._schema = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _schema: Google_Pubsub_V1_Schema? = nil
+}
+
+/// Request for the `RollbackSchema` method.
+struct Google_Pubsub_V1_RollbackSchemaRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The schema being rolled back with revision id.
+  var name: String = String()
+
+  /// Required. The revision ID to roll back to.
+  /// It must be a revision of the same schema.
+  ///
+  ///   Example: c7cfa2a8
+  var revisionID: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// Request for the `DeleteSchemaRevision` method.
+struct Google_Pubsub_V1_DeleteSchemaRevisionRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The name of the schema revision to be deleted, with a revision ID
+  /// explicitly included.
+  ///
+  /// Example: `projects/123/schemas/my-schema@c7cfa2a8`
+  var name: String = String()
+
+  /// Optional. This field is deprecated and should not be used for specifying
+  /// the revision ID. The revision ID should be specified via the `name`
+  /// parameter.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
+  var revisionID: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// Request for the `DeleteSchema` method.
-struct Google_Pubsub_V1_DeleteSchemaRequest {
+struct Google_Pubsub_V1_DeleteSchemaRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -332,7 +443,7 @@ struct Google_Pubsub_V1_DeleteSchemaRequest {
 }
 
 /// Request for the `ValidateSchema` method.
-struct Google_Pubsub_V1_ValidateSchemaRequest {
+struct Google_Pubsub_V1_ValidateSchemaRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -360,7 +471,7 @@ struct Google_Pubsub_V1_ValidateSchemaRequest {
 
 /// Response for the `ValidateSchema` method.
 /// Empty for now.
-struct Google_Pubsub_V1_ValidateSchemaResponse {
+struct Google_Pubsub_V1_ValidateSchemaResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -371,7 +482,7 @@ struct Google_Pubsub_V1_ValidateSchemaResponse {
 }
 
 /// Request for the `ValidateMessage` method.
-struct Google_Pubsub_V1_ValidateMessageRequest {
+struct Google_Pubsub_V1_ValidateMessageRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -410,7 +521,7 @@ struct Google_Pubsub_V1_ValidateMessageRequest {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_SchemaSpec: Equatable {
+  enum OneOf_SchemaSpec: Equatable, Sendable {
     /// Name of the schema against which to validate.
     ///
     /// Format is `projects/{project}/schemas/{schema}`.
@@ -418,24 +529,6 @@ struct Google_Pubsub_V1_ValidateMessageRequest {
     /// Ad-hoc schema against which to validate
     case schema(Google_Pubsub_V1_Schema)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Pubsub_V1_ValidateMessageRequest.OneOf_SchemaSpec, rhs: Google_Pubsub_V1_ValidateMessageRequest.OneOf_SchemaSpec) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.name, .name): return {
-        guard case .name(let l) = lhs, case .name(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.schema, .schema): return {
-        guard case .schema(let l) = lhs, case .schema(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -443,7 +536,7 @@ struct Google_Pubsub_V1_ValidateMessageRequest {
 
 /// Response for the `ValidateMessage` method.
 /// Empty for now.
-struct Google_Pubsub_V1_ValidateMessageResponse {
+struct Google_Pubsub_V1_ValidateMessageResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -452,23 +545,6 @@ struct Google_Pubsub_V1_ValidateMessageResponse {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Pubsub_V1_SchemaView: @unchecked Sendable {}
-extension Google_Pubsub_V1_Encoding: @unchecked Sendable {}
-extension Google_Pubsub_V1_Schema: @unchecked Sendable {}
-extension Google_Pubsub_V1_Schema.TypeEnum: @unchecked Sendable {}
-extension Google_Pubsub_V1_CreateSchemaRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_GetSchemaRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_ListSchemasRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_ListSchemasResponse: @unchecked Sendable {}
-extension Google_Pubsub_V1_DeleteSchemaRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_ValidateSchemaRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_ValidateSchemaResponse: @unchecked Sendable {}
-extension Google_Pubsub_V1_ValidateMessageRequest: @unchecked Sendable {}
-extension Google_Pubsub_V1_ValidateMessageRequest.OneOf_SchemaSpec: @unchecked Sendable {}
-extension Google_Pubsub_V1_ValidateMessageResponse: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -496,6 +572,8 @@ extension Google_Pubsub_V1_Schema: SwiftProtobuf.Message, SwiftProtobuf._Message
     1: .same(proto: "name"),
     2: .same(proto: "type"),
     3: .same(proto: "definition"),
+    4: .standard(proto: "revision_id"),
+    6: .standard(proto: "revision_create_time"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -507,12 +585,18 @@ extension Google_Pubsub_V1_Schema: SwiftProtobuf.Message, SwiftProtobuf._Message
       case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.type) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.definition) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._revisionCreateTime) }()
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -522,6 +606,12 @@ extension Google_Pubsub_V1_Schema: SwiftProtobuf.Message, SwiftProtobuf._Message
     if !self.definition.isEmpty {
       try visitor.visitSingularStringField(value: self.definition, fieldNumber: 3)
     }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 4)
+    }
+    try { if let v = self._revisionCreateTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -529,6 +619,8 @@ extension Google_Pubsub_V1_Schema: SwiftProtobuf.Message, SwiftProtobuf._Message
     if lhs.name != rhs.name {return false}
     if lhs.type != rhs.type {return false}
     if lhs.definition != rhs.definition {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs._revisionCreateTime != rhs._revisionCreateTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -716,6 +808,212 @@ extension Google_Pubsub_V1_ListSchemasResponse: SwiftProtobuf.Message, SwiftProt
   }
 }
 
+extension Google_Pubsub_V1_ListSchemaRevisionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListSchemaRevisionsRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "view"),
+    3: .standard(proto: "page_size"),
+    4: .standard(proto: "page_token"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.view) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.pageToken) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if self.view != .unspecified {
+      try visitor.visitSingularEnumField(value: self.view, fieldNumber: 2)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+    }
+    if !self.pageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.pageToken, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_ListSchemaRevisionsRequest, rhs: Google_Pubsub_V1_ListSchemaRevisionsRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.view != rhs.view {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.pageToken != rhs.pageToken {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_ListSchemaRevisionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListSchemaRevisionsResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "schemas"),
+    2: .standard(proto: "next_page_token"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.schemas) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.nextPageToken) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.schemas.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.schemas, fieldNumber: 1)
+    }
+    if !self.nextPageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.nextPageToken, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_ListSchemaRevisionsResponse, rhs: Google_Pubsub_V1_ListSchemaRevisionsResponse) -> Bool {
+    if lhs.schemas != rhs.schemas {return false}
+    if lhs.nextPageToken != rhs.nextPageToken {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_CommitSchemaRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".CommitSchemaRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "schema"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._schema) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    try { if let v = self._schema {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_CommitSchemaRequest, rhs: Google_Pubsub_V1_CommitSchemaRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs._schema != rhs._schema {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_RollbackSchemaRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".RollbackSchemaRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .standard(proto: "revision_id"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_RollbackSchemaRequest, rhs: Google_Pubsub_V1_RollbackSchemaRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Pubsub_V1_DeleteSchemaRevisionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".DeleteSchemaRevisionRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .standard(proto: "revision_id"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.revisionID) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.revisionID.isEmpty {
+      try visitor.visitSingularStringField(value: self.revisionID, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Pubsub_V1_DeleteSchemaRevisionRequest, rhs: Google_Pubsub_V1_DeleteSchemaRevisionRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.revisionID != rhs.revisionID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Pubsub_V1_DeleteSchemaRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DeleteSchemaRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -795,8 +1093,8 @@ extension Google_Pubsub_V1_ValidateSchemaResponse: SwiftProtobuf.Message, SwiftP
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -897,8 +1195,8 @@ extension Google_Pubsub_V1_ValidateMessageResponse: SwiftProtobuf.Message, Swift
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {

@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,65 +34,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-/// LogBucket lifecycle states.
-enum Google_Logging_V2_LifecycleState: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-
-  /// Unspecified state. This is only used/useful for distinguishing unset
-  /// values.
-  case unspecified // = 0
-
-  /// The normal and active state.
-  case active // = 1
-
-  /// The resource has been marked for deletion by the user. For some resources
-  /// (e.g. buckets), this can be reversed by an un-delete operation.
-  case deleteRequested // = 2
-  case UNRECOGNIZED(Int)
-
-  init() {
-    self = .unspecified
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unspecified
-    case 1: self = .active
-    case 2: self = .deleteRequested
-    default: self = .UNRECOGNIZED(rawValue)
-    }
-  }
-
-  var rawValue: Int {
-    switch self {
-    case .unspecified: return 0
-    case .active: return 1
-    case .deleteRequested: return 2
-    case .UNRECOGNIZED(let i): return i
-    }
-  }
-
-}
-
-#if swift(>=4.2)
-
-extension Google_Logging_V2_LifecycleState: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Logging_V2_LifecycleState] = [
-    .unspecified,
-    .active,
-    .deleteRequested,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 /// List of different operation states.
 /// High level state of the operation. This is used to report the job's
 /// current state to the user. Once a long running operation is created,
 /// the current state of the operation can be queried even before the
 /// operation is finished and the final result is available.
-enum Google_Logging_V2_OperationState: SwiftProtobuf.Enum {
+enum Google_Logging_V2_OperationState: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// Should not be used.
@@ -147,11 +94,6 @@ enum Google_Logging_V2_OperationState: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Google_Logging_V2_OperationState: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [Google_Logging_V2_OperationState] = [
     .unspecified,
@@ -162,12 +104,163 @@ extension Google_Logging_V2_OperationState: CaseIterable {
     .failed,
     .cancelled,
   ]
+
 }
 
-#endif  // swift(>=4.2)
+/// LogBucket lifecycle states.
+enum Google_Logging_V2_LifecycleState: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+
+  /// Unspecified state. This is only used/useful for distinguishing unset
+  /// values.
+  case unspecified // = 0
+
+  /// The normal and active state.
+  case active // = 1
+
+  /// The resource has been marked for deletion by the user. For some resources
+  /// (e.g. buckets), this can be reversed by an un-delete operation.
+  case deleteRequested // = 2
+
+  /// The resource has been marked for an update by the user. It will remain in
+  /// this state until the update is complete.
+  case updating // = 3
+
+  /// The resource has been marked for creation by the user. It will remain in
+  /// this state until the creation is complete.
+  case creating // = 4
+
+  /// The resource is in an INTERNAL error state.
+  case failed // = 5
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .active
+    case 2: self = .deleteRequested
+    case 3: self = .updating
+    case 4: self = .creating
+    case 5: self = .failed
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .active: return 1
+    case .deleteRequested: return 2
+    case .updating: return 3
+    case .creating: return 4
+    case .failed: return 5
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Google_Logging_V2_LifecycleState] = [
+    .unspecified,
+    .active,
+    .deleteRequested,
+    .updating,
+    .creating,
+    .failed,
+  ]
+
+}
+
+/// IndexType is used for custom indexing. It describes the type of an indexed
+/// field.
+enum Google_Logging_V2_IndexType: SwiftProtobuf.Enum, Swift.CaseIterable {
+  typealias RawValue = Int
+
+  /// The index's type is unspecified.
+  case unspecified // = 0
+
+  /// The index is a string-type index.
+  case string // = 1
+
+  /// The index is a integer-type index.
+  case integer // = 2
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .unspecified
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .string
+    case 2: self = .integer
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .string: return 1
+    case .integer: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static let allCases: [Google_Logging_V2_IndexType] = [
+    .unspecified,
+    .string,
+    .integer,
+  ]
+
+}
+
+/// Configuration for an indexed field.
+struct Google_Logging_V2_IndexConfig: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The LogEntry field path to index.
+  ///
+  /// Note that some paths are automatically indexed, and other paths are not
+  /// eligible for indexing. See [indexing documentation](
+  /// https://cloud.google.com/logging/docs/view/advanced-queries#indexed-fields)
+  /// for details.
+  ///
+  /// For example: `jsonPayload.request.status`
+  var fieldPath: String = String()
+
+  /// Required. The type of data in this index.
+  var type: Google_Logging_V2_IndexType = .unspecified
+
+  /// Output only. The timestamp when the index was last modified.
+  ///
+  /// This is used to return the timestamp, and will be ignored if supplied
+  /// during update.
+  var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_createTime = newValue}
+  }
+  /// Returns true if `createTime` has been explicitly set.
+  var hasCreateTime: Bool {return self._createTime != nil}
+  /// Clears the value of `createTime`. Subsequent reads from it will return its default value.
+  mutating func clearCreateTime() {self._createTime = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _createTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+}
 
 /// Describes a repository in which log entries are stored.
-struct Google_Logging_V2_LogBucket {
+struct Google_Logging_V2_LogBucket: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -190,8 +283,8 @@ struct Google_Logging_V2_LogBucket {
   /// Describes this bucket.
   var description_p: String = String()
 
-  /// Output only. The creation timestamp of the bucket. This is not set for any of the
-  /// default buckets.
+  /// Output only. The creation timestamp of the bucket. This is not set for any
+  /// of the default buckets.
   var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_createTime = newValue}
@@ -226,6 +319,11 @@ struct Google_Logging_V2_LogBucket {
   /// Output only. The bucket lifecycle state.
   var lifecycleState: Google_Logging_V2_LifecycleState = .unspecified
 
+  /// Whether log analytics is enabled for this bucket.
+  ///
+  /// Once enabled, log analytics features cannot be disabled.
+  var analyticsEnabled: Bool = false
+
   /// Log entry field paths that are denied access in this bucket.
   ///
   /// The following fields and their children are eligible: `textPayload`,
@@ -234,6 +332,9 @@ struct Google_Logging_V2_LogBucket {
   /// Restricting a repeated field will restrict all values. Adding a parent will
   /// block all child fields. (e.g. `foo.bar` will block `foo.bar.baz`)
   var restrictedFields: [String] = []
+
+  /// A list of indexed fields and related configuration data.
+  var indexConfigs: [Google_Logging_V2_IndexConfig] = []
 
   /// The CMEK settings of the log bucket. If present, new log entries written to
   /// this log bucket are encrypted using the CMEK key provided in this
@@ -259,7 +360,7 @@ struct Google_Logging_V2_LogBucket {
 }
 
 /// Describes a view over log entries in a bucket.
-struct Google_Logging_V2_LogView {
+struct Google_Logging_V2_LogView: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -323,7 +424,7 @@ struct Google_Logging_V2_LogView {
 /// Pub/Sub topic or a Cloud Logging log bucket. A logs filter controls which log
 /// entries are exported. The sink must be created within a project,
 /// organization, billing account, or folder.
-struct Google_Logging_V2_LogSink {
+struct Google_Logging_V2_LogSink: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -364,22 +465,26 @@ struct Google_Logging_V2_LogSink {
   /// The maximum length of the description is 8000 characters.
   var description_p: String = String()
 
-  /// Optional. If set to true, then this sink is disabled and it does not export any log
-  /// entries.
+  /// Optional. If set to true, then this sink is disabled and it does not export
+  /// any log entries.
   var disabled: Bool = false
 
-  /// Optional. Log entries that match any of these exclusion filters will not be exported.
+  /// Optional. Log entries that match any of these exclusion filters will not be
+  /// exported.
   ///
   /// If a log entry is matched by both `filter` and one of `exclusion_filters`
   /// it will not be exported.
   var exclusions: [Google_Logging_V2_LogExclusion] = []
 
   /// Deprecated. This field is unused.
+  ///
+  /// NOTE: This field was marked as deprecated in the .proto file.
   var outputVersionFormat: Google_Logging_V2_LogSink.VersionFormat = .unspecified
 
-  /// Output only. An IAM identity&mdash;a service account or group&mdash;under which Cloud
-  /// Logging writes the exported log entries to the sink's destination. This
-  /// field is set by
+  /// Output only. An IAM identity&mdash;a service account or group&mdash;under
+  /// which Cloud Logging writes the exported log entries to the sink's
+  /// destination. This field is either set by specifying
+  /// `custom_writer_identity` or set automatically by
   /// [sinks.create][google.logging.v2.ConfigServiceV2.CreateSink] and
   /// [sinks.update][google.logging.v2.ConfigServiceV2.UpdateSink] based on the
   /// value of `unique_writer_identity` in those methods.
@@ -392,17 +497,17 @@ struct Google_Logging_V2_LogSink {
   /// appropriate IAM roles to assign to the identity.
   ///
   /// Sinks that have a destination that is a log bucket in the same project as
-  /// the sink do not have a writer_identity and no additional permissions are
+  /// the sink cannot have a writer_identity and no additional permissions are
   /// required.
   var writerIdentity: String = String()
 
-  /// Optional. This field applies only to sinks owned by organizations and folders. If the
-  /// field is false, the default, only the logs owned by the sink's parent
-  /// resource are available for export. If the field is true, then log entries
-  /// from all the projects, folders, and billing accounts contained in the
-  /// sink's parent resource are also available for export. Whether a particular
-  /// log entry from the children is exported depends on the sink's filter
-  /// expression.
+  /// Optional. This field applies only to sinks owned by organizations and
+  /// folders. If the field is false, the default, only the logs owned by the
+  /// sink's parent resource are available for export. If the field is true, then
+  /// log entries from all the projects, folders, and billing accounts contained
+  /// in the sink's parent resource are also available for export. Whether a
+  /// particular log entry from the children is exported depends on the sink's
+  /// filter expression.
   ///
   /// For example, if this field is true, then the filter
   /// `resource.type=gce_instance` would export all Compute Engine VM instance
@@ -454,27 +559,14 @@ struct Google_Logging_V2_LogSink {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Destination dependent options.
-  enum OneOf_Options: Equatable {
+  enum OneOf_Options: Equatable, Sendable {
     /// Optional. Options that affect sinks exporting data to BigQuery.
     case bigqueryOptions(Google_Logging_V2_BigQueryOptions)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Logging_V2_LogSink.OneOf_Options, rhs: Google_Logging_V2_LogSink.OneOf_Options) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.bigqueryOptions, .bigqueryOptions): return {
-        guard case .bigqueryOptions(let l) = lhs, case .bigqueryOptions(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      }
-    }
-  #endif
   }
 
   /// Deprecated. This is unused.
-  enum VersionFormat: SwiftProtobuf.Enum {
+  enum VersionFormat: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// An unspecified format version that will default to V2.
@@ -509,6 +601,13 @@ struct Google_Logging_V2_LogSink {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Logging_V2_LogSink.VersionFormat] = [
+      .unspecified,
+      .v2,
+      .v1,
+    ]
+
   }
 
   init() {}
@@ -517,21 +616,87 @@ struct Google_Logging_V2_LogSink {
   fileprivate var _updateTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
-#if swift(>=4.2)
+/// Describes a BigQuery dataset that was created by a link.
+struct Google_Logging_V2_BigQueryDataset: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
-extension Google_Logging_V2_LogSink.VersionFormat: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Logging_V2_LogSink.VersionFormat] = [
-    .unspecified,
-    .v2,
-    .v1,
-  ]
+  /// Output only. The full resource name of the BigQuery dataset. The DATASET_ID
+  /// will match the ID of the link, so the link must match the naming
+  /// restrictions of BigQuery datasets (alphanumeric characters and underscores
+  /// only).
+  ///
+  /// The dataset will have a resource path of
+  ///   "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET_ID]"
+  var datasetID: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 }
 
-#endif  // swift(>=4.2)
+/// Describes a link connected to an analytics enabled bucket.
+struct Google_Logging_V2_Link: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The resource name of the link. The name can have up to 100 characters.
+  /// A valid link id (at the end of the link name) must only have alphanumeric
+  /// characters and underscores within it.
+  ///
+  ///     "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///     "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///     "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///     "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///
+  /// For example:
+  ///
+  ///   `projects/my-project/locations/global/buckets/my-bucket/links/my_link
+  var name: String = String()
+
+  /// Describes this link.
+  ///
+  /// The maximum length of the description is 8000 characters.
+  var description_p: String = String()
+
+  /// Output only. The creation timestamp of the link.
+  var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_createTime = newValue}
+  }
+  /// Returns true if `createTime` has been explicitly set.
+  var hasCreateTime: Bool {return self._createTime != nil}
+  /// Clears the value of `createTime`. Subsequent reads from it will return its default value.
+  mutating func clearCreateTime() {self._createTime = nil}
+
+  /// Output only. The resource lifecycle state.
+  var lifecycleState: Google_Logging_V2_LifecycleState = .unspecified
+
+  /// The information of a BigQuery Dataset. When a link is created, a BigQuery
+  /// dataset is created along with it, in the same project as the LogBucket it's
+  /// linked to. This dataset will also have BigQuery Views corresponding to the
+  /// LogViews in the bucket.
+  var bigqueryDataset: Google_Logging_V2_BigQueryDataset {
+    get {return _bigqueryDataset ?? Google_Logging_V2_BigQueryDataset()}
+    set {_bigqueryDataset = newValue}
+  }
+  /// Returns true if `bigqueryDataset` has been explicitly set.
+  var hasBigqueryDataset: Bool {return self._bigqueryDataset != nil}
+  /// Clears the value of `bigqueryDataset`. Subsequent reads from it will return its default value.
+  mutating func clearBigqueryDataset() {self._bigqueryDataset = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _createTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _bigqueryDataset: Google_Logging_V2_BigQueryDataset? = nil
+}
 
 /// Options that change functionality of a sink exporting data to BigQuery.
-struct Google_Logging_V2_BigQueryOptions {
+struct Google_Logging_V2_BigQueryOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -546,8 +711,8 @@ struct Google_Logging_V2_BigQueryOptions {
   /// timezone.
   var usePartitionedTables: Bool = false
 
-  /// Output only. True if new timestamp column based partitioning is in use, false if legacy
-  /// ingestion-time partitioning is in use.
+  /// Output only. True if new timestamp column based partitioning is in use,
+  /// false if legacy ingestion-time partitioning is in use.
   ///
   /// All new sinks will have this field set true and will use timestamp column
   /// based partitioning. If use_partitioned_tables is false, this value has no
@@ -561,7 +726,7 @@ struct Google_Logging_V2_BigQueryOptions {
 }
 
 /// The parameters to `ListBuckets`.
-struct Google_Logging_V2_ListBucketsRequest {
+struct Google_Logging_V2_ListBucketsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -578,15 +743,15 @@ struct Google_Logging_V2_ListBucketsRequest {
   /// buckets.
   var parent: String = String()
 
-  /// Optional. If present, then retrieve the next batch of results from the preceding call
-  /// to this method. `pageToken` must be the value of `nextPageToken` from the
-  /// previous response. The values of other method parameters should be
-  /// identical to those in the previous call.
+  /// Optional. If present, then retrieve the next batch of results from the
+  /// preceding call to this method. `pageToken` must be the value of
+  /// `nextPageToken` from the previous response. The values of other method
+  /// parameters should be identical to those in the previous call.
   var pageToken: String = String()
 
-  /// Optional. The maximum number of results to return from this request. Non-positive
-  /// values are ignored. The presence of `nextPageToken` in the response
-  /// indicates that more results might be available.
+  /// Optional. The maximum number of results to return from this request.
+  /// Non-positive values are ignored. The presence of `nextPageToken` in the
+  /// response indicates that more results might be available.
   var pageSize: Int32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -595,7 +760,7 @@ struct Google_Logging_V2_ListBucketsRequest {
 }
 
 /// The response from ListBuckets.
-struct Google_Logging_V2_ListBucketsResponse {
+struct Google_Logging_V2_ListBucketsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -614,7 +779,7 @@ struct Google_Logging_V2_ListBucketsResponse {
 }
 
 /// The parameters to `CreateBucket`.
-struct Google_Logging_V2_CreateBucketRequest {
+struct Google_Logging_V2_CreateBucketRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -626,34 +791,40 @@ struct Google_Logging_V2_CreateBucketRequest {
   /// For example:
   ///
   ///   `"projects/my-project/locations/global"`
-  var parent: String = String()
+  var parent: String {
+    get {return _storage._parent}
+    set {_uniqueStorage()._parent = newValue}
+  }
 
-  /// Required. A client-assigned identifier such as `"my-bucket"`. Identifiers are limited
-  /// to 100 characters and can include only letters, digits, underscores,
-  /// hyphens, and periods.
-  var bucketID: String = String()
+  /// Required. A client-assigned identifier such as `"my-bucket"`. Identifiers
+  /// are limited to 100 characters and can include only letters, digits,
+  /// underscores, hyphens, and periods.
+  var bucketID: String {
+    get {return _storage._bucketID}
+    set {_uniqueStorage()._bucketID = newValue}
+  }
 
-  /// Required. The new bucket. The region specified in the new bucket must be compliant
-  /// with any Location Restriction Org Policy. The name field in the bucket is
-  /// ignored.
+  /// Required. The new bucket. The region specified in the new bucket must be
+  /// compliant with any Location Restriction Org Policy. The name field in the
+  /// bucket is ignored.
   var bucket: Google_Logging_V2_LogBucket {
-    get {return _bucket ?? Google_Logging_V2_LogBucket()}
-    set {_bucket = newValue}
+    get {return _storage._bucket ?? Google_Logging_V2_LogBucket()}
+    set {_uniqueStorage()._bucket = newValue}
   }
   /// Returns true if `bucket` has been explicitly set.
-  var hasBucket: Bool {return self._bucket != nil}
+  var hasBucket: Bool {return _storage._bucket != nil}
   /// Clears the value of `bucket`. Subsequent reads from it will return its default value.
-  mutating func clearBucket() {self._bucket = nil}
+  mutating func clearBucket() {_uniqueStorage()._bucket = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _bucket: Google_Logging_V2_LogBucket? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// The parameters to `UpdateBucket`.
-struct Google_Logging_V2_UpdateBucketRequest {
+struct Google_Logging_V2_UpdateBucketRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -668,45 +839,47 @@ struct Google_Logging_V2_UpdateBucketRequest {
   /// For example:
   ///
   ///   `"projects/my-project/locations/global/buckets/my-bucket"`
-  var name: String = String()
+  var name: String {
+    get {return _storage._name}
+    set {_uniqueStorage()._name = newValue}
+  }
 
   /// Required. The updated bucket.
   var bucket: Google_Logging_V2_LogBucket {
-    get {return _bucket ?? Google_Logging_V2_LogBucket()}
-    set {_bucket = newValue}
+    get {return _storage._bucket ?? Google_Logging_V2_LogBucket()}
+    set {_uniqueStorage()._bucket = newValue}
   }
   /// Returns true if `bucket` has been explicitly set.
-  var hasBucket: Bool {return self._bucket != nil}
+  var hasBucket: Bool {return _storage._bucket != nil}
   /// Clears the value of `bucket`. Subsequent reads from it will return its default value.
-  mutating func clearBucket() {self._bucket = nil}
+  mutating func clearBucket() {_uniqueStorage()._bucket = nil}
 
-  /// Required. Field mask that specifies the fields in `bucket` that need an update. A
-  /// bucket field will be overwritten if, and only if, it is in the update mask.
-  /// `name` and output only fields cannot be updated.
+  /// Required. Field mask that specifies the fields in `bucket` that need an
+  /// update. A bucket field will be overwritten if, and only if, it is in the
+  /// update mask. `name` and output only fields cannot be updated.
   ///
   /// For a detailed `FieldMask` definition, see:
   /// https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMask
   ///
   /// For example: `updateMask=retention_days`
   var updateMask: SwiftProtobuf.Google_Protobuf_FieldMask {
-    get {return _updateMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
-    set {_updateMask = newValue}
+    get {return _storage._updateMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
+    set {_uniqueStorage()._updateMask = newValue}
   }
   /// Returns true if `updateMask` has been explicitly set.
-  var hasUpdateMask: Bool {return self._updateMask != nil}
+  var hasUpdateMask: Bool {return _storage._updateMask != nil}
   /// Clears the value of `updateMask`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateMask() {self._updateMask = nil}
+  mutating func clearUpdateMask() {_uniqueStorage()._updateMask = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
-  fileprivate var _bucket: Google_Logging_V2_LogBucket? = nil
-  fileprivate var _updateMask: SwiftProtobuf.Google_Protobuf_FieldMask? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// The parameters to `GetBucket`.
-struct Google_Logging_V2_GetBucketRequest {
+struct Google_Logging_V2_GetBucketRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -729,7 +902,7 @@ struct Google_Logging_V2_GetBucketRequest {
 }
 
 /// The parameters to `DeleteBucket`.
-struct Google_Logging_V2_DeleteBucketRequest {
+struct Google_Logging_V2_DeleteBucketRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -752,7 +925,7 @@ struct Google_Logging_V2_DeleteBucketRequest {
 }
 
 /// The parameters to `UndeleteBucket`.
-struct Google_Logging_V2_UndeleteBucketRequest {
+struct Google_Logging_V2_UndeleteBucketRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -775,7 +948,7 @@ struct Google_Logging_V2_UndeleteBucketRequest {
 }
 
 /// The parameters to `ListViews`.
-struct Google_Logging_V2_ListViewsRequest {
+struct Google_Logging_V2_ListViewsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -785,10 +958,10 @@ struct Google_Logging_V2_ListViewsRequest {
   ///     "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
   var parent: String = String()
 
-  /// Optional. If present, then retrieve the next batch of results from the preceding call
-  /// to this method. `pageToken` must be the value of `nextPageToken` from the
-  /// previous response. The values of other method parameters should be
-  /// identical to those in the previous call.
+  /// Optional. If present, then retrieve the next batch of results from the
+  /// preceding call to this method. `pageToken` must be the value of
+  /// `nextPageToken` from the previous response. The values of other method
+  /// parameters should be identical to those in the previous call.
   var pageToken: String = String()
 
   /// Optional. The maximum number of results to return from this request.
@@ -803,7 +976,7 @@ struct Google_Logging_V2_ListViewsRequest {
 }
 
 /// The response from ListViews.
-struct Google_Logging_V2_ListViewsResponse {
+struct Google_Logging_V2_ListViewsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -822,7 +995,7 @@ struct Google_Logging_V2_ListViewsResponse {
 }
 
 /// The parameters to `CreateView`.
-struct Google_Logging_V2_CreateViewRequest {
+struct Google_Logging_V2_CreateViewRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -836,7 +1009,9 @@ struct Google_Logging_V2_CreateViewRequest {
   ///   `"projects/my-project/locations/global/buckets/my-bucket"`
   var parent: String = String()
 
-  /// Required. The id to use for this view.
+  /// Required. A client-assigned identifier such as `"my-view"`. Identifiers are
+  /// limited to 100 characters and can include only letters, digits,
+  /// underscores, hyphens, and periods.
   var viewID: String = String()
 
   /// Required. The new view.
@@ -857,7 +1032,7 @@ struct Google_Logging_V2_CreateViewRequest {
 }
 
 /// The parameters to `UpdateView`.
-struct Google_Logging_V2_UpdateViewRequest {
+struct Google_Logging_V2_UpdateViewRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -907,7 +1082,7 @@ struct Google_Logging_V2_UpdateViewRequest {
 }
 
 /// The parameters to `GetView`.
-struct Google_Logging_V2_GetViewRequest {
+struct Google_Logging_V2_GetViewRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -927,7 +1102,7 @@ struct Google_Logging_V2_GetViewRequest {
 }
 
 /// The parameters to `DeleteView`.
-struct Google_Logging_V2_DeleteViewRequest {
+struct Google_Logging_V2_DeleteViewRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -947,7 +1122,7 @@ struct Google_Logging_V2_DeleteViewRequest {
 }
 
 /// The parameters to `ListSinks`.
-struct Google_Logging_V2_ListSinksRequest {
+struct Google_Logging_V2_ListSinksRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -977,7 +1152,7 @@ struct Google_Logging_V2_ListSinksRequest {
 }
 
 /// Result returned from `ListSinks`.
-struct Google_Logging_V2_ListSinksResponse {
+struct Google_Logging_V2_ListSinksResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -996,7 +1171,7 @@ struct Google_Logging_V2_ListSinksResponse {
 }
 
 /// The parameters to `GetSink`.
-struct Google_Logging_V2_GetSinkRequest {
+struct Google_Logging_V2_GetSinkRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1019,7 +1194,7 @@ struct Google_Logging_V2_GetSinkRequest {
 }
 
 /// The parameters to `CreateSink`.
-struct Google_Logging_V2_CreateSinkRequest {
+struct Google_Logging_V2_CreateSinkRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1061,7 +1236,8 @@ struct Google_Logging_V2_CreateSinkRequest {
   /// If this field is set to true, or if the sink is owned by a non-project
   /// resource such as an organization, then the value of `writer_identity` will
   /// be a unique service account used only for exports from the new sink. For
-  /// more information, see `writer_identity` in [LogSink][google.logging.v2.LogSink].
+  /// more information, see `writer_identity` in
+  /// [LogSink][google.logging.v2.LogSink].
   var uniqueWriterIdentity: Bool {
     get {return _storage._uniqueWriterIdentity}
     set {_uniqueStorage()._uniqueWriterIdentity = newValue}
@@ -1075,13 +1251,13 @@ struct Google_Logging_V2_CreateSinkRequest {
 }
 
 /// The parameters to `UpdateSink`.
-struct Google_Logging_V2_UpdateSinkRequest {
+struct Google_Logging_V2_UpdateSinkRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required. The full resource name of the sink to update, including the parent
-  /// resource and the sink identifier:
+  /// Required. The full resource name of the sink to update, including the
+  /// parent resource and the sink identifier:
   ///
   ///     "projects/[PROJECT_ID]/sinks/[SINK_ID]"
   ///     "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -1096,8 +1272,8 @@ struct Google_Logging_V2_UpdateSinkRequest {
     set {_uniqueStorage()._sinkName = newValue}
   }
 
-  /// Required. The updated sink, whose name is the same identifier that appears as part
-  /// of `sink_name`.
+  /// Required. The updated sink, whose name is the same identifier that appears
+  /// as part of `sink_name`.
   var sink: Google_Logging_V2_LogSink {
     get {return _storage._sink ?? Google_Logging_V2_LogSink()}
     set {_uniqueStorage()._sink = newValue}
@@ -1156,13 +1332,13 @@ struct Google_Logging_V2_UpdateSinkRequest {
 }
 
 /// The parameters to `DeleteSink`.
-struct Google_Logging_V2_DeleteSinkRequest {
+struct Google_Logging_V2_DeleteSinkRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required. The full resource name of the sink to delete, including the parent
-  /// resource and the sink identifier:
+  /// Required. The full resource name of the sink to delete, including the
+  /// parent resource and the sink identifier:
   ///
   ///     "projects/[PROJECT_ID]/sinks/[SINK_ID]"
   ///     "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
@@ -1179,20 +1355,140 @@ struct Google_Logging_V2_DeleteSinkRequest {
   init() {}
 }
 
+/// The parameters to CreateLink.
+struct Google_Logging_V2_CreateLinkRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The full resource name of the bucket to create a link for.
+  ///
+  ///     "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+  ///     "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+  ///     "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+  ///     "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+  var parent: String = String()
+
+  /// Required. The new link.
+  var link: Google_Logging_V2_Link {
+    get {return _link ?? Google_Logging_V2_Link()}
+    set {_link = newValue}
+  }
+  /// Returns true if `link` has been explicitly set.
+  var hasLink: Bool {return self._link != nil}
+  /// Clears the value of `link`. Subsequent reads from it will return its default value.
+  mutating func clearLink() {self._link = nil}
+
+  /// Required. The ID to use for the link. The link_id can have up to 100
+  /// characters. A valid link_id must only have alphanumeric characters and
+  /// underscores within it.
+  var linkID: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  fileprivate var _link: Google_Logging_V2_Link? = nil
+}
+
+/// The parameters to DeleteLink.
+struct Google_Logging_V2_DeleteLinkRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The full resource name of the link to delete.
+  ///
+  ///  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  var name: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// The parameters to ListLinks.
+struct Google_Logging_V2_ListLinksRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The parent resource whose links are to be listed:
+  ///
+  ///   "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/"
+  ///   "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/"
+  ///   "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/"
+  ///   "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/
+  var parent: String = String()
+
+  /// Optional. If present, then retrieve the next batch of results from the
+  /// preceding call to this method. `pageToken` must be the value of
+  /// `nextPageToken` from the previous response.
+  var pageToken: String = String()
+
+  /// Optional. The maximum number of results to return from this request.
+  var pageSize: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// The response from ListLinks.
+struct Google_Logging_V2_ListLinksResponse: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// A list of links.
+  var links: [Google_Logging_V2_Link] = []
+
+  /// If there might be more results than those appearing in this response, then
+  /// `nextPageToken` is included. To get the next set of results, call the same
+  /// method again using the value of `nextPageToken` as `pageToken`.
+  var nextPageToken: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+/// The parameters to GetLink.
+struct Google_Logging_V2_GetLinkRequest: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Required. The resource name of the link:
+  ///
+  ///   "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]"
+  ///   "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/links/[LINK_ID]
+  var name: String = String()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
 /// Specifies a set of log entries that are filtered out by a sink. If
 /// your Google Cloud resource receives a large volume of log entries, you can
 /// use exclusions to reduce your chargeable logs. Note that exclusions on
 /// organization-level and folder-level sinks don't apply to child resources.
 /// Note also that you cannot modify the _Required sink or exclude logs from it.
-struct Google_Logging_V2_LogExclusion {
+struct Google_Logging_V2_LogExclusion: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required. A client-assigned identifier, such as `"load-balancer-exclusion"`.
-  /// Identifiers are limited to 100 characters and can include only letters,
-  /// digits, underscores, hyphens, and periods. First character has to be
-  /// alphanumeric.
+  /// Required. A client-assigned identifier, such as
+  /// `"load-balancer-exclusion"`. Identifiers are limited to 100 characters and
+  /// can include only letters, digits, underscores, hyphens, and periods. First
+  /// character has to be alphanumeric.
   var name: String = String()
 
   /// Optional. A description of this exclusion.
@@ -1249,7 +1545,7 @@ struct Google_Logging_V2_LogExclusion {
 }
 
 /// The parameters to `ListExclusions`.
-struct Google_Logging_V2_ListExclusionsRequest {
+struct Google_Logging_V2_ListExclusionsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1279,7 +1575,7 @@ struct Google_Logging_V2_ListExclusionsRequest {
 }
 
 /// Result returned from `ListExclusions`.
-struct Google_Logging_V2_ListExclusionsResponse {
+struct Google_Logging_V2_ListExclusionsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1298,7 +1594,7 @@ struct Google_Logging_V2_ListExclusionsResponse {
 }
 
 /// The parameters to `GetExclusion`.
-struct Google_Logging_V2_GetExclusionRequest {
+struct Google_Logging_V2_GetExclusionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1321,7 +1617,7 @@ struct Google_Logging_V2_GetExclusionRequest {
 }
 
 /// The parameters to `CreateExclusion`.
-struct Google_Logging_V2_CreateExclusionRequest {
+struct Google_Logging_V2_CreateExclusionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1358,7 +1654,7 @@ struct Google_Logging_V2_CreateExclusionRequest {
 }
 
 /// The parameters to `UpdateExclusion`.
-struct Google_Logging_V2_UpdateExclusionRequest {
+struct Google_Logging_V2_UpdateExclusionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1375,8 +1671,8 @@ struct Google_Logging_V2_UpdateExclusionRequest {
   ///   `"projects/my-project/exclusions/my-exclusion"`
   var name: String = String()
 
-  /// Required. New values for the existing exclusion. Only the fields specified in
-  /// `update_mask` are relevant.
+  /// Required. New values for the existing exclusion. Only the fields specified
+  /// in `update_mask` are relevant.
   var exclusion: Google_Logging_V2_LogExclusion {
     get {return _exclusion ?? Google_Logging_V2_LogExclusion()}
     set {_exclusion = newValue}
@@ -1386,10 +1682,11 @@ struct Google_Logging_V2_UpdateExclusionRequest {
   /// Clears the value of `exclusion`. Subsequent reads from it will return its default value.
   mutating func clearExclusion() {self._exclusion = nil}
 
-  /// Required. A non-empty list of fields to change in the existing exclusion. New values
-  /// for the fields are taken from the corresponding fields in the
-  /// [LogExclusion][google.logging.v2.LogExclusion] included in this request. Fields not mentioned in
-  /// `update_mask` are not changed and are ignored in the request.
+  /// Required. A non-empty list of fields to change in the existing exclusion.
+  /// New values for the fields are taken from the corresponding fields in the
+  /// [LogExclusion][google.logging.v2.LogExclusion] included in this request.
+  /// Fields not mentioned in `update_mask` are not changed and are ignored in
+  /// the request.
   ///
   /// For example, to change the filter and description of an exclusion,
   /// specify an `update_mask` of `"filter,description"`.
@@ -1411,7 +1708,7 @@ struct Google_Logging_V2_UpdateExclusionRequest {
 }
 
 /// The parameters to `DeleteExclusion`.
-struct Google_Logging_V2_DeleteExclusionRequest {
+struct Google_Logging_V2_DeleteExclusionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1439,7 +1736,7 @@ struct Google_Logging_V2_DeleteExclusionRequest {
 /// See [Enabling CMEK for Log
 /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption) for
 /// more information.
-struct Google_Logging_V2_GetCmekSettingsRequest {
+struct Google_Logging_V2_GetCmekSettingsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1472,7 +1769,7 @@ struct Google_Logging_V2_GetCmekSettingsRequest {
 /// See [Enabling CMEK for Log
 /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption) for
 /// more information.
-struct Google_Logging_V2_UpdateCmekSettingsRequest {
+struct Google_Logging_V2_UpdateCmekSettingsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1541,7 +1838,7 @@ struct Google_Logging_V2_UpdateCmekSettingsRequest {
 /// See [Enabling CMEK for Log
 /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption) for
 /// more information.
-struct Google_Logging_V2_CmekSettings {
+struct Google_Logging_V2_CmekSettings: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1579,8 +1876,27 @@ struct Google_Logging_V2_CmekSettings {
   /// for more information.
   var kmsKeyName: String = String()
 
-  /// Output only. The service account that will be used by the Log Router to access your
-  /// Cloud KMS key.
+  /// The CryptoKeyVersion resource name for the configured Cloud KMS key.
+  ///
+  /// KMS key name format:
+  ///
+  ///     "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]/cryptoKeyVersions/[VERSION]"
+  ///
+  /// For example:
+  ///
+  ///   `"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key/cryptoKeyVersions/1"`
+  ///
+  /// This is a read-only field used to convey the specific configured
+  /// CryptoKeyVersion of `kms_key` that has been configured. It will be
+  /// populated in cases where the CMEK settings are bound to a single key
+  /// version.
+  ///
+  /// If this field is populated, the `kms_key` is tied to a specific
+  /// CryptoKeyVersion.
+  var kmsKeyVersionName: String = String()
+
+  /// Output only. The service account that will be used by the Log Router to
+  /// access your Cloud KMS key.
   ///
   /// Before enabling CMEK for Log Router, you must first assign the
   /// cloudkms.cryptoKeyEncrypterDecrypter role to the service account that
@@ -1604,7 +1920,7 @@ struct Google_Logging_V2_CmekSettings {
 /// See [Enabling CMEK for Log
 /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption) for
 /// more information.
-struct Google_Logging_V2_GetSettingsRequest {
+struct Google_Logging_V2_GetSettingsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1637,7 +1953,7 @@ struct Google_Logging_V2_GetSettingsRequest {
 /// See [Enabling CMEK for Log
 /// Router](https://cloud.google.com/logging/docs/routing/managed-encryption) for
 /// more information.
-struct Google_Logging_V2_UpdateSettingsRequest {
+struct Google_Logging_V2_UpdateSettingsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1695,7 +2011,7 @@ struct Google_Logging_V2_UpdateSettingsRequest {
 
 /// Describes the settings associated with a project, folder, organization,
 /// billing account, or flexible resource.
-struct Google_Logging_V2_Settings {
+struct Google_Logging_V2_Settings: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1732,8 +2048,8 @@ struct Google_Logging_V2_Settings {
   /// for more information.
   var kmsKeyName: String = String()
 
-  /// Output only. The service account that will be used by the Log Router to access your
-  /// Cloud KMS key.
+  /// Output only. The service account that will be used by the Log Router to
+  /// access your Cloud KMS key.
   ///
   /// Before enabling CMEK for Log Router, you must first assign the role
   /// `roles/cloudkms.cryptoKeyEncrypterDecrypter` to the service account that
@@ -1746,15 +2062,15 @@ struct Google_Logging_V2_Settings {
   /// for more information.
   var kmsServiceAccountID: String = String()
 
-  /// Optional. The Cloud region that will be used for _Default and _Required log buckets
-  /// for newly created projects and folders. For example `europe-west1`.
+  /// Optional. The Cloud region that will be used for _Default and _Required log
+  /// buckets for newly created projects and folders. For example `europe-west1`.
   /// This setting does not affect the location of custom log buckets.
   var storageLocation: String = String()
 
-  /// Optional. If set to true, the _Default sink in newly created projects and folders
-  /// will created in a disabled state. This can be used to automatically disable
-  /// log ingestion if there is already an aggregated sink configured in the
-  /// hierarchy. The _Default sink can be re-enabled manually if needed.
+  /// Optional. If set to true, the _Default sink in newly created projects and
+  /// folders will created in a disabled state. This can be used to automatically
+  /// disable log ingestion if there is already an aggregated sink configured in
+  /// the hierarchy. The _Default sink can be re-enabled manually if needed.
   var disableDefaultSink: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1763,7 +2079,7 @@ struct Google_Logging_V2_Settings {
 }
 
 /// The parameters to CopyLogEntries.
-struct Google_Logging_V2_CopyLogEntriesRequest {
+struct Google_Logging_V2_CopyLogEntriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1775,8 +2091,8 @@ struct Google_Logging_V2_CopyLogEntriesRequest {
   ///   `"projects/my-project/locations/global/buckets/my-source-bucket"`
   var name: String = String()
 
-  /// Optional. A filter specifying which log entries to copy. The filter must be no more
-  /// than 20k characters. An empty filter matches all log entries.
+  /// Optional. A filter specifying which log entries to copy. The filter must be
+  /// no more than 20k characters. An empty filter matches all log entries.
   var filter: String = String()
 
   /// Required. Destination to which to copy log entries.
@@ -1788,7 +2104,7 @@ struct Google_Logging_V2_CopyLogEntriesRequest {
 }
 
 /// Metadata for CopyLogEntries long running operations.
-struct Google_Logging_V2_CopyLogEntriesMetadata {
+struct Google_Logging_V2_CopyLogEntriesMetadata: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1851,7 +2167,7 @@ struct Google_Logging_V2_CopyLogEntriesMetadata {
 }
 
 /// Response type for CopyLogEntries long running operations.
-struct Google_Logging_V2_CopyLogEntriesResponse {
+struct Google_Logging_V2_CopyLogEntriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1864,63 +2180,154 @@ struct Google_Logging_V2_CopyLogEntriesResponse {
   init() {}
 }
 
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_V2_LifecycleState: @unchecked Sendable {}
-extension Google_Logging_V2_OperationState: @unchecked Sendable {}
-extension Google_Logging_V2_LogBucket: @unchecked Sendable {}
-extension Google_Logging_V2_LogView: @unchecked Sendable {}
-extension Google_Logging_V2_LogSink: @unchecked Sendable {}
-extension Google_Logging_V2_LogSink.OneOf_Options: @unchecked Sendable {}
-extension Google_Logging_V2_LogSink.VersionFormat: @unchecked Sendable {}
-extension Google_Logging_V2_BigQueryOptions: @unchecked Sendable {}
-extension Google_Logging_V2_ListBucketsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListBucketsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_CreateBucketRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateBucketRequest: @unchecked Sendable {}
-extension Google_Logging_V2_GetBucketRequest: @unchecked Sendable {}
-extension Google_Logging_V2_DeleteBucketRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UndeleteBucketRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListViewsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListViewsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_CreateViewRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateViewRequest: @unchecked Sendable {}
-extension Google_Logging_V2_GetViewRequest: @unchecked Sendable {}
-extension Google_Logging_V2_DeleteViewRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListSinksRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListSinksResponse: @unchecked Sendable {}
-extension Google_Logging_V2_GetSinkRequest: @unchecked Sendable {}
-extension Google_Logging_V2_CreateSinkRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateSinkRequest: @unchecked Sendable {}
-extension Google_Logging_V2_DeleteSinkRequest: @unchecked Sendable {}
-extension Google_Logging_V2_LogExclusion: @unchecked Sendable {}
-extension Google_Logging_V2_ListExclusionsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListExclusionsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_GetExclusionRequest: @unchecked Sendable {}
-extension Google_Logging_V2_CreateExclusionRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateExclusionRequest: @unchecked Sendable {}
-extension Google_Logging_V2_DeleteExclusionRequest: @unchecked Sendable {}
-extension Google_Logging_V2_GetCmekSettingsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateCmekSettingsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_CmekSettings: @unchecked Sendable {}
-extension Google_Logging_V2_GetSettingsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_UpdateSettingsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_Settings: @unchecked Sendable {}
-extension Google_Logging_V2_CopyLogEntriesRequest: @unchecked Sendable {}
-extension Google_Logging_V2_CopyLogEntriesMetadata: @unchecked Sendable {}
-extension Google_Logging_V2_CopyLogEntriesResponse: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
+/// Metadata for LongRunningUpdateBucket Operations.
+struct Google_Logging_V2_BucketMetadata: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The create time of an operation.
+  var startTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _startTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_startTime = newValue}
+  }
+  /// Returns true if `startTime` has been explicitly set.
+  var hasStartTime: Bool {return self._startTime != nil}
+  /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
+  mutating func clearStartTime() {self._startTime = nil}
+
+  /// The end time of an operation.
+  var endTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _endTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_endTime = newValue}
+  }
+  /// Returns true if `endTime` has been explicitly set.
+  var hasEndTime: Bool {return self._endTime != nil}
+  /// Clears the value of `endTime`. Subsequent reads from it will return its default value.
+  mutating func clearEndTime() {self._endTime = nil}
+
+  /// State of an operation.
+  var state: Google_Logging_V2_OperationState = .unspecified
+
+  var request: Google_Logging_V2_BucketMetadata.OneOf_Request? = nil
+
+  /// LongRunningCreateBucket RPC request.
+  var createBucketRequest: Google_Logging_V2_CreateBucketRequest {
+    get {
+      if case .createBucketRequest(let v)? = request {return v}
+      return Google_Logging_V2_CreateBucketRequest()
+    }
+    set {request = .createBucketRequest(newValue)}
+  }
+
+  /// LongRunningUpdateBucket RPC request.
+  var updateBucketRequest: Google_Logging_V2_UpdateBucketRequest {
+    get {
+      if case .updateBucketRequest(let v)? = request {return v}
+      return Google_Logging_V2_UpdateBucketRequest()
+    }
+    set {request = .updateBucketRequest(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Request: Equatable, Sendable {
+    /// LongRunningCreateBucket RPC request.
+    case createBucketRequest(Google_Logging_V2_CreateBucketRequest)
+    /// LongRunningUpdateBucket RPC request.
+    case updateBucketRequest(Google_Logging_V2_UpdateBucketRequest)
+
+  }
+
+  init() {}
+
+  fileprivate var _startTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _endTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+}
+
+/// Metadata for long running Link operations.
+struct Google_Logging_V2_LinkMetadata: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The start time of an operation.
+  var startTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _startTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_startTime = newValue}
+  }
+  /// Returns true if `startTime` has been explicitly set.
+  var hasStartTime: Bool {return self._startTime != nil}
+  /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
+  mutating func clearStartTime() {self._startTime = nil}
+
+  /// The end time of an operation.
+  var endTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _endTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
+    set {_endTime = newValue}
+  }
+  /// Returns true if `endTime` has been explicitly set.
+  var hasEndTime: Bool {return self._endTime != nil}
+  /// Clears the value of `endTime`. Subsequent reads from it will return its default value.
+  mutating func clearEndTime() {self._endTime = nil}
+
+  /// State of an operation.
+  var state: Google_Logging_V2_OperationState = .unspecified
+
+  var request: Google_Logging_V2_LinkMetadata.OneOf_Request? = nil
+
+  /// CreateLink RPC request.
+  var createLinkRequest: Google_Logging_V2_CreateLinkRequest {
+    get {
+      if case .createLinkRequest(let v)? = request {return v}
+      return Google_Logging_V2_CreateLinkRequest()
+    }
+    set {request = .createLinkRequest(newValue)}
+  }
+
+  /// DeleteLink RPC request.
+  var deleteLinkRequest: Google_Logging_V2_DeleteLinkRequest {
+    get {
+      if case .deleteLinkRequest(let v)? = request {return v}
+      return Google_Logging_V2_DeleteLinkRequest()
+    }
+    set {request = .deleteLinkRequest(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_Request: Equatable, Sendable {
+    /// CreateLink RPC request.
+    case createLinkRequest(Google_Logging_V2_CreateLinkRequest)
+    /// DeleteLink RPC request.
+    case deleteLinkRequest(Google_Logging_V2_DeleteLinkRequest)
+
+  }
+
+  init() {}
+
+  fileprivate var _startTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+  fileprivate var _endTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+}
+
+/// Cloud Logging specific location metadata.
+struct Google_Logging_V2_LocationMetadata: Sendable {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Indicates whether or not Log Analytics features are supported in the given
+  /// location.
+  var logAnalyticsEnabled: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.logging.v2"
-
-extension Google_Logging_V2_LifecycleState: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "LIFECYCLE_STATE_UNSPECIFIED"),
-    1: .same(proto: "ACTIVE"),
-    2: .same(proto: "DELETE_REQUESTED"),
-  ]
-}
 
 extension Google_Logging_V2_OperationState: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1934,6 +2341,73 @@ extension Google_Logging_V2_OperationState: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
+extension Google_Logging_V2_LifecycleState: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "LIFECYCLE_STATE_UNSPECIFIED"),
+    1: .same(proto: "ACTIVE"),
+    2: .same(proto: "DELETE_REQUESTED"),
+    3: .same(proto: "UPDATING"),
+    4: .same(proto: "CREATING"),
+    5: .same(proto: "FAILED"),
+  ]
+}
+
+extension Google_Logging_V2_IndexType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "INDEX_TYPE_UNSPECIFIED"),
+    1: .same(proto: "INDEX_TYPE_STRING"),
+    2: .same(proto: "INDEX_TYPE_INTEGER"),
+  ]
+}
+
+extension Google_Logging_V2_IndexConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".IndexConfig"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "field_path"),
+    2: .same(proto: "type"),
+    3: .standard(proto: "create_time"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.fieldPath) }()
+      case 2: try { try decoder.decodeSingularEnumField(value: &self.type) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._createTime) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.fieldPath.isEmpty {
+      try visitor.visitSingularStringField(value: self.fieldPath, fieldNumber: 1)
+    }
+    if self.type != .unspecified {
+      try visitor.visitSingularEnumField(value: self.type, fieldNumber: 2)
+    }
+    try { if let v = self._createTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_IndexConfig, rhs: Google_Logging_V2_IndexConfig) -> Bool {
+    if lhs.fieldPath != rhs.fieldPath {return false}
+    if lhs.type != rhs.type {return false}
+    if lhs._createTime != rhs._createTime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Logging_V2_LogBucket: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LogBucket"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1944,7 +2418,9 @@ extension Google_Logging_V2_LogBucket: SwiftProtobuf.Message, SwiftProtobuf._Mes
     11: .standard(proto: "retention_days"),
     9: .same(proto: "locked"),
     12: .standard(proto: "lifecycle_state"),
+    14: .standard(proto: "analytics_enabled"),
     15: .standard(proto: "restricted_fields"),
+    17: .standard(proto: "index_configs"),
     19: .standard(proto: "cmek_settings"),
   ]
 
@@ -1961,7 +2437,9 @@ extension Google_Logging_V2_LogBucket: SwiftProtobuf.Message, SwiftProtobuf._Mes
       case 9: try { try decoder.decodeSingularBoolField(value: &self.locked) }()
       case 11: try { try decoder.decodeSingularInt32Field(value: &self.retentionDays) }()
       case 12: try { try decoder.decodeSingularEnumField(value: &self.lifecycleState) }()
+      case 14: try { try decoder.decodeSingularBoolField(value: &self.analyticsEnabled) }()
       case 15: try { try decoder.decodeRepeatedStringField(value: &self.restrictedFields) }()
+      case 17: try { try decoder.decodeRepeatedMessageField(value: &self.indexConfigs) }()
       case 19: try { try decoder.decodeSingularMessageField(value: &self._cmekSettings) }()
       default: break
       }
@@ -1994,8 +2472,14 @@ extension Google_Logging_V2_LogBucket: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if self.lifecycleState != .unspecified {
       try visitor.visitSingularEnumField(value: self.lifecycleState, fieldNumber: 12)
     }
+    if self.analyticsEnabled != false {
+      try visitor.visitSingularBoolField(value: self.analyticsEnabled, fieldNumber: 14)
+    }
     if !self.restrictedFields.isEmpty {
       try visitor.visitRepeatedStringField(value: self.restrictedFields, fieldNumber: 15)
+    }
+    if !self.indexConfigs.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.indexConfigs, fieldNumber: 17)
     }
     try { if let v = self._cmekSettings {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
@@ -2011,7 +2495,9 @@ extension Google_Logging_V2_LogBucket: SwiftProtobuf.Message, SwiftProtobuf._Mes
     if lhs.retentionDays != rhs.retentionDays {return false}
     if lhs.locked != rhs.locked {return false}
     if lhs.lifecycleState != rhs.lifecycleState {return false}
+    if lhs.analyticsEnabled != rhs.analyticsEnabled {return false}
     if lhs.restrictedFields != rhs.restrictedFields {return false}
+    if lhs.indexConfigs != rhs.indexConfigs {return false}
     if lhs._cmekSettings != rhs._cmekSettings {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2200,6 +2686,98 @@ extension Google_Logging_V2_LogSink.VersionFormat: SwiftProtobuf._ProtoNameProvi
   ]
 }
 
+extension Google_Logging_V2_BigQueryDataset: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".BigQueryDataset"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "dataset_id"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.datasetID) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.datasetID.isEmpty {
+      try visitor.visitSingularStringField(value: self.datasetID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_BigQueryDataset, rhs: Google_Logging_V2_BigQueryDataset) -> Bool {
+    if lhs.datasetID != rhs.datasetID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_Link: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".Link"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "description"),
+    3: .standard(proto: "create_time"),
+    4: .standard(proto: "lifecycle_state"),
+    5: .standard(proto: "bigquery_dataset"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._createTime) }()
+      case 4: try { try decoder.decodeSingularEnumField(value: &self.lifecycleState) }()
+      case 5: try { try decoder.decodeSingularMessageField(value: &self._bigqueryDataset) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    try { if let v = self._createTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    } }()
+    if self.lifecycleState != .unspecified {
+      try visitor.visitSingularEnumField(value: self.lifecycleState, fieldNumber: 4)
+    }
+    try { if let v = self._bigqueryDataset {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    } }()
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_Link, rhs: Google_Logging_V2_Link) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs._createTime != rhs._createTime {return false}
+    if lhs.lifecycleState != rhs.lifecycleState {return false}
+    if lhs._bigqueryDataset != rhs._bigqueryDataset {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Logging_V2_BigQueryOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".BigQueryOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2328,41 +2906,85 @@ extension Google_Logging_V2_CreateBucketRequest: SwiftProtobuf.Message, SwiftPro
     3: .same(proto: "bucket"),
   ]
 
+  fileprivate class _StorageClass {
+    var _parent: String = String()
+    var _bucketID: String = String()
+    var _bucket: Google_Logging_V2_LogBucket? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _parent = source._parent
+      _bucketID = source._bucketID
+      _bucket = source._bucket
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.bucketID) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._bucket) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._parent) }()
+        case 2: try { try decoder.decodeSingularStringField(value: &_storage._bucketID) }()
+        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._bucket) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.parent.isEmpty {
-      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._parent.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._parent, fieldNumber: 1)
+      }
+      if !_storage._bucketID.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._bucketID, fieldNumber: 2)
+      }
+      try { if let v = _storage._bucket {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      } }()
     }
-    if !self.bucketID.isEmpty {
-      try visitor.visitSingularStringField(value: self.bucketID, fieldNumber: 2)
-    }
-    try { if let v = self._bucket {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Logging_V2_CreateBucketRequest, rhs: Google_Logging_V2_CreateBucketRequest) -> Bool {
-    if lhs.parent != rhs.parent {return false}
-    if lhs.bucketID != rhs.bucketID {return false}
-    if lhs._bucket != rhs._bucket {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._parent != rhs_storage._parent {return false}
+        if _storage._bucketID != rhs_storage._bucketID {return false}
+        if _storage._bucket != rhs_storage._bucket {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -2376,41 +2998,85 @@ extension Google_Logging_V2_UpdateBucketRequest: SwiftProtobuf.Message, SwiftPro
     4: .standard(proto: "update_mask"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _bucket: Google_Logging_V2_LogBucket? = nil
+    var _updateMask: SwiftProtobuf.Google_Protobuf_FieldMask? = nil
+
+    #if swift(>=5.10)
+      // This property is used as the initial default value for new instances of the type.
+      // The type itself is protecting the reference to its storage via CoW semantics.
+      // This will force a copy to be made of this reference when the first mutation occurs;
+      // hence, it is safe to mark this as `nonisolated(unsafe)`.
+      static nonisolated(unsafe) let defaultInstance = _StorageClass()
+    #else
+      static let defaultInstance = _StorageClass()
+    #endif
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _bucket = source._bucket
+      _updateMask = source._updateMask
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._bucket) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._updateMask) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularStringField(value: &_storage._name) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._bucket) }()
+        case 4: try { try decoder.decodeSingularMessageField(value: &_storage._updateMask) }()
+        default: break
+        }
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if !self.name.isEmpty {
-      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every if/case branch local when no optimizations
+      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+      // https://github.com/apple/swift-protobuf/issues/1182
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
+      }
+      try { if let v = _storage._bucket {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      } }()
+      try { if let v = _storage._updateMask {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      } }()
     }
-    try { if let v = self._bucket {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    try { if let v = self._updateMask {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Logging_V2_UpdateBucketRequest, rhs: Google_Logging_V2_UpdateBucketRequest) -> Bool {
-    if lhs.name != rhs.name {return false}
-    if lhs._bucket != rhs._bucket {return false}
-    if lhs._updateMask != rhs._updateMask {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._name != rhs_storage._name {return false}
+        if _storage._bucket != rhs_storage._bucket {return false}
+        if _storage._updateMask != rhs_storage._updateMask {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -3092,6 +3758,200 @@ extension Google_Logging_V2_DeleteSinkRequest: SwiftProtobuf.Message, SwiftProto
   }
 }
 
+extension Google_Logging_V2_CreateLinkRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".CreateLinkRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "parent"),
+    2: .same(proto: "link"),
+    3: .standard(proto: "link_id"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._link) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.linkID) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    if !self.parent.isEmpty {
+      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
+    }
+    try { if let v = self._link {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if !self.linkID.isEmpty {
+      try visitor.visitSingularStringField(value: self.linkID, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_CreateLinkRequest, rhs: Google_Logging_V2_CreateLinkRequest) -> Bool {
+    if lhs.parent != rhs.parent {return false}
+    if lhs._link != rhs._link {return false}
+    if lhs.linkID != rhs.linkID {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_DeleteLinkRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".DeleteLinkRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_DeleteLinkRequest, rhs: Google_Logging_V2_DeleteLinkRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_ListLinksRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListLinksRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "parent"),
+    2: .standard(proto: "page_token"),
+    3: .standard(proto: "page_size"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.parent) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.pageToken) }()
+      case 3: try { try decoder.decodeSingularInt32Field(value: &self.pageSize) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.parent.isEmpty {
+      try visitor.visitSingularStringField(value: self.parent, fieldNumber: 1)
+    }
+    if !self.pageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.pageToken, fieldNumber: 2)
+    }
+    if self.pageSize != 0 {
+      try visitor.visitSingularInt32Field(value: self.pageSize, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_ListLinksRequest, rhs: Google_Logging_V2_ListLinksRequest) -> Bool {
+    if lhs.parent != rhs.parent {return false}
+    if lhs.pageToken != rhs.pageToken {return false}
+    if lhs.pageSize != rhs.pageSize {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_ListLinksResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".ListLinksResponse"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "links"),
+    2: .standard(proto: "next_page_token"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.links) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.nextPageToken) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.links.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.links, fieldNumber: 1)
+    }
+    if !self.nextPageToken.isEmpty {
+      try visitor.visitSingularStringField(value: self.nextPageToken, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_ListLinksResponse, rhs: Google_Logging_V2_ListLinksResponse) -> Bool {
+    if lhs.links != rhs.links {return false}
+    if lhs.nextPageToken != rhs.nextPageToken {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_GetLinkRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".GetLinkRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_GetLinkRequest, rhs: Google_Logging_V2_GetLinkRequest) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
 extension Google_Logging_V2_LogExclusion: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".LogExclusion"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3479,6 +4339,7 @@ extension Google_Logging_V2_CmekSettings: SwiftProtobuf.Message, SwiftProtobuf._
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "kms_key_name"),
+    4: .standard(proto: "kms_key_version_name"),
     3: .standard(proto: "service_account_id"),
   ]
 
@@ -3491,6 +4352,7 @@ extension Google_Logging_V2_CmekSettings: SwiftProtobuf.Message, SwiftProtobuf._
       case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.kmsKeyName) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.serviceAccountID) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.kmsKeyVersionName) }()
       default: break
       }
     }
@@ -3506,12 +4368,16 @@ extension Google_Logging_V2_CmekSettings: SwiftProtobuf.Message, SwiftProtobuf._
     if !self.serviceAccountID.isEmpty {
       try visitor.visitSingularStringField(value: self.serviceAccountID, fieldNumber: 3)
     }
+    if !self.kmsKeyVersionName.isEmpty {
+      try visitor.visitSingularStringField(value: self.kmsKeyVersionName, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Google_Logging_V2_CmekSettings, rhs: Google_Logging_V2_CmekSettings) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.kmsKeyName != rhs.kmsKeyName {return false}
+    if lhs.kmsKeyVersionName != rhs.kmsKeyVersionName {return false}
     if lhs.serviceAccountID != rhs.serviceAccountID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3797,6 +4663,214 @@ extension Google_Logging_V2_CopyLogEntriesResponse: SwiftProtobuf.Message, Swift
 
   static func ==(lhs: Google_Logging_V2_CopyLogEntriesResponse, rhs: Google_Logging_V2_CopyLogEntriesResponse) -> Bool {
     if lhs.logEntriesCopiedCount != rhs.logEntriesCopiedCount {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_BucketMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".BucketMetadata"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "start_time"),
+    2: .standard(proto: "end_time"),
+    3: .same(proto: "state"),
+    4: .standard(proto: "create_bucket_request"),
+    5: .standard(proto: "update_bucket_request"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._startTime) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._endTime) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.state) }()
+      case 4: try {
+        var v: Google_Logging_V2_CreateBucketRequest?
+        var hadOneofValue = false
+        if let current = self.request {
+          hadOneofValue = true
+          if case .createBucketRequest(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.request = .createBucketRequest(v)
+        }
+      }()
+      case 5: try {
+        var v: Google_Logging_V2_UpdateBucketRequest?
+        var hadOneofValue = false
+        if let current = self.request {
+          hadOneofValue = true
+          if case .updateBucketRequest(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.request = .updateBucketRequest(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._startTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._endTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if self.state != .unspecified {
+      try visitor.visitSingularEnumField(value: self.state, fieldNumber: 3)
+    }
+    switch self.request {
+    case .createBucketRequest?: try {
+      guard case .createBucketRequest(let v)? = self.request else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }()
+    case .updateBucketRequest?: try {
+      guard case .updateBucketRequest(let v)? = self.request else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_BucketMetadata, rhs: Google_Logging_V2_BucketMetadata) -> Bool {
+    if lhs._startTime != rhs._startTime {return false}
+    if lhs._endTime != rhs._endTime {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.request != rhs.request {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_LinkMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".LinkMetadata"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "start_time"),
+    2: .standard(proto: "end_time"),
+    3: .same(proto: "state"),
+    4: .standard(proto: "create_link_request"),
+    5: .standard(proto: "delete_link_request"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._startTime) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._endTime) }()
+      case 3: try { try decoder.decodeSingularEnumField(value: &self.state) }()
+      case 4: try {
+        var v: Google_Logging_V2_CreateLinkRequest?
+        var hadOneofValue = false
+        if let current = self.request {
+          hadOneofValue = true
+          if case .createLinkRequest(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.request = .createLinkRequest(v)
+        }
+      }()
+      case 5: try {
+        var v: Google_Logging_V2_DeleteLinkRequest?
+        var hadOneofValue = false
+        if let current = self.request {
+          hadOneofValue = true
+          if case .deleteLinkRequest(let m) = current {v = m}
+        }
+        try decoder.decodeSingularMessageField(value: &v)
+        if let v = v {
+          if hadOneofValue {try decoder.handleConflictingOneOf()}
+          self.request = .deleteLinkRequest(v)
+        }
+      }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    // The use of inline closures is to circumvent an issue where the compiler
+    // allocates stack space for every if/case branch local when no optimizations
+    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+    // https://github.com/apple/swift-protobuf/issues/1182
+    try { if let v = self._startTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    } }()
+    try { if let v = self._endTime {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    } }()
+    if self.state != .unspecified {
+      try visitor.visitSingularEnumField(value: self.state, fieldNumber: 3)
+    }
+    switch self.request {
+    case .createLinkRequest?: try {
+      guard case .createLinkRequest(let v)? = self.request else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }()
+    case .deleteLinkRequest?: try {
+      guard case .deleteLinkRequest(let v)? = self.request else { preconditionFailure() }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+    }()
+    case nil: break
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_LinkMetadata, rhs: Google_Logging_V2_LinkMetadata) -> Bool {
+    if lhs._startTime != rhs._startTime {return false}
+    if lhs._endTime != rhs._endTime {return false}
+    if lhs.state != rhs.state {return false}
+    if lhs.request != rhs.request {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Logging_V2_LocationMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = _protobuf_package + ".LocationMetadata"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "log_analytics_enabled"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularBoolField(value: &self.logAnalyticsEnabled) }()
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.logAnalyticsEnabled != false {
+      try visitor.visitSingularBoolField(value: self.logAnalyticsEnabled, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: Google_Logging_V2_LocationMetadata, rhs: Google_Logging_V2_LocationMetadata) -> Bool {
+    if lhs.logAnalyticsEnabled != rhs.logAnalyticsEnabled {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

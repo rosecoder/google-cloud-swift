@@ -11,11 +11,13 @@ import NIOConcurrencyHelpers
 import SwiftProtobuf
 
 
-/// This file describes an API for collecting and viewing traces and spans
-/// within a trace.  A Trace is a collection of spans corresponding to a single
-/// operation or set of operations for an application. A span is an individual
-/// timed event which forms a node of the trace tree. A single trace may
-/// contain span(s) from multiple services.
+/// Service for collecting and viewing traces and spans within a trace.
+///
+/// A trace is a collection of spans corresponding to a single
+/// operation or a set of operations in an application.
+///
+/// A span is an individual timed event which forms a node of the trace tree.
+/// A single trace can contain spans from multiple services.
 ///
 /// Usage: instantiate `Google_Devtools_Cloudtrace_V2_TraceServiceClient`, then call methods of this protocol to make API calls.
 internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceClientProtocol: GRPCClient {
@@ -38,7 +40,7 @@ extension Google_Devtools_Cloudtrace_V2_TraceServiceClientProtocol {
     return "google.devtools.cloudtrace.v2.TraceService"
   }
 
-  /// Sends new spans to new or existing traces. You cannot update
+  /// Batch writes new spans to new or existing traces. You cannot update
   /// existing spans.
   ///
   /// - Parameters:
@@ -133,11 +135,13 @@ internal struct Google_Devtools_Cloudtrace_V2_TraceServiceNIOClient: Google_Devt
   }
 }
 
-/// This file describes an API for collecting and viewing traces and spans
-/// within a trace.  A Trace is a collection of spans corresponding to a single
-/// operation or set of operations for an application. A span is an individual
-/// timed event which forms a node of the trace tree. A single trace may
-/// contain span(s) from multiple services.
+/// Service for collecting and viewing traces and spans within a trace.
+///
+/// A trace is a collection of spans corresponding to a single
+/// operation or a set of operations in an application.
+///
+/// A span is an individual timed event which forms a node of the trace tree.
+/// A single trace can contain spans from multiple services.
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
 internal protocol Google_Devtools_Cloudtrace_V2_TraceServiceAsyncClientProtocol: GRPCClient {
   static var serviceDescriptor: GRPCServiceDescriptor { get }

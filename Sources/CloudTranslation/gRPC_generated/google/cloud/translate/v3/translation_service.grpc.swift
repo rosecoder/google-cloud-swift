@@ -23,6 +23,11 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientProtocol: 
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Cloud_Translation_V3_TranslateTextRequest, Google_Cloud_Translation_V3_TranslateTextResponse>
 
+  func romanizeText(
+    _ request: Google_Cloud_Translation_V3_RomanizeTextRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_RomanizeTextRequest, Google_Cloud_Translation_V3_RomanizeTextResponse>
+
   func detectLanguage(
     _ request: Google_Cloud_Translation_V3_DetectLanguageRequest,
     callOptions: CallOptions?
@@ -53,6 +58,11 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientProtocol: 
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Cloud_Translation_V3_CreateGlossaryRequest, Google_Longrunning_Operation>
 
+  func updateGlossary(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryRequest, Google_Longrunning_Operation>
+
   func listGlossaries(
     _ request: Google_Cloud_Translation_V3_ListGlossariesRequest,
     callOptions: CallOptions?
@@ -67,6 +77,136 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientProtocol: 
     _ request: Google_Cloud_Translation_V3_DeleteGlossaryRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryRequest, Google_Longrunning_Operation>
+
+  func getGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_GetGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func listGlossaryEntries(
+    _ request: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, Google_Cloud_Translation_V3_ListGlossaryEntriesResponse>
+
+  func createGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func updateGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func deleteGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func createDataset(
+    _ request: Google_Cloud_Translation_V3_CreateDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateDatasetRequest, Google_Longrunning_Operation>
+
+  func getDataset(
+    _ request: Google_Cloud_Translation_V3_GetDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetDatasetRequest, Google_Cloud_Translation_V3_Dataset>
+
+  func listDatasets(
+    _ request: Google_Cloud_Translation_V3_ListDatasetsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListDatasetsRequest, Google_Cloud_Translation_V3_ListDatasetsResponse>
+
+  func deleteDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteDatasetRequest, Google_Longrunning_Operation>
+
+  func createAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>
+
+  func deleteAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func getAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>
+
+  func listAdaptiveMtDatasets(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest, Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse>
+
+  func adaptiveMtTranslate(
+    _ request: Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest, Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse>
+
+  func getAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest, Google_Cloud_Translation_V3_AdaptiveMtFile>
+
+  func deleteAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func importAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest, Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse>
+
+  func listAdaptiveMtFiles(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse>
+
+  func listAdaptiveMtSentences(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse>
+
+  func importData(
+    _ request: Google_Cloud_Translation_V3_ImportDataRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ImportDataRequest, Google_Longrunning_Operation>
+
+  func exportData(
+    _ request: Google_Cloud_Translation_V3_ExportDataRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ExportDataRequest, Google_Longrunning_Operation>
+
+  func listExamples(
+    _ request: Google_Cloud_Translation_V3_ListExamplesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListExamplesRequest, Google_Cloud_Translation_V3_ListExamplesResponse>
+
+  func createModel(
+    _ request: Google_Cloud_Translation_V3_CreateModelRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateModelRequest, Google_Longrunning_Operation>
+
+  func listModels(
+    _ request: Google_Cloud_Translation_V3_ListModelsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListModelsRequest, Google_Cloud_Translation_V3_ListModelsResponse>
+
+  func getModel(
+    _ request: Google_Cloud_Translation_V3_GetModelRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetModelRequest, Google_Cloud_Translation_V3_Model>
+
+  func deleteModel(
+    _ request: Google_Cloud_Translation_V3_DeleteModelRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteModelRequest, Google_Longrunning_Operation>
 }
 
 extension Google_Cloud_Translation_V3_TranslationServiceClientProtocol {
@@ -89,6 +229,24 @@ extension Google_Cloud_Translation_V3_TranslationServiceClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeTranslateTextInterceptors() ?? []
+    )
+  }
+
+  /// Romanize input text written in non-Latin scripts to Latin text.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to RomanizeText.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func romanizeText(
+    _ request: Google_Cloud_Translation_V3_RomanizeTextRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_RomanizeTextRequest, Google_Cloud_Translation_V3_RomanizeTextResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.romanizeText.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRomanizeTextInterceptors() ?? []
     )
   }
 
@@ -213,6 +371,25 @@ extension Google_Cloud_Translation_V3_TranslationServiceClientProtocol {
     )
   }
 
+  /// Updates a glossary. A LRO is used since the update can be async if the
+  /// glossary's entry file is updated.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UpdateGlossary.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func updateGlossary(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossary.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryInterceptors() ?? []
+    )
+  }
+
   /// Lists glossaries in a project. Returns NOT_FOUND, if the project doesn't
   /// exist.
   ///
@@ -268,6 +445,476 @@ extension Google_Cloud_Translation_V3_TranslationServiceClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteGlossaryInterceptors() ?? []
+    )
+  }
+
+  /// Gets a single glossary entry by the given id.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetGlossaryEntry.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_GetGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  /// List the entries for the glossary.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListGlossaryEntries.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listGlossaryEntries(
+    _ request: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, Google_Cloud_Translation_V3_ListGlossaryEntriesResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listGlossaryEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListGlossaryEntriesInterceptors() ?? []
+    )
+  }
+
+  /// Creates a glossary entry.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateGlossaryEntry.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  /// Updates a glossary entry.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UpdateGlossaryEntry.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func updateGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a single entry from the glossary
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteGlossaryEntry.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  /// Creates a Dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createDataset(
+    _ request: Google_Cloud_Translation_V3_CreateDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateDatasetRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Gets a Dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getDataset(
+    _ request: Google_Cloud_Translation_V3_GetDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetDatasetRequest, Google_Cloud_Translation_V3_Dataset> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Lists datasets.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListDatasets.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listDatasets(
+    _ request: Google_Cloud_Translation_V3_ListDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListDatasetsRequest, Google_Cloud_Translation_V3_ListDatasetsResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListDatasetsInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a dataset and all of its contents.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteDatasetRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Creates an Adaptive MT dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateAdaptiveMtDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Deletes an Adaptive MT dataset, including all its entries and associated
+  /// metadata.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteAdaptiveMtDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Gets the Adaptive MT dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetAdaptiveMtDataset.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  /// Lists all Adaptive MT datasets for which the caller has read permission.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListAdaptiveMtDatasets.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listAdaptiveMtDatasets(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest, Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtDatasetsInterceptors() ?? []
+    )
+  }
+
+  /// Translate text using Adaptive MT.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to AdaptiveMtTranslate.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func adaptiveMtTranslate(
+    _ request: Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest, Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.adaptiveMtTranslate.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeAdaptiveMtTranslateInterceptors() ?? []
+    )
+  }
+
+  /// Gets and AdaptiveMtFile
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetAdaptiveMtFile.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest, Google_Cloud_Translation_V3_AdaptiveMtFile> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  /// Deletes an AdaptiveMtFile along with its sentences.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteAdaptiveMtFile.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  /// Imports an AdaptiveMtFile and adds all of its sentences into the
+  /// AdaptiveMtDataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ImportAdaptiveMtFile.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func importAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest, Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  /// Lists all AdaptiveMtFiles associated to an AdaptiveMtDataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListAdaptiveMtFiles.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listAdaptiveMtFiles(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtFiles.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtFilesInterceptors() ?? []
+    )
+  }
+
+  /// Lists all AdaptiveMtSentences under a given file/dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListAdaptiveMtSentences.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listAdaptiveMtSentences(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtSentences.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtSentencesInterceptors() ?? []
+    )
+  }
+
+  /// Import sentence pairs into translation Dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ImportData.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func importData(
+    _ request: Google_Cloud_Translation_V3_ImportDataRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ImportDataRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportDataInterceptors() ?? []
+    )
+  }
+
+  /// Exports dataset's data to the provided output location.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ExportData.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func exportData(
+    _ request: Google_Cloud_Translation_V3_ExportDataRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ExportDataRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.exportData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeExportDataInterceptors() ?? []
+    )
+  }
+
+  /// Lists sentence pairs in the dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListExamples.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listExamples(
+    _ request: Google_Cloud_Translation_V3_ListExamplesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListExamplesRequest, Google_Cloud_Translation_V3_ListExamplesResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listExamples.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListExamplesInterceptors() ?? []
+    )
+  }
+
+  /// Creates a Model.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateModel.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createModel(
+    _ request: Google_Cloud_Translation_V3_CreateModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_CreateModelRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateModelInterceptors() ?? []
+    )
+  }
+
+  /// Lists models.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListModels.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listModels(
+    _ request: Google_Cloud_Translation_V3_ListModelsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_ListModelsRequest, Google_Cloud_Translation_V3_ListModelsResponse> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listModels.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListModelsInterceptors() ?? []
+    )
+  }
+
+  /// Gets a model.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetModel.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getModel(
+    _ request: Google_Cloud_Translation_V3_GetModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_GetModelRequest, Google_Cloud_Translation_V3_Model> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetModelInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a model.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteModel.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteModel(
+    _ request: Google_Cloud_Translation_V3_DeleteModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Cloud_Translation_V3_DeleteModelRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteModelInterceptors() ?? []
     )
   }
 }
@@ -340,6 +987,11 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceAsyncClientProto
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_TranslateTextRequest, Google_Cloud_Translation_V3_TranslateTextResponse>
 
+  func makeRomanizeTextCall(
+    _ request: Google_Cloud_Translation_V3_RomanizeTextRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_RomanizeTextRequest, Google_Cloud_Translation_V3_RomanizeTextResponse>
+
   func makeDetectLanguageCall(
     _ request: Google_Cloud_Translation_V3_DetectLanguageRequest,
     callOptions: CallOptions?
@@ -370,6 +1022,11 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceAsyncClientProto
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateGlossaryRequest, Google_Longrunning_Operation>
 
+  func makeUpdateGlossaryCall(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryRequest, Google_Longrunning_Operation>
+
   func makeListGlossariesCall(
     _ request: Google_Cloud_Translation_V3_ListGlossariesRequest,
     callOptions: CallOptions?
@@ -384,6 +1041,136 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceAsyncClientProto
     _ request: Google_Cloud_Translation_V3_DeleteGlossaryRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryRequest, Google_Longrunning_Operation>
+
+  func makeGetGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_GetGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func makeListGlossaryEntriesCall(
+    _ request: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, Google_Cloud_Translation_V3_ListGlossaryEntriesResponse>
+
+  func makeCreateGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func makeUpdateGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>
+
+  func makeDeleteGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeCreateDatasetCall(
+    _ request: Google_Cloud_Translation_V3_CreateDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateDatasetRequest, Google_Longrunning_Operation>
+
+  func makeGetDatasetCall(
+    _ request: Google_Cloud_Translation_V3_GetDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetDatasetRequest, Google_Cloud_Translation_V3_Dataset>
+
+  func makeListDatasetsCall(
+    _ request: Google_Cloud_Translation_V3_ListDatasetsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListDatasetsRequest, Google_Cloud_Translation_V3_ListDatasetsResponse>
+
+  func makeDeleteDatasetCall(
+    _ request: Google_Cloud_Translation_V3_DeleteDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteDatasetRequest, Google_Longrunning_Operation>
+
+  func makeCreateAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>
+
+  func makeDeleteAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeGetAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>
+
+  func makeListAdaptiveMtDatasetsCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest, Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse>
+
+  func makeAdaptiveMtTranslateCall(
+    _ request: Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest, Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse>
+
+  func makeGetAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest, Google_Cloud_Translation_V3_AdaptiveMtFile>
+
+  func makeDeleteAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeImportAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest, Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse>
+
+  func makeListAdaptiveMtFilesCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse>
+
+  func makeListAdaptiveMtSentencesCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse>
+
+  func makeImportDataCall(
+    _ request: Google_Cloud_Translation_V3_ImportDataRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ImportDataRequest, Google_Longrunning_Operation>
+
+  func makeExportDataCall(
+    _ request: Google_Cloud_Translation_V3_ExportDataRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ExportDataRequest, Google_Longrunning_Operation>
+
+  func makeListExamplesCall(
+    _ request: Google_Cloud_Translation_V3_ListExamplesRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListExamplesRequest, Google_Cloud_Translation_V3_ListExamplesResponse>
+
+  func makeCreateModelCall(
+    _ request: Google_Cloud_Translation_V3_CreateModelRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateModelRequest, Google_Longrunning_Operation>
+
+  func makeListModelsCall(
+    _ request: Google_Cloud_Translation_V3_ListModelsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListModelsRequest, Google_Cloud_Translation_V3_ListModelsResponse>
+
+  func makeGetModelCall(
+    _ request: Google_Cloud_Translation_V3_GetModelRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetModelRequest, Google_Cloud_Translation_V3_Model>
+
+  func makeDeleteModelCall(
+    _ request: Google_Cloud_Translation_V3_DeleteModelRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteModelRequest, Google_Longrunning_Operation>
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -405,6 +1192,18 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeTranslateTextInterceptors() ?? []
+    )
+  }
+
+  internal func makeRomanizeTextCall(
+    _ request: Google_Cloud_Translation_V3_RomanizeTextRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_RomanizeTextRequest, Google_Cloud_Translation_V3_RomanizeTextResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.romanizeText.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRomanizeTextInterceptors() ?? []
     )
   }
 
@@ -480,6 +1279,18 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
     )
   }
 
+  internal func makeUpdateGlossaryCall(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossary.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryInterceptors() ?? []
+    )
+  }
+
   internal func makeListGlossariesCall(
     _ request: Google_Cloud_Translation_V3_ListGlossariesRequest,
     callOptions: CallOptions? = nil
@@ -515,6 +1326,318 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
       interceptors: self.interceptors?.makeDeleteGlossaryInterceptors() ?? []
     )
   }
+
+  internal func makeGetGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_GetGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func makeListGlossaryEntriesCall(
+    _ request: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, Google_Cloud_Translation_V3_ListGlossaryEntriesResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listGlossaryEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListGlossaryEntriesInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func makeUpdateGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteGlossaryEntryCall(
+    _ request: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateDatasetCall(
+    _ request: Google_Cloud_Translation_V3_CreateDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateDatasetRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetDatasetCall(
+    _ request: Google_Cloud_Translation_V3_GetDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetDatasetRequest, Google_Cloud_Translation_V3_Dataset> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeListDatasetsCall(
+    _ request: Google_Cloud_Translation_V3_ListDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListDatasetsRequest, Google_Cloud_Translation_V3_ListDatasetsResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListDatasetsInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteDatasetCall(
+    _ request: Google_Cloud_Translation_V3_DeleteDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteDatasetRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetAdaptiveMtDatasetCall(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func makeListAdaptiveMtDatasetsCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest, Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtDatasetsInterceptors() ?? []
+    )
+  }
+
+  internal func makeAdaptiveMtTranslateCall(
+    _ request: Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest, Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.adaptiveMtTranslate.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeAdaptiveMtTranslateInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest, Google_Cloud_Translation_V3_AdaptiveMtFile> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest, SwiftProtobuf.Google_Protobuf_Empty> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func makeImportAdaptiveMtFileCall(
+    _ request: Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest, Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func makeListAdaptiveMtFilesCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtFiles.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtFilesInterceptors() ?? []
+    )
+  }
+
+  internal func makeListAdaptiveMtSentencesCall(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtSentences.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtSentencesInterceptors() ?? []
+    )
+  }
+
+  internal func makeImportDataCall(
+    _ request: Google_Cloud_Translation_V3_ImportDataRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ImportDataRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportDataInterceptors() ?? []
+    )
+  }
+
+  internal func makeExportDataCall(
+    _ request: Google_Cloud_Translation_V3_ExportDataRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ExportDataRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.exportData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeExportDataInterceptors() ?? []
+    )
+  }
+
+  internal func makeListExamplesCall(
+    _ request: Google_Cloud_Translation_V3_ListExamplesRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListExamplesRequest, Google_Cloud_Translation_V3_ListExamplesResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listExamples.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListExamplesInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateModelCall(
+    _ request: Google_Cloud_Translation_V3_CreateModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_CreateModelRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateModelInterceptors() ?? []
+    )
+  }
+
+  internal func makeListModelsCall(
+    _ request: Google_Cloud_Translation_V3_ListModelsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_ListModelsRequest, Google_Cloud_Translation_V3_ListModelsResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listModels.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListModelsInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetModelCall(
+    _ request: Google_Cloud_Translation_V3_GetModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_GetModelRequest, Google_Cloud_Translation_V3_Model> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetModelInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteModelCall(
+    _ request: Google_Cloud_Translation_V3_DeleteModelRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Cloud_Translation_V3_DeleteModelRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteModelInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -528,6 +1651,18 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeTranslateTextInterceptors() ?? []
+    )
+  }
+
+  internal func romanizeText(
+    _ request: Google_Cloud_Translation_V3_RomanizeTextRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_RomanizeTextResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.romanizeText.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRomanizeTextInterceptors() ?? []
     )
   }
 
@@ -603,6 +1738,18 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
     )
   }
 
+  internal func updateGlossary(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossary.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryInterceptors() ?? []
+    )
+  }
+
   internal func listGlossaries(
     _ request: Google_Cloud_Translation_V3_ListGlossariesRequest,
     callOptions: CallOptions? = nil
@@ -638,6 +1785,318 @@ extension Google_Cloud_Translation_V3_TranslationServiceAsyncClientProtocol {
       interceptors: self.interceptors?.makeDeleteGlossaryInterceptors() ?? []
     )
   }
+
+  internal func getGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_GetGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_GlossaryEntry {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func listGlossaryEntries(
+    _ request: Google_Cloud_Translation_V3_ListGlossaryEntriesRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListGlossaryEntriesResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listGlossaryEntries.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListGlossaryEntriesInterceptors() ?? []
+    )
+  }
+
+  internal func createGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_CreateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_GlossaryEntry {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func updateGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_GlossaryEntry {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func deleteGlossaryEntry(
+    _ request: Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteGlossaryEntry.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteGlossaryEntryInterceptors() ?? []
+    )
+  }
+
+  internal func createDataset(
+    _ request: Google_Cloud_Translation_V3_CreateDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func getDataset(
+    _ request: Google_Cloud_Translation_V3_GetDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_Dataset {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func listDatasets(
+    _ request: Google_Cloud_Translation_V3_ListDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListDatasetsResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListDatasetsInterceptors() ?? []
+    )
+  }
+
+  internal func deleteDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func createAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_AdaptiveMtDataset {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func deleteAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func getAdaptiveMtDataset(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_AdaptiveMtDataset {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtDataset.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtDatasetInterceptors() ?? []
+    )
+  }
+
+  internal func listAdaptiveMtDatasets(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtDatasets.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtDatasetsInterceptors() ?? []
+    )
+  }
+
+  internal func adaptiveMtTranslate(
+    _ request: Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.adaptiveMtTranslate.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeAdaptiveMtTranslateInterceptors() ?? []
+    )
+  }
+
+  internal func getAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_AdaptiveMtFile {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func deleteAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> SwiftProtobuf.Google_Protobuf_Empty {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func importAdaptiveMtFile(
+    _ request: Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importAdaptiveMtFile.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportAdaptiveMtFileInterceptors() ?? []
+    )
+  }
+
+  internal func listAdaptiveMtFiles(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtFiles.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtFilesInterceptors() ?? []
+    )
+  }
+
+  internal func listAdaptiveMtSentences(
+    _ request: Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtSentences.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListAdaptiveMtSentencesInterceptors() ?? []
+    )
+  }
+
+  internal func importData(
+    _ request: Google_Cloud_Translation_V3_ImportDataRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeImportDataInterceptors() ?? []
+    )
+  }
+
+  internal func exportData(
+    _ request: Google_Cloud_Translation_V3_ExportDataRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.exportData.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeExportDataInterceptors() ?? []
+    )
+  }
+
+  internal func listExamples(
+    _ request: Google_Cloud_Translation_V3_ListExamplesRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListExamplesResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listExamples.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListExamplesInterceptors() ?? []
+    )
+  }
+
+  internal func createModel(
+    _ request: Google_Cloud_Translation_V3_CreateModelRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateModelInterceptors() ?? []
+    )
+  }
+
+  internal func listModels(
+    _ request: Google_Cloud_Translation_V3_ListModelsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_ListModelsResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listModels.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListModelsInterceptors() ?? []
+    )
+  }
+
+  internal func getModel(
+    _ request: Google_Cloud_Translation_V3_GetModelRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Cloud_Translation_V3_Model {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetModelInterceptors() ?? []
+    )
+  }
+
+  internal func deleteModel(
+    _ request: Google_Cloud_Translation_V3_DeleteModelRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteModel.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteModelInterceptors() ?? []
+    )
+  }
 }
 
 @available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
@@ -662,6 +2121,9 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientIntercepto
   /// - Returns: Interceptors to use when invoking 'translateText'.
   func makeTranslateTextInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_TranslateTextRequest, Google_Cloud_Translation_V3_TranslateTextResponse>]
 
+  /// - Returns: Interceptors to use when invoking 'romanizeText'.
+  func makeRomanizeTextInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_RomanizeTextRequest, Google_Cloud_Translation_V3_RomanizeTextResponse>]
+
   /// - Returns: Interceptors to use when invoking 'detectLanguage'.
   func makeDetectLanguageInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DetectLanguageRequest, Google_Cloud_Translation_V3_DetectLanguageResponse>]
 
@@ -680,6 +2142,9 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientIntercepto
   /// - Returns: Interceptors to use when invoking 'createGlossary'.
   func makeCreateGlossaryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_CreateGlossaryRequest, Google_Longrunning_Operation>]
 
+  /// - Returns: Interceptors to use when invoking 'updateGlossary'.
+  func makeUpdateGlossaryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_UpdateGlossaryRequest, Google_Longrunning_Operation>]
+
   /// - Returns: Interceptors to use when invoking 'listGlossaries'.
   func makeListGlossariesInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListGlossariesRequest, Google_Cloud_Translation_V3_ListGlossariesResponse>]
 
@@ -688,6 +2153,84 @@ internal protocol Google_Cloud_Translation_V3_TranslationServiceClientIntercepto
 
   /// - Returns: Interceptors to use when invoking 'deleteGlossary'.
   func makeDeleteGlossaryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteGlossaryRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'getGlossaryEntry'.
+  func makeGetGlossaryEntryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_GetGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>]
+
+  /// - Returns: Interceptors to use when invoking 'listGlossaryEntries'.
+  func makeListGlossaryEntriesInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListGlossaryEntriesRequest, Google_Cloud_Translation_V3_ListGlossaryEntriesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'createGlossaryEntry'.
+  func makeCreateGlossaryEntryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_CreateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>]
+
+  /// - Returns: Interceptors to use when invoking 'updateGlossaryEntry'.
+  func makeUpdateGlossaryEntryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_UpdateGlossaryEntryRequest, Google_Cloud_Translation_V3_GlossaryEntry>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteGlossaryEntry'.
+  func makeDeleteGlossaryEntryInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteGlossaryEntryRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'createDataset'.
+  func makeCreateDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_CreateDatasetRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'getDataset'.
+  func makeGetDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_GetDatasetRequest, Google_Cloud_Translation_V3_Dataset>]
+
+  /// - Returns: Interceptors to use when invoking 'listDatasets'.
+  func makeListDatasetsInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListDatasetsRequest, Google_Cloud_Translation_V3_ListDatasetsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteDataset'.
+  func makeDeleteDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteDatasetRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'createAdaptiveMtDataset'.
+  func makeCreateAdaptiveMtDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_CreateAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteAdaptiveMtDataset'.
+  func makeDeleteAdaptiveMtDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteAdaptiveMtDatasetRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'getAdaptiveMtDataset'.
+  func makeGetAdaptiveMtDatasetInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_GetAdaptiveMtDatasetRequest, Google_Cloud_Translation_V3_AdaptiveMtDataset>]
+
+  /// - Returns: Interceptors to use when invoking 'listAdaptiveMtDatasets'.
+  func makeListAdaptiveMtDatasetsInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsRequest, Google_Cloud_Translation_V3_ListAdaptiveMtDatasetsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'adaptiveMtTranslate'.
+  func makeAdaptiveMtTranslateInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_AdaptiveMtTranslateRequest, Google_Cloud_Translation_V3_AdaptiveMtTranslateResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getAdaptiveMtFile'.
+  func makeGetAdaptiveMtFileInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_GetAdaptiveMtFileRequest, Google_Cloud_Translation_V3_AdaptiveMtFile>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteAdaptiveMtFile'.
+  func makeDeleteAdaptiveMtFileInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteAdaptiveMtFileRequest, SwiftProtobuf.Google_Protobuf_Empty>]
+
+  /// - Returns: Interceptors to use when invoking 'importAdaptiveMtFile'.
+  func makeImportAdaptiveMtFileInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ImportAdaptiveMtFileRequest, Google_Cloud_Translation_V3_ImportAdaptiveMtFileResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listAdaptiveMtFiles'.
+  func makeListAdaptiveMtFilesInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListAdaptiveMtFilesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtFilesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'listAdaptiveMtSentences'.
+  func makeListAdaptiveMtSentencesInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListAdaptiveMtSentencesRequest, Google_Cloud_Translation_V3_ListAdaptiveMtSentencesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'importData'.
+  func makeImportDataInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ImportDataRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'exportData'.
+  func makeExportDataInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ExportDataRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'listExamples'.
+  func makeListExamplesInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListExamplesRequest, Google_Cloud_Translation_V3_ListExamplesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'createModel'.
+  func makeCreateModelInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_CreateModelRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'listModels'.
+  func makeListModelsInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_ListModelsRequest, Google_Cloud_Translation_V3_ListModelsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getModel'.
+  func makeGetModelInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_GetModelRequest, Google_Cloud_Translation_V3_Model>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteModel'.
+  func makeDeleteModelInterceptors() -> [ClientInterceptor<Google_Cloud_Translation_V3_DeleteModelRequest, Google_Longrunning_Operation>]
 }
 
 internal enum Google_Cloud_Translation_V3_TranslationServiceClientMetadata {
@@ -696,15 +2239,43 @@ internal enum Google_Cloud_Translation_V3_TranslationServiceClientMetadata {
     fullName: "google.cloud.translation.v3.TranslationService",
     methods: [
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.translateText,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.romanizeText,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.detectLanguage,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getSupportedLanguages,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.translateDocument,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.batchTranslateText,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.batchTranslateDocument,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createGlossary,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossary,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listGlossaries,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getGlossary,
       Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteGlossary,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getGlossaryEntry,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listGlossaryEntries,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createGlossaryEntry,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.updateGlossaryEntry,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteGlossaryEntry,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listDatasets,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createAdaptiveMtDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtDataset,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtDatasets,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.adaptiveMtTranslate,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getAdaptiveMtFile,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteAdaptiveMtFile,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importAdaptiveMtFile,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtFiles,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listAdaptiveMtSentences,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.importData,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.exportData,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listExamples,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.createModel,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.listModels,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.getModel,
+      Google_Cloud_Translation_V3_TranslationServiceClientMetadata.Methods.deleteModel,
     ]
   )
 
@@ -712,6 +2283,12 @@ internal enum Google_Cloud_Translation_V3_TranslationServiceClientMetadata {
     internal static let translateText = GRPCMethodDescriptor(
       name: "TranslateText",
       path: "/google.cloud.translation.v3.TranslationService/TranslateText",
+      type: GRPCCallType.unary
+    )
+
+    internal static let romanizeText = GRPCMethodDescriptor(
+      name: "RomanizeText",
+      path: "/google.cloud.translation.v3.TranslationService/RomanizeText",
       type: GRPCCallType.unary
     )
 
@@ -751,6 +2328,12 @@ internal enum Google_Cloud_Translation_V3_TranslationServiceClientMetadata {
       type: GRPCCallType.unary
     )
 
+    internal static let updateGlossary = GRPCMethodDescriptor(
+      name: "UpdateGlossary",
+      path: "/google.cloud.translation.v3.TranslationService/UpdateGlossary",
+      type: GRPCCallType.unary
+    )
+
     internal static let listGlossaries = GRPCMethodDescriptor(
       name: "ListGlossaries",
       path: "/google.cloud.translation.v3.TranslationService/ListGlossaries",
@@ -766,6 +2349,162 @@ internal enum Google_Cloud_Translation_V3_TranslationServiceClientMetadata {
     internal static let deleteGlossary = GRPCMethodDescriptor(
       name: "DeleteGlossary",
       path: "/google.cloud.translation.v3.TranslationService/DeleteGlossary",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getGlossaryEntry = GRPCMethodDescriptor(
+      name: "GetGlossaryEntry",
+      path: "/google.cloud.translation.v3.TranslationService/GetGlossaryEntry",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listGlossaryEntries = GRPCMethodDescriptor(
+      name: "ListGlossaryEntries",
+      path: "/google.cloud.translation.v3.TranslationService/ListGlossaryEntries",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createGlossaryEntry = GRPCMethodDescriptor(
+      name: "CreateGlossaryEntry",
+      path: "/google.cloud.translation.v3.TranslationService/CreateGlossaryEntry",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateGlossaryEntry = GRPCMethodDescriptor(
+      name: "UpdateGlossaryEntry",
+      path: "/google.cloud.translation.v3.TranslationService/UpdateGlossaryEntry",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteGlossaryEntry = GRPCMethodDescriptor(
+      name: "DeleteGlossaryEntry",
+      path: "/google.cloud.translation.v3.TranslationService/DeleteGlossaryEntry",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createDataset = GRPCMethodDescriptor(
+      name: "CreateDataset",
+      path: "/google.cloud.translation.v3.TranslationService/CreateDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getDataset = GRPCMethodDescriptor(
+      name: "GetDataset",
+      path: "/google.cloud.translation.v3.TranslationService/GetDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listDatasets = GRPCMethodDescriptor(
+      name: "ListDatasets",
+      path: "/google.cloud.translation.v3.TranslationService/ListDatasets",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteDataset = GRPCMethodDescriptor(
+      name: "DeleteDataset",
+      path: "/google.cloud.translation.v3.TranslationService/DeleteDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createAdaptiveMtDataset = GRPCMethodDescriptor(
+      name: "CreateAdaptiveMtDataset",
+      path: "/google.cloud.translation.v3.TranslationService/CreateAdaptiveMtDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteAdaptiveMtDataset = GRPCMethodDescriptor(
+      name: "DeleteAdaptiveMtDataset",
+      path: "/google.cloud.translation.v3.TranslationService/DeleteAdaptiveMtDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getAdaptiveMtDataset = GRPCMethodDescriptor(
+      name: "GetAdaptiveMtDataset",
+      path: "/google.cloud.translation.v3.TranslationService/GetAdaptiveMtDataset",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listAdaptiveMtDatasets = GRPCMethodDescriptor(
+      name: "ListAdaptiveMtDatasets",
+      path: "/google.cloud.translation.v3.TranslationService/ListAdaptiveMtDatasets",
+      type: GRPCCallType.unary
+    )
+
+    internal static let adaptiveMtTranslate = GRPCMethodDescriptor(
+      name: "AdaptiveMtTranslate",
+      path: "/google.cloud.translation.v3.TranslationService/AdaptiveMtTranslate",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getAdaptiveMtFile = GRPCMethodDescriptor(
+      name: "GetAdaptiveMtFile",
+      path: "/google.cloud.translation.v3.TranslationService/GetAdaptiveMtFile",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteAdaptiveMtFile = GRPCMethodDescriptor(
+      name: "DeleteAdaptiveMtFile",
+      path: "/google.cloud.translation.v3.TranslationService/DeleteAdaptiveMtFile",
+      type: GRPCCallType.unary
+    )
+
+    internal static let importAdaptiveMtFile = GRPCMethodDescriptor(
+      name: "ImportAdaptiveMtFile",
+      path: "/google.cloud.translation.v3.TranslationService/ImportAdaptiveMtFile",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listAdaptiveMtFiles = GRPCMethodDescriptor(
+      name: "ListAdaptiveMtFiles",
+      path: "/google.cloud.translation.v3.TranslationService/ListAdaptiveMtFiles",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listAdaptiveMtSentences = GRPCMethodDescriptor(
+      name: "ListAdaptiveMtSentences",
+      path: "/google.cloud.translation.v3.TranslationService/ListAdaptiveMtSentences",
+      type: GRPCCallType.unary
+    )
+
+    internal static let importData = GRPCMethodDescriptor(
+      name: "ImportData",
+      path: "/google.cloud.translation.v3.TranslationService/ImportData",
+      type: GRPCCallType.unary
+    )
+
+    internal static let exportData = GRPCMethodDescriptor(
+      name: "ExportData",
+      path: "/google.cloud.translation.v3.TranslationService/ExportData",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listExamples = GRPCMethodDescriptor(
+      name: "ListExamples",
+      path: "/google.cloud.translation.v3.TranslationService/ListExamples",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createModel = GRPCMethodDescriptor(
+      name: "CreateModel",
+      path: "/google.cloud.translation.v3.TranslationService/CreateModel",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listModels = GRPCMethodDescriptor(
+      name: "ListModels",
+      path: "/google.cloud.translation.v3.TranslationService/ListModels",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getModel = GRPCMethodDescriptor(
+      name: "GetModel",
+      path: "/google.cloud.translation.v3.TranslationService/GetModel",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteModel = GRPCMethodDescriptor(
+      name: "DeleteModel",
+      path: "/google.cloud.translation.v3.TranslationService/DeleteModel",
       type: GRPCCallType.unary
     )
   }

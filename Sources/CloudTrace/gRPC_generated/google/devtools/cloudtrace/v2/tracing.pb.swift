@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The request message for the `BatchWriteSpans` method.
-struct Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest {
+struct Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -45,17 +45,13 @@ struct Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest {
   var name: String = String()
 
   /// Required. A list of new spans. The span names must not match existing
-  /// spans, or the results are undefined.
+  /// spans, otherwise the results are undefined.
   var spans: [Google_Devtools_Cloudtrace_V2_Span] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Devtools_Cloudtrace_V2_BatchWriteSpansRequest: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

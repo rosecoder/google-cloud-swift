@@ -33,6 +33,26 @@ internal protocol Google_Pubsub_V1_SchemaServiceClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Pubsub_V1_ListSchemasRequest, Google_Pubsub_V1_ListSchemasResponse>
 
+  func listSchemaRevisions(
+    _ request: Google_Pubsub_V1_ListSchemaRevisionsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Pubsub_V1_ListSchemaRevisionsRequest, Google_Pubsub_V1_ListSchemaRevisionsResponse>
+
+  func commitSchema(
+    _ request: Google_Pubsub_V1_CommitSchemaRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Pubsub_V1_CommitSchemaRequest, Google_Pubsub_V1_Schema>
+
+  func rollbackSchema(
+    _ request: Google_Pubsub_V1_RollbackSchemaRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Pubsub_V1_RollbackSchemaRequest, Google_Pubsub_V1_Schema>
+
+  func deleteSchemaRevision(
+    _ request: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Pubsub_V1_DeleteSchemaRevisionRequest, Google_Pubsub_V1_Schema>
+
   func deleteSchema(
     _ request: Google_Pubsub_V1_DeleteSchemaRequest,
     callOptions: CallOptions?
@@ -105,6 +125,78 @@ extension Google_Pubsub_V1_SchemaServiceClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSchemasInterceptors() ?? []
+    )
+  }
+
+  /// Lists all schema revisions for the named schema.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListSchemaRevisions.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listSchemaRevisions(
+    _ request: Google_Pubsub_V1_ListSchemaRevisionsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Pubsub_V1_ListSchemaRevisionsRequest, Google_Pubsub_V1_ListSchemaRevisionsResponse> {
+    return self.makeUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.listSchemaRevisions.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListSchemaRevisionsInterceptors() ?? []
+    )
+  }
+
+  /// Commits a new schema revision to an existing schema.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CommitSchema.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func commitSchema(
+    _ request: Google_Pubsub_V1_CommitSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Pubsub_V1_CommitSchemaRequest, Google_Pubsub_V1_Schema> {
+    return self.makeUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.commitSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCommitSchemaInterceptors() ?? []
+    )
+  }
+
+  /// Creates a new schema revision that is a copy of the provided revision_id.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to RollbackSchema.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func rollbackSchema(
+    _ request: Google_Pubsub_V1_RollbackSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Pubsub_V1_RollbackSchemaRequest, Google_Pubsub_V1_Schema> {
+    return self.makeUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.rollbackSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRollbackSchemaInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a specific schema revision.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteSchemaRevision.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteSchemaRevision(
+    _ request: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Pubsub_V1_DeleteSchemaRevisionRequest, Google_Pubsub_V1_Schema> {
+    return self.makeUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.deleteSchemaRevision.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteSchemaRevisionInterceptors() ?? []
     )
   }
 
@@ -241,6 +333,26 @@ internal protocol Google_Pubsub_V1_SchemaServiceAsyncClientProtocol: GRPCClient 
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListSchemasRequest, Google_Pubsub_V1_ListSchemasResponse>
 
+  func makeListSchemaRevisionsCall(
+    _ request: Google_Pubsub_V1_ListSchemaRevisionsRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListSchemaRevisionsRequest, Google_Pubsub_V1_ListSchemaRevisionsResponse>
+
+  func makeCommitSchemaCall(
+    _ request: Google_Pubsub_V1_CommitSchemaRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_CommitSchemaRequest, Google_Pubsub_V1_Schema>
+
+  func makeRollbackSchemaCall(
+    _ request: Google_Pubsub_V1_RollbackSchemaRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_RollbackSchemaRequest, Google_Pubsub_V1_Schema>
+
+  func makeDeleteSchemaRevisionCall(
+    _ request: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DeleteSchemaRevisionRequest, Google_Pubsub_V1_Schema>
+
   func makeDeleteSchemaCall(
     _ request: Google_Pubsub_V1_DeleteSchemaRequest,
     callOptions: CallOptions?
@@ -300,6 +412,54 @@ extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeListSchemasInterceptors() ?? []
+    )
+  }
+
+  internal func makeListSchemaRevisionsCall(
+    _ request: Google_Pubsub_V1_ListSchemaRevisionsRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_ListSchemaRevisionsRequest, Google_Pubsub_V1_ListSchemaRevisionsResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.listSchemaRevisions.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListSchemaRevisionsInterceptors() ?? []
+    )
+  }
+
+  internal func makeCommitSchemaCall(
+    _ request: Google_Pubsub_V1_CommitSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_CommitSchemaRequest, Google_Pubsub_V1_Schema> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.commitSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCommitSchemaInterceptors() ?? []
+    )
+  }
+
+  internal func makeRollbackSchemaCall(
+    _ request: Google_Pubsub_V1_RollbackSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_RollbackSchemaRequest, Google_Pubsub_V1_Schema> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.rollbackSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRollbackSchemaInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteSchemaRevisionCall(
+    _ request: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Pubsub_V1_DeleteSchemaRevisionRequest, Google_Pubsub_V1_Schema> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.deleteSchemaRevision.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteSchemaRevisionInterceptors() ?? []
     )
   }
 
@@ -378,6 +538,54 @@ extension Google_Pubsub_V1_SchemaServiceAsyncClientProtocol {
     )
   }
 
+  internal func listSchemaRevisions(
+    _ request: Google_Pubsub_V1_ListSchemaRevisionsRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Pubsub_V1_ListSchemaRevisionsResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.listSchemaRevisions.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListSchemaRevisionsInterceptors() ?? []
+    )
+  }
+
+  internal func commitSchema(
+    _ request: Google_Pubsub_V1_CommitSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Pubsub_V1_Schema {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.commitSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCommitSchemaInterceptors() ?? []
+    )
+  }
+
+  internal func rollbackSchema(
+    _ request: Google_Pubsub_V1_RollbackSchemaRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Pubsub_V1_Schema {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.rollbackSchema.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeRollbackSchemaInterceptors() ?? []
+    )
+  }
+
+  internal func deleteSchemaRevision(
+    _ request: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Pubsub_V1_Schema {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.deleteSchemaRevision.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteSchemaRevisionInterceptors() ?? []
+    )
+  }
+
   internal func deleteSchema(
     _ request: Google_Pubsub_V1_DeleteSchemaRequest,
     callOptions: CallOptions? = nil
@@ -443,6 +651,18 @@ internal protocol Google_Pubsub_V1_SchemaServiceClientInterceptorFactoryProtocol
   /// - Returns: Interceptors to use when invoking 'listSchemas'.
   func makeListSchemasInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSchemasRequest, Google_Pubsub_V1_ListSchemasResponse>]
 
+  /// - Returns: Interceptors to use when invoking 'listSchemaRevisions'.
+  func makeListSchemaRevisionsInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_ListSchemaRevisionsRequest, Google_Pubsub_V1_ListSchemaRevisionsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'commitSchema'.
+  func makeCommitSchemaInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_CommitSchemaRequest, Google_Pubsub_V1_Schema>]
+
+  /// - Returns: Interceptors to use when invoking 'rollbackSchema'.
+  func makeRollbackSchemaInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_RollbackSchemaRequest, Google_Pubsub_V1_Schema>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteSchemaRevision'.
+  func makeDeleteSchemaRevisionInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSchemaRevisionRequest, Google_Pubsub_V1_Schema>]
+
   /// - Returns: Interceptors to use when invoking 'deleteSchema'.
   func makeDeleteSchemaInterceptors() -> [ClientInterceptor<Google_Pubsub_V1_DeleteSchemaRequest, SwiftProtobuf.Google_Protobuf_Empty>]
 
@@ -461,6 +681,10 @@ internal enum Google_Pubsub_V1_SchemaServiceClientMetadata {
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.createSchema,
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.getSchema,
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.listSchemas,
+      Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.listSchemaRevisions,
+      Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.commitSchema,
+      Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.rollbackSchema,
+      Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.deleteSchemaRevision,
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.deleteSchema,
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.validateSchema,
       Google_Pubsub_V1_SchemaServiceClientMetadata.Methods.validateMessage,
@@ -483,6 +707,30 @@ internal enum Google_Pubsub_V1_SchemaServiceClientMetadata {
     internal static let listSchemas = GRPCMethodDescriptor(
       name: "ListSchemas",
       path: "/google.pubsub.v1.SchemaService/ListSchemas",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listSchemaRevisions = GRPCMethodDescriptor(
+      name: "ListSchemaRevisions",
+      path: "/google.pubsub.v1.SchemaService/ListSchemaRevisions",
+      type: GRPCCallType.unary
+    )
+
+    internal static let commitSchema = GRPCMethodDescriptor(
+      name: "CommitSchema",
+      path: "/google.pubsub.v1.SchemaService/CommitSchema",
+      type: GRPCCallType.unary
+    )
+
+    internal static let rollbackSchema = GRPCMethodDescriptor(
+      name: "RollbackSchema",
+      path: "/google.pubsub.v1.SchemaService/RollbackSchema",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteSchemaRevision = GRPCMethodDescriptor(
+      name: "DeleteSchemaRevision",
+      path: "/google.pubsub.v1.SchemaService/DeleteSchemaRevision",
       type: GRPCCallType.unary
     )
 

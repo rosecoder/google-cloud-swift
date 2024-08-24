@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// A common proto for logging HTTP requests. Only contains semantics
 /// defined by the HTTP specification. Product-specific logging
 /// information MUST be defined in a separate message.
-struct Google_Logging_Type_HttpRequest {
+struct Google_Logging_Type_HttpRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -79,7 +79,7 @@ struct Google_Logging_Type_HttpRequest {
 
   /// The referer URL of the request, as defined in
   /// [HTTP/1.1 Header Field
-  /// Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+  /// Definitions](https://datatracker.ietf.org/doc/html/rfc2616#section-14.36).
   var referer: String = String()
 
   /// The request processing latency on the server, from the time the request was
@@ -118,10 +118,6 @@ struct Google_Logging_Type_HttpRequest {
 
   fileprivate var _latency: SwiftProtobuf.Google_Protobuf_Duration? = nil
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_Type_HttpRequest: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

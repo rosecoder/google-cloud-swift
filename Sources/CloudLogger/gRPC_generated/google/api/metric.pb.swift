@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2015 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,7 +37,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Defines a metric type and its schema. Once a metric descriptor is created,
 /// deleting or altering it stops data collection and makes the metric type's
 /// existing data unusable.
-struct Google_Api_MetricDescriptor {
+struct Google_Api_MetricDescriptor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -199,9 +199,10 @@ struct Google_Api_MetricDescriptor {
 
   /// Read-only. If present, then a [time
   /// series][google.monitoring.v3.TimeSeries], which is identified partially by
-  /// a metric type and a [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor], that is associated
-  /// with this metric type can only be associated with one of the monitored
-  /// resource types listed here.
+  /// a metric type and a
+  /// [MonitoredResourceDescriptor][google.api.MonitoredResourceDescriptor], that
+  /// is associated with this metric type can only be associated with one of the
+  /// monitored resource types listed here.
   var monitoredResourceTypes: [String] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -209,7 +210,7 @@ struct Google_Api_MetricDescriptor {
   /// The kind of measurement. It describes how the data is reported.
   /// For information on setting the start time and end time based on
   /// the MetricKind, see [TimeInterval][google.monitoring.v3.TimeInterval].
-  enum MetricKind: SwiftProtobuf.Enum {
+  enum MetricKind: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Do not use this default value.
@@ -253,10 +254,18 @@ struct Google_Api_MetricDescriptor {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Api_MetricDescriptor.MetricKind] = [
+      .unspecified,
+      .gauge,
+      .delta,
+      .cumulative,
+    ]
+
   }
 
   /// The value type of a metric.
-  enum ValueType: SwiftProtobuf.Enum {
+  enum ValueType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// Do not use this default value.
@@ -313,15 +322,30 @@ struct Google_Api_MetricDescriptor {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Api_MetricDescriptor.ValueType] = [
+      .unspecified,
+      .bool,
+      .int64,
+      .double,
+      .string,
+      .distribution,
+      .money,
+    ]
+
   }
 
   /// Additional annotations that can be used to guide the usage of a metric.
-  struct MetricDescriptorMetadata {
+  struct MetricDescriptorMetadata: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    /// Deprecated. Must use the [MetricDescriptor.launch_stage][google.api.MetricDescriptor.launch_stage] instead.
+    /// Deprecated. Must use the
+    /// [MetricDescriptor.launch_stage][google.api.MetricDescriptor.launch_stage]
+    /// instead.
+    ///
+    /// NOTE: This field was marked as deprecated in the .proto file.
     var launchStage: Google_Api_LaunchStage = .unspecified
 
     /// The sampling period of metric data points. For metrics which are written
@@ -362,42 +386,16 @@ struct Google_Api_MetricDescriptor {
   fileprivate var _metadata: Google_Api_MetricDescriptor.MetricDescriptorMetadata? = nil
 }
 
-#if swift(>=4.2)
-
-extension Google_Api_MetricDescriptor.MetricKind: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Api_MetricDescriptor.MetricKind] = [
-    .unspecified,
-    .gauge,
-    .delta,
-    .cumulative,
-  ]
-}
-
-extension Google_Api_MetricDescriptor.ValueType: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Api_MetricDescriptor.ValueType] = [
-    .unspecified,
-    .bool,
-    .int64,
-    .double,
-    .string,
-    .distribution,
-    .money,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
 /// A specific metric, identified by specifying values for all of the
 /// labels of a [`MetricDescriptor`][google.api.MetricDescriptor].
-struct Google_Api_Metric {
+struct Google_Api_Metric: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// An existing metric type, see [google.api.MetricDescriptor][google.api.MetricDescriptor].
-  /// For example, `custom.googleapis.com/invoice/paid/amount`.
+  /// An existing metric type, see
+  /// [google.api.MetricDescriptor][google.api.MetricDescriptor]. For example,
+  /// `custom.googleapis.com/invoice/paid/amount`.
   var type: String = String()
 
   /// The set of label values that uniquely identify this metric. All
@@ -408,14 +406,6 @@ struct Google_Api_Metric {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Api_MetricDescriptor: @unchecked Sendable {}
-extension Google_Api_MetricDescriptor.MetricKind: @unchecked Sendable {}
-extension Google_Api_MetricDescriptor.ValueType: @unchecked Sendable {}
-extension Google_Api_MetricDescriptor.MetricDescriptorMetadata: @unchecked Sendable {}
-extension Google_Api_Metric: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

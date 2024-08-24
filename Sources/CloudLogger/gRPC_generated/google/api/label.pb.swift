@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2015 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// A description of a label.
-struct Google_Api_LabelDescriptor {
+struct Google_Api_LabelDescriptor: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -52,7 +52,7 @@ struct Google_Api_LabelDescriptor {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Value types that can be used as label values.
-  enum ValueType: SwiftProtobuf.Enum {
+  enum ValueType: SwiftProtobuf.Enum, Swift.CaseIterable {
     typealias RawValue = Int
 
     /// A variable-length string. This is the default.
@@ -87,28 +87,17 @@ struct Google_Api_LabelDescriptor {
       }
     }
 
+    // The compiler won't synthesize support with the UNRECOGNIZED case.
+    static let allCases: [Google_Api_LabelDescriptor.ValueType] = [
+      .string,
+      .bool,
+      .int64,
+    ]
+
   }
 
   init() {}
 }
-
-#if swift(>=4.2)
-
-extension Google_Api_LabelDescriptor.ValueType: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Api_LabelDescriptor.ValueType] = [
-    .string,
-    .bool,
-    .int64,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Api_LabelDescriptor: @unchecked Sendable {}
-extension Google_Api_LabelDescriptor.ValueType: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

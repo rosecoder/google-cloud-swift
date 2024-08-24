@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2015 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Although it is not forbidden, it is generally a bad idea to include
 /// non-finite values (infinities or NaNs) in the population of values, as this
 /// will render the `mean` and `sum_of_squared_deviation` fields meaningless.
-struct Google_Api_Distribution {
+struct Google_Api_Distribution: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -118,7 +118,7 @@ struct Google_Api_Distribution {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The range of the population values.
-  struct Range {
+  struct Range: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -149,7 +149,7 @@ struct Google_Api_Distribution {
   /// of finite values: lower bound of the underflow bucket is -infinity and the
   /// upper bound of the overflow bucket is +infinity. The finite buckets are
   /// so-called because both bounds are finite.
-  struct BucketOptions {
+  struct BucketOptions: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -187,7 +187,7 @@ struct Google_Api_Distribution {
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// Exactly one of these three fields must be set.
-    enum OneOf_Options: Equatable {
+    enum OneOf_Options: Equatable, Sendable {
       /// The linear bucket.
       case linearBuckets(Google_Api_Distribution.BucketOptions.Linear)
       /// The exponential buckets.
@@ -195,28 +195,6 @@ struct Google_Api_Distribution {
       /// The explicit buckets.
       case explicitBuckets(Google_Api_Distribution.BucketOptions.Explicit)
 
-    #if !swift(>=4.1)
-      static func ==(lhs: Google_Api_Distribution.BucketOptions.OneOf_Options, rhs: Google_Api_Distribution.BucketOptions.OneOf_Options) -> Bool {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch (lhs, rhs) {
-        case (.linearBuckets, .linearBuckets): return {
-          guard case .linearBuckets(let l) = lhs, case .linearBuckets(let r) = rhs else { preconditionFailure() }
-          return l == r
-        }()
-        case (.exponentialBuckets, .exponentialBuckets): return {
-          guard case .exponentialBuckets(let l) = lhs, case .exponentialBuckets(let r) = rhs else { preconditionFailure() }
-          return l == r
-        }()
-        case (.explicitBuckets, .explicitBuckets): return {
-          guard case .explicitBuckets(let l) = lhs, case .explicitBuckets(let r) = rhs else { preconditionFailure() }
-          return l == r
-        }()
-        default: return false
-        }
-      }
-    #endif
     }
 
     /// Specifies a linear sequence of buckets that all have the same width
@@ -227,8 +205,9 @@ struct Google_Api_Distribution {
     /// following boundaries:
     ///
     ///    Upper bound (0 <= i < N-1):     offset + (width * i).
+    ///
     ///    Lower bound (1 <= i < N):       offset + (width * (i - 1)).
-    struct Linear {
+    struct Linear: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -255,8 +234,9 @@ struct Google_Api_Distribution {
     /// following boundaries:
     ///
     ///    Upper bound (0 <= i < N-1):     scale * (growth_factor ^ i).
+    ///
     ///    Lower bound (1 <= i < N):       scale * (growth_factor ^ (i - 1)).
-    struct Exponential {
+    struct Exponential: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -286,7 +266,7 @@ struct Google_Api_Distribution {
     /// The `bounds` field must contain at least one element. If `bounds` has
     /// only one element, then there are no finite buckets, and that single
     /// element is the common boundary of the overflow and underflow buckets.
-    struct Explicit {
+    struct Explicit: Sendable {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
@@ -307,7 +287,7 @@ struct Google_Api_Distribution {
   /// particular value added to a Distribution bucket, such as a trace ID that
   /// was active when a value was added. They may contain further information,
   /// such as a example values and timestamps, origin, etc.
-  struct Exemplar {
+  struct Exemplar: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -352,17 +332,6 @@ struct Google_Api_Distribution {
   fileprivate var _bucketOptions: Google_Api_Distribution.BucketOptions? = nil
 }
 
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Api_Distribution: @unchecked Sendable {}
-extension Google_Api_Distribution.Range: @unchecked Sendable {}
-extension Google_Api_Distribution.BucketOptions: @unchecked Sendable {}
-extension Google_Api_Distribution.BucketOptions.OneOf_Options: @unchecked Sendable {}
-extension Google_Api_Distribution.BucketOptions.Linear: @unchecked Sendable {}
-extension Google_Api_Distribution.BucketOptions.Exponential: @unchecked Sendable {}
-extension Google_Api_Distribution.BucketOptions.Explicit: @unchecked Sendable {}
-extension Google_Api_Distribution.Exemplar: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
-
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "google.api"
@@ -405,10 +374,10 @@ extension Google_Api_Distribution: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.count != 0 {
       try visitor.visitSingularInt64Field(value: self.count, fieldNumber: 1)
     }
-    if self.mean != 0 {
+    if self.mean.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.mean, fieldNumber: 2)
     }
-    if self.sumOfSquaredDeviation != 0 {
+    if self.sumOfSquaredDeviation.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.sumOfSquaredDeviation, fieldNumber: 3)
     }
     try { if let v = self._range {
@@ -460,10 +429,10 @@ extension Google_Api_Distribution.Range: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.min != 0 {
+    if self.min.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.min, fieldNumber: 1)
     }
-    if self.max != 0 {
+    if self.max.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.max, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -591,10 +560,10 @@ extension Google_Api_Distribution.BucketOptions.Linear: SwiftProtobuf.Message, S
     if self.numFiniteBuckets != 0 {
       try visitor.visitSingularInt32Field(value: self.numFiniteBuckets, fieldNumber: 1)
     }
-    if self.width != 0 {
+    if self.width.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.width, fieldNumber: 2)
     }
-    if self.offset != 0 {
+    if self.offset.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.offset, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -635,10 +604,10 @@ extension Google_Api_Distribution.BucketOptions.Exponential: SwiftProtobuf.Messa
     if self.numFiniteBuckets != 0 {
       try visitor.visitSingularInt32Field(value: self.numFiniteBuckets, fieldNumber: 1)
     }
-    if self.growthFactor != 0 {
+    if self.growthFactor.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.growthFactor, fieldNumber: 2)
     }
-    if self.scale != 0 {
+    if self.scale.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.scale, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -712,7 +681,7 @@ extension Google_Api_Distribution.Exemplar: SwiftProtobuf.Message, SwiftProtobuf
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
     // https://github.com/apple/swift-protobuf/issues/1182
-    if self.value != 0 {
+    if self.value.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
     try { if let v = self._timestamp {

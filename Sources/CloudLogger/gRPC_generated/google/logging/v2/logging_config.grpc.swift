@@ -28,6 +28,16 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>
 
+  func createBucketAsync(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Longrunning_Operation>
+
+  func updateBucketAsync(
+    _ request: Google_Logging_V2_UpdateBucketRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Longrunning_Operation>
+
   func createBucket(
     _ request: Google_Logging_V2_CreateBucketRequest,
     callOptions: CallOptions?
@@ -97,6 +107,26 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientProtocol: GRPCClient {
     _ request: Google_Logging_V2_DeleteSinkRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func createLink(
+    _ request: Google_Logging_V2_CreateLinkRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_CreateLinkRequest, Google_Longrunning_Operation>
+
+  func deleteLink(
+    _ request: Google_Logging_V2_DeleteLinkRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_DeleteLinkRequest, Google_Longrunning_Operation>
+
+  func listLinks(
+    _ request: Google_Logging_V2_ListLinksRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_ListLinksRequest, Google_Logging_V2_ListLinksResponse>
+
+  func getLink(
+    _ request: Google_Logging_V2_GetLinkRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Google_Logging_V2_GetLinkRequest, Google_Logging_V2_Link>
 
   func listExclusions(
     _ request: Google_Logging_V2_ListExclusionsRequest,
@@ -190,6 +220,49 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
+  /// Creates a log bucket asynchronously that can be used to store log entries.
+  ///
+  /// After a bucket has been created, the bucket's location cannot be changed.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateBucketAsync.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createBucketAsync(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketAsyncInterceptors() ?? []
+    )
+  }
+
+  /// Updates a log bucket asynchronously.
+  ///
+  /// If the bucket has a `lifecycle_state` of `DELETE_REQUESTED`, then
+  /// `FAILED_PRECONDITION` will be returned.
+  ///
+  /// After a bucket has been created, the bucket's location cannot be changed.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to UpdateBucketAsync.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func updateBucketAsync(
+    _ request: Google_Logging_V2_UpdateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateBucketAsyncInterceptors() ?? []
+    )
+  }
+
   /// Creates a log bucket that can be used to store log entries. After a bucket
   /// has been created, the bucket's location cannot be changed.
   ///
@@ -209,11 +282,7 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
     )
   }
 
-  /// Updates a log bucket. This method replaces the following fields in the
-  /// existing bucket with values from the new bucket: `retention_period`
-  ///
-  /// If the retention period is decreased and the bucket is locked,
-  /// `FAILED_PRECONDITION` will be returned.
+  /// Updates a log bucket.
   ///
   /// If the bucket has a `lifecycle_state` of `DELETE_REQUESTED`, then
   /// `FAILED_PRECONDITION` will be returned.
@@ -470,6 +539,81 @@ extension Google_Logging_V2_ConfigServiceV2ClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeDeleteSinkInterceptors() ?? []
+    )
+  }
+
+  /// Asynchronously creates a linked dataset in BigQuery which makes it possible
+  /// to use BigQuery to read the logs stored in the log bucket. A log bucket may
+  /// currently only contain one link.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreateLink.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createLink(
+    _ request: Google_Logging_V2_CreateLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_CreateLinkRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateLinkInterceptors() ?? []
+    )
+  }
+
+  /// Deletes a link. This will also delete the corresponding BigQuery linked
+  /// dataset.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DeleteLink.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func deleteLink(
+    _ request: Google_Logging_V2_DeleteLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_DeleteLinkRequest, Google_Longrunning_Operation> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteLinkInterceptors() ?? []
+    )
+  }
+
+  /// Lists links.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ListLinks.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func listLinks(
+    _ request: Google_Logging_V2_ListLinksRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_ListLinksRequest, Google_Logging_V2_ListLinksResponse> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listLinks.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListLinksInterceptors() ?? []
+    )
+  }
+
+  /// Gets a link.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetLink.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getLink(
+    _ request: Google_Logging_V2_GetLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Google_Logging_V2_GetLinkRequest, Google_Logging_V2_Link> {
+    return self.makeUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetLinkInterceptors() ?? []
     )
   }
 
@@ -777,6 +921,16 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>
 
+  func makeCreateBucketAsyncCall(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Longrunning_Operation>
+
+  func makeUpdateBucketAsyncCall(
+    _ request: Google_Logging_V2_UpdateBucketRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Longrunning_Operation>
+
   func makeCreateBucketCall(
     _ request: Google_Logging_V2_CreateBucketRequest,
     callOptions: CallOptions?
@@ -846,6 +1000,26 @@ internal protocol Google_Logging_V2_ConfigServiceV2AsyncClientProtocol: GRPCClie
     _ request: Google_Logging_V2_DeleteSinkRequest,
     callOptions: CallOptions?
   ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty>
+
+  func makeCreateLinkCall(
+    _ request: Google_Logging_V2_CreateLinkRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateLinkRequest, Google_Longrunning_Operation>
+
+  func makeDeleteLinkCall(
+    _ request: Google_Logging_V2_DeleteLinkRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteLinkRequest, Google_Longrunning_Operation>
+
+  func makeListLinksCall(
+    _ request: Google_Logging_V2_ListLinksRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLinksRequest, Google_Logging_V2_ListLinksResponse>
+
+  func makeGetLinkCall(
+    _ request: Google_Logging_V2_GetLinkRequest,
+    callOptions: CallOptions?
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetLinkRequest, Google_Logging_V2_Link>
 
   func makeListExclusionsCall(
     _ request: Google_Logging_V2_ListExclusionsRequest,
@@ -929,6 +1103,30 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetBucketInterceptors() ?? []
+    )
+  }
+
+  internal func makeCreateBucketAsyncCall(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateBucketRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketAsyncInterceptors() ?? []
+    )
+  }
+
+  internal func makeUpdateBucketAsyncCall(
+    _ request: Google_Logging_V2_UpdateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_UpdateBucketRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateBucketAsyncInterceptors() ?? []
     )
   }
 
@@ -1100,6 +1298,54 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     )
   }
 
+  internal func makeCreateLinkCall(
+    _ request: Google_Logging_V2_CreateLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_CreateLinkRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateLinkInterceptors() ?? []
+    )
+  }
+
+  internal func makeDeleteLinkCall(
+    _ request: Google_Logging_V2_DeleteLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_DeleteLinkRequest, Google_Longrunning_Operation> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteLinkInterceptors() ?? []
+    )
+  }
+
+  internal func makeListLinksCall(
+    _ request: Google_Logging_V2_ListLinksRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_ListLinksRequest, Google_Logging_V2_ListLinksResponse> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listLinks.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListLinksInterceptors() ?? []
+    )
+  }
+
+  internal func makeGetLinkCall(
+    _ request: Google_Logging_V2_GetLinkRequest,
+    callOptions: CallOptions? = nil
+  ) -> GRPCAsyncUnaryCall<Google_Logging_V2_GetLinkRequest, Google_Logging_V2_Link> {
+    return self.makeAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetLinkInterceptors() ?? []
+    )
+  }
+
   internal func makeListExclusionsCall(
     _ request: Google_Logging_V2_ListExclusionsRequest,
     callOptions: CallOptions? = nil
@@ -1244,6 +1490,30 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeGetBucketInterceptors() ?? []
+    )
+  }
+
+  internal func createBucketAsync(
+    _ request: Google_Logging_V2_CreateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateBucketAsyncInterceptors() ?? []
+    )
+  }
+
+  internal func updateBucketAsync(
+    _ request: Google_Logging_V2_UpdateBucketRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucketAsync.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeUpdateBucketAsyncInterceptors() ?? []
     )
   }
 
@@ -1415,6 +1685,54 @@ extension Google_Logging_V2_ConfigServiceV2AsyncClientProtocol {
     )
   }
 
+  internal func createLink(
+    _ request: Google_Logging_V2_CreateLinkRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreateLinkInterceptors() ?? []
+    )
+  }
+
+  internal func deleteLink(
+    _ request: Google_Logging_V2_DeleteLinkRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Longrunning_Operation {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDeleteLinkInterceptors() ?? []
+    )
+  }
+
+  internal func listLinks(
+    _ request: Google_Logging_V2_ListLinksRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_ListLinksResponse {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listLinks.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeListLinksInterceptors() ?? []
+    )
+  }
+
+  internal func getLink(
+    _ request: Google_Logging_V2_GetLinkRequest,
+    callOptions: CallOptions? = nil
+  ) async throws -> Google_Logging_V2_Link {
+    return try await self.performAsyncUnaryCall(
+      path: Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getLink.path,
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetLinkInterceptors() ?? []
+    )
+  }
+
   internal func listExclusions(
     _ request: Google_Logging_V2_ListExclusionsRequest,
     callOptions: CallOptions? = nil
@@ -1561,6 +1879,12 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProto
   /// - Returns: Interceptors to use when invoking 'getBucket'.
   func makeGetBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetBucketRequest, Google_Logging_V2_LogBucket>]
 
+  /// - Returns: Interceptors to use when invoking 'createBucketAsync'.
+  func makeCreateBucketAsyncInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateBucketRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'updateBucketAsync'.
+  func makeUpdateBucketAsyncInterceptors() -> [ClientInterceptor<Google_Logging_V2_UpdateBucketRequest, Google_Longrunning_Operation>]
+
   /// - Returns: Interceptors to use when invoking 'createBucket'.
   func makeCreateBucketInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateBucketRequest, Google_Logging_V2_LogBucket>]
 
@@ -1603,6 +1927,18 @@ internal protocol Google_Logging_V2_ConfigServiceV2ClientInterceptorFactoryProto
   /// - Returns: Interceptors to use when invoking 'deleteSink'.
   func makeDeleteSinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteSinkRequest, SwiftProtobuf.Google_Protobuf_Empty>]
 
+  /// - Returns: Interceptors to use when invoking 'createLink'.
+  func makeCreateLinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_CreateLinkRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'deleteLink'.
+  func makeDeleteLinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_DeleteLinkRequest, Google_Longrunning_Operation>]
+
+  /// - Returns: Interceptors to use when invoking 'listLinks'.
+  func makeListLinksInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListLinksRequest, Google_Logging_V2_ListLinksResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getLink'.
+  func makeGetLinkInterceptors() -> [ClientInterceptor<Google_Logging_V2_GetLinkRequest, Google_Logging_V2_Link>]
+
   /// - Returns: Interceptors to use when invoking 'listExclusions'.
   func makeListExclusionsInterceptors() -> [ClientInterceptor<Google_Logging_V2_ListExclusionsRequest, Google_Logging_V2_ListExclusionsResponse>]
 
@@ -1641,6 +1977,8 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
     methods: [
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listBuckets,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getBucket,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucketAsync,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucketAsync,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createBucket,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateBucket,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteBucket,
@@ -1655,6 +1993,10 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createSink,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.updateSink,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteSink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createLink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.deleteLink,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listLinks,
+      Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getLink,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.listExclusions,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.getExclusion,
       Google_Logging_V2_ConfigServiceV2ClientMetadata.Methods.createExclusion,
@@ -1678,6 +2020,18 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
     internal static let getBucket = GRPCMethodDescriptor(
       name: "GetBucket",
       path: "/google.logging.v2.ConfigServiceV2/GetBucket",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createBucketAsync = GRPCMethodDescriptor(
+      name: "CreateBucketAsync",
+      path: "/google.logging.v2.ConfigServiceV2/CreateBucketAsync",
+      type: GRPCCallType.unary
+    )
+
+    internal static let updateBucketAsync = GRPCMethodDescriptor(
+      name: "UpdateBucketAsync",
+      path: "/google.logging.v2.ConfigServiceV2/UpdateBucketAsync",
       type: GRPCCallType.unary
     )
 
@@ -1762,6 +2116,30 @@ internal enum Google_Logging_V2_ConfigServiceV2ClientMetadata {
     internal static let deleteSink = GRPCMethodDescriptor(
       name: "DeleteSink",
       path: "/google.logging.v2.ConfigServiceV2/DeleteSink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let createLink = GRPCMethodDescriptor(
+      name: "CreateLink",
+      path: "/google.logging.v2.ConfigServiceV2/CreateLink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let deleteLink = GRPCMethodDescriptor(
+      name: "DeleteLink",
+      path: "/google.logging.v2.ConfigServiceV2/DeleteLink",
+      type: GRPCCallType.unary
+    )
+
+    internal static let listLinks = GRPCMethodDescriptor(
+      name: "ListLinks",
+      path: "/google.logging.v2.ConfigServiceV2/ListLinks",
+      type: GRPCCallType.unary
+    )
+
+    internal static let getLink = GRPCMethodDescriptor(
+      name: "GetLink",
+      path: "/google.logging.v2.ConfigServiceV2/GetLink",
       type: GRPCCallType.unary
     )
 

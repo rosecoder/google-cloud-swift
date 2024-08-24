@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// This resource represents a long-running operation that is the result of a
 /// network API call.
-struct Google_Longrunning_Operation {
+struct Google_Longrunning_Operation: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -99,7 +99,7 @@ struct Google_Longrunning_Operation {
   /// The operation result, which can be either an `error` or a valid `response`.
   /// If `done` == `false`, neither `error` nor `response` is set.
   /// If `done` == `true`, exactly one of `error` or `response` is set.
-  enum OneOf_Result: Equatable {
+  enum OneOf_Result: Equatable, Sendable {
     /// The error result of the operation in case of failure or cancellation.
     case error(Google_Rpc_Status)
     /// The normal response of the operation in case of success.  If the original
@@ -112,24 +112,6 @@ struct Google_Longrunning_Operation {
     /// `TakeSnapshotResponse`.
     case response(SwiftProtobuf.Google_Protobuf_Any)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Google_Longrunning_Operation.OneOf_Result, rhs: Google_Longrunning_Operation.OneOf_Result) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.error, .error): return {
-        guard case .error(let l) = lhs, case .error(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.response, .response): return {
-        guard case .response(let l) = lhs, case .response(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
-    }
-  #endif
   }
 
   init() {}
@@ -138,7 +120,7 @@ struct Google_Longrunning_Operation {
 }
 
 /// The request message for [Operations.GetOperation][google.longrunning.Operations.GetOperation].
-struct Google_Longrunning_GetOperationRequest {
+struct Google_Longrunning_GetOperationRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -152,7 +134,7 @@ struct Google_Longrunning_GetOperationRequest {
 }
 
 /// The request message for [Operations.ListOperations][google.longrunning.Operations.ListOperations].
-struct Google_Longrunning_ListOperationsRequest {
+struct Google_Longrunning_ListOperationsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -175,7 +157,7 @@ struct Google_Longrunning_ListOperationsRequest {
 }
 
 /// The response message for [Operations.ListOperations][google.longrunning.Operations.ListOperations].
-struct Google_Longrunning_ListOperationsResponse {
+struct Google_Longrunning_ListOperationsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -192,7 +174,7 @@ struct Google_Longrunning_ListOperationsResponse {
 }
 
 /// The request message for [Operations.CancelOperation][google.longrunning.Operations.CancelOperation].
-struct Google_Longrunning_CancelOperationRequest {
+struct Google_Longrunning_CancelOperationRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -206,7 +188,7 @@ struct Google_Longrunning_CancelOperationRequest {
 }
 
 /// The request message for [Operations.DeleteOperation][google.longrunning.Operations.DeleteOperation].
-struct Google_Longrunning_DeleteOperationRequest {
+struct Google_Longrunning_DeleteOperationRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -220,7 +202,7 @@ struct Google_Longrunning_DeleteOperationRequest {
 }
 
 /// The request message for [Operations.WaitOperation][google.longrunning.Operations.WaitOperation].
-struct Google_Longrunning_WaitOperationRequest {
+struct Google_Longrunning_WaitOperationRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -258,7 +240,7 @@ struct Google_Longrunning_WaitOperationRequest {
 ///       metadata_type: "LongRunningRecognizeMetadata"
 ///     };
 ///   }
-struct Google_Longrunning_OperationInfo {
+struct Google_Longrunning_OperationInfo: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -287,23 +269,11 @@ struct Google_Longrunning_OperationInfo {
   init() {}
 }
 
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Longrunning_Operation: @unchecked Sendable {}
-extension Google_Longrunning_Operation.OneOf_Result: @unchecked Sendable {}
-extension Google_Longrunning_GetOperationRequest: @unchecked Sendable {}
-extension Google_Longrunning_ListOperationsRequest: @unchecked Sendable {}
-extension Google_Longrunning_ListOperationsResponse: @unchecked Sendable {}
-extension Google_Longrunning_CancelOperationRequest: @unchecked Sendable {}
-extension Google_Longrunning_DeleteOperationRequest: @unchecked Sendable {}
-extension Google_Longrunning_WaitOperationRequest: @unchecked Sendable {}
-extension Google_Longrunning_OperationInfo: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
-
 // MARK: - Extension support defined in operations.proto.
 
 // MARK: - Extension Properties
 
-// Swift Extensions on the exteneded Messages to add easy access to the declared
+// Swift Extensions on the extended Messages to add easy access to the declared
 // extension fields. The names are based on the extension field name from the proto
 // declaration. To avoid naming collisions, the names are prefixed with the name of
 // the scope where the extend directive occurs.

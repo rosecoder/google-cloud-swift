@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2015 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,8 +35,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The launch stage as defined by [Google Cloud Platform
-/// Launch Stages](http://cloud.google.com/terms/launch-stages).
-enum Google_Api_LaunchStage: SwiftProtobuf.Enum {
+/// Launch Stages](https://cloud.google.com/terms/launch-stages).
+enum Google_Api_LaunchStage: SwiftProtobuf.Enum, Swift.CaseIterable {
   typealias RawValue = Int
 
   /// Do not use this default value.
@@ -59,7 +59,7 @@ enum Google_Api_LaunchStage: SwiftProtobuf.Enum {
   /// for widespread use. By Alpha, all significant design issues are resolved
   /// and we are in the process of verifying functionality. Alpha customers
   /// need to apply for access, agree to applicable terms, and have their
-  /// projects allowlisted. Alpha releases don’t have to be feature complete,
+  /// projects allowlisted. Alpha releases don't have to be feature complete,
   /// no SLAs are provided, and there are no technical support obligations, but
   /// they will be far enough along that customers can actually use them in
   /// test environments or for limited-use tests -- just like they would in
@@ -78,7 +78,7 @@ enum Google_Api_LaunchStage: SwiftProtobuf.Enum {
   case ga // = 4
 
   /// Deprecated features are scheduled to be shut down and removed. For more
-  /// information, see the “Deprecation Policy” section of our [Terms of
+  /// information, see the "Deprecation Policy" section of our [Terms of
   /// Service](https://cloud.google.com/terms/)
   /// and the [Google Cloud Platform Subject to the Deprecation
   /// Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -117,11 +117,6 @@ enum Google_Api_LaunchStage: SwiftProtobuf.Enum {
     }
   }
 
-}
-
-#if swift(>=4.2)
-
-extension Google_Api_LaunchStage: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
   static let allCases: [Google_Api_LaunchStage] = [
     .unspecified,
@@ -133,13 +128,8 @@ extension Google_Api_LaunchStage: CaseIterable {
     .ga,
     .deprecated,
   ]
+
 }
-
-#endif  // swift(>=4.2)
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Api_LaunchStage: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

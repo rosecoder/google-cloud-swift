@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2022 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The parameters to DeleteLog.
-struct Google_Logging_V2_DeleteLogRequest {
+struct Google_Logging_V2_DeleteLogRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -61,7 +61,7 @@ struct Google_Logging_V2_DeleteLogRequest {
 }
 
 /// The parameters to WriteLogEntries.
-struct Google_Logging_V2_WriteLogEntriesRequest {
+struct Google_Logging_V2_WriteLogEntriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -134,11 +134,13 @@ struct Google_Logging_V2_WriteLogEntriesRequest {
   /// list, rather than calling this method for each individual log entry.
   var entries: [Google_Logging_V2_LogEntry] = []
 
-  /// Optional. Whether valid entries should be written even if some other
-  /// entries fail due to INVALID_ARGUMENT or PERMISSION_DENIED errors. If any
-  /// entry is not written, then the response status is the error associated
-  /// with one of the failed entries and the response includes error details
-  /// keyed by the entries' zero-based index in the `entries.write` method.
+  /// Optional. Whether a batch's valid entries should be written even if some
+  /// other entry failed due to a permanent error such as INVALID_ARGUMENT or
+  /// PERMISSION_DENIED. If any entry failed, then the response status is the
+  /// response status of one of the failed entries. The response will include
+  /// error details in `WriteLogEntriesPartialErrors.log_entry_errors` keyed by
+  /// the entries' zero-based index in the `entries`. Failed requests for which
+  /// no entries are written will not include per-entry errors.
   var partialSuccess: Bool = false
 
   /// Optional. If true, the request should expect normal response, but the
@@ -154,7 +156,7 @@ struct Google_Logging_V2_WriteLogEntriesRequest {
 }
 
 /// Result returned from WriteLogEntries.
-struct Google_Logging_V2_WriteLogEntriesResponse {
+struct Google_Logging_V2_WriteLogEntriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -165,7 +167,7 @@ struct Google_Logging_V2_WriteLogEntriesResponse {
 }
 
 /// Error details for WriteLogEntries with partial success.
-struct Google_Logging_V2_WriteLogEntriesPartialErrors {
+struct Google_Logging_V2_WriteLogEntriesPartialErrors: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -184,7 +186,7 @@ struct Google_Logging_V2_WriteLogEntriesPartialErrors {
 }
 
 /// The parameters to `ListLogEntries`.
-struct Google_Logging_V2_ListLogEntriesRequest {
+struct Google_Logging_V2_ListLogEntriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -205,15 +207,14 @@ struct Google_Logging_V2_ListLogEntriesRequest {
   ///  * `folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
   ///
   /// Projects listed in the `project_ids` field are added to this list.
+  /// A maximum of 100 resources may be specified in a single request.
   var resourceNames: [String] = []
 
-  /// Optional. A filter that chooses which log entries to return.  See [Advanced
-  /// Logs Queries](https://cloud.google.com/logging/docs/view/advanced-queries).
-  /// Only log entries that match the filter are returned.  An empty filter
-  /// matches all log entries in the resources listed in `resource_names`.
+  /// Optional. Only log entries that match the filter are returned.  An empty
+  /// filter matches all log entries in the resources listed in `resource_names`.
   /// Referencing a parent resource that is not listed in `resource_names` will
-  /// cause the filter to return no results. The maximum length of the filter is
-  /// 20000 characters.
+  /// cause the filter to return no results. The maximum length of a filter is
+  /// 20,000 characters.
   var filter: String = String()
 
   /// Optional. How the results should be sorted.  Presently, the only permitted
@@ -224,10 +225,10 @@ struct Google_Logging_V2_ListLogEntriesRequest {
   /// timestamps are returned in order of their `insert_id` values.
   var orderBy: String = String()
 
-  /// Optional. The maximum number of results to return from this request. Default is 50.
-  /// If the value is negative or exceeds 1000, the request is rejected. The
-  /// presence of `next_page_token` in the response indicates that more results
-  /// might be available.
+  /// Optional. The maximum number of results to return from this request.
+  /// Default is 50. If the value is negative or exceeds 1000, the request is
+  /// rejected. The presence of `next_page_token` in the response indicates that
+  /// more results might be available.
   var pageSize: Int32 = 0
 
   /// Optional. If present, then retrieve the next batch of results from the
@@ -242,7 +243,7 @@ struct Google_Logging_V2_ListLogEntriesRequest {
 }
 
 /// Result returned from `ListLogEntries`.
-struct Google_Logging_V2_ListLogEntriesResponse {
+struct Google_Logging_V2_ListLogEntriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -270,7 +271,7 @@ struct Google_Logging_V2_ListLogEntriesResponse {
 }
 
 /// The parameters to ListMonitoredResourceDescriptors
-struct Google_Logging_V2_ListMonitoredResourceDescriptorsRequest {
+struct Google_Logging_V2_ListMonitoredResourceDescriptorsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -292,7 +293,7 @@ struct Google_Logging_V2_ListMonitoredResourceDescriptorsRequest {
 }
 
 /// Result returned from ListMonitoredResourceDescriptors.
-struct Google_Logging_V2_ListMonitoredResourceDescriptorsResponse {
+struct Google_Logging_V2_ListMonitoredResourceDescriptorsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -311,12 +312,12 @@ struct Google_Logging_V2_ListMonitoredResourceDescriptorsResponse {
 }
 
 /// The parameters to ListLogs.
-struct Google_Logging_V2_ListLogsRequest {
+struct Google_Logging_V2_ListLogsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// Required. The resource name that owns the logs:
+  /// Required. The resource name to list logs for:
   ///
   /// *  `projects/[PROJECT_ID]`
   /// *  `organizations/[ORGANIZATION_ID]`
@@ -324,18 +325,7 @@ struct Google_Logging_V2_ListLogsRequest {
   /// *  `folders/[FOLDER_ID]`
   var parent: String = String()
 
-  /// Optional. The maximum number of results to return from this request.
-  /// Non-positive values are ignored.  The presence of `nextPageToken` in the
-  /// response indicates that more results might be available.
-  var pageSize: Int32 = 0
-
-  /// Optional. If present, then retrieve the next batch of results from the
-  /// preceding call to this method.  `pageToken` must be the value of
-  /// `nextPageToken` from the previous response.  The values of other method
-  /// parameters should be identical to those in the previous call.
-  var pageToken: String = String()
-
-  /// Optional. The resource name that owns the logs:
+  /// Optional. List of resource names to list logs for:
   ///
   ///  * `projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
   ///  * `organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
@@ -348,7 +338,20 @@ struct Google_Logging_V2_ListLogsRequest {
   /// *  `organizations/[ORGANIZATION_ID]`
   /// *  `billingAccounts/[BILLING_ACCOUNT_ID]`
   /// *  `folders/[FOLDER_ID]`
+  ///
+  /// The resource name in the `parent` field is added to this list.
   var resourceNames: [String] = []
+
+  /// Optional. The maximum number of results to return from this request.
+  /// Non-positive values are ignored.  The presence of `nextPageToken` in the
+  /// response indicates that more results might be available.
+  var pageSize: Int32 = 0
+
+  /// Optional. If present, then retrieve the next batch of results from the
+  /// preceding call to this method.  `pageToken` must be the value of
+  /// `nextPageToken` from the previous response.  The values of other method
+  /// parameters should be identical to those in the previous call.
+  var pageToken: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -356,7 +359,7 @@ struct Google_Logging_V2_ListLogsRequest {
 }
 
 /// Result returned from ListLogs.
-struct Google_Logging_V2_ListLogsResponse {
+struct Google_Logging_V2_ListLogsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -377,7 +380,7 @@ struct Google_Logging_V2_ListLogsResponse {
 }
 
 /// The parameters to `TailLogEntries`.
-struct Google_Logging_V2_TailLogEntriesRequest {
+struct Google_Logging_V2_TailLogEntriesRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -397,13 +400,11 @@ struct Google_Logging_V2_TailLogEntriesRequest {
   ///  * `folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]`
   var resourceNames: [String] = []
 
-  /// Optional. A filter that chooses which log entries to return.  See [Advanced
-  /// Logs Filters](https://cloud.google.com/logging/docs/view/advanced_filters).
-  /// Only log entries that match the filter are returned.  An empty filter
-  /// matches all log entries in the resources listed in `resource_names`.
-  /// Referencing a parent resource that is not in `resource_names` will cause
-  /// the filter to return no results. The maximum length of the filter is 20000
-  /// characters.
+  /// Optional. Only log entries that match the filter are returned.  An empty
+  /// filter matches all log entries in the resources listed in `resource_names`.
+  /// Referencing a parent resource that is not listed in `resource_names` will
+  /// cause the filter to return no results. The maximum length of a filter is
+  /// 20,000 characters.
   var filter: String = String()
 
   /// Optional. The amount of time to buffer log entries at the server before
@@ -427,7 +428,7 @@ struct Google_Logging_V2_TailLogEntriesRequest {
 }
 
 /// Result returned from `TailLogEntries`.
-struct Google_Logging_V2_TailLogEntriesResponse {
+struct Google_Logging_V2_TailLogEntriesResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -447,7 +448,7 @@ struct Google_Logging_V2_TailLogEntriesResponse {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Information about entries that were omitted from the session.
-  struct SuppressionInfo {
+  struct SuppressionInfo: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -461,7 +462,7 @@ struct Google_Logging_V2_TailLogEntriesResponse {
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// An indicator of why entries were omitted.
-    enum Reason: SwiftProtobuf.Enum {
+    enum Reason: SwiftProtobuf.Enum, Swift.CaseIterable {
       typealias RawValue = Int
 
       /// Unexpected default.
@@ -500,6 +501,13 @@ struct Google_Logging_V2_TailLogEntriesResponse {
         }
       }
 
+      // The compiler won't synthesize support with the UNRECOGNIZED case.
+      static let allCases: [Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason] = [
+        .unspecified,
+        .rateLimit,
+        .notConsumed,
+      ]
+
     }
 
     init() {}
@@ -507,36 +515,6 @@ struct Google_Logging_V2_TailLogEntriesResponse {
 
   init() {}
 }
-
-#if swift(>=4.2)
-
-extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static let allCases: [Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason] = [
-    .unspecified,
-    .rateLimit,
-    .notConsumed,
-  ]
-}
-
-#endif  // swift(>=4.2)
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Logging_V2_DeleteLogRequest: @unchecked Sendable {}
-extension Google_Logging_V2_WriteLogEntriesRequest: @unchecked Sendable {}
-extension Google_Logging_V2_WriteLogEntriesResponse: @unchecked Sendable {}
-extension Google_Logging_V2_WriteLogEntriesPartialErrors: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogEntriesRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogEntriesResponse: @unchecked Sendable {}
-extension Google_Logging_V2_ListMonitoredResourceDescriptorsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListMonitoredResourceDescriptorsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogsRequest: @unchecked Sendable {}
-extension Google_Logging_V2_ListLogsResponse: @unchecked Sendable {}
-extension Google_Logging_V2_TailLogEntriesRequest: @unchecked Sendable {}
-extension Google_Logging_V2_TailLogEntriesResponse: @unchecked Sendable {}
-extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo: @unchecked Sendable {}
-extension Google_Logging_V2_TailLogEntriesResponse.SuppressionInfo.Reason: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -645,8 +623,8 @@ extension Google_Logging_V2_WriteLogEntriesResponse: SwiftProtobuf.Message, Swif
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
-    }
+    // Load everything into unknown fields
+    while try decoder.nextFieldNumber() != nil {}
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -865,9 +843,9 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
   static let protoMessageName: String = _protobuf_package + ".ListLogsRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "parent"),
+    8: .standard(proto: "resource_names"),
     2: .standard(proto: "page_size"),
     3: .standard(proto: "page_token"),
-    8: .standard(proto: "resource_names"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -903,9 +881,9 @@ extension Google_Logging_V2_ListLogsRequest: SwiftProtobuf.Message, SwiftProtobu
 
   static func ==(lhs: Google_Logging_V2_ListLogsRequest, rhs: Google_Logging_V2_ListLogsRequest) -> Bool {
     if lhs.parent != rhs.parent {return false}
+    if lhs.resourceNames != rhs.resourceNames {return false}
     if lhs.pageSize != rhs.pageSize {return false}
     if lhs.pageToken != rhs.pageToken {return false}
-    if lhs.resourceNames != rhs.resourceNames {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

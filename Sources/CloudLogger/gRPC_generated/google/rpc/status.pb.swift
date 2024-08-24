@@ -7,7 +7,7 @@
 // For information on using the generated types, please see the documentation:
 //   https://github.com/apple/swift-protobuf/
 
-// Copyright 2020 Google LLC
+// Copyright 2024 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -41,17 +41,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// You can find out more about this error model and how to work with it in the
 /// [API Design Guide](https://cloud.google.com/apis/design/errors).
-struct Google_Rpc_Status {
+struct Google_Rpc_Status: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  /// The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+  /// The status code, which should be an enum value of
+  /// [google.rpc.Code][google.rpc.Code].
   var code: Int32 = 0
 
   /// A developer-facing error message, which should be in English. Any
   /// user-facing error message should be localized and sent in the
-  /// [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+  /// [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+  /// by the client.
   var message: String = String()
 
   /// A list of messages that carry the error details.  There is a common set of
@@ -62,10 +64,6 @@ struct Google_Rpc_Status {
 
   init() {}
 }
-
-#if swift(>=5.5) && canImport(_Concurrency)
-extension Google_Rpc_Status: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
