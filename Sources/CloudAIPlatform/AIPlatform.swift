@@ -30,9 +30,10 @@ public actor AIPlatform: Dependency {
 #else
         try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
 #endif
+        let locationID = await Environment.current.locationID
         let channel = ClientConnection
             .usingTLSBackedByNIOSSL(on: eventLoopGroup)
-            .connect(host: "asia-northeast3-aiplatform.googleapis.com", port: 443)
+            .connect(host: locationID + "-aiplatform.googleapis.com", port: 443)
 
         self._client = .init(channel: channel)
         try await authorization?.warmup()
