@@ -97,7 +97,7 @@ public enum Environment: Sendable {
         switch self {
 #if DEBUG
         case .localDevelopment:
-            return "dev"
+            return ProcessInfo.processInfo.environment["GCP_LOCATION"] ?? "dev"
 #endif
         default:
             break
