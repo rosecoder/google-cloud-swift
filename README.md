@@ -38,7 +38,7 @@ Client for [Google Cloud Trace](https://cloud.google.com/trace).
 | Same process property      | ✅          |
 | Status reporting           | ✅          |
 | Stack trace                | ❌          |
-| Time events                | ❌          |
+| Time events                | ✅          |
 | Links                      | ✅          |
 | Child span counting        | ❌          |
 | Span kind                  | ✅          |

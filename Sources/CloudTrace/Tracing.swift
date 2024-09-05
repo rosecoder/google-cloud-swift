@@ -138,8 +138,10 @@ public actor Tracing: Dependency {
                 $0.value = span.sameProcessAsParent
             }
             $0.links = encode(links: span.links, environment: environment)
+            $0.timeEvents = .with {
+                $0.timeEvent = span.timeEvents.map { encode(timeEvent: $0, environment: environment) }
+            }
 //            $0.stackTrace
-//            $0.timeEvents
 //            $0.childSpanCount
             $0.spanKind = encode(kind: span.kind)
         }
@@ -202,6 +204,21 @@ public actor Tracing: Dependency {
             })
         }
         return encoded
+    }
+
+    private func encode(timeEvent: Span.TimeEvent, environment: Environment) -> Google_Devtools_Cloudtrace_V2_Span.TimeEvent {
+        return .with {
+            $0.time = .init(date: timeEvent.date)
+            switch timeEvent.content {
+            case .annotation(let annotation):
+                $0.value = .annotation(.with {
+                    $0.description_p = .with {
+                        $0.value = annotation.description
+                    }
+                    $0.attributes = encode(attributes: annotation.attributes, environment: environment)
+                })
+            }
+        }
     }
 
     private func encode(kind: Span.Kind) -> Google_Devtools_Cloudtrace_V2_Span.SpanKind {

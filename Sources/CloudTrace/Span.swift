@@ -27,6 +27,8 @@ public struct Span: Sendable, Equatable, Codable {
 
     public var links: [Span.Link]
 
+    public var timeEvents: [Span.TimeEvent]
+
     init(
         traceID: Trace.Identifier,
         parentID: Identifier?,
@@ -35,7 +37,8 @@ public struct Span: Sendable, Equatable, Codable {
         kind: Kind,
         name: String,
         attributes: [String: AttributableValue],
-        links: [Link] = []
+        links: [Link] = [],
+        timeEvents: [TimeEvent] = []
     ) {
         self.traceID = traceID
         self.parentID = parentID
@@ -46,6 +49,7 @@ public struct Span: Sendable, Equatable, Codable {
         self.attributes = attributes
         self.started = Date()
         self.links = links
+        self.timeEvents = timeEvents
     }
 
     // MARK: - Starting
@@ -131,6 +135,7 @@ public struct Span: Sendable, Equatable, Codable {
         case ended
         case status
         case links
+        case timeEvents 
         case kind
     }
 
@@ -159,6 +164,7 @@ public struct Span: Sendable, Equatable, Codable {
         try container.encode(ended, forKey: .ended)
         try container.encode(status, forKey: .status)
         try container.encode(links, forKey: .links)
+        try container.encode(timeEvents, forKey: .timeEvents)
         try container.encode(kind, forKey: .kind)
 
         var attributesContainer = container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
@@ -178,6 +184,7 @@ public struct Span: Sendable, Equatable, Codable {
         self.ended = try container.decodeIfPresent(Date.self, forKey: .ended)
         self.status = try container.decodeIfPresent(Status.self, forKey: .status)
         self.links = try container.decodeIfPresent([Link].self, forKey: .links) ?? []
+        self.timeEvents = try container.decodeIfPresent([TimeEvent].self, forKey: .timeEvents) ?? []
         self.kind = try container.decodeIfPresent(Kind.self, forKey: .kind) ?? .internal
 
         let attributesContainer = try container.nestedContainer(keyedBy: GenericStringKey.self, forKey: .attributes)
