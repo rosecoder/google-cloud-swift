@@ -146,6 +146,8 @@ let package = Package(
         .target(name: "CloudTranslation", dependencies: [
             "CloudCore",
             "CloudTrace",
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudTranslationTests", dependencies: ["CloudTranslation"]),
     ]

@@ -4,7 +4,7 @@ import CloudCore
 
 extension Translation {
 
-    public enum MimeType {
+    public enum MimeType: Sendable {
         case plainText
         case html
 
@@ -18,7 +18,7 @@ extension Translation {
         }
     }
 
-    public struct TranslationResult {
+    public struct TranslationResult: Sendable {
 
         public let translatedText: String
         public let sourceLanguageCode: String
