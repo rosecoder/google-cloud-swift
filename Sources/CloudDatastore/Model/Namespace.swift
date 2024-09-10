@@ -1,4 +1,4 @@
-public struct Namespace: RawRepresentable, Equatable, Hashable, Codable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Namespace: Sendable, RawRepresentable, Equatable, Hashable, Codable, CustomStringConvertible, CustomDebugStringConvertible {
 
     public typealias RawValue = String
 

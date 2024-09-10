@@ -14,7 +14,7 @@ public protocol _CodableKey: Codable {
 /// - `IndependentNamespaceableKey`: Key with no parent and in specifyed namespace.
 /// - `ParentableKey`: Key with parent, but only in default namespace.
 /// - `ParentableNamespaceableKey`: Key with  parent and in specifyed namespace.
-public protocol AnyKey: _CodableKey, Hashable, CustomDebugStringConvertible, QueryFilterValueKey {
+public protocol AnyKey: Sendable, _CodableKey, Hashable, CustomDebugStringConvertible, QueryFilterValueKey {
 
     associatedtype Parent
 

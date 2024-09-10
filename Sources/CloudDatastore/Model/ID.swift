@@ -2,7 +2,7 @@ import Foundation
 
 /// Identifier for `AnyKey`.
 /// Can be an auto-allocated number ID, a named string ID or incomplete, future to be number ID.
-public enum ID: Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible, Codable {
+public enum ID: Sendable, Hashable, Equatable, CustomStringConvertible, CustomDebugStringConvertible, Codable {
 
     /// Auto-allocated ID of a entity.
     /// Never equal to zero. Values less than zero are discouraged and may not be supported in the future.

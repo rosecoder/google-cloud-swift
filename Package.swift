@@ -77,6 +77,8 @@ let package = Package(
             "CloudCore",
             "CloudTrace",
             .product(name: "GRPC", package: "grpc-swift"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudDatastoreTests", dependencies: ["CloudDatastore"]),
 

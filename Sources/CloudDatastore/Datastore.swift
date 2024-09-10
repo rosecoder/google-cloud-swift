@@ -6,8 +6,8 @@ import CloudTrace
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).
-private var emulatorStartTask: Task<UnsafeSendableProcess, Error>?
-private var emulatorTeardownTimer: Timer?
+private nonisolated(unsafe) var emulatorStartTask: Task<UnsafeSendableProcess, Error>?
+private nonisolated(unsafe) var emulatorTeardownTimer: Timer?
 
 struct UnsafeSendableProcess: @unchecked Sendable {
 

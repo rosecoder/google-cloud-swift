@@ -1,6 +1,6 @@
 public typealias _Entity = Entity
 
-public protocol Entity: Codable, QueryFilterValue {
+public protocol Entity: Sendable, Codable, QueryFilterValue {
     
     associatedtype Key
     associatedtype CodingKeys
