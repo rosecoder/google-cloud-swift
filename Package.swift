@@ -129,6 +129,8 @@ let package = Package(
             "CloudTrace",
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
             .product(name: "Crypto", package: "swift-crypto"),
+        ], swiftSettings: [
+            .enableExperimentalFeature("StrictConcurrency"),
         ]),
         .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
 

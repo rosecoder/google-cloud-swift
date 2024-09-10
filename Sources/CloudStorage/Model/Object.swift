@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Object {
+public struct Object: Sendable {
 
     public let path: String
 
