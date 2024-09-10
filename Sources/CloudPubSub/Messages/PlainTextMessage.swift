@@ -7,6 +7,8 @@ public struct PlainTextMessage: Message {
     public typealias Outgoing = OutgoingPlainTextMessage
 }
 
+extension PlainTextMessage: Sendable {}
+
 // MARK: - Outgoing
 
 public struct OutgoingPlainTextMessage: OutgoingMessage {
@@ -25,6 +27,8 @@ public struct OutgoingPlainTextMessage: OutgoingMessage {
         self.attributes = attributes
     }
 }
+
+extension OutgoingPlainTextMessage: Sendable {}
 
 extension Publisher {
 
@@ -79,6 +83,8 @@ public struct IncomingPlainTextMessage: IncomingMessage {
         self.body = text
     }
 }
+
+extension IncomingPlainTextMessage: Sendable {}
 
 #if DEBUG
 extension IncomingPlainTextMessage {

@@ -7,6 +7,8 @@ public struct DataMessage: Message {
     public typealias Outgoing = OutgoingDataMessage
 }
 
+extension DataMessage: Sendable {}
+
 // MARK: - Outgoing
 
 public struct OutgoingDataMessage: OutgoingMessage {
@@ -19,6 +21,8 @@ public struct OutgoingDataMessage: OutgoingMessage {
         self.attributes = attributes
     }
 }
+
+extension OutgoingDataMessage: Sendable {}
 
 extension Publisher {
 
@@ -67,6 +71,8 @@ public struct IncomingDataMessage: IncomingMessage {
         self.body = data
     }
 }
+
+extension IncomingDataMessage: Sendable {}
 
 #if DEBUG
 extension IncomingDataMessage {

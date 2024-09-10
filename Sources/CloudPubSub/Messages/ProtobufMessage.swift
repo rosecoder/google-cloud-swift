@@ -8,6 +8,8 @@ public struct ProtobufMessage<Element: SwiftProtobuf.Message>: Message {
     public typealias Outgoing = OutgoingProtobufMessage<Element>
 }
 
+extension ProtobufMessage: Sendable {}
+
 // MARK: - Outgoing
 
 public struct OutgoingProtobufMessage<Element: SwiftProtobuf.Message>: OutgoingMessage {
@@ -20,6 +22,8 @@ public struct OutgoingProtobufMessage<Element: SwiftProtobuf.Message>: OutgoingM
         self.attributes = attributes
     }
 }
+
+extension OutgoingProtobufMessage: Sendable {}
 
 extension Publisher {
 
@@ -68,6 +72,8 @@ public struct IncomingProtobufMessage<Element: SwiftProtobuf.Message>: IncomingM
         self.attributes = attributes
     }
 }
+
+extension IncomingProtobufMessage: Sendable {}
 
 #if DEBUG
 extension IncomingProtobufMessage {

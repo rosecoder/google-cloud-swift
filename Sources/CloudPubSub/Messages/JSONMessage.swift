@@ -7,6 +7,8 @@ public struct JSONMessage<Element: Codable>: Message {
     public typealias Outgoing = OutgoingJSONMessage<Element>
 }
 
+extension JSONMessage: Sendable {}
+
 // MARK: - Outgoing
 
 public struct OutgoingJSONMessage<Element: Encodable>: OutgoingMessage {
@@ -19,6 +21,8 @@ public struct OutgoingJSONMessage<Element: Encodable>: OutgoingMessage {
         self.attributes = attributes
     }
 }
+
+extension OutgoingJSONMessage: Sendable {}
 
 extension Publisher {
 
@@ -67,6 +71,8 @@ public struct IncomingJSONMessage<Element: Decodable>: IncomingMessage {
         self.attributes = attributes
     }
 }
+
+extension IncomingJSONMessage: Sendable where Element: Sendable {}
 
 #if DEBUG
 extension IncomingJSONMessage where Element: Encodable {
