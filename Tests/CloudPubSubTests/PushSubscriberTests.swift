@@ -7,12 +7,9 @@ private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
 private struct CallbackHandler: Handler {
 
-    static let subscription = Subscription(name: "test", topic: Topics.test)
+    let subscription = Subscription(name: "test", topic: Topics.test)
 
-    let context: Context
-    let message: PlainTextMessage.Incoming
-
-    func handle() async throws {
+    func handle(message: Incoming, context: any Context) async throws {
         try await callback?(message)
     }
 }
@@ -63,7 +60,8 @@ final class PushSubscriberTests: XCTestCase {
         }
 
         // Recive message
-        try await PushSubscriber.register(handler: CallbackHandler.self)
+        let handler = CallbackHandler()
+        try await PushSubscriber.register(handler: handler)
 
         // Publish message
         let publishedMessage = FakePushMessage(
@@ -73,7 +71,7 @@ final class PushSubscriberTests: XCTestCase {
                 publishTime: Date(),
                 attributes: [:]
             ),
-            subscription: CallbackHandler.subscription.id
+            subscription: handler.subscription.id
         )
         do {
             let encoder = JSONEncoder()

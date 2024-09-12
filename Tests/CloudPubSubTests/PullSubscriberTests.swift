@@ -7,12 +7,9 @@ private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
 private struct CallbackHandler: Handler {
 
-    static let subscription = Subscription(name: "test", topic: Topics.test)
+    let subscription = Subscription(name: "test", topic: Topics.test)
 
-    let context: Context
-    let message: PlainTextMessage.Incoming
-
-    func handle() async throws {
+    func handle(message: Incoming, context: any Context) async throws {
         try await callback?(message)
     }
 }
@@ -41,7 +38,7 @@ final class PullSubscriberTestCase: XCTestCase {
         }
 
         // Recive message
-        try await PullSubscriber.startPull(handler: CallbackHandler.self)
+        try await PullSubscriber.startPull(handler: CallbackHandler())
 
         // Publish message
         let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)

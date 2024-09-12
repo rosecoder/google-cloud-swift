@@ -4,18 +4,14 @@ import Logging
 
 public typealias _Handler = Handler
 
-public protocol Handler {
+public protocol Handler: Sendable {
 
     associatedtype Message: _Message
+    typealias Incoming = Message.Incoming
 
-    static var subscription: Subscription<Message> { get }
+    var subscription: Subscription<Message> { get }
 
-    var context: Context { get }
-    var message: Message.Incoming { get }
-
-    init(context: Context, message: Message.Incoming)
-
-    mutating func handle() async throws
+    func handle(message: Incoming, context: Context) async throws
 }
 
 struct HandlerContext: Context {

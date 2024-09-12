@@ -72,13 +72,13 @@ public actor PushSubscriber: Subscriber, Dependency {
 
     private static var handlings = [String: (Incoming, inout Context) async -> Response]()
 
-    public static func register<Handler>(handler handlerType: Handler.Type) async throws
+    public static func register<Handler>(handler: Handler) async throws
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
         if isDebugUsingPull {
-            try await PullSubscriber.startPull(handler: handlerType)
+            try await PullSubscriber.startPull(handler: handler)
             return
         }
 #endif
@@ -87,11 +87,11 @@ public actor PushSubscriber: Subscriber, Dependency {
             try await shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
         }
 
-        handlings[handlerType.subscription.id] = {
-            await self.handle(incoming: $0, handlerType: handlerType, context: &$1)
+        handlings[handler.subscription.id] = {
+            await self.handle(incoming: $0, handler: handler, context: &$1)
         }
 
-        logger.debug("Subscribed to \(handlerType.subscription.name)")
+        logger.debug("Subscribed to \(handler.subscription.name)")
     }
 
     @Sendable private static func handle(incoming: Incoming, trace: Trace?) async -> Response {
@@ -105,7 +105,7 @@ public actor PushSubscriber: Subscriber, Dependency {
         return await handling(incoming, &context)
     }
 
-    private static func handle<Handler>(incoming: Incoming, handlerType: Handler.Type, context: inout Context) async -> Response
+    private static func handle<Handler>(incoming: Incoming, handler: Handler, context: inout Context) async -> Response
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
@@ -131,12 +131,9 @@ public actor PushSubscriber: Subscriber, Dependency {
 
         context.logger.debug("Handling incoming message. Running handler...")
 
-        var handler = handlerType.init(context: context, message: message)
         do {
-            try await handler.handle()
-            context = handler.context
+            try await handler.handle(message: message, context: context)
         } catch {
-            context = handler.context
             handleFailure(error: error, context: &context)
             return .failure
         }

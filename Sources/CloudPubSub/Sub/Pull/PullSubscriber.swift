@@ -74,30 +74,30 @@ public actor PullSubscriber: Subscriber, Dependency {
         }
     }
 
-    public static func startPull<Handler>(handler handlerType: Handler.Type) async throws
+    public static func startPull<Handler>(handler: Handler) async throws
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
 #if DEBUG
-        try await handlerType.subscription.createIfNeeded(creation: {
+        try await handler.subscription.createIfNeeded(creation: {
             try await shared.client(context: nil).createSubscription($0, callOptions: $1)
         }, logger: logger)
 #endif
 
-        continuesPull(handlerType: handlerType)
+        continuesPull(handler: handler)
 
-        logger.debug("Subscribed to \(handlerType.subscription.name)")
+        logger.debug("Subscribed to \(handler.subscription.name)")
     }
 
-    private static func continuesPull<Handler>(handlerType: Handler.Type, retryCount: UInt64 = 0)
+    private static func continuesPull<Handler>(handler: Handler, retryCount: UInt64 = 0)
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
         Task {
-            await shared.runPull(hashValue: handlerType.subscription.name.hashValue) {
+            await shared.runPull(hashValue: handler.subscription.name.hashValue) {
                 while !Task.isCancelled {
                     do {
-                        try await singlePull(handlerType: handlerType)
+                        try await singlePull(handler: handler)
                     } catch {
                         try Task.checkCancellation()
 
@@ -122,13 +122,13 @@ public actor PullSubscriber: Subscriber, Dependency {
                         }
                         delay *= (retryCount + 1)
 
-                        log("Pull failed for \(handlerType.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
+                        log("Pull failed for \(handler.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
 
                         try await Task.sleep(nanoseconds: delay)
 
                         try Task.checkCancellation()
 
-                        self.continuesPull(handlerType: handlerType, retryCount: retryCount + 1)
+                        self.continuesPull(handler: handler, retryCount: retryCount + 1)
                         break
                     }
                 }
@@ -159,12 +159,12 @@ public actor PullSubscriber: Subscriber, Dependency {
 
     // MARK: - Pull
 
-    private static func singlePull<Handler>(handlerType: Handler.Type) async throws
+    private static func singlePull<Handler>(handler: Handler) async throws
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
         let response = try await shared.client(context: nil).pull(.with {
-            $0.subscription = handlerType.subscription.rawValue
+            $0.subscription = handler.subscription.rawValue
             $0.maxMessages = 1_000
         }, callOptions: .init(
             customMetadata: try await shared.client(context: nil).defaultCallOptions.customMetadata,
@@ -176,7 +176,7 @@ public actor PullSubscriber: Subscriber, Dependency {
 
         let tasks: [Task<Void, Error>] = response.receivedMessages.map { receivedMessage in
             Task {
-                try await handle(receivedMessage: receivedMessage, handlerType: handlerType)
+                try await handle(receivedMessage: receivedMessage, handler: handler)
             }
         }
         for task in tasks {
@@ -184,13 +184,14 @@ public actor PullSubscriber: Subscriber, Dependency {
         }
     }
 
-    private static func handle<Handler>(receivedMessage: Google_Pubsub_V1_ReceivedMessage, handlerType: Handler.Type) async throws
+    private static func handle<Handler>(receivedMessage: Google_Pubsub_V1_ReceivedMessage, handler: Handler) async throws
     where Handler: _Handler,
           Handler.Message.Incoming: IncomingMessage
     {
         let rawMessage = receivedMessage.message
 
-        var context = messageContext(subscriptionName: handlerType.subscription.name, rawMessage: rawMessage, trace: nil)
+        let subscription = handler.subscription
+        var context = messageContext(subscriptionName: subscription.name, rawMessage: rawMessage, trace: nil)
 
         func handleHandler(error: Error) async throws {
             if !(error is CancellationError) {
@@ -201,7 +202,7 @@ public actor PullSubscriber: Subscriber, Dependency {
             }
 
             do {
-                try await unacknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
+                try await unacknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
             } catch {
                 context.logger.error("Failed to unacknowledge message: \(error)")
             }
@@ -222,12 +223,9 @@ public actor PullSubscriber: Subscriber, Dependency {
             return
         }
 
-        var handler = Handler.init(context: context, message: message)
         do {
-            try await handler.handle()
-            context = handler.context
+            try await handler.handle(message: message, context: context)
         } catch {
-            context = handler.context
             try await handleHandler(error: error)
             return
         }
@@ -235,7 +233,7 @@ public actor PullSubscriber: Subscriber, Dependency {
         context.trace?.end(statusCode: .ok)
 
         do {
-            try await acknowledge(id: receivedMessage.ackID, subscriptionName: handlerType.subscription.rawValue, context: context)
+            try await acknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
         } catch {
             context.logger.critical("Failed to acknowledge message: \(error)")
         }
