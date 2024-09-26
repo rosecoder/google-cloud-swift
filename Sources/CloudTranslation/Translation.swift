@@ -3,6 +3,7 @@ import GRPC
 import NIO
 import CloudCore
 import CloudTrace
+import GoogleCloudAuth
 
 public actor Translation: Dependency {
 
@@ -38,11 +39,10 @@ public actor Translation: Dependency {
             .connect(host: "translate.googleapis.com", port: 443)
         self._client = .init(channel: channel)
 
-        authorization = try Authorization(
+        authorization = Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-translation"],
             eventLoopGroup: eventLoopGroup
         )
-        try await authorization?.warmup()
     }
 
 #if DEBUG
@@ -63,10 +63,9 @@ public actor Translation: Dependency {
 
         authorization = try Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-translation"],
-            authentication: .serviceAccount(try Data(contentsOf: URL(fileURLWithPath: credentialsPath))),
+            provider: ServiceAccountProvider(credentialsURL: URL(fileURLWithPath: credentialsPath)),
             eventLoopGroup: eventLoopGroup
         )
-        try await authorization?.warmup()
     }
 #endif
 

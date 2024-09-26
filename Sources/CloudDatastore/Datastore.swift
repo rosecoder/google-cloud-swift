@@ -3,6 +3,7 @@ import GRPC
 import NIO
 import CloudCore
 import CloudTrace
+import GoogleCloudAuth
 
 #if DEBUG
 // Only used for testing. See Datastore.bootstrapForTesting(eventLoopGroup:).
@@ -49,7 +50,7 @@ public actor Datastore: Dependency {
     }
 
     func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        authorization = try Authorization(scopes: [
+        authorization = Authorization(scopes: [
             "https://www.googleapis.com/auth/datastore",
         ], eventLoopGroup: eventLoopGroup)
 
@@ -58,7 +59,6 @@ public actor Datastore: Dependency {
             .connect(host: "datastore.googleapis.com", port: 443)
 
         self._client = .init(channel: channel)
-        try await authorization?.warmup()
     }
 
     func bootstraForEmulator(host: String, port: Int, eventLoopGroup: EventLoopGroup) {

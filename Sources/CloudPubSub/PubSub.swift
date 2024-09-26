@@ -1,6 +1,7 @@
 import Foundation
 import NIO
 import CloudCore
+import GoogleCloudAuth
 
 actor PubSub {
 
@@ -16,12 +17,10 @@ actor PubSub {
         }
 
         if authorization == nil {
-            authorization = try Authorization(scopes: [
+            authorization = Authorization(scopes: [
                 "https://www.googleapis.com/auth/cloud-platform",
                 "https://www.googleapis.com/auth/pubsub",
             ], eventLoopGroup: eventLoopGroup)
-
-            try await authorization?.warmup()
         }
     }
 

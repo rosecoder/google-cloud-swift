@@ -3,6 +3,7 @@ import GRPC
 import NIO
 import CloudCore
 import CloudTrace
+import GoogleCloudAuth
 
 public actor AIPlatform: Dependency {
 
@@ -36,11 +37,10 @@ public actor AIPlatform: Dependency {
             .connect(host: locationID + "-aiplatform.googleapis.com", port: 443)
 
         self._client = .init(channel: channel)
-        try await authorization?.warmup()
     }
 
     func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        authorization = try Authorization(
+        authorization = Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-platform"],
             eventLoopGroup: eventLoopGroup
         )
@@ -58,7 +58,7 @@ public actor AIPlatform: Dependency {
         }
         authorization = try Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-platform"],
-            authentication: .serviceAccount(try Data(contentsOf: URL(fileURLWithPath: credentialsPath))),
+            provider: ServiceAccountProvider(credentialsURL: URL(fileURLWithPath: credentialsPath)),
             eventLoopGroup: eventLoopGroup
         )
     }

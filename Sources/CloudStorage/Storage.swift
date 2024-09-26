@@ -4,6 +4,7 @@ import NIO
 import AsyncHTTPClient
 import NIOHTTP1
 import CloudTrace
+import GoogleCloudAuth
 
 public actor Storage: Dependency {
 
@@ -14,7 +15,7 @@ public actor Storage: Dependency {
     var authorization: Authorization {
         get throws {
             if _authorization == nil {
-                _authorization = try Authorization(scopes: [
+                _authorization = Authorization(scopes: [
                     "https://www.googleapis.com/auth/cloud-platform",
                     "https://www.googleapis.com/auth/iam",
                     "https://www.googleapis.com/auth/devstorage.read_write",
@@ -53,7 +54,6 @@ public actor Storage: Dependency {
 
     func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
         _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
-        try await authorization.warmup()
     }
 
 #if DEBUG

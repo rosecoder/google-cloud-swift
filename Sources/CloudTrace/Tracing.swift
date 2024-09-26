@@ -4,6 +4,7 @@ import GRPC
 import NIO
 import CloudCore
 import RetryableTask
+import GoogleCloudAuth
 
 public actor Tracing: Dependency {
 
@@ -18,7 +19,7 @@ public actor Tracing: Dependency {
     private var writeTimer: Timer?
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) throws {
-        authorization = try Authorization(scopes: [
+        authorization = Authorization(scopes: [
             "https://www.googleapis.com/auth/trace.append",
             "https://www.googleapis.com/auth/cloud-platform",
         ], eventLoopGroup: eventLoopGroup)
@@ -96,7 +97,7 @@ public actor Tracing: Dependency {
         lastWriteTask = Task {
             do {
                 try await withRetryableTask(logger: logger) {
-                    try await _write(spans: spans)
+                    try await Tracing.shared._write(spans: spans)
                 }
                 logger.debug("Successfully wrote spans.")
             } catch {

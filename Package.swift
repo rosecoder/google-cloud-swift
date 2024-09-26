@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "google-cloud-swift",
     platforms: [
-       .macOS("12.0"),
+        .macOS(.v13),
     ],
     products: [
         .library(name: "CloudCore", targets: ["CloudCore"]),
@@ -28,7 +28,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
         .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.8.0"),
-        .package(url: "https://github.com/rosecoder/google-auth-library-swift.git", revision: "3a8e3c6d3141ba38017b2b87cb6961ac97360b62"),
+        .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", from: "0.0.2"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
@@ -65,7 +65,7 @@ let package = Package(
         .target(name: "CloudCore", dependencies: [
             .product(name: "GRPC", package: "grpc-swift"),
             .product(name: "Logging", package: "swift-log"),
-            .product(name: "OAuth2Server", package: "google-auth-library-swift"),
+            .product(name: "GoogleCloudAuth", package: "google-cloud-auth-swift"),
             .product(name: "RetryableTask", package: "retryable-task"),
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ], swiftSettings: [

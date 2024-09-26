@@ -3,6 +3,7 @@ import Logging
 import GRPC
 import NIO
 import CloudCore
+import GoogleCloudAuth
 
 public actor GoogleCloudLogging: Dependency {
 
@@ -13,7 +14,7 @@ public actor GoogleCloudLogging: Dependency {
     var client: Google_Logging_V2_LoggingServiceV2AsyncClient {
         get async throws {
             if _client == nil {
-                authorization = try Authorization(scopes: [
+                authorization = Authorization(scopes: [
                     "https://www.googleapis.com/auth/logging.write",
                 ], eventLoopGroup: _unsafeInitializedEventLoopGroup)
 

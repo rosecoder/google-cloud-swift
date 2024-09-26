@@ -2,6 +2,7 @@ import Foundation
 import CloudCore
 import NIO
 import AsyncHTTPClient
+import GoogleCloudAuth
 
 public actor ErrorReporting: Dependency {
 
@@ -27,7 +28,7 @@ public actor ErrorReporting: Dependency {
     // MARK: - Bootstrap
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) throws {
-        authorization = try Authorization(scopes: [
+        authorization = Authorization(scopes: [
             "https://www.googleapis.com/auth/cloud-platform",
             "https://www.googleapis.com/auth/stackdriver-integration",
         ], eventLoopGroup: eventLoopGroup)

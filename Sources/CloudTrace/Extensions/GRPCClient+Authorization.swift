@@ -1,6 +1,7 @@
 import Foundation
 import GRPC
 import CloudCore
+import GoogleCloudAuth
 
 extension GRPCClient {
 
