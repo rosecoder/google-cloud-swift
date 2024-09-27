@@ -1,5 +1,5 @@
 import CloudTrace
-import RediStack
+@preconcurrency import RediStack
 import Logging
 import Foundation
 
@@ -66,7 +66,7 @@ extension Redis {
 
         Task {
             do {
-                try await Self.set(key: key, to: result, context: context)
+                try await Redis.set(key: key, to: result, context: context)
             } catch {
                 let logger = Logger(label: "redis")
                 logger.error("Failed to set fallback value: \(error)")

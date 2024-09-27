@@ -1,5 +1,5 @@
 import CloudTrace
-import RediStack
+@preconcurrency import RediStack
 
 extension Redis {
 

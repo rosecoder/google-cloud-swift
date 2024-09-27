@@ -3,7 +3,7 @@ import NIO
 import CloudPubSub
 import CloudTrace
 
-private var callback: ((IncomingPlainTextMessage) async throws -> Void)?
+private nonisolated(unsafe) var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
 private struct CallbackHandler: Handler {
 

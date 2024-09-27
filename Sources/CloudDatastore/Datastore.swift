@@ -18,7 +18,7 @@ struct UnsafeSendableProcess: @unchecked Sendable {
 
 public actor Datastore: Dependency {
 
-    public static var shared = Datastore()
+    public static let shared = Datastore()
 
     private var _client: Google_Datastore_V1_DatastoreAsyncClient?
 

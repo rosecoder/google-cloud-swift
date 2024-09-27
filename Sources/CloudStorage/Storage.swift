@@ -8,7 +8,7 @@ import GoogleCloudAuth
 
 public actor Storage: Dependency {
 
-    public static var shared = Storage()
+    public static let shared = Storage()
 
     var _authorization: Authorization?
 

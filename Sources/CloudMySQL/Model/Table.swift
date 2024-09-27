@@ -1,6 +1,6 @@
 import MySQLNIO
 
-public struct Table: Equatable, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Table: Equatable, Hashable, CustomStringConvertible, CustomDebugStringConvertible, Sendable {
 
     public let rawValue: String
     public let database: Database?

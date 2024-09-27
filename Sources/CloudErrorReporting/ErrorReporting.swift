@@ -6,7 +6,7 @@ import GoogleCloudAuth
 
 public actor ErrorReporting: Dependency {
 
-    public static var shared = ErrorReporting()
+    public static let shared = ErrorReporting()
 
     var authorization: Authorization!
 

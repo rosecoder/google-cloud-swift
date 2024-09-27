@@ -1,5 +1,5 @@
 import CloudTrace
-import MySQLNIO
+@preconcurrency import MySQLNIO
 
 extension MySQL {
 

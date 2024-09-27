@@ -7,7 +7,7 @@ import GoogleCloudAuth
 
 public actor Translation: Dependency {
 
-    public static var shared = Translation()
+    public static let shared = Translation()
 
     private var _client: Google_Cloud_Translation_V3_TranslationServiceAsyncClient?
 

@@ -1,11 +1,11 @@
 import Foundation
-import MySQLNIO
+@preconcurrency import MySQLNIO
 import NIO
 import CloudCore
 
 public actor MySQL: Dependency {
 
-    public static var shared = MySQL()
+    public static let shared = MySQL()
 
     private var _connection: EventLoopFuture<MySQLConnection>?
 

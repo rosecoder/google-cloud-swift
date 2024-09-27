@@ -1,4 +1,4 @@
-public struct Database: Equatable, Hashable, CustomStringConvertible, CustomDebugStringConvertible {
+public struct Database: Equatable, Hashable, CustomStringConvertible, CustomDebugStringConvertible, Sendable {
 
     public let rawValue: String
 

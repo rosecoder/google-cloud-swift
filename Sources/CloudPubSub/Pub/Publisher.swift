@@ -9,7 +9,7 @@ import RetryableTask
 
 public actor Publisher: Dependency {
 
-    public static var shared = Publisher()
+    public static let shared = Publisher()
 
     var _client: Google_Pubsub_V1_PublisherAsyncClient?
     private static let logger = Logger(label: "pubsub.publisher")

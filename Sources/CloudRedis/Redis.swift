@@ -1,12 +1,12 @@
 import Foundation
 import NIO
-import RediStack
+@preconcurrency import RediStack
 import CloudCore
 import CloudTrace
 
 public actor Redis: Dependency {
 
-    public static var shared = Redis()
+    public static let shared = Redis()
 
     public private(set) var connection: RedisConnection!
 
@@ -31,7 +31,7 @@ public actor Redis: Dependency {
     func ensureConnection(context: Context) async throws {
         if connection?.isConnected != true, let eventLoopGroup = _unsafeInitializedEventLoopGroup {
             try await context.trace.recordSpan(named: "redis-connect", kind: .client) { span in
-                try await createConnection(eventLoopGroup: eventLoopGroup)
+                try await Redis.shared.createConnection(eventLoopGroup: eventLoopGroup)
             }
         }
     }

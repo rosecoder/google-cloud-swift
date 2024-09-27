@@ -9,7 +9,7 @@ import RetryableTask
 
 public actor PushSubscriber: Subscriber, Dependency {
 
-    public static var shared = PushSubscriber()
+    public static let shared = PushSubscriber()
 
     static let logger = Logger(label: "pubsub.subscriber")
 
@@ -18,7 +18,7 @@ public actor PushSubscriber: Subscriber, Dependency {
     private var channel: Channel?
 
 #if DEBUG
-    public static var isDebugUsingPull = true
+    public static nonisolated(unsafe) var isDebugUsingPull = true
 #endif
 
     public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {

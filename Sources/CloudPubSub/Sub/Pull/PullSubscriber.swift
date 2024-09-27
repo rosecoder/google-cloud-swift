@@ -8,7 +8,7 @@ import RetryableTask
 
 public actor PullSubscriber: Subscriber, Dependency {
 
-    public static var shared = PullSubscriber()
+    public static let shared = PullSubscriber()
 
     private var _client: Google_Pubsub_V1_SubscriberAsyncClient?
     static let logger = Logger(label: "pubsub.subscriber")
