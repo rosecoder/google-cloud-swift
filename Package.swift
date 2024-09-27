@@ -28,7 +28,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
         .package(url: "https://github.com/grpc/grpc-swift.git", from: "1.8.0"),
-        .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", revision: "3bb5bdbf368719f2fe53d78b9042b54b0576d3dc"),
+        .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", from: "1.0.0"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(url: "https://gitlab.com/mordil/RediStack.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
