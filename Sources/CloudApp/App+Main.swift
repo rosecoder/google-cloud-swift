@@ -28,6 +28,7 @@ extension App {
 
         let serviceGroup = ServiceGroup(configuration: ServiceGroupConfiguration(
             services: services.compactMap { $0 },
+            gracefulShutdownSignals: [.sigint, .sigterm],
             logger: logger
         ))
 
