@@ -2,9 +2,11 @@ import Foundation
 import Logging
 import ServiceLifecycle
 
+public typealias ServiceConfiguration = ServiceGroupConfiguration.ServiceConfiguration
+
 public protocol App {
 
-    static var services: [ServiceGroupConfiguration.ServiceConfiguration] { get }
+    static func services() async throws -> [ServiceConfiguration]
 
     /// Log level to be used when bootstrapping the logging system.
     ///

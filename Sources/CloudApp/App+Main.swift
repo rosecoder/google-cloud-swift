@@ -24,7 +24,7 @@ extension App {
         let services: [ServiceGroupConfiguration.ServiceConfiguration?] = [
             logService,
             tracingService(logger: logger),
-        ] + self.services
+        ] + (try await self.services())
 
         let serviceGroup = ServiceGroup(configuration: ServiceGroupConfiguration(
             services: services.compactMap { $0 },
