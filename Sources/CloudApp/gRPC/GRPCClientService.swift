@@ -31,7 +31,7 @@ public struct GRPCClientService: Service {
                 if host.hasSuffix(".run.app") {
                     interceptors.append(CloudRunAuthenticateInterceptor(host: host))
                 }
-                self.init(client:  GRPCClient(
+                self.init(client: GRPCClient(
                     transport: try .http2NIOPosix(
                         target: .dns(host: host, port: port ?? 443),
                         config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
@@ -41,7 +41,7 @@ public struct GRPCClientService: Service {
                     interceptors: interceptors
                 ))
             case "http":
-                self.init(client:  GRPCClient(
+                self.init(client: GRPCClient(
                     transport: try .http2NIOPosix(
                         target: .dns(host: host, port: port ?? 80),
                         config: .defaults(transportSecurity: .plaintext)
@@ -60,7 +60,7 @@ public struct GRPCClientService: Service {
             let rawPort = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_PORT"],
             let port = Int(rawPort)
         {
-            self.init(client:  GRPCClient(
+            self.init(client: GRPCClient(
                 transport: try .http2NIOPosix(
                     target: .dns(host: host, port: port),
                     config: .defaults(transportSecurity: .plaintext)
@@ -71,7 +71,7 @@ public struct GRPCClientService: Service {
         }
 
         // Fallback to localhost
-        self.init(client:  GRPCClient(
+        self.init(client: GRPCClient(
             transport: try .http2NIOPosix(
                 target: .dns(host: "localhost", port: developmentPort),
                 config: .defaults(transportSecurity: .plaintext)

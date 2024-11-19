@@ -34,15 +34,8 @@ public final class Storage: Service {
 #endif
 
     public func run() async throws {
-        let foreverTask = Task {
-            while !Task.isCancelled {
-                try? await Task.sleep(for: .seconds(.infinity))
-            }
-        }
-        await withGracefulShutdownHandler {
-            await foreverTask.value
-        } onGracefulShutdown: {
-            foreverTask.cancel()
+        await cancelWhenGracefulShutdown {
+            try? await Task.sleepUntilCancelled()
         }
 
         try await client.shutdown()
