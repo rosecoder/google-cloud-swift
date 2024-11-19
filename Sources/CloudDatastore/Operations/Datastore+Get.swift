@@ -1,6 +1,6 @@
 import CloudCore
-import CloudTrace
 import RetryableTask
+import Tracing
 
 extension Datastore {
 
@@ -9,9 +9,8 @@ extension Datastore {
     /// Lookups the entities for the given keys.
     /// - Parameter keys: Keys representing the entities to lookup.
     /// - Returns: Array of decoded entities. Any entity may be `nil` if it didn't exist.
-    public static func getEntities<Entity>(
+    public func getEntities<Entity>(
         keys: [Entity.Key],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -20,14 +19,13 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        let projectID = await Environment.current.projectID
+        let projectID = try self.projectID
         let rawKeys = keys.map { $0.raw }
 
-        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
-            "datastore/kind": Entity.Key.kind,
-        ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: {
-                try await shared.client(context: context).lookup(.with {
+        let response: Google_Datastore_V1_LookupResponse = try await withSpan("datastore-lookup", ofKind: .client) { span in
+            span.attributes["datastore/kind"] = Entity.Key.kind
+            return try await withRetryableTask(logger: logger, operation: { [client] in
+                try await client.lookup(.with {
                     $0.projectID = projectID
                     $0.keys = rawKeys
                 })
@@ -58,10 +56,9 @@ extension Datastore {
     /// Lookups the entitiy for a given key.
     /// - Parameter key: Key representing the entity to lookup.
     /// - Returns: Decoded entity. May be `nil` if it didn't exist.
-    public static func getEntity<Entity>(
+    public func getEntity<Entity>(
         _ type: Entity.Type = Entity.self,
         key: Entity.Key,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -70,7 +67,7 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        (try await getEntities(keys: [key], context: context, file: file, function: function, line: line))[0]
+        (try await getEntities(keys: [key], file: file, function: function, line: line))[0]
     }
 
     enum RegetError: Error {
@@ -78,9 +75,8 @@ extension Datastore {
         case entityNotFound
     }
 
-    public static func reget<Entity>(
+    public func reget<Entity>(
         entity: inout Entity,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -98,7 +94,7 @@ extension Datastore {
         }
 #endif
 
-        guard let updated: Entity = (try await getEntities(keys: [entity.key], context: context, file: file, function: function, line: line))[0] else {
+        guard let updated: Entity = (try await getEntities(keys: [entity.key], file: file, function: function, line: line))[0] else {
             throw RegetError.entityNotFound
         }
 
@@ -109,9 +105,8 @@ extension Datastore {
 
     /// Checks if provided keys eixsts in the datastore.
     /// - Returns: Array of booleans. `true` if key exists, else, `false`. Ordered same way was provided keys array.
-    public static func containsEntities<Key>(
+    public func containsEntities<Key>(
         keys: [Key],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -119,12 +114,11 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        let projectID = await Environment.current.projectID
-        let response: Google_Datastore_V1_LookupResponse = try await context.trace.recordSpan(named: "datastore-lookup", kind: .client, attributes: [
-            "datastore/kind": Key.kind,
-        ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: {
-                try await shared.client(context: context).lookup(.with {
+        let projectID = try self.projectID
+        let response: Google_Datastore_V1_LookupResponse = try await withSpan("datastore-lookup", ofKind: .client) { span in
+            span.attributes["datastore/kind"] = Key.kind
+            return try await withRetryableTask(logger: logger, operation: { [client] in
+                try await client.lookup(.with {
                     $0.projectID = projectID
                     $0.keys = keys.map({ $0.raw })
                 })
@@ -137,9 +131,8 @@ extension Datastore {
 
     /// Checks if provided key exists in the datastore.
     /// - Returns: `true` if key exists, else, `false`.
-    public static func containsEntity<Key>(
+    public func containsEntity<Key>(
         key: Key,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -147,6 +140,6 @@ extension Datastore {
     where
         Key: AnyKey
     {
-        (try await containsEntities(keys: [key], context: context, file: file, function: function, line: line))[0]
+        (try await containsEntities(keys: [key], file: file, function: function, line: line))[0]
     }
 }

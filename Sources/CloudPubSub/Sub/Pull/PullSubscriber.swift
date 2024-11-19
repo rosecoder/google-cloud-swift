@@ -1,241 +1,180 @@
 import Foundation
-import GRPC
+import GRPCCore
 import NIO
 import Logging
+import Tracing
 import CloudCore
-import CloudTrace
 import RetryableTask
+import ServiceLifecycle
+import GoogleCloudAuth
 
-public actor PullSubscriber: Subscriber, Dependency {
+public final class PullSubscriber<Handler: _Handler>: Service {
 
-    public static let shared = PullSubscriber()
+    private let logger: Logger
 
-    private var _client: Google_Pubsub_V1_SubscriberAsyncClient?
-    static let logger = Logger(label: "pubsub.subscriber")
+    private let handler: Handler
+    private let client: Google_Pubsub_V1_Subscriber_ClientProtocol
+    private let pubSubService: PubSubService
 
-    private func client(context: Context?) async throws -> Google_Pubsub_V1_SubscriberAsyncClient {
-        if _client == nil {
-            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
-        }
-        var _client = _client!
-        try await _client.ensureAuthentication(authorization: PubSub.shared.authorization, context: context, traceContext: "pubsub")
-        self._client = _client
-        return _client
+    public init(handler: Handler, pubSubService: PubSubService) {
+        self.logger = Logger(label: "pubsub.subscriber." + handler.subscription.name)
+        self.handler = handler
+        self.client = Google_Pubsub_V1_Subscriber_Client(wrapping: pubSubService.grpcClient)
+        self.pubSubService = pubSubService
     }
 
-    // MARK: - Bootstrap
-
-    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        try await PubSub.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-
-        // Emulator
-        if let host = ProcessInfo.processInfo.environment["PUBSUB_EMULATOR_HOST"] {
-            let components = host.components(separatedBy: ":")
-            let port = Int(components[1])!
-
-            let channel = ClientConnection
-                .insecure(group: eventLoopGroup)
-                .connect(host: components[0], port: port)
-
-            self._client = .init(channel: channel)
-        }
-
-        // Production
-        else {
-            let channel = ClientConnection
-                .usingTLSBackedByNIOSSL(on: eventLoopGroup)
-                .connect(host: "pubsub.googleapis.com", port: 443)
-
-            self._client = .init(channel: channel)
-        }
-    }
-
-    // MARK: - Termination
-
-    public func shutdown() async throws {
-        Self.logger.debug("Shutting down subscriptions...")
-
-        runningPullTasks.values.forEach { $0.cancel() }
-        for task in runningPullTasks.values {
-            _ = await task.result
-        }
-
-        try await PubSub.shared.shutdown()
-    }
-
-    // MARK: - Subscribe
-
-    private typealias SubscriptionHash = Int
-    private var runningPullTasks = [SubscriptionHash: Task<Void, Error>]()
-
-    private func runPull(hashValue: SubscriptionHash, operation: @Sendable @escaping () async throws -> Void) {
-        runningPullTasks[hashValue] = Task {
-            try await operation()
-        }
-    }
-
-    public static func startPull<Handler>(handler: Handler) async throws
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
+    public func run() async throws {
 #if DEBUG
+        let publisher = Publisher(pubSubService: pubSubService)
         try await handler.subscription.createIfNeeded(creation: {
-            try await shared.client(context: nil).createSubscription($0, callOptions: $1)
-        }, logger: logger)
+            try await client.createSubscription($0)
+        }, publisher: publisher, pubSubService: pubSubService, logger: logger)
 #endif
 
-        continuesPull(handler: handler)
+        let pullTask = Task {
+            logger.debug("Subscribed to \(handler.subscription.name)")
 
-        logger.debug("Subscribed to \(handler.subscription.name)")
+            await self.continuesPull()
+        }
+
+        await withGracefulShutdownHandler {
+            await pullTask.value
+        } onGracefulShutdown: {
+            pullTask.cancel()
+        }
     }
 
-    private static func continuesPull<Handler>(handler: Handler, retryCount: UInt64 = 0)
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
-        Task {
-            await shared.runPull(hashValue: handler.subscription.name.hashValue) {
-                while !Task.isCancelled {
-                    do {
-                        try await singlePull(handler: handler)
-                    } catch {
-                        try Task.checkCancellation()
+    private func continuesPull() async {
+        var retryCount: UInt64 = 0
+        while !Task.isCancelled {
+            do {
+                try await singlePull()
+            } catch {
+                if Task.isCancelled {
+                    break
+                }
 
-                        var delay: UInt64
-                        let log: (@autoclosure () -> Logger.Message, @autoclosure () -> Logger.Metadata?, String, String, UInt) -> ()
-                        switch error as? ChannelError {
-                        case .ioOnClosedChannel:
-                            log = logger.debug
-                            delay = 50_000_000 // 50 ms
-                        default:
-                            switch (error as? GRPCStatus)?.code ?? .unknown {
-                            case .unavailable:
-                                log = logger.debug
-                                delay = 200_000_000 // 200 ms
-                            case .deadlineExceeded:
-                                log = logger.debug
-                                delay = 50_000_000 // 50 ms
-                            default:
-                                log = logger.warning
-                                delay = 1_000_000_000 // 1 sec
-                            }
-                        }
-                        delay *= (retryCount + 1)
-
-                        log("Pull failed for \(handler.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
-
-                        try await Task.sleep(nanoseconds: delay)
-
-                        try Task.checkCancellation()
-
-                        self.continuesPull(handler: handler, retryCount: retryCount + 1)
-                        break
+                var delay: UInt64
+                let log: (@autoclosure () -> Logger.Message, @autoclosure () -> Logger.Metadata?, String, String, UInt) -> ()
+                switch error as? ChannelError {
+                case .ioOnClosedChannel:
+                    log = logger.debug
+                    delay = 50_000_000 // 50 ms
+                default:
+                    switch (error as? RPCError)?.code ?? .unknown {
+                    case .unavailable:
+                        log = logger.debug
+                        delay = 200_000_000 // 200 ms
+                    case .deadlineExceeded:
+                        log = logger.debug
+                        delay = 50_000_000 // 50 ms
+                    default:
+                        log = logger.warning
+                        delay = 1_000_000_000 // 1 sec
                     }
                 }
+                delay *= (retryCount + 1)
+
+                log("Pull failed for \(handler.subscription.name) (retry in \(delay / 1_000_000)ms): \(error)", nil, #file, #function, #line)
+
+                try? await Task.sleep(nanoseconds: delay)
+
+                retryCount += 1
             }
-        }
-    }
-
-    // MARK: - Acknowledge
-
-    private static func acknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await withRetryableTask(logger: context.logger) {
-            _ = try await shared.client(context: context).acknowledge(.with {
-                $0.subscription = subscriptionName
-                $0.ackIds = [id]
-            })
-        }
-    }
-
-    private static func unacknowledge(id: String, subscriptionName: String, context: Context) async throws {
-        try await withRetryableTask(logger: context.logger) {
-            _ = try await shared.client(context: context).modifyAckDeadline(.with {
-                $0.subscription = subscriptionName
-                $0.ackIds = [id]
-                $0.ackDeadlineSeconds = 0
-            })
         }
     }
 
     // MARK: - Pull
 
-    private static func singlePull<Handler>(handler: Handler) async throws
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
-        let response = try await shared.client(context: nil).pull(.with {
+    private func singlePull() async throws {
+        var options = GRPCCore.CallOptions.defaults
+        options.timeout = .seconds(.infinity)
+
+        let response = try await client.pull(.with {
             $0.subscription = handler.subscription.rawValue
             $0.maxMessages = 1_000
-        }, callOptions: .init(
-            customMetadata: try await shared.client(context: nil).defaultCallOptions.customMetadata,
-            timeLimit: .deadline(.distantFuture)
-        ))
+        }, options: options)
+
         guard !response.receivedMessages.isEmpty else {
             return
         }
 
-        let tasks: [Task<Void, Error>] = response.receivedMessages.map { receivedMessage in
-            Task {
-                try await handle(receivedMessage: receivedMessage, handler: handler)
+        await withDiscardingTaskGroup { group in
+            for message in response.receivedMessages {
+                group.addTask {
+                    await self.handle(message: message)
+                }
             }
-        }
-        for task in tasks {
-            _ = try await task.value
         }
     }
 
-    private static func handle<Handler>(receivedMessage: Google_Pubsub_V1_ReceivedMessage, handler: Handler) async throws
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
-        let rawMessage = receivedMessage.message
+    private func handle(message: Google_Pubsub_V1_ReceivedMessage) async {
+        await withSpan(handler.subscription.id, ofKind: .consumer) { span in
+            span.attributes["message"] = message.message.messageID
 
-        let subscription = handler.subscription
-        var context = messageContext(subscriptionName: subscription.name, rawMessage: rawMessage, trace: nil)
-
-        func handleHandler(error: Error) async throws {
-            if !(error is CancellationError) {
-                context.logger.error("\(error)")
-                context.trace?.end(error: error)
-            } else {
-                context.trace?.end(statusCode: .cancelled)
+            let decodedMessage: Handler.Message.Incoming
+            do {
+                let rawMessage = message.message
+                decodedMessage = try .init(
+                    id: rawMessage.messageID,
+                    published: rawMessage.publishTime.date,
+                    data: rawMessage.data,
+                    attributes: rawMessage.attributes
+                )
+                try Task.checkCancellation()
+            } catch {
+                await handleHandler(error: error, message: message, span: span)
+                return
             }
+            span.addEvent(SpanEvent(name: "message-decoded"))
 
             do {
-                try await unacknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
+                try await handler.handle(message: decodedMessage)
             } catch {
-                context.logger.error("Failed to unacknowledge message: \(error)")
+                await handleHandler(error: error, message: message, span: span)
+                return
+            }
+            span.setStatus(SpanStatus(code: .ok))
+
+            do {
+                try await acknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue)
+            } catch {
+                logger.critical("Failed to acknowledge message: \(error)")
             }
         }
+    }
 
-        let message: Handler.Message.Incoming
-        do {
-            message = try .init(
-                id: rawMessage.messageID,
-                published: rawMessage.publishTime.date,
-                data: rawMessage.data,
-                attributes: rawMessage.attributes,
-                context: &context
-            )
-            try Task.checkCancellation()
-        } catch {
-            try await handleHandler(error: error)
-            return
+    func handleHandler(error: Error, message: Google_Pubsub_V1_ReceivedMessage, span: any Span) async {
+        if !(error is CancellationError) {
+            logger.error("\(error)")
         }
+        span.recordError(error)
 
         do {
-            try await handler.handle(message: message, context: context)
+            try await unacknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue)
         } catch {
-            try await handleHandler(error: error)
-            return
+            logger.error("Failed to unacknowledge message: \(error)")
         }
+    }
 
-        context.trace?.end(statusCode: .ok)
+    // MARK: - Acknowledge
 
-        do {
-            try await acknowledge(id: receivedMessage.ackID, subscriptionName: subscription.rawValue, context: context)
-        } catch {
-            context.logger.critical("Failed to acknowledge message: \(error)")
+    private func acknowledge(id: String, subscriptionName: String) async throws {
+        try await withRetryableTask(logger: logger) {
+            _ = try await client.acknowledge(Google_Pubsub_V1_AcknowledgeRequest.with {
+                $0.subscription = subscriptionName
+                $0.ackIds = [id]
+            })
+        }
+    }
+
+    private func unacknowledge(id: String, subscriptionName: String) async throws {
+        try await withRetryableTask(logger: logger) {
+            _ = try await client.modifyAckDeadline(Google_Pubsub_V1_ModifyAckDeadlineRequest.with {
+                $0.subscription = subscriptionName
+                $0.ackIds = [id]
+                $0.ackDeadlineSeconds = 0
+            })
         }
     }
 }

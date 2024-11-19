@@ -1,7 +1,6 @@
 import XCTest
 import NIO
 import CloudPubSub
-import CloudTrace
 
 extension Topics {
 
@@ -21,6 +20,6 @@ final class PublisherTests: XCTestCase {
     func testPublish() async throws {
         try await Publisher.shared.bootstrap(eventLoopGroup: eventLoopGroup)
 
-        try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
+        try await Publisher.publish(to: Topics.test, body: "Hello")
     }
 }

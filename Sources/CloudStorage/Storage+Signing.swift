@@ -1,16 +1,14 @@
 import Foundation
 import CloudCore
-import CloudTrace
 import AsyncHTTPClient
 import NIOHTTP1
 import Crypto
+import Tracing
 
 extension Storage {
 
-    public static var signingMethod: SigningMethod = .iam
-
     /// Method of signing. See https://cloud.google.com/storage/docs/access-control/signed-urls#signing-iam
-    public enum SigningMethod {
+    public enum SigningMethod: Sendable {
 
         /// Using [signBlob](https://cloud.google.com/iam/docs/reference/credentials/rest/v1/projects.serviceAccounts/signBlob)-method. Requires the role `roles/iam.serviceAccountTokenCreator` for the current service accont.
         case iam
@@ -30,14 +28,13 @@ extension Storage {
     /// The maxiumum expiration duration for a signed URL.
     public static let signedURLMaximumExpirationDuration: TimeInterval = 3600 * 12 // if this changes, make sure to check the bounds of types below
 
-    public static func generateSignedURL(
+    public func generateSignedURL(
         for action: SignedAction,
         expiration: TimeInterval = signedURLMaximumExpirationDuration,
         object: Object,
-        in bucket: Bucket,
-        context: Context
+        in bucket: Bucket
     ) async throws -> String {
-        guard expiration <= signedURLMaximumExpirationDuration else {
+        guard expiration <= Self.signedURLMaximumExpirationDuration else {
             throw SignError.expirationTooLong
         }
 
@@ -61,25 +58,22 @@ extension Storage {
             path: "/" + object.path,
             queryParameters: [:],
             headers: [:],
-            expiration: .init(expiration),
-            context: context
+            expiration: .init(expiration)
         )
     }
 
     /// https://cloud.google.com/storage/docs/access-control/signing-urls-manually
-    private static func generateSignedURL(
+    private func generateSignedURL(
         bucket: Bucket,
         httpMethod: String,
         host: String,
         path: String,
         queryParameters: [String: String],
         headers: [String: String],
-        expiration: UInt32,
-        context: Context
+        expiration: UInt32
     ) async throws -> String {
-        try await context.trace.recordSpan(named: "storage-sign", kind: .client, attributes: [
-            "storage/bucket": bucket.name,
-        ]) { span in
+        try await withSpan("storage-sign", ofKind: .client) { span in
+            span.attributes["storage/bucket"] = bucket.name
 
             // Dates
             let now = Date()
@@ -161,14 +155,14 @@ extension Storage {
         }
     }
 
-    private static func sign(payload: Data, serviceAccount: ServiceAccount) async throws -> Data {
+    private func sign(payload: Data, serviceAccount: ServiceAccount) async throws -> Data {
         switch signingMethod {
         case .iam:
             return try await signUsingIAM(payload: payload, serviceAccount: serviceAccount)
         }
     }
 
-    private static func signUsingIAM(payload: Data, serviceAccount: ServiceAccount) async throws -> Data {
+    private func signUsingIAM(payload: Data, serviceAccount: ServiceAccount) async throws -> Data {
 
         struct Request: Encodable {
             let delegates: [String]
@@ -189,10 +183,10 @@ extension Storage {
 
         var request = HTTPClientRequest(url: "https://iamcredentials.googleapis.com/v1/\(name):signBlob")
         request.method = .POST
-        request.headers.add(name: "Authorization", value: "Bearer " + (try await shared.authorization.accessToken()))
+        request.headers.add(name: "Authorization", value: "Bearer " + (try await authorization.accessToken()))
         request.body = .bytes(requestBody)
 
-        let response = try await shared.client().execute(request, timeout: .seconds(60))
+        let response = try await client.execute(request, timeout: .seconds(60))
         let responseBody = try await response.body.collect(upTo: 1024 * 10) // 10 KB
         guard response.status == .ok else {
             throw SignError.signingFailed(response.status, body: String(buffer: responseBody))

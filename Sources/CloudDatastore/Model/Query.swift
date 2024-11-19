@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Query<Entity: _Entity, CodingKey> where
+public struct Query<Entity: _Entity, CodingKey>: Sendable where
 CodingKey == Entity.CodingKeys,
 CodingKey: Swift.CodingKey,
 Entity.Key: AnyKey

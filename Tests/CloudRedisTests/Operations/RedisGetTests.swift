@@ -9,23 +9,23 @@ final class RedisGetTests: EmulatorTestCase {
         try await super.setUp()
 
         let user = User(email: "yay")
-        try await Redis.set(key: existingKey, to: user, context: context)
+        try await Redis.set(key: existingKey, to: user)
     }
 
     // MARK: - Get
 
     func testGetExisting() async throws {
-        let value = try await Redis.get(key: existingKey, context: context)
+        let value = try await Redis.get(key: existingKey)
         XCTAssertEqual(value.string, "{\"email\":\"yay\"}")
     }
 
     func testNotFound() async throws {
-        let value = try await Redis.get(key: "qgf7", context: context)
+        let value = try await Redis.get(key: "qgf7")
         XCTAssertNil(value.string)
     }
 
     func testGetExistingCustom() async throws {
-        let userUnwrapped = try await Redis.get(User.self, key: existingKey, context: context)
+        let userUnwrapped = try await Redis.get(User.self, key: existingKey)
         let user = try XCTUnwrap(userUnwrapped)
         XCTAssertEqual(user.email, "yay")
     }

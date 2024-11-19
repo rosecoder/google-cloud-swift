@@ -1,42 +1,40 @@
-import CloudTrace
 @preconcurrency import RediStack
 import Logging
+import Tracing
 import Foundation
 
 extension Redis {
 
-    public static func get(key: Key, context: Context) async throws -> RESPValue {
-        try await shared.ensureConnection(context: context)
-        return try await context.trace.recordSpan(named: "redis-get", kind: .client, attributes: [
-            "redis/key": key.rawValue,
-        ]) { span in
-            try await shared.connection.get(key).get()
+    public func get(key: Key) async throws -> RESPValue {
+        let connection = try await ensureConnection()
+        return try await withSpan("redis-get", ofKind: .client) { span in
+            span.attributes["redis/key"] = key.rawValue
+            return try await connection.get(key).get()
         }
     }
 
-    public static func get<Element>(
+    public func get<Element>(
         _ type: Element.Type,
-        key: Key,
-        context: Context
+        key: Key
     ) async throws -> Element?
     where Element: Codable
     {
-        let value = try await get(key: key, context: context)
+        let value = try await get(key: key)
         guard let byteBuffer = value.byteBuffer else {
             return nil
         }
         return try defaultDecoder.decode(type, from: byteBuffer)
     }
 
-    public static func get<Element>(
+    public func get<Element>(
         _ type: Element.Type,
         key: Key,
-        or fallback: () async throws -> Element,
-        context: Context
+        or fallback: () async throws -> Element
     ) async throws -> Element
-    where Element: Codable
+    where Element: Codable,
+          Element: Sendable
     {
-        let value = try await get(key: key, context: context)
+        let value = try await get(key: key)
         if
             let byteBuffer = value.byteBuffer,
             let result = try? defaultDecoder.decode(type, from: byteBuffer)
@@ -46,15 +44,15 @@ extension Redis {
         return try await fallback()
     }
 
-    public static func get<Element>(
+    public func get<Element>(
         _ type: Element.Type,
         key: Key,
-        orAndSet fallback: () async throws -> Element,
-        context: Context
+        orAndSet fallback: () async throws -> Element
     ) async throws -> Element
-    where Element: Codable
+    where Element: Codable,
+          Element: Sendable
     {
-        let value = try await get(key: key, context: context)
+        let value = try await get(key: key)
         if
             let byteBuffer = value.byteBuffer,
             let result = try? defaultDecoder.decode(type, from: byteBuffer)
@@ -66,7 +64,7 @@ extension Redis {
 
         Task {
             do {
-                try await Redis.set(key: key, to: result, context: context)
+                try await self.set(key: key, to: result)
             } catch {
                 let logger = Logger(label: "redis")
                 logger.error("Failed to set fallback value: \(error)")

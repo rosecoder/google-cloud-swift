@@ -1,72 +1,44 @@
 import Foundation
-import GRPC
-import NIO
+import GRPCCore
+import GRPCNIOTransportHTTP2Posix
 import CloudCore
-import CloudTrace
 import GoogleCloudAuth
+import ServiceContextModule
+import GoogleCloudServiceContext
+import ServiceLifecycle
 
-public actor AIPlatform: Dependency {
+public actor AIPlatform: Service {
 
-    public static var shared = AIPlatform()
+    private let authorization: Authorization
+    private let grpcClient: GRPCClient
+    let client: Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol
 
-    private var _client: Google_Cloud_Aiplatform_V1_PredictionServiceAsyncClient?
-
-    public func client(context: Context) async throws -> Google_Cloud_Aiplatform_V1_PredictionServiceAsyncClient {
-        if _client == nil {
-            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
-        }
-        var _client = _client!
-        try await _client.ensureAuthentication(authorization: authorization, context: context, traceContext: "datastore")
-        self._client = _client
-        return _client
-    }
-
-    var authorization: Authorization?
-
-    // MARK: - Bootstrap
-
-    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-#if DEBUG
-        try await bootstrapForDebug(eventLoopGroup: eventLoopGroup)
-#else
-        try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
-#endif
-        let locationID = await Environment.current.locationID
-        let channel = ClientConnection
-            .usingTLSBackedByNIOSSL(on: eventLoopGroup)
-            .connect(host: locationID + "-aiplatform.googleapis.com", port: 443)
-
-        self._client = .init(channel: channel)
-    }
-
-    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        authorization = Authorization(
+    public init() throws {
+        self.authorization = Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-platform"],
-            eventLoopGroup: eventLoopGroup
+            eventLoopGroup: .singletonMultiThreadedEventLoopGroup
         )
+        self.grpcClient = GRPCClient(
+            transport: try .http2NIOPosix(
+                target: .dns(host: "aiplatform.googleapis.com", port: 443),
+                config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
+                    config.serverHostname = "aiplatform.googleapis.com" as String?
+                })))
+            ),
+            interceptors: [
+                AuthorizationClientInterceptor(authorization: authorization),
+            ]
+        )
+        self.client = Google_Cloud_Aiplatform_V1_PredictionService_Client(wrapping: grpcClient)
     }
 
-#if DEBUG
-    struct NotSetUpForDebugError: LocalizedError {
-
-        let errorDescription: String? = "Make sure the environment key AI_PLATFORM_GOOGLE_APPLICATION_CREDENTIALS is set with a correct value."
-    }
-
-    func bootstrapForDebug(eventLoopGroup: EventLoopGroup) async throws {
-        guard let credentialsPath = ProcessInfo.processInfo.environment["AI_PLATFORM_GOOGLE_APPLICATION_CREDENTIALS"] else {
-            throw NotSetUpForDebugError()
+    public func run() async throws {
+        try await withGracefulShutdownHandler {
+            try await grpcClient.run()
+        } onGracefulShutdown: {
+            self.grpcClient.beginGracefulShutdown()
         }
-        authorization = try Authorization(
-            scopes: ["https://www.googleapis.com/auth/cloud-platform"],
-            provider: ServiceAccountProvider(credentialsURL: URL(fileURLWithPath: credentialsPath)),
-            eventLoopGroup: eventLoopGroup
-        )
-    }
-#endif
 
-    // MARK: - Termination
-
-    public func shutdown() async throws {
-        try await authorization?.shutdown()
+        try await authorization.shutdown()
     }
 }

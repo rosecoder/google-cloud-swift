@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Cursor: Equatable, Hashable {
+public struct Cursor: Equatable, Hashable, Sendable {
 
     public let rawValue: Data
 

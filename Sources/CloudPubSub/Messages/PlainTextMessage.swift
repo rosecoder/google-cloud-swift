@@ -1,5 +1,4 @@
 import Foundation
-import CloudTrace
 
 public struct PlainTextMessage: Message {
 
@@ -33,30 +32,28 @@ extension OutgoingPlainTextMessage: Sendable {}
 extension Publisher {
 
     @discardableResult
-    public static func publish(
+    public func publish(
         to topic: Topic<PlainTextMessage>,
         body: String,
         attributes: [String: String] = [:],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> PublishedMessage {
-        (try await publish(to: topic, bodies: [body], attributes: attributes, context: context, file: file, function: function, line: line))[0]
+        (try await publish(to: topic, bodies: [body], attributes: attributes, file: file, function: function, line: line))[0]
     }
-
+    
     @discardableResult
-    public static func publish(
+    public func publish(
         to topic: Topic<PlainTextMessage>,
         bodies: [String],
         attributes: [String: String] = [:],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> [PublishedMessage] {
         let messages = try bodies.map { try PlainTextMessage.Outgoing(body: $0, attributes: attributes) }
-        return try await publish(to: topic, messages: messages, context: context, file: file, function: function, line: line)
+        return try await publish(to: topic, messages: messages, file: file, function: function, line: line)
     }
 }
 
@@ -72,7 +69,7 @@ public struct IncomingPlainTextMessage: IncomingMessage {
 
     struct DecodingError: Error {}
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
         guard let text = String(data: data, encoding: .utf8) else {
             throw DecodingError()
         }

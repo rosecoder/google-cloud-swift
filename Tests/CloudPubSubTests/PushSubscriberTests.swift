@@ -1,7 +1,6 @@
 import XCTest
 import NIO
 @testable import CloudPubSub
-import CloudTrace
 
 private nonisolated(unsafe) var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
@@ -9,7 +8,7 @@ private struct CallbackHandler: Handler {
 
     let subscription = Subscription(name: "test", topic: Topics.test)
 
-    func handle(message: Incoming, context: any Context) async throws {
+    func handle(message: Incoming) async throws {
         try await callback?(message)
     }
 }

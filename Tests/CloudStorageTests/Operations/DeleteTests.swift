@@ -1,6 +1,5 @@
 import XCTest
 import CloudStorage
-import CloudTrace
 
 final class DeleteTests: EmulatorTestCase {
 
@@ -12,10 +11,9 @@ final class DeleteTests: EmulatorTestCase {
             data: "Hello world!".data(using: .utf8)!,
             contentType: "text/plain",
             object: object,
-            in: bucket,
-            context: context
+            in: bucket
         )
 
-        try await Storage.delete(object: object, in: bucket, context: context)
+        try await Storage.delete(object: object, in: bucket)
     }
 }

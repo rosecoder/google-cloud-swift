@@ -1,33 +1,26 @@
 import Foundation
-import GRPC
+import GRPCCore
 import NIO
 import NIOHTTP1
 import Logging
+import Tracing
 import CloudCore
-import CloudTrace
 import RetryableTask
+import ServiceLifecycle
+import Synchronization
 
-public actor PushSubscriber: Subscriber, Dependency {
+public final class PushSubscriber: Service {
 
-    public static let shared = PushSubscriber()
+    let logger = Logger(label: "pubsub.subscriber")
 
-    static let logger = Logger(label: "pubsub.subscriber")
+    public init() {}
 
     // MARK: - Bootstrap
 
-    private var channel: Channel?
-
+    public func run() async throws {
 #if DEBUG
-    public static nonisolated(unsafe) var isDebugUsingPull = true
-#endif
-
-    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-#if DEBUG
-        if Self.isDebugUsingPull {
-            Self.logger.info("Using pull subscriber instead of push. Push is not supported during local development.")
-            try await PullSubscriber.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-            return
-        }
+        try await runUsingPull()
+        return
 #endif
 
         let port: Int
@@ -37,81 +30,94 @@ public actor PushSubscriber: Subscriber, Dependency {
             port = 8080
         }
 
-        let bootstrap = ServerBootstrap(group: eventLoopGroup)
+        let bootstrap = ServerBootstrap(group: .singletonMultiThreadedEventLoopGroup)
             .serverChannelOption(ChannelOptions.backlog, value: 256)
             .serverChannelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
             .childChannelInitializer { channel in
                 channel.pipeline.configureHTTPServerPipeline().flatMap { _ in
-                    channel.pipeline.addHandler(HTTPHandler(handle: Self.handle))
+                    channel.pipeline.addHandler(HTTPHandler(handle: self.handle))
                 }
             }
             .childChannelOption(ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
             .childChannelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
             .childChannelOption(ChannelOptions.maxMessagesPerRead, value: 1)
 
-        channel = try await bootstrap.bind(host: "0.0.0.0", port: port).get()
-    }
+        let channel = try await bootstrap.bind(host: "0.0.0.0", port: port).get()
 
-    // MARK: - Termination
-
-    public func shutdown() async throws {
-#if DEBUG
-        if Self.isDebugUsingPull {
-            try await PullSubscriber.shared.shutdown()
-            return
+        await withGracefulShutdownHandler {
+            // nothing to do here
+        } onGracefulShutdown: {
+            Task {
+                try await channel.close()
+            }
         }
-#endif
 
-        Self.logger.debug("Shutting down subscriptions...")
-
-        try await channel?.close()
-        try await PubSub.shared.shutdown()
+        try await channel.closeFuture.get()
     }
+
+#if DEBUG
+    private let pubSubService = try! PubSubService()
+    private let pullRunTasks = Mutex<[Task<Void, Error>]>([])
+
+    private func runUsingPull() async throws {
+        logger.info("Using pull subscriber instead of push. Push is not supported during local development.")
+
+        try await pubSubService.run()
+
+        let tasks = pullRunTasks.withLock { $0 }
+
+        for task in tasks {
+            task.cancel()
+            try? await task.value
+        }
+    }
+#endif
 
     // MARK: - Subscribe
 
-    private static var handlings = [String: (Incoming, inout Context) async -> Response]()
+    private let handlings = Mutex<[String: @Sendable (Incoming, Span) async -> Response]>([:])
 
-    public static func register<Handler>(handler: Handler) async throws
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
+    public func register<Handler: _Handler>(handler: Handler) async throws {
 #if DEBUG
-        if isDebugUsingPull {
-            try await PullSubscriber.startPull(handler: handler)
-            return
+        let pullTask = Task {
+            let subscriber = PullSubscriber(handler: handler, pubSubService: pubSubService)
+            try await subscriber.run()
         }
+        pullRunTasks.withLock {
+            $0.append(pullTask)
+        }
+        return
 #endif
 
-        if await shared.channel == nil {
-            try await shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+        let handleClosure: @Sendable (Incoming, Span) async -> Response = {
+            await self.handle(incoming: $0, span: $1, handler: handler)
         }
-
-        handlings[handler.subscription.id] = {
-            await self.handle(incoming: $0, handler: handler, context: &$1)
+        handlings.withLock {
+            $0[handler.subscription.id] = handleClosure
         }
 
         logger.debug("Subscribed to \(handler.subscription.name)")
     }
 
-    @Sendable private static func handle(incoming: Incoming, trace: Trace?) async -> Response {
-        var context = messageContext(subscriptionName: incoming.subscription, rawMessage: incoming.message, trace: trace)
-
-        guard let handling = handlings[incoming.subscription] else {
-            context.logger.error("Handler for subscription could not be found: \(incoming.subscription)")
-            context.trace?.end(statusCode: .notFound)
+    @Sendable private func handle(incoming: Incoming, span: Span) async -> Response {
+        guard let handling = handlings.withLock({ $0[incoming.subscription] }) else {
+            logger.error("Handler for subscription could not be found: \(incoming.subscription)")
+            span.recordError(SubscriptionNotFoundError(name: incoming.subscription))
             return .notFound
         }
-        return await handling(incoming, &context)
+        return await handling(incoming, span)
     }
 
-    private static func handle<Handler>(incoming: Incoming, handler: Handler, context: inout Context) async -> Response
-    where Handler: _Handler,
-          Handler.Message.Incoming: IncomingMessage
-    {
-        context.logger[metadataKey: "subscription"] = .string(incoming.subscription)
-        context.logger[metadataKey: "message"] = .string(incoming.message.id)
-        context.logger.debug("Handling incoming message. Decoding...")
+    private struct SubscriptionNotFoundError: Error {
+
+        let name: String
+    }
+
+    private func handle<Handler: _Handler>(incoming: Incoming, span: Span, handler: Handler) async -> Response {
+        var logger = logger
+        logger[metadataKey: "subscription"] = .string(incoming.subscription)
+        logger[metadataKey: "message"] = .string(incoming.message.id)
+        logger.debug("Handling incoming message. Decoding...")
 
         let rawMessage = incoming.message
         let message: Handler.Message.Incoming
@@ -120,37 +126,35 @@ public actor PushSubscriber: Subscriber, Dependency {
                 id: rawMessage.id,
                 published: rawMessage.published,
                 data: rawMessage.data,
-                attributes: rawMessage.attributes,
-                context: &context
+                attributes: rawMessage.attributes
             )
             try Task.checkCancellation()
         } catch {
-            handleFailure(error: error, context: &context)
+            handleFailure(error: error, span: span)
             return .failure
         }
 
-        context.logger.debug("Handling incoming message. Running handler...")
+        logger.debug("Handling incoming message. Running handler...")
 
         do {
-            try await handler.handle(message: message, context: context)
+            try await handler.handle(message: message)
         } catch {
-            handleFailure(error: error, context: &context)
+            handleFailure(error: error, span: span)
             return .failure
         }
 
-        context.logger.debug("Handling successful.")
-        context.trace?.end(statusCode: .ok)
+        logger.debug("Handling successful.")
+        span.setStatus(SpanStatus(code: .ok))
 
         return .success
     }
 
-    private static func handleFailure(error: Error, context: inout Context) {
+    private func handleFailure(error: Error, span: Span) {
         if !(error is CancellationError) {
-            context.logger.error("\(error)")
-            context.trace?.end(error: error)
+            logger.error("\(error)")
         } else {
-            context.logger.debug("Handling cancelled.")
-            context.trace?.end(statusCode: .cancelled)
+            logger.debug("Handling cancelled.")
         }
+        span.recordError(error)
     }
 }

@@ -1,15 +1,14 @@
 import CloudCore
-import CloudTrace
 import RetryableTask
+import Tracing
 
 extension Datastore {
 
-    private static func performQuery<Entity, CodingKeys>(
+    private func performQuery<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         projection: [Google_Datastore_V1_Projection],
         cursor: inout Cursor?,
-        context: Context,
-        file: String = #fileID,
+file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> [Google_Datastore_V1_EntityResult]
@@ -17,12 +16,11 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        let projectID = await Environment.current.projectID
-        let response: Google_Datastore_V1_RunQueryResponse = try await context.trace.recordSpan(named: "datastore-query", kind: .client, attributes: [
-            "datastore/kind": Entity.Key.kind,
-        ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: { [cursor] in
-                try await shared.client(context: context).runQuery(.with {
+        let projectID = try self.projectID
+        let response: Google_Datastore_V1_RunQueryResponse = try await withSpan("datastore-query", ofKind: .client) { span in
+            span.attributes["datastore/kind"] = Entity.Key.kind
+            return try await withRetryableTask(logger: logger, operation: { [client, cursor] in
+                try await client.runQuery(.with {
                     $0.projectID = projectID
                     $0.partitionID = .with {
                         $0.namespaceID = query.namespace.rawValue
@@ -73,18 +71,18 @@ extension Datastore {
                     cursor = Cursor(rawValue: response.batch.endCursor)
                 }
             } else {
-                context.logger.error("Datastore query was paginated, but cursor is missing. This may break pagination.")
+                logger.error("Datastore query was paginated, but cursor is missing. This may break pagination.")
                 cursor = nil
             }
         case .noMoreResults:
             cursor = nil
         case .unspecified:
             if cursor != nil || query.limit != nil {
-                context.logger.error("Datastore query was paginated, but datastore retruned no indication of more data (unspecified batch more results). This may break pagination.")
+                logger.error("Datastore query was paginated, but datastore retruned no indication of more data (unspecified batch more results). This may break pagination.")
             }
             cursor = nil
         case .UNRECOGNIZED(let rawValue):
-            context.logger.error("Unrecognized datastore query batch more results. This may break pagination.", metadata: [
+            logger.error("Unrecognized datastore query batch more results. This may break pagination.", metadata: [
                 "rawValue": .stringConvertible(rawValue),
             ])
             cursor = nil
@@ -92,10 +90,9 @@ extension Datastore {
         return response.batch.entityResults
     }
 
-    public static func getEntities<Entity, CodingKeys>(
+    public func getEntities<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -104,7 +101,7 @@ extension Datastore {
         Entity: _Entity,
         Entity.Key: AnyKey
     {
-        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, context: context, file: file, function: function, line: line)
+        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, file: file, function: function, line: line)
 
         let decoder = EntityDecoder()
         return try raws.map {
@@ -112,9 +109,8 @@ extension Datastore {
         }
     }
 
-    public static func getEntities<Entity, CodingKeys>(
+    public func getEntities<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -124,13 +120,12 @@ extension Datastore {
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getEntities(query: query, cursor: &cursor, context: context, file: file, function: function, line: line)
+        return try await getEntities(query: query, cursor: &cursor, file: file, function: function, line: line)
     }
 
-    public static func getKeys<Entity, CodingKeys>(
+    public func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
         cursor: inout Cursor?,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -147,7 +142,6 @@ extension Datastore {
                 }
             }],
             cursor: &cursor,
-            context: context,
             file: file,
             function: function,
             line: line
@@ -155,9 +149,8 @@ extension Datastore {
         return raws.map { Entity.Key.init(raw: $0.entity.key) }
     }
 
-    public static func getKeys<Entity, CodingKeys>(
+    public func getKeys<Entity, CodingKeys>(
         query: Query<Entity, CodingKeys>,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -167,6 +160,6 @@ extension Datastore {
         Entity.Key: AnyKey
     {
         var cursor: Cursor?
-        return try await getKeys(query: query, cursor: &cursor, context: context, file: file, function: function, line: line)
+        return try await getKeys(query: query, cursor: &cursor, file: file, function: function, line: line)
     }
 }

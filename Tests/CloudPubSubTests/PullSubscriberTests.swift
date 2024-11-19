@@ -1,7 +1,6 @@
 import XCTest
 import NIO
 import CloudPubSub
-import CloudTrace
 
 private nonisolated(unsafe) var callback: ((IncomingPlainTextMessage) async throws -> Void)?
 
@@ -9,7 +8,7 @@ private struct CallbackHandler: Handler {
 
     let subscription = Subscription(name: "test", topic: Topics.test)
 
-    func handle(message: Incoming, context: any Context) async throws {
+    func handle(message: Incoming) async throws {
         try await callback?(message)
     }
 }
@@ -41,7 +40,7 @@ final class PullSubscriberTestCase: XCTestCase {
         try await PullSubscriber.startPull(handler: CallbackHandler())
 
         // Publish message
-        let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello", context: context)
+        let publishedMessage = try await Publisher.publish(to: Topics.test, body: "Hello")
 
         // Wait
         await fulfillment(of: [expectation], timeout: 60)

@@ -1,89 +1,36 @@
 import Foundation
 import Logging
+import Tracing
 import CloudErrorReporting
-import CloudLogger
-import CloudTrace
+import GoogleCloudTracing
 import CloudCore
 import RetryableTask
+import ServiceLifecycle
 
 extension App {
 
-    public static func initialize(preBootstrap: () async throws -> Void = {}) async {
-        _unsafeInitializedEventLoopGroup = eventLoopGroup
-
-        // Logging
 #if DEBUG
-        LoggingSystem.bootstrap { label in
-            var handler = StreamLogHandler.standardOutput(label: label)
-            handler.logLevel = logLevel
-            return handler
-        }
+    static var configureForProduction: Bool { false }
 #else
-        do {
-            try await GoogleCloudLogging.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-            LoggingSystem.bootstrap { label in
-                var handler = GoogleCloudLogHandler(label: label)
-                handler.logLevel = logLevel
-                return handler
-            }
-        } catch {
-            logger.critical("Logging failed to bootstrap: \(error)")
-            await terminate(exitCode: 1)
-        }
-#endif
-        _ = logger // Initializes default logger
-
-        // Termination
-        catchGracefulTermination()
-
-        // Error reporting
-#if !DEBUG
-        do {
-            try await ErrorReporting.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-        } catch {
-            logger.warning("ErrorReporting (optional) failed to bootstrap: \(error)")
-        }
+    static var configureForProduction: Bool { true }
 #endif
 
-        // Trace
-#if !DEBUG
-        do {
-            try await Tracing.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-        } catch {
-            logger.warning("Tracing (optional) failed to bootstrap: \(error)")
-        }
-#endif
+    public static func main() async throws {
+        let logService = initializeLogging()
 
-        // Metrics
-        // TODO: Implement
+        var logger = Logger(label: "app.main")
+        logger.logLevel = logLevel
 
-        // App dependencies
-        for options in Self.dependencies {
-            do {
-                try await options.type.shared.bootstrap(eventLoopGroup: eventLoopGroup)
-            } catch {
-                logger.warning("\(options.type) failed to bootstrap: \(error)")
-            }
-        }
+        let services: [ServiceGroupConfiguration.ServiceConfiguration?] = [
+            logService,
+            tracingService(logger: logger),
+        ] + self.services
 
-        // App
-        do {
-            try await preBootstrap()
-            try await self.bootstrap()
-        } catch {
-            logger.critical("Error bootstrapping app", metadata: [
-                "error": .string(String(describing: error)),
-            ])
-            await terminate(exitCode: 1)
-        }
+        let serviceGroup = ServiceGroup(configuration: ServiceGroupConfiguration(
+            services: services.compactMap { $0 },
+            logger: logger
+        ))
 
-        // Readiness indication file
-        if let path = ProcessInfo.processInfo.environment["READINESS_INDICATION_FILE"] {
-            do {
-                try Data([0x1]).write(to: URL(fileURLWithPath: path))
-            } catch {
-                logger.warning("Failed to write readiness indication file: \(error)")
-            }
-        }
+        try await serviceGroup.run()
     }
 }

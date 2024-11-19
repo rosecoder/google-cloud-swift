@@ -28,12 +28,6 @@ protoc google/devtools/cloudtrace/v2/*.proto google/rpc/status.proto \
   --grpc-swift_opt=Client=true,Server=false \
   --grpc-swift_out=${SOURCES_ROOT}/CloudTrace/gRPC_generated/
 
-echo "Generating gRPC code for Translate..."
-protoc google/cloud/translate/v3/*.proto google/rpc/status.proto google/longrunning/operations.proto \
-  --swift_out=${SOURCES_ROOT}/CloudTranslation/gRPC_generated/ \
-  --grpc-swift_opt=Client=true,Server=false \
-  --grpc-swift_out=${SOURCES_ROOT}/CloudTranslation/gRPC_generated/
-
 echo "Generating gRPC code for AI platform..."
 protoc google/cloud/aiplatform/v1/*.proto google/rpc/status.proto google/longrunning/operations.proto google/api/httpbody.proto google/type/date.proto google/type/money.proto google/type/interval.proto \
   --swift_opt=Visibility=Public \

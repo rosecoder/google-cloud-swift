@@ -2,7 +2,6 @@ import XCTest
 import NIO
 @testable import CloudStorage
 import CloudCore
-import CloudTrace
 
 final class SigningTests: XCTestCase {
 
@@ -23,7 +22,7 @@ final class SigningTests: XCTestCase {
     func testSignForWrite() async throws {
 
         // Generate URL for writing
-        let urlForWrite = try await Storage.generateSignedURL(for: .writing, object: object, in: bucket, context: context)
+        let urlForWrite = try await Storage.generateSignedURL(for: .writing, object: object, in: bucket)
 
         // Upload a plain text file
         let boundary = "__GC-SWIFT_BOUNDARY__"
@@ -45,7 +44,7 @@ final class SigningTests: XCTestCase {
         XCTAssertEqual((response as! HTTPURLResponse).statusCode, 204)
 
         // Generate URL for reading
-        let urlForRead = try await Storage.generateSignedURL(for: .reading, object: object, in: bucket, context: context)
+        let urlForRead = try await Storage.generateSignedURL(for: .reading, object: object, in: bucket)
 
         // Assert that uploaded is same as read
         let (data, _) = try await URLSession.shared.data(from: URL(string: urlForRead)!)

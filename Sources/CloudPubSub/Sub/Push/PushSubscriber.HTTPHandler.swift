@@ -2,7 +2,15 @@ import Foundation
 import NIO
 import NIOHTTP1
 import CloudCore
-import CloudTrace
+import Tracing
+import Logging
+
+private struct HTTPHeadersExtractor: Extractor {
+
+    func extract(key: String, from carrier: HTTPHeaders) -> String? {
+        carrier.first(name: key)
+    }
+}
 
 extension PushSubscriber {
 
@@ -10,11 +18,13 @@ extension PushSubscriber {
 
         typealias InboundIn = HTTPServerRequestPart
 
-        private let handle: @Sendable (Incoming, Trace?) async -> Response
+        private let handle: @Sendable (Incoming, Span) async -> Response
 
         private var isKeepAlive = false
-        private var trace: Trace?
+        private var context: ServiceContext = .topLevel
         private var buffer: ByteBuffer?
+
+        let logger = Logger(label: "pubsub.subscriber")
 
         static let decoder: JSONDecoder = {
             let decoder = JSONDecoder()
@@ -49,7 +59,7 @@ extension PushSubscriber {
             return decoder
         }()
 
-        init(handle: @Sendable @escaping (Incoming, Trace?) async -> Response) {
+        init(handle: @Sendable @escaping (Incoming, Span) async -> Response) {
             self.handle = handle
         }
 
@@ -60,7 +70,12 @@ extension PushSubscriber {
             switch reqPart {
             case .head(let head):
                 self.isKeepAlive = head.isKeepAlive
-                self.trace = head.headers["X-Cloud-Trace-Context"].first.flatMap { Trace(headerValue: $0) }
+
+                InstrumentationSystem.instrument.extract(
+                    head.headers,
+                    into: &self.context,
+                    using: HTTPHeadersExtractor()
+                )
             case .body(var body):
                 if buffer != nil {
                     self.buffer!.writeBuffer(&body)
@@ -69,32 +84,31 @@ extension PushSubscriber {
                 }
             case .end:
                 guard let buffer else {
-                    PushSubscriber.logger.warning("Channel read end without head and/or buffer")
+                    logger.warning("Channel read end without head and/or buffer")
                     context.close(promise: nil)
                     return
                 }
-                let trace = self.trace
-
                 self.buffer = nil
-                self.trace = nil
 
-                Task { [handle, isKeepAlive] in
+                Task { [handle, isKeepAlive, logger] in
                     let response: Response
                     do {
                         _ = buffer
                         let incoming = try HTTPHandler.decoder.decode(Incoming.self, from: buffer)
-                        response = await handle(incoming, trace)
+                        response = await withSpan("Subscription") { span in
+                            await handle(incoming, span)
+                        }
                     } catch {
-                        PushSubscriber.logger.error("Error parsing incoming message: \(error)", metadata: [
+                        logger.error("Error parsing incoming message: \(error)", metadata: [
                             "data": .string(String(buffer: buffer)),
                         ])
                         response = .unexpectedCallerBehavior
                     }
 
-                    if !(await Environment.current.isCPUAlwaysAllocated) {
-                        await Tracing.shared.writeIfNeeded()
-                        await Tracing.shared.waitForWrite()
-                    }
+//                    if !(await Environment.current.isCPUAlwaysAllocated) {
+//                        await Tracing.shared.writeIfNeeded()
+//                        await Tracing.shared.waitForWrite()
+//                    }
 
                     var head = HTTPResponseHead(version: .http1_1, status: response.httpStatus)
                     if isKeepAlive {
@@ -112,7 +126,7 @@ extension PushSubscriber {
         }
 
         func errorCaught(context: ChannelHandlerContext, error: Error) {
-            PushSubscriber.logger.warning("Socket error, closing connection: \(error)")
+            logger.warning("Socket error, closing connection: \(error)")
             context.close(promise: nil)
         }
     }

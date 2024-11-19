@@ -1,11 +1,11 @@
 import Foundation
-import CloudTrace
+import Tracing
 
 extension Storage {
 
     // MARK: - Insert
 
-    public static func insert(data: Data, contentType: String, object: Object, in bucket: Bucket, context: Context) async throws {
+    public func insert(data: Data, contentType: String, object: Object, in bucket: Bucket) async throws {
 #if DEBUG
         guard !isUsingLocalStorage else {
             let url = object.localStorageURL(in: bucket)
@@ -15,9 +15,8 @@ extension Storage {
         }
 #endif
 
-        try await context.trace.recordSpan(named: "storage-insert", kind: .client, attributes: [
-            "storage/bucket": bucket.name,
-        ]) { span in
+        try await withSpan("storage-insert", ofKind: .client) { span in
+            span.attributes["storage/bucket"] = bucket.name
             try await execute(
                 method: .POST,
                 path: "/upload/storage/v1/b/\(bucket.urlEncoded)/o",
@@ -29,15 +28,14 @@ extension Storage {
                     "Content-Type": contentType,
                     "Content-Length": String(data.count),
                 ],
-                body: .bytes(data),
-                context: context
+                body: .bytes(data)
             )
         }
     }
 
     // MARK: - Delete
 
-    public static func delete(object: Object, in bucket: Bucket, context: Context) async throws {
+    public func delete(object: Object, in bucket: Bucket) async throws {
 #if DEBUG
         guard !isUsingLocalStorage else {
             let url = object.localStorageURL(in: bucket)
@@ -46,13 +44,11 @@ extension Storage {
         }
 #endif
 
-        try await context.trace.recordSpan(named: "storage-delete", kind: .client, attributes: [
-            "storage/bucket": bucket.name,
-        ]) { span in
+        try await withSpan("storage-delete", ofKind: .client) { span in
+            span.attributes["storage/bucket"] = bucket.name
             try await execute(
                 method: .DELETE,
-                path: "/storage/v1/b/\(bucket.urlEncoded)/o/\(object.urlEncoded)",
-                context: context
+                path: "/storage/v1/b/\(bucket.urlEncoded)/o/\(object.urlEncoded)"   
             )
         }
     }

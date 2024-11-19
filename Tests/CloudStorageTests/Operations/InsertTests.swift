@@ -1,6 +1,5 @@
 import XCTest
 import CloudStorage
-import CloudTrace
 
 final class InsertTests: EmulatorTestCase {
 
@@ -12,8 +11,7 @@ final class InsertTests: EmulatorTestCase {
             data: "Hello world!".data(using: .utf8)!,
             contentType: "text/plain",
             object: object,
-            in: bucket,
-            context: context
+            in: bucket
         )
     }
 }

@@ -1,5 +1,4 @@
 import Foundation
-import CloudTrace
 import Logging
 
 public typealias _Handler = Handler
@@ -11,11 +10,5 @@ public protocol Handler: Sendable {
 
     var subscription: Subscription<Message> { get }
 
-    func handle(message: Incoming, context: Context) async throws
-}
-
-struct HandlerContext: Context {
-
-    var logger: Logger
-    var trace: Trace?
+    func handle(message: Incoming) async throws
 }

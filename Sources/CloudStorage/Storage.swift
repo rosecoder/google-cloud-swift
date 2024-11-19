@@ -3,69 +3,50 @@ import CloudCore
 import NIO
 import AsyncHTTPClient
 import NIOHTTP1
-import CloudTrace
 import GoogleCloudAuth
+import ServiceLifecycle
+import Synchronization
 
-public actor Storage: Dependency {
+public final class Storage: Service {
 
-    public static let shared = Storage()
+    let authorization: Authorization
+    let client: HTTPClient
 
-    var _authorization: Authorization?
+    private let _signingMethod = Mutex<SigningMethod>(.iam)
 
-    var authorization: Authorization {
-        get throws {
-            if _authorization == nil {
-                _authorization = Authorization(scopes: [
-                    "https://www.googleapis.com/auth/cloud-platform",
-                    "https://www.googleapis.com/auth/iam",
-                    "https://www.googleapis.com/auth/devstorage.read_write",
-                ], eventLoopGroup: _unsafeInitializedEventLoopGroup)
+    public var signingMethod: SigningMethod {
+        get { _signingMethod.withLock { $0 } }
+        set { _signingMethod.withLock { $0 = newValue } }
+    }
+
+    public init() {
+        self.authorization = Authorization(scopes: [
+            "https://www.googleapis.com/auth/cloud-platform",
+            "https://www.googleapis.com/auth/iam",
+            "https://www.googleapis.com/auth/devstorage.read_write",
+        ], eventLoopGroup: .singletonMultiThreadedEventLoopGroup)
+
+        self.client = HTTPClient(eventLoopGroupProvider: .shared(.singletonMultiThreadedEventLoopGroup))
+    }
+
+#if DEBUG
+    let isUsingLocalStorage = true
+#endif
+
+    public func run() async throws {
+        let foreverTask = Task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(.infinity))
             }
-            return _authorization!
         }
-    }
-
-    private var _client: HTTPClient?
-
-    func client() async throws -> HTTPClient {
-        if _client == nil {
-            try await self.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
+        await withGracefulShutdownHandler {
+            await foreverTask.value
+        } onGracefulShutdown: {
+            foreverTask.cancel()
         }
-        return _client!
-    }
 
-#if DEBUG
-    static var isUsingLocalStorage = false
-#endif
-
-    // MARK: - Bootstrap
-
-    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-#if DEBUG
-        if ProcessInfo.processInfo.environment["GOOGLE_APPLICATION_CREDENTIALS"]?.isEmpty == false {
-            try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
-        } else {
-            try await bootstrapForDebug()
-        }
-#else
-        try await bootstrapForProduction(eventLoopGroup: eventLoopGroup)
-#endif
-    }
-
-    func bootstrapForProduction(eventLoopGroup: EventLoopGroup) async throws {
-        _client = HTTPClient(eventLoopGroupProvider: .shared(eventLoopGroup))
-    }
-
-#if DEBUG
-    func bootstrapForDebug() async throws {
-        Self.isUsingLocalStorage = true
-    }
-#endif
-
-    // MARK: - Termination
-
-    public func shutdown() async throws {
-        try await _authorization?.shutdown()
+        try await client.shutdown()
+        try await authorization.shutdown()
     }
 
     // MARK: - Requests
@@ -103,13 +84,12 @@ public actor Storage: Dependency {
        }
    }
 
-    static func execute(
+    func execute(
         method: HTTPMethod,
         path: String,
         queryItems: [URLQueryItem]? = nil,
         headers: HTTPHeaders? = nil,
-        body: HTTPClientRequest.Body? = nil,
-        context: Context
+        body: HTTPClientRequest.Body? = nil
     ) async throws {
         var urlComponents = URLComponents(string: "https://storage.googleapis.com" + path)!
         urlComponents.queryItems = queryItems
@@ -124,11 +104,11 @@ public actor Storage: Dependency {
         }
 
         // Authorization
-        let accessToken = try await shared.authorization.accessToken()
+        let accessToken = try await authorization.accessToken()
         request.headers.add(name: "Authorization", value: "Bearer " + accessToken)
 
         // Perform
-        let response = try await shared.client().execute(request, timeout: .seconds(30))
+        let response = try await client.execute(request, timeout: .seconds(30))
 
         switch response.status {
         case .ok, .created, .accepted, .noContent:

@@ -1,5 +1,3 @@
-import Foundation
-
 struct RemoteError: Error, Decodable {
 
     let code: String  // TODO: Find all error codes and parse into an enum?

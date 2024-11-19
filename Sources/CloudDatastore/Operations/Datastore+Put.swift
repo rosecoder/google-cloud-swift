@@ -1,14 +1,13 @@
 import CloudCore
-import CloudTrace
 import RetryableTask
+import Tracing
 
 extension Datastore {
 
     /// Creates or updates given entities.  Also updates the key for entities where the key is incomplete.
     /// - Parameter entities: Entities to create or update.
-    public static func put<Entity>(
+    public func put<Entity>(
         entities: inout [Entity],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -16,16 +15,15 @@ extension Datastore {
     where Entity: _Entity,
           Entity.Key: AnyKey
     {
-        let projectID = await Environment.current.projectID
+        let projectID = try self.projectID
         let encoder = EntityEncoder()
         let rawEntities: [Google_Datastore_V1_Entity] = try entities
             .map { try encoder.encode($0) }
 
-        let result: Google_Datastore_V1_CommitResponse = try await context.trace.recordSpan(named: "datastore-put", kind: .client, attributes: [
-            "datastore/kind": Entity.Key.kind,
-        ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: {
-                try await shared.client(context: context).commit(.with {
+        let result: Google_Datastore_V1_CommitResponse = try await withSpan("datastore-put", ofKind: .client) { span in
+            span.attributes["datastore/kind"] = Entity.Key.kind
+            return try await withRetryableTask(logger: logger, operation: { [client] in
+                try await client.commit(.with {
                     $0.projectID = projectID
                     $0.mutations = rawEntities.map { raw in
                             .with {
@@ -48,9 +46,8 @@ extension Datastore {
 
     /// Creates or updates given entity.  Also updates the key if the entity's  key is incomplete.
     /// - Parameter entity: Entity to create or update.
-    public static func put<Entity>(
+    public func put<Entity>(
         entity: inout Entity,
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -59,7 +56,7 @@ extension Datastore {
           Entity.Key: AnyKey
     {
         var entities = [entity]
-        try await put(entities: &entities, context: context, file: file, function: function, line: line)
+        try await put(entities: &entities, file: file, function: function, line: line)
         entity = entities[0]
     }
 
@@ -68,9 +65,8 @@ extension Datastore {
     /// Allocates IDs of a set of keys with incomplete ids.
     /// - Parameters:
     ///   - keys: Keys with incomplete ids to allocate.
-    public static func allocateIDs<Key>(
+    public func allocateIDs<Key>(
         _ keys: inout [Key],
-        context: Context,
         file: String = #fileID,
         function: String = #function,
         line: UInt = #line
@@ -79,12 +75,11 @@ extension Datastore {
     {
         precondition(!keys.contains(where: { $0.id != .incomplete }))
 
-        let projectID = await Environment.current.projectID
-        let result: Google_Datastore_V1_AllocateIdsResponse = try await context.trace.recordSpan(named: "datastore-allocate-ids", kind: .client, attributes: [
-            "datastore/kind": Key.kind,
-        ]) { span in
-            try await withRetryableTask(logger: context.logger, operation: { [keys] in
-                try await shared.client(context: context).allocateIds(.with {
+        let projectID = try self.projectID
+        let result: Google_Datastore_V1_AllocateIdsResponse = try await withSpan("datastore-allocate-ids", ofKind: .client) { span in
+            span.attributes["datastore/kind"] = Key.kind
+            return try await withRetryableTask(logger: logger, operation: { [keys, client] in
+                try await client.allocateIds(.with {
                     $0.projectID = projectID
                     $0.keys = keys.map { $0.raw }
                 })
@@ -95,46 +90,43 @@ extension Datastore {
         }
     }
 
-    public static func allocateID<Key>(
+    public func allocateID<Key>(
         _ key: inout Key,
-        context: Context,
-        file: String = #fileID,
+file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws
     where Key: AnyKey
     {
         var keys = [key]
-        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
+        try await allocateIDs(&keys, file: file, function: function, line: line)
         key = keys[0]
     }
 
-    public static func allocateKey<Key>(
+    public func allocateKey<Key>(
         _ keyType: Key.Type,
-        context: Context,
-        file: String = #fileID,
+file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> Key
     where Key: IndependentKey
     {
         var keys = [Key.init(id: .incomplete)]
-        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
+        try await allocateIDs(&keys, file: file, function: function, line: line)
         return keys[0]
     }
 
-    public static func allocateKey<Key>(
+    public func allocateKey<Key>(
         _ keyType: Key.Type,
         namespace: Namespace,
-        context: Context,
-        file: String = #fileID,
+file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> Key
     where Key: IndependentNamespaceableKey
     {
         var keys = [Key.init(id: .incomplete, namespace: namespace)]
-        try await allocateIDs(&keys, context: context, file: file, function: function, line: line)
+        try await allocateIDs(&keys, file: file, function: function, line: line)
         return keys[0]
     }
 }

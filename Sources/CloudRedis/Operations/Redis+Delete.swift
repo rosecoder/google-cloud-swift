@@ -1,24 +1,17 @@
-import CloudTrace
+import Tracing
 @preconcurrency import RediStack
 
 extension Redis {
 
-    public static func delete(
-        keys: [RedisKey],
-        context: Context
-    ) async throws {
-        try await shared.ensureConnection(context: context)
-        try await context.trace.recordSpan(named: "redis-del", kind: .client, attributes: [
-            "redis/key": keys.map({ $0.rawValue }).joined(separator: ","),
-        ]) { span in
-            _ = try await shared.connection.delete(keys).get()
+    public func delete(keys: [RedisKey]) async throws {
+        let connection = try await ensureConnection()
+        try await withSpan("redis-del", ofKind: .client) { span in
+            span.attributes["redis/key"] = keys.map({ $0.rawValue }).joined(separator: ",")
+            _ = try await connection.delete(keys).get()
         }
     }
 
-    public static func delete(
-        key: RedisKey,
-        context: Context
-    ) async throws {
-        try await delete(keys: [key], context: context)
+    public func delete(key: RedisKey) async throws {
+        try await delete(keys: [key])
     }
 }

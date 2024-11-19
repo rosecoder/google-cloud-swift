@@ -1,6 +1,8 @@
 import Foundation
-import GRPC
+import GRPCCore
 import CloudCore
+import ServiceContextModule
+import GoogleCloudServiceContext
 
 public struct Topics {}
 
@@ -13,7 +15,7 @@ public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hasha
     public init(name: String, labels: [String: String] = [:]) {
         self.name = name
         self.labels = labels
-        self.projectID = Environment.resolveCurrent()!._projectID
+        self.projectID = ServiceContext.topLevel.projectID!
     }
 
     // MARK: - Identifiable
@@ -30,13 +32,13 @@ public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hasha
 
     // MARK: - Creation
 
-    func createIfNeeded(creation: @Sendable (Google_Pubsub_V1_Topic, CallOptions?) async throws -> Google_Pubsub_V1_Topic) async throws {
-        try await PubSub.shared.createIfNeeded(hashValue: rawValue.hashValue) {
+    func createIfNeeded(creation: @Sendable (Google_Pubsub_V1_Topic) async throws -> Google_Pubsub_V1_Topic, pubSubService: PubSubService) async throws {
+        try await pubSubService.createIfNeeded(hashValue: rawValue.hashValue) {
             do {
                 _ = try await creation(.with {
                     $0.name = id
                     $0.labels = labels
-                }, nil)
+                })
             } catch {
                 if !"\(error)".hasPrefix("already exists (6):") {
                     throw error

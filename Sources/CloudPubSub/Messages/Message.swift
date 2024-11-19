@@ -1,12 +1,11 @@
 import Foundation
-import CloudTrace
 
 public typealias _Message = Message
 
 public protocol Message {
 
-    associatedtype Incoming
-    associatedtype Outgoing
+    associatedtype Incoming: IncomingMessage
+    associatedtype Outgoing: OutgoingMessage
 }
 
 // MARK: - Outgoing
@@ -24,7 +23,7 @@ public protocol IncomingMessage {
     var id: String { get }
     var published: Date { get }
 
-    init(id: String, published: Date, data: Data, attributes: [String: String], context: inout Context) throws
+    init(id: String, published: Date, data: Data, attributes: [String: String]) throws
 }
 
 #if DEBUG
@@ -34,8 +33,7 @@ extension IncomingMessage {
         data: Data,
         attributes: [String: String] = [:]
     ) throws {
-        var context: Context = TestContext()
-        try self.init(id: "0", published: Date(), data: data, attributes: attributes, context: &context)
+        try self.init(id: "0", published: Date(), data: data, attributes: attributes)
     }
 }
 #endif

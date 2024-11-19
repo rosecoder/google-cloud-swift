@@ -1,7 +1,9 @@
 import Foundation
-import GRPC
+import GRPCCore
 import Logging
 import CloudCore
+import ServiceContextModule
+import GoogleCloudServiceContext
 
 public struct Subscriptions {}
 
@@ -50,7 +52,7 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
         self.expirationPolicyDuration = expirationPolicyDuration
         self.messageRetentionDuration = messageRetentionDuration
         self.deadLetterPolicy = deadLetterPolicy
-        self.projectID = Environment.resolveCurrent()!._projectID
+        self.projectID = ServiceContext.topLevel.projectID!
     }
 
     // MARK: - Identifiable
@@ -68,10 +70,12 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
     // MARK: - Creation
 
     func createIfNeeded(
-        creation: @Sendable (Google_Pubsub_V1_Subscription, CallOptions?) async throws -> Google_Pubsub_V1_Subscription,
+        creation: @Sendable (Google_Pubsub_V1_Subscription) async throws -> Google_Pubsub_V1_Subscription,
+        publisher: Publisher,
+        pubSubService: PubSubService,
         logger: Logger
     ) async throws {
-        try await PubSub.shared.createIfNeeded(hashValue: rawValue.hashValue) {
+        try await pubSubService.createIfNeeded(hashValue: rawValue.hashValue) {
             do {
                 _ = try await creation(.with {
                     $0.name = id
@@ -93,20 +97,16 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
                             $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
                         }
                     }
-                }, nil)
+                })
             } catch {
                 if "\(error)".hasPrefix("already exists (6):") {
                     return
                 }
                 if "\(error)".hasPrefix("not found (5):") {
-                    if await Publisher.shared._client == nil {
-                        logger.warning("Bootstrapping PubSub.Publisher due to subscription topic needs to be created. This is only done in DEBUG!")
-                        try await Publisher.shared.bootstrap(eventLoopGroup: _unsafeInitializedEventLoopGroup)
-                    }
                     try await topic.createIfNeeded(creation: {
-                        try await Publisher.shared._client!.createTopic($0, callOptions: $1)
-                    })
-                    try await createIfNeeded(creation: creation, logger: logger)
+                        try await publisher.client.createTopic($0)
+                    }, pubSubService: pubSubService)
+                    try await createIfNeeded(creation: creation, publisher: publisher, pubSubService: pubSubService, logger: logger)
                     return
                 }
                 throw error

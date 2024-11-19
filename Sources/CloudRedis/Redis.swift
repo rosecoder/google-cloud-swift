@@ -2,37 +2,49 @@ import Foundation
 import NIO
 @preconcurrency import RediStack
 import CloudCore
-import CloudTrace
+import Logging
+import Tracing
+import ServiceLifecycle
 
-public actor Redis: Dependency {
+public actor Redis: Service {
 
-    public static let shared = Redis()
+    private var _connection: RedisConnection?
 
-    public private(set) var connection: RedisConnection!
+    public var defaultEncoder: Encoder = JSONEncoder()
+    public var defaultDecoder: Decoder = JSONDecoder()
 
-    public static var defaultEncoder: Encoder = JSONEncoder()
-    public static var defaultDecoder: Decoder = JSONDecoder()
+    let logger = Logger(label: "redis")
 
-    // MARK: - Bootstrap
+    public init() {}
 
-    public func bootstrap(eventLoopGroup: EventLoopGroup) async throws {
-        try await createConnection(eventLoopGroup: eventLoopGroup)
-    }
-
-    private func createConnection(eventLoopGroup: EventLoopGroup) async throws {
-        connection = try await RedisConnection.make(
-            configuration: try .init(
-                hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? ProcessInfo.processInfo.environment["REDIS_SERVICE_HOST"] ?? "127.0.0.1"
-            ),
-            boundEventLoop: eventLoopGroup.next()
-        ).get()
-    }
-
-    func ensureConnection(context: Context) async throws {
-        if connection?.isConnected != true, let eventLoopGroup = _unsafeInitializedEventLoopGroup {
-            try await context.trace.recordSpan(named: "redis-connect", kind: .client) { span in
-                try await Redis.shared.createConnection(eventLoopGroup: eventLoopGroup)
+    public func run() async throws {
+        let foreverTask = Task {
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(.infinity))
             }
+        }
+        await withGracefulShutdownHandler {
+            await foreverTask.value
+        } onGracefulShutdown: {
+            foreverTask.cancel()
+        }
+
+        try await _connection?.close().get()
+    }
+
+    public func ensureConnection() async throws -> RedisConnection {
+        if let _connection, _connection.isConnected {
+            return _connection
+        }
+        return try await withSpan("redis-connect", ofKind: .client) { span in
+            let connection = try await RedisConnection.make(
+                configuration: try .init(
+                    hostname: ProcessInfo.processInfo.environment["REDIS_HOST"] ?? ProcessInfo.processInfo.environment["REDIS_SERVICE_HOST"] ?? "127.0.0.1"
+                ),
+                boundEventLoop: MultiThreadedEventLoopGroup.singletonMultiThreadedEventLoopGroup.next()
+            ).get()
+            self._connection = connection
+            return connection
         }
     }
 }
