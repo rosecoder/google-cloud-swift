@@ -126,7 +126,9 @@ public final class PushSubscriber: Service {
                 id: rawMessage.id,
                 published: rawMessage.published,
                 data: rawMessage.data,
-                attributes: rawMessage.attributes
+                attributes: rawMessage.attributes,
+                logger: &logger,
+                span: span
             )
             try Task.checkCancellation()
         } catch {

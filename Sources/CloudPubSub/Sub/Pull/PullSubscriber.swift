@@ -110,6 +110,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     private func handle(message: Google_Pubsub_V1_ReceivedMessage) async {
         await withSpan(handler.subscription.id, ofKind: .consumer) { span in
+            var logger = self.logger
             span.attributes["message"] = message.message.messageID
 
             let decodedMessage: Handler.Message.Incoming
@@ -119,11 +120,13 @@ public final class PullSubscriber<Handler: _Handler>: Service {
                     id: rawMessage.messageID,
                     published: rawMessage.publishTime.date,
                     data: rawMessage.data,
-                    attributes: rawMessage.attributes
+                    attributes: rawMessage.attributes,
+                    logger: &logger,
+                    span: span
                 )
                 try Task.checkCancellation()
             } catch {
-                await handleHandler(error: error, message: message, span: span)
+                await handleHandler(error: error, message: message, logger: logger, span: span)
                 return
             }
             span.addEvent(SpanEvent(name: "message-decoded"))
@@ -131,27 +134,27 @@ public final class PullSubscriber<Handler: _Handler>: Service {
             do {
                 try await handler.handle(message: decodedMessage)
             } catch {
-                await handleHandler(error: error, message: message, span: span)
+                await handleHandler(error: error, message: message, logger: logger, span: span)
                 return
             }
             span.setStatus(SpanStatus(code: .ok))
 
             do {
-                try await acknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue)
+                try await acknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue, logger: logger)
             } catch {
                 logger.critical("Failed to acknowledge message: \(error)")
             }
         }
     }
 
-    func handleHandler(error: Error, message: Google_Pubsub_V1_ReceivedMessage, span: any Span) async {
+    func handleHandler(error: Error, message: Google_Pubsub_V1_ReceivedMessage, logger: Logger, span: any Span) async {
         if !(error is CancellationError) {
             logger.error("\(error)")
         }
         span.recordError(error)
 
         do {
-            try await unacknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue)
+            try await unacknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue, logger: logger)
         } catch {
             logger.error("Failed to unacknowledge message: \(error)")
         }
@@ -159,7 +162,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     // MARK: - Acknowledge
 
-    private func acknowledge(id: String, subscriptionName: String) async throws {
+    private func acknowledge(id: String, subscriptionName: String, logger: Logger) async throws {
         try await withRetryableTask(logger: logger) {
             _ = try await client.acknowledge(Google_Pubsub_V1_AcknowledgeRequest.with {
                 $0.subscription = subscriptionName
@@ -168,7 +171,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
         }
     }
 
-    private func unacknowledge(id: String, subscriptionName: String) async throws {
+    private func unacknowledge(id: String, subscriptionName: String, logger: Logger) async throws {
         try await withRetryableTask(logger: logger) {
             _ = try await client.modifyAckDeadline(Google_Pubsub_V1_ModifyAckDeadlineRequest.with {
                 $0.subscription = subscriptionName

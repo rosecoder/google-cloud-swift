@@ -1,4 +1,6 @@
 import Foundation
+import Logging
+import Tracing
 
 public struct PlainTextMessage: Message {
 
@@ -69,7 +71,7 @@ public struct IncomingPlainTextMessage: IncomingMessage {
 
     struct DecodingError: Error {}
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], logger: inout Logger, span: any Span) throws {
         guard let text = String(data: data, encoding: .utf8) else {
             throw DecodingError()
         }

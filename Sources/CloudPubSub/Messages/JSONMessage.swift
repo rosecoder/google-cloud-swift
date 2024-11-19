@@ -1,4 +1,6 @@
 import Foundation
+import Logging
+import Tracing
 
 public struct JSONMessage<Element: Codable>: Message {
 
@@ -61,7 +63,7 @@ public struct IncomingJSONMessage<Element: Decodable>: IncomingMessage {
 
     public let body: Element
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], logger: inout Logger, span: any Span) throws {
         self.body = try JSONDecoder().decode(Element.self, from: data)
         self.id = id
         self.published = published

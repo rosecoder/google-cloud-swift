@@ -1,4 +1,6 @@
 import Foundation
+import Logging
+import Tracing
 import SwiftProtobuf
 
 public struct ProtobufMessage<Element: SwiftProtobuf.Message>: Message {
@@ -62,7 +64,7 @@ public struct IncomingProtobufMessage<Element: SwiftProtobuf.Message>: IncomingM
 
     public let body: Element
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], logger: inout Logger, span: any Span) throws {
         self.body = try Element.init(serializedBytes: data)
         self.id = id
         self.published = published

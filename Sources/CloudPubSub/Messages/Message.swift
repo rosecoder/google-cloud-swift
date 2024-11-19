@@ -1,4 +1,6 @@
 import Foundation
+import Logging
+import Tracing
 
 public typealias _Message = Message
 
@@ -23,7 +25,14 @@ public protocol IncomingMessage {
     var id: String { get }
     var published: Date { get }
 
-    init(id: String, published: Date, data: Data, attributes: [String: String]) throws
+    init(
+        id: String,
+        published: Date,
+        data: Data,
+        attributes: [String: String],
+        logger: inout Logger,
+        span: any Span
+    ) throws
 }
 
 #if DEBUG
@@ -33,7 +42,9 @@ extension IncomingMessage {
         data: Data,
         attributes: [String: String] = [:]
     ) throws {
-        try self.init(id: "0", published: Date(), data: data, attributes: attributes)
+        var logger = Logger(label: "debug")
+        let span = NoOpTracer.Span(context: .topLevel)
+        try self.init(id: "0", published: Date(), data: data, attributes: attributes, logger: &logger, span: span)
     }
 }
 #endif

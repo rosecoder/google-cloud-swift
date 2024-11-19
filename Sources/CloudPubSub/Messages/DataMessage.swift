@@ -1,4 +1,6 @@
 import Foundation
+import Logging
+import Tracing
 
 public struct DataMessage: Message {
 
@@ -61,7 +63,7 @@ public struct IncomingDataMessage: IncomingMessage {
 
     public let body: Data
 
-    public init(id: String, published: Date, data: Data, attributes: [String: String]) throws {
+    public init(id: String, published: Date, data: Data, attributes: [String: String], logger: inout Logger, span: any Span) throws {
         self.id = id
         self.published = published
         self.attributes = attributes
