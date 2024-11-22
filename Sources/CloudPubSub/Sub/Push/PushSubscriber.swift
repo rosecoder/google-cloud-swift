@@ -77,7 +77,7 @@ public final class PushSubscriber: Service {
 
     private let handlings = Mutex<[String: @Sendable (Incoming, Span) async -> Response]>([:])
 
-    public func register<Handler: _Handler>(handler: Handler) async throws {
+    public func register<Handler: _Handler>(handler: Handler) {
 #if DEBUG
         let pullTask = Task {
             let subscriber = PullSubscriber(handler: handler, pubSubService: pubSubService)
