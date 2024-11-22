@@ -131,9 +131,12 @@ public final class PullSubscriber<Handler: _Handler>: Service {
             }
             span.addEvent(SpanEvent(name: "message-decoded"))
 
+            let context = HandlerContext(logger: logger, span: span)
             do {
-                try await handler.handle(message: decodedMessage)
+                try await handler.handle(message: decodedMessage, context: context)
+                logger = context.logger
             } catch {
+                logger = context.logger
                 await handleHandler(error: error, message: message, logger: logger, span: span)
                 return
             }

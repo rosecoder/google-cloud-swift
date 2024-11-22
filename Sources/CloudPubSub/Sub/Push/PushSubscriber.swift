@@ -132,16 +132,19 @@ public final class PushSubscriber: Service {
             )
             try Task.checkCancellation()
         } catch {
-            handleFailure(error: error, span: span)
+            handleFailure(error: error, logger: logger, span: span)
             return .failure
         }
 
         logger.debug("Handling incoming message. Running handler...")
 
+        let context = HandlerContext(logger: logger, span: span)
         do {
-            try await handler.handle(message: message)
+            try await handler.handle(message: message, context: context)
+            logger = context.logger
         } catch {
-            handleFailure(error: error, span: span)
+            logger = context.logger
+            handleFailure(error: error, logger: logger, span: span)
             return .failure
         }
 
@@ -151,7 +154,7 @@ public final class PushSubscriber: Service {
         return .success
     }
 
-    private func handleFailure(error: Error, span: Span) {
+    private func handleFailure(error: Error, logger: Logger, span: Span) {
         if !(error is CancellationError) {
             logger.error("\(error)")
         } else {
