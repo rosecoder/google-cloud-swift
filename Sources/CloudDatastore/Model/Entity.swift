@@ -2,9 +2,9 @@ public typealias _Entity = Entity
 
 public protocol Entity: Sendable, Codable, QueryFilterValue {
     
-    associatedtype Key
-    associatedtype CodingKeys
-    
+    associatedtype Key: AnyKey
+    associatedtype CodingKeys: CodingKey
+
     /// Entity key property identifying the entity.
     ///
     /// **Important**: When using custom `CodingKeys`, make sure this property is encoded to `"key"`.
@@ -27,7 +27,7 @@ extension Entity {
     }
 }
 
-extension Entity where Key: AnyKey {
+extension Entity {
 
     public var _rawQueryFilterValue: Any {
         let encoder = EntityEncoder()

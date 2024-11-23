@@ -39,7 +39,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// The keys of `aggregate_properties` are the same for all results in an
 /// aggregation query, unlike entity queries which can have different fields
 /// present for each result.
-struct Google_Datastore_V1_AggregationResult: Sendable {
+package struct Google_Datastore_V1_AggregationResult: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -50,44 +50,44 @@ struct Google_Datastore_V1_AggregationResult: Sendable {
   /// [alias][google.datastore.v1.AggregationQuery.Aggregation.alias] assigned to
   /// the aggregation function on input and the size of this map equals the
   /// number of aggregation functions in the query.
-  var aggregateProperties: Dictionary<String,Google_Datastore_V1_Value> = [:]
+  package var aggregateProperties: Dictionary<String,Google_Datastore_V1_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// A batch of aggregation results produced by an aggregation query.
-struct Google_Datastore_V1_AggregationResultBatch: Sendable {
+package struct Google_Datastore_V1_AggregationResultBatch: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The aggregation results for this batch.
-  var aggregationResults: [Google_Datastore_V1_AggregationResult] = []
+  package var aggregationResults: [Google_Datastore_V1_AggregationResult] = []
 
   /// The state of the query after the current batch.
   /// Only COUNT(*) aggregations are supported in the initial launch. Therefore,
   /// expected result type is limited to `NO_MORE_RESULTS`.
-  var moreResults: Google_Datastore_V1_QueryResultBatch.MoreResultsType = .unspecified
+  package var moreResults: Google_Datastore_V1_QueryResultBatch.MoreResultsType = .unspecified
 
   /// Read timestamp this batch was returned from.
   ///
   /// In a single transaction, subsequent query result batches for the same query
   /// can have a greater timestamp. Each batch's read timestamp
   /// is valid for all preceding batches.
-  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_readTime = newValue}
   }
   /// Returns true if `readTime` has been explicitly set.
-  var hasReadTime: Bool {return self._readTime != nil}
+  package var hasReadTime: Bool {return self._readTime != nil}
   /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
-  mutating func clearReadTime() {self._readTime = nil}
+  package mutating func clearReadTime() {self._readTime = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
@@ -97,12 +97,12 @@ struct Google_Datastore_V1_AggregationResultBatch: Sendable {
 fileprivate let _protobuf_package = "google.datastore.v1"
 
 extension Google_Datastore_V1_AggregationResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AggregationResult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".AggregationResult"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "aggregate_properties"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -114,14 +114,14 @@ extension Google_Datastore_V1_AggregationResult: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.aggregateProperties.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Datastore_V1_Value>.self, value: self.aggregateProperties, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_AggregationResult, rhs: Google_Datastore_V1_AggregationResult) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_AggregationResult, rhs: Google_Datastore_V1_AggregationResult) -> Bool {
     if lhs.aggregateProperties != rhs.aggregateProperties {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -129,14 +129,14 @@ extension Google_Datastore_V1_AggregationResult: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Google_Datastore_V1_AggregationResultBatch: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AggregationResultBatch"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".AggregationResultBatch"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "aggregation_results"),
     2: .standard(proto: "more_results"),
     3: .standard(proto: "read_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -150,7 +150,7 @@ extension Google_Datastore_V1_AggregationResultBatch: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -167,7 +167,7 @@ extension Google_Datastore_V1_AggregationResultBatch: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_AggregationResultBatch, rhs: Google_Datastore_V1_AggregationResultBatch) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_AggregationResultBatch, rhs: Google_Datastore_V1_AggregationResultBatch) -> Bool {
     if lhs.aggregationResults != rhs.aggregationResults {return false}
     if lhs.moreResults != rhs.moreResults {return false}
     if lhs._readTime != rhs._readTime {return false}

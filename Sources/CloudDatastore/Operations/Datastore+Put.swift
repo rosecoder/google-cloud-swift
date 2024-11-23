@@ -6,15 +6,12 @@ extension Datastore {
 
     /// Creates or updates given entities.  Also updates the key for entities where the key is incomplete.
     /// - Parameter entities: Entities to create or update.
-    public func put<Entity>(
+    public func put<Entity: _Entity>(
         entities: inout [Entity],
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws
-    where Entity: _Entity,
-          Entity.Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
         let projectID = try self.projectID
         let encoder = EntityEncoder()
         let rawEntities: [Google_Datastore_V1_Entity] = try entities
@@ -46,15 +43,12 @@ extension Datastore {
 
     /// Creates or updates given entity.  Also updates the key if the entity's  key is incomplete.
     /// - Parameter entity: Entity to create or update.
-    public func put<Entity>(
+    public func put<Entity: _Entity>(
         entity: inout Entity,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws
-    where Entity: _Entity,
-          Entity.Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
         var entities = [entity]
         try await put(entities: &entities, file: file, function: function, line: line)
         entity = entities[0]
@@ -65,14 +59,12 @@ extension Datastore {
     /// Allocates IDs of a set of keys with incomplete ids.
     /// - Parameters:
     ///   - keys: Keys with incomplete ids to allocate.
-    public func allocateIDs<Key>(
+    public func allocateIDs<Key: AnyKey>(
         _ keys: inout [Key],
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws
-    where Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
         precondition(!keys.contains(where: { $0.id != .incomplete }))
 
         let projectID = try self.projectID
@@ -90,41 +82,35 @@ extension Datastore {
         }
     }
 
-    public func allocateID<Key>(
+    public func allocateID<Key: AnyKey>(
         _ key: inout Key,
-file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws
-    where Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
         var keys = [key]
         try await allocateIDs(&keys, file: file, function: function, line: line)
         key = keys[0]
     }
 
-    public func allocateKey<Key>(
+    public func allocateKey<Key: IndependentKey>(
         _ keyType: Key.Type,
-file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> Key
-    where Key: IndependentKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> Key {
         var keys = [Key.init(id: .incomplete)]
         try await allocateIDs(&keys, file: file, function: function, line: line)
         return keys[0]
     }
 
-    public func allocateKey<Key>(
+    public func allocateKey<Key: IndependentNamespaceableKey>(
         _ keyType: Key.Type,
         namespace: Namespace,
-file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> Key
-    where Key: IndependentNamespaceableKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> Key {
         var keys = [Key.init(id: .incomplete, namespace: namespace)]
         try await allocateIDs(&keys, file: file, function: function, line: line)
         return keys[0]

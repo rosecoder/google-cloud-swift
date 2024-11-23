@@ -55,31 +55,31 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// not match the context project ID ) are discouraged.
 /// Reads and writes of foreign partition IDs may fail if the project is not in
 /// an active state.
-struct Google_Datastore_V1_PartitionId: Sendable {
+package struct Google_Datastore_V1_PartitionId: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The ID of the project to which the entities belong.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// If not empty, the ID of the database to which the entities
   /// belong.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// If not empty, the ID of the namespace to which the entities belong.
-  var namespaceID: String = String()
+  package var namespaceID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// A unique identifier for an entity.
 /// If a key's partition ID or any of its path kinds or names are
 /// reserved/read-only, the key is reserved/read-only.
 /// A reserved/read-only key is forbidden in certain documented contexts.
-struct Google_Datastore_V1_Key: Sendable {
+package struct Google_Datastore_V1_Key: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -87,14 +87,14 @@ struct Google_Datastore_V1_Key: Sendable {
   /// Entities are partitioned into subsets, currently identified by a project
   /// ID and namespace ID.
   /// Queries are scoped to a single partition.
-  var partitionID: Google_Datastore_V1_PartitionId {
+  package var partitionID: Google_Datastore_V1_PartitionId {
     get {return _partitionID ?? Google_Datastore_V1_PartitionId()}
     set {_partitionID = newValue}
   }
   /// Returns true if `partitionID` has been explicitly set.
-  var hasPartitionID: Bool {return self._partitionID != nil}
+  package var hasPartitionID: Bool {return self._partitionID != nil}
   /// Clears the value of `partitionID`. Subsequent reads from it will return its default value.
-  mutating func clearPartitionID() {self._partitionID = nil}
+  package mutating func clearPartitionID() {self._partitionID = nil}
 
   /// The entity path.
   /// An entity path consists of one or more elements composed of a kind and a
@@ -112,15 +112,15 @@ struct Google_Datastore_V1_Key: Sendable {
   /// identifier.
   ///
   /// A path can never be empty, and a path can have at most 100 elements.
-  var path: [Google_Datastore_V1_Key.PathElement] = []
+  package var path: [Google_Datastore_V1_Key.PathElement] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// A (kind, ID/name) pair used to construct a key path.
   ///
   /// If either name or ID is set, the element is complete.
   /// If neither is set, the element is incomplete.
-  struct PathElement: Sendable {
+  package struct PathElement: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -134,16 +134,16 @@ struct Google_Datastore_V1_Key: Sendable {
     /// Must be valid UTF-8 bytes. Legacy values that are not valid UTF-8 are
     /// encoded as `__bytes<X>__` where `<X>` is the base-64 encoding of the
     /// bytes.
-    var kind: String = String()
+    package var kind: String = String()
 
     /// The type of ID.
-    var idType: Google_Datastore_V1_Key.PathElement.OneOf_IDType? = nil
+    package var idType: Google_Datastore_V1_Key.PathElement.OneOf_IDType? = nil
 
     /// The auto-allocated ID of the entity.
     ///
     /// Never equal to zero. Values less than zero are discouraged and may not
     /// be supported in the future.
-    var id: Int64 {
+    package var id: Int64 {
       get {
         if case .id(let v)? = idType {return v}
         return 0
@@ -160,7 +160,7 @@ struct Google_Datastore_V1_Key: Sendable {
     /// Must be valid UTF-8 bytes. Legacy values that are not valid UTF-8 are
     /// encoded as `__bytes<X>__` where `<X>` is the base-64 encoding of the
     /// bytes.
-    var name: String {
+    package var name: String {
       get {
         if case .name(let v)? = idType {return v}
         return String()
@@ -168,10 +168,10 @@ struct Google_Datastore_V1_Key: Sendable {
       set {idType = .name(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    package var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// The type of ID.
-    enum OneOf_IDType: Equatable, Sendable {
+    package enum OneOf_IDType: Equatable, Sendable {
       /// The auto-allocated ID of the entity.
       ///
       /// Never equal to zero. Values less than zero are discouraged and may not
@@ -190,16 +190,16 @@ struct Google_Datastore_V1_Key: Sendable {
 
     }
 
-    init() {}
+    package init() {}
   }
 
-  init() {}
+  package init() {}
 
   fileprivate var _partitionID: Google_Datastore_V1_PartitionId? = nil
 }
 
 /// An array value.
-struct Google_Datastore_V1_ArrayValue: Sendable {
+package struct Google_Datastore_V1_ArrayValue: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -207,25 +207,25 @@ struct Google_Datastore_V1_ArrayValue: Sendable {
   /// Values in the array.
   /// The order of values in an array is preserved as long as all values have
   /// identical settings for 'exclude_from_indexes'.
-  var values: [Google_Datastore_V1_Value] = []
+  package var values: [Google_Datastore_V1_Value] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// A message that can hold any of the supported value types and associated
 /// metadata.
-struct Google_Datastore_V1_Value: @unchecked Sendable {
+package struct Google_Datastore_V1_Value: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Must have a value set.
-  var valueType: Google_Datastore_V1_Value.OneOf_ValueType? = nil
+  package var valueType: Google_Datastore_V1_Value.OneOf_ValueType? = nil
 
   /// A null value.
-  var nullValue: SwiftProtobuf.Google_Protobuf_NullValue {
+  package var nullValue: SwiftProtobuf.Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v)? = valueType {return v}
       return .nullValue
@@ -234,7 +234,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// A boolean value.
-  var booleanValue: Bool {
+  package var booleanValue: Bool {
     get {
       if case .booleanValue(let v)? = valueType {return v}
       return false
@@ -243,7 +243,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// An integer value.
-  var integerValue: Int64 {
+  package var integerValue: Int64 {
     get {
       if case .integerValue(let v)? = valueType {return v}
       return 0
@@ -252,7 +252,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// A double value.
-  var doubleValue: Double {
+  package var doubleValue: Double {
     get {
       if case .doubleValue(let v)? = valueType {return v}
       return 0
@@ -263,7 +263,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   /// A timestamp value.
   /// When stored in the Datastore, precise only to microseconds;
   /// any additional precision is rounded down.
-  var timestampValue: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var timestampValue: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {
       if case .timestampValue(let v)? = valueType {return v}
       return SwiftProtobuf.Google_Protobuf_Timestamp()
@@ -272,7 +272,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// A key value.
-  var keyValue: Google_Datastore_V1_Key {
+  package var keyValue: Google_Datastore_V1_Key {
     get {
       if case .keyValue(let v)? = valueType {return v}
       return Google_Datastore_V1_Key()
@@ -283,7 +283,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   /// A UTF-8 encoded string value.
   /// When `exclude_from_indexes` is false (it is indexed) , may have at most
   /// 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes.
-  var stringValue: String {
+  package var stringValue: String {
     get {
       if case .stringValue(let v)? = valueType {return v}
       return String()
@@ -295,7 +295,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   /// May have at most 1,000,000 bytes.
   /// When `exclude_from_indexes` is false, may have at most 1500 bytes.
   /// In JSON requests, must be base64-encoded.
-  var blobValue: Data {
+  package var blobValue: Data {
     get {
       if case .blobValue(let v)? = valueType {return v}
       return Data()
@@ -304,7 +304,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// A geo point value representing a point on the surface of Earth.
-  var geoPointValue: Google_Type_LatLng {
+  package var geoPointValue: Google_Type_LatLng {
     get {
       if case .geoPointValue(let v)? = valueType {return v}
       return Google_Type_LatLng()
@@ -317,7 +317,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   /// - May have no key.
   /// - May have a key with an incomplete key path.
   /// - May have a reserved/read-only key.
-  var entityValue: Google_Datastore_V1_Entity {
+  package var entityValue: Google_Datastore_V1_Entity {
     get {
       if case .entityValue(let v)? = valueType {return v}
       return Google_Datastore_V1_Entity()
@@ -329,7 +329,7 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   /// Cannot contain another array value.
   /// A `Value` instance that sets field `array_value` must not set fields
   /// `meaning` or `exclude_from_indexes`.
-  var arrayValue: Google_Datastore_V1_ArrayValue {
+  package var arrayValue: Google_Datastore_V1_ArrayValue {
     get {
       if case .arrayValue(let v)? = valueType {return v}
       return Google_Datastore_V1_ArrayValue()
@@ -338,16 +338,16 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
   }
 
   /// The `meaning` field should only be populated for backwards compatibility.
-  var meaning: Int32 = 0
+  package var meaning: Int32 = 0
 
   /// If the value should be excluded from all indexes including those defined
   /// explicitly.
-  var excludeFromIndexes: Bool = false
+  package var excludeFromIndexes: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Must have a value set.
-  enum OneOf_ValueType: Equatable, @unchecked Sendable {
+  package enum OneOf_ValueType: Equatable, @unchecked Sendable {
     /// A null value.
     case nullValue(SwiftProtobuf.Google_Protobuf_NullValue)
     /// A boolean value.
@@ -387,13 +387,13 @@ struct Google_Datastore_V1_Value: @unchecked Sendable {
 
   }
 
-  init() {}
+  package init() {}
 }
 
 /// A Datastore data object.
 ///
 /// Must not exceed 1 MiB - 4 bytes.
-struct Google_Datastore_V1_Entity: Sendable {
+package struct Google_Datastore_V1_Entity: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -404,14 +404,14 @@ struct Google_Datastore_V1_Entity: Sendable {
   /// an entity in `Value.entity_value` may have no key).
   /// An entity's kind is its key path's last element's kind,
   /// or null if it has no key.
-  var key: Google_Datastore_V1_Key {
+  package var key: Google_Datastore_V1_Key {
     get {return _key ?? Google_Datastore_V1_Key()}
     set {_key = newValue}
   }
   /// Returns true if `key` has been explicitly set.
-  var hasKey: Bool {return self._key != nil}
+  package var hasKey: Bool {return self._key != nil}
   /// Clears the value of `key`. Subsequent reads from it will return its default value.
-  mutating func clearKey() {self._key = nil}
+  package mutating func clearKey() {self._key = nil}
 
   /// The entity's properties.
   /// The map's keys are property names.
@@ -419,11 +419,11 @@ struct Google_Datastore_V1_Entity: Sendable {
   /// A reserved property name is forbidden in certain documented contexts.
   /// The map keys, represented as UTF-8, must not exceed 1,500 bytes and cannot
   /// be empty.
-  var properties: Dictionary<String,Google_Datastore_V1_Value> = [:]
+  package var properties: Dictionary<String,Google_Datastore_V1_Value> = [:]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _key: Google_Datastore_V1_Key? = nil
 }
@@ -433,14 +433,14 @@ struct Google_Datastore_V1_Entity: Sendable {
 fileprivate let _protobuf_package = "google.datastore.v1"
 
 extension Google_Datastore_V1_PartitionId: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PartitionId"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".PartitionId"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "project_id"),
     3: .standard(proto: "database_id"),
     4: .standard(proto: "namespace_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -454,7 +454,7 @@ extension Google_Datastore_V1_PartitionId: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.projectID.isEmpty {
       try visitor.visitSingularStringField(value: self.projectID, fieldNumber: 2)
     }
@@ -467,7 +467,7 @@ extension Google_Datastore_V1_PartitionId: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_PartitionId, rhs: Google_Datastore_V1_PartitionId) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_PartitionId, rhs: Google_Datastore_V1_PartitionId) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs.namespaceID != rhs.namespaceID {return false}
@@ -477,13 +477,13 @@ extension Google_Datastore_V1_PartitionId: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Google_Datastore_V1_Key: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Key"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".Key"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "partition_id"),
     2: .same(proto: "path"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -496,7 +496,7 @@ extension Google_Datastore_V1_Key: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -510,7 +510,7 @@ extension Google_Datastore_V1_Key: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_Key, rhs: Google_Datastore_V1_Key) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_Key, rhs: Google_Datastore_V1_Key) -> Bool {
     if lhs._partitionID != rhs._partitionID {return false}
     if lhs.path != rhs.path {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -519,14 +519,14 @@ extension Google_Datastore_V1_Key: SwiftProtobuf.Message, SwiftProtobuf._Message
 }
 
 extension Google_Datastore_V1_Key.PathElement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Google_Datastore_V1_Key.protoMessageName + ".PathElement"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = Google_Datastore_V1_Key.protoMessageName + ".PathElement"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "kind"),
     2: .same(proto: "id"),
     3: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -554,7 +554,7 @@ extension Google_Datastore_V1_Key.PathElement: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -576,7 +576,7 @@ extension Google_Datastore_V1_Key.PathElement: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_Key.PathElement, rhs: Google_Datastore_V1_Key.PathElement) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_Key.PathElement, rhs: Google_Datastore_V1_Key.PathElement) -> Bool {
     if lhs.kind != rhs.kind {return false}
     if lhs.idType != rhs.idType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -585,12 +585,12 @@ extension Google_Datastore_V1_Key.PathElement: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Google_Datastore_V1_ArrayValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ArrayValue"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ArrayValue"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -602,14 +602,14 @@ extension Google_Datastore_V1_ArrayValue: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.values.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ArrayValue, rhs: Google_Datastore_V1_ArrayValue) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ArrayValue, rhs: Google_Datastore_V1_ArrayValue) -> Bool {
     if lhs.values != rhs.values {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -617,8 +617,8 @@ extension Google_Datastore_V1_ArrayValue: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Google_Datastore_V1_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Value"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".Value"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .standard(proto: "null_value"),
     1: .standard(proto: "boolean_value"),
     2: .standard(proto: "integer_value"),
@@ -634,7 +634,7 @@ extension Google_Datastore_V1_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
     19: .standard(proto: "exclude_from_indexes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -760,7 +760,7 @@ extension Google_Datastore_V1_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -824,7 +824,7 @@ extension Google_Datastore_V1_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_Value, rhs: Google_Datastore_V1_Value) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_Value, rhs: Google_Datastore_V1_Value) -> Bool {
     if lhs.valueType != rhs.valueType {return false}
     if lhs.meaning != rhs.meaning {return false}
     if lhs.excludeFromIndexes != rhs.excludeFromIndexes {return false}
@@ -834,13 +834,13 @@ extension Google_Datastore_V1_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Google_Datastore_V1_Entity: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Entity"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".Entity"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     3: .same(proto: "properties"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -853,7 +853,7 @@ extension Google_Datastore_V1_Entity: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -867,7 +867,7 @@ extension Google_Datastore_V1_Entity: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_Entity, rhs: Google_Datastore_V1_Entity) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_Entity, rhs: Google_Datastore_V1_Entity) -> Bool {
     if lhs._key != rhs._key {return false}
     if lhs.properties != rhs.properties {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

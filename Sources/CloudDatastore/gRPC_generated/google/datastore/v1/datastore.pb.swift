@@ -36,32 +36,32 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The request for [Datastore.Lookup][google.datastore.v1.Datastore.Lookup].
-struct Google_Datastore_V1_LookupRequest: Sendable {
+package struct Google_Datastore_V1_LookupRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// The options for this lookup request.
-  var readOptions: Google_Datastore_V1_ReadOptions {
+  package var readOptions: Google_Datastore_V1_ReadOptions {
     get {return _readOptions ?? Google_Datastore_V1_ReadOptions()}
     set {_readOptions = newValue}
   }
   /// Returns true if `readOptions` has been explicitly set.
-  var hasReadOptions: Bool {return self._readOptions != nil}
+  package var hasReadOptions: Bool {return self._readOptions != nil}
   /// Clears the value of `readOptions`. Subsequent reads from it will return its default value.
-  mutating func clearReadOptions() {self._readOptions = nil}
+  package mutating func clearReadOptions() {self._readOptions = nil}
 
   /// Required. Keys of entities to look up.
-  var keys: [Google_Datastore_V1_Key] = []
+  package var keys: [Google_Datastore_V1_Key] = []
 
   /// The properties to return. Defaults to returning all properties.
   ///
@@ -69,25 +69,25 @@ struct Google_Datastore_V1_LookupRequest: Sendable {
   /// mask, it will be absent from [LookupResponse.found.entity.properties][].
   ///
   /// The entity's key is always returned.
-  var propertyMask: Google_Datastore_V1_PropertyMask {
+  package var propertyMask: Google_Datastore_V1_PropertyMask {
     get {return _propertyMask ?? Google_Datastore_V1_PropertyMask()}
     set {_propertyMask = newValue}
   }
   /// Returns true if `propertyMask` has been explicitly set.
-  var hasPropertyMask: Bool {return self._propertyMask != nil}
+  package var hasPropertyMask: Bool {return self._propertyMask != nil}
   /// Clears the value of `propertyMask`. Subsequent reads from it will return its default value.
-  mutating func clearPropertyMask() {self._propertyMask = nil}
+  package mutating func clearPropertyMask() {self._propertyMask = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _readOptions: Google_Datastore_V1_ReadOptions? = nil
   fileprivate var _propertyMask: Google_Datastore_V1_PropertyMask? = nil
 }
 
 /// The response for [Datastore.Lookup][google.datastore.v1.Datastore.Lookup].
-struct Google_Datastore_V1_LookupResponse: @unchecked Sendable {
+package struct Google_Datastore_V1_LookupResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -95,17 +95,17 @@ struct Google_Datastore_V1_LookupResponse: @unchecked Sendable {
   /// Entities found as `ResultType.FULL` entities. The order of results in this
   /// field is undefined and has no relation to the order of the keys in the
   /// input.
-  var found: [Google_Datastore_V1_EntityResult] = []
+  package var found: [Google_Datastore_V1_EntityResult] = []
 
   /// Entities not found as `ResultType.KEY_ONLY` entities. The order of results
   /// in this field is undefined and has no relation to the order of the keys
   /// in the input.
-  var missing: [Google_Datastore_V1_EntityResult] = []
+  package var missing: [Google_Datastore_V1_EntityResult] = []
 
   /// A list of keys that were not looked up due to resource constraints. The
   /// order of results in this field is undefined and has no relation to the
   /// order of the keys in the input.
-  var deferred: [Google_Datastore_V1_Key] = []
+  package var deferred: [Google_Datastore_V1_Key] = []
 
   /// The identifier of the transaction that was started as part of this Lookup
   /// request.
@@ -114,68 +114,68 @@ struct Google_Datastore_V1_LookupResponse: @unchecked Sendable {
   /// [ReadOptions.new_transaction][google.datastore.v1.ReadOptions.new_transaction]
   /// was set in
   /// [LookupRequest.read_options][google.datastore.v1.LookupRequest.read_options].
-  var transaction: Data = Data()
+  package var transaction: Data = Data()
 
   /// The time at which these entities were read or found missing.
-  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_readTime = newValue}
   }
   /// Returns true if `readTime` has been explicitly set.
-  var hasReadTime: Bool {return self._readTime != nil}
+  package var hasReadTime: Bool {return self._readTime != nil}
   /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
-  mutating func clearReadTime() {self._readTime = nil}
+  package mutating func clearReadTime() {self._readTime = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// The request for [Datastore.RunQuery][google.datastore.v1.Datastore.RunQuery].
-struct Google_Datastore_V1_RunQueryRequest: Sendable {
+package struct Google_Datastore_V1_RunQueryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Entities are partitioned into subsets, identified by a partition ID.
   /// Queries are scoped to a single partition.
   /// This partition ID is normalized with the standard default context
   /// partition ID.
-  var partitionID: Google_Datastore_V1_PartitionId {
+  package var partitionID: Google_Datastore_V1_PartitionId {
     get {return _partitionID ?? Google_Datastore_V1_PartitionId()}
     set {_partitionID = newValue}
   }
   /// Returns true if `partitionID` has been explicitly set.
-  var hasPartitionID: Bool {return self._partitionID != nil}
+  package var hasPartitionID: Bool {return self._partitionID != nil}
   /// Clears the value of `partitionID`. Subsequent reads from it will return its default value.
-  mutating func clearPartitionID() {self._partitionID = nil}
+  package mutating func clearPartitionID() {self._partitionID = nil}
 
   /// The options for this query.
-  var readOptions: Google_Datastore_V1_ReadOptions {
+  package var readOptions: Google_Datastore_V1_ReadOptions {
     get {return _readOptions ?? Google_Datastore_V1_ReadOptions()}
     set {_readOptions = newValue}
   }
   /// Returns true if `readOptions` has been explicitly set.
-  var hasReadOptions: Bool {return self._readOptions != nil}
+  package var hasReadOptions: Bool {return self._readOptions != nil}
   /// Clears the value of `readOptions`. Subsequent reads from it will return its default value.
-  mutating func clearReadOptions() {self._readOptions = nil}
+  package mutating func clearReadOptions() {self._readOptions = nil}
 
   /// The type of query.
-  var queryType: Google_Datastore_V1_RunQueryRequest.OneOf_QueryType? = nil
+  package var queryType: Google_Datastore_V1_RunQueryRequest.OneOf_QueryType? = nil
 
   /// The query to run.
-  var query: Google_Datastore_V1_Query {
+  package var query: Google_Datastore_V1_Query {
     get {
       if case .query(let v)? = queryType {return v}
       return Google_Datastore_V1_Query()
@@ -184,7 +184,7 @@ struct Google_Datastore_V1_RunQueryRequest: Sendable {
   }
 
   /// The GQL query to run. This query must be a non-aggregation query.
-  var gqlQuery: Google_Datastore_V1_GqlQuery {
+  package var gqlQuery: Google_Datastore_V1_GqlQuery {
     get {
       if case .gqlQuery(let v)? = queryType {return v}
       return Google_Datastore_V1_GqlQuery()
@@ -197,30 +197,30 @@ struct Google_Datastore_V1_RunQueryRequest: Sendable {
   ///
   /// See
   /// [LookupRequest.property_mask][google.datastore.v1.LookupRequest.property_mask].
-  var propertyMask: Google_Datastore_V1_PropertyMask {
+  package var propertyMask: Google_Datastore_V1_PropertyMask {
     get {return _propertyMask ?? Google_Datastore_V1_PropertyMask()}
     set {_propertyMask = newValue}
   }
   /// Returns true if `propertyMask` has been explicitly set.
-  var hasPropertyMask: Bool {return self._propertyMask != nil}
+  package var hasPropertyMask: Bool {return self._propertyMask != nil}
   /// Clears the value of `propertyMask`. Subsequent reads from it will return its default value.
-  mutating func clearPropertyMask() {self._propertyMask = nil}
+  package mutating func clearPropertyMask() {self._propertyMask = nil}
 
   /// Optional. Explain options for the query. If set, additional query
   /// statistics will be returned. If not, only query results will be returned.
-  var explainOptions: Google_Datastore_V1_ExplainOptions {
+  package var explainOptions: Google_Datastore_V1_ExplainOptions {
     get {return _explainOptions ?? Google_Datastore_V1_ExplainOptions()}
     set {_explainOptions = newValue}
   }
   /// Returns true if `explainOptions` has been explicitly set.
-  var hasExplainOptions: Bool {return self._explainOptions != nil}
+  package var hasExplainOptions: Bool {return self._explainOptions != nil}
   /// Clears the value of `explainOptions`. Subsequent reads from it will return its default value.
-  mutating func clearExplainOptions() {self._explainOptions = nil}
+  package mutating func clearExplainOptions() {self._explainOptions = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The type of query.
-  enum OneOf_QueryType: Equatable, Sendable {
+  package enum OneOf_QueryType: Equatable, Sendable {
     /// The query to run.
     case query(Google_Datastore_V1_Query)
     /// The GQL query to run. This query must be a non-aggregation query.
@@ -228,7 +228,7 @@ struct Google_Datastore_V1_RunQueryRequest: Sendable {
 
   }
 
-  init() {}
+  package init() {}
 
   fileprivate var _partitionID: Google_Datastore_V1_PartitionId? = nil
   fileprivate var _readOptions: Google_Datastore_V1_ReadOptions? = nil
@@ -238,30 +238,30 @@ struct Google_Datastore_V1_RunQueryRequest: Sendable {
 
 /// The response for
 /// [Datastore.RunQuery][google.datastore.v1.Datastore.RunQuery].
-struct Google_Datastore_V1_RunQueryResponse: @unchecked Sendable {
+package struct Google_Datastore_V1_RunQueryResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// A batch of query results (always present).
-  var batch: Google_Datastore_V1_QueryResultBatch {
+  package var batch: Google_Datastore_V1_QueryResultBatch {
     get {return _storage._batch ?? Google_Datastore_V1_QueryResultBatch()}
     set {_uniqueStorage()._batch = newValue}
   }
   /// Returns true if `batch` has been explicitly set.
-  var hasBatch: Bool {return _storage._batch != nil}
+  package var hasBatch: Bool {return _storage._batch != nil}
   /// Clears the value of `batch`. Subsequent reads from it will return its default value.
-  mutating func clearBatch() {_uniqueStorage()._batch = nil}
+  package mutating func clearBatch() {_uniqueStorage()._batch = nil}
 
   /// The parsed form of the `GqlQuery` from the request, if it was set.
-  var query: Google_Datastore_V1_Query {
+  package var query: Google_Datastore_V1_Query {
     get {return _storage._query ?? Google_Datastore_V1_Query()}
     set {_uniqueStorage()._query = newValue}
   }
   /// Returns true if `query` has been explicitly set.
-  var hasQuery: Bool {return _storage._query != nil}
+  package var hasQuery: Bool {return _storage._query != nil}
   /// Clears the value of `query`. Subsequent reads from it will return its default value.
-  mutating func clearQuery() {_uniqueStorage()._query = nil}
+  package mutating func clearQuery() {_uniqueStorage()._query = nil}
 
   /// The identifier of the transaction that was started as part of this
   /// RunQuery request.
@@ -270,7 +270,7 @@ struct Google_Datastore_V1_RunQueryResponse: @unchecked Sendable {
   /// [ReadOptions.new_transaction][google.datastore.v1.ReadOptions.new_transaction]
   /// was set in
   /// [RunQueryRequest.read_options][google.datastore.v1.RunQueryRequest.read_options].
-  var transaction: Data {
+  package var transaction: Data {
     get {return _storage._transaction}
     set {_uniqueStorage()._transaction = newValue}
   }
@@ -278,66 +278,66 @@ struct Google_Datastore_V1_RunQueryResponse: @unchecked Sendable {
   /// Query explain metrics. This is only present when the
   /// [RunQueryRequest.explain_options][google.datastore.v1.RunQueryRequest.explain_options]
   /// is provided, and it is sent only once with the last response in the stream.
-  var explainMetrics: Google_Datastore_V1_ExplainMetrics {
+  package var explainMetrics: Google_Datastore_V1_ExplainMetrics {
     get {return _storage._explainMetrics ?? Google_Datastore_V1_ExplainMetrics()}
     set {_uniqueStorage()._explainMetrics = newValue}
   }
   /// Returns true if `explainMetrics` has been explicitly set.
-  var hasExplainMetrics: Bool {return _storage._explainMetrics != nil}
+  package var hasExplainMetrics: Bool {return _storage._explainMetrics != nil}
   /// Clears the value of `explainMetrics`. Subsequent reads from it will return its default value.
-  mutating func clearExplainMetrics() {_uniqueStorage()._explainMetrics = nil}
+  package mutating func clearExplainMetrics() {_uniqueStorage()._explainMetrics = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// The request for
 /// [Datastore.RunAggregationQuery][google.datastore.v1.Datastore.RunAggregationQuery].
-struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
+package struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Entities are partitioned into subsets, identified by a partition ID.
   /// Queries are scoped to a single partition.
   /// This partition ID is normalized with the standard default context
   /// partition ID.
-  var partitionID: Google_Datastore_V1_PartitionId {
+  package var partitionID: Google_Datastore_V1_PartitionId {
     get {return _partitionID ?? Google_Datastore_V1_PartitionId()}
     set {_partitionID = newValue}
   }
   /// Returns true if `partitionID` has been explicitly set.
-  var hasPartitionID: Bool {return self._partitionID != nil}
+  package var hasPartitionID: Bool {return self._partitionID != nil}
   /// Clears the value of `partitionID`. Subsequent reads from it will return its default value.
-  mutating func clearPartitionID() {self._partitionID = nil}
+  package mutating func clearPartitionID() {self._partitionID = nil}
 
   /// The options for this query.
-  var readOptions: Google_Datastore_V1_ReadOptions {
+  package var readOptions: Google_Datastore_V1_ReadOptions {
     get {return _readOptions ?? Google_Datastore_V1_ReadOptions()}
     set {_readOptions = newValue}
   }
   /// Returns true if `readOptions` has been explicitly set.
-  var hasReadOptions: Bool {return self._readOptions != nil}
+  package var hasReadOptions: Bool {return self._readOptions != nil}
   /// Clears the value of `readOptions`. Subsequent reads from it will return its default value.
-  mutating func clearReadOptions() {self._readOptions = nil}
+  package mutating func clearReadOptions() {self._readOptions = nil}
 
   /// The type of query.
-  var queryType: Google_Datastore_V1_RunAggregationQueryRequest.OneOf_QueryType? = nil
+  package var queryType: Google_Datastore_V1_RunAggregationQueryRequest.OneOf_QueryType? = nil
 
   /// The query to run.
-  var aggregationQuery: Google_Datastore_V1_AggregationQuery {
+  package var aggregationQuery: Google_Datastore_V1_AggregationQuery {
     get {
       if case .aggregationQuery(let v)? = queryType {return v}
       return Google_Datastore_V1_AggregationQuery()
@@ -346,7 +346,7 @@ struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
   }
 
   /// The GQL query to run. This query must be an aggregation query.
-  var gqlQuery: Google_Datastore_V1_GqlQuery {
+  package var gqlQuery: Google_Datastore_V1_GqlQuery {
     get {
       if case .gqlQuery(let v)? = queryType {return v}
       return Google_Datastore_V1_GqlQuery()
@@ -356,19 +356,19 @@ struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
 
   /// Optional. Explain options for the query. If set, additional query
   /// statistics will be returned. If not, only query results will be returned.
-  var explainOptions: Google_Datastore_V1_ExplainOptions {
+  package var explainOptions: Google_Datastore_V1_ExplainOptions {
     get {return _explainOptions ?? Google_Datastore_V1_ExplainOptions()}
     set {_explainOptions = newValue}
   }
   /// Returns true if `explainOptions` has been explicitly set.
-  var hasExplainOptions: Bool {return self._explainOptions != nil}
+  package var hasExplainOptions: Bool {return self._explainOptions != nil}
   /// Clears the value of `explainOptions`. Subsequent reads from it will return its default value.
-  mutating func clearExplainOptions() {self._explainOptions = nil}
+  package mutating func clearExplainOptions() {self._explainOptions = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The type of query.
-  enum OneOf_QueryType: Equatable, Sendable {
+  package enum OneOf_QueryType: Equatable, Sendable {
     /// The query to run.
     case aggregationQuery(Google_Datastore_V1_AggregationQuery)
     /// The GQL query to run. This query must be an aggregation query.
@@ -376,7 +376,7 @@ struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
 
   }
 
-  init() {}
+  package init() {}
 
   fileprivate var _partitionID: Google_Datastore_V1_PartitionId? = nil
   fileprivate var _readOptions: Google_Datastore_V1_ReadOptions? = nil
@@ -385,30 +385,30 @@ struct Google_Datastore_V1_RunAggregationQueryRequest: Sendable {
 
 /// The response for
 /// [Datastore.RunAggregationQuery][google.datastore.v1.Datastore.RunAggregationQuery].
-struct Google_Datastore_V1_RunAggregationQueryResponse: @unchecked Sendable {
+package struct Google_Datastore_V1_RunAggregationQueryResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// A batch of aggregation results. Always present.
-  var batch: Google_Datastore_V1_AggregationResultBatch {
+  package var batch: Google_Datastore_V1_AggregationResultBatch {
     get {return _batch ?? Google_Datastore_V1_AggregationResultBatch()}
     set {_batch = newValue}
   }
   /// Returns true if `batch` has been explicitly set.
-  var hasBatch: Bool {return self._batch != nil}
+  package var hasBatch: Bool {return self._batch != nil}
   /// Clears the value of `batch`. Subsequent reads from it will return its default value.
-  mutating func clearBatch() {self._batch = nil}
+  package mutating func clearBatch() {self._batch = nil}
 
   /// The parsed form of the `GqlQuery` from the request, if it was set.
-  var query: Google_Datastore_V1_AggregationQuery {
+  package var query: Google_Datastore_V1_AggregationQuery {
     get {return _query ?? Google_Datastore_V1_AggregationQuery()}
     set {_query = newValue}
   }
   /// Returns true if `query` has been explicitly set.
-  var hasQuery: Bool {return self._query != nil}
+  package var hasQuery: Bool {return self._query != nil}
   /// Clears the value of `query`. Subsequent reads from it will return its default value.
-  mutating func clearQuery() {self._query = nil}
+  package mutating func clearQuery() {self._query = nil}
 
   /// The identifier of the transaction that was started as part of this
   /// RunAggregationQuery request.
@@ -417,23 +417,23 @@ struct Google_Datastore_V1_RunAggregationQueryResponse: @unchecked Sendable {
   /// [ReadOptions.new_transaction][google.datastore.v1.ReadOptions.new_transaction]
   /// was set in
   /// [RunAggregationQueryRequest.read_options][google.datastore.v1.RunAggregationQueryRequest.read_options].
-  var transaction: Data = Data()
+  package var transaction: Data = Data()
 
   /// Query explain metrics. This is only present when the
   /// [RunAggregationQueryRequest.explain_options][google.datastore.v1.RunAggregationQueryRequest.explain_options]
   /// is provided, and it is sent only once with the last response in the stream.
-  var explainMetrics: Google_Datastore_V1_ExplainMetrics {
+  package var explainMetrics: Google_Datastore_V1_ExplainMetrics {
     get {return _explainMetrics ?? Google_Datastore_V1_ExplainMetrics()}
     set {_explainMetrics = newValue}
   }
   /// Returns true if `explainMetrics` has been explicitly set.
-  var hasExplainMetrics: Bool {return self._explainMetrics != nil}
+  package var hasExplainMetrics: Bool {return self._explainMetrics != nil}
   /// Clears the value of `explainMetrics`. Subsequent reads from it will return its default value.
-  mutating func clearExplainMetrics() {self._explainMetrics = nil}
+  package mutating func clearExplainMetrics() {self._explainMetrics = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _batch: Google_Datastore_V1_AggregationResultBatch? = nil
   fileprivate var _query: Google_Datastore_V1_AggregationQuery? = nil
@@ -442,114 +442,114 @@ struct Google_Datastore_V1_RunAggregationQueryResponse: @unchecked Sendable {
 
 /// The request for
 /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
-struct Google_Datastore_V1_BeginTransactionRequest: Sendable {
+package struct Google_Datastore_V1_BeginTransactionRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Options for a new transaction.
-  var transactionOptions: Google_Datastore_V1_TransactionOptions {
+  package var transactionOptions: Google_Datastore_V1_TransactionOptions {
     get {return _transactionOptions ?? Google_Datastore_V1_TransactionOptions()}
     set {_transactionOptions = newValue}
   }
   /// Returns true if `transactionOptions` has been explicitly set.
-  var hasTransactionOptions: Bool {return self._transactionOptions != nil}
+  package var hasTransactionOptions: Bool {return self._transactionOptions != nil}
   /// Clears the value of `transactionOptions`. Subsequent reads from it will return its default value.
-  mutating func clearTransactionOptions() {self._transactionOptions = nil}
+  package mutating func clearTransactionOptions() {self._transactionOptions = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _transactionOptions: Google_Datastore_V1_TransactionOptions? = nil
 }
 
 /// The response for
 /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
-struct Google_Datastore_V1_BeginTransactionResponse: @unchecked Sendable {
+package struct Google_Datastore_V1_BeginTransactionResponse: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The transaction identifier (always present).
-  var transaction: Data = Data()
+  package var transaction: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The request for [Datastore.Rollback][google.datastore.v1.Datastore.Rollback].
-struct Google_Datastore_V1_RollbackRequest: @unchecked Sendable {
+package struct Google_Datastore_V1_RollbackRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Required. The transaction identifier, returned by a call to
   /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
-  var transaction: Data = Data()
+  package var transaction: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The response for
 /// [Datastore.Rollback][google.datastore.v1.Datastore.Rollback]. (an empty
 /// message).
-struct Google_Datastore_V1_RollbackResponse: Sendable {
+package struct Google_Datastore_V1_RollbackResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The request for [Datastore.Commit][google.datastore.v1.Datastore.Commit].
-struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
+package struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// The type of commit to perform. Defaults to `TRANSACTIONAL`.
-  var mode: Google_Datastore_V1_CommitRequest.Mode = .unspecified
+  package var mode: Google_Datastore_V1_CommitRequest.Mode = .unspecified
 
   /// Must be set when mode is `TRANSACTIONAL`.
-  var transactionSelector: Google_Datastore_V1_CommitRequest.OneOf_TransactionSelector? = nil
+  package var transactionSelector: Google_Datastore_V1_CommitRequest.OneOf_TransactionSelector? = nil
 
   /// The identifier of the transaction associated with the commit. A
   /// transaction identifier is returned by a call to
   /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
-  var transaction: Data {
+  package var transaction: Data {
     get {
       if case .transaction(let v)? = transactionSelector {return v}
       return Data()
@@ -561,7 +561,7 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
   /// The transaction is committed when the request completes. If specified,
   /// [TransactionOptions.mode][google.datastore.v1.TransactionOptions] must be
   /// [TransactionOptions.ReadWrite][google.datastore.v1.TransactionOptions.ReadWrite].
-  var singleUseTransaction: Google_Datastore_V1_TransactionOptions {
+  package var singleUseTransaction: Google_Datastore_V1_TransactionOptions {
     get {
       if case .singleUseTransaction(let v)? = transactionSelector {return v}
       return Google_Datastore_V1_TransactionOptions()
@@ -582,12 +582,12 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
   ///
   /// When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single
   /// entity.
-  var mutations: [Google_Datastore_V1_Mutation] = []
+  package var mutations: [Google_Datastore_V1_Mutation] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Must be set when mode is `TRANSACTIONAL`.
-  enum OneOf_TransactionSelector: Equatable, @unchecked Sendable {
+  package enum OneOf_TransactionSelector: Equatable, @unchecked Sendable {
     /// The identifier of the transaction associated with the commit. A
     /// transaction identifier is returned by a call to
     /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
@@ -601,8 +601,8 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
   }
 
   /// The modes available for commits.
-  enum Mode: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  package enum Mode: SwiftProtobuf.Enum, Swift.CaseIterable {
+    package typealias RawValue = Int
 
     /// Unspecified. This value must not be used.
     case unspecified // = 0
@@ -616,11 +616,11 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
     case nonTransactional // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    package init() {
       self = .unspecified
     }
 
-    init?(rawValue: Int) {
+    package init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unspecified
       case 1: self = .transactional
@@ -629,7 +629,7 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
       }
     }
 
-    var rawValue: Int {
+    package var rawValue: Int {
       switch self {
       case .unspecified: return 0
       case .transactional: return 1
@@ -639,7 +639,7 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Google_Datastore_V1_CommitRequest.Mode] = [
+    package static let allCases: [Google_Datastore_V1_CommitRequest.Mode] = [
       .unspecified,
       .transactional,
       .nonTransactional,
@@ -647,120 +647,120 @@ struct Google_Datastore_V1_CommitRequest: @unchecked Sendable {
 
   }
 
-  init() {}
+  package init() {}
 }
 
 /// The response for [Datastore.Commit][google.datastore.v1.Datastore.Commit].
-struct Google_Datastore_V1_CommitResponse: Sendable {
+package struct Google_Datastore_V1_CommitResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The result of performing the mutations.
   /// The i-th mutation result corresponds to the i-th mutation in the request.
-  var mutationResults: [Google_Datastore_V1_MutationResult] = []
+  package var mutationResults: [Google_Datastore_V1_MutationResult] = []
 
   /// The number of index entries updated during the commit, or zero if none were
   /// updated.
-  var indexUpdates: Int32 = 0
+  package var indexUpdates: Int32 = 0
 
   /// The transaction commit timestamp. Not set for non-transactional commits.
-  var commitTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var commitTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _commitTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_commitTime = newValue}
   }
   /// Returns true if `commitTime` has been explicitly set.
-  var hasCommitTime: Bool {return self._commitTime != nil}
+  package var hasCommitTime: Bool {return self._commitTime != nil}
   /// Clears the value of `commitTime`. Subsequent reads from it will return its default value.
-  mutating func clearCommitTime() {self._commitTime = nil}
+  package mutating func clearCommitTime() {self._commitTime = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _commitTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
 /// The request for
 /// [Datastore.AllocateIds][google.datastore.v1.Datastore.AllocateIds].
-struct Google_Datastore_V1_AllocateIdsRequest: Sendable {
+package struct Google_Datastore_V1_AllocateIdsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Required. A list of keys with incomplete key paths for which to allocate
   /// IDs. No key may be reserved/read-only.
-  var keys: [Google_Datastore_V1_Key] = []
+  package var keys: [Google_Datastore_V1_Key] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The response for
 /// [Datastore.AllocateIds][google.datastore.v1.Datastore.AllocateIds].
-struct Google_Datastore_V1_AllocateIdsResponse: Sendable {
+package struct Google_Datastore_V1_AllocateIdsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The keys specified in the request (in the same order), each with
   /// its key path completed with a newly allocated ID.
-  var keys: [Google_Datastore_V1_Key] = []
+  package var keys: [Google_Datastore_V1_Key] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The request for
 /// [Datastore.ReserveIds][google.datastore.v1.Datastore.ReserveIds].
-struct Google_Datastore_V1_ReserveIdsRequest: Sendable {
+package struct Google_Datastore_V1_ReserveIdsRequest: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Required. The ID of the project against which to make the request.
-  var projectID: String = String()
+  package var projectID: String = String()
 
   /// The ID of the database against which to make the request.
   ///
   /// '(default)' is not allowed; please use empty string '' to refer the default
   /// database.
-  var databaseID: String = String()
+  package var databaseID: String = String()
 
   /// Required. A list of keys with complete key paths whose numeric IDs should
   /// not be auto-allocated.
-  var keys: [Google_Datastore_V1_Key] = []
+  package var keys: [Google_Datastore_V1_Key] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The response for
 /// [Datastore.ReserveIds][google.datastore.v1.Datastore.ReserveIds].
-struct Google_Datastore_V1_ReserveIdsResponse: Sendable {
+package struct Google_Datastore_V1_ReserveIdsResponse: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// A mutation to apply to an entity.
-struct Google_Datastore_V1_Mutation: Sendable {
+package struct Google_Datastore_V1_Mutation: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -773,11 +773,11 @@ struct Google_Datastore_V1_Mutation: Sendable {
   ///   not even a property in an entity in a value.
   /// - No value in the entity may have meaning 18,
   ///   not even a value in an entity in another value.
-  var operation: Google_Datastore_V1_Mutation.OneOf_Operation? = nil
+  package var operation: Google_Datastore_V1_Mutation.OneOf_Operation? = nil
 
   /// The entity to insert. The entity must not already exist.
   /// The entity key's final path element may be incomplete.
-  var insert: Google_Datastore_V1_Entity {
+  package var insert: Google_Datastore_V1_Entity {
     get {
       if case .insert(let v)? = operation {return v}
       return Google_Datastore_V1_Entity()
@@ -787,7 +787,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
 
   /// The entity to update. The entity must already exist.
   /// Must have a complete key path.
-  var update: Google_Datastore_V1_Entity {
+  package var update: Google_Datastore_V1_Entity {
     get {
       if case .update(let v)? = operation {return v}
       return Google_Datastore_V1_Entity()
@@ -797,7 +797,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
 
   /// The entity to upsert. The entity may or may not already exist.
   /// The entity key's final path element may be incomplete.
-  var upsert: Google_Datastore_V1_Entity {
+  package var upsert: Google_Datastore_V1_Entity {
     get {
       if case .upsert(let v)? = operation {return v}
       return Google_Datastore_V1_Entity()
@@ -807,7 +807,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
 
   /// The key of the entity to delete. The entity may or may not already exist.
   /// Must have a complete key path and must not be reserved/read-only.
-  var delete: Google_Datastore_V1_Key {
+  package var delete: Google_Datastore_V1_Key {
     get {
       if case .delete(let v)? = operation {return v}
       return Google_Datastore_V1_Key()
@@ -818,12 +818,12 @@ struct Google_Datastore_V1_Mutation: Sendable {
   /// When set, the server will detect whether or not this mutation conflicts
   /// with the current version of the entity on the server. Conflicting mutations
   /// are not applied, and are marked as such in MutationResult.
-  var conflictDetectionStrategy: Google_Datastore_V1_Mutation.OneOf_ConflictDetectionStrategy? = nil
+  package var conflictDetectionStrategy: Google_Datastore_V1_Mutation.OneOf_ConflictDetectionStrategy? = nil
 
   /// The version of the entity that this mutation is being applied
   /// to. If this does not match the current version on the server, the
   /// mutation conflicts.
-  var baseVersion: Int64 {
+  package var baseVersion: Int64 {
     get {
       if case .baseVersion(let v)? = conflictDetectionStrategy {return v}
       return 0
@@ -834,7 +834,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
   /// The update time of the entity that this mutation is being applied
   /// to. If this does not match the current update time on the server, the
   /// mutation conflicts.
-  var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {
       if case .updateTime(let v)? = conflictDetectionStrategy {return v}
       return SwiftProtobuf.Google_Protobuf_Timestamp()
@@ -850,16 +850,16 @@ struct Google_Datastore_V1_Mutation: Sendable {
   /// If the entity already exists, only properties referenced in the mask are
   /// updated, others are left untouched.
   /// Properties referenced in the mask but not in the entity are deleted.
-  var propertyMask: Google_Datastore_V1_PropertyMask {
+  package var propertyMask: Google_Datastore_V1_PropertyMask {
     get {return _propertyMask ?? Google_Datastore_V1_PropertyMask()}
     set {_propertyMask = newValue}
   }
   /// Returns true if `propertyMask` has been explicitly set.
-  var hasPropertyMask: Bool {return self._propertyMask != nil}
+  package var hasPropertyMask: Bool {return self._propertyMask != nil}
   /// Clears the value of `propertyMask`. Subsequent reads from it will return its default value.
-  mutating func clearPropertyMask() {self._propertyMask = nil}
+  package mutating func clearPropertyMask() {self._propertyMask = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The mutation operation.
   ///
@@ -869,7 +869,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
   ///   not even a property in an entity in a value.
   /// - No value in the entity may have meaning 18,
   ///   not even a value in an entity in another value.
-  enum OneOf_Operation: Equatable, Sendable {
+  package enum OneOf_Operation: Equatable, Sendable {
     /// The entity to insert. The entity must not already exist.
     /// The entity key's final path element may be incomplete.
     case insert(Google_Datastore_V1_Entity)
@@ -888,7 +888,7 @@ struct Google_Datastore_V1_Mutation: Sendable {
   /// When set, the server will detect whether or not this mutation conflicts
   /// with the current version of the entity on the server. Conflicting mutations
   /// are not applied, and are marked as such in MutationResult.
-  enum OneOf_ConflictDetectionStrategy: Equatable, Sendable {
+  package enum OneOf_ConflictDetectionStrategy: Equatable, Sendable {
     /// The version of the entity that this mutation is being applied
     /// to. If this does not match the current version on the server, the
     /// mutation conflicts.
@@ -900,65 +900,65 @@ struct Google_Datastore_V1_Mutation: Sendable {
 
   }
 
-  init() {}
+  package init() {}
 
   fileprivate var _propertyMask: Google_Datastore_V1_PropertyMask? = nil
 }
 
 /// The result of applying a mutation.
-struct Google_Datastore_V1_MutationResult: Sendable {
+package struct Google_Datastore_V1_MutationResult: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The automatically allocated key.
   /// Set only when the mutation allocated a key.
-  var key: Google_Datastore_V1_Key {
+  package var key: Google_Datastore_V1_Key {
     get {return _key ?? Google_Datastore_V1_Key()}
     set {_key = newValue}
   }
   /// Returns true if `key` has been explicitly set.
-  var hasKey: Bool {return self._key != nil}
+  package var hasKey: Bool {return self._key != nil}
   /// Clears the value of `key`. Subsequent reads from it will return its default value.
-  mutating func clearKey() {self._key = nil}
+  package mutating func clearKey() {self._key = nil}
 
   /// The version of the entity on the server after processing the mutation. If
   /// the mutation doesn't change anything on the server, then the version will
   /// be the version of the current entity or, if no entity is present, a version
   /// that is strictly greater than the version of any previous entity and less
   /// than the version of any possible future entity.
-  var version: Int64 = 0
+  package var version: Int64 = 0
 
   /// The create time of the entity. This field will not be set after a 'delete'.
-  var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var createTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _createTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_createTime = newValue}
   }
   /// Returns true if `createTime` has been explicitly set.
-  var hasCreateTime: Bool {return self._createTime != nil}
+  package var hasCreateTime: Bool {return self._createTime != nil}
   /// Clears the value of `createTime`. Subsequent reads from it will return its default value.
-  mutating func clearCreateTime() {self._createTime = nil}
+  package mutating func clearCreateTime() {self._createTime = nil}
 
   /// The update time of the entity on the server after processing the mutation.
   /// If the mutation doesn't change anything on the server, then the timestamp
   /// will be the update timestamp of the current entity. This field will not be
   /// set after a 'delete'.
-  var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var updateTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _updateTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_updateTime = newValue}
   }
   /// Returns true if `updateTime` has been explicitly set.
-  var hasUpdateTime: Bool {return self._updateTime != nil}
+  package var hasUpdateTime: Bool {return self._updateTime != nil}
   /// Clears the value of `updateTime`. Subsequent reads from it will return its default value.
-  mutating func clearUpdateTime() {self._updateTime = nil}
+  package mutating func clearUpdateTime() {self._updateTime = nil}
 
   /// Whether a conflict was detected for this mutation. Always false when a
   /// conflict detection strategy field is not set in the mutation.
-  var conflictDetected: Bool = false
+  package var conflictDetected: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _key: Google_Datastore_V1_Key? = nil
   fileprivate var _createTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
@@ -967,7 +967,7 @@ struct Google_Datastore_V1_MutationResult: Sendable {
 
 /// The set of arbitrarily nested property paths used to restrict an operation to
 /// only a subset of properties in an entity.
-struct Google_Datastore_V1_PropertyMask: Sendable {
+package struct Google_Datastore_V1_PropertyMask: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -983,15 +983,15 @@ struct Google_Datastore_V1_PropertyMask: Sendable {
   ///
   /// A path must not be empty, and may not reference a value inside an
   /// [array value][google.datastore.v1.Value.array_value].
-  var paths: [String] = []
+  package var paths: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// The options shared by read requests.
-struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
+package struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1006,10 +1006,10 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   /// Explicitly setting `read_consistency`=`EVENTUAL` will result in eventually
   /// consistent lookups & queries in both Cloud Datastore & Cloud Firestore in
   /// Datastore mode.
-  var consistencyType: Google_Datastore_V1_ReadOptions.OneOf_ConsistencyType? = nil
+  package var consistencyType: Google_Datastore_V1_ReadOptions.OneOf_ConsistencyType? = nil
 
   /// The non-transactional read consistency to use.
-  var readConsistency: Google_Datastore_V1_ReadOptions.ReadConsistency {
+  package var readConsistency: Google_Datastore_V1_ReadOptions.ReadConsistency {
     get {
       if case .readConsistency(let v)? = consistencyType {return v}
       return .unspecified
@@ -1020,7 +1020,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   /// The identifier of the transaction in which to read. A
   /// transaction identifier is returned by a call to
   /// [Datastore.BeginTransaction][google.datastore.v1.Datastore.BeginTransaction].
-  var transaction: Data {
+  package var transaction: Data {
     get {
       if case .transaction(let v)? = consistencyType {return v}
       return Data()
@@ -1035,7 +1035,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   /// [LookupResponse.transaction][google.datastore.v1.LookupResponse.transaction]
   /// or
   /// [RunQueryResponse.transaction][google.datastore.v1.RunQueryResponse.transaction].
-  var newTransaction: Google_Datastore_V1_TransactionOptions {
+  package var newTransaction: Google_Datastore_V1_TransactionOptions {
     get {
       if case .newTransaction(let v)? = consistencyType {return v}
       return Google_Datastore_V1_TransactionOptions()
@@ -1049,7 +1049,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   /// This must be a microsecond precision timestamp within the past one hour,
   /// or if Point-in-Time Recovery is enabled, can additionally be a whole
   /// minute timestamp within the past 7 days.
-  var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  package var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {
       if case .readTime(let v)? = consistencyType {return v}
       return SwiftProtobuf.Google_Protobuf_Timestamp()
@@ -1057,7 +1057,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
     set {consistencyType = .readTime(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// For Cloud Datastore, if read_consistency is not specified, then lookups and
   /// ancestor queries default to `read_consistency`=`STRONG`, global queries
@@ -1069,7 +1069,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   /// Explicitly setting `read_consistency`=`EVENTUAL` will result in eventually
   /// consistent lookups & queries in both Cloud Datastore & Cloud Firestore in
   /// Datastore mode.
-  enum OneOf_ConsistencyType: Equatable, @unchecked Sendable {
+  package enum OneOf_ConsistencyType: Equatable, @unchecked Sendable {
     /// The non-transactional read consistency to use.
     case readConsistency(Google_Datastore_V1_ReadOptions.ReadConsistency)
     /// The identifier of the transaction in which to read. A
@@ -1095,8 +1095,8 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
   }
 
   /// The possible values for read consistencies.
-  enum ReadConsistency: SwiftProtobuf.Enum, Swift.CaseIterable {
-    typealias RawValue = Int
+  package enum ReadConsistency: SwiftProtobuf.Enum, Swift.CaseIterable {
+    package typealias RawValue = Int
 
     /// Unspecified. This value must not be used.
     case unspecified // = 0
@@ -1108,11 +1108,11 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
     case eventual // = 2
     case UNRECOGNIZED(Int)
 
-    init() {
+    package init() {
       self = .unspecified
     }
 
-    init?(rawValue: Int) {
+    package init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unspecified
       case 1: self = .strong
@@ -1121,7 +1121,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
       }
     }
 
-    var rawValue: Int {
+    package var rawValue: Int {
       switch self {
       case .unspecified: return 0
       case .strong: return 1
@@ -1131,7 +1131,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
     }
 
     // The compiler won't synthesize support with the UNRECOGNIZED case.
-    static let allCases: [Google_Datastore_V1_ReadOptions.ReadConsistency] = [
+    package static let allCases: [Google_Datastore_V1_ReadOptions.ReadConsistency] = [
       .unspecified,
       .strong,
       .eventual,
@@ -1139,7 +1139,7 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
 
   }
 
-  init() {}
+  package init() {}
 }
 
 /// Options for beginning a new transaction.
@@ -1149,17 +1149,17 @@ struct Google_Datastore_V1_ReadOptions: @unchecked Sendable {
 /// or implicitly by setting
 /// [ReadOptions.new_transaction][google.datastore.v1.ReadOptions.new_transaction]
 /// in read requests.
-struct Google_Datastore_V1_TransactionOptions: Sendable {
+package struct Google_Datastore_V1_TransactionOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The `mode` of the transaction, indicating whether write operations are
   /// supported.
-  var mode: Google_Datastore_V1_TransactionOptions.OneOf_Mode? = nil
+  package var mode: Google_Datastore_V1_TransactionOptions.OneOf_Mode? = nil
 
   /// The transaction should allow both reads and writes.
-  var readWrite: Google_Datastore_V1_TransactionOptions.ReadWrite {
+  package var readWrite: Google_Datastore_V1_TransactionOptions.ReadWrite {
     get {
       if case .readWrite(let v)? = mode {return v}
       return Google_Datastore_V1_TransactionOptions.ReadWrite()
@@ -1168,7 +1168,7 @@ struct Google_Datastore_V1_TransactionOptions: Sendable {
   }
 
   /// The transaction should only allow reads.
-  var readOnly: Google_Datastore_V1_TransactionOptions.ReadOnly {
+  package var readOnly: Google_Datastore_V1_TransactionOptions.ReadOnly {
     get {
       if case .readOnly(let v)? = mode {return v}
       return Google_Datastore_V1_TransactionOptions.ReadOnly()
@@ -1176,11 +1176,11 @@ struct Google_Datastore_V1_TransactionOptions: Sendable {
     set {mode = .readOnly(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The `mode` of the transaction, indicating whether write operations are
   /// supported.
-  enum OneOf_Mode: Equatable, Sendable {
+  package enum OneOf_Mode: Equatable, Sendable {
     /// The transaction should allow both reads and writes.
     case readWrite(Google_Datastore_V1_TransactionOptions.ReadWrite)
     /// The transaction should only allow reads.
@@ -1189,21 +1189,21 @@ struct Google_Datastore_V1_TransactionOptions: Sendable {
   }
 
   /// Options specific to read / write transactions.
-  struct ReadWrite: @unchecked Sendable {
+  package struct ReadWrite: @unchecked Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     /// The transaction identifier of the transaction being retried.
-    var previousTransaction: Data = Data()
+    package var previousTransaction: Data = Data()
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    package init() {}
   }
 
   /// Options specific to read-only transactions.
-  struct ReadOnly: Sendable {
+  package struct ReadOnly: Sendable {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1213,23 +1213,23 @@ struct Google_Datastore_V1_TransactionOptions: Sendable {
     /// This must be a microsecond precision timestamp within the past one hour,
     /// or if Point-in-Time Recovery is enabled, can additionally be a whole
     /// minute timestamp within the past 7 days.
-    var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+    package var readTime: SwiftProtobuf.Google_Protobuf_Timestamp {
       get {return _readTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
       set {_readTime = newValue}
     }
     /// Returns true if `readTime` has been explicitly set.
-    var hasReadTime: Bool {return self._readTime != nil}
+    package var hasReadTime: Bool {return self._readTime != nil}
     /// Clears the value of `readTime`. Subsequent reads from it will return its default value.
-    mutating func clearReadTime() {self._readTime = nil}
+    package mutating func clearReadTime() {self._readTime = nil}
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    init() {}
+    package init() {}
 
     fileprivate var _readTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
   }
 
-  init() {}
+  package init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1237,8 +1237,8 @@ struct Google_Datastore_V1_TransactionOptions: Sendable {
 fileprivate let _protobuf_package = "google.datastore.v1"
 
 extension Google_Datastore_V1_LookupRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LookupRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".LookupRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     1: .standard(proto: "read_options"),
@@ -1246,7 +1246,7 @@ extension Google_Datastore_V1_LookupRequest: SwiftProtobuf.Message, SwiftProtobu
     5: .standard(proto: "property_mask"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1262,7 +1262,7 @@ extension Google_Datastore_V1_LookupRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1285,7 +1285,7 @@ extension Google_Datastore_V1_LookupRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_LookupRequest, rhs: Google_Datastore_V1_LookupRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_LookupRequest, rhs: Google_Datastore_V1_LookupRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs._readOptions != rhs._readOptions {return false}
@@ -1297,8 +1297,8 @@ extension Google_Datastore_V1_LookupRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LookupResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".LookupResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "found"),
     2: .same(proto: "missing"),
     3: .same(proto: "deferred"),
@@ -1306,7 +1306,7 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     7: .standard(proto: "read_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1322,7 +1322,7 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1345,7 +1345,7 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_LookupResponse, rhs: Google_Datastore_V1_LookupResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_LookupResponse, rhs: Google_Datastore_V1_LookupResponse) -> Bool {
     if lhs.found != rhs.found {return false}
     if lhs.missing != rhs.missing {return false}
     if lhs.deferred != rhs.deferred {return false}
@@ -1357,8 +1357,8 @@ extension Google_Datastore_V1_LookupResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Google_Datastore_V1_RunQueryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RunQueryRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".RunQueryRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     2: .standard(proto: "partition_id"),
@@ -1369,7 +1369,7 @@ extension Google_Datastore_V1_RunQueryRequest: SwiftProtobuf.Message, SwiftProto
     12: .standard(proto: "explain_options"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1412,7 +1412,7 @@ extension Google_Datastore_V1_RunQueryRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1449,7 +1449,7 @@ extension Google_Datastore_V1_RunQueryRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RunQueryRequest, rhs: Google_Datastore_V1_RunQueryRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RunQueryRequest, rhs: Google_Datastore_V1_RunQueryRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs._partitionID != rhs._partitionID {return false}
@@ -1463,8 +1463,8 @@ extension Google_Datastore_V1_RunQueryRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Google_Datastore_V1_RunQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RunQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".RunQueryResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "batch"),
     2: .same(proto: "query"),
     5: .same(proto: "transaction"),
@@ -1504,7 +1504,7 @@ extension Google_Datastore_V1_RunQueryResponse: SwiftProtobuf.Message, SwiftProt
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1522,7 +1522,7 @@ extension Google_Datastore_V1_RunQueryResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every if/case branch local when no optimizations
@@ -1544,7 +1544,7 @@ extension Google_Datastore_V1_RunQueryResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RunQueryResponse, rhs: Google_Datastore_V1_RunQueryResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RunQueryResponse, rhs: Google_Datastore_V1_RunQueryResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1563,8 +1563,8 @@ extension Google_Datastore_V1_RunQueryResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Google_Datastore_V1_RunAggregationQueryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RunAggregationQueryRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".RunAggregationQueryRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     2: .standard(proto: "partition_id"),
@@ -1574,7 +1574,7 @@ extension Google_Datastore_V1_RunAggregationQueryRequest: SwiftProtobuf.Message,
     11: .standard(proto: "explain_options"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1616,7 +1616,7 @@ extension Google_Datastore_V1_RunAggregationQueryRequest: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1650,7 +1650,7 @@ extension Google_Datastore_V1_RunAggregationQueryRequest: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RunAggregationQueryRequest, rhs: Google_Datastore_V1_RunAggregationQueryRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RunAggregationQueryRequest, rhs: Google_Datastore_V1_RunAggregationQueryRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs._partitionID != rhs._partitionID {return false}
@@ -1663,15 +1663,15 @@ extension Google_Datastore_V1_RunAggregationQueryRequest: SwiftProtobuf.Message,
 }
 
 extension Google_Datastore_V1_RunAggregationQueryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RunAggregationQueryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".RunAggregationQueryResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "batch"),
     2: .same(proto: "query"),
     5: .same(proto: "transaction"),
     9: .standard(proto: "explain_metrics"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1686,7 +1686,7 @@ extension Google_Datastore_V1_RunAggregationQueryResponse: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1706,7 +1706,7 @@ extension Google_Datastore_V1_RunAggregationQueryResponse: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RunAggregationQueryResponse, rhs: Google_Datastore_V1_RunAggregationQueryResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RunAggregationQueryResponse, rhs: Google_Datastore_V1_RunAggregationQueryResponse) -> Bool {
     if lhs._batch != rhs._batch {return false}
     if lhs._query != rhs._query {return false}
     if lhs.transaction != rhs.transaction {return false}
@@ -1717,14 +1717,14 @@ extension Google_Datastore_V1_RunAggregationQueryResponse: SwiftProtobuf.Message
 }
 
 extension Google_Datastore_V1_BeginTransactionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BeginTransactionRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".BeginTransactionRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     10: .standard(proto: "transaction_options"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1738,7 +1738,7 @@ extension Google_Datastore_V1_BeginTransactionRequest: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1755,7 +1755,7 @@ extension Google_Datastore_V1_BeginTransactionRequest: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_BeginTransactionRequest, rhs: Google_Datastore_V1_BeginTransactionRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_BeginTransactionRequest, rhs: Google_Datastore_V1_BeginTransactionRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs._transactionOptions != rhs._transactionOptions {return false}
@@ -1765,12 +1765,12 @@ extension Google_Datastore_V1_BeginTransactionRequest: SwiftProtobuf.Message, Sw
 }
 
 extension Google_Datastore_V1_BeginTransactionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BeginTransactionResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".BeginTransactionResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "transaction"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1782,14 +1782,14 @@ extension Google_Datastore_V1_BeginTransactionResponse: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.transaction.isEmpty {
       try visitor.visitSingularBytesField(value: self.transaction, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_BeginTransactionResponse, rhs: Google_Datastore_V1_BeginTransactionResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_BeginTransactionResponse, rhs: Google_Datastore_V1_BeginTransactionResponse) -> Bool {
     if lhs.transaction != rhs.transaction {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1797,14 +1797,14 @@ extension Google_Datastore_V1_BeginTransactionResponse: SwiftProtobuf.Message, S
 }
 
 extension Google_Datastore_V1_RollbackRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RollbackRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".RollbackRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     1: .same(proto: "transaction"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1818,7 +1818,7 @@ extension Google_Datastore_V1_RollbackRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.transaction.isEmpty {
       try visitor.visitSingularBytesField(value: self.transaction, fieldNumber: 1)
     }
@@ -1831,7 +1831,7 @@ extension Google_Datastore_V1_RollbackRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RollbackRequest, rhs: Google_Datastore_V1_RollbackRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RollbackRequest, rhs: Google_Datastore_V1_RollbackRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs.transaction != rhs.transaction {return false}
@@ -1841,27 +1841,27 @@ extension Google_Datastore_V1_RollbackRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Google_Datastore_V1_RollbackResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RollbackResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  package static let protoMessageName: String = _protobuf_package + ".RollbackResponse"
+  package static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_RollbackResponse, rhs: Google_Datastore_V1_RollbackResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_RollbackResponse, rhs: Google_Datastore_V1_RollbackResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Google_Datastore_V1_CommitRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CommitRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".CommitRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     5: .same(proto: "mode"),
@@ -1870,7 +1870,7 @@ extension Google_Datastore_V1_CommitRequest: SwiftProtobuf.Message, SwiftProtobu
     6: .same(proto: "mutations"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1906,7 +1906,7 @@ extension Google_Datastore_V1_CommitRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1932,7 +1932,7 @@ extension Google_Datastore_V1_CommitRequest: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_CommitRequest, rhs: Google_Datastore_V1_CommitRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_CommitRequest, rhs: Google_Datastore_V1_CommitRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs.mode != rhs.mode {return false}
@@ -1944,7 +1944,7 @@ extension Google_Datastore_V1_CommitRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Google_Datastore_V1_CommitRequest.Mode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MODE_UNSPECIFIED"),
     1: .same(proto: "TRANSACTIONAL"),
     2: .same(proto: "NON_TRANSACTIONAL"),
@@ -1952,14 +1952,14 @@ extension Google_Datastore_V1_CommitRequest.Mode: SwiftProtobuf._ProtoNameProvid
 }
 
 extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CommitResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".CommitResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .standard(proto: "mutation_results"),
     4: .standard(proto: "index_updates"),
     8: .standard(proto: "commit_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1973,7 +1973,7 @@ extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -1990,7 +1990,7 @@ extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_CommitResponse, rhs: Google_Datastore_V1_CommitResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_CommitResponse, rhs: Google_Datastore_V1_CommitResponse) -> Bool {
     if lhs.mutationResults != rhs.mutationResults {return false}
     if lhs.indexUpdates != rhs.indexUpdates {return false}
     if lhs._commitTime != rhs._commitTime {return false}
@@ -2000,14 +2000,14 @@ extension Google_Datastore_V1_CommitResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Google_Datastore_V1_AllocateIdsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AllocateIdsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".AllocateIdsRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     1: .same(proto: "keys"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2021,7 +2021,7 @@ extension Google_Datastore_V1_AllocateIdsRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.keys.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.keys, fieldNumber: 1)
     }
@@ -2034,7 +2034,7 @@ extension Google_Datastore_V1_AllocateIdsRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_AllocateIdsRequest, rhs: Google_Datastore_V1_AllocateIdsRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_AllocateIdsRequest, rhs: Google_Datastore_V1_AllocateIdsRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs.keys != rhs.keys {return false}
@@ -2044,12 +2044,12 @@ extension Google_Datastore_V1_AllocateIdsRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Google_Datastore_V1_AllocateIdsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AllocateIdsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".AllocateIdsResponse"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "keys"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2061,14 +2061,14 @@ extension Google_Datastore_V1_AllocateIdsResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.keys.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.keys, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_AllocateIdsResponse, rhs: Google_Datastore_V1_AllocateIdsResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_AllocateIdsResponse, rhs: Google_Datastore_V1_AllocateIdsResponse) -> Bool {
     if lhs.keys != rhs.keys {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2076,14 +2076,14 @@ extension Google_Datastore_V1_AllocateIdsResponse: SwiftProtobuf.Message, SwiftP
 }
 
 extension Google_Datastore_V1_ReserveIdsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReserveIdsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ReserveIdsRequest"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     8: .standard(proto: "project_id"),
     9: .standard(proto: "database_id"),
     1: .same(proto: "keys"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2097,7 +2097,7 @@ extension Google_Datastore_V1_ReserveIdsRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.keys.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.keys, fieldNumber: 1)
     }
@@ -2110,7 +2110,7 @@ extension Google_Datastore_V1_ReserveIdsRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ReserveIdsRequest, rhs: Google_Datastore_V1_ReserveIdsRequest) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ReserveIdsRequest, rhs: Google_Datastore_V1_ReserveIdsRequest) -> Bool {
     if lhs.projectID != rhs.projectID {return false}
     if lhs.databaseID != rhs.databaseID {return false}
     if lhs.keys != rhs.keys {return false}
@@ -2120,27 +2120,27 @@ extension Google_Datastore_V1_ReserveIdsRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Google_Datastore_V1_ReserveIdsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReserveIdsResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  package static let protoMessageName: String = _protobuf_package + ".ReserveIdsResponse"
+  package static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     // Load everything into unknown fields
     while try decoder.nextFieldNumber() != nil {}
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ReserveIdsResponse, rhs: Google_Datastore_V1_ReserveIdsResponse) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ReserveIdsResponse, rhs: Google_Datastore_V1_ReserveIdsResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Mutation"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".Mutation"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     4: .same(proto: "insert"),
     5: .same(proto: "update"),
     6: .same(proto: "upsert"),
@@ -2150,7 +2150,7 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
     9: .standard(proto: "property_mask"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2235,7 +2235,7 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2271,7 +2271,7 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_Mutation, rhs: Google_Datastore_V1_Mutation) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_Mutation, rhs: Google_Datastore_V1_Mutation) -> Bool {
     if lhs.operation != rhs.operation {return false}
     if lhs.conflictDetectionStrategy != rhs.conflictDetectionStrategy {return false}
     if lhs._propertyMask != rhs._propertyMask {return false}
@@ -2281,8 +2281,8 @@ extension Google_Datastore_V1_Mutation: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MutationResult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".MutationResult"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .same(proto: "key"),
     4: .same(proto: "version"),
     7: .standard(proto: "create_time"),
@@ -2290,7 +2290,7 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
     5: .standard(proto: "conflict_detected"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2306,7 +2306,7 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2329,7 +2329,7 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_MutationResult, rhs: Google_Datastore_V1_MutationResult) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_MutationResult, rhs: Google_Datastore_V1_MutationResult) -> Bool {
     if lhs._key != rhs._key {return false}
     if lhs.version != rhs.version {return false}
     if lhs._createTime != rhs._createTime {return false}
@@ -2341,12 +2341,12 @@ extension Google_Datastore_V1_MutationResult: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Google_Datastore_V1_PropertyMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PropertyMask"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".PropertyMask"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "paths"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2358,14 +2358,14 @@ extension Google_Datastore_V1_PropertyMask: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.paths.isEmpty {
       try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_PropertyMask, rhs: Google_Datastore_V1_PropertyMask) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_PropertyMask, rhs: Google_Datastore_V1_PropertyMask) -> Bool {
     if lhs.paths != rhs.paths {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2373,15 +2373,15 @@ extension Google_Datastore_V1_PropertyMask: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ReadOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ReadOptions"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "read_consistency"),
     2: .same(proto: "transaction"),
     3: .standard(proto: "new_transaction"),
     4: .standard(proto: "read_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2434,7 +2434,7 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2461,7 +2461,7 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ReadOptions, rhs: Google_Datastore_V1_ReadOptions) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ReadOptions, rhs: Google_Datastore_V1_ReadOptions) -> Bool {
     if lhs.consistencyType != rhs.consistencyType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2469,7 +2469,7 @@ extension Google_Datastore_V1_ReadOptions: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Google_Datastore_V1_ReadOptions.ReadConsistency: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "READ_CONSISTENCY_UNSPECIFIED"),
     1: .same(proto: "STRONG"),
     2: .same(proto: "EVENTUAL"),
@@ -2477,13 +2477,13 @@ extension Google_Datastore_V1_ReadOptions.ReadConsistency: SwiftProtobuf._ProtoN
 }
 
 extension Google_Datastore_V1_TransactionOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TransactionOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".TransactionOptions"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "read_write"),
     2: .standard(proto: "read_only"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2520,7 +2520,7 @@ extension Google_Datastore_V1_TransactionOptions: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2539,7 +2539,7 @@ extension Google_Datastore_V1_TransactionOptions: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_TransactionOptions, rhs: Google_Datastore_V1_TransactionOptions) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_TransactionOptions, rhs: Google_Datastore_V1_TransactionOptions) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2547,12 +2547,12 @@ extension Google_Datastore_V1_TransactionOptions: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Google_Datastore_V1_TransactionOptions.ReadWrite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Google_Datastore_V1_TransactionOptions.protoMessageName + ".ReadWrite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = Google_Datastore_V1_TransactionOptions.protoMessageName + ".ReadWrite"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "previous_transaction"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2564,14 +2564,14 @@ extension Google_Datastore_V1_TransactionOptions.ReadWrite: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.previousTransaction.isEmpty {
       try visitor.visitSingularBytesField(value: self.previousTransaction, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_TransactionOptions.ReadWrite, rhs: Google_Datastore_V1_TransactionOptions.ReadWrite) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_TransactionOptions.ReadWrite, rhs: Google_Datastore_V1_TransactionOptions.ReadWrite) -> Bool {
     if lhs.previousTransaction != rhs.previousTransaction {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2579,12 +2579,12 @@ extension Google_Datastore_V1_TransactionOptions.ReadWrite: SwiftProtobuf.Messag
 }
 
 extension Google_Datastore_V1_TransactionOptions.ReadOnly: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Google_Datastore_V1_TransactionOptions.protoMessageName + ".ReadOnly"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = Google_Datastore_V1_TransactionOptions.protoMessageName + ".ReadOnly"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "read_time"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2596,7 +2596,7 @@ extension Google_Datastore_V1_TransactionOptions.ReadOnly: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -2607,7 +2607,7 @@ extension Google_Datastore_V1_TransactionOptions.ReadOnly: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_TransactionOptions.ReadOnly, rhs: Google_Datastore_V1_TransactionOptions.ReadOnly) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_TransactionOptions.ReadOnly, rhs: Google_Datastore_V1_TransactionOptions.ReadOnly) -> Bool {
     if lhs._readTime != rhs._readTime {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

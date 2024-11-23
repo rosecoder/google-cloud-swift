@@ -4,21 +4,15 @@ import Tracing
 
 extension Datastore {
 
-    // MARK: - Get
-
     /// Lookups the entities for the given keys.
     /// - Parameter keys: Keys representing the entities to lookup.
     /// - Returns: Array of decoded entities. Any entity may be `nil` if it didn't exist.
-    public func getEntities<Entity>(
+    public func getEntities<Entity: _Entity>(
         keys: [Entity.Key],
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Entity?]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Entity?] {
         let projectID = try self.projectID
         let rawKeys = keys.map { $0.raw }
 
@@ -56,17 +50,13 @@ extension Datastore {
     /// Lookups the entitiy for a given key.
     /// - Parameter key: Key representing the entity to lookup.
     /// - Returns: Decoded entity. May be `nil` if it didn't exist.
-    public func getEntity<Entity>(
+    public func getEntity<Entity: _Entity>(
         _ type: Entity.Type = Entity.self,
         key: Entity.Key,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> Entity?
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> Entity? {
         (try await getEntities(keys: [key], file: file, function: function, line: line))[0]
     }
 
@@ -75,16 +65,12 @@ extension Datastore {
         case entityNotFound
     }
 
-    public func reget<Entity>(
+    public func reget<Entity: _Entity>(
         entity: inout Entity,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws {
 #if DEBUG
         switch entity.key.id {
         case .incomplete:
@@ -105,15 +91,12 @@ extension Datastore {
 
     /// Checks if provided keys eixsts in the datastore.
     /// - Returns: Array of booleans. `true` if key exists, else, `false`. Ordered same way was provided keys array.
-    public func containsEntities<Key>(
+    public func containsEntities<Key: AnyKey>(
         keys: [Key],
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Bool]
-    where
-        Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Bool] {
         let projectID = try self.projectID
         let response: Google_Datastore_V1_LookupResponse = try await withSpan("datastore-lookup", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Key.kind
@@ -131,15 +114,12 @@ extension Datastore {
 
     /// Checks if provided key exists in the datastore.
     /// - Returns: `true` if key exists, else, `false`.
-    public func containsEntity<Key>(
+    public func containsEntity<Key: AnyKey>(
         key: Key,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> Bool
-    where
-        Key: AnyKey
-    {
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> Bool {
         (try await containsEntities(keys: [key], file: file, function: function, line: line))[0]
     }
 }

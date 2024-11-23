@@ -39,20 +39,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// specified otherwise, this must conform to the
 /// <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
 /// standard</a>. Values must be within normalized ranges.
-struct Google_Type_LatLng: Sendable {
+package struct Google_Type_LatLng: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The latitude in degrees. It must be in the range [-90.0, +90.0].
-  var latitude: Double = 0
+  package var latitude: Double = 0
 
   /// The longitude in degrees. It must be in the range [-180.0, +180.0].
-  var longitude: Double = 0
+  package var longitude: Double = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -60,13 +60,13 @@ struct Google_Type_LatLng: Sendable {
 fileprivate let _protobuf_package = "google.type"
 
 extension Google_Type_LatLng: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LatLng"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".LatLng"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "latitude"),
     2: .same(proto: "longitude"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -79,7 +79,7 @@ extension Google_Type_LatLng: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.latitude.bitPattern != 0 {
       try visitor.visitSingularDoubleField(value: self.latitude, fieldNumber: 1)
     }
@@ -89,7 +89,7 @@ extension Google_Type_LatLng: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Type_LatLng, rhs: Google_Type_LatLng) -> Bool {
+  package static func ==(lhs: Google_Type_LatLng, rhs: Google_Type_LatLng) -> Bool {
     if lhs.latitude != rhs.latitude {return false}
     if lhs.longitude != rhs.longitude {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

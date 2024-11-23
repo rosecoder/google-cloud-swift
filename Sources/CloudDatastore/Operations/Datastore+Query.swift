@@ -4,18 +4,71 @@ import Tracing
 
 extension Datastore {
 
-    private func performQuery<Entity, CodingKeys>(
-        query: Query<Entity, CodingKeys>,
+    public func getEntities<Entity: _Entity>(
+        query: Query<Entity>,
+        cursor: inout Cursor?,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Entity] {
+        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, file: file, function: function, line: line)
+
+        let decoder = EntityDecoder()
+        return try raws.map {
+            try decoder.decode(Entity.self, from: $0.entity)
+        }
+    }
+
+    public func getEntities<Entity: _Entity>(
+        query: Query<Entity>,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Entity] {
+        var cursor: Cursor?
+        return try await getEntities(query: query, cursor: &cursor, file: file, function: function, line: line)
+    }
+
+    public func getKeys<Entity: _Entity>(
+        query: Query<Entity>,
+        cursor: inout Cursor?,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Entity.Key] {
+        let raws = try await performQuery(
+            query: query,
+            projection: [.with {
+                $0.property = .with {
+                    $0.name = "__key__"
+                }
+            }],
+            cursor: &cursor,
+            file: file,
+            function: function,
+            line: line
+        )
+        return raws.map { Entity.Key.init(raw: $0.entity.key) }
+    }
+
+    public func getKeys<Entity: _Entity>(
+        query: Query<Entity>,
+        file: String,
+        function: String,
+        line: UInt
+    ) async throws -> [Entity.Key] {
+        var cursor: Cursor?
+        return try await getKeys(query: query, cursor: &cursor, file: file, function: function, line: line)
+    }
+
+    private func performQuery<Entity: _Entity>(
+        query: Query<Entity>,
         projection: [Google_Datastore_V1_Projection],
         cursor: inout Cursor?,
-file: String = #fileID,
+        file: String = #fileID,
         function: String = #function,
         line: UInt = #line
-    ) async throws -> [Google_Datastore_V1_EntityResult]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
+    ) async throws -> [Google_Datastore_V1_EntityResult] {
         let projectID = try self.projectID
         let response: Google_Datastore_V1_RunQueryResponse = try await withSpan("datastore-query", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Entity.Key.kind
@@ -88,78 +141,5 @@ file: String = #fileID,
             cursor = nil
         }
         return response.batch.entityResults
-    }
-
-    public func getEntities<Entity, CodingKeys>(
-        query: Query<Entity, CodingKeys>,
-        cursor: inout Cursor?,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Entity]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
-        let raws = try await performQuery(query: query, projection: [], cursor: &cursor, file: file, function: function, line: line)
-
-        let decoder = EntityDecoder()
-        return try raws.map {
-            try decoder.decode(Entity.self, from: $0.entity)
-        }
-    }
-
-    public func getEntities<Entity, CodingKeys>(
-        query: Query<Entity, CodingKeys>,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Entity]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
-        var cursor: Cursor?
-        return try await getEntities(query: query, cursor: &cursor, file: file, function: function, line: line)
-    }
-
-    public func getKeys<Entity, CodingKeys>(
-        query: Query<Entity, CodingKeys>,
-        cursor: inout Cursor?,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Entity.Key]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
-        let raws = try await performQuery(
-            query: query,
-            projection: [.with {
-                $0.property = .with {
-                    $0.name = "__key__"
-                }
-            }],
-            cursor: &cursor,
-            file: file,
-            function: function,
-            line: line
-        )
-        return raws.map { Entity.Key.init(raw: $0.entity.key) }
-    }
-
-    public func getKeys<Entity, CodingKeys>(
-        query: Query<Entity, CodingKeys>,
-        file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> [Entity.Key]
-    where
-        Entity: _Entity,
-        Entity.Key: AnyKey
-    {
-        var cursor: Cursor?
-        return try await getKeys(query: query, cursor: &cursor, file: file, function: function, line: line)
     }
 }

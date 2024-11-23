@@ -1,13 +1,9 @@
 import Foundation
 
-public struct Query<Entity: _Entity, CodingKey>: Sendable where
-CodingKey == Entity.CodingKeys,
-CodingKey: Swift.CodingKey,
-Entity.Key: AnyKey
-{
+public struct Query<Entity: _Entity>: Sendable {
 
-    var filters: [Google_Datastore_V1_PropertyFilter] = []
-    var orders: [Google_Datastore_V1_PropertyOrder] = []
+    package var filters: [Google_Datastore_V1_PropertyFilter] = []
+    package var orders: [Google_Datastore_V1_PropertyOrder] = []
 
     public var kind: String { Entity.Key.kind }
     public var namespace: Namespace

@@ -9,7 +9,7 @@ import ServiceLifecycle
 import ServiceContextModule
 import GoogleCloudServiceContext
 
-public actor Datastore: Service {
+public actor Datastore: DatastoreProtocol, Service {
 
     let logger = Logger(label: "datastore")
 

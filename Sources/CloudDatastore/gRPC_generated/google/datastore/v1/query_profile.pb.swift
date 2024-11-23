@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Explain options for the query.
-struct Google_Datastore_V1_ExplainOptions: Sendable {
+package struct Google_Datastore_V1_ExplainOptions: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -47,51 +47,51 @@ struct Google_Datastore_V1_ExplainOptions: Sendable {
   ///
   /// When true, the query will be planned and executed, returning the full
   /// query results along with both planning and execution stage metrics.
-  var analyze: Bool = false
+  package var analyze: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// Explain metrics for the query.
-struct Google_Datastore_V1_ExplainMetrics: Sendable {
+package struct Google_Datastore_V1_ExplainMetrics: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Planning phase information for the query.
-  var planSummary: Google_Datastore_V1_PlanSummary {
+  package var planSummary: Google_Datastore_V1_PlanSummary {
     get {return _planSummary ?? Google_Datastore_V1_PlanSummary()}
     set {_planSummary = newValue}
   }
   /// Returns true if `planSummary` has been explicitly set.
-  var hasPlanSummary: Bool {return self._planSummary != nil}
+  package var hasPlanSummary: Bool {return self._planSummary != nil}
   /// Clears the value of `planSummary`. Subsequent reads from it will return its default value.
-  mutating func clearPlanSummary() {self._planSummary = nil}
+  package mutating func clearPlanSummary() {self._planSummary = nil}
 
   /// Aggregated stats from the execution of the query. Only present when
   /// [ExplainOptions.analyze][google.datastore.v1.ExplainOptions.analyze] is set
   /// to true.
-  var executionStats: Google_Datastore_V1_ExecutionStats {
+  package var executionStats: Google_Datastore_V1_ExecutionStats {
     get {return _executionStats ?? Google_Datastore_V1_ExecutionStats()}
     set {_executionStats = newValue}
   }
   /// Returns true if `executionStats` has been explicitly set.
-  var hasExecutionStats: Bool {return self._executionStats != nil}
+  package var hasExecutionStats: Bool {return self._executionStats != nil}
   /// Clears the value of `executionStats`. Subsequent reads from it will return its default value.
-  mutating func clearExecutionStats() {self._executionStats = nil}
+  package mutating func clearExecutionStats() {self._executionStats = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _planSummary: Google_Datastore_V1_PlanSummary? = nil
   fileprivate var _executionStats: Google_Datastore_V1_ExecutionStats? = nil
 }
 
 /// Planning phase information for the query.
-struct Google_Datastore_V1_PlanSummary: Sendable {
+package struct Google_Datastore_V1_PlanSummary: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -101,35 +101,35 @@ struct Google_Datastore_V1_PlanSummary: Sendable {
   ///    {"query_scope": "Collection", "properties": "(foo ASC, __name__ ASC)"},
   ///    {"query_scope": "Collection", "properties": "(bar ASC, __name__ ASC)"}
   ///  ]
-  var indexesUsed: [SwiftProtobuf.Google_Protobuf_Struct] = []
+  package var indexesUsed: [SwiftProtobuf.Google_Protobuf_Struct] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 }
 
 /// Execution statistics for the query.
-struct Google_Datastore_V1_ExecutionStats: Sendable {
+package struct Google_Datastore_V1_ExecutionStats: Sendable {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Total number of results returned, including documents, projections,
   /// aggregation results, keys.
-  var resultsReturned: Int64 = 0
+  package var resultsReturned: Int64 = 0
 
   /// Total time to execute the query in the backend.
-  var executionDuration: SwiftProtobuf.Google_Protobuf_Duration {
+  package var executionDuration: SwiftProtobuf.Google_Protobuf_Duration {
     get {return _executionDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_executionDuration = newValue}
   }
   /// Returns true if `executionDuration` has been explicitly set.
-  var hasExecutionDuration: Bool {return self._executionDuration != nil}
+  package var hasExecutionDuration: Bool {return self._executionDuration != nil}
   /// Clears the value of `executionDuration`. Subsequent reads from it will return its default value.
-  mutating func clearExecutionDuration() {self._executionDuration = nil}
+  package mutating func clearExecutionDuration() {self._executionDuration = nil}
 
   /// Total billable read operations.
-  var readOperations: Int64 = 0
+  package var readOperations: Int64 = 0
 
   /// Debugging statistics from the execution of the query. Note that the
   /// debugging stats are subject to change as Firestore evolves. It could
@@ -143,18 +143,18 @@ struct Google_Datastore_V1_ExecutionStats: Sendable {
   ///       "min_query_cost": "0"
   ///    }
   ///  }
-  var debugStats: SwiftProtobuf.Google_Protobuf_Struct {
+  package var debugStats: SwiftProtobuf.Google_Protobuf_Struct {
     get {return _debugStats ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_debugStats = newValue}
   }
   /// Returns true if `debugStats` has been explicitly set.
-  var hasDebugStats: Bool {return self._debugStats != nil}
+  package var hasDebugStats: Bool {return self._debugStats != nil}
   /// Clears the value of `debugStats`. Subsequent reads from it will return its default value.
-  mutating func clearDebugStats() {self._debugStats = nil}
+  package mutating func clearDebugStats() {self._debugStats = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  package var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  package init() {}
 
   fileprivate var _executionDuration: SwiftProtobuf.Google_Protobuf_Duration? = nil
   fileprivate var _debugStats: SwiftProtobuf.Google_Protobuf_Struct? = nil
@@ -165,12 +165,12 @@ struct Google_Datastore_V1_ExecutionStats: Sendable {
 fileprivate let _protobuf_package = "google.datastore.v1"
 
 extension Google_Datastore_V1_ExplainOptions: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExplainOptions"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ExplainOptions"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "analyze"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -182,14 +182,14 @@ extension Google_Datastore_V1_ExplainOptions: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.analyze != false {
       try visitor.visitSingularBoolField(value: self.analyze, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ExplainOptions, rhs: Google_Datastore_V1_ExplainOptions) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ExplainOptions, rhs: Google_Datastore_V1_ExplainOptions) -> Bool {
     if lhs.analyze != rhs.analyze {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -197,13 +197,13 @@ extension Google_Datastore_V1_ExplainOptions: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Google_Datastore_V1_ExplainMetrics: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExplainMetrics"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ExplainMetrics"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "plan_summary"),
     2: .standard(proto: "execution_stats"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -216,7 +216,7 @@ extension Google_Datastore_V1_ExplainMetrics: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -230,7 +230,7 @@ extension Google_Datastore_V1_ExplainMetrics: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ExplainMetrics, rhs: Google_Datastore_V1_ExplainMetrics) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ExplainMetrics, rhs: Google_Datastore_V1_ExplainMetrics) -> Bool {
     if lhs._planSummary != rhs._planSummary {return false}
     if lhs._executionStats != rhs._executionStats {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -239,12 +239,12 @@ extension Google_Datastore_V1_ExplainMetrics: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Google_Datastore_V1_PlanSummary: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PlanSummary"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".PlanSummary"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "indexes_used"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -256,14 +256,14 @@ extension Google_Datastore_V1_PlanSummary: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.indexesUsed.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.indexesUsed, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_PlanSummary, rhs: Google_Datastore_V1_PlanSummary) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_PlanSummary, rhs: Google_Datastore_V1_PlanSummary) -> Bool {
     if lhs.indexesUsed != rhs.indexesUsed {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -271,15 +271,15 @@ extension Google_Datastore_V1_PlanSummary: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Google_Datastore_V1_ExecutionStats: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExecutionStats"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  package static let protoMessageName: String = _protobuf_package + ".ExecutionStats"
+  package static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "results_returned"),
     3: .standard(proto: "execution_duration"),
     4: .standard(proto: "read_operations"),
     5: .standard(proto: "debug_stats"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  package mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -294,7 +294,7 @@ extension Google_Datastore_V1_ExecutionStats: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  package func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every if/case branch local when no optimizations
     // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
@@ -314,7 +314,7 @@ extension Google_Datastore_V1_ExecutionStats: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Datastore_V1_ExecutionStats, rhs: Google_Datastore_V1_ExecutionStats) -> Bool {
+  package static func ==(lhs: Google_Datastore_V1_ExecutionStats, rhs: Google_Datastore_V1_ExecutionStats) -> Bool {
     if lhs.resultsReturned != rhs.resultsReturned {return false}
     if lhs._executionDuration != rhs._executionDuration {return false}
     if lhs.readOperations != rhs.readOperations {return false}

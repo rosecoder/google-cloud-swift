@@ -24,74 +24,74 @@
 import GRPCCore
 import GRPCProtobuf
 
-internal enum Google_Datastore_V1_Datastore {
-    internal static let descriptor = GRPCCore.ServiceDescriptor.google_datastore_v1_Datastore
-    internal enum Method {
-        internal enum Lookup {
-            internal typealias Input = Google_Datastore_V1_LookupRequest
-            internal typealias Output = Google_Datastore_V1_LookupResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+package enum Google_Datastore_V1_Datastore {
+    package static let descriptor = GRPCCore.ServiceDescriptor.google_datastore_v1_Datastore
+    package enum Method {
+        package enum Lookup {
+            package typealias Input = Google_Datastore_V1_LookupRequest
+            package typealias Output = Google_Datastore_V1_LookupResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "Lookup"
             )
         }
-        internal enum RunQuery {
-            internal typealias Input = Google_Datastore_V1_RunQueryRequest
-            internal typealias Output = Google_Datastore_V1_RunQueryResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum RunQuery {
+            package typealias Input = Google_Datastore_V1_RunQueryRequest
+            package typealias Output = Google_Datastore_V1_RunQueryResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "RunQuery"
             )
         }
-        internal enum RunAggregationQuery {
-            internal typealias Input = Google_Datastore_V1_RunAggregationQueryRequest
-            internal typealias Output = Google_Datastore_V1_RunAggregationQueryResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum RunAggregationQuery {
+            package typealias Input = Google_Datastore_V1_RunAggregationQueryRequest
+            package typealias Output = Google_Datastore_V1_RunAggregationQueryResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "RunAggregationQuery"
             )
         }
-        internal enum BeginTransaction {
-            internal typealias Input = Google_Datastore_V1_BeginTransactionRequest
-            internal typealias Output = Google_Datastore_V1_BeginTransactionResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum BeginTransaction {
+            package typealias Input = Google_Datastore_V1_BeginTransactionRequest
+            package typealias Output = Google_Datastore_V1_BeginTransactionResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "BeginTransaction"
             )
         }
-        internal enum Commit {
-            internal typealias Input = Google_Datastore_V1_CommitRequest
-            internal typealias Output = Google_Datastore_V1_CommitResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum Commit {
+            package typealias Input = Google_Datastore_V1_CommitRequest
+            package typealias Output = Google_Datastore_V1_CommitResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "Commit"
             )
         }
-        internal enum Rollback {
-            internal typealias Input = Google_Datastore_V1_RollbackRequest
-            internal typealias Output = Google_Datastore_V1_RollbackResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum Rollback {
+            package typealias Input = Google_Datastore_V1_RollbackRequest
+            package typealias Output = Google_Datastore_V1_RollbackResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "Rollback"
             )
         }
-        internal enum AllocateIds {
-            internal typealias Input = Google_Datastore_V1_AllocateIdsRequest
-            internal typealias Output = Google_Datastore_V1_AllocateIdsResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum AllocateIds {
+            package typealias Input = Google_Datastore_V1_AllocateIdsRequest
+            package typealias Output = Google_Datastore_V1_AllocateIdsResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "AllocateIds"
             )
         }
-        internal enum ReserveIds {
-            internal typealias Input = Google_Datastore_V1_ReserveIdsRequest
-            internal typealias Output = Google_Datastore_V1_ReserveIdsResponse
-            internal static let descriptor = GRPCCore.MethodDescriptor(
+        package enum ReserveIds {
+            package typealias Input = Google_Datastore_V1_ReserveIdsRequest
+            package typealias Output = Google_Datastore_V1_ReserveIdsResponse
+            package static let descriptor = GRPCCore.MethodDescriptor(
                 service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
                 method: "ReserveIds"
             )
         }
-        internal static let descriptors: [GRPCCore.MethodDescriptor] = [
+        package static let descriptors: [GRPCCore.MethodDescriptor] = [
             Lookup.descriptor,
             RunQuery.descriptor,
             RunAggregationQuery.descriptor,
@@ -103,13 +103,13 @@ internal enum Google_Datastore_V1_Datastore {
         ]
     }
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ClientProtocol = Google_Datastore_V1_Datastore_ClientProtocol
+    package typealias ClientProtocol = Google_Datastore_V1_Datastore_ClientProtocol
     @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias Client = Google_Datastore_V1_Datastore_Client
+    package typealias Client = Google_Datastore_V1_Datastore_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    internal static let google_datastore_v1_Datastore = Self(
+    package static let google_datastore_v1_Datastore = Self(
         package: "google.datastore.v1",
         service: "Datastore"
     )
@@ -122,7 +122,7 @@ extension GRPCCore.ServiceDescriptor {
 /// input keys sets the project ID (if not already set) to the project ID from
 /// the request.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Google_Datastore_V1_Datastore_ClientProtocol: Sendable {
+package protocol Google_Datastore_V1_Datastore_ClientProtocol: Sendable {
     /// Looks up entities by key.
     func lookup<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
@@ -201,7 +201,7 @@ internal protocol Google_Datastore_V1_Datastore_ClientProtocol: Sendable {
 
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Google_Datastore_V1_Datastore.ClientProtocol {
-    internal func lookup<R>(
+    package func lookup<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> R = {
@@ -217,7 +217,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func runQuery<R>(
+    package func runQuery<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> R = {
@@ -233,7 +233,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func runAggregationQuery<R>(
+    package func runAggregationQuery<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> R = {
@@ -249,7 +249,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func beginTransaction<R>(
+    package func beginTransaction<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> R = {
@@ -265,7 +265,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func commit<R>(
+    package func commit<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> R = {
@@ -281,7 +281,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func rollback<R>(
+    package func rollback<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> R = {
@@ -297,7 +297,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func allocateIds<R>(
+    package func allocateIds<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> R = {
@@ -313,7 +313,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         )
     }
     
-    internal func reserveIds<R>(
+    package func reserveIds<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
         options: GRPCCore.CallOptions = .defaults,
         _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> R = {
@@ -333,7 +333,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
 extension Google_Datastore_V1_Datastore.ClientProtocol {
     /// Looks up entities by key.
-    internal func lookup<Result>(
+    package func lookup<Result>(
         _ message: Google_Datastore_V1_LookupRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -353,7 +353,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     }
     
     /// Queries for entities.
-    internal func runQuery<Result>(
+    package func runQuery<Result>(
         _ message: Google_Datastore_V1_RunQueryRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -373,7 +373,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     }
     
     /// Runs an aggregation query.
-    internal func runAggregationQuery<Result>(
+    package func runAggregationQuery<Result>(
         _ message: Google_Datastore_V1_RunAggregationQueryRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -393,7 +393,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     }
     
     /// Begins a new transaction.
-    internal func beginTransaction<Result>(
+    package func beginTransaction<Result>(
         _ message: Google_Datastore_V1_BeginTransactionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -414,7 +414,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     
     /// Commits a transaction, optionally creating, deleting or modifying some
     /// entities.
-    internal func commit<Result>(
+    package func commit<Result>(
         _ message: Google_Datastore_V1_CommitRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -434,7 +434,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     }
     
     /// Rolls back a transaction.
-    internal func rollback<Result>(
+    package func rollback<Result>(
         _ message: Google_Datastore_V1_RollbackRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -455,7 +455,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     
     /// Allocates IDs for the given keys, which is useful for referencing an entity
     /// before it is inserted.
-    internal func allocateIds<Result>(
+    package func allocateIds<Result>(
         _ message: Google_Datastore_V1_AllocateIdsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -476,7 +476,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
     
     /// Prevents the supplied keys' IDs from being auto-allocated by Cloud
     /// Datastore.
-    internal func reserveIds<Result>(
+    package func reserveIds<Result>(
         _ message: Google_Datastore_V1_ReserveIdsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
@@ -503,15 +503,15 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
 /// input keys sets the project ID (if not already set) to the project ID from
 /// the request.
 @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datastore.ClientProtocol {
+package struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datastore.ClientProtocol {
     private let client: GRPCCore.GRPCClient
     
-    internal init(wrapping client: GRPCCore.GRPCClient) {
+    package init(wrapping client: GRPCCore.GRPCClient) {
         self.client = client
     }
     
     /// Looks up entities by key.
-    internal func lookup<R>(
+    package func lookup<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_LookupRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_LookupResponse>,
@@ -531,7 +531,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     }
     
     /// Queries for entities.
-    internal func runQuery<R>(
+    package func runQuery<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunQueryRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunQueryResponse>,
@@ -551,7 +551,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     }
     
     /// Runs an aggregation query.
-    internal func runAggregationQuery<R>(
+    package func runAggregationQuery<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunAggregationQueryRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>,
@@ -571,7 +571,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     }
     
     /// Begins a new transaction.
-    internal func beginTransaction<R>(
+    package func beginTransaction<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_BeginTransactionRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_BeginTransactionResponse>,
@@ -592,7 +592,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     
     /// Commits a transaction, optionally creating, deleting or modifying some
     /// entities.
-    internal func commit<R>(
+    package func commit<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_CommitRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_CommitResponse>,
@@ -612,7 +612,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     }
     
     /// Rolls back a transaction.
-    internal func rollback<R>(
+    package func rollback<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RollbackRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RollbackResponse>,
@@ -633,7 +633,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     
     /// Allocates IDs for the given keys, which is useful for referencing an entity
     /// before it is inserted.
-    internal func allocateIds<R>(
+    package func allocateIds<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_AllocateIdsRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_AllocateIdsResponse>,
@@ -654,7 +654,7 @@ internal struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datast
     
     /// Prevents the supplied keys' IDs from being auto-allocated by Cloud
     /// Datastore.
-    internal func reserveIds<R>(
+    package func reserveIds<R>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
         serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_ReserveIdsRequest>,
         deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_ReserveIdsResponse>,

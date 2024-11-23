@@ -29,6 +29,7 @@ let package = Package(
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
         .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
+        .library(name: "CloudDatastoreTesting", targets: ["CloudDatastoreTesting"]),
         .library(name: "CloudRedis", targets: ["CloudRedis"]),
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
         .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
@@ -85,6 +86,10 @@ let package = Package(
             "CloudCore",
         ] + grpcDependencies + infrastructureDependencies),
         .testTarget(name: "CloudDatastoreTests", dependencies: ["CloudDatastore"]),
+
+        .target(name: "CloudDatastoreTesting", dependencies: [
+            "CloudDatastore",
+        ]),
 
         .target(name: "CloudErrorReporting", dependencies: [
             "CloudCore",

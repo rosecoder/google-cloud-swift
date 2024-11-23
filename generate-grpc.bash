@@ -18,8 +18,10 @@ protoc google/pubsub/v1/*.proto \
 
 echo "Generating gRPC code for Datastore..."
 protoc google/datastore/v1/*.proto google/type/latlng.proto \
+  --swift_opt=Visibility=Package \
   --swift_out=${SOURCES_ROOT}/CloudDatastore/gRPC_generated/ \
   --grpc-swift_opt=Client=true,Server=false \
+  --grpc-swift_opt=Visibility=Package \
   --grpc-swift_out=${SOURCES_ROOT}/CloudDatastore/gRPC_generated/
 
 echo "Generating gRPC code for Trace..."
