@@ -15,7 +15,8 @@ public struct GRPCServerService: Service {
         services: [any RegistrableRPCService],
         host: String = "0.0.0.0",
         port: Int? = resolvePort(),
-        defaultPort: Int = 3000
+        defaultPort: Int = 3000,
+        interceptors: [ServerInterceptor] = defaultInterceptors()
     ) {
         self.address = "\(host):\(port ?? defaultPort)"
         self.grpcServer = GRPCServer(
@@ -24,9 +25,7 @@ public struct GRPCServerService: Service {
                 config: .defaults(transportSecurity: .plaintext)
             ),
             services: services,
-            interceptors: [
-                ServerTracingInterceptor(),
-            ]
+            interceptors: interceptors
         )
     }
 
@@ -35,6 +34,20 @@ public struct GRPCServerService: Service {
             return environmentPort
         }
         return nil
+    }
+
+    public static func defaultInterceptors() -> [ServerInterceptor] {
+#if DEBUG
+        let isRunningViaXcode = ProcessInfo.processInfo.environment["__XCODE_BUILT_PRODUCTS_DIR_PATHS"] != nil
+        return [
+            ServerTracingInterceptor(),
+            RequestLoggerInterceptor(useLogger: isRunningViaXcode),
+        ]
+#else
+        return [
+            ServerTracingInterceptor(),
+        ]
+#endif
     }
 
     public func run() async throws {
