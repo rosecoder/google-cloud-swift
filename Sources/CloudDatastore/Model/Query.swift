@@ -61,7 +61,7 @@ public struct Query<Entity: _Entity>: Sendable {
         }
     }
 
-    public mutating func filter(by key: CodingKey, where condition: Condition) {
+    public mutating func filter(by key: Entity.CodingKeys, where condition: Condition) {
         filters.append(.with {
             $0.property = .with {
                 if case .hasAncestor = condition {
@@ -75,7 +75,7 @@ public struct Query<Entity: _Entity>: Sendable {
         })
     }
 
-    public func filtered(by key: CodingKey, where condition: Condition) -> Self {
+    public func filtered(by key: Entity.CodingKeys, where condition: Condition) -> Self {
         var newQuery = self
         newQuery.filter(by: key, where: condition)
         return newQuery
@@ -94,7 +94,7 @@ public struct Query<Entity: _Entity>: Sendable {
         }
     }
 
-    public mutating func order(by keys: [CodingKey], direction: OrderDirection = .ascending) {
+    public mutating func order(by keys: [Entity.CodingKeys], direction: OrderDirection = .ascending) {
         orders.append(contentsOf: keys.map { key in
             .with {
                 $0.property = .with {
@@ -105,17 +105,17 @@ public struct Query<Entity: _Entity>: Sendable {
         })
     }
 
-    public func ordered(by keys: [CodingKey], direction: OrderDirection = .ascending) -> Self {
+    public func ordered(by keys: [Entity.CodingKeys], direction: OrderDirection = .ascending) -> Self {
         var newQuery = self
         newQuery.order(by: keys, direction: direction)
         return newQuery
     }
 
-    public mutating func order(by key: CodingKey, direction: OrderDirection = .ascending) {
+    public mutating func order(by key: Entity.CodingKeys, direction: OrderDirection = .ascending) {
         order(by: [key], direction: direction)
     }
 
-    public func ordered(by key: CodingKey, direction: OrderDirection = .ascending) -> Self {
+    public func ordered(by key: Entity.CodingKeys, direction: OrderDirection = .ascending) -> Self {
         var newQuery = self
         newQuery.order(by: key, direction: direction)
         return newQuery
