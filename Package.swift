@@ -31,6 +31,7 @@ let package = Package(
         .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
         .library(name: "CloudRedis", targets: ["CloudRedis"]),
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
+        .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
 
         .library(name: "DistributedLock", targets: ["DistributedLock"]),
@@ -103,6 +104,10 @@ let package = Package(
             .product(name: "NIOHTTP1", package: "swift-nio"),
         ] + grpcDependencies + infrastructureDependencies),
         .testTarget(name: "CloudPubSubTests", dependencies: ["CloudPubSub"]),
+
+        .target(name: "CloudPubSubTesting", dependencies: [
+            "CloudPubSub",
+        ]),
 
         .target(name: "CloudStorage", dependencies: [
             "CloudCore",

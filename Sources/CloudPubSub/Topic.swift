@@ -36,7 +36,7 @@ extension Topic {
 
     func createIfNeeded(client: Google_Pubsub_V1_Publisher_ClientProtocol) async throws {
         do {
-            try await client.createTopic(.with {
+            _ = try await client.createTopic(.with {
                 $0.name = id
                 $0.labels = labels
             })

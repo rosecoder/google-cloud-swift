@@ -8,7 +8,7 @@ import CloudCore
 import SwiftProtobuf
 import RetryableTask
 
-public final class Publisher: Sendable {
+public final class Publisher: PublisherProtocol {
 
     private let logger = Logger(label: "pubsub.publisher")
 
@@ -26,11 +26,10 @@ public final class Publisher: Sendable {
     public func publish<Message>(
         to topic: Topic<Message>,
         messages: [Message.Outgoing],
-file: String = #fileID,
+        file: String = #fileID,
         function: String = #function,
         line: UInt = #line
-    ) async throws -> [PublishedMessage]
-    where Message.Outgoing: OutgoingMessage {
+    ) async throws -> [PublishedMessage] {
         try await withRetryableTask(logger: logger, operation: {
             logger.debug("Publishing \(messages.count) message(s)...")
 
@@ -59,17 +58,5 @@ file: String = #fileID,
                 .messageIds
                 .map { PublishedMessage(id: $0) }
         }, file: file, function: function, line: line)
-    }
-
-    @discardableResult
-    public func publish<Message>(
-        to topic: Topic<Message>,
-        message: Message.Outgoing,
-file: String = #fileID,
-        function: String = #function,
-        line: UInt = #line
-    ) async throws -> PublishedMessage
-    where Message.Outgoing: OutgoingMessage {
-        (try await publish(to: topic, messages: [message]))[0]
     }
 }

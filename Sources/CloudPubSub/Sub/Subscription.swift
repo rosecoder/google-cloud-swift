@@ -77,7 +77,7 @@ extension Subscription {
         createTopicIfNeeded: Bool = true
     ) async throws {
         do {
-            try await subscriberClient.createSubscription(.with {
+            _ = try await subscriberClient.createSubscription(.with {
                 $0.name = id
                 $0.labels = labels
                 $0.topic = topic.rawValue

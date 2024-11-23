@@ -31,7 +31,7 @@ public struct OutgoingPlainTextMessage: OutgoingMessage {
 
 extension OutgoingPlainTextMessage: Sendable {}
 
-extension Publisher {
+extension PublisherProtocol {
 
     @discardableResult
     public func publish(

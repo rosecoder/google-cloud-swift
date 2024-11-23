@@ -25,14 +25,14 @@ public struct OutgoingDataMessage: OutgoingMessage {
 
 extension OutgoingDataMessage: Sendable {}
 
-extension Publisher {
+extension PublisherProtocol {
 
     @discardableResult
     public func publish(
         to topic: Topic<DataMessage>,
         body: Data,
         attributes: [String: String] = [:],
-file: String = #fileID,
+        file: String = #fileID,
         function: String = #function,
         line: UInt = #line
     ) async throws -> PublishedMessage {

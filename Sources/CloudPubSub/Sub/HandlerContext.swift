@@ -12,7 +12,7 @@ public final class HandlerContext: Sendable {
 
     public let span: any Span
 
-    init(logger: Logger, span: any Span) {
+    package init(logger: Logger, span: any Span) {
         self._logger = Mutex(logger)
         self.span = span
     }

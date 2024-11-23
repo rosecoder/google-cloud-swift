@@ -26,7 +26,7 @@ public struct OutgoingProtobufMessage<Element: SwiftProtobuf.Message>: OutgoingM
 
 extension OutgoingProtobufMessage: Sendable {}
 
-extension Publisher {
+extension PublisherProtocol {
 
     @discardableResult
     public func publish<Element>(

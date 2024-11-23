@@ -25,7 +25,7 @@ public struct OutgoingJSONMessage<Element: Encodable>: OutgoingMessage {
 
 extension OutgoingJSONMessage: Sendable {}
 
-extension Publisher {
+extension PublisherProtocol {
 
     @discardableResult
     public func publish<Element>(
