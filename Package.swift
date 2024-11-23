@@ -32,6 +32,8 @@ let package = Package(
         .library(name: "CloudRedis", targets: ["CloudRedis"]),
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
+
+        .library(name: "DistributedLock", targets: ["DistributedLock"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
@@ -91,6 +93,7 @@ let package = Package(
 
         .target(name: "CloudRedis", dependencies: [
             "CloudCore",
+            "DistributedLock",
             .product(name: "RediStack", package: "RediStack"),
         ] + infrastructureDependencies),
         .testTarget(name: "CloudRedisTests", dependencies: ["CloudRedis"]),
@@ -107,5 +110,10 @@ let package = Package(
             .product(name: "Crypto", package: "swift-crypto"),
         ] + infrastructureDependencies),
         .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
+
+        .target(name: "DistributedLock", dependencies: [
+            .product(name: "Logging", package: "swift-log"),
+            .product(name: "Tracing", package: "swift-distributed-tracing"),
+        ]),
     ]
 )
