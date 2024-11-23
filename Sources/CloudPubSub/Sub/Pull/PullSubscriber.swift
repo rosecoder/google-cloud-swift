@@ -31,17 +31,18 @@ public final class PullSubscriber<Handler: _Handler>: Service {
         )
 #endif
 
-        let pullTask = Task {
-            logger.debug("Subscribed to \(handler.subscription.name)")
+        logger.debug("Subscribed to \(handler.subscription.name)")
 
+        let blockerTask: Task<Void, Never> = Task {
+            try? await Task.sleepUntilCancelled()
+        }
+        pubSubService.registerBlockerForGRPCShutdown(task: blockerTask)
+
+        await cancelWhenGracefulShutdown {
             await self.continuesPull()
         }
 
-        await withGracefulShutdownHandler {
-            await pullTask.value
-        } onGracefulShutdown: {
-            pullTask.cancel()
-        }
+        blockerTask.cancel()
     }
 
     private func continuesPull() async {
@@ -49,6 +50,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
         while !Task.isCancelled {
             do {
                 try await singlePull()
+                retryCount = 0
             } catch {
                 if Task.isCancelled {
                     break
@@ -99,13 +101,15 @@ public final class PullSubscriber<Handler: _Handler>: Service {
             return
         }
 
-        await withDiscardingTaskGroup { group in
-            for message in response.receivedMessages {
-                group.addTask {
-                    await self.handle(message: message)
+        await Task.detached { // Run detached so we don't forward the cancellation. Let handling of messages continue.
+            await withDiscardingTaskGroup { group in
+                for message in response.receivedMessages {
+                    group.addTask {
+                        await self.handle(message: message)
+                    }
                 }
             }
-        }
+        }.value
     }
 
     private func handle(message: Google_Pubsub_V1_ReceivedMessage) async {

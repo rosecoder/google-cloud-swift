@@ -47,9 +47,23 @@ public final class PubSubService: Service {
         try await withGracefulShutdownHandler {
             try await grpcClient.run()
         } onGracefulShutdown: {
-            self.grpcClient.beginGracefulShutdown()
+            Task {
+                let blockerTasks = self.grpcBlockerTasks.withLock { $0 }
+                for task in blockerTasks {
+                    await task.value
+                }
+                self.grpcClient.beginGracefulShutdown()
+            }
         }
 
         try await authorization?.shutdown()
+    }
+
+    private let grpcBlockerTasks = Mutex<[Task<Void, Never>]>([])
+
+    func registerBlockerForGRPCShutdown(task: Task<Void, Never>) {
+        grpcBlockerTasks.withLock {
+            $0.append(task)
+        }
     }
 }

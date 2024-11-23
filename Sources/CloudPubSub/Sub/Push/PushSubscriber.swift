@@ -56,18 +56,21 @@ public final class PushSubscriber: Service {
     }
 
 #if DEBUG
-    private static let pubSubService = try! PubSubService()
+    private let pubSubService = try! PubSubService()
     private let pullRunTasks = Mutex<[Task<Void, Error>]>([])
 
     private func runUsingPull() async throws {
         logger.info("Using pull subscriber instead of push. Push is not supported during local development.")
 
-        try await Self.pubSubService.run()
-
         let tasks = pullRunTasks.withLock { $0 }
 
+        try await withGracefulShutdownHandler {
+            try await pubSubService.run()
+        } onGracefulShutdown: {
+            tasks.forEach { $0.cancel() }
+        }
+
         for task in tasks {
-            task.cancel()
             try? await task.value
         }
     }
@@ -80,8 +83,7 @@ public final class PushSubscriber: Service {
     public func register<Handler: _Handler>(handler: Handler) {
 #if DEBUG
         let pullTask = Task {
-            try await Task.sleep(for: .seconds(1))
-            let subscriber = PullSubscriber(handler: handler, pubSubService: Self.pubSubService)
+            let subscriber = PullSubscriber(handler: handler, pubSubService: pubSubService)
             try await subscriber.run()
         }
         pullRunTasks.withLock {
