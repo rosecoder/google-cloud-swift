@@ -25,10 +25,10 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     public func run() async throws {
 #if DEBUG
-        let publisher = Publisher(pubSubService: pubSubService)
-        try await handler.subscription.createIfNeeded(creation: {
-            try await client.createSubscription($0)
-        }, publisher: publisher, pubSubService: pubSubService, logger: logger)
+        try await handler.subscription.createIfNeeded(
+            subscriberClient: client,
+            publisherClient: Publisher(pubSubService: pubSubService).client
+        )
 #endif
 
         let pullTask = Task {
@@ -88,7 +88,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     private func singlePull() async throws {
         var options = GRPCCore.CallOptions.defaults
-        options.timeout = .seconds(.infinity)
+        options.timeout = .seconds(3600)
 
         let response = try await client.pull(.with {
             $0.subscription = handler.subscription.rawValue

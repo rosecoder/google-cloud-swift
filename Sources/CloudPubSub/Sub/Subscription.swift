@@ -66,51 +66,52 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
     public var rawValue: String {
         id
     }
+}
 
-    // MARK: - Creation
+#if DEBUG
+extension Subscription {
 
     func createIfNeeded(
-        creation: @Sendable (Google_Pubsub_V1_Subscription) async throws -> Google_Pubsub_V1_Subscription,
-        publisher: Publisher,
-        pubSubService: PubSubService,
-        logger: Logger
+        subscriberClient: Google_Pubsub_V1_Subscriber_ClientProtocol,
+        publisherClient: Google_Pubsub_V1_Publisher_ClientProtocol,
+        createTopicIfNeeded: Bool = true
     ) async throws {
-        try await pubSubService.createIfNeeded(hashValue: rawValue.hashValue) {
-            do {
-                _ = try await creation(.with {
-                    $0.name = id
-                    $0.labels = labels
-                    $0.topic = topic.rawValue
-                    $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
-                    $0.retainAckedMessages = retainAcknowledgedMessages
-                    $0.messageRetentionDuration = .with {
-                        $0.seconds = Int64(messageRetentionDuration)
-                    }
-                    $0.expirationPolicy = .with {
-                        $0.ttl = .with {
-                            $0.seconds = Int64(expirationPolicyDuration)
-                        }
-                    }
-                    if let deadLetterPolicy = deadLetterPolicy {
-                        $0.deadLetterPolicy = .with {
-                            $0.deadLetterTopic = deadLetterPolicy.topic.rawValue
-                            $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
-                        }
-                    }
-                })
-            } catch {
-                if "\(error)".hasPrefix("already exists (6):") {
-                    return
+        do {
+            try await subscriberClient.createSubscription(.with {
+                $0.name = id
+                $0.labels = labels
+                $0.topic = topic.rawValue
+                $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
+                $0.retainAckedMessages = retainAcknowledgedMessages
+                $0.messageRetentionDuration = .with {
+                    $0.seconds = Int64(messageRetentionDuration)
                 }
-                if "\(error)".hasPrefix("not found (5):") {
-                    try await topic.createIfNeeded(creation: {
-                        try await publisher.client.createTopic($0)
-                    }, pubSubService: pubSubService)
-                    try await createIfNeeded(creation: creation, publisher: publisher, pubSubService: pubSubService, logger: logger)
-                    return
+                $0.expirationPolicy = .with {
+                    $0.ttl = .with {
+                        $0.seconds = Int64(expirationPolicyDuration)
+                    }
                 }
+                if let deadLetterPolicy = deadLetterPolicy {
+                    $0.deadLetterPolicy = .with {
+                        $0.deadLetterTopic = deadLetterPolicy.topic.rawValue
+                        $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
+                    }
+                }
+            })
+        } catch {
+            switch (error as? RPCError)?.code {
+            case .alreadyExists:
+                break
+            case .notFound:
+                if !createTopicIfNeeded {
+                    throw error
+                }
+                try await topic.createIfNeeded(client: publisherClient)
+                try await createIfNeeded(subscriberClient: subscriberClient, publisherClient: publisherClient, createTopicIfNeeded: false)
+            default:
                 throw error
             }
         }
     }
 }
+#endif

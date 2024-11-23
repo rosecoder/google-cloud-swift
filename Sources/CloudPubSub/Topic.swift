@@ -29,21 +29,25 @@ public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hasha
     public var rawValue: String {
         id
     }
+}
 
-    // MARK: - Creation
+#if DEBUG
+extension Topic {
 
-    func createIfNeeded(creation: @Sendable (Google_Pubsub_V1_Topic) async throws -> Google_Pubsub_V1_Topic, pubSubService: PubSubService) async throws {
-        try await pubSubService.createIfNeeded(hashValue: rawValue.hashValue) {
-            do {
-                _ = try await creation(.with {
-                    $0.name = id
-                    $0.labels = labels
-                })
-            } catch {
-                if !"\(error)".hasPrefix("already exists (6):") {
-                    throw error
-                }
+    func createIfNeeded(client: Google_Pubsub_V1_Publisher_ClientProtocol) async throws {
+        do {
+            try await client.createTopic(.with {
+                $0.name = id
+                $0.labels = labels
+            })
+        } catch {
+            switch (error as? RPCError)?.code {
+            case .alreadyExists:
+                break
+            default:
+                throw error
             }
         }
     }
 }
+#endif

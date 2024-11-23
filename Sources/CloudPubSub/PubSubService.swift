@@ -52,24 +52,4 @@ public final class PubSubService: Service {
 
         try await authorization?.shutdown()
     }
-
-    // MARK: - Create if needed
-
-    private let verifiedHashValues = Mutex<[Int]>([])
-
-    func createIfNeeded(
-        hashValue: Int,
-        creation: @Sendable () async throws -> Void
-    ) async throws {
-        let shouldCreate = verifiedHashValues.withLock {
-            guard !$0.contains(hashValue) else {
-                return false
-            }
-            $0.append(hashValue)
-            return true
-        }
-        if shouldCreate {
-            try await creation()
-        }
-    }
 }

@@ -35,9 +35,7 @@ file: String = #fileID,
             logger.debug("Publishing \(messages.count) message(s)...")
 
 #if DEBUG
-            try await topic.createIfNeeded(creation: {
-                try await client.createTopic($0)
-            }, pubSubService: pubSubService)
+            try await topic.createIfNeeded(client: client)
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await withSpan("pubsub-publish", ofKind: .producer) { span in
