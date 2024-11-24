@@ -11,6 +11,10 @@ public struct ArgumentParserService<Command: AsyncParsableCommand>: Service {
 
     let command: Command.Type
 
+    public init(command: Command.Type) {
+        self.command = command
+    }
+
     public func run() async throws {
         await DefaultRetryPolicyConfiguration.shared.use(retryPolicy: ExponentialBackoffDelayRetryPolicy(
             minimumBackoffDelay: 200_000_000, // 200 ms
