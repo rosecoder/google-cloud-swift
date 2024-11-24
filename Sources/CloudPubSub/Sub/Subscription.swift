@@ -52,7 +52,11 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
         self.expirationPolicyDuration = expirationPolicyDuration
         self.messageRetentionDuration = messageRetentionDuration
         self.deadLetterPolicy = deadLetterPolicy
+#if DEBUG
+        self.projectID = ServiceContext.topLevel.projectID ?? "development"
+#else
         self.projectID = ServiceContext.topLevel.projectID!
+#endif
     }
 
     // MARK: - Identifiable

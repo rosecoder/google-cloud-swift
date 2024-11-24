@@ -15,7 +15,11 @@ public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hasha
     public init(name: String, labels: [String: String] = [:]) {
         self.name = name
         self.labels = labels
+#if DEBUG
+        self.projectID = ServiceContext.topLevel.projectID ?? "development"
+#else
         self.projectID = ServiceContext.topLevel.projectID!
+#endif
     }
 
     // MARK: - Identifiable
