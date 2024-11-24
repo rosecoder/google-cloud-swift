@@ -18,7 +18,7 @@ extension PushSubscriber {
 
         typealias InboundIn = HTTPServerRequestPart
 
-        private let handle: @Sendable (Incoming, Span) async -> Response
+        private let handle: @Sendable (Incoming) async -> Response
 
         private var isKeepAlive = false
         private var context: ServiceContext = .topLevel
@@ -59,7 +59,7 @@ extension PushSubscriber {
             return decoder
         }()
 
-        init(handle: @Sendable @escaping (Incoming, Span) async -> Response) {
+        init(handle: @Sendable @escaping (Incoming) async -> Response) {
             self.handle = handle
         }
 
@@ -71,6 +71,7 @@ extension PushSubscriber {
             case .head(let head):
                 self.isKeepAlive = head.isKeepAlive
 
+                self.context = .topLevel
                 InstrumentationSystem.instrument.extract(
                     head.headers,
                     into: &self.context,
@@ -90,13 +91,14 @@ extension PushSubscriber {
                 }
                 self.buffer = nil
 
-                Task { [handle, isKeepAlive, logger] in
+                Task { [handle, isKeepAlive, logger, serviceContext = self.context] in
                     let response: Response
                     do {
                         _ = buffer
                         let incoming = try HTTPHandler.decoder.decode(Incoming.self, from: buffer)
-                        response = await withSpan("Subscription") { span in
-                            await handle(incoming, span)
+
+                        response = await ServiceContext.withValue(serviceContext) {
+                            await handle(incoming)
                         }
                     } catch {
                         logger.error("Error parsing incoming message: \(error)", metadata: [

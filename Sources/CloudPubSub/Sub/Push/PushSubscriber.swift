@@ -78,7 +78,7 @@ public final class PushSubscriber: Service {
 
     // MARK: - Subscribe
 
-    private let handlings = Mutex<[String: @Sendable (Incoming, Span) async -> Response]>([:])
+    private let handlings = Mutex<[String: @Sendable (Incoming) async -> Response]>([:])
 
     public func register<Handler: _Handler>(handler: Handler) {
 #if DEBUG
@@ -92,8 +92,8 @@ public final class PushSubscriber: Service {
         return
 #endif
 
-        let handleClosure: @Sendable (Incoming, Span) async -> Response = {
-            await self.handle(incoming: $0, span: $1, handler: handler)
+        let handleClosure: @Sendable (Incoming) async -> Response = {
+            await self.handle(incoming: $0, handler: handler)
         }
         handlings.withLock {
             $0[handler.subscription.id] = handleClosure
@@ -102,13 +102,12 @@ public final class PushSubscriber: Service {
         logger.debug("Subscribed to \(handler.subscription.name)")
     }
 
-    @Sendable private func handle(incoming: Incoming, span: Span) async -> Response {
+    @Sendable private func handle(incoming: Incoming) async -> Response {
         guard let handling = handlings.withLock({ $0[incoming.subscription] }) else {
             logger.error("Handler for subscription could not be found: \(incoming.subscription)")
-            span.recordError(SubscriptionNotFoundError(name: incoming.subscription))
             return .notFound
         }
-        return await handling(incoming, span)
+        return await handling(incoming)
     }
 
     private struct SubscriptionNotFoundError: Error {
@@ -116,45 +115,50 @@ public final class PushSubscriber: Service {
         let name: String
     }
 
-    private func handle<Handler: _Handler>(incoming: Incoming, span: Span, handler: Handler) async -> Response {
-        var logger = logger
-        logger[metadataKey: "subscription"] = .string(incoming.subscription)
-        logger[metadataKey: "message"] = .string(incoming.message.id)
-        logger.debug("Handling incoming message. Decoding...")
+    private func handle<Handler: _Handler>(incoming: Incoming, handler: Handler) async -> Response {
+        await withSpan(handler.subscription.id, ofKind: .consumer) { span in
+            span.attributes["message"] = incoming.message.id
 
-        let rawMessage = incoming.message
-        let message: Handler.Message.Incoming
-        do {
-            message = try .init(
-                id: rawMessage.id,
-                published: rawMessage.published,
-                data: rawMessage.data,
-                attributes: rawMessage.attributes,
-                logger: &logger,
-                span: span
-            )
-            try Task.checkCancellation()
-        } catch {
-            handleFailure(error: error, logger: logger, span: span)
-            return .failure
+            var logger = logger
+            logger[metadataKey: "subscription"] = .string(handler.subscription.id)
+            logger[metadataKey: "message"] = .string(incoming.message.id)
+            logger.debug("Handling incoming message. Decoding...")
+
+            let rawMessage = incoming.message
+            let message: Handler.Message.Incoming
+            do {
+                message = try .init(
+                    id: rawMessage.id,
+                    published: rawMessage.published,
+                    data: rawMessage.data,
+                    attributes: rawMessage.attributes,
+                    logger: &logger,
+                    span: span
+                )
+                try Task.checkCancellation()
+            } catch {
+                handleFailure(error: error, logger: logger, span: span)
+                return .failure
+            }
+
+            span.addEvent("message-decoded")
+            logger.debug("Handling incoming message. Running handler...")
+
+            let context = HandlerContext(logger: logger, span: span)
+            do {
+                try await handler.handle(message: message, context: context)
+                logger = context.logger
+            } catch {
+                logger = context.logger
+                handleFailure(error: error, logger: logger, span: span)
+                return .failure
+            }
+
+            logger.debug("Handling successful.")
+            span.setStatus(SpanStatus(code: .ok))
+
+            return .success
         }
-
-        logger.debug("Handling incoming message. Running handler...")
-
-        let context = HandlerContext(logger: logger, span: span)
-        do {
-            try await handler.handle(message: message, context: context)
-            logger = context.logger
-        } catch {
-            logger = context.logger
-            handleFailure(error: error, logger: logger, span: span)
-            return .failure
-        }
-
-        logger.debug("Handling successful.")
-        span.setStatus(SpanStatus(code: .ok))
-
-        return .success
     }
 
     private func handleFailure(error: Error, logger: Logger, span: Span) {

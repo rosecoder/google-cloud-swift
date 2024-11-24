@@ -114,8 +114,12 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     private func handle(message: Google_Pubsub_V1_ReceivedMessage) async {
         await withSpan(handler.subscription.id, ofKind: .consumer) { span in
-            var logger = self.logger
             span.attributes["message"] = message.message.messageID
+
+            var logger = self.logger
+            logger[metadataKey: "subscription"] = .string(handler.subscription.id)
+            span.attributes["message"] = message.message.messageID
+            logger.debug("Handling incoming message. Decoding...")
 
             let decodedMessage: Handler.Message.Incoming
             do {
@@ -133,7 +137,9 @@ public final class PullSubscriber<Handler: _Handler>: Service {
                 await handleHandler(error: error, message: message, logger: logger, span: span)
                 return
             }
-            span.addEvent(SpanEvent(name: "message-decoded"))
+
+            span.addEvent("message-decoded")
+            logger.debug("Handling incoming message. Running handler...")
 
             let context = HandlerContext(logger: logger, span: span)
             do {
@@ -144,6 +150,8 @@ public final class PullSubscriber<Handler: _Handler>: Service {
                 await handleHandler(error: error, message: message, logger: logger, span: span)
                 return
             }
+
+            logger.debug("Handling successful.")
             span.setStatus(SpanStatus(code: .ok))
 
             do {
