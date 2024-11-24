@@ -11,7 +11,7 @@ public actor AIPlatform: Service {
 
     private let authorization: Authorization
     private let grpcClient: GRPCClient
-    let client: Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol
+    public let client: Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol
 
     public init() throws {
         self.authorization = Authorization(
