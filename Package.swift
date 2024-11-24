@@ -34,6 +34,7 @@ let package = Package(
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
         .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
+        .library(name: "CloudStorageTesting", targets: ["CloudStorageTesting"]),
 
         .library(name: "DistributedLock", targets: ["DistributedLock"]),
     ],
@@ -120,6 +121,10 @@ let package = Package(
             .product(name: "Crypto", package: "swift-crypto"),
         ] + infrastructureDependencies),
         .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
+
+        .target(name: "CloudStorageTesting", dependencies: [
+            "CloudStorage",
+        ]),
 
         .target(name: "DistributedLock", dependencies: [
             .product(name: "Logging", package: "swift-log"),

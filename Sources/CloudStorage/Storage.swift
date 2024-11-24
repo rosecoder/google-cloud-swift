@@ -7,7 +7,7 @@ import GoogleCloudAuth
 import ServiceLifecycle
 import Synchronization
 
-public final class Storage: Service {
+public final class Storage: Service, StorageProtocol {
 
     let authorization: Authorization
     let client: HTTPClient

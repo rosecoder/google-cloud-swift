@@ -14,11 +14,6 @@ extension Storage {
         case iam
     }
 
-    public enum SignedAction {
-        case reading
-        case writing
-    }
-
     public enum SignError: Error {
         case expirationTooLong
         case signingFailed(HTTPResponseStatus, body: String)
@@ -30,7 +25,7 @@ extension Storage {
 
     public func generateSignedURL(
         for action: SignedAction,
-        expiration: TimeInterval = signedURLMaximumExpirationDuration,
+        expiration: TimeInterval,
         object: Object,
         in bucket: Bucket
     ) async throws -> String {
