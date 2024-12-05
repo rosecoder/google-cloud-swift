@@ -11,7 +11,7 @@ public actor AIPlatform: Service {
 
     private let authorization: Authorization
     private let grpcClient: GRPCClient
-    public let client: Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol
+    public let client: Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol
 
     public init() throws {
         self.authorization = Authorization(
@@ -20,16 +20,14 @@ public actor AIPlatform: Service {
         )
         self.grpcClient = GRPCClient(
             transport: try .http2NIOPosix(
-                target: .dns(host: "aiplatform.googleapis.com", port: 443),
-                config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
-                    config.serverHostname = "aiplatform.googleapis.com" as String?
-                })))
+                target: .dns(host: "aiplatform.googleapis.com"),
+                transportSecurity: .tls
             ),
             interceptors: [
                 AuthorizationClientInterceptor(authorization: authorization),
             ]
         )
-        self.client = Google_Cloud_Aiplatform_V1_PredictionService_Client(wrapping: grpcClient)
+        self.client = Google_Cloud_Aiplatform_V1_PredictionService.Client(wrapping: grpcClient)
     }
 
     public func run() async throws {

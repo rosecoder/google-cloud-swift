@@ -24,111 +24,288 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.MatchService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.MatchService" service.
 public enum Google_Cloud_Aiplatform_V1_MatchService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_MatchService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MatchService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MatchService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "FindNeighbors" metadata.
         public enum FindNeighbors {
+            /// Request type for "FindNeighbors".
             public typealias Input = Google_Cloud_Aiplatform_V1_FindNeighborsRequest
+            /// Response type for "FindNeighbors".
             public typealias Output = Google_Cloud_Aiplatform_V1_FindNeighborsResponse
+            /// Descriptor for "FindNeighbors".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MatchService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MatchService"),
                 method: "FindNeighbors"
             )
         }
+        /// Namespace for "ReadIndexDatapoints" metadata.
         public enum ReadIndexDatapoints {
+            /// Request type for "ReadIndexDatapoints".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest
+            /// Response type for "ReadIndexDatapoints".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse
+            /// Descriptor for "ReadIndexDatapoints".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MatchService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MatchService"),
                 method: "ReadIndexDatapoints"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.MatchService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             FindNeighbors.descriptor,
             ReadIndexDatapoints.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_MatchService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_MatchService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_MatchService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "MatchService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MatchService" service.
+    public static let google_cloud_aiplatform_v1_MatchService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MatchService")
 }
 
-/// MatchService is a Google managed service for efficient vector similarity
-/// search at scale.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_MatchService_ClientProtocol: Sendable {
-    /// Finds the nearest neighbors of each vector within the request.
-    func findNeighbors<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Reads the datapoints/vectors of the given IDs.
-    /// A maximum of 1000 datapoints can be retrieved in a batch.
-    func readIndexDatapoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.MatchService (client)
+
+extension Google_Cloud_Aiplatform_V1_MatchService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.MatchService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > MatchService is a Google managed service for efficient vector similarity
+    /// > search at scale.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "FindNeighbors" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Finds the nearest neighbors of each vector within the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FindNeighborsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_FindNeighborsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FindNeighborsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func findNeighbors<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReadIndexDatapoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads the datapoints/vectors of the given IDs.
+        /// > A maximum of 1000 datapoints can be retrieved in a batch.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readIndexDatapoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.MatchService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > MatchService is a Google managed service for efficient vector similarity
+    /// > search at scale.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "FindNeighbors" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Finds the nearest neighbors of each vector within the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FindNeighborsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_FindNeighborsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FindNeighborsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func findNeighbors<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MatchService.Method.FindNeighbors.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReadIndexDatapoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads the datapoints/vectors of the given IDs.
+        /// > A maximum of 1000 datapoints can be retrieved in a batch.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readIndexDatapoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MatchService.Method.ReadIndexDatapoints.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MatchService.ClientProtocol {
-    public func findNeighbors<R>(
+    /// Call the "FindNeighbors" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Finds the nearest neighbors of each vector within the request.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FindNeighborsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func findNeighbors<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.findNeighbors(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func readIndexDatapoints<R>(
+
+    /// Call the "ReadIndexDatapoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads the datapoints/vectors of the given IDs.
+    /// > A maximum of 1000 datapoints can be retrieved in a batch.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readIndexDatapoints<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.readIndexDatapoints(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MatchService.ClientProtocol {
-    /// Finds the nearest neighbors of each vector within the request.
+    /// Call the "FindNeighbors" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Finds the nearest neighbors of each vector within the request.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func findNeighbors<Result>(
         _ message: Google_Cloud_Aiplatform_V1_FindNeighborsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>(
@@ -138,18 +315,31 @@ extension Google_Cloud_Aiplatform_V1_MatchService.ClientProtocol {
         return try await self.findNeighbors(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Reads the datapoints/vectors of the given IDs.
-    /// A maximum of 1000 datapoints can be retrieved in a batch.
+
+    /// Call the "ReadIndexDatapoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads the datapoints/vectors of the given IDs.
+    /// > A maximum of 1000 datapoints can be retrieved in a batch.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readIndexDatapoints<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>(
@@ -159,59 +349,7 @@ extension Google_Cloud_Aiplatform_V1_MatchService.ClientProtocol {
         return try await self.readIndexDatapoints(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// MatchService is a Google managed service for efficient vector similarity
-/// search at scale.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_MatchService_Client: Google_Cloud_Aiplatform_V1_MatchService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Finds the nearest neighbors of each vector within the request.
-    public func findNeighbors<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FindNeighborsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FindNeighborsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MatchService.Method.FindNeighbors.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Reads the datapoints/vectors of the given IDs.
-    /// A maximum of 1000 datapoints can be retrieved in a batch.
-    public func readIndexDatapoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadIndexDatapointsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MatchService.Method.ReadIndexDatapoints.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

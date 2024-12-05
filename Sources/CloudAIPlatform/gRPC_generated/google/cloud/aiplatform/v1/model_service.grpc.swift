@@ -24,153 +24,231 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.ModelService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.ModelService" service.
 public enum Google_Cloud_Aiplatform_V1_ModelService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_ModelService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ModelService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "UploadModel" metadata.
         public enum UploadModel {
+            /// Request type for "UploadModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_UploadModelRequest
+            /// Response type for "UploadModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UploadModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "UploadModel"
             )
         }
+        /// Namespace for "GetModel" metadata.
         public enum GetModel {
+            /// Request type for "GetModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetModelRequest
+            /// Response type for "GetModel".
             public typealias Output = Google_Cloud_Aiplatform_V1_Model
+            /// Descriptor for "GetModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "GetModel"
             )
         }
+        /// Namespace for "ListModels" metadata.
         public enum ListModels {
+            /// Request type for "ListModels".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListModelsRequest
+            /// Response type for "ListModels".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListModelsResponse
+            /// Descriptor for "ListModels".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ListModels"
             )
         }
+        /// Namespace for "ListModelVersions" metadata.
         public enum ListModelVersions {
+            /// Request type for "ListModelVersions".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListModelVersionsRequest
+            /// Response type for "ListModelVersions".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListModelVersionsResponse
+            /// Descriptor for "ListModelVersions".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ListModelVersions"
             )
         }
+        /// Namespace for "UpdateModel" metadata.
         public enum UpdateModel {
+            /// Request type for "UpdateModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateModelRequest
+            /// Response type for "UpdateModel".
             public typealias Output = Google_Cloud_Aiplatform_V1_Model
+            /// Descriptor for "UpdateModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "UpdateModel"
             )
         }
+        /// Namespace for "UpdateExplanationDataset" metadata.
         public enum UpdateExplanationDataset {
+            /// Request type for "UpdateExplanationDataset".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest
+            /// Response type for "UpdateExplanationDataset".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateExplanationDataset".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "UpdateExplanationDataset"
             )
         }
+        /// Namespace for "DeleteModel" metadata.
         public enum DeleteModel {
+            /// Request type for "DeleteModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteModelRequest
+            /// Response type for "DeleteModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "DeleteModel"
             )
         }
+        /// Namespace for "DeleteModelVersion" metadata.
         public enum DeleteModelVersion {
+            /// Request type for "DeleteModelVersion".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest
+            /// Response type for "DeleteModelVersion".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteModelVersion".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "DeleteModelVersion"
             )
         }
+        /// Namespace for "MergeVersionAliases" metadata.
         public enum MergeVersionAliases {
+            /// Request type for "MergeVersionAliases".
             public typealias Input = Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest
+            /// Response type for "MergeVersionAliases".
             public typealias Output = Google_Cloud_Aiplatform_V1_Model
+            /// Descriptor for "MergeVersionAliases".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "MergeVersionAliases"
             )
         }
+        /// Namespace for "ExportModel" metadata.
         public enum ExportModel {
+            /// Request type for "ExportModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_ExportModelRequest
+            /// Response type for "ExportModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "ExportModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ExportModel"
             )
         }
+        /// Namespace for "CopyModel" metadata.
         public enum CopyModel {
+            /// Request type for "CopyModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_CopyModelRequest
+            /// Response type for "CopyModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CopyModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "CopyModel"
             )
         }
+        /// Namespace for "ImportModelEvaluation" metadata.
         public enum ImportModelEvaluation {
+            /// Request type for "ImportModelEvaluation".
             public typealias Input = Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest
+            /// Response type for "ImportModelEvaluation".
             public typealias Output = Google_Cloud_Aiplatform_V1_ModelEvaluation
+            /// Descriptor for "ImportModelEvaluation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ImportModelEvaluation"
             )
         }
+        /// Namespace for "BatchImportModelEvaluationSlices" metadata.
         public enum BatchImportModelEvaluationSlices {
+            /// Request type for "BatchImportModelEvaluationSlices".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest
+            /// Response type for "BatchImportModelEvaluationSlices".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse
+            /// Descriptor for "BatchImportModelEvaluationSlices".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "BatchImportModelEvaluationSlices"
             )
         }
+        /// Namespace for "BatchImportEvaluatedAnnotations" metadata.
         public enum BatchImportEvaluatedAnnotations {
+            /// Request type for "BatchImportEvaluatedAnnotations".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest
+            /// Response type for "BatchImportEvaluatedAnnotations".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse
+            /// Descriptor for "BatchImportEvaluatedAnnotations".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "BatchImportEvaluatedAnnotations"
             )
         }
+        /// Namespace for "GetModelEvaluation" metadata.
         public enum GetModelEvaluation {
+            /// Request type for "GetModelEvaluation".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest
+            /// Response type for "GetModelEvaluation".
             public typealias Output = Google_Cloud_Aiplatform_V1_ModelEvaluation
+            /// Descriptor for "GetModelEvaluation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "GetModelEvaluation"
             )
         }
+        /// Namespace for "ListModelEvaluations" metadata.
         public enum ListModelEvaluations {
+            /// Request type for "ListModelEvaluations".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest
+            /// Response type for "ListModelEvaluations".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse
+            /// Descriptor for "ListModelEvaluations".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ListModelEvaluations"
             )
         }
+        /// Namespace for "GetModelEvaluationSlice" metadata.
         public enum GetModelEvaluationSlice {
+            /// Request type for "GetModelEvaluationSlice".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest
+            /// Response type for "GetModelEvaluationSlice".
             public typealias Output = Google_Cloud_Aiplatform_V1_ModelEvaluationSlice
+            /// Descriptor for "GetModelEvaluationSlice".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "GetModelEvaluationSlice"
             )
         }
+        /// Namespace for "ListModelEvaluationSlices" metadata.
         public enum ListModelEvaluationSlices {
+            /// Request type for "ListModelEvaluationSlices".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest
+            /// Response type for "ListModelEvaluationSlices".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse
+            /// Descriptor for "ListModelEvaluationSlices".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService"),
                 method: "ListModelEvaluationSlices"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.ModelService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             UploadModel.descriptor,
             GetModel.descriptor,
@@ -192,506 +270,1684 @@ public enum Google_Cloud_Aiplatform_V1_ModelService {
             ListModelEvaluationSlices.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_ModelService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_ModelService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_ModelService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "ModelService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ModelService" service.
+    public static let google_cloud_aiplatform_v1_ModelService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelService")
 }
 
-/// A service for managing Vertex AI's machine learning Models.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_ModelService_ClientProtocol: Sendable {
-    /// Uploads a Model artifact into Vertex AI.
-    func uploadModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a Model.
-    func getModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Models in a Location.
-    func listModels<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists versions of the specified model.
-    func listModelVersions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a Model.
-    func updateModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Incrementally update the dataset used for an examples model.
-    func updateExplanationDataset<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Model.
+// MARK: google.cloud.aiplatform.v1.ModelService (client)
+
+extension Google_Cloud_Aiplatform_V1_ModelService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.ModelService" service.
     ///
-    /// A model cannot be deleted if any
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
-    /// model in its
-    /// [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
-    /// field.
-    func deleteModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Model version.
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
     ///
-    /// Model version can only be deleted if there are no
-    /// [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
-    /// Deleting the only version in the Model is not allowed. Use
-    /// [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
-    /// deleting the Model instead.
-    func deleteModelVersion<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Merges a set of aliases for a Model version.
-    func mergeVersionAliases<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Exports a trained, exportable Model to a location specified by the
-    /// user. A Model is considered to be exportable if it has at least one
-    /// [supported export
-    /// format][google.cloud.aiplatform.v1.Model.supported_export_formats].
-    func exportModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Copies an already existing Vertex AI Model into the specified Location.
-    /// The source Model must exist in the same Project.
-    /// When copying custom Models, the users themselves are responsible for
-    /// [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
-    /// region-agnostic, as well as making sure that any resources (e.g. files) it
-    /// depends on remain accessible.
-    func copyModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Imports an externally generated ModelEvaluation.
-    func importModelEvaluation<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Imports a list of externally generated ModelEvaluationSlice.
-    func batchImportModelEvaluationSlices<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Imports a list of externally generated EvaluatedAnnotations.
-    func batchImportEvaluatedAnnotations<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a ModelEvaluation.
-    func getModelEvaluation<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists ModelEvaluations in a Model.
-    func listModelEvaluations<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a ModelEvaluationSlice.
-    func getModelEvaluationSlice<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists ModelEvaluationSlices in a ModelEvaluation.
-    func listModelEvaluationSlices<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's machine learning Models.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "UploadModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Uploads a Model artifact into Vertex AI.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UploadModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UploadModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func uploadModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListModels" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Models in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listModels<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListModelVersions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists versions of the specified model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelVersionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelVersionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelVersionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listModelVersions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateExplanationDataset" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Incrementally update the dataset used for an examples model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateExplanationDataset<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Model.
+        /// > 
+        /// > A model cannot be deleted if any
+        /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
+        /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
+        /// > model in its
+        /// > [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
+        /// > field.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteModelVersion" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Model version.
+        /// > 
+        /// > Model version can only be deleted if there are no
+        /// > [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
+        /// > Deleting the only version in the Model is not allowed. Use
+        /// > [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
+        /// > deleting the Model instead.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteModelVersion<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "MergeVersionAliases" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Merges a set of aliases for a Model version.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func mergeVersionAliases<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ExportModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Exports a trained, exportable Model to a location specified by the
+        /// > user. A Model is considered to be exportable if it has at least one
+        /// > [supported export
+        /// > format][google.cloud.aiplatform.v1.Model.supported_export_formats].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExportModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func exportModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CopyModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Copies an already existing Vertex AI Model into the specified Location.
+        /// > The source Model must exist in the same Project.
+        /// > When copying custom Models, the users themselves are responsible for
+        /// > [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
+        /// > region-agnostic, as well as making sure that any resources (e.g. files) it
+        /// > depends on remain accessible.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CopyModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CopyModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func copyModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ImportModelEvaluation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports an externally generated ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func importModelEvaluation<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchImportModelEvaluationSlices" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports a list of externally generated ModelEvaluationSlice.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchImportModelEvaluationSlices<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchImportEvaluatedAnnotations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports a list of externally generated EvaluatedAnnotations.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchImportEvaluatedAnnotations<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetModelEvaluation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getModelEvaluation<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListModelEvaluations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelEvaluations in a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listModelEvaluations<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetModelEvaluationSlice" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelEvaluationSlice.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluationSlice` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getModelEvaluationSlice<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListModelEvaluationSlices" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelEvaluationSlices in a ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listModelEvaluationSlices<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.ModelService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's machine learning Models.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "UploadModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Uploads a Model artifact into Vertex AI.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UploadModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UploadModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func uploadModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UploadModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListModels" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Models in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listModels<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModels.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListModelVersions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists versions of the specified model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelVersionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelVersionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelVersionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listModelVersions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelVersions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UpdateModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateExplanationDataset" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Incrementally update the dataset used for an examples model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateExplanationDataset<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UpdateExplanationDataset.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Model.
+        /// > 
+        /// > A model cannot be deleted if any
+        /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
+        /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
+        /// > model in its
+        /// > [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
+        /// > field.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.DeleteModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteModelVersion" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Model version.
+        /// > 
+        /// > Model version can only be deleted if there are no
+        /// > [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
+        /// > Deleting the only version in the Model is not allowed. Use
+        /// > [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
+        /// > deleting the Model instead.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteModelVersion<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.DeleteModelVersion.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "MergeVersionAliases" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Merges a set of aliases for a Model version.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Model` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func mergeVersionAliases<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.MergeVersionAliases.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ExportModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Exports a trained, exportable Model to a location specified by the
+        /// > user. A Model is considered to be exportable if it has at least one
+        /// > [supported export
+        /// > format][google.cloud.aiplatform.v1.Model.supported_export_formats].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExportModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func exportModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ExportModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CopyModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Copies an already existing Vertex AI Model into the specified Location.
+        /// > The source Model must exist in the same Project.
+        /// > When copying custom Models, the users themselves are responsible for
+        /// > [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
+        /// > region-agnostic, as well as making sure that any resources (e.g. files) it
+        /// > depends on remain accessible.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CopyModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CopyModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func copyModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.CopyModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ImportModelEvaluation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports an externally generated ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func importModelEvaluation<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ImportModelEvaluation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchImportModelEvaluationSlices" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports a list of externally generated ModelEvaluationSlice.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchImportModelEvaluationSlices<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.BatchImportModelEvaluationSlices.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchImportEvaluatedAnnotations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Imports a list of externally generated EvaluatedAnnotations.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchImportEvaluatedAnnotations<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.BatchImportEvaluatedAnnotations.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetModelEvaluation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getModelEvaluation<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModelEvaluation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListModelEvaluations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelEvaluations in a Model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listModelEvaluations<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelEvaluations.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetModelEvaluationSlice" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelEvaluationSlice.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelEvaluationSlice` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getModelEvaluationSlice<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModelEvaluationSlice.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListModelEvaluationSlices" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelEvaluationSlices in a ModelEvaluation.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listModelEvaluationSlices<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelEvaluationSlices.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
-    public func uploadModel<R>(
+    /// Call the "UploadModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Uploads a Model artifact into Vertex AI.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UploadModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func uploadModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.uploadModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UploadModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getModel<R>(
+
+    /// Call the "GetModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Model>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listModels<R>(
+
+    /// Call the "ListModels" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Models in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listModels<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listModels(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListModelsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListModelsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listModelVersions<R>(
+
+    /// Call the "ListModelVersions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists versions of the specified model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelVersionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listModelVersions<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listModelVersions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateModel<R>(
+
+    /// Call the "UpdateModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a Model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Model>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateExplanationDataset<R>(
+
+    /// Call the "UpdateExplanationDataset" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Incrementally update the dataset used for an examples model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateExplanationDataset<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateExplanationDataset(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteModel<R>(
+
+    /// Call the "DeleteModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Model.
+    /// > 
+    /// > A model cannot be deleted if any
+    /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
+    /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
+    /// > model in its
+    /// > [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
+    /// > field.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteModelVersion<R>(
+
+    /// Call the "DeleteModelVersion" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Model version.
+    /// > 
+    /// > Model version can only be deleted if there are no
+    /// > [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
+    /// > Deleting the only version in the Model is not allowed. Use
+    /// > [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
+    /// > deleting the Model instead.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteModelVersion<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteModelVersion(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func mergeVersionAliases<R>(
+
+    /// Call the "MergeVersionAliases" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Merges a set of aliases for a Model version.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func mergeVersionAliases<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.mergeVersionAliases(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Model>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func exportModel<R>(
+
+    /// Call the "ExportModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Exports a trained, exportable Model to a location specified by the
+    /// > user. A Model is considered to be exportable if it has at least one
+    /// > [supported export
+    /// > format][google.cloud.aiplatform.v1.Model.supported_export_formats].
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func exportModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.exportModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ExportModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func copyModel<R>(
+
+    /// Call the "CopyModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Copies an already existing Vertex AI Model into the specified Location.
+    /// > The source Model must exist in the same Project.
+    /// > When copying custom Models, the users themselves are responsible for
+    /// > [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
+    /// > region-agnostic, as well as making sure that any resources (e.g. files) it
+    /// > depends on remain accessible.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CopyModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func copyModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.copyModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CopyModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func importModelEvaluation<R>(
+
+    /// Call the "ImportModelEvaluation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports an externally generated ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func importModelEvaluation<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.importModelEvaluation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchImportModelEvaluationSlices<R>(
+
+    /// Call the "BatchImportModelEvaluationSlices" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports a list of externally generated ModelEvaluationSlice.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchImportModelEvaluationSlices<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchImportModelEvaluationSlices(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchImportEvaluatedAnnotations<R>(
+
+    /// Call the "BatchImportEvaluatedAnnotations" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports a list of externally generated EvaluatedAnnotations.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchImportEvaluatedAnnotations<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchImportEvaluatedAnnotations(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getModelEvaluation<R>(
+
+    /// Call the "GetModelEvaluation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getModelEvaluation<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getModelEvaluation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listModelEvaluations<R>(
+
+    /// Call the "ListModelEvaluations" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelEvaluations in a Model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listModelEvaluations<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listModelEvaluations(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getModelEvaluationSlice<R>(
+
+    /// Call the "GetModelEvaluationSlice" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelEvaluationSlice.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getModelEvaluationSlice<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getModelEvaluationSlice(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listModelEvaluationSlices<R>(
+
+    /// Call the "ListModelEvaluationSlices" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelEvaluationSlices in a ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listModelEvaluationSlices<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listModelEvaluationSlices(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
-    /// Uploads a Model artifact into Vertex AI.
+    /// Call the "UploadModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Uploads a Model artifact into Vertex AI.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func uploadModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UploadModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>(
@@ -701,17 +1957,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.uploadModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a Model.
+
+    /// Call the "GetModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>(
@@ -721,17 +1990,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.getModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Models in a Location.
+
+    /// Call the "ListModels" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Models in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listModels<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListModelsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>(
@@ -741,17 +2023,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.listModels(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists versions of the specified model.
+
+    /// Call the "ListModelVersions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists versions of the specified model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listModelVersions<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListModelVersionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>(
@@ -761,17 +2056,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.listModelVersions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a Model.
+
+    /// Call the "UpdateModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a Model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>(
@@ -781,17 +2089,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.updateModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Incrementally update the dataset used for an examples model.
+
+    /// Call the "UpdateExplanationDataset" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Incrementally update the dataset used for an examples model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateExplanationDataset<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>(
@@ -801,24 +2122,37 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.updateExplanationDataset(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Model.
+
+    /// Call the "DeleteModel" method.
     ///
-    /// A model cannot be deleted if any
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
-    /// model in its
-    /// [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
-    /// field.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Model.
+    /// > 
+    /// > A model cannot be deleted if any
+    /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
+    /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
+    /// > model in its
+    /// > [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
+    /// > field.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>(
@@ -828,23 +2162,36 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.deleteModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Model version.
+
+    /// Call the "DeleteModelVersion" method.
     ///
-    /// Model version can only be deleted if there are no
-    /// [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
-    /// Deleting the only version in the Model is not allowed. Use
-    /// [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
-    /// deleting the Model instead.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Model version.
+    /// > 
+    /// > Model version can only be deleted if there are no
+    /// > [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
+    /// > Deleting the only version in the Model is not allowed. Use
+    /// > [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
+    /// > deleting the Model instead.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteModelVersion<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>(
@@ -854,17 +2201,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.deleteModelVersion(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Merges a set of aliases for a Model version.
+
+    /// Call the "MergeVersionAliases" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Merges a set of aliases for a Model version.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func mergeVersionAliases<Result>(
         _ message: Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>(
@@ -874,20 +2234,33 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.mergeVersionAliases(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Exports a trained, exportable Model to a location specified by the
-    /// user. A Model is considered to be exportable if it has at least one
-    /// [supported export
-    /// format][google.cloud.aiplatform.v1.Model.supported_export_formats].
+
+    /// Call the "ExportModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Exports a trained, exportable Model to a location specified by the
+    /// > user. A Model is considered to be exportable if it has at least one
+    /// > [supported export
+    /// > format][google.cloud.aiplatform.v1.Model.supported_export_formats].
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func exportModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ExportModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>(
@@ -897,22 +2270,35 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.exportModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Copies an already existing Vertex AI Model into the specified Location.
-    /// The source Model must exist in the same Project.
-    /// When copying custom Models, the users themselves are responsible for
-    /// [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
-    /// region-agnostic, as well as making sure that any resources (e.g. files) it
-    /// depends on remain accessible.
+
+    /// Call the "CopyModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Copies an already existing Vertex AI Model into the specified Location.
+    /// > The source Model must exist in the same Project.
+    /// > When copying custom Models, the users themselves are responsible for
+    /// > [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
+    /// > region-agnostic, as well as making sure that any resources (e.g. files) it
+    /// > depends on remain accessible.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func copyModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CopyModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>(
@@ -922,17 +2308,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.copyModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Imports an externally generated ModelEvaluation.
+
+    /// Call the "ImportModelEvaluation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports an externally generated ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func importModelEvaluation<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>(
@@ -942,17 +2341,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.importModelEvaluation(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Imports a list of externally generated ModelEvaluationSlice.
+
+    /// Call the "BatchImportModelEvaluationSlices" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports a list of externally generated ModelEvaluationSlice.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchImportModelEvaluationSlices<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>(
@@ -962,17 +2374,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.batchImportModelEvaluationSlices(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Imports a list of externally generated EvaluatedAnnotations.
+
+    /// Call the "BatchImportEvaluatedAnnotations" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Imports a list of externally generated EvaluatedAnnotations.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchImportEvaluatedAnnotations<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>(
@@ -982,17 +2407,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.batchImportEvaluatedAnnotations(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a ModelEvaluation.
+
+    /// Call the "GetModelEvaluation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getModelEvaluation<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>(
@@ -1002,17 +2440,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.getModelEvaluation(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists ModelEvaluations in a Model.
+
+    /// Call the "ListModelEvaluations" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelEvaluations in a Model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listModelEvaluations<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>(
@@ -1022,17 +2473,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.listModelEvaluations(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a ModelEvaluationSlice.
+
+    /// Call the "GetModelEvaluationSlice" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelEvaluationSlice.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getModelEvaluationSlice<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>(
@@ -1042,17 +2506,30 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.getModelEvaluationSlice(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists ModelEvaluationSlices in a ModelEvaluation.
+
+    /// Call the "ListModelEvaluationSlices" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelEvaluationSlices in a ModelEvaluation.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listModelEvaluationSlices<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>(
@@ -1062,398 +2539,7 @@ extension Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
         return try await self.listModelEvaluationSlices(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for managing Vertex AI's machine learning Models.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_ModelService_Client: Google_Cloud_Aiplatform_V1_ModelService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Uploads a Model artifact into Vertex AI.
-    public func uploadModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UploadModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UploadModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a Model.
-    public func getModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Models in a Location.
-    public func listModels<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModels.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists versions of the specified model.
-    public func listModelVersions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelVersionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelVersionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelVersions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a Model.
-    public func updateModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UpdateModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Incrementally update the dataset used for an examples model.
-    public func updateExplanationDataset<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExplanationDatasetRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.UpdateExplanationDataset.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Model.
-    ///
-    /// A model cannot be deleted if any
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] resource has a
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] based on the
-    /// model in its
-    /// [deployed_models][google.cloud.aiplatform.v1.Endpoint.deployed_models]
-    /// field.
-    public func deleteModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.DeleteModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Model version.
-    ///
-    /// Model version can only be deleted if there are no
-    /// [DeployedModels][google.cloud.aiplatform.v1.DeployedModel] created from it.
-    /// Deleting the only version in the Model is not allowed. Use
-    /// [DeleteModel][google.cloud.aiplatform.v1.ModelService.DeleteModel] for
-    /// deleting the Model instead.
-    public func deleteModelVersion<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelVersionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.DeleteModelVersion.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Merges a set of aliases for a Model version.
-    public func mergeVersionAliases<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MergeVersionAliasesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Model>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Model>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.MergeVersionAliases.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Exports a trained, exportable Model to a location specified by the
-    /// user. A Model is considered to be exportable if it has at least one
-    /// [supported export
-    /// format][google.cloud.aiplatform.v1.Model.supported_export_formats].
-    public func exportModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ExportModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Copies an already existing Vertex AI Model into the specified Location.
-    /// The source Model must exist in the same Project.
-    /// When copying custom Models, the users themselves are responsible for
-    /// [Model.metadata][google.cloud.aiplatform.v1.Model.metadata] content to be
-    /// region-agnostic, as well as making sure that any resources (e.g. files) it
-    /// depends on remain accessible.
-    public func copyModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CopyModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.CopyModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Imports an externally generated ModelEvaluation.
-    public func importModelEvaluation<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ImportModelEvaluationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ImportModelEvaluation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Imports a list of externally generated ModelEvaluationSlice.
-    public func batchImportModelEvaluationSlices<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportModelEvaluationSlicesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.BatchImportModelEvaluationSlices.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Imports a list of externally generated EvaluatedAnnotations.
-    public func batchImportEvaluatedAnnotations<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchImportEvaluatedAnnotationsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.BatchImportEvaluatedAnnotations.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a ModelEvaluation.
-    public func getModelEvaluation<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModelEvaluation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists ModelEvaluations in a Model.
-    public func listModelEvaluations<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelEvaluations.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a ModelEvaluationSlice.
-    public func getModelEvaluationSlice<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelEvaluationSliceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelEvaluationSlice>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.GetModelEvaluationSlice.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists ModelEvaluationSlices in a ModelEvaluation.
-    public func listModelEvaluationSlices<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelEvaluationSlicesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelService.Method.ListModelEvaluationSlices.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

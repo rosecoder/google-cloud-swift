@@ -25,65 +25,99 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.ScheduleService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.ScheduleService" service.
 public enum Google_Cloud_Aiplatform_V1_ScheduleService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_ScheduleService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ScheduleService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateSchedule" metadata.
         public enum CreateSchedule {
+            /// Request type for "CreateSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateScheduleRequest
+            /// Response type for "CreateSchedule".
             public typealias Output = Google_Cloud_Aiplatform_V1_Schedule
+            /// Descriptor for "CreateSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "CreateSchedule"
             )
         }
+        /// Namespace for "DeleteSchedule" metadata.
         public enum DeleteSchedule {
+            /// Request type for "DeleteSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteScheduleRequest
+            /// Response type for "DeleteSchedule".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "DeleteSchedule"
             )
         }
+        /// Namespace for "GetSchedule" metadata.
         public enum GetSchedule {
+            /// Request type for "GetSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetScheduleRequest
+            /// Response type for "GetSchedule".
             public typealias Output = Google_Cloud_Aiplatform_V1_Schedule
+            /// Descriptor for "GetSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "GetSchedule"
             )
         }
+        /// Namespace for "ListSchedules" metadata.
         public enum ListSchedules {
+            /// Request type for "ListSchedules".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListSchedulesRequest
+            /// Response type for "ListSchedules".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListSchedulesResponse
+            /// Descriptor for "ListSchedules".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "ListSchedules"
             )
         }
+        /// Namespace for "PauseSchedule" metadata.
         public enum PauseSchedule {
+            /// Request type for "PauseSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_PauseScheduleRequest
+            /// Response type for "PauseSchedule".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "PauseSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "PauseSchedule"
             )
         }
+        /// Namespace for "ResumeSchedule" metadata.
         public enum ResumeSchedule {
+            /// Request type for "ResumeSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_ResumeScheduleRequest
+            /// Response type for "ResumeSchedule".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "ResumeSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "ResumeSchedule"
             )
         }
+        /// Namespace for "UpdateSchedule" metadata.
         public enum UpdateSchedule {
+            /// Request type for "UpdateSchedule".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateScheduleRequest
+            /// Response type for "UpdateSchedule".
             public typealias Output = Google_Cloud_Aiplatform_V1_Schedule
+            /// Descriptor for "UpdateSchedule".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ScheduleService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService"),
                 method: "UpdateSchedule"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.ScheduleService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateSchedule.descriptor,
             DeleteSchedule.descriptor,
@@ -94,227 +128,725 @@ public enum Google_Cloud_Aiplatform_V1_ScheduleService {
             UpdateSchedule.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_ScheduleService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_ScheduleService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_ScheduleService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "ScheduleService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ScheduleService" service.
+    public static let google_cloud_aiplatform_v1_ScheduleService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ScheduleService")
 }
 
-/// A service for creating and managing Vertex AI's Schedule resources to
-/// periodically launch shceudled runs to make API calls.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_ScheduleService_ClientProtocol: Sendable {
-    /// Creates a Schedule.
-    func createSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Schedule.
-    func deleteSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a Schedule.
-    func getSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Schedules in a Location.
-    func listSchedules<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Pauses a Schedule. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
-    /// the schedule is paused, no new runs will be created. Already created runs
-    /// will NOT be paused or canceled.
-    func pauseSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Resumes a paused Schedule to start scheduling new runs. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
-    /// Only paused Schedule can be resumed.
+// MARK: google.cloud.aiplatform.v1.ScheduleService (client)
+
+extension Google_Cloud_Aiplatform_V1_ScheduleService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.ScheduleService" service.
     ///
-    /// When the Schedule is resumed, new runs will be scheduled starting from the
-    /// next execution time after the current time based on the time_specification
-    /// in the Schedule. If [Schedule.catchUp][] is set up true, all
-    /// missed runs will be scheduled for backfill first.
-    func resumeSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an active or paused Schedule.
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
     ///
-    /// When the Schedule is updated, new runs will be scheduled starting from the
-    /// updated next execution time after the update time based on the
-    /// time_specification in the updated Schedule. All unstarted runs before the
-    /// update time will be skipped while already created runs will NOT be paused
-    /// or canceled.
-    func updateSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's Schedule resources to
+    /// > periodically launch shceudled runs to make API calls.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSchedules" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Schedules in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSchedulesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListSchedulesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListSchedulesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSchedules<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "PauseSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pauses a Schedule. Will mark
+        /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
+        /// > the schedule is paused, no new runs will be created. Already created runs
+        /// > will NOT be paused or canceled.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PauseScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func pauseSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ResumeSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Resumes a paused Schedule to start scheduling new runs. Will mark
+        /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
+        /// > Only paused Schedule can be resumed.
+        /// > 
+        /// > When the Schedule is resumed, new runs will be scheduled starting from the
+        /// > next execution time after the current time based on the time_specification
+        /// > in the Schedule. If [Schedule.catchUp][] is set up true, all
+        /// > missed runs will be scheduled for backfill first.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ResumeScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func resumeSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an active or paused Schedule.
+        /// > 
+        /// > When the Schedule is updated, new runs will be scheduled starting from the
+        /// > updated next execution time after the update time based on the
+        /// > time_specification in the updated Schedule. All unstarted runs before the
+        /// > update time will be skipped while already created runs will NOT be paused
+        /// > or canceled.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.ScheduleService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's Schedule resources to
+    /// > periodically launch shceudled runs to make API calls.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.CreateSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.DeleteSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Schedule.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.GetSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSchedules" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Schedules in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSchedulesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListSchedulesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListSchedulesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listSchedules<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.ListSchedules.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "PauseSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pauses a Schedule. Will mark
+        /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
+        /// > the schedule is paused, no new runs will be created. Already created runs
+        /// > will NOT be paused or canceled.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PauseScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func pauseSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.PauseSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ResumeSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Resumes a paused Schedule to start scheduling new runs. Will mark
+        /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
+        /// > Only paused Schedule can be resumed.
+        /// > 
+        /// > When the Schedule is resumed, new runs will be scheduled starting from the
+        /// > next execution time after the current time based on the time_specification
+        /// > in the Schedule. If [Schedule.catchUp][] is set up true, all
+        /// > missed runs will be scheduled for backfill first.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ResumeScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func resumeSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.ResumeSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateSchedule" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an active or paused Schedule.
+        /// > 
+        /// > When the Schedule is updated, new runs will be scheduled starting from the
+        /// > updated next execution time after the update time based on the
+        /// > time_specification in the updated Schedule. All unstarted runs before the
+        /// > update time will be skipped while already created runs will NOT be paused
+        /// > or canceled.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateScheduleRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateScheduleRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Schedule` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateSchedule<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.UpdateSchedule.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
-    public func createSchedule<R>(
+    /// Call the "CreateSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Schedule.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Schedule>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteSchedule<R>(
+
+    /// Call the "DeleteSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Schedule.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getSchedule<R>(
+
+    /// Call the "GetSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Schedule.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Schedule>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listSchedules<R>(
+
+    /// Call the "ListSchedules" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Schedules in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSchedulesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listSchedules<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSchedules(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func pauseSchedule<R>(
+
+    /// Call the "PauseSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pauses a Schedule. Will mark
+    /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
+    /// > the schedule is paused, no new runs will be created. Already created runs
+    /// > will NOT be paused or canceled.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func pauseSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.pauseSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func resumeSchedule<R>(
+
+    /// Call the "ResumeSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Resumes a paused Schedule to start scheduling new runs. Will mark
+    /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
+    /// > Only paused Schedule can be resumed.
+    /// > 
+    /// > When the Schedule is resumed, new runs will be scheduled starting from the
+    /// > next execution time after the current time based on the time_specification
+    /// > in the Schedule. If [Schedule.catchUp][] is set up true, all
+    /// > missed runs will be scheduled for backfill first.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func resumeSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.resumeSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateSchedule<R>(
+
+    /// Call the "UpdateSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an active or paused Schedule.
+    /// > 
+    /// > When the Schedule is updated, new runs will be scheduled starting from the
+    /// > updated next execution time after the update time based on the
+    /// > time_specification in the updated Schedule. All unstarted runs before the
+    /// > update time will be skipped while already created runs will NOT be paused
+    /// > or canceled.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateScheduleRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateSchedule<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateSchedule(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Schedule>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
-    /// Creates a Schedule.
+    /// Call the "CreateSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Schedule.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>(
@@ -324,17 +856,30 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.createSchedule(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Schedule.
+
+    /// Call the "DeleteSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Schedule.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>(
@@ -344,17 +889,30 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.deleteSchedule(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a Schedule.
+
+    /// Call the "GetSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Schedule.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>(
@@ -364,17 +922,30 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.getSchedule(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Schedules in a Location.
+
+    /// Call the "ListSchedules" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Schedules in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listSchedules<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListSchedulesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>(
@@ -384,20 +955,33 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.listSchedules(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Pauses a Schedule. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
-    /// the schedule is paused, no new runs will be created. Already created runs
-    /// will NOT be paused or canceled.
+
+    /// Call the "PauseSchedule" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pauses a Schedule. Will mark
+    /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
+    /// > the schedule is paused, no new runs will be created. Already created runs
+    /// > will NOT be paused or canceled.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func pauseSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PauseScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>(
@@ -407,24 +991,37 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.pauseSchedule(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Resumes a paused Schedule to start scheduling new runs. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
-    /// Only paused Schedule can be resumed.
+
+    /// Call the "ResumeSchedule" method.
     ///
-    /// When the Schedule is resumed, new runs will be scheduled starting from the
-    /// next execution time after the current time based on the time_specification
-    /// in the Schedule. If [Schedule.catchUp][] is set up true, all
-    /// missed runs will be scheduled for backfill first.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Resumes a paused Schedule to start scheduling new runs. Will mark
+    /// > [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
+    /// > Only paused Schedule can be resumed.
+    /// > 
+    /// > When the Schedule is resumed, new runs will be scheduled starting from the
+    /// > next execution time after the current time based on the time_specification
+    /// > in the Schedule. If [Schedule.catchUp][] is set up true, all
+    /// > missed runs will be scheduled for backfill first.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func resumeSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ResumeScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>(
@@ -434,23 +1031,36 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.resumeSchedule(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an active or paused Schedule.
+
+    /// Call the "UpdateSchedule" method.
     ///
-    /// When the Schedule is updated, new runs will be scheduled starting from the
-    /// updated next execution time after the update time based on the
-    /// time_specification in the updated Schedule. All unstarted runs before the
-    /// update time will be skipped while already created runs will NOT be paused
-    /// or canceled.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an active or paused Schedule.
+    /// > 
+    /// > When the Schedule is updated, new runs will be scheduled starting from the
+    /// > updated next execution time after the update time based on the
+    /// > time_specification in the updated Schedule. All unstarted runs before the
+    /// > update time will be skipped while already created runs will NOT be paused
+    /// > or canceled.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateSchedule<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateScheduleRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>(
@@ -460,174 +1070,7 @@ extension Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
         return try await self.updateSchedule(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for creating and managing Vertex AI's Schedule resources to
-/// periodically launch shceudled runs to make API calls.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_ScheduleService_Client: Google_Cloud_Aiplatform_V1_ScheduleService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a Schedule.
-    public func createSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.CreateSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Schedule.
-    public func deleteSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.DeleteSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a Schedule.
-    public func getSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.GetSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Schedules in a Location.
-    public func listSchedules<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSchedulesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSchedulesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.ListSchedules.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Pauses a Schedule. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'PAUSED'. If
-    /// the schedule is paused, no new runs will be created. Already created runs
-    /// will NOT be paused or canceled.
-    public func pauseSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.PauseSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Resumes a paused Schedule to start scheduling new runs. Will mark
-    /// [Schedule.state][google.cloud.aiplatform.v1.Schedule.state] to 'ACTIVE'.
-    /// Only paused Schedule can be resumed.
-    ///
-    /// When the Schedule is resumed, new runs will be scheduled starting from the
-    /// next execution time after the current time based on the time_specification
-    /// in the Schedule. If [Schedule.catchUp][] is set up true, all
-    /// missed runs will be scheduled for backfill first.
-    public func resumeSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.ResumeSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an active or paused Schedule.
-    ///
-    /// When the Schedule is updated, new runs will be scheduled starting from the
-    /// updated next execution time after the update time based on the
-    /// time_specification in the updated Schedule. All unstarted runs before the
-    /// update time will be skipped while already created runs will NOT be paused
-    /// or canceled.
-    public func updateSchedule<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateScheduleRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Schedule>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Schedule>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ScheduleService.Method.UpdateSchedule.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

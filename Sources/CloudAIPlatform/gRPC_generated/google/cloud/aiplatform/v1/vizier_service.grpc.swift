@@ -25,129 +25,195 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.VizierService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.VizierService" service.
 public enum Google_Cloud_Aiplatform_V1_VizierService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_VizierService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.VizierService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateStudy" metadata.
         public enum CreateStudy {
+            /// Request type for "CreateStudy".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateStudyRequest
+            /// Response type for "CreateStudy".
             public typealias Output = Google_Cloud_Aiplatform_V1_Study
+            /// Descriptor for "CreateStudy".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "CreateStudy"
             )
         }
+        /// Namespace for "GetStudy" metadata.
         public enum GetStudy {
+            /// Request type for "GetStudy".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetStudyRequest
+            /// Response type for "GetStudy".
             public typealias Output = Google_Cloud_Aiplatform_V1_Study
+            /// Descriptor for "GetStudy".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "GetStudy"
             )
         }
+        /// Namespace for "ListStudies" metadata.
         public enum ListStudies {
+            /// Request type for "ListStudies".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListStudiesRequest
+            /// Response type for "ListStudies".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListStudiesResponse
+            /// Descriptor for "ListStudies".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "ListStudies"
             )
         }
+        /// Namespace for "DeleteStudy" metadata.
         public enum DeleteStudy {
+            /// Request type for "DeleteStudy".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteStudyRequest
+            /// Response type for "DeleteStudy".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteStudy".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "DeleteStudy"
             )
         }
+        /// Namespace for "LookupStudy" metadata.
         public enum LookupStudy {
+            /// Request type for "LookupStudy".
             public typealias Input = Google_Cloud_Aiplatform_V1_LookupStudyRequest
+            /// Response type for "LookupStudy".
             public typealias Output = Google_Cloud_Aiplatform_V1_Study
+            /// Descriptor for "LookupStudy".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "LookupStudy"
             )
         }
+        /// Namespace for "SuggestTrials" metadata.
         public enum SuggestTrials {
+            /// Request type for "SuggestTrials".
             public typealias Input = Google_Cloud_Aiplatform_V1_SuggestTrialsRequest
+            /// Response type for "SuggestTrials".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "SuggestTrials".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "SuggestTrials"
             )
         }
+        /// Namespace for "CreateTrial" metadata.
         public enum CreateTrial {
+            /// Request type for "CreateTrial".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTrialRequest
+            /// Response type for "CreateTrial".
             public typealias Output = Google_Cloud_Aiplatform_V1_Trial
+            /// Descriptor for "CreateTrial".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "CreateTrial"
             )
         }
+        /// Namespace for "GetTrial" metadata.
         public enum GetTrial {
+            /// Request type for "GetTrial".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTrialRequest
+            /// Response type for "GetTrial".
             public typealias Output = Google_Cloud_Aiplatform_V1_Trial
+            /// Descriptor for "GetTrial".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "GetTrial"
             )
         }
+        /// Namespace for "ListTrials" metadata.
         public enum ListTrials {
+            /// Request type for "ListTrials".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTrialsRequest
+            /// Response type for "ListTrials".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTrialsResponse
+            /// Descriptor for "ListTrials".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "ListTrials"
             )
         }
+        /// Namespace for "AddTrialMeasurement" metadata.
         public enum AddTrialMeasurement {
+            /// Request type for "AddTrialMeasurement".
             public typealias Input = Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest
+            /// Response type for "AddTrialMeasurement".
             public typealias Output = Google_Cloud_Aiplatform_V1_Trial
+            /// Descriptor for "AddTrialMeasurement".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "AddTrialMeasurement"
             )
         }
+        /// Namespace for "CompleteTrial" metadata.
         public enum CompleteTrial {
+            /// Request type for "CompleteTrial".
             public typealias Input = Google_Cloud_Aiplatform_V1_CompleteTrialRequest
+            /// Response type for "CompleteTrial".
             public typealias Output = Google_Cloud_Aiplatform_V1_Trial
+            /// Descriptor for "CompleteTrial".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "CompleteTrial"
             )
         }
+        /// Namespace for "DeleteTrial" metadata.
         public enum DeleteTrial {
+            /// Request type for "DeleteTrial".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTrialRequest
+            /// Response type for "DeleteTrial".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteTrial".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "DeleteTrial"
             )
         }
+        /// Namespace for "CheckTrialEarlyStoppingState" metadata.
         public enum CheckTrialEarlyStoppingState {
+            /// Request type for "CheckTrialEarlyStoppingState".
             public typealias Input = Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest
+            /// Response type for "CheckTrialEarlyStoppingState".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CheckTrialEarlyStoppingState".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "CheckTrialEarlyStoppingState"
             )
         }
+        /// Namespace for "StopTrial" metadata.
         public enum StopTrial {
+            /// Request type for "StopTrial".
             public typealias Input = Google_Cloud_Aiplatform_V1_StopTrialRequest
+            /// Response type for "StopTrial".
             public typealias Output = Google_Cloud_Aiplatform_V1_Trial
+            /// Descriptor for "StopTrial".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "StopTrial"
             )
         }
+        /// Namespace for "ListOptimalTrials" metadata.
         public enum ListOptimalTrials {
+            /// Request type for "ListOptimalTrials".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest
+            /// Response type for "ListOptimalTrials".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse
+            /// Descriptor for "ListOptimalTrials".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_VizierService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService"),
                 method: "ListOptimalTrials"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.VizierService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateStudy.descriptor,
             GetStudy.descriptor,
@@ -166,429 +232,1414 @@ public enum Google_Cloud_Aiplatform_V1_VizierService {
             ListOptimalTrials.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_VizierService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_VizierService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_VizierService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "VizierService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.VizierService" service.
+    public static let google_cloud_aiplatform_v1_VizierService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.VizierService")
 }
 
-/// Vertex AI Vizier API.
-///
-/// Vertex AI Vizier is a service to solve blackbox optimization problems,
-/// such as tuning machine learning hyperparameters and searching over deep
-/// learning architectures.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_VizierService_ClientProtocol: Sendable {
-    /// Creates a Study. A resource name will be generated after creation of the
-    /// Study.
-    func createStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a Study by name.
-    func getStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists all the studies in a region for an associated project.
-    func listStudies<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListStudiesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Study.
-    func deleteStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Looks a study up using the user-defined display_name field instead of the
-    /// fully qualified resource name.
-    func lookupStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds one or more Trials to a Study, with parameter values
-    /// suggested by Vertex AI Vizier. Returns a long-running
-    /// operation associated with the generation of Trial suggestions.
-    /// When this long-running operation succeeds, it will contain
-    /// a
-    /// [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
-    func suggestTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds a user provided Trial to a Study.
-    func createTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a Trial.
-    func getTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists the Trials associated with a Study.
-    func listTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrialsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds a measurement of the objective metrics to a Trial. This measurement
-    /// is assumed to have been taken before the Trial is complete.
-    func addTrialMeasurement<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Marks a Trial as complete.
-    func completeTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Trial.
-    func deleteTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Checks  whether a Trial should stop or not. Returns a
-    /// long-running operation. When the operation is successful,
-    /// it will contain a
-    /// [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
-    func checkTrialEarlyStoppingState<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Stops a Trial.
-    func stopTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists the pareto-optimal Trials for multi-objective Study or the
-    /// optimal Trials for single-objective Study. The definition of
-    /// pareto-optimal can be checked in wiki page.
-    /// https://en.wikipedia.org/wiki/Pareto_efficiency
-    func listOptimalTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.VizierService (client)
+
+extension Google_Cloud_Aiplatform_V1_VizierService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.VizierService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Vertex AI Vizier API.
+    /// > 
+    /// > Vertex AI Vizier is a service to solve blackbox optimization problems,
+    /// > such as tuning machine learning hyperparameters and searching over deep
+    /// > learning architectures.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Study. A resource name will be generated after creation of the
+        /// > Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Study by name.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListStudies" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists all the studies in a region for an associated project.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListStudiesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListStudiesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListStudiesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listStudies<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListStudiesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteStudyRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "LookupStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Looks a study up using the user-defined display_name field instead of the
+        /// > fully qualified resource name.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_LookupStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_LookupStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func lookupStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "SuggestTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds one or more Trials to a Study, with parameter values
+        /// > suggested by Vertex AI Vizier. Returns a long-running
+        /// > operation associated with the generation of Trial suggestions.
+        /// > When this long-running operation succeeds, it will contain
+        /// > a
+        /// > [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SuggestTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SuggestTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func suggestTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a user provided Trial to a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the Trials associated with a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTrialsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrialsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AddTrialMeasurement" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a measurement of the objective metrics to a Trial. This measurement
+        /// > is assumed to have been taken before the Trial is complete.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func addTrialMeasurement<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CompleteTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Marks a Trial as complete.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CompleteTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CompleteTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func completeTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTrialRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CheckTrialEarlyStoppingState" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Checks  whether a Trial should stop or not. Returns a
+        /// > long-running operation. When the operation is successful,
+        /// > it will contain a
+        /// > [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func checkTrialEarlyStoppingState<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StopTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Stops a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StopTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StopTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func stopTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListOptimalTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the pareto-optimal Trials for multi-objective Study or the
+        /// > optimal Trials for single-objective Study. The definition of
+        /// > pareto-optimal can be checked in wiki page.
+        /// > https://en.wikipedia.org/wiki/Pareto_efficiency
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listOptimalTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.VizierService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Vertex AI Vizier API.
+    /// > 
+    /// > Vertex AI Vizier is a service to solve blackbox optimization problems,
+    /// > such as tuning machine learning hyperparameters and searching over deep
+    /// > learning architectures.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Study. A resource name will be generated after creation of the
+        /// > Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CreateStudy.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Study by name.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.GetStudy.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListStudies" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists all the studies in a region for an associated project.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListStudiesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListStudiesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListStudiesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listStudies<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListStudiesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListStudies.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteStudyRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.DeleteStudy.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "LookupStudy" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Looks a study up using the user-defined display_name field instead of the
+        /// > fully qualified resource name.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_LookupStudyRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_LookupStudyRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Study` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func lookupStudy<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.LookupStudy.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "SuggestTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds one or more Trials to a Study, with parameter values
+        /// > suggested by Vertex AI Vizier. Returns a long-running
+        /// > operation associated with the generation of Trial suggestions.
+        /// > When this long-running operation succeeds, it will contain
+        /// > a
+        /// > [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SuggestTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SuggestTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func suggestTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.SuggestTrials.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a user provided Trial to a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CreateTrial.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.GetTrial.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the Trials associated with a Study.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTrialsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrialsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListTrials.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AddTrialMeasurement" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a measurement of the objective metrics to a Trial. This measurement
+        /// > is assumed to have been taken before the Trial is complete.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func addTrialMeasurement<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.AddTrialMeasurement.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CompleteTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Marks a Trial as complete.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CompleteTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CompleteTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func completeTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CompleteTrial.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTrialRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.DeleteTrial.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CheckTrialEarlyStoppingState" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Checks  whether a Trial should stop or not. Returns a
+        /// > long-running operation. When the operation is successful,
+        /// > it will contain a
+        /// > [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func checkTrialEarlyStoppingState<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CheckTrialEarlyStoppingState.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StopTrial" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Stops a Trial.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StopTrialRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StopTrialRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Trial` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func stopTrial<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.StopTrial.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListOptimalTrials" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the pareto-optimal Trials for multi-objective Study or the
+        /// > optimal Trials for single-objective Study. The definition of
+        /// > pareto-optimal can be checked in wiki page.
+        /// > https://en.wikipedia.org/wiki/Pareto_efficiency
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listOptimalTrials<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListOptimalTrials.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
-    public func createStudy<R>(
+    /// Call the "CreateStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Study. A resource name will be generated after creation of the
+    /// > Study.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateStudyRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createStudy<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createStudy(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateStudyRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Study>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getStudy<R>(
+
+    /// Call the "GetStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Study by name.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetStudyRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getStudy<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getStudy(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetStudyRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Study>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listStudies<R>(
+
+    /// Call the "ListStudies" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists all the studies in a region for an associated project.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListStudiesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listStudies<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listStudies(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListStudiesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListStudiesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteStudy<R>(
+
+    /// Call the "DeleteStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Study.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteStudyRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteStudy<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteStudy(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func lookupStudy<R>(
+
+    /// Call the "LookupStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Looks a study up using the user-defined display_name field instead of the
+    /// > fully qualified resource name.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_LookupStudyRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func lookupStudy<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.lookupStudy(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_LookupStudyRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Study>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func suggestTrials<R>(
+
+    /// Call the "SuggestTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds one or more Trials to a Study, with parameter values
+    /// > suggested by Vertex AI Vizier. Returns a long-running
+    /// > operation associated with the generation of Trial suggestions.
+    /// > When this long-running operation succeeds, it will contain
+    /// > a
+    /// > [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SuggestTrialsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func suggestTrials<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.suggestTrials(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createTrial<R>(
+
+    /// Call the "CreateTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a user provided Trial to a Study.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrialRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTrial<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTrial(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTrialRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Trial>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTrial<R>(
+
+    /// Call the "GetTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Trial.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrialRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTrial<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTrial(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTrialRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Trial>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTrials<R>(
+
+    /// Call the "ListTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the Trials associated with a Study.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrialsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTrials<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTrials(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTrialsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTrialsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func addTrialMeasurement<R>(
+
+    /// Call the "AddTrialMeasurement" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a measurement of the objective metrics to a Trial. This measurement
+    /// > is assumed to have been taken before the Trial is complete.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func addTrialMeasurement<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.addTrialMeasurement(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Trial>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func completeTrial<R>(
+
+    /// Call the "CompleteTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Marks a Trial as complete.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CompleteTrialRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func completeTrial<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.completeTrial(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Trial>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTrial<R>(
+
+    /// Call the "DeleteTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Trial.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrialRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTrial<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTrial(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func checkTrialEarlyStoppingState<R>(
+
+    /// Call the "CheckTrialEarlyStoppingState" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Checks  whether a Trial should stop or not. Returns a
+    /// > long-running operation. When the operation is successful,
+    /// > it will contain a
+    /// > [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func checkTrialEarlyStoppingState<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.checkTrialEarlyStoppingState(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func stopTrial<R>(
+
+    /// Call the "StopTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Stops a Trial.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StopTrialRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func stopTrial<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.stopTrial(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StopTrialRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Trial>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listOptimalTrials<R>(
+
+    /// Call the "ListOptimalTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the pareto-optimal Trials for multi-objective Study or the
+    /// > optimal Trials for single-objective Study. The definition of
+    /// > pareto-optimal can be checked in wiki page.
+    /// > https://en.wikipedia.org/wiki/Pareto_efficiency
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listOptimalTrials<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listOptimalTrials(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
-    /// Creates a Study. A resource name will be generated after creation of the
-    /// Study.
+    /// Call the "CreateStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Study. A resource name will be generated after creation of the
+    /// > Study.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createStudy<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateStudyRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>(
@@ -598,17 +1649,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.createStudy(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a Study by name.
+
+    /// Call the "GetStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Study by name.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getStudy<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetStudyRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>(
@@ -618,17 +1682,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.getStudy(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists all the studies in a region for an associated project.
+
+    /// Call the "ListStudies" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists all the studies in a region for an associated project.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listStudies<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListStudiesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>(
@@ -638,17 +1715,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.listStudies(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Study.
+
+    /// Call the "DeleteStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Study.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteStudy<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteStudyRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>(
@@ -658,18 +1748,31 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.deleteStudy(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Looks a study up using the user-defined display_name field instead of the
-    /// fully qualified resource name.
+
+    /// Call the "LookupStudy" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Looks a study up using the user-defined display_name field instead of the
+    /// > fully qualified resource name.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func lookupStudy<Result>(
         _ message: Google_Cloud_Aiplatform_V1_LookupStudyRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>(
@@ -679,22 +1782,35 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.lookupStudy(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds one or more Trials to a Study, with parameter values
-    /// suggested by Vertex AI Vizier. Returns a long-running
-    /// operation associated with the generation of Trial suggestions.
-    /// When this long-running operation succeeds, it will contain
-    /// a
-    /// [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
+
+    /// Call the "SuggestTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds one or more Trials to a Study, with parameter values
+    /// > suggested by Vertex AI Vizier. Returns a long-running
+    /// > operation associated with the generation of Trial suggestions.
+    /// > When this long-running operation succeeds, it will contain
+    /// > a
+    /// > [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func suggestTrials<Result>(
         _ message: Google_Cloud_Aiplatform_V1_SuggestTrialsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>(
@@ -704,17 +1820,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.suggestTrials(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds a user provided Trial to a Study.
+
+    /// Call the "CreateTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a user provided Trial to a Study.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTrial<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTrialRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>(
@@ -724,17 +1853,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.createTrial(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a Trial.
+
+    /// Call the "GetTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Trial.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTrial<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTrialRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>(
@@ -744,17 +1886,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.getTrial(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists the Trials associated with a Study.
+
+    /// Call the "ListTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the Trials associated with a Study.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTrials<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTrialsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>(
@@ -764,18 +1919,31 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.listTrials(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds a measurement of the objective metrics to a Trial. This measurement
-    /// is assumed to have been taken before the Trial is complete.
+
+    /// Call the "AddTrialMeasurement" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a measurement of the objective metrics to a Trial. This measurement
+    /// > is assumed to have been taken before the Trial is complete.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func addTrialMeasurement<Result>(
         _ message: Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>(
@@ -785,17 +1953,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.addTrialMeasurement(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Marks a Trial as complete.
+
+    /// Call the "CompleteTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Marks a Trial as complete.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func completeTrial<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CompleteTrialRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>(
@@ -805,17 +1986,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.completeTrial(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Trial.
+
+    /// Call the "DeleteTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Trial.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTrial<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTrialRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>(
@@ -825,20 +2019,33 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.deleteTrial(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Checks  whether a Trial should stop or not. Returns a
-    /// long-running operation. When the operation is successful,
-    /// it will contain a
-    /// [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
+
+    /// Call the "CheckTrialEarlyStoppingState" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Checks  whether a Trial should stop or not. Returns a
+    /// > long-running operation. When the operation is successful,
+    /// > it will contain a
+    /// > [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func checkTrialEarlyStoppingState<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>(
@@ -848,17 +2055,30 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.checkTrialEarlyStoppingState(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Stops a Trial.
+
+    /// Call the "StopTrial" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Stops a Trial.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func stopTrial<Result>(
         _ message: Google_Cloud_Aiplatform_V1_StopTrialRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>(
@@ -868,20 +2088,33 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.stopTrial(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists the pareto-optimal Trials for multi-objective Study or the
-    /// optimal Trials for single-objective Study. The definition of
-    /// pareto-optimal can be checked in wiki page.
-    /// https://en.wikipedia.org/wiki/Pareto_efficiency
+
+    /// Call the "ListOptimalTrials" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the pareto-optimal Trials for multi-objective Study or the
+    /// > optimal Trials for single-objective Study. The definition of
+    /// > pareto-optimal can be checked in wiki page.
+    /// > https://en.wikipedia.org/wiki/Pareto_efficiency
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listOptimalTrials<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>(
@@ -891,335 +2124,7 @@ extension Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
         return try await self.listOptimalTrials(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Vertex AI Vizier API.
-///
-/// Vertex AI Vizier is a service to solve blackbox optimization problems,
-/// such as tuning machine learning hyperparameters and searching over deep
-/// learning architectures.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_VizierService_Client: Google_Cloud_Aiplatform_V1_VizierService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a Study. A resource name will be generated after creation of the
-    /// Study.
-    public func createStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CreateStudy.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a Study by name.
-    public func getStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.GetStudy.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists all the studies in a region for an associated project.
-    public func listStudies<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListStudiesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListStudiesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListStudiesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListStudies.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Study.
-    public func deleteStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.DeleteStudy.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Looks a study up using the user-defined display_name field instead of the
-    /// fully qualified resource name.
-    public func lookupStudy<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_LookupStudyRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Study>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Study>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.LookupStudy.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds one or more Trials to a Study, with parameter values
-    /// suggested by Vertex AI Vizier. Returns a long-running
-    /// operation associated with the generation of Trial suggestions.
-    /// When this long-running operation succeeds, it will contain
-    /// a
-    /// [SuggestTrialsResponse][google.cloud.aiplatform.v1.SuggestTrialsResponse].
-    public func suggestTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SuggestTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.SuggestTrials.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds a user provided Trial to a Study.
-    public func createTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CreateTrial.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a Trial.
-    public func getTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.GetTrial.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists the Trials associated with a Study.
-    public func listTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrialsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrialsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListTrials.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds a measurement of the objective metrics to a Trial. This measurement
-    /// is assumed to have been taken before the Trial is complete.
-    public func addTrialMeasurement<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddTrialMeasurementRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.AddTrialMeasurement.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Marks a Trial as complete.
-    public func completeTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CompleteTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CompleteTrial.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Trial.
-    public func deleteTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.DeleteTrial.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Checks  whether a Trial should stop or not. Returns a
-    /// long-running operation. When the operation is successful,
-    /// it will contain a
-    /// [CheckTrialEarlyStoppingStateResponse][google.cloud.aiplatform.v1.CheckTrialEarlyStoppingStateResponse].
-    public func checkTrialEarlyStoppingState<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CheckTrialEarlyStoppingStateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.CheckTrialEarlyStoppingState.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Stops a Trial.
-    public func stopTrial<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StopTrialRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Trial>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Trial>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.StopTrial.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists the pareto-optimal Trials for multi-objective Study or the
-    /// optimal Trials for single-objective Study. The definition of
-    /// pareto-optimal can be checked in wiki page.
-    /// https://en.wikipedia.org/wiki/Pareto_efficiency
-    public func listOptimalTrials<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListOptimalTrialsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_VizierService.Method.ListOptimalTrials.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

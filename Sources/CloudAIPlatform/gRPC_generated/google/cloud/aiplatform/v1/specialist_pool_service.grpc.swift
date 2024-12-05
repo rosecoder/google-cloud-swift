@@ -24,49 +24,75 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.SpecialistPoolService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
 public enum Google_Cloud_Aiplatform_V1_SpecialistPoolService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_SpecialistPoolService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateSpecialistPool" metadata.
         public enum CreateSpecialistPool {
+            /// Request type for "CreateSpecialistPool".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest
+            /// Response type for "CreateSpecialistPool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateSpecialistPool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_SpecialistPoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService"),
                 method: "CreateSpecialistPool"
             )
         }
+        /// Namespace for "GetSpecialistPool" metadata.
         public enum GetSpecialistPool {
+            /// Request type for "GetSpecialistPool".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest
+            /// Response type for "GetSpecialistPool".
             public typealias Output = Google_Cloud_Aiplatform_V1_SpecialistPool
+            /// Descriptor for "GetSpecialistPool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_SpecialistPoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService"),
                 method: "GetSpecialistPool"
             )
         }
+        /// Namespace for "ListSpecialistPools" metadata.
         public enum ListSpecialistPools {
+            /// Request type for "ListSpecialistPools".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest
+            /// Response type for "ListSpecialistPools".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse
+            /// Descriptor for "ListSpecialistPools".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_SpecialistPoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService"),
                 method: "ListSpecialistPools"
             )
         }
+        /// Namespace for "DeleteSpecialistPool" metadata.
         public enum DeleteSpecialistPool {
+            /// Request type for "DeleteSpecialistPool".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest
+            /// Response type for "DeleteSpecialistPool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteSpecialistPool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_SpecialistPoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService"),
                 method: "DeleteSpecialistPool"
             )
         }
+        /// Namespace for "UpdateSpecialistPool" metadata.
         public enum UpdateSpecialistPool {
+            /// Request type for "UpdateSpecialistPool".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest
+            /// Response type for "UpdateSpecialistPool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateSpecialistPool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_SpecialistPoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService"),
                 method: "UpdateSpecialistPool"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateSpecialistPool.descriptor,
             GetSpecialistPool.descriptor,
@@ -75,165 +101,513 @@ public enum Google_Cloud_Aiplatform_V1_SpecialistPoolService {
             UpdateSpecialistPool.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_SpecialistPoolService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_SpecialistPoolService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_SpecialistPoolService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "SpecialistPoolService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
+    public static let google_cloud_aiplatform_v1_SpecialistPoolService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.SpecialistPoolService")
 }
 
-/// A service for creating and managing Customer SpecialistPools.
-/// When customers start Data Labeling jobs, they can reuse/create Specialist
-/// Pools to bring their own Specialists to label the data.
-/// Customers can add/remove Managers for the Specialist Pool on Cloud console,
-/// then Managers will get email notifications to manage Specialists and tasks on
-/// CrowdCompute console.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_SpecialistPoolService_ClientProtocol: Sendable {
-    /// Creates a SpecialistPool.
-    func createSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a SpecialistPool.
-    func getSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SpecialistPool>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists SpecialistPools in a Location.
-    func listSpecialistPools<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a SpecialistPool as well as all Specialists in the pool.
-    func deleteSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a SpecialistPool.
-    func updateSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.SpecialistPoolService (client)
+
+extension Google_Cloud_Aiplatform_V1_SpecialistPoolService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Customer SpecialistPools.
+    /// > When customers start Data Labeling jobs, they can reuse/create Specialist
+    /// > Pools to bring their own Specialists to label the data.
+    /// > Customers can add/remove Managers for the Specialist Pool on Cloud console,
+    /// > then Managers will get email notifications to manage Specialists and tasks on
+    /// > CrowdCompute console.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SpecialistPool` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SpecialistPool>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSpecialistPools" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists SpecialistPools in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSpecialistPools<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a SpecialistPool as well as all Specialists in the pool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.SpecialistPoolService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Customer SpecialistPools.
+    /// > When customers start Data Labeling jobs, they can reuse/create Specialist
+    /// > Pools to bring their own Specialists to label the data.
+    /// > Customers can add/remove Managers for the Specialist Pool on Cloud console,
+    /// > then Managers will get email notifications to manage Specialists and tasks on
+    /// > CrowdCompute console.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.CreateSpecialistPool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SpecialistPool` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SpecialistPool>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.GetSpecialistPool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSpecialistPools" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists SpecialistPools in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listSpecialistPools<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.ListSpecialistPools.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a SpecialistPool as well as all Specialists in the pool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.DeleteSpecialistPool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateSpecialistPool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a SpecialistPool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateSpecialistPool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.UpdateSpecialistPool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
-    public func createSpecialistPool<R>(
+    /// Call the "CreateSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createSpecialistPool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createSpecialistPool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getSpecialistPool<R>(
+
+    /// Call the "GetSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getSpecialistPool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getSpecialistPool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_SpecialistPool>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listSpecialistPools<R>(
+
+    /// Call the "ListSpecialistPools" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists SpecialistPools in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listSpecialistPools<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSpecialistPools(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteSpecialistPool<R>(
+
+    /// Call the "DeleteSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a SpecialistPool as well as all Specialists in the pool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteSpecialistPool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSpecialistPool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateSpecialistPool<R>(
+
+    /// Call the "UpdateSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateSpecialistPool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateSpecialistPool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
-    /// Creates a SpecialistPool.
+    /// Call the "CreateSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createSpecialistPool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>(
@@ -243,17 +617,30 @@ extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
         return try await self.createSpecialistPool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a SpecialistPool.
+
+    /// Call the "GetSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getSpecialistPool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>(
@@ -263,17 +650,30 @@ extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
         return try await self.getSpecialistPool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists SpecialistPools in a Location.
+
+    /// Call the "ListSpecialistPools" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists SpecialistPools in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listSpecialistPools<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>(
@@ -283,17 +683,30 @@ extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
         return try await self.listSpecialistPools(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a SpecialistPool as well as all Specialists in the pool.
+
+    /// Call the "DeleteSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a SpecialistPool as well as all Specialists in the pool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteSpecialistPool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>(
@@ -303,17 +716,30 @@ extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
         return try await self.deleteSpecialistPool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a SpecialistPool.
+
+    /// Call the "UpdateSpecialistPool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a SpecialistPool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateSpecialistPool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>(
@@ -323,122 +749,7 @@ extension Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
         return try await self.updateSpecialistPool(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for creating and managing Customer SpecialistPools.
-/// When customers start Data Labeling jobs, they can reuse/create Specialist
-/// Pools to bring their own Specialists to label the data.
-/// Customers can add/remove Managers for the Specialist Pool on Cloud console,
-/// then Managers will get email notifications to manage Specialists and tasks on
-/// CrowdCompute console.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_SpecialistPoolService_Client: Google_Cloud_Aiplatform_V1_SpecialistPoolService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a SpecialistPool.
-    public func createSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.CreateSpecialistPool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a SpecialistPool.
-    public func getSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SpecialistPool>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SpecialistPool>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.GetSpecialistPool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists SpecialistPools in a Location.
-    public func listSpecialistPools<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListSpecialistPoolsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.ListSpecialistPools.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a SpecialistPool as well as all Specialists in the pool.
-    public func deleteSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.DeleteSpecialistPool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a SpecialistPool.
-    public func updateSpecialistPool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateSpecialistPoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_SpecialistPoolService.Method.UpdateSpecialistPool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

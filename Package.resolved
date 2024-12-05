@@ -1,5 +1,5 @@
 {
-  "originHash" : "548d3f96f9a80b79e1fdb87113de7ff9ca47b17a64621044d49de320d4c7fa8a",
+  "originHash" : "2f56999265d15f7842c764343dafce3aa962f8047416e2f756840420432c3206",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -33,7 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-logging-swift.git",
       "state" : {
-        "revision" : "b5257334667b4b3a35faff1d555b242df089bc4a"
+        "branch" : "main",
+        "revision" : "9cc86446c337bff64b6cd2148551fba574dfcf5d"
       }
     },
     {
@@ -41,6 +42,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-service-context.git",
       "state" : {
+        "branch" : "main",
         "revision" : "5464a8beb9b4d4d93cc219313b207bd82cc128bb"
       }
     },
@@ -49,7 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-tracing-swift.git",
       "state" : {
-        "revision" : "4a24d584d3fce322de44e1253348d0c53b11da10"
+        "branch" : "main",
+        "revision" : "a3ea592c3ffe33ea216a29fb4c3b05ed14ab108a"
       }
     },
     {
@@ -57,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "dd22b3938eecdf1008dddd9d95e7a95272459dc8"
+        "revision" : "e390c85ad880004513221555884ae77b08714f1e",
+        "version" : "2.0.0-beta.1"
       }
     },
     {
@@ -66,17 +69,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-extras.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "7c9a9045f9d6ab6a7cbd19bfeef5fb4375d136fb"
+        "branch" : "1.0.0-beta.1",
+        "revision" : "c29e0f6642d08537f4e34a5bfad4855f4da06c9c"
       }
     },
     {
       "identity" : "grpc-swift-nio-transport",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rosecoder/grpc-swift-nio-transport.git",
+      "location" : "https://github.com/grpc/grpc-swift-nio-transport.git",
       "state" : {
-        "branch" : "authority-header",
-        "revision" : "6ec83cdde18b721def0dd5c6090690f40b5aea7a"
+        "revision" : "ae3f3f5cd03bd43dcc5cb8bcb65831618bc73330",
+        "version" : "1.0.0-beta.1"
       }
     },
     {
@@ -84,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-protobuf.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "eaebe06fa8d2707e2aed0b0837333877d10077b5"
+        "branch" : "1.0.0-beta.1",
+        "revision" : "a2834ea6305d7e44ba762d593e7ea1078b457095"
       }
     },
     {

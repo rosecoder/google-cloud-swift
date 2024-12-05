@@ -24,265 +24,399 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.MetadataService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.MetadataService" service.
 public enum Google_Cloud_Aiplatform_V1_MetadataService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_MetadataService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MetadataService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateMetadataStore" metadata.
         public enum CreateMetadataStore {
+            /// Request type for "CreateMetadataStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest
+            /// Response type for "CreateMetadataStore".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateMetadataStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "CreateMetadataStore"
             )
         }
+        /// Namespace for "GetMetadataStore" metadata.
         public enum GetMetadataStore {
+            /// Request type for "GetMetadataStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest
+            /// Response type for "GetMetadataStore".
             public typealias Output = Google_Cloud_Aiplatform_V1_MetadataStore
+            /// Descriptor for "GetMetadataStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "GetMetadataStore"
             )
         }
+        /// Namespace for "ListMetadataStores" metadata.
         public enum ListMetadataStores {
+            /// Request type for "ListMetadataStores".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest
+            /// Response type for "ListMetadataStores".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse
+            /// Descriptor for "ListMetadataStores".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "ListMetadataStores"
             )
         }
+        /// Namespace for "DeleteMetadataStore" metadata.
         public enum DeleteMetadataStore {
+            /// Request type for "DeleteMetadataStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest
+            /// Response type for "DeleteMetadataStore".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteMetadataStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "DeleteMetadataStore"
             )
         }
+        /// Namespace for "CreateArtifact" metadata.
         public enum CreateArtifact {
+            /// Request type for "CreateArtifact".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateArtifactRequest
+            /// Response type for "CreateArtifact".
             public typealias Output = Google_Cloud_Aiplatform_V1_Artifact
+            /// Descriptor for "CreateArtifact".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "CreateArtifact"
             )
         }
+        /// Namespace for "GetArtifact" metadata.
         public enum GetArtifact {
+            /// Request type for "GetArtifact".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetArtifactRequest
+            /// Response type for "GetArtifact".
             public typealias Output = Google_Cloud_Aiplatform_V1_Artifact
+            /// Descriptor for "GetArtifact".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "GetArtifact"
             )
         }
+        /// Namespace for "ListArtifacts" metadata.
         public enum ListArtifacts {
+            /// Request type for "ListArtifacts".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListArtifactsRequest
+            /// Response type for "ListArtifacts".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListArtifactsResponse
+            /// Descriptor for "ListArtifacts".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "ListArtifacts"
             )
         }
+        /// Namespace for "UpdateArtifact" metadata.
         public enum UpdateArtifact {
+            /// Request type for "UpdateArtifact".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateArtifactRequest
+            /// Response type for "UpdateArtifact".
             public typealias Output = Google_Cloud_Aiplatform_V1_Artifact
+            /// Descriptor for "UpdateArtifact".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "UpdateArtifact"
             )
         }
+        /// Namespace for "DeleteArtifact" metadata.
         public enum DeleteArtifact {
+            /// Request type for "DeleteArtifact".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteArtifactRequest
+            /// Response type for "DeleteArtifact".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteArtifact".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "DeleteArtifact"
             )
         }
+        /// Namespace for "PurgeArtifacts" metadata.
         public enum PurgeArtifacts {
+            /// Request type for "PurgeArtifacts".
             public typealias Input = Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest
+            /// Response type for "PurgeArtifacts".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "PurgeArtifacts".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "PurgeArtifacts"
             )
         }
+        /// Namespace for "CreateContext" metadata.
         public enum CreateContext {
+            /// Request type for "CreateContext".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateContextRequest
+            /// Response type for "CreateContext".
             public typealias Output = Google_Cloud_Aiplatform_V1_Context
+            /// Descriptor for "CreateContext".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "CreateContext"
             )
         }
+        /// Namespace for "GetContext" metadata.
         public enum GetContext {
+            /// Request type for "GetContext".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetContextRequest
+            /// Response type for "GetContext".
             public typealias Output = Google_Cloud_Aiplatform_V1_Context
+            /// Descriptor for "GetContext".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "GetContext"
             )
         }
+        /// Namespace for "ListContexts" metadata.
         public enum ListContexts {
+            /// Request type for "ListContexts".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListContextsRequest
+            /// Response type for "ListContexts".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListContextsResponse
+            /// Descriptor for "ListContexts".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "ListContexts"
             )
         }
+        /// Namespace for "UpdateContext" metadata.
         public enum UpdateContext {
+            /// Request type for "UpdateContext".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateContextRequest
+            /// Response type for "UpdateContext".
             public typealias Output = Google_Cloud_Aiplatform_V1_Context
+            /// Descriptor for "UpdateContext".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "UpdateContext"
             )
         }
+        /// Namespace for "DeleteContext" metadata.
         public enum DeleteContext {
+            /// Request type for "DeleteContext".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteContextRequest
+            /// Response type for "DeleteContext".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteContext".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "DeleteContext"
             )
         }
+        /// Namespace for "PurgeContexts" metadata.
         public enum PurgeContexts {
+            /// Request type for "PurgeContexts".
             public typealias Input = Google_Cloud_Aiplatform_V1_PurgeContextsRequest
+            /// Response type for "PurgeContexts".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "PurgeContexts".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "PurgeContexts"
             )
         }
+        /// Namespace for "AddContextArtifactsAndExecutions" metadata.
         public enum AddContextArtifactsAndExecutions {
+            /// Request type for "AddContextArtifactsAndExecutions".
             public typealias Input = Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest
+            /// Response type for "AddContextArtifactsAndExecutions".
             public typealias Output = Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse
+            /// Descriptor for "AddContextArtifactsAndExecutions".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "AddContextArtifactsAndExecutions"
             )
         }
+        /// Namespace for "AddContextChildren" metadata.
         public enum AddContextChildren {
+            /// Request type for "AddContextChildren".
             public typealias Input = Google_Cloud_Aiplatform_V1_AddContextChildrenRequest
+            /// Response type for "AddContextChildren".
             public typealias Output = Google_Cloud_Aiplatform_V1_AddContextChildrenResponse
+            /// Descriptor for "AddContextChildren".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "AddContextChildren"
             )
         }
+        /// Namespace for "RemoveContextChildren" metadata.
         public enum RemoveContextChildren {
+            /// Request type for "RemoveContextChildren".
             public typealias Input = Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest
+            /// Response type for "RemoveContextChildren".
             public typealias Output = Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse
+            /// Descriptor for "RemoveContextChildren".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "RemoveContextChildren"
             )
         }
+        /// Namespace for "QueryContextLineageSubgraph" metadata.
         public enum QueryContextLineageSubgraph {
+            /// Request type for "QueryContextLineageSubgraph".
             public typealias Input = Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest
+            /// Response type for "QueryContextLineageSubgraph".
             public typealias Output = Google_Cloud_Aiplatform_V1_LineageSubgraph
+            /// Descriptor for "QueryContextLineageSubgraph".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "QueryContextLineageSubgraph"
             )
         }
+        /// Namespace for "CreateExecution" metadata.
         public enum CreateExecution {
+            /// Request type for "CreateExecution".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateExecutionRequest
+            /// Response type for "CreateExecution".
             public typealias Output = Google_Cloud_Aiplatform_V1_Execution
+            /// Descriptor for "CreateExecution".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "CreateExecution"
             )
         }
+        /// Namespace for "GetExecution" metadata.
         public enum GetExecution {
+            /// Request type for "GetExecution".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetExecutionRequest
+            /// Response type for "GetExecution".
             public typealias Output = Google_Cloud_Aiplatform_V1_Execution
+            /// Descriptor for "GetExecution".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "GetExecution"
             )
         }
+        /// Namespace for "ListExecutions" metadata.
         public enum ListExecutions {
+            /// Request type for "ListExecutions".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListExecutionsRequest
+            /// Response type for "ListExecutions".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListExecutionsResponse
+            /// Descriptor for "ListExecutions".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "ListExecutions"
             )
         }
+        /// Namespace for "UpdateExecution" metadata.
         public enum UpdateExecution {
+            /// Request type for "UpdateExecution".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateExecutionRequest
+            /// Response type for "UpdateExecution".
             public typealias Output = Google_Cloud_Aiplatform_V1_Execution
+            /// Descriptor for "UpdateExecution".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "UpdateExecution"
             )
         }
+        /// Namespace for "DeleteExecution" metadata.
         public enum DeleteExecution {
+            /// Request type for "DeleteExecution".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteExecutionRequest
+            /// Response type for "DeleteExecution".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteExecution".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "DeleteExecution"
             )
         }
+        /// Namespace for "PurgeExecutions" metadata.
         public enum PurgeExecutions {
+            /// Request type for "PurgeExecutions".
             public typealias Input = Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest
+            /// Response type for "PurgeExecutions".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "PurgeExecutions".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "PurgeExecutions"
             )
         }
+        /// Namespace for "AddExecutionEvents" metadata.
         public enum AddExecutionEvents {
+            /// Request type for "AddExecutionEvents".
             public typealias Input = Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest
+            /// Response type for "AddExecutionEvents".
             public typealias Output = Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse
+            /// Descriptor for "AddExecutionEvents".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "AddExecutionEvents"
             )
         }
+        /// Namespace for "QueryExecutionInputsAndOutputs" metadata.
         public enum QueryExecutionInputsAndOutputs {
+            /// Request type for "QueryExecutionInputsAndOutputs".
             public typealias Input = Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest
+            /// Response type for "QueryExecutionInputsAndOutputs".
             public typealias Output = Google_Cloud_Aiplatform_V1_LineageSubgraph
+            /// Descriptor for "QueryExecutionInputsAndOutputs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "QueryExecutionInputsAndOutputs"
             )
         }
+        /// Namespace for "CreateMetadataSchema" metadata.
         public enum CreateMetadataSchema {
+            /// Request type for "CreateMetadataSchema".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest
+            /// Response type for "CreateMetadataSchema".
             public typealias Output = Google_Cloud_Aiplatform_V1_MetadataSchema
+            /// Descriptor for "CreateMetadataSchema".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "CreateMetadataSchema"
             )
         }
+        /// Namespace for "GetMetadataSchema" metadata.
         public enum GetMetadataSchema {
+            /// Request type for "GetMetadataSchema".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest
+            /// Response type for "GetMetadataSchema".
             public typealias Output = Google_Cloud_Aiplatform_V1_MetadataSchema
+            /// Descriptor for "GetMetadataSchema".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "GetMetadataSchema"
             )
         }
+        /// Namespace for "ListMetadataSchemas" metadata.
         public enum ListMetadataSchemas {
+            /// Request type for "ListMetadataSchemas".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest
+            /// Response type for "ListMetadataSchemas".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse
+            /// Descriptor for "ListMetadataSchemas".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "ListMetadataSchemas"
             )
         }
+        /// Namespace for "QueryArtifactLineageSubgraph" metadata.
         public enum QueryArtifactLineageSubgraph {
+            /// Request type for "QueryArtifactLineageSubgraph".
             public typealias Input = Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest
+            /// Response type for "QueryArtifactLineageSubgraph".
             public typealias Output = Google_Cloud_Aiplatform_V1_LineageSubgraph
+            /// Descriptor for "QueryArtifactLineageSubgraph".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MetadataService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService"),
                 method: "QueryArtifactLineageSubgraph"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.MetadataService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateMetadataStore.descriptor,
             GetMetadataStore.descriptor,
@@ -318,851 +452,2873 @@ public enum Google_Cloud_Aiplatform_V1_MetadataService {
             QueryArtifactLineageSubgraph.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_MetadataService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_MetadataService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_MetadataService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "MetadataService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MetadataService" service.
+    public static let google_cloud_aiplatform_v1_MetadataService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MetadataService")
 }
 
-/// Service for reading and writing metadata entries.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_MetadataService_ClientProtocol: Sendable {
-    /// Initializes a MetadataStore, including allocation of resources.
-    func createMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves a specific MetadataStore.
-    func getMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataStore>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists MetadataStores for a Location.
-    func listMetadataStores<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a single MetadataStore and all its child resources (Artifacts,
-    /// Executions, and Contexts).
-    func deleteMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates an Artifact associated with a MetadataStore.
-    func createArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves a specific Artifact.
-    func getArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Artifacts in the MetadataStore.
-    func listArtifacts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a stored Artifact.
-    func updateArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes an Artifact.
-    func deleteArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Purges Artifacts.
-    func purgeArtifacts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a Context associated with a MetadataStore.
-    func createContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves a specific Context.
-    func getContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Contexts on the MetadataStore.
-    func listContexts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListContextsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a stored Context.
-    func updateContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a stored Context.
-    func deleteContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Purges Contexts.
-    func purgeContexts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds a set of Artifacts and Executions to a Context. If any of the
-    /// Artifacts or Executions have already been added to a Context, they are
-    /// simply skipped.
-    func addContextArtifactsAndExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds a set of Contexts as children to a parent Context. If any of the
-    /// child Contexts have already been added to the parent Context, they are
-    /// simply skipped. If this call would create a cycle or cause any Context to
-    /// have more than 10 parents, the request will fail with an INVALID_ARGUMENT
-    /// error.
-    func addContextChildren<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Remove a set of children contexts from a parent Context. If any of the
-    /// child Contexts were NOT added to the parent Context, they are
-    /// simply skipped.
-    func removeContextChildren<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves Artifacts and Executions within the specified Context, connected
-    /// by Event edges and returned as a LineageSubgraph.
-    func queryContextLineageSubgraph<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates an Execution associated with a MetadataStore.
-    func createExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves a specific Execution.
-    func getExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Executions in the MetadataStore.
-    func listExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a stored Execution.
-    func updateExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes an Execution.
-    func deleteExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Purges Executions.
-    func purgeExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds Events to the specified Execution. An Event indicates whether an
-    /// Artifact was used as an input or output for an Execution. If an Event
-    /// already exists between the Execution and the Artifact, the Event is
-    /// skipped.
-    func addExecutionEvents<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Obtains the set of input and output Artifacts for this Execution, in the
-    /// form of LineageSubgraph that also contains the Execution and connecting
-    /// Events.
-    func queryExecutionInputsAndOutputs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a MetadataSchema.
-    func createMetadataSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves a specific MetadataSchema.
-    func getMetadataSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists MetadataSchemas.
-    func listMetadataSchemas<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Retrieves lineage of an Artifact represented through Artifacts and
-    /// Executions connected by Event edges and returned as a LineageSubgraph.
-    func queryArtifactLineageSubgraph<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.MetadataService (client)
+
+extension Google_Cloud_Aiplatform_V1_MetadataService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.MetadataService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for reading and writing metadata entries.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Initializes a MetadataStore, including allocation of resources.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataStore` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataStore>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListMetadataStores" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists MetadataStores for a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listMetadataStores<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single MetadataStore and all its child resources (Artifacts,
+        /// > Executions, and Contexts).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Artifact associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListArtifacts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Artifacts in the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListArtifactsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListArtifactsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListArtifactsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listArtifacts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "PurgeArtifacts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Artifacts.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func purgeArtifacts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Context associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListContexts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Contexts on the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListContextsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListContextsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListContextsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listContexts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListContextsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a stored Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "PurgeContexts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Contexts.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeContextsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeContextsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func purgeContexts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AddContextArtifactsAndExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a set of Artifacts and Executions to a Context. If any of the
+        /// > Artifacts or Executions have already been added to a Context, they are
+        /// > simply skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func addContextArtifactsAndExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AddContextChildren" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a set of Contexts as children to a parent Context. If any of the
+        /// > child Contexts have already been added to the parent Context, they are
+        /// > simply skipped. If this call would create a cycle or cause any Context to
+        /// > have more than 10 parents, the request will fail with an INVALID_ARGUMENT
+        /// > error.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextChildrenRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddContextChildrenRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddContextChildrenResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func addContextChildren<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RemoveContextChildren" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Remove a set of children contexts from a parent Context. If any of the
+        /// > child Contexts were NOT added to the parent Context, they are
+        /// > simply skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func removeContextChildren<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "QueryContextLineageSubgraph" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves Artifacts and Executions within the specified Context, connected
+        /// > by Event edges and returned as a LineageSubgraph.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func queryContextLineageSubgraph<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Execution associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Executions in the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListExecutionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "PurgeExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Executions.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func purgeExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AddExecutionEvents" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds Events to the specified Execution. An Event indicates whether an
+        /// > Artifact was used as an input or output for an Execution. If an Event
+        /// > already exists between the Execution and the Artifact, the Event is
+        /// > skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func addExecutionEvents<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "QueryExecutionInputsAndOutputs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Obtains the set of input and output Artifacts for this Execution, in the
+        /// > form of LineageSubgraph that also contains the Execution and connecting
+        /// > Events.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func queryExecutionInputsAndOutputs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateMetadataSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a MetadataSchema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataSchema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createMetadataSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetMetadataSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific MetadataSchema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataSchema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getMetadataSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListMetadataSchemas" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists MetadataSchemas.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listMetadataSchemas<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "QueryArtifactLineageSubgraph" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves lineage of an Artifact represented through Artifacts and
+        /// > Executions connected by Event edges and returned as a LineageSubgraph.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func queryArtifactLineageSubgraph<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.MetadataService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for reading and writing metadata entries.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Initializes a MetadataStore, including allocation of resources.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateMetadataStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataStore` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataStore>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetMetadataStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListMetadataStores" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists MetadataStores for a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listMetadataStores<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListMetadataStores.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteMetadataStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single MetadataStore and all its child resources (Artifacts,
+        /// > Executions, and Contexts).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteMetadataStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteMetadataStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Artifact associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateArtifact.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetArtifact.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListArtifacts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Artifacts in the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListArtifactsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListArtifactsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListArtifactsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listArtifacts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListArtifacts.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Artifact` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateArtifact.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteArtifact" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Artifact.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteArtifactRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteArtifactRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteArtifact<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteArtifact.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "PurgeArtifacts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Artifacts.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func purgeArtifacts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeArtifacts.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Context associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateContext.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetContext.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListContexts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Contexts on the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListContextsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListContextsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListContextsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listContexts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListContextsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListContexts.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Context` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateContext.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteContext" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a stored Context.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteContextRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteContextRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteContext<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteContext.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "PurgeContexts" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Contexts.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeContextsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeContextsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func purgeContexts<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeContexts.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AddContextArtifactsAndExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a set of Artifacts and Executions to a Context. If any of the
+        /// > Artifacts or Executions have already been added to a Context, they are
+        /// > simply skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func addContextArtifactsAndExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddContextArtifactsAndExecutions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AddContextChildren" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds a set of Contexts as children to a parent Context. If any of the
+        /// > child Contexts have already been added to the parent Context, they are
+        /// > simply skipped. If this call would create a cycle or cause any Context to
+        /// > have more than 10 parents, the request will fail with an INVALID_ARGUMENT
+        /// > error.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextChildrenRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddContextChildrenRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddContextChildrenResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func addContextChildren<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddContextChildren.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RemoveContextChildren" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Remove a set of children contexts from a parent Context. If any of the
+        /// > child Contexts were NOT added to the parent Context, they are
+        /// > simply skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func removeContextChildren<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.RemoveContextChildren.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "QueryContextLineageSubgraph" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves Artifacts and Executions within the specified Context, connected
+        /// > by Event edges and returned as a LineageSubgraph.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func queryContextLineageSubgraph<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryContextLineageSubgraph.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Execution associated with a MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateExecution.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetExecution.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Executions in the MetadataStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListExecutionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListExecutions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a stored Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Execution` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateExecution.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteExecution" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Execution.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteExecutionRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteExecutionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteExecution<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteExecution.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "PurgeExecutions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Purges Executions.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func purgeExecutions<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeExecutions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AddExecutionEvents" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds Events to the specified Execution. An Event indicates whether an
+        /// > Artifact was used as an input or output for an Execution. If an Event
+        /// > already exists between the Execution and the Artifact, the Event is
+        /// > skipped.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func addExecutionEvents<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddExecutionEvents.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "QueryExecutionInputsAndOutputs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Obtains the set of input and output Artifacts for this Execution, in the
+        /// > form of LineageSubgraph that also contains the Execution and connecting
+        /// > Events.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func queryExecutionInputsAndOutputs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryExecutionInputsAndOutputs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateMetadataSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a MetadataSchema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataSchema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createMetadataSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateMetadataSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetMetadataSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves a specific MetadataSchema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_MetadataSchema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getMetadataSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetMetadataSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListMetadataSchemas" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists MetadataSchemas.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listMetadataSchemas<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListMetadataSchemas.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "QueryArtifactLineageSubgraph" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Retrieves lineage of an Artifact represented through Artifacts and
+        /// > Executions connected by Event edges and returned as a LineageSubgraph.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_LineageSubgraph` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func queryArtifactLineageSubgraph<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryArtifactLineageSubgraph.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
-    public func createMetadataStore<R>(
+    /// Call the "CreateMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Initializes a MetadataStore, including allocation of resources.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createMetadataStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createMetadataStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getMetadataStore<R>(
+
+    /// Call the "GetMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getMetadataStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getMetadataStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_MetadataStore>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listMetadataStores<R>(
+
+    /// Call the "ListMetadataStores" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists MetadataStores for a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listMetadataStores<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listMetadataStores(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteMetadataStore<R>(
+
+    /// Call the "DeleteMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single MetadataStore and all its child resources (Artifacts,
+    /// > Executions, and Contexts).
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteMetadataStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteMetadataStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createArtifact<R>(
+
+    /// Call the "CreateArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Artifact associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateArtifactRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createArtifact<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createArtifact(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Artifact>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getArtifact<R>(
+
+    /// Call the "GetArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Artifact.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetArtifactRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getArtifact<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getArtifact(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetArtifactRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Artifact>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listArtifacts<R>(
+
+    /// Call the "ListArtifacts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Artifacts in the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListArtifactsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listArtifacts<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listArtifacts(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateArtifact<R>(
+
+    /// Call the "UpdateArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Artifact.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateArtifactRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateArtifact<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateArtifact(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Artifact>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteArtifact<R>(
+
+    /// Call the "DeleteArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Artifact.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteArtifactRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteArtifact<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteArtifact(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func purgeArtifacts<R>(
+
+    /// Call the "PurgeArtifacts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Artifacts.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func purgeArtifacts<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.purgeArtifacts(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createContext<R>(
+
+    /// Call the "CreateContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Context associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateContextRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createContext<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createContext(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateContextRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Context>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getContext<R>(
+
+    /// Call the "GetContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Context.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetContextRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getContext<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getContext(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetContextRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Context>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listContexts<R>(
+
+    /// Call the "ListContexts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Contexts on the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListContextsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listContexts<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listContexts(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListContextsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListContextsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateContext<R>(
+
+    /// Call the "UpdateContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Context.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateContextRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateContext<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateContext(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateContextRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Context>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteContext<R>(
+
+    /// Call the "DeleteContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a stored Context.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteContextRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteContext<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteContext(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteContextRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func purgeContexts<R>(
+
+    /// Call the "PurgeContexts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Contexts.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeContextsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func purgeContexts<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.purgeContexts(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func addContextArtifactsAndExecutions<R>(
+
+    /// Call the "AddContextArtifactsAndExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a set of Artifacts and Executions to a Context. If any of the
+    /// > Artifacts or Executions have already been added to a Context, they are
+    /// > simply skipped.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func addContextArtifactsAndExecutions<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.addContextArtifactsAndExecutions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func addContextChildren<R>(
+
+    /// Call the "AddContextChildren" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a set of Contexts as children to a parent Context. If any of the
+    /// > child Contexts have already been added to the parent Context, they are
+    /// > simply skipped. If this call would create a cycle or cause any Context to
+    /// > have more than 10 parents, the request will fail with an INVALID_ARGUMENT
+    /// > error.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddContextChildrenRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func addContextChildren<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.addContextChildren(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func removeContextChildren<R>(
+
+    /// Call the "RemoveContextChildren" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Remove a set of children contexts from a parent Context. If any of the
+    /// > child Contexts were NOT added to the parent Context, they are
+    /// > simply skipped.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func removeContextChildren<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.removeContextChildren(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func queryContextLineageSubgraph<R>(
+
+    /// Call the "QueryContextLineageSubgraph" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves Artifacts and Executions within the specified Context, connected
+    /// > by Event edges and returned as a LineageSubgraph.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func queryContextLineageSubgraph<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.queryContextLineageSubgraph(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createExecution<R>(
+
+    /// Call the "CreateExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Execution associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateExecutionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createExecution<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createExecution(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Execution>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getExecution<R>(
+
+    /// Call the "GetExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Execution.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetExecutionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getExecution<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getExecution(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetExecutionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Execution>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listExecutions<R>(
+
+    /// Call the "ListExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Executions in the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListExecutionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listExecutions<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listExecutions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateExecution<R>(
+
+    /// Call the "UpdateExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Execution.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateExecutionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateExecution<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateExecution(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Execution>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteExecution<R>(
+
+    /// Call the "DeleteExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Execution.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteExecutionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteExecution<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteExecution(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func purgeExecutions<R>(
+
+    /// Call the "PurgeExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Executions.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func purgeExecutions<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.purgeExecutions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func addExecutionEvents<R>(
+
+    /// Call the "AddExecutionEvents" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds Events to the specified Execution. An Event indicates whether an
+    /// > Artifact was used as an input or output for an Execution. If an Event
+    /// > already exists between the Execution and the Artifact, the Event is
+    /// > skipped.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func addExecutionEvents<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.addExecutionEvents(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func queryExecutionInputsAndOutputs<R>(
+
+    /// Call the "QueryExecutionInputsAndOutputs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Obtains the set of input and output Artifacts for this Execution, in the
+    /// > form of LineageSubgraph that also contains the Execution and connecting
+    /// > Events.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func queryExecutionInputsAndOutputs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.queryExecutionInputsAndOutputs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createMetadataSchema<R>(
+
+    /// Call the "CreateMetadataSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a MetadataSchema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createMetadataSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createMetadataSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getMetadataSchema<R>(
+
+    /// Call the "GetMetadataSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific MetadataSchema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getMetadataSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getMetadataSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listMetadataSchemas<R>(
+
+    /// Call the "ListMetadataSchemas" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists MetadataSchemas.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listMetadataSchemas<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listMetadataSchemas(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func queryArtifactLineageSubgraph<R>(
+
+    /// Call the "QueryArtifactLineageSubgraph" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves lineage of an Artifact represented through Artifacts and
+    /// > Executions connected by Event edges and returned as a LineageSubgraph.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func queryArtifactLineageSubgraph<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.queryArtifactLineageSubgraph(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
-    /// Initializes a MetadataStore, including allocation of resources.
+    /// Call the "CreateMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Initializes a MetadataStore, including allocation of resources.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createMetadataStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>(
@@ -1172,17 +3328,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.createMetadataStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves a specific MetadataStore.
+
+    /// Call the "GetMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getMetadataStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>(
@@ -1192,17 +3361,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.getMetadataStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists MetadataStores for a Location.
+
+    /// Call the "ListMetadataStores" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists MetadataStores for a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listMetadataStores<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>(
@@ -1212,18 +3394,31 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.listMetadataStores(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a single MetadataStore and all its child resources (Artifacts,
-    /// Executions, and Contexts).
+
+    /// Call the "DeleteMetadataStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single MetadataStore and all its child resources (Artifacts,
+    /// > Executions, and Contexts).
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteMetadataStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>(
@@ -1233,17 +3428,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.deleteMetadataStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates an Artifact associated with a MetadataStore.
+
+    /// Call the "CreateArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Artifact associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createArtifact<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateArtifactRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>(
@@ -1253,17 +3461,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.createArtifact(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves a specific Artifact.
+
+    /// Call the "GetArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Artifact.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getArtifact<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetArtifactRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>(
@@ -1273,17 +3494,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.getArtifact(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Artifacts in the MetadataStore.
+
+    /// Call the "ListArtifacts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Artifacts in the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listArtifacts<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListArtifactsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>(
@@ -1293,17 +3527,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.listArtifacts(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a stored Artifact.
+
+    /// Call the "UpdateArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Artifact.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateArtifact<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateArtifactRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>(
@@ -1313,17 +3560,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.updateArtifact(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes an Artifact.
+
+    /// Call the "DeleteArtifact" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Artifact.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteArtifact<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteArtifactRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>(
@@ -1333,17 +3593,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.deleteArtifact(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Purges Artifacts.
+
+    /// Call the "PurgeArtifacts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Artifacts.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func purgeArtifacts<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>(
@@ -1353,17 +3626,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.purgeArtifacts(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a Context associated with a MetadataStore.
+
+    /// Call the "CreateContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Context associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createContext<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateContextRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>(
@@ -1373,17 +3659,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.createContext(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves a specific Context.
+
+    /// Call the "GetContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Context.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getContext<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetContextRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>(
@@ -1393,17 +3692,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.getContext(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Contexts on the MetadataStore.
+
+    /// Call the "ListContexts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Contexts on the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listContexts<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListContextsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>(
@@ -1413,17 +3725,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.listContexts(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a stored Context.
+
+    /// Call the "UpdateContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Context.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateContext<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateContextRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>(
@@ -1433,17 +3758,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.updateContext(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a stored Context.
+
+    /// Call the "DeleteContext" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a stored Context.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteContext<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteContextRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>(
@@ -1453,17 +3791,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.deleteContext(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Purges Contexts.
+
+    /// Call the "PurgeContexts" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Contexts.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func purgeContexts<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PurgeContextsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>(
@@ -1473,19 +3824,32 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.purgeContexts(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds a set of Artifacts and Executions to a Context. If any of the
-    /// Artifacts or Executions have already been added to a Context, they are
-    /// simply skipped.
+
+    /// Call the "AddContextArtifactsAndExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a set of Artifacts and Executions to a Context. If any of the
+    /// > Artifacts or Executions have already been added to a Context, they are
+    /// > simply skipped.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func addContextArtifactsAndExecutions<Result>(
         _ message: Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>(
@@ -1495,21 +3859,34 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.addContextArtifactsAndExecutions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds a set of Contexts as children to a parent Context. If any of the
-    /// child Contexts have already been added to the parent Context, they are
-    /// simply skipped. If this call would create a cycle or cause any Context to
-    /// have more than 10 parents, the request will fail with an INVALID_ARGUMENT
-    /// error.
+
+    /// Call the "AddContextChildren" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds a set of Contexts as children to a parent Context. If any of the
+    /// > child Contexts have already been added to the parent Context, they are
+    /// > simply skipped. If this call would create a cycle or cause any Context to
+    /// > have more than 10 parents, the request will fail with an INVALID_ARGUMENT
+    /// > error.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func addContextChildren<Result>(
         _ message: Google_Cloud_Aiplatform_V1_AddContextChildrenRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>(
@@ -1519,19 +3896,32 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.addContextChildren(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Remove a set of children contexts from a parent Context. If any of the
-    /// child Contexts were NOT added to the parent Context, they are
-    /// simply skipped.
+
+    /// Call the "RemoveContextChildren" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Remove a set of children contexts from a parent Context. If any of the
+    /// > child Contexts were NOT added to the parent Context, they are
+    /// > simply skipped.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func removeContextChildren<Result>(
         _ message: Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>(
@@ -1541,18 +3931,31 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.removeContextChildren(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves Artifacts and Executions within the specified Context, connected
-    /// by Event edges and returned as a LineageSubgraph.
+
+    /// Call the "QueryContextLineageSubgraph" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves Artifacts and Executions within the specified Context, connected
+    /// > by Event edges and returned as a LineageSubgraph.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func queryContextLineageSubgraph<Result>(
         _ message: Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>(
@@ -1562,17 +3965,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.queryContextLineageSubgraph(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates an Execution associated with a MetadataStore.
+
+    /// Call the "CreateExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Execution associated with a MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createExecution<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateExecutionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>(
@@ -1582,17 +3998,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.createExecution(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves a specific Execution.
+
+    /// Call the "GetExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific Execution.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getExecution<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetExecutionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>(
@@ -1602,17 +4031,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.getExecution(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Executions in the MetadataStore.
+
+    /// Call the "ListExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Executions in the MetadataStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listExecutions<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListExecutionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>(
@@ -1622,17 +4064,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.listExecutions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a stored Execution.
+
+    /// Call the "UpdateExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a stored Execution.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateExecution<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateExecutionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>(
@@ -1642,17 +4097,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.updateExecution(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes an Execution.
+
+    /// Call the "DeleteExecution" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Execution.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteExecution<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteExecutionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>(
@@ -1662,17 +4130,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.deleteExecution(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Purges Executions.
+
+    /// Call the "PurgeExecutions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Purges Executions.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func purgeExecutions<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>(
@@ -1682,20 +4163,33 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.purgeExecutions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Adds Events to the specified Execution. An Event indicates whether an
-    /// Artifact was used as an input or output for an Execution. If an Event
-    /// already exists between the Execution and the Artifact, the Event is
-    /// skipped.
+
+    /// Call the "AddExecutionEvents" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds Events to the specified Execution. An Event indicates whether an
+    /// > Artifact was used as an input or output for an Execution. If an Event
+    /// > already exists between the Execution and the Artifact, the Event is
+    /// > skipped.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func addExecutionEvents<Result>(
         _ message: Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>(
@@ -1705,19 +4199,32 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.addExecutionEvents(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Obtains the set of input and output Artifacts for this Execution, in the
-    /// form of LineageSubgraph that also contains the Execution and connecting
-    /// Events.
+
+    /// Call the "QueryExecutionInputsAndOutputs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Obtains the set of input and output Artifacts for this Execution, in the
+    /// > form of LineageSubgraph that also contains the Execution and connecting
+    /// > Events.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func queryExecutionInputsAndOutputs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>(
@@ -1727,17 +4234,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.queryExecutionInputsAndOutputs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a MetadataSchema.
+
+    /// Call the "CreateMetadataSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a MetadataSchema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createMetadataSchema<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>(
@@ -1747,17 +4267,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.createMetadataSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves a specific MetadataSchema.
+
+    /// Call the "GetMetadataSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves a specific MetadataSchema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getMetadataSchema<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>(
@@ -1767,17 +4300,30 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.getMetadataSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists MetadataSchemas.
+
+    /// Call the "ListMetadataSchemas" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists MetadataSchemas.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listMetadataSchemas<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>(
@@ -1787,18 +4333,31 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.listMetadataSchemas(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Retrieves lineage of an Artifact represented through Artifacts and
-    /// Executions connected by Event edges and returned as a LineageSubgraph.
+
+    /// Call the "QueryArtifactLineageSubgraph" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Retrieves lineage of an Artifact represented through Artifacts and
+    /// > Executions connected by Event edges and returned as a LineageSubgraph.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func queryArtifactLineageSubgraph<Result>(
         _ message: Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>(
@@ -1808,673 +4367,7 @@ extension Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
         return try await self.queryArtifactLineageSubgraph(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Service for reading and writing metadata entries.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_MetadataService_Client: Google_Cloud_Aiplatform_V1_MetadataService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Initializes a MetadataStore, including allocation of resources.
-    public func createMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateMetadataStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves a specific MetadataStore.
-    public func getMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataStore>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataStore>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetMetadataStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists MetadataStores for a Location.
-    public func listMetadataStores<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataStoresResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListMetadataStores.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a single MetadataStore and all its child resources (Artifacts,
-    /// Executions, and Contexts).
-    public func deleteMetadataStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteMetadataStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteMetadataStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates an Artifact associated with a MetadataStore.
-    public func createArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateArtifact.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves a specific Artifact.
-    public func getArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetArtifact.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Artifacts in the MetadataStore.
-    public func listArtifacts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListArtifactsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListArtifactsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListArtifacts.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a stored Artifact.
-    public func updateArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Artifact>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Artifact>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateArtifact.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes an Artifact.
-    public func deleteArtifact<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteArtifactRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteArtifact.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Purges Artifacts.
-    public func purgeArtifacts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeArtifactsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeArtifacts.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a Context associated with a MetadataStore.
-    public func createContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateContext.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves a specific Context.
-    public func getContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetContext.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Contexts on the MetadataStore.
-    public func listContexts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListContextsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListContextsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListContextsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListContexts.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a stored Context.
-    public func updateContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Context>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Context>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateContext.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a stored Context.
-    public func deleteContext<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteContextRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteContext.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Purges Contexts.
-    public func purgeContexts<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeContextsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeContexts.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds a set of Artifacts and Executions to a Context. If any of the
-    /// Artifacts or Executions have already been added to a Context, they are
-    /// simply skipped.
-    public func addContextArtifactsAndExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextArtifactsAndExecutionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddContextArtifactsAndExecutions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds a set of Contexts as children to a parent Context. If any of the
-    /// child Contexts have already been added to the parent Context, they are
-    /// simply skipped. If this call would create a cycle or cause any Context to
-    /// have more than 10 parents, the request will fail with an INVALID_ARGUMENT
-    /// error.
-    public func addContextChildren<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddContextChildrenRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddContextChildrenResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddContextChildren.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Remove a set of children contexts from a parent Context. If any of the
-    /// child Contexts were NOT added to the parent Context, they are
-    /// simply skipped.
-    public func removeContextChildren<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_RemoveContextChildrenResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.RemoveContextChildren.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves Artifacts and Executions within the specified Context, connected
-    /// by Event edges and returned as a LineageSubgraph.
-    public func queryContextLineageSubgraph<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryContextLineageSubgraphRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryContextLineageSubgraph.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates an Execution associated with a MetadataStore.
-    public func createExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateExecution.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves a specific Execution.
-    public func getExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetExecution.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Executions in the MetadataStore.
-    public func listExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListExecutionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListExecutions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a stored Execution.
-    public func updateExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Execution>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Execution>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.UpdateExecution.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes an Execution.
-    public func deleteExecution<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteExecutionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.DeleteExecution.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Purges Executions.
-    public func purgeExecutions<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PurgeExecutionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.PurgeExecutions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds Events to the specified Execution. An Event indicates whether an
-    /// Artifact was used as an input or output for an Execution. If an Event
-    /// already exists between the Execution and the Artifact, the Event is
-    /// skipped.
-    public func addExecutionEvents<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_AddExecutionEventsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.AddExecutionEvents.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Obtains the set of input and output Artifacts for this Execution, in the
-    /// form of LineageSubgraph that also contains the Execution and connecting
-    /// Events.
-    public func queryExecutionInputsAndOutputs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryExecutionInputsAndOutputsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryExecutionInputsAndOutputs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a MetadataSchema.
-    public func createMetadataSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateMetadataSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.CreateMetadataSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves a specific MetadataSchema.
-    public func getMetadataSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetMetadataSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_MetadataSchema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_MetadataSchema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.GetMetadataSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists MetadataSchemas.
-    public func listMetadataSchemas<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListMetadataSchemasResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.ListMetadataSchemas.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Retrieves lineage of an Artifact represented through Artifacts and
-    /// Executions connected by Event edges and returned as a LineageSubgraph.
-    public func queryArtifactLineageSubgraph<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryArtifactLineageSubgraphRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_LineageSubgraph>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_LineageSubgraph>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MetadataService.Method.QueryArtifactLineageSubgraph.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

@@ -76,8 +76,8 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
 extension Subscription {
 
     func createIfNeeded(
-        subscriberClient: Google_Pubsub_V1_Subscriber_ClientProtocol,
-        publisherClient: Google_Pubsub_V1_Publisher_ClientProtocol,
+        subscriberClient: Google_Pubsub_V1_Subscriber.ClientProtocol,
+        publisherClient: Google_Pubsub_V1_Publisher.ClientProtocol,
         createTopicIfNeeded: Bool = true
     ) async throws {
         do {

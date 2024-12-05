@@ -24,75 +24,184 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.EvaluationService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.EvaluationService" service.
 public enum Google_Cloud_Aiplatform_V1_EvaluationService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_EvaluationService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.EvaluationService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EvaluationService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "EvaluateInstances" metadata.
         public enum EvaluateInstances {
+            /// Request type for "EvaluateInstances".
             public typealias Input = Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest
+            /// Response type for "EvaluateInstances".
             public typealias Output = Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse
+            /// Descriptor for "EvaluateInstances".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EvaluationService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EvaluationService"),
                 method: "EvaluateInstances"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.EvaluationService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             EvaluateInstances.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_EvaluationService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_EvaluationService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_EvaluationService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "EvaluationService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.EvaluationService" service.
+    public static let google_cloud_aiplatform_v1_EvaluationService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EvaluationService")
 }
 
-/// Vertex AI Online Evaluation Service.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_EvaluationService_ClientProtocol: Sendable {
-    /// Evaluates instances based on a given metric.
-    func evaluateInstances<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.EvaluationService (client)
+
+extension Google_Cloud_Aiplatform_V1_EvaluationService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.EvaluationService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Vertex AI Online Evaluation Service.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "EvaluateInstances" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Evaluates instances based on a given metric.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func evaluateInstances<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.EvaluationService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Vertex AI Online Evaluation Service.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "EvaluateInstances" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Evaluates instances based on a given metric.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func evaluateInstances<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EvaluationService.Method.EvaluateInstances.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_EvaluationService.ClientProtocol {
-    public func evaluateInstances<R>(
+    /// Call the "EvaluateInstances" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Evaluates instances based on a given metric.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func evaluateInstances<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.evaluateInstances(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_EvaluationService.ClientProtocol {
-    /// Evaluates instances based on a given metric.
+    /// Call the "EvaluateInstances" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Evaluates instances based on a given metric.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func evaluateInstances<Result>(
         _ message: Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>(
@@ -102,37 +211,7 @@ extension Google_Cloud_Aiplatform_V1_EvaluationService.ClientProtocol {
         return try await self.evaluateInstances(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Vertex AI Online Evaluation Service.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_EvaluationService_Client: Google_Cloud_Aiplatform_V1_EvaluationService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Evaluates instances based on a given metric.
-    public func evaluateInstances<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_EvaluateInstancesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EvaluationService.Method.EvaluateInstances.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

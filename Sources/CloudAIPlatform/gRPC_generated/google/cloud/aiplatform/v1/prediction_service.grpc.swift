@@ -24,113 +24,171 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.PredictionService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.PredictionService" service.
 public enum Google_Cloud_Aiplatform_V1_PredictionService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_PredictionService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PredictionService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "Predict" metadata.
         public enum Predict {
+            /// Request type for "Predict".
             public typealias Input = Google_Cloud_Aiplatform_V1_PredictRequest
+            /// Response type for "Predict".
             public typealias Output = Google_Cloud_Aiplatform_V1_PredictResponse
+            /// Descriptor for "Predict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "Predict"
             )
         }
+        /// Namespace for "RawPredict" metadata.
         public enum RawPredict {
+            /// Request type for "RawPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_RawPredictRequest
+            /// Response type for "RawPredict".
             public typealias Output = Google_Api_HttpBody
+            /// Descriptor for "RawPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "RawPredict"
             )
         }
+        /// Namespace for "StreamRawPredict" metadata.
         public enum StreamRawPredict {
+            /// Request type for "StreamRawPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamRawPredictRequest
+            /// Response type for "StreamRawPredict".
             public typealias Output = Google_Api_HttpBody
+            /// Descriptor for "StreamRawPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamRawPredict"
             )
         }
+        /// Namespace for "DirectPredict" metadata.
         public enum DirectPredict {
+            /// Request type for "DirectPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_DirectPredictRequest
+            /// Response type for "DirectPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_DirectPredictResponse
+            /// Descriptor for "DirectPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "DirectPredict"
             )
         }
+        /// Namespace for "DirectRawPredict" metadata.
         public enum DirectRawPredict {
+            /// Request type for "DirectRawPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_DirectRawPredictRequest
+            /// Response type for "DirectRawPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_DirectRawPredictResponse
+            /// Descriptor for "DirectRawPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "DirectRawPredict"
             )
         }
+        /// Namespace for "StreamDirectPredict" metadata.
         public enum StreamDirectPredict {
+            /// Request type for "StreamDirectPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest
+            /// Response type for "StreamDirectPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse
+            /// Descriptor for "StreamDirectPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamDirectPredict"
             )
         }
+        /// Namespace for "StreamDirectRawPredict" metadata.
         public enum StreamDirectRawPredict {
+            /// Request type for "StreamDirectRawPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest
+            /// Response type for "StreamDirectRawPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse
+            /// Descriptor for "StreamDirectRawPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamDirectRawPredict"
             )
         }
+        /// Namespace for "StreamingPredict" metadata.
         public enum StreamingPredict {
+            /// Request type for "StreamingPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamingPredictRequest
+            /// Response type for "StreamingPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_StreamingPredictResponse
+            /// Descriptor for "StreamingPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamingPredict"
             )
         }
+        /// Namespace for "ServerStreamingPredict" metadata.
         public enum ServerStreamingPredict {
+            /// Request type for "ServerStreamingPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamingPredictRequest
+            /// Response type for "ServerStreamingPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_StreamingPredictResponse
+            /// Descriptor for "ServerStreamingPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "ServerStreamingPredict"
             )
         }
+        /// Namespace for "StreamingRawPredict" metadata.
         public enum StreamingRawPredict {
+            /// Request type for "StreamingRawPredict".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest
+            /// Response type for "StreamingRawPredict".
             public typealias Output = Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse
+            /// Descriptor for "StreamingRawPredict".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamingRawPredict"
             )
         }
+        /// Namespace for "Explain" metadata.
         public enum Explain {
+            /// Request type for "Explain".
             public typealias Input = Google_Cloud_Aiplatform_V1_ExplainRequest
+            /// Response type for "Explain".
             public typealias Output = Google_Cloud_Aiplatform_V1_ExplainResponse
+            /// Descriptor for "Explain".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "Explain"
             )
         }
+        /// Namespace for "GenerateContent" metadata.
         public enum GenerateContent {
+            /// Request type for "GenerateContent".
             public typealias Input = Google_Cloud_Aiplatform_V1_GenerateContentRequest
+            /// Response type for "GenerateContent".
             public typealias Output = Google_Cloud_Aiplatform_V1_GenerateContentResponse
+            /// Descriptor for "GenerateContent".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "GenerateContent"
             )
         }
+        /// Namespace for "StreamGenerateContent" metadata.
         public enum StreamGenerateContent {
+            /// Request type for "StreamGenerateContent".
             public typealias Input = Google_Cloud_Aiplatform_V1_GenerateContentRequest
+            /// Response type for "StreamGenerateContent".
             public typealias Output = Google_Cloud_Aiplatform_V1_GenerateContentResponse
+            /// Descriptor for "StreamGenerateContent".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PredictionService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService"),
                 method: "StreamGenerateContent"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.PredictionService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             Predict.descriptor,
             RawPredict.descriptor,
@@ -147,372 +205,1241 @@ public enum Google_Cloud_Aiplatform_V1_PredictionService {
             StreamGenerateContent.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_PredictionService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_PredictionService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "PredictionService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PredictionService" service.
+    public static let google_cloud_aiplatform_v1_PredictionService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PredictionService")
 }
 
-/// A service for online predictions and explanations.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_PredictionService_ClientProtocol: Sendable {
-    /// Perform an online prediction.
-    func predict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform an online prediction with an arbitrary HTTP payload.
+// MARK: google.cloud.aiplatform.v1.PredictionService (client)
+
+extension Google_Cloud_Aiplatform_V1_PredictionService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.PredictionService" service.
     ///
-    /// The response includes the following HTTP headers:
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
     ///
-    /// * `X-Vertex-AI-Endpoint-Id`: ID of the
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
-    /// prediction.
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for online predictions and explanations.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "Predict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online prediction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func predict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online prediction with an arbitrary HTTP payload.
+        /// > 
+        /// > The response includes the following HTTP headers:
+        /// > 
+        /// > * `X-Vertex-AI-Endpoint-Id`: ID of the
+        /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
+        /// > prediction.
+        /// > 
+        /// > * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
+        /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
+        /// > prediction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Api_HttpBody` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction with an arbitrary HTTP payload.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamRawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Api_HttpBody` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamRawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DirectPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an unary online prediction request to a gRPC model server for
+        /// > Vertex first-party products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DirectPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DirectPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func directPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DirectRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an unary online prediction request to a gRPC model server for
+        /// > custom containers.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectRawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DirectRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DirectRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func directRawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamDirectPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request to a gRPC model server for
+        /// > Vertex first-party products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamDirectPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamDirectRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request to a gRPC model server for
+        /// > custom containers.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamDirectRawPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamingPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request for Vertex first-party
+        /// > products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamingPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ServerStreamingPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a server-side streaming online prediction request for Vertex
+        /// > LLM streaming.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func serverStreamingPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamingRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request through gRPC.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamingRawPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Explain" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online explanation.
+        /// > 
+        /// > If
+        /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+        /// > is specified, the corresponding DeployModel must have
+        /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+        /// > populated. If
+        /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+        /// > is not specified, all DeployedModels must have
+        /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+        /// > populated.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExplainRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExplainRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ExplainResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func explain<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExplainRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExplainResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GenerateContent" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Generate content with multimodal inputs.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GenerateContentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_GenerateContentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func generateContent<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamGenerateContent" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Generate content with multimodal inputs with streaming support.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GenerateContentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_GenerateContentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamGenerateContent<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.PredictionService" service.
     ///
-    /// * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
-    /// prediction.
-    func rawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a streaming online prediction with an arbitrary HTTP payload.
-    func streamRawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
-    func directPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// custom containers.
-    func directRawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
-    func streamDirectPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// custom containers.
-    func streamDirectRawPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a streaming online prediction request for Vertex first-party
-    /// products and frameworks.
-    func streamingPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a server-side streaming online prediction request for Vertex
-    /// LLM streaming.
-    func serverStreamingPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform a streaming online prediction request through gRPC.
-    func streamingRawPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Perform an online explanation.
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
     ///
-    /// If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is specified, the corresponding DeployModel must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated. If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is not specified, all DeployedModels must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated.
-    func explain<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExplainRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExplainResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Generate content with multimodal inputs.
-    func generateContent<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Generate content with multimodal inputs with streaming support.
-    func streamGenerateContent<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for online predictions and explanations.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "Predict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online prediction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func predict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.Predict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online prediction with an arbitrary HTTP payload.
+        /// > 
+        /// > The response includes the following HTTP headers:
+        /// > 
+        /// > * `X-Vertex-AI-Endpoint-Id`: ID of the
+        /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
+        /// > prediction.
+        /// > 
+        /// > * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
+        /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
+        /// > prediction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Api_HttpBody` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.RawPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction with an arbitrary HTTP payload.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamRawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Api_HttpBody` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamRawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamRawPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DirectPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an unary online prediction request to a gRPC model server for
+        /// > Vertex first-party products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DirectPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DirectPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func directPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.DirectPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DirectRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an unary online prediction request to a gRPC model server for
+        /// > custom containers.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectRawPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DirectRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DirectRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func directRawPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.DirectRawPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamDirectPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request to a gRPC model server for
+        /// > Vertex first-party products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamDirectPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.bidirectionalStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamDirectPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamDirectRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request to a gRPC model server for
+        /// > custom containers.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamDirectRawPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.bidirectionalStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamDirectRawPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamingPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request for Vertex first-party
+        /// > products and frameworks.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamingPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.bidirectionalStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamingPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ServerStreamingPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a server-side streaming online prediction request for Vertex
+        /// > LLM streaming.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func serverStreamingPredict<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.ServerStreamingPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamingRawPredict" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a streaming online prediction request through gRPC.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest` messages.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamingRawPredict<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.bidirectionalStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamingRawPredict.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Explain" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform an online explanation.
+        /// > 
+        /// > If
+        /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+        /// > is specified, the corresponding DeployModel must have
+        /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+        /// > populated. If
+        /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+        /// > is not specified, all DeployedModels must have
+        /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+        /// > populated.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExplainRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExplainRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ExplainResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func explain<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExplainRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExplainResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.Explain.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GenerateContent" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Generate content with multimodal inputs.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GenerateContentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_GenerateContentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func generateContent<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.GenerateContent.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamGenerateContent" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Generate content with multimodal inputs with streaming support.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GenerateContentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_GenerateContentResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamGenerateContent<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamGenerateContent.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
-    public func predict<R>(
+    /// Call the "Predict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online prediction.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func predict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.predict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_PredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func rawPredict<R>(
+
+    /// Call the "RawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online prediction with an arbitrary HTTP payload.
+    /// > 
+    /// > The response includes the following HTTP headers:
+    /// > 
+    /// > * `X-Vertex-AI-Endpoint-Id`: ID of the
+    /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
+    /// > prediction.
+    /// > 
+    /// > * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
+    /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
+    /// > prediction.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RawPredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rawPredict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.rawPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_RawPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Api_HttpBody>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamRawPredict<R>(
+
+    /// Call the "StreamRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction with an arbitrary HTTP payload.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamRawPredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamRawPredict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamRawPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Api_HttpBody>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func directPredict<R>(
+
+    /// Call the "DirectPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an unary online prediction request to a gRPC model server for
+    /// > Vertex first-party products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectPredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func directPredict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.directPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DirectPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_DirectPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func directRawPredict<R>(
+
+    /// Call the "DirectRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an unary online prediction request to a gRPC model server for
+    /// > custom containers.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DirectRawPredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func directRawPredict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.directRawPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamDirectPredict<R>(
+
+    /// Call the "StreamDirectPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request to a gRPC model server for
+    /// > Vertex first-party products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest` messages.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamDirectPredict<Result>(
         request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamDirectPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamDirectRawPredict<R>(
+
+    /// Call the "StreamDirectRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request to a gRPC model server for
+    /// > custom containers.
+    ///
+    /// - Parameters:
+    ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest` messages.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamDirectRawPredict<Result>(
         request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamDirectRawPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamingPredict<R>(
+
+    /// Call the "StreamingPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request for Vertex first-party
+    /// > products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` messages.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamingPredict<Result>(
         request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamingPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func serverStreamingPredict<R>(
+
+    /// Call the "ServerStreamingPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a server-side streaming online prediction request for Vertex
+    /// > LLM streaming.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingPredictRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func serverStreamingPredict<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.serverStreamingPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamingRawPredict<R>(
+
+    /// Call the "StreamingRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request through gRPC.
+    ///
+    /// - Parameters:
+    ///   - request: A streaming request producing `Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest` messages.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamingRawPredict<Result>(
         request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamingRawPredict(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func explain<R>(
+
+    /// Call the "Explain" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online explanation.
+    /// > 
+    /// > If
+    /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+    /// > is specified, the corresponding DeployModel must have
+    /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+    /// > populated. If
+    /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+    /// > is not specified, all DeployedModels must have
+    /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+    /// > populated.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExplainRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func explain<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.explain(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ExplainRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ExplainResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func generateContent<R>(
+
+    /// Call the "GenerateContent" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Generate content with multimodal inputs.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func generateContent<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.generateContent(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamGenerateContent<R>(
+
+    /// Call the "StreamGenerateContent" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Generate content with multimodal inputs with streaming support.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GenerateContentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamGenerateContent<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamGenerateContent(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
-    /// Perform an online prediction.
+    /// Call the "Predict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online prediction.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func predict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PredictRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>(
@@ -522,27 +1449,40 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.predict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform an online prediction with an arbitrary HTTP payload.
+
+    /// Call the "RawPredict" method.
     ///
-    /// The response includes the following HTTP headers:
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online prediction with an arbitrary HTTP payload.
+    /// > 
+    /// > The response includes the following HTTP headers:
+    /// > 
+    /// > * `X-Vertex-AI-Endpoint-Id`: ID of the
+    /// > [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
+    /// > prediction.
+    /// > 
+    /// > * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
+    /// > [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
+    /// > prediction.
     ///
-    /// * `X-Vertex-AI-Endpoint-Id`: ID of the
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
-    /// prediction.
-    ///
-    /// * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
-    /// prediction.
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func rawPredict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_RawPredictRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>(
@@ -552,11 +1492,24 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.rawPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a streaming online prediction with an arbitrary HTTP payload.
+
+    /// Call the "StreamRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction with an arbitrary HTTP payload.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamRawPredict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_StreamRawPredictRequest,
         metadata: GRPCCore.Metadata = [:],
@@ -570,18 +1523,31 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.streamRawPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
+
+    /// Call the "DirectPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an unary online prediction request to a gRPC model server for
+    /// > Vertex first-party products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func directPredict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DirectPredictRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>(
@@ -591,18 +1557,31 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.directPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// custom containers.
+
+    /// Call the "DirectRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an unary online prediction request to a gRPC model server for
+    /// > custom containers.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func directRawPredict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DirectRawPredictRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>(
@@ -612,69 +1591,124 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.directRawPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
+
+    /// Call the "StreamDirectPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request to a gRPC model server for
+    /// > Vertex first-party products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - producer: A closure producing request messages to send to the server. The request
+    ///       stream is closed when the closure returns.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamDirectPredict<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>) async throws -> Void,
+        requestProducer producer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>) async throws -> Void,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> Result
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>(
             metadata: metadata,
-            producer: requestProducer
+            producer: producer
         )
         return try await self.streamDirectPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// custom containers.
+
+    /// Call the "StreamDirectRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request to a gRPC model server for
+    /// > custom containers.
+    ///
+    /// - Parameters:
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - producer: A closure producing request messages to send to the server. The request
+    ///       stream is closed when the closure returns.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamDirectRawPredict<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>) async throws -> Void,
+        requestProducer producer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>) async throws -> Void,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> Result
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>(
             metadata: metadata,
-            producer: requestProducer
+            producer: producer
         )
         return try await self.streamDirectRawPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a streaming online prediction request for Vertex first-party
-    /// products and frameworks.
+
+    /// Call the "StreamingPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request for Vertex first-party
+    /// > products and frameworks.
+    ///
+    /// - Parameters:
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - producer: A closure producing request messages to send to the server. The request
+    ///       stream is closed when the closure returns.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamingPredict<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>) async throws -> Void,
+        requestProducer producer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>) async throws -> Void,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> Result
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>(
             metadata: metadata,
-            producer: requestProducer
+            producer: producer
         )
         return try await self.streamingPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a server-side streaming online prediction request for Vertex
-    /// LLM streaming.
+
+    /// Call the "ServerStreamingPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a server-side streaming online prediction request for Vertex
+    /// > LLM streaming.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func serverStreamingPredict<Result>(
         _ message: Google_Cloud_Aiplatform_V1_StreamingPredictRequest,
         metadata: GRPCCore.Metadata = [:],
@@ -688,45 +1722,72 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.serverStreamingPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform a streaming online prediction request through gRPC.
+
+    /// Call the "StreamingRawPredict" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a streaming online prediction request through gRPC.
+    ///
+    /// - Parameters:
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - producer: A closure producing request messages to send to the server. The request
+    ///       stream is closed when the closure returns.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamingRawPredict<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>) async throws -> Void,
+        requestProducer producer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>) async throws -> Void,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> Result
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>(
             metadata: metadata,
-            producer: requestProducer
+            producer: producer
         )
         return try await self.streamingRawPredict(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Perform an online explanation.
+
+    /// Call the "Explain" method.
     ///
-    /// If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is specified, the corresponding DeployModel must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated. If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is not specified, all DeployedModels must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform an online explanation.
+    /// > 
+    /// > If
+    /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+    /// > is specified, the corresponding DeployModel must have
+    /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+    /// > populated. If
+    /// > [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
+    /// > is not specified, all DeployedModels must have
+    /// > [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
+    /// > populated.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func explain<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ExplainRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>(
@@ -736,17 +1797,30 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.explain(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Generate content with multimodal inputs.
+
+    /// Call the "GenerateContent" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Generate content with multimodal inputs.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func generateContent<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GenerateContentRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>(
@@ -756,11 +1830,24 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.generateContent(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Generate content with multimodal inputs with streaming support.
+
+    /// Call the "StreamGenerateContent" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Generate content with multimodal inputs with streaming support.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamGenerateContent<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GenerateContentRequest,
         metadata: GRPCCore.Metadata = [:],
@@ -774,289 +1861,7 @@ extension Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
         return try await self.streamGenerateContent(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for online predictions and explanations.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_PredictionService_Client: Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Perform an online prediction.
-    public func predict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PredictResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.Predict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform an online prediction with an arbitrary HTTP payload.
-    ///
-    /// The response includes the following HTTP headers:
-    ///
-    /// * `X-Vertex-AI-Endpoint-Id`: ID of the
-    /// [Endpoint][google.cloud.aiplatform.v1.Endpoint] that served this
-    /// prediction.
-    ///
-    /// * `X-Vertex-AI-Deployed-Model-Id`: ID of the Endpoint's
-    /// [DeployedModel][google.cloud.aiplatform.v1.DeployedModel] that served this
-    /// prediction.
-    public func rawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Api_HttpBody>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.RawPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a streaming online prediction with an arbitrary HTTP payload.
-    public func streamRawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Api_HttpBody>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Api_HttpBody>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.serverStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamRawPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
-    public func directPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectPredictResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.DirectPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform an unary online prediction request to a gRPC model server for
-    /// custom containers.
-    public func directRawPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DirectRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DirectRawPredictResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.DirectRawPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// Vertex first-party products and frameworks.
-    public func streamDirectPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.bidirectionalStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamDirectPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a streaming online prediction request to a gRPC model server for
-    /// custom containers.
-    public func streamDirectRawPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamDirectRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.bidirectionalStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamDirectRawPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a streaming online prediction request for Vertex first-party
-    /// products and frameworks.
-    public func streamingPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.bidirectionalStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamingPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a server-side streaming online prediction request for Vertex
-    /// LLM streaming.
-    public func serverStreamingPredict<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.serverStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.ServerStreamingPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform a streaming online prediction request through gRPC.
-    public func streamingRawPredict<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_StreamingRawPredictResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.bidirectionalStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamingRawPredict.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Perform an online explanation.
-    ///
-    /// If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is specified, the corresponding DeployModel must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated. If
-    /// [deployed_model_id][google.cloud.aiplatform.v1.ExplainRequest.deployed_model_id]
-    /// is not specified, all DeployedModels must have
-    /// [explanation_spec][google.cloud.aiplatform.v1.DeployedModel.explanation_spec]
-    /// populated.
-    public func explain<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExplainRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExplainRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExplainResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExplainResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.Explain.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Generate content with multimodal inputs.
-    public func generateContent<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.GenerateContent.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Generate content with multimodal inputs with streaming support.
-    public func streamGenerateContent<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GenerateContentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_GenerateContentResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_GenerateContentResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.serverStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PredictionService.Method.StreamGenerateContent.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

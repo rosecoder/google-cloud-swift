@@ -12,11 +12,11 @@ public final class Publisher: PublisherProtocol {
 
     private let logger = Logger(label: "pubsub.publisher")
 
-    let client: Google_Pubsub_V1_Publisher_ClientProtocol
+    let client: Google_Pubsub_V1_Publisher.ClientProtocol
     private let pubSubService: PubSubService
 
     public init(pubSubService: PubSubService) {
-        self.client = Google_Pubsub_V1_Publisher_Client(wrapping: pubSubService.grpcClient)
+        self.client = Google_Pubsub_V1_Publisher.Client(wrapping: pubSubService.grpcClient)
         self.pubSubService = pubSubService
     }
 

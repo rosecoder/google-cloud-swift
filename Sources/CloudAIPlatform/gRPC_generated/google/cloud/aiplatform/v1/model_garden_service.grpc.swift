@@ -24,75 +24,184 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.ModelGardenService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.ModelGardenService" service.
 public enum Google_Cloud_Aiplatform_V1_ModelGardenService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_ModelGardenService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ModelGardenService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelGardenService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "GetPublisherModel" metadata.
         public enum GetPublisherModel {
+            /// Request type for "GetPublisherModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetPublisherModelRequest
+            /// Response type for "GetPublisherModel".
             public typealias Output = Google_Cloud_Aiplatform_V1_PublisherModel
+            /// Descriptor for "GetPublisherModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_ModelGardenService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelGardenService"),
                 method: "GetPublisherModel"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.ModelGardenService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             GetPublisherModel.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_ModelGardenService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_ModelGardenService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_ModelGardenService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "ModelGardenService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.ModelGardenService" service.
+    public static let google_cloud_aiplatform_v1_ModelGardenService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.ModelGardenService")
 }
 
-/// The interface of Model Garden Service.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_ModelGardenService_ClientProtocol: Sendable {
-    /// Gets a Model Garden publisher model.
-    func getPublisherModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PublisherModel>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.ModelGardenService (client)
+
+extension Google_Cloud_Aiplatform_V1_ModelGardenService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.ModelGardenService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The interface of Model Garden Service.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "GetPublisherModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Model Garden publisher model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPublisherModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPublisherModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PublisherModel` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getPublisherModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PublisherModel>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.ModelGardenService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The interface of Model Garden Service.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "GetPublisherModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Model Garden publisher model.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPublisherModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPublisherModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PublisherModel` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getPublisherModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PublisherModel>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_ModelGardenService.Method.GetPublisherModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ModelGardenService.ClientProtocol {
-    public func getPublisherModel<R>(
+    /// Call the "GetPublisherModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Model Garden publisher model.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPublisherModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getPublisherModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getPublisherModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_PublisherModel>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_ModelGardenService.ClientProtocol {
-    /// Gets a Model Garden publisher model.
+    /// Call the "GetPublisherModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Model Garden publisher model.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getPublisherModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetPublisherModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>(
@@ -102,37 +211,7 @@ extension Google_Cloud_Aiplatform_V1_ModelGardenService.ClientProtocol {
         return try await self.getPublisherModel(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// The interface of Model Garden Service.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_ModelGardenService_Client: Google_Cloud_Aiplatform_V1_ModelGardenService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Gets a Model Garden publisher model.
-    public func getPublisherModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPublisherModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PublisherModel>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PublisherModel>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_ModelGardenService.Method.GetPublisherModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

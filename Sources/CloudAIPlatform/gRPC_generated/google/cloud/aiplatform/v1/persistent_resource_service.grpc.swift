@@ -24,57 +24,87 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.PersistentResourceService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.PersistentResourceService" service.
 public enum Google_Cloud_Aiplatform_V1_PersistentResourceService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_PersistentResourceService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PersistentResourceService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreatePersistentResource" metadata.
         public enum CreatePersistentResource {
+            /// Request type for "CreatePersistentResource".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest
+            /// Response type for "CreatePersistentResource".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreatePersistentResource".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "CreatePersistentResource"
             )
         }
+        /// Namespace for "GetPersistentResource" metadata.
         public enum GetPersistentResource {
+            /// Request type for "GetPersistentResource".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest
+            /// Response type for "GetPersistentResource".
             public typealias Output = Google_Cloud_Aiplatform_V1_PersistentResource
+            /// Descriptor for "GetPersistentResource".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "GetPersistentResource"
             )
         }
+        /// Namespace for "ListPersistentResources" metadata.
         public enum ListPersistentResources {
+            /// Request type for "ListPersistentResources".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest
+            /// Response type for "ListPersistentResources".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse
+            /// Descriptor for "ListPersistentResources".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "ListPersistentResources"
             )
         }
+        /// Namespace for "DeletePersistentResource" metadata.
         public enum DeletePersistentResource {
+            /// Request type for "DeletePersistentResource".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest
+            /// Response type for "DeletePersistentResource".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeletePersistentResource".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "DeletePersistentResource"
             )
         }
+        /// Namespace for "UpdatePersistentResource" metadata.
         public enum UpdatePersistentResource {
+            /// Request type for "UpdatePersistentResource".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest
+            /// Response type for "UpdatePersistentResource".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdatePersistentResource".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "UpdatePersistentResource"
             )
         }
+        /// Namespace for "RebootPersistentResource" metadata.
         public enum RebootPersistentResource {
+            /// Request type for "RebootPersistentResource".
             public typealias Input = Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest
+            /// Response type for "RebootPersistentResource".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "RebootPersistentResource".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PersistentResourceService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService"),
                 method: "RebootPersistentResource"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.PersistentResourceService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreatePersistentResource.descriptor,
             GetPersistentResource.descriptor,
@@ -84,185 +114,589 @@ public enum Google_Cloud_Aiplatform_V1_PersistentResourceService {
             RebootPersistentResource.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_PersistentResourceService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_PersistentResourceService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_PersistentResourceService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "PersistentResourceService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PersistentResourceService" service.
+    public static let google_cloud_aiplatform_v1_PersistentResourceService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PersistentResourceService")
 }
 
-/// A service for managing Vertex AI's machine learning PersistentResource.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_PersistentResourceService_ClientProtocol: Sendable {
-    /// Creates a PersistentResource.
-    func createPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a PersistentResource.
-    func getPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PersistentResource>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists PersistentResources in a Location.
-    func listPersistentResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a PersistentResource.
-    func deletePersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a PersistentResource.
-    func updatePersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Reboots a PersistentResource.
-    func rebootPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.PersistentResourceService (client)
+
+extension Google_Cloud_Aiplatform_V1_PersistentResourceService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.PersistentResourceService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's machine learning PersistentResource.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreatePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetPersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PersistentResource` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PersistentResource>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListPersistentResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists PersistentResources in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listPersistentResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeletePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deletePersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdatePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updatePersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RebootPersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reboots a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rebootPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.PersistentResourceService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's machine learning PersistentResource.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreatePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.CreatePersistentResource.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetPersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PersistentResource` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PersistentResource>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.GetPersistentResource.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListPersistentResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists PersistentResources in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listPersistentResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.ListPersistentResources.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeletePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deletePersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.DeletePersistentResource.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdatePersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updatePersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.UpdatePersistentResource.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RebootPersistentResource" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reboots a PersistentResource.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func rebootPersistentResource<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.RebootPersistentResource.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
-    public func createPersistentResource<R>(
+    /// Call the "CreatePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createPersistentResource<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createPersistentResource(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getPersistentResource<R>(
+
+    /// Call the "GetPersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getPersistentResource<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getPersistentResource(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_PersistentResource>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listPersistentResources<R>(
+
+    /// Call the "ListPersistentResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists PersistentResources in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listPersistentResources<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listPersistentResources(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deletePersistentResource<R>(
+
+    /// Call the "DeletePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deletePersistentResource<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deletePersistentResource(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updatePersistentResource<R>(
+
+    /// Call the "UpdatePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updatePersistentResource<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updatePersistentResource(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func rebootPersistentResource<R>(
+
+    /// Call the "RebootPersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reboots a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func rebootPersistentResource<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.rebootPersistentResource(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
-    /// Creates a PersistentResource.
+    /// Call the "CreatePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createPersistentResource<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>(
@@ -272,17 +706,30 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.createPersistentResource(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a PersistentResource.
+
+    /// Call the "GetPersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getPersistentResource<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>(
@@ -292,17 +739,30 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.getPersistentResource(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists PersistentResources in a Location.
+
+    /// Call the "ListPersistentResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists PersistentResources in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listPersistentResources<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>(
@@ -312,17 +772,30 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.listPersistentResources(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a PersistentResource.
+
+    /// Call the "DeletePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deletePersistentResource<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>(
@@ -332,17 +805,30 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.deletePersistentResource(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a PersistentResource.
+
+    /// Call the "UpdatePersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updatePersistentResource<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>(
@@ -352,17 +838,30 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.updatePersistentResource(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Reboots a PersistentResource.
+
+    /// Call the "RebootPersistentResource" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reboots a PersistentResource.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func rebootPersistentResource<Result>(
         _ message: Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>(
@@ -372,137 +871,7 @@ extension Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
         return try await self.rebootPersistentResource(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for managing Vertex AI's machine learning PersistentResource.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_PersistentResourceService_Client: Google_Cloud_Aiplatform_V1_PersistentResourceService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a PersistentResource.
-    public func createPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.CreatePersistentResource.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a PersistentResource.
-    public func getPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PersistentResource>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PersistentResource>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.GetPersistentResource.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists PersistentResources in a Location.
-    public func listPersistentResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPersistentResourcesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.ListPersistentResources.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a PersistentResource.
-    public func deletePersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.DeletePersistentResource.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a PersistentResource.
-    public func updatePersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdatePersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.UpdatePersistentResource.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Reboots a PersistentResource.
-    public func rebootPersistentResource<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_RebootPersistentResourceRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PersistentResourceService.Method.RebootPersistentResource.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

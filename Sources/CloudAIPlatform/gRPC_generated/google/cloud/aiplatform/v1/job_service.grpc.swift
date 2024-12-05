@@ -25,289 +25,435 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.JobService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.JobService" service.
 public enum Google_Cloud_Aiplatform_V1_JobService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_JobService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.JobService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateCustomJob" metadata.
         public enum CreateCustomJob {
+            /// Request type for "CreateCustomJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateCustomJobRequest
+            /// Response type for "CreateCustomJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_CustomJob
+            /// Descriptor for "CreateCustomJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateCustomJob"
             )
         }
+        /// Namespace for "GetCustomJob" metadata.
         public enum GetCustomJob {
+            /// Request type for "GetCustomJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetCustomJobRequest
+            /// Response type for "GetCustomJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_CustomJob
+            /// Descriptor for "GetCustomJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetCustomJob"
             )
         }
+        /// Namespace for "ListCustomJobs" metadata.
         public enum ListCustomJobs {
+            /// Request type for "ListCustomJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListCustomJobsRequest
+            /// Response type for "ListCustomJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListCustomJobsResponse
+            /// Descriptor for "ListCustomJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListCustomJobs"
             )
         }
+        /// Namespace for "DeleteCustomJob" metadata.
         public enum DeleteCustomJob {
+            /// Request type for "DeleteCustomJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest
+            /// Response type for "DeleteCustomJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteCustomJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteCustomJob"
             )
         }
+        /// Namespace for "CancelCustomJob" metadata.
         public enum CancelCustomJob {
+            /// Request type for "CancelCustomJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelCustomJobRequest
+            /// Response type for "CancelCustomJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelCustomJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CancelCustomJob"
             )
         }
+        /// Namespace for "CreateDataLabelingJob" metadata.
         public enum CreateDataLabelingJob {
+            /// Request type for "CreateDataLabelingJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest
+            /// Response type for "CreateDataLabelingJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_DataLabelingJob
+            /// Descriptor for "CreateDataLabelingJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateDataLabelingJob"
             )
         }
+        /// Namespace for "GetDataLabelingJob" metadata.
         public enum GetDataLabelingJob {
+            /// Request type for "GetDataLabelingJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest
+            /// Response type for "GetDataLabelingJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_DataLabelingJob
+            /// Descriptor for "GetDataLabelingJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetDataLabelingJob"
             )
         }
+        /// Namespace for "ListDataLabelingJobs" metadata.
         public enum ListDataLabelingJobs {
+            /// Request type for "ListDataLabelingJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest
+            /// Response type for "ListDataLabelingJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse
+            /// Descriptor for "ListDataLabelingJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListDataLabelingJobs"
             )
         }
+        /// Namespace for "DeleteDataLabelingJob" metadata.
         public enum DeleteDataLabelingJob {
+            /// Request type for "DeleteDataLabelingJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest
+            /// Response type for "DeleteDataLabelingJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteDataLabelingJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteDataLabelingJob"
             )
         }
+        /// Namespace for "CancelDataLabelingJob" metadata.
         public enum CancelDataLabelingJob {
+            /// Request type for "CancelDataLabelingJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest
+            /// Response type for "CancelDataLabelingJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelDataLabelingJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CancelDataLabelingJob"
             )
         }
+        /// Namespace for "CreateHyperparameterTuningJob" metadata.
         public enum CreateHyperparameterTuningJob {
+            /// Request type for "CreateHyperparameterTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest
+            /// Response type for "CreateHyperparameterTuningJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_HyperparameterTuningJob
+            /// Descriptor for "CreateHyperparameterTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateHyperparameterTuningJob"
             )
         }
+        /// Namespace for "GetHyperparameterTuningJob" metadata.
         public enum GetHyperparameterTuningJob {
+            /// Request type for "GetHyperparameterTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest
+            /// Response type for "GetHyperparameterTuningJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_HyperparameterTuningJob
+            /// Descriptor for "GetHyperparameterTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetHyperparameterTuningJob"
             )
         }
+        /// Namespace for "ListHyperparameterTuningJobs" metadata.
         public enum ListHyperparameterTuningJobs {
+            /// Request type for "ListHyperparameterTuningJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest
+            /// Response type for "ListHyperparameterTuningJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse
+            /// Descriptor for "ListHyperparameterTuningJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListHyperparameterTuningJobs"
             )
         }
+        /// Namespace for "DeleteHyperparameterTuningJob" metadata.
         public enum DeleteHyperparameterTuningJob {
+            /// Request type for "DeleteHyperparameterTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest
+            /// Response type for "DeleteHyperparameterTuningJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteHyperparameterTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteHyperparameterTuningJob"
             )
         }
+        /// Namespace for "CancelHyperparameterTuningJob" metadata.
         public enum CancelHyperparameterTuningJob {
+            /// Request type for "CancelHyperparameterTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest
+            /// Response type for "CancelHyperparameterTuningJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelHyperparameterTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CancelHyperparameterTuningJob"
             )
         }
+        /// Namespace for "CreateNasJob" metadata.
         public enum CreateNasJob {
+            /// Request type for "CreateNasJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateNasJobRequest
+            /// Response type for "CreateNasJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_NasJob
+            /// Descriptor for "CreateNasJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateNasJob"
             )
         }
+        /// Namespace for "GetNasJob" metadata.
         public enum GetNasJob {
+            /// Request type for "GetNasJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetNasJobRequest
+            /// Response type for "GetNasJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_NasJob
+            /// Descriptor for "GetNasJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetNasJob"
             )
         }
+        /// Namespace for "ListNasJobs" metadata.
         public enum ListNasJobs {
+            /// Request type for "ListNasJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListNasJobsRequest
+            /// Response type for "ListNasJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListNasJobsResponse
+            /// Descriptor for "ListNasJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListNasJobs"
             )
         }
+        /// Namespace for "DeleteNasJob" metadata.
         public enum DeleteNasJob {
+            /// Request type for "DeleteNasJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteNasJobRequest
+            /// Response type for "DeleteNasJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteNasJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteNasJob"
             )
         }
+        /// Namespace for "CancelNasJob" metadata.
         public enum CancelNasJob {
+            /// Request type for "CancelNasJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelNasJobRequest
+            /// Response type for "CancelNasJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelNasJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CancelNasJob"
             )
         }
+        /// Namespace for "GetNasTrialDetail" metadata.
         public enum GetNasTrialDetail {
+            /// Request type for "GetNasTrialDetail".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest
+            /// Response type for "GetNasTrialDetail".
             public typealias Output = Google_Cloud_Aiplatform_V1_NasTrialDetail
+            /// Descriptor for "GetNasTrialDetail".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetNasTrialDetail"
             )
         }
+        /// Namespace for "ListNasTrialDetails" metadata.
         public enum ListNasTrialDetails {
+            /// Request type for "ListNasTrialDetails".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest
+            /// Response type for "ListNasTrialDetails".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse
+            /// Descriptor for "ListNasTrialDetails".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListNasTrialDetails"
             )
         }
+        /// Namespace for "CreateBatchPredictionJob" metadata.
         public enum CreateBatchPredictionJob {
+            /// Request type for "CreateBatchPredictionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest
+            /// Response type for "CreateBatchPredictionJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchPredictionJob
+            /// Descriptor for "CreateBatchPredictionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateBatchPredictionJob"
             )
         }
+        /// Namespace for "GetBatchPredictionJob" metadata.
         public enum GetBatchPredictionJob {
+            /// Request type for "GetBatchPredictionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest
+            /// Response type for "GetBatchPredictionJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchPredictionJob
+            /// Descriptor for "GetBatchPredictionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetBatchPredictionJob"
             )
         }
+        /// Namespace for "ListBatchPredictionJobs" metadata.
         public enum ListBatchPredictionJobs {
+            /// Request type for "ListBatchPredictionJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest
+            /// Response type for "ListBatchPredictionJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse
+            /// Descriptor for "ListBatchPredictionJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListBatchPredictionJobs"
             )
         }
+        /// Namespace for "DeleteBatchPredictionJob" metadata.
         public enum DeleteBatchPredictionJob {
+            /// Request type for "DeleteBatchPredictionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest
+            /// Response type for "DeleteBatchPredictionJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteBatchPredictionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteBatchPredictionJob"
             )
         }
+        /// Namespace for "CancelBatchPredictionJob" metadata.
         public enum CancelBatchPredictionJob {
+            /// Request type for "CancelBatchPredictionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest
+            /// Response type for "CancelBatchPredictionJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelBatchPredictionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CancelBatchPredictionJob"
             )
         }
+        /// Namespace for "CreateModelDeploymentMonitoringJob" metadata.
         public enum CreateModelDeploymentMonitoringJob {
+            /// Request type for "CreateModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest
+            /// Response type for "CreateModelDeploymentMonitoringJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob
+            /// Descriptor for "CreateModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "CreateModelDeploymentMonitoringJob"
             )
         }
+        /// Namespace for "SearchModelDeploymentMonitoringStatsAnomalies" metadata.
         public enum SearchModelDeploymentMonitoringStatsAnomalies {
+            /// Request type for "SearchModelDeploymentMonitoringStatsAnomalies".
             public typealias Input = Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest
+            /// Response type for "SearchModelDeploymentMonitoringStatsAnomalies".
             public typealias Output = Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse
+            /// Descriptor for "SearchModelDeploymentMonitoringStatsAnomalies".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "SearchModelDeploymentMonitoringStatsAnomalies"
             )
         }
+        /// Namespace for "GetModelDeploymentMonitoringJob" metadata.
         public enum GetModelDeploymentMonitoringJob {
+            /// Request type for "GetModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest
+            /// Response type for "GetModelDeploymentMonitoringJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob
+            /// Descriptor for "GetModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "GetModelDeploymentMonitoringJob"
             )
         }
+        /// Namespace for "ListModelDeploymentMonitoringJobs" metadata.
         public enum ListModelDeploymentMonitoringJobs {
+            /// Request type for "ListModelDeploymentMonitoringJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest
+            /// Response type for "ListModelDeploymentMonitoringJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse
+            /// Descriptor for "ListModelDeploymentMonitoringJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ListModelDeploymentMonitoringJobs"
             )
         }
+        /// Namespace for "UpdateModelDeploymentMonitoringJob" metadata.
         public enum UpdateModelDeploymentMonitoringJob {
+            /// Request type for "UpdateModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest
+            /// Response type for "UpdateModelDeploymentMonitoringJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "UpdateModelDeploymentMonitoringJob"
             )
         }
+        /// Namespace for "DeleteModelDeploymentMonitoringJob" metadata.
         public enum DeleteModelDeploymentMonitoringJob {
+            /// Request type for "DeleteModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest
+            /// Response type for "DeleteModelDeploymentMonitoringJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "DeleteModelDeploymentMonitoringJob"
             )
         }
+        /// Namespace for "PauseModelDeploymentMonitoringJob" metadata.
         public enum PauseModelDeploymentMonitoringJob {
+            /// Request type for "PauseModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest
+            /// Response type for "PauseModelDeploymentMonitoringJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "PauseModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "PauseModelDeploymentMonitoringJob"
             )
         }
+        /// Namespace for "ResumeModelDeploymentMonitoringJob" metadata.
         public enum ResumeModelDeploymentMonitoringJob {
+            /// Request type for "ResumeModelDeploymentMonitoringJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest
+            /// Response type for "ResumeModelDeploymentMonitoringJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "ResumeModelDeploymentMonitoringJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_JobService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService"),
                 method: "ResumeModelDeploymentMonitoringJob"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.JobService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateCustomJob.descriptor,
             GetCustomJob.descriptor,
@@ -346,968 +492,3255 @@ public enum Google_Cloud_Aiplatform_V1_JobService {
             ResumeModelDeploymentMonitoringJob.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_JobService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_JobService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_JobService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "JobService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.JobService" service.
+    public static let google_cloud_aiplatform_v1_JobService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.JobService")
 }
 
-/// A service for creating and managing Vertex AI's jobs.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_JobService_ClientProtocol: Sendable {
-    /// Creates a CustomJob. A created CustomJob right away
-    /// will be attempted to be run.
-    func createCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a CustomJob.
-    func getCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists CustomJobs in a Location.
-    func listCustomJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a CustomJob.
-    func deleteCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a CustomJob.
-    /// Starts asynchronous cancellation on the CustomJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the CustomJob is not deleted; instead it becomes a job with
-    /// a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
-    /// a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
-    /// `CANCELLED`.
-    func cancelCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a DataLabelingJob.
-    func createDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a DataLabelingJob.
-    func getDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists DataLabelingJobs in a Location.
-    func listDataLabelingJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a DataLabelingJob.
-    func deleteDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
-    func cancelDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a HyperparameterTuningJob
-    func createHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a HyperparameterTuningJob
-    func getHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists HyperparameterTuningJobs in a Location.
-    func listHyperparameterTuningJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a HyperparameterTuningJob.
-    func deleteHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a HyperparameterTuningJob.
-    /// Starts asynchronous cancellation on the HyperparameterTuningJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the HyperparameterTuningJob is not deleted; instead it becomes a job with
-    /// a
-    /// [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
-    /// is set to `CANCELLED`.
-    func cancelHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a NasJob
-    func createNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a NasJob
-    func getNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists NasJobs in a Location.
-    func listNasJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a NasJob.
-    func deleteNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a NasJob.
-    /// Starts asynchronous cancellation on the NasJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the NasJob is not deleted; instead it becomes a job with
-    /// a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
-    /// `CANCELLED`.
-    func cancelNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a NasTrialDetail.
-    func getNasTrialDetail<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasTrialDetail>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// List top NasTrialDetails of a NasJob.
-    func listNasTrialDetails<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a BatchPredictionJob. A BatchPredictionJob once created will
-    /// right away be attempted to start.
-    func createBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a BatchPredictionJob
-    func getBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists BatchPredictionJobs in a Location.
-    func listBatchPredictionJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a BatchPredictionJob. Can only be called on jobs that already
-    /// finished.
-    func deleteBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a BatchPredictionJob.
+// MARK: google.cloud.aiplatform.v1.JobService (client)
+
+extension Google_Cloud_Aiplatform_V1_JobService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.JobService" service.
     ///
-    /// Starts asynchronous cancellation on the BatchPredictionJob. The server
-    /// makes the best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On a successful cancellation,
-    /// the BatchPredictionJob is not deleted;instead its
-    /// [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
-    /// is set to `CANCELLED`. Any files already outputted by the job are not
-    /// deleted.
-    func cancelBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a ModelDeploymentMonitoringJob. It will run periodically on a
-    /// configured interval.
-    func createModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Searches Model Monitoring Statistics generated within a given time window.
-    func searchModelDeploymentMonitoringStatsAnomalies<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a ModelDeploymentMonitoringJob.
-    func getModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists ModelDeploymentMonitoringJobs in a Location.
-    func listModelDeploymentMonitoringJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a ModelDeploymentMonitoringJob.
-    func updateModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a ModelDeploymentMonitoringJob.
-    func deleteModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
-    /// makes a best effort to cancel the job. Will mark
-    /// [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
-    /// to 'PAUSED'.
-    func pauseModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
-    /// next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
-    /// resumed.
-    func resumeModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's jobs.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a CustomJob. A created CustomJob right away
+        /// > will be attempted to be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CustomJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a CustomJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CustomJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListCustomJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists CustomJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListCustomJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListCustomJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListCustomJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listCustomJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a CustomJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a CustomJob.
+        /// > Starts asynchronous cancellation on the CustomJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the CustomJob is not deleted; instead it becomes a job with
+        /// > a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
+        /// > a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DataLabelingJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DataLabelingJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListDataLabelingJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists DataLabelingJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listDataLabelingJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a HyperparameterTuningJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_HyperparameterTuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a HyperparameterTuningJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_HyperparameterTuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListHyperparameterTuningJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists HyperparameterTuningJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listHyperparameterTuningJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a HyperparameterTuningJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a HyperparameterTuningJob.
+        /// > Starts asynchronous cancellation on the HyperparameterTuningJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the HyperparameterTuningJob is not deleted; instead it becomes a job with
+        /// > a
+        /// > [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
+        /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`, and
+        /// > [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
+        /// > is set to `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NasJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NasJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListNasJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NasJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNasJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNasJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listNasJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NasJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a NasJob.
+        /// > Starts asynchronous cancellation on the NasJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
+        /// > other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the NasJob is not deleted; instead it becomes a job with
+        /// > a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
+        /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetNasTrialDetail" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NasTrialDetail.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasTrialDetail` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getNasTrialDetail<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasTrialDetail>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListNasTrialDetails" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List top NasTrialDetails of a NasJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listNasTrialDetails<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a BatchPredictionJob. A BatchPredictionJob once created will
+        /// > right away be attempted to start.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchPredictionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a BatchPredictionJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchPredictionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListBatchPredictionJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists BatchPredictionJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listBatchPredictionJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a BatchPredictionJob. Can only be called on jobs that already
+        /// > finished.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a BatchPredictionJob.
+        /// > 
+        /// > Starts asynchronous cancellation on the BatchPredictionJob. The server
+        /// > makes the best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On a successful cancellation,
+        /// > the BatchPredictionJob is not deleted;instead its
+        /// > [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
+        /// > is set to `CANCELLED`. Any files already outputted by the job are not
+        /// > deleted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a ModelDeploymentMonitoringJob. It will run periodically on a
+        /// > configured interval.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "SearchModelDeploymentMonitoringStatsAnomalies" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Searches Model Monitoring Statistics generated within a given time window.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func searchModelDeploymentMonitoringStatsAnomalies<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListModelDeploymentMonitoringJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelDeploymentMonitoringJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listModelDeploymentMonitoringJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "PauseModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
+        /// > makes a best effort to cancel the job. Will mark
+        /// > [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
+        /// > to 'PAUSED'.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func pauseModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ResumeModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
+        /// > next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
+        /// > resumed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func resumeModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.JobService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's jobs.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a CustomJob. A created CustomJob right away
+        /// > will be attempted to be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CustomJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateCustomJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a CustomJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CustomJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetCustomJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListCustomJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists CustomJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListCustomJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListCustomJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListCustomJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listCustomJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListCustomJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a CustomJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteCustomJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelCustomJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a CustomJob.
+        /// > Starts asynchronous cancellation on the CustomJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the CustomJob is not deleted; instead it becomes a job with
+        /// > a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
+        /// > a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelCustomJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelCustomJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelCustomJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelCustomJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DataLabelingJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateDataLabelingJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DataLabelingJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetDataLabelingJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListDataLabelingJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists DataLabelingJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listDataLabelingJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListDataLabelingJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a DataLabelingJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteDataLabelingJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelDataLabelingJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelDataLabelingJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelDataLabelingJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a HyperparameterTuningJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_HyperparameterTuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateHyperparameterTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a HyperparameterTuningJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_HyperparameterTuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetHyperparameterTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListHyperparameterTuningJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists HyperparameterTuningJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listHyperparameterTuningJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListHyperparameterTuningJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a HyperparameterTuningJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteHyperparameterTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelHyperparameterTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a HyperparameterTuningJob.
+        /// > Starts asynchronous cancellation on the HyperparameterTuningJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the HyperparameterTuningJob is not deleted; instead it becomes a job with
+        /// > a
+        /// > [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
+        /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`, and
+        /// > [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
+        /// > is set to `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelHyperparameterTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelHyperparameterTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NasJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateNasJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NasJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetNasJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListNasJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NasJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNasJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNasJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listNasJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListNasJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NasJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteNasJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelNasJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a NasJob.
+        /// > Starts asynchronous cancellation on the NasJob. The server
+        /// > makes a best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
+        /// > other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation,
+        /// > the NasJob is not deleted; instead it becomes a job with
+        /// > a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
+        /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelNasJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelNasJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelNasJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelNasJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetNasTrialDetail" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NasTrialDetail.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NasTrialDetail` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getNasTrialDetail<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasTrialDetail>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetNasTrialDetail.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListNasTrialDetails" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List top NasTrialDetails of a NasJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listNasTrialDetails<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListNasTrialDetails.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a BatchPredictionJob. A BatchPredictionJob once created will
+        /// > right away be attempted to start.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchPredictionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateBatchPredictionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a BatchPredictionJob
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchPredictionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetBatchPredictionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListBatchPredictionJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists BatchPredictionJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listBatchPredictionJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListBatchPredictionJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a BatchPredictionJob. Can only be called on jobs that already
+        /// > finished.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteBatchPredictionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelBatchPredictionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a BatchPredictionJob.
+        /// > 
+        /// > Starts asynchronous cancellation on the BatchPredictionJob. The server
+        /// > makes the best effort to cancel the job, but success is not
+        /// > guaranteed. Clients can use
+        /// > [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On a successful cancellation,
+        /// > the BatchPredictionJob is not deleted;instead its
+        /// > [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
+        /// > is set to `CANCELLED`. Any files already outputted by the job are not
+        /// > deleted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelBatchPredictionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelBatchPredictionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a ModelDeploymentMonitoringJob. It will run periodically on a
+        /// > configured interval.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "SearchModelDeploymentMonitoringStatsAnomalies" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Searches Model Monitoring Statistics generated within a given time window.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func searchModelDeploymentMonitoringStatsAnomalies<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.SearchModelDeploymentMonitoringStatsAnomalies.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListModelDeploymentMonitoringJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists ModelDeploymentMonitoringJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listModelDeploymentMonitoringJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListModelDeploymentMonitoringJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.UpdateModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a ModelDeploymentMonitoringJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "PauseModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
+        /// > makes a best effort to cancel the job. Will mark
+        /// > [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
+        /// > to 'PAUSED'.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func pauseModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.PauseModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ResumeModelDeploymentMonitoringJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
+        /// > next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
+        /// > resumed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func resumeModelDeploymentMonitoringJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ResumeModelDeploymentMonitoringJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
-    public func createCustomJob<R>(
+    /// Call the "CreateCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a CustomJob. A created CustomJob right away
+    /// > will be attempted to be run.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateCustomJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createCustomJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createCustomJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getCustomJob<R>(
+
+    /// Call the "GetCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a CustomJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetCustomJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getCustomJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getCustomJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listCustomJobs<R>(
+
+    /// Call the "ListCustomJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists CustomJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListCustomJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listCustomJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listCustomJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteCustomJob<R>(
+
+    /// Call the "DeleteCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a CustomJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteCustomJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteCustomJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelCustomJob<R>(
+
+    /// Call the "CancelCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a CustomJob.
+    /// > Starts asynchronous cancellation on the CustomJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the CustomJob is not deleted; instead it becomes a job with
+    /// > a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
+    /// > a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelCustomJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelCustomJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelCustomJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createDataLabelingJob<R>(
+
+    /// Call the "CreateDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createDataLabelingJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createDataLabelingJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getDataLabelingJob<R>(
+
+    /// Call the "GetDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getDataLabelingJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getDataLabelingJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listDataLabelingJobs<R>(
+
+    /// Call the "ListDataLabelingJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists DataLabelingJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listDataLabelingJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listDataLabelingJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteDataLabelingJob<R>(
+
+    /// Call the "DeleteDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteDataLabelingJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteDataLabelingJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelDataLabelingJob<R>(
+
+    /// Call the "CancelDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelDataLabelingJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelDataLabelingJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createHyperparameterTuningJob<R>(
+
+    /// Call the "CreateHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a HyperparameterTuningJob
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createHyperparameterTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createHyperparameterTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getHyperparameterTuningJob<R>(
+
+    /// Call the "GetHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a HyperparameterTuningJob
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getHyperparameterTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getHyperparameterTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listHyperparameterTuningJobs<R>(
+
+    /// Call the "ListHyperparameterTuningJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists HyperparameterTuningJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listHyperparameterTuningJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listHyperparameterTuningJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteHyperparameterTuningJob<R>(
+
+    /// Call the "DeleteHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a HyperparameterTuningJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteHyperparameterTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteHyperparameterTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelHyperparameterTuningJob<R>(
+
+    /// Call the "CancelHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a HyperparameterTuningJob.
+    /// > Starts asynchronous cancellation on the HyperparameterTuningJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the HyperparameterTuningJob is not deleted; instead it becomes a job with
+    /// > a
+    /// > [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
+    /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`, and
+    /// > [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
+    /// > is set to `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelHyperparameterTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelHyperparameterTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createNasJob<R>(
+
+    /// Call the "CreateNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NasJob
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNasJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createNasJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createNasJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NasJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getNasJob<R>(
+
+    /// Call the "GetNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NasJob
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getNasJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getNasJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetNasJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NasJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listNasJobs<R>(
+
+    /// Call the "ListNasJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NasJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listNasJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listNasJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteNasJob<R>(
+
+    /// Call the "DeleteNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NasJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNasJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteNasJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteNasJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelNasJob<R>(
+
+    /// Call the "CancelNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a NasJob.
+    /// > Starts asynchronous cancellation on the NasJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
+    /// > other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the NasJob is not deleted; instead it becomes a job with
+    /// > a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
+    /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelNasJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelNasJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelNasJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getNasTrialDetail<R>(
+
+    /// Call the "GetNasTrialDetail" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NasTrialDetail.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getNasTrialDetail<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getNasTrialDetail(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NasTrialDetail>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listNasTrialDetails<R>(
+
+    /// Call the "ListNasTrialDetails" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List top NasTrialDetails of a NasJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listNasTrialDetails<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listNasTrialDetails(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createBatchPredictionJob<R>(
+
+    /// Call the "CreateBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a BatchPredictionJob. A BatchPredictionJob once created will
+    /// > right away be attempted to start.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createBatchPredictionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createBatchPredictionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getBatchPredictionJob<R>(
+
+    /// Call the "GetBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a BatchPredictionJob
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getBatchPredictionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getBatchPredictionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listBatchPredictionJobs<R>(
+
+    /// Call the "ListBatchPredictionJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists BatchPredictionJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listBatchPredictionJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listBatchPredictionJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteBatchPredictionJob<R>(
+
+    /// Call the "DeleteBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a BatchPredictionJob. Can only be called on jobs that already
+    /// > finished.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteBatchPredictionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteBatchPredictionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelBatchPredictionJob<R>(
+
+    /// Call the "CancelBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a BatchPredictionJob.
+    /// > 
+    /// > Starts asynchronous cancellation on the BatchPredictionJob. The server
+    /// > makes the best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On a successful cancellation,
+    /// > the BatchPredictionJob is not deleted;instead its
+    /// > [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
+    /// > is set to `CANCELLED`. Any files already outputted by the job are not
+    /// > deleted.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelBatchPredictionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelBatchPredictionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createModelDeploymentMonitoringJob<R>(
+
+    /// Call the "CreateModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a ModelDeploymentMonitoringJob. It will run periodically on a
+    /// > configured interval.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func searchModelDeploymentMonitoringStatsAnomalies<R>(
+
+    /// Call the "SearchModelDeploymentMonitoringStatsAnomalies" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Searches Model Monitoring Statistics generated within a given time window.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func searchModelDeploymentMonitoringStatsAnomalies<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.searchModelDeploymentMonitoringStatsAnomalies(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getModelDeploymentMonitoringJob<R>(
+
+    /// Call the "GetModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listModelDeploymentMonitoringJobs<R>(
+
+    /// Call the "ListModelDeploymentMonitoringJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelDeploymentMonitoringJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listModelDeploymentMonitoringJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listModelDeploymentMonitoringJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateModelDeploymentMonitoringJob<R>(
+
+    /// Call the "UpdateModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteModelDeploymentMonitoringJob<R>(
+
+    /// Call the "DeleteModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func pauseModelDeploymentMonitoringJob<R>(
+
+    /// Call the "PauseModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
+    /// > makes a best effort to cancel the job. Will mark
+    /// > [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
+    /// > to 'PAUSED'.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func pauseModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.pauseModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func resumeModelDeploymentMonitoringJob<R>(
+
+    /// Call the "ResumeModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
+    /// > next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
+    /// > resumed.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func resumeModelDeploymentMonitoringJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.resumeModelDeploymentMonitoringJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
-    /// Creates a CustomJob. A created CustomJob right away
-    /// will be attempted to be run.
+    /// Call the "CreateCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a CustomJob. A created CustomJob right away
+    /// > will be attempted to be run.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createCustomJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateCustomJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>(
@@ -1317,17 +3750,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createCustomJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a CustomJob.
+
+    /// Call the "GetCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a CustomJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getCustomJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetCustomJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>(
@@ -1337,17 +3783,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getCustomJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists CustomJobs in a Location.
+
+    /// Call the "ListCustomJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists CustomJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listCustomJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListCustomJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>(
@@ -1357,17 +3816,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listCustomJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a CustomJob.
+
+    /// Call the "DeleteCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a CustomJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteCustomJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>(
@@ -1377,29 +3849,42 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteCustomJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a CustomJob.
-    /// Starts asynchronous cancellation on the CustomJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the CustomJob is not deleted; instead it becomes a job with
-    /// a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
-    /// a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
-    /// `CANCELLED`.
+
+    /// Call the "CancelCustomJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a CustomJob.
+    /// > Starts asynchronous cancellation on the CustomJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the CustomJob is not deleted; instead it becomes a job with
+    /// > a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
+    /// > a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelCustomJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelCustomJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>(
@@ -1409,17 +3894,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.cancelCustomJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a DataLabelingJob.
+
+    /// Call the "CreateDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createDataLabelingJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>(
@@ -1429,17 +3927,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createDataLabelingJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a DataLabelingJob.
+
+    /// Call the "GetDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getDataLabelingJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>(
@@ -1449,17 +3960,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getDataLabelingJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists DataLabelingJobs in a Location.
+
+    /// Call the "ListDataLabelingJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists DataLabelingJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listDataLabelingJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>(
@@ -1469,17 +3993,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listDataLabelingJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a DataLabelingJob.
+
+    /// Call the "DeleteDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a DataLabelingJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteDataLabelingJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>(
@@ -1489,17 +4026,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteDataLabelingJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
+
+    /// Call the "CancelDataLabelingJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelDataLabelingJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>(
@@ -1509,17 +4059,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.cancelDataLabelingJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a HyperparameterTuningJob
+
+    /// Call the "CreateHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a HyperparameterTuningJob
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createHyperparameterTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>(
@@ -1529,17 +4092,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createHyperparameterTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a HyperparameterTuningJob
+
+    /// Call the "GetHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a HyperparameterTuningJob
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getHyperparameterTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>(
@@ -1549,17 +4125,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getHyperparameterTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists HyperparameterTuningJobs in a Location.
+
+    /// Call the "ListHyperparameterTuningJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists HyperparameterTuningJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listHyperparameterTuningJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>(
@@ -1569,17 +4158,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listHyperparameterTuningJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a HyperparameterTuningJob.
+
+    /// Call the "DeleteHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a HyperparameterTuningJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteHyperparameterTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>(
@@ -1589,30 +4191,43 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteHyperparameterTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a HyperparameterTuningJob.
-    /// Starts asynchronous cancellation on the HyperparameterTuningJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the HyperparameterTuningJob is not deleted; instead it becomes a job with
-    /// a
-    /// [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
-    /// is set to `CANCELLED`.
+
+    /// Call the "CancelHyperparameterTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a HyperparameterTuningJob.
+    /// > Starts asynchronous cancellation on the HyperparameterTuningJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the HyperparameterTuningJob is not deleted; instead it becomes a job with
+    /// > a
+    /// > [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
+    /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`, and
+    /// > [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
+    /// > is set to `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelHyperparameterTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>(
@@ -1622,17 +4237,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.cancelHyperparameterTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a NasJob
+
+    /// Call the "CreateNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NasJob
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createNasJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateNasJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>(
@@ -1642,17 +4270,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createNasJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a NasJob
+
+    /// Call the "GetNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NasJob
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getNasJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetNasJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>(
@@ -1662,17 +4303,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getNasJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists NasJobs in a Location.
+
+    /// Call the "ListNasJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NasJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listNasJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListNasJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>(
@@ -1682,17 +4336,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listNasJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a NasJob.
+
+    /// Call the "DeleteNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NasJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteNasJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteNasJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>(
@@ -1702,29 +4369,42 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteNasJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a NasJob.
-    /// Starts asynchronous cancellation on the NasJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the NasJob is not deleted; instead it becomes a job with
-    /// a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
-    /// `CANCELLED`.
+
+    /// Call the "CancelNasJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a NasJob.
+    /// > Starts asynchronous cancellation on the NasJob. The server
+    /// > makes a best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
+    /// > other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation,
+    /// > the NasJob is not deleted; instead it becomes a job with
+    /// > a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
+    /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelNasJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelNasJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>(
@@ -1734,17 +4414,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.cancelNasJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a NasTrialDetail.
+
+    /// Call the "GetNasTrialDetail" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NasTrialDetail.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getNasTrialDetail<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>(
@@ -1754,17 +4447,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getNasTrialDetail(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// List top NasTrialDetails of a NasJob.
+
+    /// Call the "ListNasTrialDetails" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List top NasTrialDetails of a NasJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listNasTrialDetails<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>(
@@ -1774,18 +4480,31 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listNasTrialDetails(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a BatchPredictionJob. A BatchPredictionJob once created will
-    /// right away be attempted to start.
+
+    /// Call the "CreateBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a BatchPredictionJob. A BatchPredictionJob once created will
+    /// > right away be attempted to start.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createBatchPredictionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>(
@@ -1795,17 +4514,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createBatchPredictionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a BatchPredictionJob
+
+    /// Call the "GetBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a BatchPredictionJob
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getBatchPredictionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>(
@@ -1815,17 +4547,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getBatchPredictionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists BatchPredictionJobs in a Location.
+
+    /// Call the "ListBatchPredictionJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists BatchPredictionJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listBatchPredictionJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>(
@@ -1835,18 +4580,31 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listBatchPredictionJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a BatchPredictionJob. Can only be called on jobs that already
-    /// finished.
+
+    /// Call the "DeleteBatchPredictionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a BatchPredictionJob. Can only be called on jobs that already
+    /// > finished.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteBatchPredictionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>(
@@ -1856,28 +4614,41 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteBatchPredictionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a BatchPredictionJob.
+
+    /// Call the "CancelBatchPredictionJob" method.
     ///
-    /// Starts asynchronous cancellation on the BatchPredictionJob. The server
-    /// makes the best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On a successful cancellation,
-    /// the BatchPredictionJob is not deleted;instead its
-    /// [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
-    /// is set to `CANCELLED`. Any files already outputted by the job are not
-    /// deleted.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a BatchPredictionJob.
+    /// > 
+    /// > Starts asynchronous cancellation on the BatchPredictionJob. The server
+    /// > makes the best effort to cancel the job, but success is not
+    /// > guaranteed. Clients can use
+    /// > [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On a successful cancellation,
+    /// > the BatchPredictionJob is not deleted;instead its
+    /// > [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
+    /// > is set to `CANCELLED`. Any files already outputted by the job are not
+    /// > deleted.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelBatchPredictionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>(
@@ -1887,18 +4658,31 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.cancelBatchPredictionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a ModelDeploymentMonitoringJob. It will run periodically on a
-    /// configured interval.
+
+    /// Call the "CreateModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a ModelDeploymentMonitoringJob. It will run periodically on a
+    /// > configured interval.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>(
@@ -1908,17 +4692,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.createModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Searches Model Monitoring Statistics generated within a given time window.
+
+    /// Call the "SearchModelDeploymentMonitoringStatsAnomalies" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Searches Model Monitoring Statistics generated within a given time window.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func searchModelDeploymentMonitoringStatsAnomalies<Result>(
         _ message: Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>(
@@ -1928,17 +4725,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.searchModelDeploymentMonitoringStatsAnomalies(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a ModelDeploymentMonitoringJob.
+
+    /// Call the "GetModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>(
@@ -1948,17 +4758,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.getModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists ModelDeploymentMonitoringJobs in a Location.
+
+    /// Call the "ListModelDeploymentMonitoringJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists ModelDeploymentMonitoringJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listModelDeploymentMonitoringJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>(
@@ -1968,17 +4791,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.listModelDeploymentMonitoringJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a ModelDeploymentMonitoringJob.
+
+    /// Call the "UpdateModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>(
@@ -1988,17 +4824,30 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.updateModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a ModelDeploymentMonitoringJob.
+
+    /// Call the "DeleteModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a ModelDeploymentMonitoringJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>(
@@ -2008,20 +4857,33 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.deleteModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
-    /// makes a best effort to cancel the job. Will mark
-    /// [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
-    /// to 'PAUSED'.
+
+    /// Call the "PauseModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
+    /// > makes a best effort to cancel the job. Will mark
+    /// > [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
+    /// > to 'PAUSED'.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func pauseModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>(
@@ -2031,19 +4893,32 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.pauseModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
-    /// next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
-    /// resumed.
+
+    /// Call the "ResumeModelDeploymentMonitoringJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
+    /// > next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
+    /// > resumed.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func resumeModelDeploymentMonitoringJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>(
@@ -2053,774 +4928,7 @@ extension Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
         return try await self.resumeModelDeploymentMonitoringJob(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for creating and managing Vertex AI's jobs.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_JobService_Client: Google_Cloud_Aiplatform_V1_JobService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a CustomJob. A created CustomJob right away
-    /// will be attempted to be run.
-    public func createCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateCustomJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a CustomJob.
-    public func getCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CustomJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CustomJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetCustomJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists CustomJobs in a Location.
-    public func listCustomJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListCustomJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListCustomJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListCustomJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a CustomJob.
-    public func deleteCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteCustomJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a CustomJob.
-    /// Starts asynchronous cancellation on the CustomJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetCustomJob][google.cloud.aiplatform.v1.JobService.GetCustomJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the CustomJob is not deleted; instead it becomes a job with
-    /// a [CustomJob.error][google.cloud.aiplatform.v1.CustomJob.error] value with
-    /// a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [CustomJob.state][google.cloud.aiplatform.v1.CustomJob.state] is set to
-    /// `CANCELLED`.
-    public func cancelCustomJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelCustomJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelCustomJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a DataLabelingJob.
-    public func createDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateDataLabelingJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a DataLabelingJob.
-    public func getDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DataLabelingJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DataLabelingJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetDataLabelingJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists DataLabelingJobs in a Location.
-    public func listDataLabelingJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDataLabelingJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListDataLabelingJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a DataLabelingJob.
-    public func deleteDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteDataLabelingJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a DataLabelingJob. Success of cancellation is not guaranteed.
-    public func cancelDataLabelingJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelDataLabelingJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelDataLabelingJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a HyperparameterTuningJob
-    public func createHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateHyperparameterTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a HyperparameterTuningJob
-    public func getHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_HyperparameterTuningJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetHyperparameterTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists HyperparameterTuningJobs in a Location.
-    public func listHyperparameterTuningJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListHyperparameterTuningJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListHyperparameterTuningJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a HyperparameterTuningJob.
-    public func deleteHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteHyperparameterTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a HyperparameterTuningJob.
-    /// Starts asynchronous cancellation on the HyperparameterTuningJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetHyperparameterTuningJob][google.cloud.aiplatform.v1.JobService.GetHyperparameterTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the HyperparameterTuningJob is not deleted; instead it becomes a job with
-    /// a
-    /// [HyperparameterTuningJob.error][google.cloud.aiplatform.v1.HyperparameterTuningJob.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [HyperparameterTuningJob.state][google.cloud.aiplatform.v1.HyperparameterTuningJob.state]
-    /// is set to `CANCELLED`.
-    public func cancelHyperparameterTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelHyperparameterTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelHyperparameterTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a NasJob
-    public func createNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateNasJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a NasJob
-    public func getNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetNasJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists NasJobs in a Location.
-    public func listNasJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListNasJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a NasJob.
-    public func deleteNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteNasJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a NasJob.
-    /// Starts asynchronous cancellation on the NasJob. The server
-    /// makes a best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetNasJob][google.cloud.aiplatform.v1.JobService.GetNasJob] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation,
-    /// the NasJob is not deleted; instead it becomes a job with
-    /// a [NasJob.error][google.cloud.aiplatform.v1.NasJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [NasJob.state][google.cloud.aiplatform.v1.NasJob.state] is set to
-    /// `CANCELLED`.
-    public func cancelNasJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelNasJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelNasJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a NasTrialDetail.
-    public func getNasTrialDetail<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNasTrialDetailRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NasTrialDetail>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NasTrialDetail>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetNasTrialDetail.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// List top NasTrialDetails of a NasJob.
-    public func listNasTrialDetails<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNasTrialDetailsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListNasTrialDetails.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a BatchPredictionJob. A BatchPredictionJob once created will
-    /// right away be attempted to start.
-    public func createBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateBatchPredictionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a BatchPredictionJob
-    public func getBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchPredictionJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchPredictionJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetBatchPredictionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists BatchPredictionJobs in a Location.
-    public func listBatchPredictionJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListBatchPredictionJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListBatchPredictionJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a BatchPredictionJob. Can only be called on jobs that already
-    /// finished.
-    public func deleteBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteBatchPredictionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a BatchPredictionJob.
-    ///
-    /// Starts asynchronous cancellation on the BatchPredictionJob. The server
-    /// makes the best effort to cancel the job, but success is not
-    /// guaranteed. Clients can use
-    /// [JobService.GetBatchPredictionJob][google.cloud.aiplatform.v1.JobService.GetBatchPredictionJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On a successful cancellation,
-    /// the BatchPredictionJob is not deleted;instead its
-    /// [BatchPredictionJob.state][google.cloud.aiplatform.v1.BatchPredictionJob.state]
-    /// is set to `CANCELLED`. Any files already outputted by the job are not
-    /// deleted.
-    public func cancelBatchPredictionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelBatchPredictionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CancelBatchPredictionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a ModelDeploymentMonitoringJob. It will run periodically on a
-    /// configured interval.
-    public func createModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.CreateModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Searches Model Monitoring Statistics generated within a given time window.
-    public func searchModelDeploymentMonitoringStatsAnomalies<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchModelDeploymentMonitoringStatsAnomaliesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.SearchModelDeploymentMonitoringStatsAnomalies.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a ModelDeploymentMonitoringJob.
-    public func getModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ModelDeploymentMonitoringJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.GetModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists ModelDeploymentMonitoringJobs in a Location.
-    public func listModelDeploymentMonitoringJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListModelDeploymentMonitoringJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ListModelDeploymentMonitoringJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a ModelDeploymentMonitoringJob.
-    public func updateModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.UpdateModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a ModelDeploymentMonitoringJob.
-    public func deleteModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.DeleteModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Pauses a ModelDeploymentMonitoringJob. If the job is running, the server
-    /// makes a best effort to cancel the job. Will mark
-    /// [ModelDeploymentMonitoringJob.state][google.cloud.aiplatform.v1.ModelDeploymentMonitoringJob.state]
-    /// to 'PAUSED'.
-    public func pauseModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_PauseModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.PauseModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Resumes a paused ModelDeploymentMonitoringJob. It will start to run from
-    /// next scheduled time. A deleted ModelDeploymentMonitoringJob can't be
-    /// resumed.
-    public func resumeModelDeploymentMonitoringJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ResumeModelDeploymentMonitoringJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_JobService.Method.ResumeModelDeploymentMonitoringJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

@@ -24,113 +24,171 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
 public enum Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_FeatureOnlineStoreAdminService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateFeatureOnlineStore" metadata.
         public enum CreateFeatureOnlineStore {
+            /// Request type for "CreateFeatureOnlineStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest
+            /// Response type for "CreateFeatureOnlineStore".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateFeatureOnlineStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "CreateFeatureOnlineStore"
             )
         }
+        /// Namespace for "GetFeatureOnlineStore" metadata.
         public enum GetFeatureOnlineStore {
+            /// Request type for "GetFeatureOnlineStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest
+            /// Response type for "GetFeatureOnlineStore".
             public typealias Output = Google_Cloud_Aiplatform_V1_FeatureOnlineStore
+            /// Descriptor for "GetFeatureOnlineStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "GetFeatureOnlineStore"
             )
         }
+        /// Namespace for "ListFeatureOnlineStores" metadata.
         public enum ListFeatureOnlineStores {
+            /// Request type for "ListFeatureOnlineStores".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest
+            /// Response type for "ListFeatureOnlineStores".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse
+            /// Descriptor for "ListFeatureOnlineStores".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "ListFeatureOnlineStores"
             )
         }
+        /// Namespace for "UpdateFeatureOnlineStore" metadata.
         public enum UpdateFeatureOnlineStore {
+            /// Request type for "UpdateFeatureOnlineStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest
+            /// Response type for "UpdateFeatureOnlineStore".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateFeatureOnlineStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "UpdateFeatureOnlineStore"
             )
         }
+        /// Namespace for "DeleteFeatureOnlineStore" metadata.
         public enum DeleteFeatureOnlineStore {
+            /// Request type for "DeleteFeatureOnlineStore".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest
+            /// Response type for "DeleteFeatureOnlineStore".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteFeatureOnlineStore".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "DeleteFeatureOnlineStore"
             )
         }
+        /// Namespace for "CreateFeatureView" metadata.
         public enum CreateFeatureView {
+            /// Request type for "CreateFeatureView".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest
+            /// Response type for "CreateFeatureView".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateFeatureView".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "CreateFeatureView"
             )
         }
+        /// Namespace for "GetFeatureView" metadata.
         public enum GetFeatureView {
+            /// Request type for "GetFeatureView".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetFeatureViewRequest
+            /// Response type for "GetFeatureView".
             public typealias Output = Google_Cloud_Aiplatform_V1_FeatureView
+            /// Descriptor for "GetFeatureView".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "GetFeatureView"
             )
         }
+        /// Namespace for "ListFeatureViews" metadata.
         public enum ListFeatureViews {
+            /// Request type for "ListFeatureViews".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest
+            /// Response type for "ListFeatureViews".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse
+            /// Descriptor for "ListFeatureViews".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "ListFeatureViews"
             )
         }
+        /// Namespace for "UpdateFeatureView" metadata.
         public enum UpdateFeatureView {
+            /// Request type for "UpdateFeatureView".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest
+            /// Response type for "UpdateFeatureView".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateFeatureView".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "UpdateFeatureView"
             )
         }
+        /// Namespace for "DeleteFeatureView" metadata.
         public enum DeleteFeatureView {
+            /// Request type for "DeleteFeatureView".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest
+            /// Response type for "DeleteFeatureView".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteFeatureView".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "DeleteFeatureView"
             )
         }
+        /// Namespace for "SyncFeatureView" metadata.
         public enum SyncFeatureView {
+            /// Request type for "SyncFeatureView".
             public typealias Input = Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest
+            /// Response type for "SyncFeatureView".
             public typealias Output = Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse
+            /// Descriptor for "SyncFeatureView".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "SyncFeatureView"
             )
         }
+        /// Namespace for "GetFeatureViewSync" metadata.
         public enum GetFeatureViewSync {
+            /// Request type for "GetFeatureViewSync".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest
+            /// Response type for "GetFeatureViewSync".
             public typealias Output = Google_Cloud_Aiplatform_V1_FeatureViewSync
+            /// Descriptor for "GetFeatureViewSync".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "GetFeatureViewSync"
             )
         }
+        /// Namespace for "ListFeatureViewSyncs" metadata.
         public enum ListFeatureViewSyncs {
+            /// Request type for "ListFeatureViewSyncs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest
+            /// Response type for "ListFeatureViewSyncs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse
+            /// Descriptor for "ListFeatureViewSyncs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService"),
                 method: "ListFeatureViewSyncs"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateFeatureOnlineStore.descriptor,
             GetFeatureOnlineStore.descriptor,
@@ -147,362 +205,1196 @@ public enum Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService {
             ListFeatureViewSyncs.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_FeatureOnlineStoreAdminService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "FeatureOnlineStoreAdminService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
+    public static let google_cloud_aiplatform_v1_FeatureOnlineStoreAdminService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService")
 }
 
-/// The service that handles CRUD and List for resources for
-/// FeatureOnlineStore.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService_ClientProtocol: Sendable {
-    /// Creates a new FeatureOnlineStore in a given project and location.
-    func createFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets details of a single FeatureOnlineStore.
-    func getFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists FeatureOnlineStores in a given project and location.
-    func listFeatureOnlineStores<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates the parameters of a single FeatureOnlineStore.
-    func updateFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
-    /// contain any FeatureViews.
-    func deleteFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a new FeatureView in a given FeatureOnlineStore.
-    func createFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets details of a single FeatureView.
-    func getFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureView>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists FeatureViews in a given FeatureOnlineStore.
-    func listFeatureViews<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates the parameters of a single FeatureView.
-    func updateFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a single FeatureView.
-    func deleteFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Triggers on-demand sync for the FeatureView.
-    func syncFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets details of a single FeatureViewSync.
-    func getFeatureViewSync<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureViewSync>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists FeatureViewSyncs in a given FeatureView.
-    func listFeatureViewSyncs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService (client)
+
+extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that handles CRUD and List for resources for
+    /// > FeatureOnlineStore.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new FeatureOnlineStore in a given project and location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureOnlineStore` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListFeatureOnlineStores" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureOnlineStores in a given project and location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listFeatureOnlineStores<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates the parameters of a single FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
+        /// > contain any FeatureViews.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new FeatureView in a given FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureView` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureView>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListFeatureViews" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureViews in a given FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listFeatureViews<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates the parameters of a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "SyncFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Triggers on-demand sync for the FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func syncFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetFeatureViewSync" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureViewSync.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureViewSync` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getFeatureViewSync<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureViewSync>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListFeatureViewSyncs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureViewSyncs in a given FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listFeatureViewSyncs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that handles CRUD and List for resources for
+    /// > FeatureOnlineStore.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new FeatureOnlineStore in a given project and location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.CreateFeatureOnlineStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureOnlineStore` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureOnlineStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListFeatureOnlineStores" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureOnlineStores in a given project and location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listFeatureOnlineStores<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureOnlineStores.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates the parameters of a single FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.UpdateFeatureOnlineStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteFeatureOnlineStore" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
+        /// > contain any FeatureViews.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteFeatureOnlineStore<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.DeleteFeatureOnlineStore.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new FeatureView in a given FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.CreateFeatureView.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureView` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureView>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureView.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListFeatureViews" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureViews in a given FeatureOnlineStore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listFeatureViews<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureViews.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates the parameters of a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.UpdateFeatureView.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a single FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.DeleteFeatureView.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "SyncFeatureView" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Triggers on-demand sync for the FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func syncFeatureView<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.SyncFeatureView.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetFeatureViewSync" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets details of a single FeatureViewSync.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FeatureViewSync` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getFeatureViewSync<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureViewSync>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureViewSync.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListFeatureViewSyncs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists FeatureViewSyncs in a given FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listFeatureViewSyncs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureViewSyncs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtocol {
-    public func createFeatureOnlineStore<R>(
+    /// Call the "CreateFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new FeatureOnlineStore in a given project and location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createFeatureOnlineStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createFeatureOnlineStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getFeatureOnlineStore<R>(
+
+    /// Call the "GetFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getFeatureOnlineStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getFeatureOnlineStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listFeatureOnlineStores<R>(
+
+    /// Call the "ListFeatureOnlineStores" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureOnlineStores in a given project and location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listFeatureOnlineStores<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listFeatureOnlineStores(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateFeatureOnlineStore<R>(
+
+    /// Call the "UpdateFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates the parameters of a single FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateFeatureOnlineStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateFeatureOnlineStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteFeatureOnlineStore<R>(
+
+    /// Call the "DeleteFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
+    /// > contain any FeatureViews.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteFeatureOnlineStore<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteFeatureOnlineStore(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createFeatureView<R>(
+
+    /// Call the "CreateFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new FeatureView in a given FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createFeatureView<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createFeatureView(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getFeatureView<R>(
+
+    /// Call the "GetFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getFeatureView<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getFeatureView(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_FeatureView>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listFeatureViews<R>(
+
+    /// Call the "ListFeatureViews" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureViews in a given FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listFeatureViews<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listFeatureViews(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateFeatureView<R>(
+
+    /// Call the "UpdateFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates the parameters of a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateFeatureView<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateFeatureView(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteFeatureView<R>(
+
+    /// Call the "DeleteFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteFeatureView<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteFeatureView(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func syncFeatureView<R>(
+
+    /// Call the "SyncFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Triggers on-demand sync for the FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func syncFeatureView<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.syncFeatureView(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getFeatureViewSync<R>(
+
+    /// Call the "GetFeatureViewSync" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureViewSync.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getFeatureViewSync<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getFeatureViewSync(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_FeatureViewSync>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listFeatureViewSyncs<R>(
+
+    /// Call the "ListFeatureViewSyncs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureViewSyncs in a given FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listFeatureViewSyncs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listFeatureViewSyncs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtocol {
-    /// Creates a new FeatureOnlineStore in a given project and location.
+    /// Call the "CreateFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new FeatureOnlineStore in a given project and location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createFeatureOnlineStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>(
@@ -512,17 +1404,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.createFeatureOnlineStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets details of a single FeatureOnlineStore.
+
+    /// Call the "GetFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getFeatureOnlineStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>(
@@ -532,17 +1437,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.getFeatureOnlineStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists FeatureOnlineStores in a given project and location.
+
+    /// Call the "ListFeatureOnlineStores" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureOnlineStores in a given project and location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listFeatureOnlineStores<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>(
@@ -552,17 +1470,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.listFeatureOnlineStores(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates the parameters of a single FeatureOnlineStore.
+
+    /// Call the "UpdateFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates the parameters of a single FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateFeatureOnlineStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>(
@@ -572,18 +1503,31 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.updateFeatureOnlineStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
-    /// contain any FeatureViews.
+
+    /// Call the "DeleteFeatureOnlineStore" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
+    /// > contain any FeatureViews.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteFeatureOnlineStore<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>(
@@ -593,17 +1537,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.deleteFeatureOnlineStore(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a new FeatureView in a given FeatureOnlineStore.
+
+    /// Call the "CreateFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new FeatureView in a given FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createFeatureView<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>(
@@ -613,17 +1570,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.createFeatureView(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets details of a single FeatureView.
+
+    /// Call the "GetFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getFeatureView<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetFeatureViewRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>(
@@ -633,17 +1603,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.getFeatureView(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists FeatureViews in a given FeatureOnlineStore.
+
+    /// Call the "ListFeatureViews" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureViews in a given FeatureOnlineStore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listFeatureViews<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>(
@@ -653,17 +1636,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.listFeatureViews(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates the parameters of a single FeatureView.
+
+    /// Call the "UpdateFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates the parameters of a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateFeatureView<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>(
@@ -673,17 +1669,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.updateFeatureView(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a single FeatureView.
+
+    /// Call the "DeleteFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a single FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteFeatureView<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>(
@@ -693,17 +1702,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.deleteFeatureView(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Triggers on-demand sync for the FeatureView.
+
+    /// Call the "SyncFeatureView" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Triggers on-demand sync for the FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func syncFeatureView<Result>(
         _ message: Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>(
@@ -713,17 +1735,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.syncFeatureView(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets details of a single FeatureViewSync.
+
+    /// Call the "GetFeatureViewSync" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets details of a single FeatureViewSync.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getFeatureViewSync<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>(
@@ -733,17 +1768,30 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.getFeatureViewSync(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists FeatureViewSyncs in a given FeatureView.
+
+    /// Call the "ListFeatureViewSyncs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists FeatureViewSyncs in a given FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listFeatureViewSyncs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>(
@@ -753,279 +1801,7 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtoc
         return try await self.listFeatureViewSyncs(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// The service that handles CRUD and List for resources for
-/// FeatureOnlineStore.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService_Client: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a new FeatureOnlineStore in a given project and location.
-    public func createFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.CreateFeatureOnlineStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets details of a single FeatureOnlineStore.
-    public func getFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureOnlineStore>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureOnlineStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists FeatureOnlineStores in a given project and location.
-    public func listFeatureOnlineStores<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureOnlineStoresResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureOnlineStores.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates the parameters of a single FeatureOnlineStore.
-    public func updateFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.UpdateFeatureOnlineStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a single FeatureOnlineStore. The FeatureOnlineStore must not
-    /// contain any FeatureViews.
-    public func deleteFeatureOnlineStore<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureOnlineStoreRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.DeleteFeatureOnlineStore.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a new FeatureView in a given FeatureOnlineStore.
-    public func createFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.CreateFeatureView.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets details of a single FeatureView.
-    public func getFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureView>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureView>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureView.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists FeatureViews in a given FeatureOnlineStore.
-    public func listFeatureViews<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureViews.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates the parameters of a single FeatureView.
-    public func updateFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.UpdateFeatureView.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a single FeatureView.
-    public func deleteFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.DeleteFeatureView.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Triggers on-demand sync for the FeatureView.
-    public func syncFeatureView<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SyncFeatureViewResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.SyncFeatureView.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets details of a single FeatureViewSync.
-    public func getFeatureViewSync<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetFeatureViewSyncRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FeatureViewSync>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FeatureViewSync>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.GetFeatureViewSync.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists FeatureViewSyncs in a given FeatureView.
-    public func listFeatureViewSyncs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListFeatureViewSyncsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService.Method.ListFeatureViewSyncs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

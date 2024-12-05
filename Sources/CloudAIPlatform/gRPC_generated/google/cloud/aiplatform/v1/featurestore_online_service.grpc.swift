@@ -24,151 +24,404 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.FeaturestoreOnlineServingService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
 public enum Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_FeaturestoreOnlineServingService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "ReadFeatureValues" metadata.
         public enum ReadFeatureValues {
+            /// Request type for "ReadFeatureValues".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest
+            /// Response type for "ReadFeatureValues".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse
+            /// Descriptor for "ReadFeatureValues".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService"),
                 method: "ReadFeatureValues"
             )
         }
+        /// Namespace for "StreamingReadFeatureValues" metadata.
         public enum StreamingReadFeatureValues {
+            /// Request type for "StreamingReadFeatureValues".
             public typealias Input = Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest
+            /// Response type for "StreamingReadFeatureValues".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse
+            /// Descriptor for "StreamingReadFeatureValues".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService"),
                 method: "StreamingReadFeatureValues"
             )
         }
+        /// Namespace for "WriteFeatureValues" metadata.
         public enum WriteFeatureValues {
+            /// Request type for "WriteFeatureValues".
             public typealias Input = Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest
+            /// Response type for "WriteFeatureValues".
             public typealias Output = Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse
+            /// Descriptor for "WriteFeatureValues".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService"),
                 method: "WriteFeatureValues"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             ReadFeatureValues.descriptor,
             StreamingReadFeatureValues.descriptor,
             WriteFeatureValues.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_FeaturestoreOnlineServingService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "FeaturestoreOnlineServingService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
+    public static let google_cloud_aiplatform_v1_FeaturestoreOnlineServingService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService")
 }
 
-/// A service for serving online feature values.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService_ClientProtocol: Sendable {
-    /// Reads Feature values of a specific entity of an EntityType. For reading
-    /// feature values of multiple entities of an EntityType, please use
-    /// StreamingReadFeatureValues.
-    func readFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Reads Feature values for multiple entities. Depending on their size, data
-    /// for different entities may be broken
-    /// up across multiple responses.
-    func streamingReadFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Writes Feature values of one or more entities of an EntityType.
+// MARK: google.cloud.aiplatform.v1.FeaturestoreOnlineServingService (client)
+
+extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
     ///
-    /// The Feature values are merged into existing entities if any. The Feature
-    /// values to be written must have timestamp within the online storage
-    /// retention.
-    func writeFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for serving online feature values.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "ReadFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads Feature values of a specific entity of an EntityType. For reading
+        /// > feature values of multiple entities of an EntityType, please use
+        /// > StreamingReadFeatureValues.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamingReadFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads Feature values for multiple entities. Depending on their size, data
+        /// > for different entities may be broken
+        /// > up across multiple responses.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamingReadFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "WriteFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Writes Feature values of one or more entities of an EntityType.
+        /// > 
+        /// > The Feature values are merged into existing entities if any. The Feature
+        /// > values to be written must have timestamp within the online storage
+        /// > retention.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func writeFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for serving online feature values.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "ReadFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads Feature values of a specific entity of an EntityType. For reading
+        /// > feature values of multiple entities of an EntityType, please use
+        /// > StreamingReadFeatureValues.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.ReadFeatureValues.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamingReadFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads Feature values for multiple entities. Depending on their size, data
+        /// > for different entities may be broken
+        /// > up across multiple responses.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func streamingReadFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.StreamingReadFeatureValues.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "WriteFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Writes Feature values of one or more entities of an EntityType.
+        /// > 
+        /// > The Feature values are merged into existing entities if any. The Feature
+        /// > values to be written must have timestamp within the online storage
+        /// > retention.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func writeFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.WriteFeatureValues.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProtocol {
-    public func readFeatureValues<R>(
+    /// Call the "ReadFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads Feature values of a specific entity of an EntityType. For reading
+    /// > feature values of multiple entities of an EntityType, please use
+    /// > StreamingReadFeatureValues.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readFeatureValues<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.readFeatureValues(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func streamingReadFeatureValues<R>(
+
+    /// Call the "StreamingReadFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads Feature values for multiple entities. Depending on their size, data
+    /// > for different entities may be broken
+    /// > up across multiple responses.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func streamingReadFeatureValues<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamingReadFeatureValues(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func writeFeatureValues<R>(
+
+    /// Call the "WriteFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Writes Feature values of one or more entities of an EntityType.
+    /// > 
+    /// > The Feature values are merged into existing entities if any. The Feature
+    /// > values to be written must have timestamp within the online storage
+    /// > retention.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func writeFeatureValues<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.writeFeatureValues(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProtocol {
-    /// Reads Feature values of a specific entity of an EntityType. For reading
-    /// feature values of multiple entities of an EntityType, please use
-    /// StreamingReadFeatureValues.
+    /// Call the "ReadFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads Feature values of a specific entity of an EntityType. For reading
+    /// > feature values of multiple entities of an EntityType, please use
+    /// > StreamingReadFeatureValues.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readFeatureValues<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>(
@@ -178,13 +431,26 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProt
         return try await self.readFeatureValues(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Reads Feature values for multiple entities. Depending on their size, data
-    /// for different entities may be broken
-    /// up across multiple responses.
+
+    /// Call the "StreamingReadFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads Feature values for multiple entities. Depending on their size, data
+    /// > for different entities may be broken
+    /// > up across multiple responses.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func streamingReadFeatureValues<Result>(
         _ message: Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest,
         metadata: GRPCCore.Metadata = [:],
@@ -198,21 +464,34 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProt
         return try await self.streamingReadFeatureValues(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Writes Feature values of one or more entities of an EntityType.
+
+    /// Call the "WriteFeatureValues" method.
     ///
-    /// The Feature values are merged into existing entities if any. The Feature
-    /// values to be written must have timestamp within the online storage
-    /// retention.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Writes Feature values of one or more entities of an EntityType.
+    /// > 
+    /// > The Feature values are merged into existing entities if any. The Feature
+    /// > values to be written must have timestamp within the online storage
+    /// > retention.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func writeFeatureValues<Result>(
         _ message: Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>(
@@ -222,83 +501,7 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProt
         return try await self.writeFeatureValues(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for serving online feature values.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService_Client: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Reads Feature values of a specific entity of an EntityType. For reading
-    /// feature values of multiple entities of an EntityType, please use
-    /// StreamingReadFeatureValues.
-    public func readFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.ReadFeatureValues.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Reads Feature values for multiple entities. Depending on their size, data
-    /// for different entities may be broken
-    /// up across multiple responses.
-    public func streamingReadFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StreamingReadFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.serverStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.StreamingReadFeatureValues.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Writes Feature values of one or more entities of an EntityType.
-    ///
-    /// The Feature values are merged into existing entities if any. The Feature
-    /// values to be written must have timestamp within the online storage
-    /// retention.
-    public func writeFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteFeatureValuesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeaturestoreOnlineServingService.Method.WriteFeatureValues.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

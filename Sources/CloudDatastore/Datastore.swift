@@ -15,7 +15,7 @@ public actor Datastore: DatastoreProtocol, Service {
 
     private let authorization: Authorization?
     private let grpcClient: GRPCClient
-    let client: Google_Datastore_V1_Datastore_ClientProtocol
+    let client: Google_Datastore_V1_Datastore.ClientProtocol
 
     public init() throws {
         if let host = ProcessInfo.processInfo.environment["DATASTORE_EMULATOR_HOST"] {
@@ -26,7 +26,7 @@ public actor Datastore: DatastoreProtocol, Service {
             self.grpcClient = GRPCClient(
                 transport: try .http2NIOPosix(
                     target: .dns(host: components[0], port: port),
-                    config: .defaults(transportSecurity: .plaintext)
+                    transportSecurity: .plaintext
                 )
             )
         } else {
@@ -37,17 +37,15 @@ public actor Datastore: DatastoreProtocol, Service {
             self.authorization = authorization
             self.grpcClient = GRPCClient(
                 transport: try .http2NIOPosix(
-                    target: .dns(host: "datastore.googleapis.com", port: 443),
-                    config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
-                        config.serverHostname = "datastore.googleapis.com" as String?
-                    })))
+                    target: .dns(host: "datastore.googleapis.com"),
+                    transportSecurity: .tls
                 ),
                 interceptors: [
                     AuthorizationClientInterceptor(authorization: authorization),
                 ]
             )
         }
-        self.client = Google_Datastore_V1_Datastore_Client(wrapping: grpcClient)
+        self.client = Google_Datastore_V1_Datastore.Client(wrapping: grpcClient)
     }
 
     public func run() async throws {

@@ -24,109 +24,283 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.LlmUtilityService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.LlmUtilityService" service.
 public enum Google_Cloud_Aiplatform_V1_LlmUtilityService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_LlmUtilityService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.LlmUtilityService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.LlmUtilityService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CountTokens" metadata.
         public enum CountTokens {
+            /// Request type for "CountTokens".
             public typealias Input = Google_Cloud_Aiplatform_V1_CountTokensRequest
+            /// Response type for "CountTokens".
             public typealias Output = Google_Cloud_Aiplatform_V1_CountTokensResponse
+            /// Descriptor for "CountTokens".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_LlmUtilityService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.LlmUtilityService"),
                 method: "CountTokens"
             )
         }
+        /// Namespace for "ComputeTokens" metadata.
         public enum ComputeTokens {
+            /// Request type for "ComputeTokens".
             public typealias Input = Google_Cloud_Aiplatform_V1_ComputeTokensRequest
+            /// Response type for "ComputeTokens".
             public typealias Output = Google_Cloud_Aiplatform_V1_ComputeTokensResponse
+            /// Descriptor for "ComputeTokens".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_LlmUtilityService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.LlmUtilityService"),
                 method: "ComputeTokens"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.LlmUtilityService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CountTokens.descriptor,
             ComputeTokens.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_LlmUtilityService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_LlmUtilityService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_LlmUtilityService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "LlmUtilityService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.LlmUtilityService" service.
+    public static let google_cloud_aiplatform_v1_LlmUtilityService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.LlmUtilityService")
 }
 
-/// Service for LLM related utility functions.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_LlmUtilityService_ClientProtocol: Sendable {
-    /// Perform a token counting.
-    func countTokens<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CountTokensResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Return a list of tokens based on the input text.
-    func computeTokens<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.LlmUtilityService (client)
+
+extension Google_Cloud_Aiplatform_V1_LlmUtilityService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.LlmUtilityService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for LLM related utility functions.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CountTokens" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a token counting.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CountTokensRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CountTokensRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CountTokensResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func countTokens<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CountTokensResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ComputeTokens" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Return a list of tokens based on the input text.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ComputeTokensRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ComputeTokensRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ComputeTokensResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func computeTokens<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.LlmUtilityService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for LLM related utility functions.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CountTokens" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Perform a token counting.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CountTokensRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CountTokensRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_CountTokensResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func countTokens<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CountTokensResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_LlmUtilityService.Method.CountTokens.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ComputeTokens" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Return a list of tokens based on the input text.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ComputeTokensRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ComputeTokensRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ComputeTokensResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func computeTokens<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_LlmUtilityService.Method.ComputeTokens.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_LlmUtilityService.ClientProtocol {
-    public func countTokens<R>(
+    /// Call the "CountTokens" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a token counting.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CountTokensRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func countTokens<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.countTokens(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CountTokensRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_CountTokensResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func computeTokens<R>(
+
+    /// Call the "ComputeTokens" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Return a list of tokens based on the input text.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ComputeTokensRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func computeTokens<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.computeTokens(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_LlmUtilityService.ClientProtocol {
-    /// Perform a token counting.
+    /// Call the "CountTokens" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Perform a token counting.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func countTokens<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CountTokensRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>(
@@ -136,17 +310,30 @@ extension Google_Cloud_Aiplatform_V1_LlmUtilityService.ClientProtocol {
         return try await self.countTokens(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Return a list of tokens based on the input text.
+
+    /// Call the "ComputeTokens" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Return a list of tokens based on the input text.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func computeTokens<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ComputeTokensRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>(
@@ -156,57 +343,7 @@ extension Google_Cloud_Aiplatform_V1_LlmUtilityService.ClientProtocol {
         return try await self.computeTokens(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Service for LLM related utility functions.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_LlmUtilityService_Client: Google_Cloud_Aiplatform_V1_LlmUtilityService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Perform a token counting.
-    public func countTokens<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CountTokensRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_CountTokensResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_CountTokensResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_LlmUtilityService.Method.CountTokens.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Return a list of tokens based on the input text.
-    public func computeTokens<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ComputeTokensRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ComputeTokensResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_LlmUtilityService.Method.ComputeTokens.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

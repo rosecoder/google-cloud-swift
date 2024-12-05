@@ -24,73 +24,111 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.IndexEndpointService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.IndexEndpointService" service.
 public enum Google_Cloud_Aiplatform_V1_IndexEndpointService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_IndexEndpointService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.IndexEndpointService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateIndexEndpoint" metadata.
         public enum CreateIndexEndpoint {
+            /// Request type for "CreateIndexEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest
+            /// Response type for "CreateIndexEndpoint".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateIndexEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "CreateIndexEndpoint"
             )
         }
+        /// Namespace for "GetIndexEndpoint" metadata.
         public enum GetIndexEndpoint {
+            /// Request type for "GetIndexEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest
+            /// Response type for "GetIndexEndpoint".
             public typealias Output = Google_Cloud_Aiplatform_V1_IndexEndpoint
+            /// Descriptor for "GetIndexEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "GetIndexEndpoint"
             )
         }
+        /// Namespace for "ListIndexEndpoints" metadata.
         public enum ListIndexEndpoints {
+            /// Request type for "ListIndexEndpoints".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest
+            /// Response type for "ListIndexEndpoints".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse
+            /// Descriptor for "ListIndexEndpoints".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "ListIndexEndpoints"
             )
         }
+        /// Namespace for "UpdateIndexEndpoint" metadata.
         public enum UpdateIndexEndpoint {
+            /// Request type for "UpdateIndexEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest
+            /// Response type for "UpdateIndexEndpoint".
             public typealias Output = Google_Cloud_Aiplatform_V1_IndexEndpoint
+            /// Descriptor for "UpdateIndexEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "UpdateIndexEndpoint"
             )
         }
+        /// Namespace for "DeleteIndexEndpoint" metadata.
         public enum DeleteIndexEndpoint {
+            /// Request type for "DeleteIndexEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest
+            /// Response type for "DeleteIndexEndpoint".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteIndexEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "DeleteIndexEndpoint"
             )
         }
+        /// Namespace for "DeployIndex" metadata.
         public enum DeployIndex {
+            /// Request type for "DeployIndex".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeployIndexRequest
+            /// Response type for "DeployIndex".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeployIndex".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "DeployIndex"
             )
         }
+        /// Namespace for "UndeployIndex" metadata.
         public enum UndeployIndex {
+            /// Request type for "UndeployIndex".
             public typealias Input = Google_Cloud_Aiplatform_V1_UndeployIndexRequest
+            /// Response type for "UndeployIndex".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UndeployIndex".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "UndeployIndex"
             )
         }
+        /// Namespace for "MutateDeployedIndex" metadata.
         public enum MutateDeployedIndex {
+            /// Request type for "MutateDeployedIndex".
             public typealias Input = Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest
+            /// Response type for "MutateDeployedIndex".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "MutateDeployedIndex".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_IndexEndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService"),
                 method: "MutateDeployedIndex"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.IndexEndpointService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateIndexEndpoint.descriptor,
             GetIndexEndpoint.descriptor,
@@ -102,238 +140,770 @@ public enum Google_Cloud_Aiplatform_V1_IndexEndpointService {
             MutateDeployedIndex.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_IndexEndpointService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_IndexEndpointService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_IndexEndpointService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "IndexEndpointService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.IndexEndpointService" service.
+    public static let google_cloud_aiplatform_v1_IndexEndpointService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.IndexEndpointService")
 }
 
-/// A service for managing Vertex AI's IndexEndpoints.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_IndexEndpointService_ClientProtocol: Sendable {
-    /// Creates an IndexEndpoint.
-    func createIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets an IndexEndpoint.
-    func getIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists IndexEndpoints in a Location.
-    func listIndexEndpoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an IndexEndpoint.
-    func updateIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes an IndexEndpoint.
-    func deleteIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
-    /// it.
-    /// Only non-empty Indexes can be deployed.
-    func deployIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
-    /// and freeing all resources it's using.
-    func undeployIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Update an existing DeployedIndex under an IndexEndpoint.
-    func mutateDeployedIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.IndexEndpointService (client)
+
+extension Google_Cloud_Aiplatform_V1_IndexEndpointService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.IndexEndpointService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's IndexEndpoints.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_IndexEndpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListIndexEndpoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists IndexEndpoints in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listIndexEndpoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_IndexEndpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeployIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
+        /// > it.
+        /// > Only non-empty Indexes can be deployed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeployIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deployIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UndeployIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
+        /// > and freeing all resources it's using.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UndeployIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func undeployIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "MutateDeployedIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Update an existing DeployedIndex under an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func mutateDeployedIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.IndexEndpointService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's IndexEndpoints.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.CreateIndexEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_IndexEndpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.GetIndexEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListIndexEndpoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists IndexEndpoints in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listIndexEndpoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.ListIndexEndpoints.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_IndexEndpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.UpdateIndexEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteIndexEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteIndexEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.DeleteIndexEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeployIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
+        /// > it.
+        /// > Only non-empty Indexes can be deployed.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeployIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deployIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.DeployIndex.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UndeployIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
+        /// > and freeing all resources it's using.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UndeployIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func undeployIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.UndeployIndex.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "MutateDeployedIndex" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Update an existing DeployedIndex under an IndexEndpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func mutateDeployedIndex<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.MutateDeployedIndex.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
-    public func createIndexEndpoint<R>(
+    /// Call the "CreateIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createIndexEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createIndexEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getIndexEndpoint<R>(
+
+    /// Call the "GetIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getIndexEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getIndexEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listIndexEndpoints<R>(
+
+    /// Call the "ListIndexEndpoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists IndexEndpoints in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listIndexEndpoints<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listIndexEndpoints(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateIndexEndpoint<R>(
+
+    /// Call the "UpdateIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateIndexEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateIndexEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteIndexEndpoint<R>(
+
+    /// Call the "DeleteIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteIndexEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteIndexEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deployIndex<R>(
+
+    /// Call the "DeployIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
+    /// > it.
+    /// > Only non-empty Indexes can be deployed.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployIndexRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deployIndex<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deployIndex(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeployIndexRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func undeployIndex<R>(
+
+    /// Call the "UndeployIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
+    /// > and freeing all resources it's using.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployIndexRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func undeployIndex<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.undeployIndex(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func mutateDeployedIndex<R>(
+
+    /// Call the "MutateDeployedIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Update an existing DeployedIndex under an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func mutateDeployedIndex<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.mutateDeployedIndex(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
-    /// Creates an IndexEndpoint.
+    /// Call the "CreateIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createIndexEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>(
@@ -343,17 +913,30 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.createIndexEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets an IndexEndpoint.
+
+    /// Call the "GetIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getIndexEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>(
@@ -363,17 +946,30 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.getIndexEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists IndexEndpoints in a Location.
+
+    /// Call the "ListIndexEndpoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists IndexEndpoints in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listIndexEndpoints<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>(
@@ -383,17 +979,30 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.listIndexEndpoints(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an IndexEndpoint.
+
+    /// Call the "UpdateIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateIndexEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>(
@@ -403,17 +1012,30 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.updateIndexEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes an IndexEndpoint.
+
+    /// Call the "DeleteIndexEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteIndexEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>(
@@ -423,19 +1045,32 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.deleteIndexEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
-    /// it.
-    /// Only non-empty Indexes can be deployed.
+
+    /// Call the "DeployIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
+    /// > it.
+    /// > Only non-empty Indexes can be deployed.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deployIndex<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeployIndexRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>(
@@ -445,18 +1080,31 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.deployIndex(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
-    /// and freeing all resources it's using.
+
+    /// Call the "UndeployIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
+    /// > and freeing all resources it's using.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func undeployIndex<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UndeployIndexRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>(
@@ -466,17 +1114,30 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.undeployIndex(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Update an existing DeployedIndex under an IndexEndpoint.
+
+    /// Call the "MutateDeployedIndex" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Update an existing DeployedIndex under an IndexEndpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func mutateDeployedIndex<Result>(
         _ message: Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>(
@@ -486,180 +1147,7 @@ extension Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
         return try await self.mutateDeployedIndex(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for managing Vertex AI's IndexEndpoints.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_IndexEndpointService_Client: Google_Cloud_Aiplatform_V1_IndexEndpointService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates an IndexEndpoint.
-    public func createIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.CreateIndexEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets an IndexEndpoint.
-    public func getIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.GetIndexEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists IndexEndpoints in a Location.
-    public func listIndexEndpoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListIndexEndpointsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.ListIndexEndpoints.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an IndexEndpoint.
-    public func updateIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_IndexEndpoint>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_IndexEndpoint>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.UpdateIndexEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes an IndexEndpoint.
-    public func deleteIndexEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteIndexEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.DeleteIndexEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
-    /// it.
-    /// Only non-empty Indexes can be deployed.
-    public func deployIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.DeployIndex.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Undeploys an Index from an IndexEndpoint, removing a DeployedIndex from it,
-    /// and freeing all resources it's using.
-    public func undeployIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.UndeployIndex.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Update an existing DeployedIndex under an IndexEndpoint.
-    public func mutateDeployedIndex<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedIndexRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_IndexEndpointService.Method.MutateDeployedIndex.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

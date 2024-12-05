@@ -25,81 +25,123 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.pubsub.v1.Publisher
+
+/// Namespace containing generated types for the "google.pubsub.v1.Publisher" service.
 internal enum Google_Pubsub_V1_Publisher {
-    internal static let descriptor = GRPCCore.ServiceDescriptor.google_pubsub_v1_Publisher
+    /// Service descriptor for the "google.pubsub.v1.Publisher" service.
+    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher")
+    /// Namespace for method metadata.
     internal enum Method {
+        /// Namespace for "CreateTopic" metadata.
         internal enum CreateTopic {
+            /// Request type for "CreateTopic".
             internal typealias Input = Google_Pubsub_V1_Topic
+            /// Response type for "CreateTopic".
             internal typealias Output = Google_Pubsub_V1_Topic
+            /// Descriptor for "CreateTopic".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "CreateTopic"
             )
         }
+        /// Namespace for "UpdateTopic" metadata.
         internal enum UpdateTopic {
+            /// Request type for "UpdateTopic".
             internal typealias Input = Google_Pubsub_V1_UpdateTopicRequest
+            /// Response type for "UpdateTopic".
             internal typealias Output = Google_Pubsub_V1_Topic
+            /// Descriptor for "UpdateTopic".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "UpdateTopic"
             )
         }
+        /// Namespace for "Publish" metadata.
         internal enum Publish {
+            /// Request type for "Publish".
             internal typealias Input = Google_Pubsub_V1_PublishRequest
+            /// Response type for "Publish".
             internal typealias Output = Google_Pubsub_V1_PublishResponse
+            /// Descriptor for "Publish".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "Publish"
             )
         }
+        /// Namespace for "GetTopic" metadata.
         internal enum GetTopic {
+            /// Request type for "GetTopic".
             internal typealias Input = Google_Pubsub_V1_GetTopicRequest
+            /// Response type for "GetTopic".
             internal typealias Output = Google_Pubsub_V1_Topic
+            /// Descriptor for "GetTopic".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "GetTopic"
             )
         }
+        /// Namespace for "ListTopics" metadata.
         internal enum ListTopics {
+            /// Request type for "ListTopics".
             internal typealias Input = Google_Pubsub_V1_ListTopicsRequest
+            /// Response type for "ListTopics".
             internal typealias Output = Google_Pubsub_V1_ListTopicsResponse
+            /// Descriptor for "ListTopics".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "ListTopics"
             )
         }
+        /// Namespace for "ListTopicSubscriptions" metadata.
         internal enum ListTopicSubscriptions {
+            /// Request type for "ListTopicSubscriptions".
             internal typealias Input = Google_Pubsub_V1_ListTopicSubscriptionsRequest
+            /// Response type for "ListTopicSubscriptions".
             internal typealias Output = Google_Pubsub_V1_ListTopicSubscriptionsResponse
+            /// Descriptor for "ListTopicSubscriptions".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "ListTopicSubscriptions"
             )
         }
+        /// Namespace for "ListTopicSnapshots" metadata.
         internal enum ListTopicSnapshots {
+            /// Request type for "ListTopicSnapshots".
             internal typealias Input = Google_Pubsub_V1_ListTopicSnapshotsRequest
+            /// Response type for "ListTopicSnapshots".
             internal typealias Output = Google_Pubsub_V1_ListTopicSnapshotsResponse
+            /// Descriptor for "ListTopicSnapshots".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "ListTopicSnapshots"
             )
         }
+        /// Namespace for "DeleteTopic" metadata.
         internal enum DeleteTopic {
+            /// Request type for "DeleteTopic".
             internal typealias Input = Google_Pubsub_V1_DeleteTopicRequest
+            /// Response type for "DeleteTopic".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteTopic".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "DeleteTopic"
             )
         }
+        /// Namespace for "DetachSubscription" metadata.
         internal enum DetachSubscription {
+            /// Request type for "DetachSubscription".
             internal typealias Input = Google_Pubsub_V1_DetachSubscriptionRequest
+            /// Response type for "DetachSubscription".
             internal typealias Output = Google_Pubsub_V1_DetachSubscriptionResponse
+            /// Descriptor for "DetachSubscription".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Publisher.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher"),
                 method: "DetachSubscription"
             )
         }
+        /// Descriptors for all methods in the "google.pubsub.v1.Publisher" service.
         internal static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateTopic.descriptor,
             UpdateTopic.descriptor,
@@ -112,150 +154,1384 @@ internal enum Google_Pubsub_V1_Publisher {
             DetachSubscription.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ClientProtocol = Google_Pubsub_V1_Publisher_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias Client = Google_Pubsub_V1_Publisher_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    internal static let google_pubsub_v1_Publisher = Self(
-        package: "google.pubsub.v1",
-        service: "Publisher"
-    )
+    /// Service descriptor for the "google.pubsub.v1.Publisher" service.
+    internal static let google_pubsub_v1_Publisher = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Publisher")
 }
 
+// MARK: google.pubsub.v1.Publisher (client)
+
+extension Google_Pubsub_V1_Publisher {
+    /// Generated client protocol for the "google.pubsub.v1.Publisher" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that an application uses to manipulate topics, and to send
+    /// > messages to a topic.
+    internal protocol ClientProtocol: Sendable {
+        /// Call the "CreateTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates the given topic with the given name. See the [resource name rules]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_Topic` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Topic>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing topic by updating the fields specified in the update
+        /// > mask. Note that certain properties of a topic are not modifiable.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateTopicRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Publish" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
+        /// > does not exist.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_PublishRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_PublishRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_PublishResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func publish<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PublishRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PublishResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration of a topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetTopicRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTopics" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists matching topics.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTopics<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTopicSubscriptions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the names of the attached subscriptions on this topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSubscriptionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicSubscriptionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicSubscriptionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTopicSubscriptions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTopicSnapshots" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the names of the snapshots on this topic. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSnapshotsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicSnapshotsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicSnapshotsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTopicSnapshots<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
+        /// > does not exist. After a topic is deleted, a new topic may be created with
+        /// > the same name; this is an entirely new topic with none of the old
+        /// > configuration or subscriptions. Existing subscriptions to this topic are
+        /// > not deleted, but their `topic` field is set to `_deleted-topic_`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteTopicRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DetachSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Detaches a subscription from this topic. All messages retained in the
+        /// > subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+        /// > will return FAILED_PRECONDITION. If the subscription is a push
+        /// > subscription, pushes to the endpoint will stop.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DetachSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DetachSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_DetachSubscriptionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func detachSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.pubsub.v1.Publisher" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that an application uses to manipulate topics, and to send
+    /// > messages to a topic.
+    internal struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        internal init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates the given topic with the given name. See the [resource name rules]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_Topic` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func createTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Topic>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.CreateTopic.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing topic by updating the fields specified in the update
+        /// > mask. Note that certain properties of a topic are not modifiable.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateTopicRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func updateTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.UpdateTopic.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Publish" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
+        /// > does not exist.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_PublishRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_PublishRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_PublishResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func publish<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PublishRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PublishResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.Publish.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration of a topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetTopicRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Topic` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func getTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.GetTopic.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTopics" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists matching topics.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listTopics<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.ListTopics.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTopicSubscriptions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the names of the attached subscriptions on this topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSubscriptionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicSubscriptionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicSubscriptionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listTopicSubscriptions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.ListTopicSubscriptions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTopicSnapshots" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the names of the snapshots on this topic. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSnapshotsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListTopicSnapshotsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListTopicSnapshotsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listTopicSnapshots<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.ListTopicSnapshots.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTopic" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
+        /// > does not exist. After a topic is deleted, a new topic may be created with
+        /// > the same name; this is an entirely new topic with none of the old
+        /// > configuration or subscriptions. Existing subscriptions to this topic are
+        /// > not deleted, but their `topic` field is set to `_deleted-topic_`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteTopicRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteTopicRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func deleteTopic<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteTopicRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.DeleteTopic.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DetachSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Detaches a subscription from this topic. All messages retained in the
+        /// > subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+        /// > will return FAILED_PRECONDITION. If the subscription is a push
+        /// > subscription, pushes to the endpoint will stop.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DetachSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DetachSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_DetachSubscriptionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func detachSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Publisher.Method.DetachSubscription.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
+}
+
+// Helpers providing default arguments to 'ClientProtocol' methods.
+extension Google_Pubsub_V1_Publisher.ClientProtocol {
+    /// Call the "CreateTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates the given topic with the given name. See the [resource name rules]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_Topic` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func createTopic<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.createTopic(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_Topic>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "UpdateTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing topic by updating the fields specified in the update
+    /// > mask. Note that certain properties of a topic are not modifiable.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_UpdateTopicRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func updateTopic<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.updateTopic(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_UpdateTopicRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "Publish" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
+    /// > does not exist.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_PublishRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func publish<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.publish(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_PublishRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_PublishResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "GetTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration of a topic.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_GetTopicRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func getTopic<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.getTopic(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_GetTopicRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopics" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists matching topics.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopics<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.listTopics(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicsRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicsResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopicSubscriptions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the names of the attached subscriptions on this topic.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSubscriptionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopicSubscriptions<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.listTopicSubscriptions(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopicSnapshots" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the names of the snapshots on this topic. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListTopicSnapshotsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopicSnapshots<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.listTopicSnapshots(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DeleteTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
+    /// > does not exist. After a topic is deleted, a new topic may be created with
+    /// > the same name; this is an entirely new topic with none of the old
+    /// > configuration or subscriptions. Existing subscriptions to this topic are
+    /// > not deleted, but their `topic` field is set to `_deleted-topic_`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DeleteTopicRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteTopic<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.deleteTopic(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteTopicRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DetachSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Detaches a subscription from this topic. All messages retained in the
+    /// > subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+    /// > will return FAILED_PRECONDITION. If the subscription is a push
+    /// > subscription, pushes to the endpoint will stop.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DetachSubscriptionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func detachSubscription<Result>(
+        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        try await self.detachSubscription(
+            request: request,
+            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>(),
+            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>(),
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+}
+
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
+extension Google_Pubsub_V1_Publisher.ClientProtocol {
+    /// Call the "CreateTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates the given topic with the given name. See the [resource name rules]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func createTopic<Result>(
+        _ message: Google_Pubsub_V1_Topic,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.createTopic(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "UpdateTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing topic by updating the fields specified in the update
+    /// > mask. Note that certain properties of a topic are not modifiable.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func updateTopic<Result>(
+        _ message: Google_Pubsub_V1_UpdateTopicRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.updateTopic(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "Publish" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
+    /// > does not exist.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func publish<Result>(
+        _ message: Google_Pubsub_V1_PublishRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.publish(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "GetTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration of a topic.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func getTopic<Result>(
+        _ message: Google_Pubsub_V1_GetTopicRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.getTopic(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopics" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists matching topics.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopics<Result>(
+        _ message: Google_Pubsub_V1_ListTopicsRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.listTopics(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopicSubscriptions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the names of the attached subscriptions on this topic.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopicSubscriptions<Result>(
+        _ message: Google_Pubsub_V1_ListTopicSubscriptionsRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.listTopicSubscriptions(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "ListTopicSnapshots" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the names of the snapshots on this topic. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listTopicSnapshots<Result>(
+        _ message: Google_Pubsub_V1_ListTopicSnapshotsRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.listTopicSnapshots(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DeleteTopic" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
+    /// > does not exist. After a topic is deleted, a new topic may be created with
+    /// > the same name; this is an entirely new topic with none of the old
+    /// > configuration or subscriptions. Existing subscriptions to this topic are
+    /// > not deleted, but their `topic` field is set to `_deleted-topic_`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteTopic<Result>(
+        _ message: Google_Pubsub_V1_DeleteTopicRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.deleteTopic(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+
+    /// Call the "DetachSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Detaches a subscription from this topic. All messages retained in the
+    /// > subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
+    /// > will return FAILED_PRECONDITION. If the subscription is a push
+    /// > subscription, pushes to the endpoint will stop.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func detachSubscription<Result>(
+        _ message: Google_Pubsub_V1_DetachSubscriptionRequest,
+        metadata: GRPCCore.Metadata = [:],
+        options: GRPCCore.CallOptions = .defaults,
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> Result = { response in
+            try response.message
+        }
+    ) async throws -> Result where Result: Sendable {
+        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>(
+            message: message,
+            metadata: metadata
+        )
+        return try await self.detachSubscription(
+            request: request,
+            options: options,
+            onResponse: handleResponse
+        )
+    }
+}
+
+// MARK: - google.pubsub.v1.Subscriber
+
+/// Namespace containing generated types for the "google.pubsub.v1.Subscriber" service.
 internal enum Google_Pubsub_V1_Subscriber {
-    internal static let descriptor = GRPCCore.ServiceDescriptor.google_pubsub_v1_Subscriber
+    /// Service descriptor for the "google.pubsub.v1.Subscriber" service.
+    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber")
+    /// Namespace for method metadata.
     internal enum Method {
+        /// Namespace for "CreateSubscription" metadata.
         internal enum CreateSubscription {
+            /// Request type for "CreateSubscription".
             internal typealias Input = Google_Pubsub_V1_Subscription
+            /// Response type for "CreateSubscription".
             internal typealias Output = Google_Pubsub_V1_Subscription
+            /// Descriptor for "CreateSubscription".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "CreateSubscription"
             )
         }
+        /// Namespace for "GetSubscription" metadata.
         internal enum GetSubscription {
+            /// Request type for "GetSubscription".
             internal typealias Input = Google_Pubsub_V1_GetSubscriptionRequest
+            /// Response type for "GetSubscription".
             internal typealias Output = Google_Pubsub_V1_Subscription
+            /// Descriptor for "GetSubscription".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "GetSubscription"
             )
         }
+        /// Namespace for "UpdateSubscription" metadata.
         internal enum UpdateSubscription {
+            /// Request type for "UpdateSubscription".
             internal typealias Input = Google_Pubsub_V1_UpdateSubscriptionRequest
+            /// Response type for "UpdateSubscription".
             internal typealias Output = Google_Pubsub_V1_Subscription
+            /// Descriptor for "UpdateSubscription".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "UpdateSubscription"
             )
         }
+        /// Namespace for "ListSubscriptions" metadata.
         internal enum ListSubscriptions {
+            /// Request type for "ListSubscriptions".
             internal typealias Input = Google_Pubsub_V1_ListSubscriptionsRequest
+            /// Response type for "ListSubscriptions".
             internal typealias Output = Google_Pubsub_V1_ListSubscriptionsResponse
+            /// Descriptor for "ListSubscriptions".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "ListSubscriptions"
             )
         }
+        /// Namespace for "DeleteSubscription" metadata.
         internal enum DeleteSubscription {
+            /// Request type for "DeleteSubscription".
             internal typealias Input = Google_Pubsub_V1_DeleteSubscriptionRequest
+            /// Response type for "DeleteSubscription".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteSubscription".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "DeleteSubscription"
             )
         }
+        /// Namespace for "ModifyAckDeadline" metadata.
         internal enum ModifyAckDeadline {
+            /// Request type for "ModifyAckDeadline".
             internal typealias Input = Google_Pubsub_V1_ModifyAckDeadlineRequest
+            /// Response type for "ModifyAckDeadline".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "ModifyAckDeadline".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "ModifyAckDeadline"
             )
         }
+        /// Namespace for "Acknowledge" metadata.
         internal enum Acknowledge {
+            /// Request type for "Acknowledge".
             internal typealias Input = Google_Pubsub_V1_AcknowledgeRequest
+            /// Response type for "Acknowledge".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "Acknowledge".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "Acknowledge"
             )
         }
+        /// Namespace for "Pull" metadata.
         internal enum Pull {
+            /// Request type for "Pull".
             internal typealias Input = Google_Pubsub_V1_PullRequest
+            /// Response type for "Pull".
             internal typealias Output = Google_Pubsub_V1_PullResponse
+            /// Descriptor for "Pull".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "Pull"
             )
         }
+        /// Namespace for "StreamingPull" metadata.
         internal enum StreamingPull {
+            /// Request type for "StreamingPull".
             internal typealias Input = Google_Pubsub_V1_StreamingPullRequest
+            /// Response type for "StreamingPull".
             internal typealias Output = Google_Pubsub_V1_StreamingPullResponse
+            /// Descriptor for "StreamingPull".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "StreamingPull"
             )
         }
+        /// Namespace for "ModifyPushConfig" metadata.
         internal enum ModifyPushConfig {
+            /// Request type for "ModifyPushConfig".
             internal typealias Input = Google_Pubsub_V1_ModifyPushConfigRequest
+            /// Response type for "ModifyPushConfig".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "ModifyPushConfig".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "ModifyPushConfig"
             )
         }
+        /// Namespace for "GetSnapshot" metadata.
         internal enum GetSnapshot {
+            /// Request type for "GetSnapshot".
             internal typealias Input = Google_Pubsub_V1_GetSnapshotRequest
+            /// Response type for "GetSnapshot".
             internal typealias Output = Google_Pubsub_V1_Snapshot
+            /// Descriptor for "GetSnapshot".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "GetSnapshot"
             )
         }
+        /// Namespace for "ListSnapshots" metadata.
         internal enum ListSnapshots {
+            /// Request type for "ListSnapshots".
             internal typealias Input = Google_Pubsub_V1_ListSnapshotsRequest
+            /// Response type for "ListSnapshots".
             internal typealias Output = Google_Pubsub_V1_ListSnapshotsResponse
+            /// Descriptor for "ListSnapshots".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "ListSnapshots"
             )
         }
+        /// Namespace for "CreateSnapshot" metadata.
         internal enum CreateSnapshot {
+            /// Request type for "CreateSnapshot".
             internal typealias Input = Google_Pubsub_V1_CreateSnapshotRequest
+            /// Response type for "CreateSnapshot".
             internal typealias Output = Google_Pubsub_V1_Snapshot
+            /// Descriptor for "CreateSnapshot".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "CreateSnapshot"
             )
         }
+        /// Namespace for "UpdateSnapshot" metadata.
         internal enum UpdateSnapshot {
+            /// Request type for "UpdateSnapshot".
             internal typealias Input = Google_Pubsub_V1_UpdateSnapshotRequest
+            /// Response type for "UpdateSnapshot".
             internal typealias Output = Google_Pubsub_V1_Snapshot
+            /// Descriptor for "UpdateSnapshot".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "UpdateSnapshot"
             )
         }
+        /// Namespace for "DeleteSnapshot" metadata.
         internal enum DeleteSnapshot {
+            /// Request type for "DeleteSnapshot".
             internal typealias Input = Google_Pubsub_V1_DeleteSnapshotRequest
+            /// Response type for "DeleteSnapshot".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteSnapshot".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "DeleteSnapshot"
             )
         }
+        /// Namespace for "Seek" metadata.
         internal enum Seek {
+            /// Request type for "Seek".
             internal typealias Input = Google_Pubsub_V1_SeekRequest
+            /// Response type for "Seek".
             internal typealias Output = Google_Pubsub_V1_SeekResponse
+            /// Descriptor for "Seek".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_Subscriber.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber"),
                 method: "Seek"
             )
         }
+        /// Descriptors for all methods in the "google.pubsub.v1.Subscriber" service.
         internal static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateSubscription.descriptor,
             GetSubscription.descriptor,
@@ -275,1173 +1551,1696 @@ internal enum Google_Pubsub_V1_Subscriber {
             Seek.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ClientProtocol = Google_Pubsub_V1_Subscriber_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias Client = Google_Pubsub_V1_Subscriber_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    internal static let google_pubsub_v1_Subscriber = Self(
-        package: "google.pubsub.v1",
-        service: "Subscriber"
-    )
+    /// Service descriptor for the "google.pubsub.v1.Subscriber" service.
+    internal static let google_pubsub_v1_Subscriber = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.Subscriber")
 }
 
-/// The service that an application uses to manipulate topics, and to send
-/// messages to a topic.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Google_Pubsub_V1_Publisher_ClientProtocol: Sendable {
-    /// Creates the given topic with the given name. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    func createTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Topic>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an existing topic by updating the fields specified in the update
-    /// mask. Note that certain properties of a topic are not modifiable.
-    func updateTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
-    /// does not exist.
-    func publish<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PublishRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PublishResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets the configuration of a topic.
-    func getTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists matching topics.
-    func listTopics<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists the names of the attached subscriptions on this topic.
-    func listTopicSubscriptions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists the names of the snapshots on this topic. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    func listTopicSnapshots<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
-    /// does not exist. After a topic is deleted, a new topic may be created with
-    /// the same name; this is an entirely new topic with none of the old
-    /// configuration or subscriptions. Existing subscriptions to this topic are
-    /// not deleted, but their `topic` field is set to `_deleted-topic_`.
-    func deleteTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Detaches a subscription from this topic. All messages retained in the
-    /// subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
-    /// will return FAILED_PRECONDITION. If the subscription is a push
-    /// subscription, pushes to the endpoint will stop.
-    func detachSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-}
+// MARK: google.pubsub.v1.Subscriber (client)
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Google_Pubsub_V1_Publisher.ClientProtocol {
-    internal func createTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.createTopic(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_Topic>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func updateTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.updateTopic(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_UpdateTopicRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func publish<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.publish(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_PublishRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_PublishResponse>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func getTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.getTopic(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_GetTopicRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Topic>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func listTopics<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.listTopics(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicsRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicsResponse>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func listTopicSubscriptions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.listTopicSubscriptions(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func listTopicSnapshots<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.listTopicSnapshots(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func deleteTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.deleteTopic(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteTopicRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
-            options: options,
-            body
-        )
-    }
-    
-    internal func detachSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.detachSubscription(
-            request: request,
-            serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>(),
-            deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>(),
-            options: options,
-            body
-        )
-    }
-}
-
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-extension Google_Pubsub_V1_Publisher.ClientProtocol {
-    /// Creates the given topic with the given name. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    internal func createTopic<Result>(
-        _ message: Google_Pubsub_V1_Topic,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.createTopic(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Updates an existing topic by updating the fields specified in the update
-    /// mask. Note that certain properties of a topic are not modifiable.
-    internal func updateTopic<Result>(
-        _ message: Google_Pubsub_V1_UpdateTopicRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.updateTopic(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
-    /// does not exist.
-    internal func publish<Result>(
-        _ message: Google_Pubsub_V1_PublishRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.publish(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Gets the configuration of a topic.
-    internal func getTopic<Result>(
-        _ message: Google_Pubsub_V1_GetTopicRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.getTopic(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Lists matching topics.
-    internal func listTopics<Result>(
-        _ message: Google_Pubsub_V1_ListTopicsRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.listTopics(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Lists the names of the attached subscriptions on this topic.
-    internal func listTopicSubscriptions<Result>(
-        _ message: Google_Pubsub_V1_ListTopicSubscriptionsRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.listTopicSubscriptions(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Lists the names of the snapshots on this topic. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    internal func listTopicSnapshots<Result>(
-        _ message: Google_Pubsub_V1_ListTopicSnapshotsRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.listTopicSnapshots(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
-    /// does not exist. After a topic is deleted, a new topic may be created with
-    /// the same name; this is an entirely new topic with none of the old
-    /// configuration or subscriptions. Existing subscriptions to this topic are
-    /// not deleted, but their `topic` field is set to `_deleted-topic_`.
-    internal func deleteTopic<Result>(
-        _ message: Google_Pubsub_V1_DeleteTopicRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.deleteTopic(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-    
-    /// Detaches a subscription from this topic. All messages retained in the
-    /// subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
-    /// will return FAILED_PRECONDITION. If the subscription is a push
-    /// subscription, pushes to the endpoint will stop.
-    internal func detachSubscription<Result>(
-        _ message: Google_Pubsub_V1_DetachSubscriptionRequest,
-        metadata: GRPCCore.Metadata = [:],
-        options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> Result = {
-            try $0.message
-        }
-    ) async throws -> Result where Result: Sendable {
-        let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>(
-            message: message,
-            metadata: metadata
-        )
-        return try await self.detachSubscription(
-            request: request,
-            options: options,
-            handleResponse
-        )
-    }
-}
-
-/// The service that an application uses to manipulate topics, and to send
-/// messages to a topic.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal struct Google_Pubsub_V1_Publisher_Client: Google_Pubsub_V1_Publisher.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    internal init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates the given topic with the given name. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    internal func createTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Topic>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Topic>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.CreateTopic.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an existing topic by updating the fields specified in the update
-    /// mask. Note that certain properties of a topic are not modifiable.
-    internal func updateTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.UpdateTopic.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Adds one or more messages to the topic. Returns `NOT_FOUND` if the topic
-    /// does not exist.
-    internal func publish<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PublishRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PublishRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PublishResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PublishResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.Publish.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets the configuration of a topic.
-    internal func getTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Topic>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Topic>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.GetTopic.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists matching topics.
-    internal func listTopics<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.ListTopics.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists the names of the attached subscriptions on this topic.
-    internal func listTopicSubscriptions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSubscriptionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSubscriptionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSubscriptionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.ListTopicSubscriptions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists the names of the snapshots on this topic. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    internal func listTopicSnapshots<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListTopicSnapshotsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListTopicSnapshotsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListTopicSnapshotsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.ListTopicSnapshots.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
-    /// does not exist. After a topic is deleted, a new topic may be created with
-    /// the same name; this is an entirely new topic with none of the old
-    /// configuration or subscriptions. Existing subscriptions to this topic are
-    /// not deleted, but their `topic` field is set to `_deleted-topic_`.
-    internal func deleteTopic<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteTopicRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteTopicRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.DeleteTopic.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Detaches a subscription from this topic. All messages retained in the
-    /// subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
-    /// will return FAILED_PRECONDITION. If the subscription is a push
-    /// subscription, pushes to the endpoint will stop.
-    internal func detachSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DetachSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DetachSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_DetachSubscriptionResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_DetachSubscriptionResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Publisher.Method.DetachSubscription.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-}
-
-/// The service that an application uses to manipulate subscriptions and to
-/// consume messages from a subscription via the `Pull` method or by
-/// establishing a bi-directional stream using the `StreamingPull` method.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Google_Pubsub_V1_Subscriber_ClientProtocol: Sendable {
-    /// Creates a subscription to a given topic. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    /// If the subscription already exists, returns `ALREADY_EXISTS`.
-    /// If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+extension Google_Pubsub_V1_Subscriber {
+    /// Generated client protocol for the "google.pubsub.v1.Subscriber" service.
     ///
-    /// If the name is not provided in the request, the server will assign a random
-    /// name for this subscription on the same project as the topic, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Subscription object. Note that
-    /// for REST API requests, you must specify a name in the request.
-    func createSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Subscription>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets the configuration details of a subscription.
-    func getSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an existing subscription by updating the fields specified in the
-    /// update mask. Note that certain properties of a subscription, such as its
-    /// topic, are not modifiable.
-    func updateSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists matching subscriptions.
-    func listSubscriptions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSubscriptionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSubscriptionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes an existing subscription. All messages retained in the subscription
-    /// are immediately dropped. Calls to `Pull` after deletion will return
-    /// `NOT_FOUND`. After a subscription is deleted, a new one may be created with
-    /// the same name, but the new one has no association with the old
-    /// subscription or its topic unless the same topic is specified.
-    func deleteSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Modifies the ack deadline for a specific message. This method is useful
-    /// to indicate that more time is needed to process a message by the
-    /// subscriber, or to make the message available for redelivery if the
-    /// processing was interrupted. Note that this does not modify the
-    /// subscription-level `ackDeadlineSeconds` used for subsequent messages.
-    func modifyAckDeadline<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Acknowledges the messages associated with the `ack_ids` in the
-    /// `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
-    /// from the subscription.
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
     ///
-    /// Acknowledging a message whose ack deadline has expired may succeed,
-    /// but such a message may be redelivered later. Acknowledging a message more
-    /// than once will not result in an error.
-    func acknowledge<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_AcknowledgeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Pulls messages from the server.
-    func pull<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PullRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PullResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Establishes a stream with the server, which sends messages down to the
-    /// client. The client streams acknowledgements and ack deadline modifications
-    /// back to the server. The server will close the stream and return the status
-    /// on any error. The server may close the stream with status `UNAVAILABLE` to
-    /// reassign server-side resources, in which case, the client should
-    /// re-establish the stream. Flow control can be achieved by configuring the
-    /// underlying RPC channel.
-    func streamingPull<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_StreamingPullRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_StreamingPullResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Modifies the `PushConfig` for a specified subscription.
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that an application uses to manipulate subscriptions and to
+    /// > consume messages from a subscription via the `Pull` method or by
+    /// > establishing a bi-directional stream using the `StreamingPull` method.
+    internal protocol ClientProtocol: Sendable {
+        /// Call the "CreateSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a subscription to a given topic. See the [resource name rules]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+        /// > If the subscription already exists, returns `ALREADY_EXISTS`.
+        /// > If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+        /// > 
+        /// > If the name is not provided in the request, the server will assign a random
+        /// > name for this subscription on the same project as the topic, conforming
+        /// > to the [resource name format]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+        /// > generated name is populated in the returned Subscription object. Note that
+        /// > for REST API requests, you must specify a name in the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_Subscription` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Subscription>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration details of a subscription.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing subscription by updating the fields specified in the
+        /// > update mask. Note that certain properties of a subscription, such as its
+        /// > topic, are not modifiable.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSubscriptions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists matching subscriptions.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSubscriptionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSubscriptionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSubscriptionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSubscriptions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSubscriptionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSubscriptionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an existing subscription. All messages retained in the subscription
+        /// > are immediately dropped. Calls to `Pull` after deletion will return
+        /// > `NOT_FOUND`. After a subscription is deleted, a new one may be created with
+        /// > the same name, but the new one has no association with the old
+        /// > subscription or its topic unless the same topic is specified.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ModifyAckDeadline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Modifies the ack deadline for a specific message. This method is useful
+        /// > to indicate that more time is needed to process a message by the
+        /// > subscriber, or to make the message available for redelivery if the
+        /// > processing was interrupted. Note that this does not modify the
+        /// > subscription-level `ackDeadlineSeconds` used for subsequent messages.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ModifyAckDeadlineRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ModifyAckDeadlineRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func modifyAckDeadline<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Acknowledge" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Acknowledges the messages associated with the `ack_ids` in the
+        /// > `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
+        /// > from the subscription.
+        /// > 
+        /// > Acknowledging a message whose ack deadline has expired may succeed,
+        /// > but such a message may be redelivered later. Acknowledging a message more
+        /// > than once will not result in an error.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_AcknowledgeRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_AcknowledgeRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func acknowledge<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_AcknowledgeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Pull" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pulls messages from the server.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_PullRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_PullRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_PullResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func pull<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PullRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PullResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StreamingPull" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Establishes a stream with the server, which sends messages down to the
+        /// > client. The client streams acknowledgements and ack deadline modifications
+        /// > back to the server. The server will close the stream and return the status
+        /// > on any error. The server may close the stream with status `UNAVAILABLE` to
+        /// > reassign server-side resources, in which case, the client should
+        /// > re-establish the stream. Flow control can be achieved by configuring the
+        /// > underlying RPC channel.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Pubsub_V1_StreamingPullRequest` messages.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_StreamingPullRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_StreamingPullResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func streamingPull<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_StreamingPullRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_StreamingPullResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ModifyPushConfig" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Modifies the `PushConfig` for a specified subscription.
+        /// > 
+        /// > This may be used to change a push subscription to a pull one (signified by
+        /// > an empty `PushConfig`) or vice versa, or change the endpoint URL and other
+        /// > attributes of a push subscription. Messages will accumulate for delivery
+        /// > continuously through the call regardless of changes to the `PushConfig`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ModifyPushConfigRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ModifyPushConfigRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func modifyPushConfig<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyPushConfigRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration details of a snapshot. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSnapshots" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the existing snapshots. Snapshots are used in [Seek](
+        /// > https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSnapshotsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSnapshotsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSnapshotsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSnapshots<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSnapshotsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSnapshotsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a snapshot from the requested subscription. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        /// > If the snapshot already exists, returns `ALREADY_EXISTS`.
+        /// > If the requested subscription doesn't exist, returns `NOT_FOUND`.
+        /// > If the backlog in the subscription is too old -- and the resulting snapshot
+        /// > would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
+        /// > See also the `Snapshot.expire_time` field. If the name is not provided in
+        /// > the request, the server will assign a random
+        /// > name for this snapshot on the same project as the subscription, conforming
+        /// > to the [resource name format]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+        /// > generated name is populated in the returned Snapshot object. Note that for
+        /// > REST API requests, you must specify a name in the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CreateSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CreateSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing snapshot by updating the fields specified in the update
+        /// > mask. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Removes an existing snapshot. Snapshots are used in [Seek]
+        /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        /// > When the snapshot is deleted, all messages retained in the snapshot
+        /// > are immediately dropped. After a snapshot is deleted, a new one may be
+        /// > created with the same name, but the new one has no association with the old
+        /// > snapshot or its subscription, unless the same subscription is specified.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Seek" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Seeks an existing subscription to a point in time or to a given snapshot,
+        /// > whichever is provided in the request. Snapshots are used in [Seek]
+        /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot. Note that both the subscription and the
+        /// > snapshot must be on the same topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_SeekRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_SeekRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_SeekResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func seek<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_SeekRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_SeekResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.pubsub.v1.Subscriber" service.
     ///
-    /// This may be used to change a push subscription to a pull one (signified by
-    /// an empty `PushConfig`) or vice versa, or change the endpoint URL and other
-    /// attributes of a push subscription. Messages will accumulate for delivery
-    /// continuously through the call regardless of changes to the `PushConfig`.
-    func modifyPushConfig<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyPushConfigRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets the configuration details of a snapshot. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    func getSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists the existing snapshots. Snapshots are used in [Seek](
-    /// https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    func listSnapshots<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSnapshotsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSnapshotsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a snapshot from the requested subscription. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// If the snapshot already exists, returns `ALREADY_EXISTS`.
-    /// If the requested subscription doesn't exist, returns `NOT_FOUND`.
-    /// If the backlog in the subscription is too old -- and the resulting snapshot
-    /// would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
-    /// See also the `Snapshot.expire_time` field. If the name is not provided in
-    /// the request, the server will assign a random
-    /// name for this snapshot on the same project as the subscription, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Snapshot object. Note that for
-    /// REST API requests, you must specify a name in the request.
-    func createSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an existing snapshot by updating the fields specified in the update
-    /// mask. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    func updateSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Removes an existing snapshot. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// When the snapshot is deleted, all messages retained in the snapshot
-    /// are immediately dropped. After a snapshot is deleted, a new one may be
-    /// created with the same name, but the new one has no association with the old
-    /// snapshot or its subscription, unless the same subscription is specified.
-    func deleteSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Seeks an existing subscription to a point in time or to a given snapshot,
-    /// whichever is provided in the request. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot. Note that both the subscription and the
-    /// snapshot must be on the same topic.
-    func seek<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_SeekRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_SeekResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The service that an application uses to manipulate subscriptions and to
+    /// > consume messages from a subscription via the `Pull` method or by
+    /// > establishing a bi-directional stream using the `StreamingPull` method.
+    internal struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        internal init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a subscription to a given topic. See the [resource name rules]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+        /// > If the subscription already exists, returns `ALREADY_EXISTS`.
+        /// > If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+        /// > 
+        /// > If the name is not provided in the request, the server will assign a random
+        /// > name for this subscription on the same project as the topic, conforming
+        /// > to the [resource name format]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+        /// > generated name is populated in the returned Subscription object. Note that
+        /// > for REST API requests, you must specify a name in the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_Subscription` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func createSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Subscription>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.CreateSubscription.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration details of a subscription.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func getSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.GetSubscription.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing subscription by updating the fields specified in the
+        /// > update mask. Note that certain properties of a subscription, such as its
+        /// > topic, are not modifiable.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Subscription` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func updateSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.UpdateSubscription.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSubscriptions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists matching subscriptions.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSubscriptionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSubscriptionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSubscriptionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listSubscriptions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSubscriptionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSubscriptionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.ListSubscriptions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSubscription" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an existing subscription. All messages retained in the subscription
+        /// > are immediately dropped. Calls to `Pull` after deletion will return
+        /// > `NOT_FOUND`. After a subscription is deleted, a new one may be created with
+        /// > the same name, but the new one has no association with the old
+        /// > subscription or its topic unless the same topic is specified.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSubscriptionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSubscriptionRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func deleteSubscription<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSubscriptionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.DeleteSubscription.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ModifyAckDeadline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Modifies the ack deadline for a specific message. This method is useful
+        /// > to indicate that more time is needed to process a message by the
+        /// > subscriber, or to make the message available for redelivery if the
+        /// > processing was interrupted. Note that this does not modify the
+        /// > subscription-level `ackDeadlineSeconds` used for subsequent messages.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ModifyAckDeadlineRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ModifyAckDeadlineRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func modifyAckDeadline<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.ModifyAckDeadline.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Acknowledge" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Acknowledges the messages associated with the `ack_ids` in the
+        /// > `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
+        /// > from the subscription.
+        /// > 
+        /// > Acknowledging a message whose ack deadline has expired may succeed,
+        /// > but such a message may be redelivered later. Acknowledging a message more
+        /// > than once will not result in an error.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_AcknowledgeRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_AcknowledgeRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func acknowledge<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_AcknowledgeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.Acknowledge.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Pull" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Pulls messages from the server.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_PullRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_PullRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_PullResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func pull<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PullRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PullResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.Pull.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StreamingPull" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Establishes a stream with the server, which sends messages down to the
+        /// > client. The client streams acknowledgements and ack deadline modifications
+        /// > back to the server. The server will close the stream and return the status
+        /// > on any error. The server may close the stream with status `UNAVAILABLE` to
+        /// > reassign server-side resources, in which case, the client should
+        /// > re-establish the stream. Flow control can be achieved by configuring the
+        /// > underlying RPC channel.
+        ///
+        /// - Parameters:
+        ///   - request: A streaming request producing `Google_Pubsub_V1_StreamingPullRequest` messages.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_StreamingPullRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_StreamingPullResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func streamingPull<Result>(
+            request: GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_StreamingPullRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_StreamingPullResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.bidirectionalStreaming(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.StreamingPull.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ModifyPushConfig" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Modifies the `PushConfig` for a specified subscription.
+        /// > 
+        /// > This may be used to change a push subscription to a pull one (signified by
+        /// > an empty `PushConfig`) or vice versa, or change the endpoint URL and other
+        /// > attributes of a push subscription. Messages will accumulate for delivery
+        /// > continuously through the call regardless of changes to the `PushConfig`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ModifyPushConfigRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ModifyPushConfigRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func modifyPushConfig<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyPushConfigRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.ModifyPushConfig.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the configuration details of a snapshot. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func getSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.GetSnapshot.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSnapshots" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists the existing snapshots. Snapshots are used in [Seek](
+        /// > https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSnapshotsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSnapshotsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSnapshotsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listSnapshots<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSnapshotsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSnapshotsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.ListSnapshots.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a snapshot from the requested subscription. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        /// > If the snapshot already exists, returns `ALREADY_EXISTS`.
+        /// > If the requested subscription doesn't exist, returns `NOT_FOUND`.
+        /// > If the backlog in the subscription is too old -- and the resulting snapshot
+        /// > would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
+        /// > See also the `Snapshot.expire_time` field. If the name is not provided in
+        /// > the request, the server will assign a random
+        /// > name for this snapshot on the same project as the subscription, conforming
+        /// > to the [resource name format]
+        /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+        /// > generated name is populated in the returned Snapshot object. Note that for
+        /// > REST API requests, you must specify a name in the request.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CreateSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CreateSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func createSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.CreateSnapshot.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing snapshot by updating the fields specified in the update
+        /// > mask. Snapshots are used in
+        /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+        /// > which allow you to manage message acknowledgments in bulk. That is, you can
+        /// > set the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_UpdateSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Snapshot` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func updateSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.UpdateSnapshot.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSnapshot" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Removes an existing snapshot. Snapshots are used in [Seek]
+        /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot.
+        /// > When the snapshot is deleted, all messages retained in the snapshot
+        /// > are immediately dropped. After a snapshot is deleted, a new one may be
+        /// > created with the same name, but the new one has no association with the old
+        /// > snapshot or its subscription, unless the same subscription is specified.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSnapshotRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSnapshotRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func deleteSnapshot<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSnapshotRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.DeleteSnapshot.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Seek" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Seeks an existing subscription to a point in time or to a given snapshot,
+        /// > whichever is provided in the request. Snapshots are used in [Seek]
+        /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+        /// > allow you to manage message acknowledgments in bulk. That is, you can set
+        /// > the acknowledgment state of messages in an existing subscription to the
+        /// > state captured by a snapshot. Note that both the subscription and the
+        /// > snapshot must be on the same topic.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_SeekRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_SeekRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_SeekResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func seek<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_SeekRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_SeekResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_Subscriber.Method.Seek.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Pubsub_V1_Subscriber.ClientProtocol {
-    internal func createSubscription<R>(
+    /// Call the "CreateSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a subscription to a given topic. See the [resource name rules]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+    /// > If the subscription already exists, returns `ALREADY_EXISTS`.
+    /// > If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+    /// > 
+    /// > If the name is not provided in the request, the server will assign a random
+    /// > name for this subscription on the same project as the topic, conforming
+    /// > to the [resource name format]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+    /// > generated name is populated in the returned Subscription object. Note that
+    /// > for REST API requests, you must specify a name in the request.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_Subscription` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func createSubscription<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createSubscription(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_Subscription>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Subscription>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func getSubscription<R>(
+
+    /// Call the "GetSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration details of a subscription.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_GetSubscriptionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func getSubscription<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getSubscription(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_GetSubscriptionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Subscription>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func updateSubscription<R>(
+
+    /// Call the "UpdateSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing subscription by updating the fields specified in the
+    /// > update mask. Note that certain properties of a subscription, such as its
+    /// > topic, are not modifiable.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSubscriptionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func updateSubscription<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateSubscription(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_UpdateSubscriptionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Subscription>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func listSubscriptions<R>(
+
+    /// Call the "ListSubscriptions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists matching subscriptions.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListSubscriptionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listSubscriptions<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSubscriptions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListSubscriptionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListSubscriptionsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func deleteSubscription<R>(
+
+    /// Call the "DeleteSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an existing subscription. All messages retained in the subscription
+    /// > are immediately dropped. Calls to `Pull` after deletion will return
+    /// > `NOT_FOUND`. After a subscription is deleted, a new one may be created with
+    /// > the same name, but the new one has no association with the old
+    /// > subscription or its topic unless the same topic is specified.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSubscriptionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteSubscription<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSubscription(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteSubscriptionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func modifyAckDeadline<R>(
+
+    /// Call the "ModifyAckDeadline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Modifies the ack deadline for a specific message. This method is useful
+    /// > to indicate that more time is needed to process a message by the
+    /// > subscriber, or to make the message available for redelivery if the
+    /// > processing was interrupted. Note that this does not modify the
+    /// > subscription-level `ackDeadlineSeconds` used for subsequent messages.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ModifyAckDeadlineRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func modifyAckDeadline<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.modifyAckDeadline(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ModifyAckDeadlineRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func acknowledge<R>(
+
+    /// Call the "Acknowledge" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Acknowledges the messages associated with the `ack_ids` in the
+    /// > `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
+    /// > from the subscription.
+    /// > 
+    /// > Acknowledging a message whose ack deadline has expired may succeed,
+    /// > but such a message may be redelivered later. Acknowledging a message more
+    /// > than once will not result in an error.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_AcknowledgeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func acknowledge<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.acknowledge(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_AcknowledgeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func pull<R>(
+
+    /// Call the "Pull" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pulls messages from the server.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_PullRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func pull<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.pull(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_PullRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_PullResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func streamingPull<R>(
+
+    /// Call the "StreamingPull" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Establishes a stream with the server, which sends messages down to the
+    /// > client. The client streams acknowledgements and ack deadline modifications
+    /// > back to the server. The server will close the stream and return the status
+    /// > on any error. The server may close the stream with status `UNAVAILABLE` to
+    /// > reassign server-side resources, in which case, the client should
+    /// > re-establish the stream. Flow control can be achieved by configuring the
+    /// > underlying RPC channel.
+    ///
+    /// - Parameters:
+    ///   - request: A streaming request producing `Google_Pubsub_V1_StreamingPullRequest` messages.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func streamingPull<Result>(
         request: GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.streamingPull(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_StreamingPullRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_StreamingPullResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func modifyPushConfig<R>(
+
+    /// Call the "ModifyPushConfig" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Modifies the `PushConfig` for a specified subscription.
+    /// > 
+    /// > This may be used to change a push subscription to a pull one (signified by
+    /// > an empty `PushConfig`) or vice versa, or change the endpoint URL and other
+    /// > attributes of a push subscription. Messages will accumulate for delivery
+    /// > continuously through the call regardless of changes to the `PushConfig`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ModifyPushConfigRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func modifyPushConfig<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.modifyPushConfig(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ModifyPushConfigRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func getSnapshot<R>(
+
+    /// Call the "GetSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration details of a snapshot. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_GetSnapshotRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func getSnapshot<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getSnapshot(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_GetSnapshotRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Snapshot>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func listSnapshots<R>(
+
+    /// Call the "ListSnapshots" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the existing snapshots. Snapshots are used in [Seek](
+    /// > https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListSnapshotsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listSnapshots<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSnapshots(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListSnapshotsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListSnapshotsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func createSnapshot<R>(
+
+    /// Call the "CreateSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a snapshot from the requested subscription. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    /// > If the snapshot already exists, returns `ALREADY_EXISTS`.
+    /// > If the requested subscription doesn't exist, returns `NOT_FOUND`.
+    /// > If the backlog in the subscription is too old -- and the resulting snapshot
+    /// > would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
+    /// > See also the `Snapshot.expire_time` field. If the name is not provided in
+    /// > the request, the server will assign a random
+    /// > name for this snapshot on the same project as the subscription, conforming
+    /// > to the [resource name format]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+    /// > generated name is populated in the returned Snapshot object. Note that for
+    /// > REST API requests, you must specify a name in the request.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_CreateSnapshotRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func createSnapshot<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createSnapshot(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_CreateSnapshotRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Snapshot>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func updateSnapshot<R>(
+
+    /// Call the "UpdateSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing snapshot by updating the fields specified in the update
+    /// > mask. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_UpdateSnapshotRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func updateSnapshot<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateSnapshot(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_UpdateSnapshotRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Snapshot>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func deleteSnapshot<R>(
+
+    /// Call the "DeleteSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Removes an existing snapshot. Snapshots are used in [Seek]
+    /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    /// > When the snapshot is deleted, all messages retained in the snapshot
+    /// > are immediately dropped. After a snapshot is deleted, a new one may be
+    /// > created with the same name, but the new one has no association with the old
+    /// > snapshot or its subscription, unless the same subscription is specified.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSnapshotRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteSnapshot<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSnapshot(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteSnapshotRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func seek<R>(
+
+    /// Call the "Seek" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Seeks an existing subscription to a point in time or to a given snapshot,
+    /// > whichever is provided in the request. Snapshots are used in [Seek]
+    /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot. Note that both the subscription and the
+    /// > snapshot must be on the same topic.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_SeekRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func seek<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.seek(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_SeekRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_SeekResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Pubsub_V1_Subscriber.ClientProtocol {
-    /// Creates a subscription to a given topic. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    /// If the subscription already exists, returns `ALREADY_EXISTS`.
-    /// If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+    /// Call the "CreateSubscription" method.
     ///
-    /// If the name is not provided in the request, the server will assign a random
-    /// name for this subscription on the same project as the topic, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Subscription object. Note that
-    /// for REST API requests, you must specify a name in the request.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a subscription to a given topic. See the [resource name rules]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
+    /// > If the subscription already exists, returns `ALREADY_EXISTS`.
+    /// > If the corresponding topic doesn't exist, returns `NOT_FOUND`.
+    /// > 
+    /// > If the name is not provided in the request, the server will assign a random
+    /// > name for this subscription on the same project as the topic, conforming
+    /// > to the [resource name format]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+    /// > generated name is populated in the returned Subscription object. Note that
+    /// > for REST API requests, you must specify a name in the request.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func createSubscription<Result>(
         _ message: Google_Pubsub_V1_Subscription,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>(
@@ -1451,17 +3250,30 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.createSubscription(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets the configuration details of a subscription.
+
+    /// Call the "GetSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration details of a subscription.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func getSubscription<Result>(
         _ message: Google_Pubsub_V1_GetSubscriptionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>(
@@ -1471,19 +3283,32 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.getSubscription(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an existing subscription by updating the fields specified in the
-    /// update mask. Note that certain properties of a subscription, such as its
-    /// topic, are not modifiable.
+
+    /// Call the "UpdateSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing subscription by updating the fields specified in the
+    /// > update mask. Note that certain properties of a subscription, such as its
+    /// > topic, are not modifiable.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func updateSubscription<Result>(
         _ message: Google_Pubsub_V1_UpdateSubscriptionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>(
@@ -1493,17 +3318,30 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.updateSubscription(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists matching subscriptions.
+
+    /// Call the "ListSubscriptions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists matching subscriptions.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func listSubscriptions<Result>(
         _ message: Google_Pubsub_V1_ListSubscriptionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>(
@@ -1513,21 +3351,34 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.listSubscriptions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes an existing subscription. All messages retained in the subscription
-    /// are immediately dropped. Calls to `Pull` after deletion will return
-    /// `NOT_FOUND`. After a subscription is deleted, a new one may be created with
-    /// the same name, but the new one has no association with the old
-    /// subscription or its topic unless the same topic is specified.
+
+    /// Call the "DeleteSubscription" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an existing subscription. All messages retained in the subscription
+    /// > are immediately dropped. Calls to `Pull` after deletion will return
+    /// > `NOT_FOUND`. After a subscription is deleted, a new one may be created with
+    /// > the same name, but the new one has no association with the old
+    /// > subscription or its topic unless the same topic is specified.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func deleteSubscription<Result>(
         _ message: Google_Pubsub_V1_DeleteSubscriptionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>(
@@ -1537,21 +3388,34 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.deleteSubscription(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Modifies the ack deadline for a specific message. This method is useful
-    /// to indicate that more time is needed to process a message by the
-    /// subscriber, or to make the message available for redelivery if the
-    /// processing was interrupted. Note that this does not modify the
-    /// subscription-level `ackDeadlineSeconds` used for subsequent messages.
+
+    /// Call the "ModifyAckDeadline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Modifies the ack deadline for a specific message. This method is useful
+    /// > to indicate that more time is needed to process a message by the
+    /// > subscriber, or to make the message available for redelivery if the
+    /// > processing was interrupted. Note that this does not modify the
+    /// > subscription-level `ackDeadlineSeconds` used for subsequent messages.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func modifyAckDeadline<Result>(
         _ message: Google_Pubsub_V1_ModifyAckDeadlineRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>(
@@ -1561,23 +3425,36 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.modifyAckDeadline(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Acknowledges the messages associated with the `ack_ids` in the
-    /// `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
-    /// from the subscription.
+
+    /// Call the "Acknowledge" method.
     ///
-    /// Acknowledging a message whose ack deadline has expired may succeed,
-    /// but such a message may be redelivered later. Acknowledging a message more
-    /// than once will not result in an error.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Acknowledges the messages associated with the `ack_ids` in the
+    /// > `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
+    /// > from the subscription.
+    /// > 
+    /// > Acknowledging a message whose ack deadline has expired may succeed,
+    /// > but such a message may be redelivered later. Acknowledging a message more
+    /// > than once will not result in an error.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func acknowledge<Result>(
         _ message: Google_Pubsub_V1_AcknowledgeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>(
@@ -1587,17 +3464,30 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.acknowledge(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Pulls messages from the server.
+
+    /// Call the "Pull" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Pulls messages from the server.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func pull<Result>(
         _ message: Google_Pubsub_V1_PullRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>(
@@ -1607,46 +3497,73 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.pull(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Establishes a stream with the server, which sends messages down to the
-    /// client. The client streams acknowledgements and ack deadline modifications
-    /// back to the server. The server will close the stream and return the status
-    /// on any error. The server may close the stream with status `UNAVAILABLE` to
-    /// reassign server-side resources, in which case, the client should
-    /// re-establish the stream. Flow control can be achieved by configuring the
-    /// underlying RPC channel.
+
+    /// Call the "StreamingPull" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Establishes a stream with the server, which sends messages down to the
+    /// > client. The client streams acknowledgements and ack deadline modifications
+    /// > back to the server. The server will close the stream and return the status
+    /// > on any error. The server may close the stream with status `UNAVAILABLE` to
+    /// > reassign server-side resources, in which case, the client should
+    /// > re-establish the stream. Flow control can be achieved by configuring the
+    /// > underlying RPC channel.
+    ///
+    /// - Parameters:
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - producer: A closure producing request messages to send to the server. The request
+    ///       stream is closed when the closure returns.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func streamingPull<Result>(
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        requestProducer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Pubsub_V1_StreamingPullRequest>) async throws -> Void,
+        requestProducer producer: @Sendable @escaping (GRPCCore.RPCWriter<Google_Pubsub_V1_StreamingPullRequest>) async throws -> Void,
         onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> Result
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>(
             metadata: metadata,
-            producer: requestProducer
+            producer: producer
         )
         return try await self.streamingPull(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Modifies the `PushConfig` for a specified subscription.
+
+    /// Call the "ModifyPushConfig" method.
     ///
-    /// This may be used to change a push subscription to a pull one (signified by
-    /// an empty `PushConfig`) or vice versa, or change the endpoint URL and other
-    /// attributes of a push subscription. Messages will accumulate for delivery
-    /// continuously through the call regardless of changes to the `PushConfig`.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Modifies the `PushConfig` for a specified subscription.
+    /// > 
+    /// > This may be used to change a push subscription to a pull one (signified by
+    /// > an empty `PushConfig`) or vice versa, or change the endpoint URL and other
+    /// > attributes of a push subscription. Messages will accumulate for delivery
+    /// > continuously through the call regardless of changes to the `PushConfig`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func modifyPushConfig<Result>(
         _ message: Google_Pubsub_V1_ModifyPushConfigRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>(
@@ -1656,21 +3573,34 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.modifyPushConfig(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets the configuration details of a snapshot. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
+
+    /// Call the "GetSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the configuration details of a snapshot. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func getSnapshot<Result>(
         _ message: Google_Pubsub_V1_GetSnapshotRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>(
@@ -1680,21 +3610,34 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.getSnapshot(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists the existing snapshots. Snapshots are used in [Seek](
-    /// https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
+
+    /// Call the "ListSnapshots" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists the existing snapshots. Snapshots are used in [Seek](
+    /// > https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func listSnapshots<Result>(
         _ message: Google_Pubsub_V1_ListSnapshotsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>(
@@ -1704,32 +3647,45 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.listSnapshots(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a snapshot from the requested subscription. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// If the snapshot already exists, returns `ALREADY_EXISTS`.
-    /// If the requested subscription doesn't exist, returns `NOT_FOUND`.
-    /// If the backlog in the subscription is too old -- and the resulting snapshot
-    /// would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
-    /// See also the `Snapshot.expire_time` field. If the name is not provided in
-    /// the request, the server will assign a random
-    /// name for this snapshot on the same project as the subscription, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Snapshot object. Note that for
-    /// REST API requests, you must specify a name in the request.
+
+    /// Call the "CreateSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a snapshot from the requested subscription. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    /// > If the snapshot already exists, returns `ALREADY_EXISTS`.
+    /// > If the requested subscription doesn't exist, returns `NOT_FOUND`.
+    /// > If the backlog in the subscription is too old -- and the resulting snapshot
+    /// > would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
+    /// > See also the `Snapshot.expire_time` field. If the name is not provided in
+    /// > the request, the server will assign a random
+    /// > name for this snapshot on the same project as the subscription, conforming
+    /// > to the [resource name format]
+    /// > (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
+    /// > generated name is populated in the returned Snapshot object. Note that for
+    /// > REST API requests, you must specify a name in the request.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func createSnapshot<Result>(
         _ message: Google_Pubsub_V1_CreateSnapshotRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>(
@@ -1739,22 +3695,35 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.createSnapshot(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an existing snapshot by updating the fields specified in the update
-    /// mask. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
+
+    /// Call the "UpdateSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing snapshot by updating the fields specified in the update
+    /// > mask. Snapshots are used in
+    /// > [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+    /// > which allow you to manage message acknowledgments in bulk. That is, you can
+    /// > set the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func updateSnapshot<Result>(
         _ message: Google_Pubsub_V1_UpdateSnapshotRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>(
@@ -1764,25 +3733,38 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.updateSnapshot(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Removes an existing snapshot. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// When the snapshot is deleted, all messages retained in the snapshot
-    /// are immediately dropped. After a snapshot is deleted, a new one may be
-    /// created with the same name, but the new one has no association with the old
-    /// snapshot or its subscription, unless the same subscription is specified.
+
+    /// Call the "DeleteSnapshot" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Removes an existing snapshot. Snapshots are used in [Seek]
+    /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot.
+    /// > When the snapshot is deleted, all messages retained in the snapshot
+    /// > are immediately dropped. After a snapshot is deleted, a new one may be
+    /// > created with the same name, but the new one has no association with the old
+    /// > snapshot or its subscription, unless the same subscription is specified.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func deleteSnapshot<Result>(
         _ message: Google_Pubsub_V1_DeleteSnapshotRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>(
@@ -1792,23 +3774,36 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.deleteSnapshot(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Seeks an existing subscription to a point in time or to a given snapshot,
-    /// whichever is provided in the request. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot. Note that both the subscription and the
-    /// snapshot must be on the same topic.
+
+    /// Call the "Seek" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Seeks an existing subscription to a point in time or to a given snapshot,
+    /// > whichever is provided in the request. Snapshots are used in [Seek]
+    /// > (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+    /// > allow you to manage message acknowledgments in bulk. That is, you can set
+    /// > the acknowledgment state of messages in an existing subscription to the
+    /// > state captured by a snapshot. Note that both the subscription and the
+    /// > snapshot must be on the same topic.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func seek<Result>(
         _ message: Google_Pubsub_V1_SeekRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>(
@@ -1818,416 +3813,7 @@ extension Google_Pubsub_V1_Subscriber.ClientProtocol {
         return try await self.seek(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// The service that an application uses to manipulate subscriptions and to
-/// consume messages from a subscription via the `Pull` method or by
-/// establishing a bi-directional stream using the `StreamingPull` method.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal struct Google_Pubsub_V1_Subscriber_Client: Google_Pubsub_V1_Subscriber.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    internal init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a subscription to a given topic. See the [resource name rules]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
-    /// If the subscription already exists, returns `ALREADY_EXISTS`.
-    /// If the corresponding topic doesn't exist, returns `NOT_FOUND`.
-    ///
-    /// If the name is not provided in the request, the server will assign a random
-    /// name for this subscription on the same project as the topic, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Subscription object. Note that
-    /// for REST API requests, you must specify a name in the request.
-    internal func createSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_Subscription>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_Subscription>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.CreateSubscription.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets the configuration details of a subscription.
-    internal func getSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.GetSubscription.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an existing subscription by updating the fields specified in the
-    /// update mask. Note that certain properties of a subscription, such as its
-    /// topic, are not modifiable.
-    internal func updateSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Subscription>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Subscription>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.UpdateSubscription.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists matching subscriptions.
-    internal func listSubscriptions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSubscriptionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSubscriptionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSubscriptionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSubscriptionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.ListSubscriptions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes an existing subscription. All messages retained in the subscription
-    /// are immediately dropped. Calls to `Pull` after deletion will return
-    /// `NOT_FOUND`. After a subscription is deleted, a new one may be created with
-    /// the same name, but the new one has no association with the old
-    /// subscription or its topic unless the same topic is specified.
-    internal func deleteSubscription<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSubscriptionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSubscriptionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.DeleteSubscription.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Modifies the ack deadline for a specific message. This method is useful
-    /// to indicate that more time is needed to process a message by the
-    /// subscriber, or to make the message available for redelivery if the
-    /// processing was interrupted. Note that this does not modify the
-    /// subscription-level `ackDeadlineSeconds` used for subsequent messages.
-    internal func modifyAckDeadline<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyAckDeadlineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.ModifyAckDeadline.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Acknowledges the messages associated with the `ack_ids` in the
-    /// `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
-    /// from the subscription.
-    ///
-    /// Acknowledging a message whose ack deadline has expired may succeed,
-    /// but such a message may be redelivered later. Acknowledging a message more
-    /// than once will not result in an error.
-    internal func acknowledge<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_AcknowledgeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_AcknowledgeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.Acknowledge.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Pulls messages from the server.
-    internal func pull<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_PullRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_PullRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_PullResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_PullResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.Pull.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Establishes a stream with the server, which sends messages down to the
-    /// client. The client streams acknowledgements and ack deadline modifications
-    /// back to the server. The server will close the stream and return the status
-    /// on any error. The server may close the stream with status `UNAVAILABLE` to
-    /// reassign server-side resources, in which case, the client should
-    /// re-establish the stream. Flow control can be achieved by configuring the
-    /// underlying RPC channel.
-    internal func streamingPull<R>(
-        request: GRPCCore.StreamingClientRequest<Google_Pubsub_V1_StreamingPullRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_StreamingPullRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_StreamingPullResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Pubsub_V1_StreamingPullResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.bidirectionalStreaming(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.StreamingPull.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Modifies the `PushConfig` for a specified subscription.
-    ///
-    /// This may be used to change a push subscription to a pull one (signified by
-    /// an empty `PushConfig`) or vice versa, or change the endpoint URL and other
-    /// attributes of a push subscription. Messages will accumulate for delivery
-    /// continuously through the call regardless of changes to the `PushConfig`.
-    internal func modifyPushConfig<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ModifyPushConfigRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ModifyPushConfigRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.ModifyPushConfig.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets the configuration details of a snapshot. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    internal func getSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.GetSnapshot.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists the existing snapshots. Snapshots are used in [Seek](
-    /// https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    internal func listSnapshots<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSnapshotsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSnapshotsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSnapshotsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSnapshotsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.ListSnapshots.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a snapshot from the requested subscription. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// If the snapshot already exists, returns `ALREADY_EXISTS`.
-    /// If the requested subscription doesn't exist, returns `NOT_FOUND`.
-    /// If the backlog in the subscription is too old -- and the resulting snapshot
-    /// would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
-    /// See also the `Snapshot.expire_time` field. If the name is not provided in
-    /// the request, the server will assign a random
-    /// name for this snapshot on the same project as the subscription, conforming
-    /// to the [resource name format]
-    /// (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names). The
-    /// generated name is populated in the returned Snapshot object. Note that for
-    /// REST API requests, you must specify a name in the request.
-    internal func createSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.CreateSnapshot.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an existing snapshot by updating the fields specified in the update
-    /// mask. Snapshots are used in
-    /// [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
-    /// which allow you to manage message acknowledgments in bulk. That is, you can
-    /// set the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    internal func updateSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_UpdateSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_UpdateSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Snapshot>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Snapshot>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.UpdateSnapshot.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Removes an existing snapshot. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot.
-    /// When the snapshot is deleted, all messages retained in the snapshot
-    /// are immediately dropped. After a snapshot is deleted, a new one may be
-    /// created with the same name, but the new one has no association with the old
-    /// snapshot or its subscription, unless the same subscription is specified.
-    internal func deleteSnapshot<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSnapshotRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSnapshotRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.DeleteSnapshot.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Seeks an existing subscription to a point in time or to a given snapshot,
-    /// whichever is provided in the request. Snapshots are used in [Seek]
-    /// (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
-    /// allow you to manage message acknowledgments in bulk. That is, you can set
-    /// the acknowledgment state of messages in an existing subscription to the
-    /// state captured by a snapshot. Note that both the subscription and the
-    /// snapshot must be on the same topic.
-    internal func seek<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_SeekRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_SeekRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_SeekResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_SeekResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_Subscriber.Method.Seek.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

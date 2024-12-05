@@ -24,73 +24,111 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.EndpointService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.EndpointService" service.
 public enum Google_Cloud_Aiplatform_V1_EndpointService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_EndpointService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.EndpointService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateEndpoint" metadata.
         public enum CreateEndpoint {
+            /// Request type for "CreateEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateEndpointRequest
+            /// Response type for "CreateEndpoint".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "CreateEndpoint"
             )
         }
+        /// Namespace for "GetEndpoint" metadata.
         public enum GetEndpoint {
+            /// Request type for "GetEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetEndpointRequest
+            /// Response type for "GetEndpoint".
             public typealias Output = Google_Cloud_Aiplatform_V1_Endpoint
+            /// Descriptor for "GetEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "GetEndpoint"
             )
         }
+        /// Namespace for "ListEndpoints" metadata.
         public enum ListEndpoints {
+            /// Request type for "ListEndpoints".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListEndpointsRequest
+            /// Response type for "ListEndpoints".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListEndpointsResponse
+            /// Descriptor for "ListEndpoints".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "ListEndpoints"
             )
         }
+        /// Namespace for "UpdateEndpoint" metadata.
         public enum UpdateEndpoint {
+            /// Request type for "UpdateEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateEndpointRequest
+            /// Response type for "UpdateEndpoint".
             public typealias Output = Google_Cloud_Aiplatform_V1_Endpoint
+            /// Descriptor for "UpdateEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "UpdateEndpoint"
             )
         }
+        /// Namespace for "DeleteEndpoint" metadata.
         public enum DeleteEndpoint {
+            /// Request type for "DeleteEndpoint".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteEndpointRequest
+            /// Response type for "DeleteEndpoint".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteEndpoint".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "DeleteEndpoint"
             )
         }
+        /// Namespace for "DeployModel" metadata.
         public enum DeployModel {
+            /// Request type for "DeployModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeployModelRequest
+            /// Response type for "DeployModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeployModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "DeployModel"
             )
         }
+        /// Namespace for "UndeployModel" metadata.
         public enum UndeployModel {
+            /// Request type for "UndeployModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_UndeployModelRequest
+            /// Response type for "UndeployModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UndeployModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "UndeployModel"
             )
         }
+        /// Namespace for "MutateDeployedModel" metadata.
         public enum MutateDeployedModel {
+            /// Request type for "MutateDeployedModel".
             public typealias Input = Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest
+            /// Response type for "MutateDeployedModel".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "MutateDeployedModel".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_EndpointService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService"),
                 method: "MutateDeployedModel"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.EndpointService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateEndpoint.descriptor,
             GetEndpoint.descriptor,
@@ -102,239 +140,773 @@ public enum Google_Cloud_Aiplatform_V1_EndpointService {
             MutateDeployedModel.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_EndpointService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_EndpointService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_EndpointService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "EndpointService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.EndpointService" service.
+    public static let google_cloud_aiplatform_v1_EndpointService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.EndpointService")
 }
 
-/// A service for managing Vertex AI's Endpoints.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_EndpointService_ClientProtocol: Sendable {
-    /// Creates an Endpoint.
-    func createEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets an Endpoint.
-    func getEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Endpoints in a Location.
-    func listEndpoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an Endpoint.
-    func updateEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes an Endpoint.
-    func deleteEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deploys a Model into this Endpoint, creating a DeployedModel within it.
-    func deployModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
-    /// freeing all resources it's using.
-    func undeployModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates an existing deployed model. Updatable fields include
-    /// `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
-    /// `disable_container_logging` (v1 only), and `enable_container_logging`
-    /// (v1beta1 only).
-    func mutateDeployedModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.EndpointService (client)
+
+extension Google_Cloud_Aiplatform_V1_EndpointService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.EndpointService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's Endpoints.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Endpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListEndpoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Endpoints in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListEndpointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListEndpointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListEndpointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listEndpoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Endpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeployModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deploys a Model into this Endpoint, creating a DeployedModel within it.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeployModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deployModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UndeployModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
+        /// > freeing all resources it's using.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UndeployModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func undeployModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "MutateDeployedModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing deployed model. Updatable fields include
+        /// > `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
+        /// > `disable_container_logging` (v1 only), and `enable_container_logging`
+        /// > (v1beta1 only).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func mutateDeployedModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.EndpointService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for managing Vertex AI's Endpoints.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.CreateEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Endpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.GetEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListEndpoints" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Endpoints in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListEndpointsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListEndpointsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListEndpointsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listEndpoints<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.ListEndpoints.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Endpoint` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.UpdateEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteEndpoint" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes an Endpoint.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteEndpointRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteEndpointRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteEndpoint<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.DeleteEndpoint.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeployModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deploys a Model into this Endpoint, creating a DeployedModel within it.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeployModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deployModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.DeployModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UndeployModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
+        /// > freeing all resources it's using.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UndeployModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func undeployModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.UndeployModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "MutateDeployedModel" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates an existing deployed model. Updatable fields include
+        /// > `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
+        /// > `disable_container_logging` (v1 only), and `enable_container_logging`
+        /// > (v1beta1 only).
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func mutateDeployedModel<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.MutateDeployedModel.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
-    public func createEndpoint<R>(
+    /// Call the "CreateEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getEndpoint<R>(
+
+    /// Call the "GetEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listEndpoints<R>(
+
+    /// Call the "ListEndpoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Endpoints in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListEndpointsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listEndpoints<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listEndpoints(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateEndpoint<R>(
+
+    /// Call the "UpdateEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteEndpoint<R>(
+
+    /// Call the "DeleteEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteEndpointRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteEndpoint<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteEndpoint(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deployModel<R>(
+
+    /// Call the "DeployModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deploys a Model into this Endpoint, creating a DeployedModel within it.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeployModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deployModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deployModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeployModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func undeployModel<R>(
+
+    /// Call the "UndeployModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
+    /// > freeing all resources it's using.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UndeployModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func undeployModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.undeployModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UndeployModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func mutateDeployedModel<R>(
+
+    /// Call the "MutateDeployedModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing deployed model. Updatable fields include
+    /// > `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
+    /// > `disable_container_logging` (v1 only), and `enable_container_logging`
+    /// > (v1beta1 only).
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func mutateDeployedModel<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.mutateDeployedModel(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
-    /// Creates an Endpoint.
+    /// Call the "CreateEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>(
@@ -344,17 +916,30 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.createEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets an Endpoint.
+
+    /// Call the "GetEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>(
@@ -364,17 +949,30 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.getEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Endpoints in a Location.
+
+    /// Call the "ListEndpoints" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Endpoints in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listEndpoints<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListEndpointsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>(
@@ -384,17 +982,30 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.listEndpoints(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an Endpoint.
+
+    /// Call the "UpdateEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>(
@@ -404,17 +1015,30 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.updateEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes an Endpoint.
+
+    /// Call the "DeleteEndpoint" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteEndpoint<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteEndpointRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>(
@@ -424,17 +1048,30 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.deleteEndpoint(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deploys a Model into this Endpoint, creating a DeployedModel within it.
+
+    /// Call the "DeployModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deploys a Model into this Endpoint, creating a DeployedModel within it.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deployModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeployModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>(
@@ -444,18 +1081,31 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.deployModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
-    /// freeing all resources it's using.
+
+    /// Call the "UndeployModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
+    /// > freeing all resources it's using.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func undeployModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UndeployModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>(
@@ -465,20 +1115,33 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.undeployModel(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates an existing deployed model. Updatable fields include
-    /// `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
-    /// `disable_container_logging` (v1 only), and `enable_container_logging`
-    /// (v1beta1 only).
+
+    /// Call the "MutateDeployedModel" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates an existing deployed model. Updatable fields include
+    /// > `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
+    /// > `disable_container_logging` (v1 only), and `enable_container_logging`
+    /// > (v1beta1 only).
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func mutateDeployedModel<Result>(
         _ message: Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>(
@@ -488,181 +1151,7 @@ extension Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
         return try await self.mutateDeployedModel(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for managing Vertex AI's Endpoints.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_EndpointService_Client: Google_Cloud_Aiplatform_V1_EndpointService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates an Endpoint.
-    public func createEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.CreateEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets an Endpoint.
-    public func getEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.GetEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Endpoints in a Location.
-    public func listEndpoints<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListEndpointsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListEndpointsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.ListEndpoints.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an Endpoint.
-    public func updateEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Endpoint>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Endpoint>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.UpdateEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes an Endpoint.
-    public func deleteEndpoint<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteEndpointRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.DeleteEndpoint.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deploys a Model into this Endpoint, creating a DeployedModel within it.
-    public func deployModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeployModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.DeployModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Undeploys a Model from an Endpoint, removing a DeployedModel from it, and
-    /// freeing all resources it's using.
-    public func undeployModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UndeployModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.UndeployModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates an existing deployed model. Updatable fields include
-    /// `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
-    /// `disable_container_logging` (v1 only), and `enable_container_logging`
-    /// (v1beta1 only).
-    public func mutateDeployedModel<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_MutateDeployedModelRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_EndpointService.Method.MutateDeployedModel.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

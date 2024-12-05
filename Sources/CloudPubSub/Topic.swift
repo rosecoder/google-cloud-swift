@@ -38,7 +38,7 @@ public struct Topic<Message: _Message>: Sendable, Identifiable, Equatable, Hasha
 #if DEBUG
 extension Topic {
 
-    func createIfNeeded(client: Google_Pubsub_V1_Publisher_ClientProtocol) async throws {
+    func createIfNeeded(client: Google_Pubsub_V1_Publisher.ClientProtocol) async throws {
         do {
             _ = try await client.createTopic(.with {
                 $0.name = id

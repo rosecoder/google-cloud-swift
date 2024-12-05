@@ -24,111 +24,289 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.FeatureOnlineStoreService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
 public enum Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_FeatureOnlineStoreService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "FetchFeatureValues" metadata.
         public enum FetchFeatureValues {
+            /// Request type for "FetchFeatureValues".
             public typealias Input = Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest
+            /// Response type for "FetchFeatureValues".
             public typealias Output = Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse
+            /// Descriptor for "FetchFeatureValues".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreService"),
                 method: "FetchFeatureValues"
             )
         }
+        /// Namespace for "SearchNearestEntities" metadata.
         public enum SearchNearestEntities {
+            /// Request type for "SearchNearestEntities".
             public typealias Input = Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest
+            /// Response type for "SearchNearestEntities".
             public typealias Output = Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse
+            /// Descriptor for "SearchNearestEntities".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreService"),
                 method: "SearchNearestEntities"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             FetchFeatureValues.descriptor,
             SearchNearestEntities.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_FeatureOnlineStoreService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "FeatureOnlineStoreService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
+    public static let google_cloud_aiplatform_v1_FeatureOnlineStoreService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.FeatureOnlineStoreService")
 }
 
-/// A service for fetching feature values from the online store.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService_ClientProtocol: Sendable {
-    /// Fetch feature values under a FeatureView.
-    func fetchFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Search the nearest entities under a FeatureView.
-    /// Search only works for indexable feature view; if a feature view isn't
-    /// indexable, returns Invalid argument response.
-    func searchNearestEntities<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.FeatureOnlineStoreService (client)
+
+extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for fetching feature values from the online store.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "FetchFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Fetch feature values under a FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func fetchFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "SearchNearestEntities" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Search the nearest entities under a FeatureView.
+        /// > Search only works for indexable feature view; if a feature view isn't
+        /// > indexable, returns Invalid argument response.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func searchNearestEntities<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.FeatureOnlineStoreService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for fetching feature values from the online store.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "FetchFeatureValues" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Fetch feature values under a FeatureView.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func fetchFeatureValues<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.Method.FetchFeatureValues.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "SearchNearestEntities" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Search the nearest entities under a FeatureView.
+        /// > Search only works for indexable feature view; if a feature view isn't
+        /// > indexable, returns Invalid argument response.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func searchNearestEntities<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.Method.SearchNearestEntities.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.ClientProtocol {
-    public func fetchFeatureValues<R>(
+    /// Call the "FetchFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Fetch feature values under a FeatureView.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func fetchFeatureValues<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.fetchFeatureValues(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func searchNearestEntities<R>(
+
+    /// Call the "SearchNearestEntities" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Search the nearest entities under a FeatureView.
+    /// > Search only works for indexable feature view; if a feature view isn't
+    /// > indexable, returns Invalid argument response.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func searchNearestEntities<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.searchNearestEntities(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.ClientProtocol {
-    /// Fetch feature values under a FeatureView.
+    /// Call the "FetchFeatureValues" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Fetch feature values under a FeatureView.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func fetchFeatureValues<Result>(
         _ message: Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>(
@@ -138,19 +316,32 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.ClientProtocol {
         return try await self.fetchFeatureValues(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Search the nearest entities under a FeatureView.
-    /// Search only works for indexable feature view; if a feature view isn't
-    /// indexable, returns Invalid argument response.
+
+    /// Call the "SearchNearestEntities" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Search the nearest entities under a FeatureView.
+    /// > Search only works for indexable feature view; if a feature view isn't
+    /// > indexable, returns Invalid argument response.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func searchNearestEntities<Result>(
         _ message: Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>(
@@ -160,59 +351,7 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.ClientProtocol {
         return try await self.searchNearestEntities(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for fetching feature values from the online store.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService_Client: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Fetch feature values under a FeatureView.
-    public func fetchFeatureValues<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_FetchFeatureValuesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.Method.FetchFeatureValues.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Search the nearest entities under a FeatureView.
-    /// Search only works for indexable feature view; if a feature view isn't
-    /// indexable, returns Invalid argument response.
-    public func searchNearestEntities<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchNearestEntitiesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_FeatureOnlineStoreService.Method.SearchNearestEntities.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

@@ -25,105 +25,159 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.PipelineService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.PipelineService" service.
 public enum Google_Cloud_Aiplatform_V1_PipelineService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_PipelineService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PipelineService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateTrainingPipeline" metadata.
         public enum CreateTrainingPipeline {
+            /// Request type for "CreateTrainingPipeline".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest
+            /// Response type for "CreateTrainingPipeline".
             public typealias Output = Google_Cloud_Aiplatform_V1_TrainingPipeline
+            /// Descriptor for "CreateTrainingPipeline".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "CreateTrainingPipeline"
             )
         }
+        /// Namespace for "GetTrainingPipeline" metadata.
         public enum GetTrainingPipeline {
+            /// Request type for "GetTrainingPipeline".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest
+            /// Response type for "GetTrainingPipeline".
             public typealias Output = Google_Cloud_Aiplatform_V1_TrainingPipeline
+            /// Descriptor for "GetTrainingPipeline".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "GetTrainingPipeline"
             )
         }
+        /// Namespace for "ListTrainingPipelines" metadata.
         public enum ListTrainingPipelines {
+            /// Request type for "ListTrainingPipelines".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest
+            /// Response type for "ListTrainingPipelines".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse
+            /// Descriptor for "ListTrainingPipelines".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "ListTrainingPipelines"
             )
         }
+        /// Namespace for "DeleteTrainingPipeline" metadata.
         public enum DeleteTrainingPipeline {
+            /// Request type for "DeleteTrainingPipeline".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest
+            /// Response type for "DeleteTrainingPipeline".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteTrainingPipeline".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "DeleteTrainingPipeline"
             )
         }
+        /// Namespace for "CancelTrainingPipeline" metadata.
         public enum CancelTrainingPipeline {
+            /// Request type for "CancelTrainingPipeline".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest
+            /// Response type for "CancelTrainingPipeline".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelTrainingPipeline".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "CancelTrainingPipeline"
             )
         }
+        /// Namespace for "CreatePipelineJob" metadata.
         public enum CreatePipelineJob {
+            /// Request type for "CreatePipelineJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest
+            /// Response type for "CreatePipelineJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_PipelineJob
+            /// Descriptor for "CreatePipelineJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "CreatePipelineJob"
             )
         }
+        /// Namespace for "GetPipelineJob" metadata.
         public enum GetPipelineJob {
+            /// Request type for "GetPipelineJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetPipelineJobRequest
+            /// Response type for "GetPipelineJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_PipelineJob
+            /// Descriptor for "GetPipelineJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "GetPipelineJob"
             )
         }
+        /// Namespace for "ListPipelineJobs" metadata.
         public enum ListPipelineJobs {
+            /// Request type for "ListPipelineJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest
+            /// Response type for "ListPipelineJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse
+            /// Descriptor for "ListPipelineJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "ListPipelineJobs"
             )
         }
+        /// Namespace for "DeletePipelineJob" metadata.
         public enum DeletePipelineJob {
+            /// Request type for "DeletePipelineJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest
+            /// Response type for "DeletePipelineJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeletePipelineJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "DeletePipelineJob"
             )
         }
+        /// Namespace for "BatchDeletePipelineJobs" metadata.
         public enum BatchDeletePipelineJobs {
+            /// Request type for "BatchDeletePipelineJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest
+            /// Response type for "BatchDeletePipelineJobs".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "BatchDeletePipelineJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "BatchDeletePipelineJobs"
             )
         }
+        /// Namespace for "CancelPipelineJob" metadata.
         public enum CancelPipelineJob {
+            /// Request type for "CancelPipelineJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest
+            /// Response type for "CancelPipelineJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelPipelineJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "CancelPipelineJob"
             )
         }
+        /// Namespace for "BatchCancelPipelineJobs" metadata.
         public enum BatchCancelPipelineJobs {
+            /// Request type for "BatchCancelPipelineJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest
+            /// Response type for "BatchCancelPipelineJobs".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "BatchCancelPipelineJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_PipelineService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService"),
                 method: "BatchCancelPipelineJobs"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.PipelineService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateTrainingPipeline.descriptor,
             GetTrainingPipeline.descriptor,
@@ -139,372 +193,1212 @@ public enum Google_Cloud_Aiplatform_V1_PipelineService {
             BatchCancelPipelineJobs.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_PipelineService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_PipelineService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_PipelineService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "PipelineService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.PipelineService" service.
+    public static let google_cloud_aiplatform_v1_PipelineService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.PipelineService")
 }
 
-/// A service for creating and managing Vertex AI's pipelines. This includes both
-/// `TrainingPipeline` resources (used for AutoML and custom training) and
-/// `PipelineJob` resources (used for Vertex AI Pipelines).
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_PipelineService_ClientProtocol: Sendable {
-    /// Creates a TrainingPipeline. A created TrainingPipeline right away will be
-    /// attempted to be run.
-    func createTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a TrainingPipeline.
-    func getTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists TrainingPipelines in a Location.
-    func listTrainingPipelines<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a TrainingPipeline.
-    func deleteTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a TrainingPipeline.
-    /// Starts asynchronous cancellation on the TrainingPipeline. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the TrainingPipeline is not deleted; instead it becomes a pipeline with
-    /// a
-    /// [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
-    /// is set to `CANCELLED`.
-    func cancelTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a PipelineJob. A PipelineJob will run immediately when created.
-    func createPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a PipelineJob.
-    func getPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists PipelineJobs in a Location.
-    func listPipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a PipelineJob.
-    func deletePipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Batch deletes PipelineJobs
-    /// The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
-    /// If it succeeds, all of the PipelineJobs are deleted.
-    func batchDeletePipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a PipelineJob.
-    /// Starts asynchronous cancellation on the PipelineJob. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the PipelineJob is not deleted; instead it becomes a pipeline with
-    /// a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
-    /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
-    /// to `Code.CANCELLED`, and
-    /// [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
-    /// `CANCELLED`.
-    func cancelPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Batch cancel PipelineJobs.
-    /// Firstly the server will check if all the jobs are in non-terminal states,
-    /// and skip the jobs that are already terminated.
-    /// If the operation failed, none of the pipeline jobs are cancelled.
-    /// The server will poll the states of all the pipeline jobs periodically
-    /// to check the cancellation status.
-    /// This operation will return an LRO.
-    func batchCancelPipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.PipelineService (client)
+
+extension Google_Cloud_Aiplatform_V1_PipelineService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.PipelineService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's pipelines. This includes both
+    /// > `TrainingPipeline` resources (used for AutoML and custom training) and
+    /// > `PipelineJob` resources (used for Vertex AI Pipelines).
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TrainingPipeline. A created TrainingPipeline right away will be
+        /// > attempted to be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TrainingPipeline` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TrainingPipeline.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TrainingPipeline` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTrainingPipelines" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TrainingPipelines in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTrainingPipelines<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TrainingPipeline.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a TrainingPipeline.
+        /// > Starts asynchronous cancellation on the TrainingPipeline. The server
+        /// > makes a best effort to cancel the pipeline, but success is not
+        /// > guaranteed. Clients can use
+        /// > [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > pipeline completed despite cancellation. On successful cancellation,
+        /// > the TrainingPipeline is not deleted; instead it becomes a pipeline with
+        /// > a
+        /// > [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
+        /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`, and
+        /// > [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
+        /// > is set to `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreatePipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a PipelineJob. A PipelineJob will run immediately when created.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PipelineJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetPipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a PipelineJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PipelineJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListPipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists PipelineJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listPipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeletePipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a PipelineJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deletePipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchDeletePipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch deletes PipelineJobs
+        /// > The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
+        /// > If it succeeds, all of the PipelineJobs are deleted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchDeletePipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelPipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a PipelineJob.
+        /// > Starts asynchronous cancellation on the PipelineJob. The server
+        /// > makes a best effort to cancel the pipeline, but success is not
+        /// > guaranteed. Clients can use
+        /// > [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > pipeline completed despite cancellation. On successful cancellation,
+        /// > the PipelineJob is not deleted; instead it becomes a pipeline with
+        /// > a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
+        /// > with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+        /// > to `Code.CANCELLED`, and
+        /// > [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchCancelPipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch cancel PipelineJobs.
+        /// > Firstly the server will check if all the jobs are in non-terminal states,
+        /// > and skip the jobs that are already terminated.
+        /// > If the operation failed, none of the pipeline jobs are cancelled.
+        /// > The server will poll the states of all the pipeline jobs periodically
+        /// > to check the cancellation status.
+        /// > This operation will return an LRO.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchCancelPipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.PipelineService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing Vertex AI's pipelines. This includes both
+    /// > `TrainingPipeline` resources (used for AutoML and custom training) and
+    /// > `PipelineJob` resources (used for Vertex AI Pipelines).
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TrainingPipeline. A created TrainingPipeline right away will be
+        /// > attempted to be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TrainingPipeline` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CreateTrainingPipeline.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TrainingPipeline.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TrainingPipeline` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.GetTrainingPipeline.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTrainingPipelines" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TrainingPipelines in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTrainingPipelines<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.ListTrainingPipelines.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TrainingPipeline.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.DeleteTrainingPipeline.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelTrainingPipeline" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a TrainingPipeline.
+        /// > Starts asynchronous cancellation on the TrainingPipeline. The server
+        /// > makes a best effort to cancel the pipeline, but success is not
+        /// > guaranteed. Clients can use
+        /// > [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > pipeline completed despite cancellation. On successful cancellation,
+        /// > the TrainingPipeline is not deleted; instead it becomes a pipeline with
+        /// > a
+        /// > [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
+        /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`, and
+        /// > [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
+        /// > is set to `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelTrainingPipeline<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CancelTrainingPipeline.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreatePipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a PipelineJob. A PipelineJob will run immediately when created.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PipelineJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CreatePipelineJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetPipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a PipelineJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetPipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_PipelineJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.GetPipelineJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListPipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists PipelineJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listPipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.ListPipelineJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeletePipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a PipelineJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deletePipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.DeletePipelineJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchDeletePipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch deletes PipelineJobs
+        /// > The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
+        /// > If it succeeds, all of the PipelineJobs are deleted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchDeletePipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.BatchDeletePipelineJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelPipelineJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a PipelineJob.
+        /// > Starts asynchronous cancellation on the PipelineJob. The server
+        /// > makes a best effort to cancel the pipeline, but success is not
+        /// > guaranteed. Clients can use
+        /// > [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > pipeline completed despite cancellation. On successful cancellation,
+        /// > the PipelineJob is not deleted; instead it becomes a pipeline with
+        /// > a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
+        /// > with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+        /// > to `Code.CANCELLED`, and
+        /// > [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelPipelineJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CancelPipelineJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchCancelPipelineJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch cancel PipelineJobs.
+        /// > Firstly the server will check if all the jobs are in non-terminal states,
+        /// > and skip the jobs that are already terminated.
+        /// > If the operation failed, none of the pipeline jobs are cancelled.
+        /// > The server will poll the states of all the pipeline jobs periodically
+        /// > to check the cancellation status.
+        /// > This operation will return an LRO.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchCancelPipelineJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.BatchCancelPipelineJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
-    public func createTrainingPipeline<R>(
+    /// Call the "CreateTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TrainingPipeline. A created TrainingPipeline right away will be
+    /// > attempted to be run.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTrainingPipeline<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTrainingPipeline(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTrainingPipeline<R>(
+
+    /// Call the "GetTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TrainingPipeline.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTrainingPipeline<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTrainingPipeline(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTrainingPipelines<R>(
+
+    /// Call the "ListTrainingPipelines" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TrainingPipelines in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTrainingPipelines<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTrainingPipelines(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTrainingPipeline<R>(
+
+    /// Call the "DeleteTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TrainingPipeline.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTrainingPipeline<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTrainingPipeline(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelTrainingPipeline<R>(
+
+    /// Call the "CancelTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a TrainingPipeline.
+    /// > Starts asynchronous cancellation on the TrainingPipeline. The server
+    /// > makes a best effort to cancel the pipeline, but success is not
+    /// > guaranteed. Clients can use
+    /// > [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > pipeline completed despite cancellation. On successful cancellation,
+    /// > the TrainingPipeline is not deleted; instead it becomes a pipeline with
+    /// > a
+    /// > [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
+    /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`, and
+    /// > [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
+    /// > is set to `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelTrainingPipeline<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelTrainingPipeline(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createPipelineJob<R>(
+
+    /// Call the "CreatePipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a PipelineJob. A PipelineJob will run immediately when created.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createPipelineJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createPipelineJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getPipelineJob<R>(
+
+    /// Call the "GetPipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a PipelineJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetPipelineJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getPipelineJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getPipelineJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listPipelineJobs<R>(
+
+    /// Call the "ListPipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists PipelineJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listPipelineJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listPipelineJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deletePipelineJob<R>(
+
+    /// Call the "DeletePipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a PipelineJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deletePipelineJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deletePipelineJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchDeletePipelineJobs<R>(
+
+    /// Call the "BatchDeletePipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch deletes PipelineJobs
+    /// > The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
+    /// > If it succeeds, all of the PipelineJobs are deleted.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchDeletePipelineJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchDeletePipelineJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelPipelineJob<R>(
+
+    /// Call the "CancelPipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a PipelineJob.
+    /// > Starts asynchronous cancellation on the PipelineJob. The server
+    /// > makes a best effort to cancel the pipeline, but success is not
+    /// > guaranteed. Clients can use
+    /// > [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > pipeline completed despite cancellation. On successful cancellation,
+    /// > the PipelineJob is not deleted; instead it becomes a pipeline with
+    /// > a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
+    /// > with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+    /// > to `Code.CANCELLED`, and
+    /// > [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelPipelineJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelPipelineJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchCancelPipelineJobs<R>(
+
+    /// Call the "BatchCancelPipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch cancel PipelineJobs.
+    /// > Firstly the server will check if all the jobs are in non-terminal states,
+    /// > and skip the jobs that are already terminated.
+    /// > If the operation failed, none of the pipeline jobs are cancelled.
+    /// > The server will poll the states of all the pipeline jobs periodically
+    /// > to check the cancellation status.
+    /// > This operation will return an LRO.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchCancelPipelineJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchCancelPipelineJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
-    /// Creates a TrainingPipeline. A created TrainingPipeline right away will be
-    /// attempted to be run.
+    /// Call the "CreateTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TrainingPipeline. A created TrainingPipeline right away will be
+    /// > attempted to be run.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTrainingPipeline<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>(
@@ -514,17 +1408,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.createTrainingPipeline(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a TrainingPipeline.
+
+    /// Call the "GetTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TrainingPipeline.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTrainingPipeline<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>(
@@ -534,17 +1441,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.getTrainingPipeline(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists TrainingPipelines in a Location.
+
+    /// Call the "ListTrainingPipelines" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TrainingPipelines in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTrainingPipelines<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>(
@@ -554,17 +1474,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.listTrainingPipelines(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a TrainingPipeline.
+
+    /// Call the "DeleteTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TrainingPipeline.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTrainingPipeline<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>(
@@ -574,30 +1507,43 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.deleteTrainingPipeline(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a TrainingPipeline.
-    /// Starts asynchronous cancellation on the TrainingPipeline. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the TrainingPipeline is not deleted; instead it becomes a pipeline with
-    /// a
-    /// [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
-    /// is set to `CANCELLED`.
+
+    /// Call the "CancelTrainingPipeline" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a TrainingPipeline.
+    /// > Starts asynchronous cancellation on the TrainingPipeline. The server
+    /// > makes a best effort to cancel the pipeline, but success is not
+    /// > guaranteed. Clients can use
+    /// > [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > pipeline completed despite cancellation. On successful cancellation,
+    /// > the TrainingPipeline is not deleted; instead it becomes a pipeline with
+    /// > a
+    /// > [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
+    /// > value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`, and
+    /// > [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
+    /// > is set to `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelTrainingPipeline<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>(
@@ -607,17 +1553,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.cancelTrainingPipeline(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a PipelineJob. A PipelineJob will run immediately when created.
+
+    /// Call the "CreatePipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a PipelineJob. A PipelineJob will run immediately when created.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createPipelineJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>(
@@ -627,17 +1586,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.createPipelineJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a PipelineJob.
+
+    /// Call the "GetPipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a PipelineJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getPipelineJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetPipelineJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>(
@@ -647,17 +1619,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.getPipelineJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists PipelineJobs in a Location.
+
+    /// Call the "ListPipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists PipelineJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listPipelineJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>(
@@ -667,17 +1652,30 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.listPipelineJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a PipelineJob.
+
+    /// Call the "DeletePipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a PipelineJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deletePipelineJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>(
@@ -687,19 +1685,32 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.deletePipelineJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Batch deletes PipelineJobs
-    /// The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
-    /// If it succeeds, all of the PipelineJobs are deleted.
+
+    /// Call the "BatchDeletePipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch deletes PipelineJobs
+    /// > The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
+    /// > If it succeeds, all of the PipelineJobs are deleted.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchDeletePipelineJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>(
@@ -709,29 +1720,42 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.batchDeletePipelineJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a PipelineJob.
-    /// Starts asynchronous cancellation on the PipelineJob. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the PipelineJob is not deleted; instead it becomes a pipeline with
-    /// a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
-    /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
-    /// to `Code.CANCELLED`, and
-    /// [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
-    /// `CANCELLED`.
+
+    /// Call the "CancelPipelineJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a PipelineJob.
+    /// > Starts asynchronous cancellation on the PipelineJob. The server
+    /// > makes a best effort to cancel the pipeline, but success is not
+    /// > guaranteed. Clients can use
+    /// > [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > pipeline completed despite cancellation. On successful cancellation,
+    /// > the PipelineJob is not deleted; instead it becomes a pipeline with
+    /// > a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
+    /// > with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
+    /// > to `Code.CANCELLED`, and
+    /// > [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelPipelineJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>(
@@ -741,23 +1765,36 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.cancelPipelineJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Batch cancel PipelineJobs.
-    /// Firstly the server will check if all the jobs are in non-terminal states,
-    /// and skip the jobs that are already terminated.
-    /// If the operation failed, none of the pipeline jobs are cancelled.
-    /// The server will poll the states of all the pipeline jobs periodically
-    /// to check the cancellation status.
-    /// This operation will return an LRO.
+
+    /// Call the "BatchCancelPipelineJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch cancel PipelineJobs.
+    /// > Firstly the server will check if all the jobs are in non-terminal states,
+    /// > and skip the jobs that are already terminated.
+    /// > If the operation failed, none of the pipeline jobs are cancelled.
+    /// > The server will poll the states of all the pipeline jobs periodically
+    /// > to check the cancellation status.
+    /// > This operation will return an LRO.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchCancelPipelineJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>(
@@ -767,293 +1804,7 @@ extension Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
         return try await self.batchCancelPipelineJobs(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for creating and managing Vertex AI's pipelines. This includes both
-/// `TrainingPipeline` resources (used for AutoML and custom training) and
-/// `PipelineJob` resources (used for Vertex AI Pipelines).
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_PipelineService_Client: Google_Cloud_Aiplatform_V1_PipelineService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a TrainingPipeline. A created TrainingPipeline right away will be
-    /// attempted to be run.
-    public func createTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CreateTrainingPipeline.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a TrainingPipeline.
-    public func getTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TrainingPipeline>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TrainingPipeline>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.GetTrainingPipeline.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists TrainingPipelines in a Location.
-    public func listTrainingPipelines<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTrainingPipelinesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.ListTrainingPipelines.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a TrainingPipeline.
-    public func deleteTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.DeleteTrainingPipeline.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a TrainingPipeline.
-    /// Starts asynchronous cancellation on the TrainingPipeline. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetTrainingPipeline][google.cloud.aiplatform.v1.PipelineService.GetTrainingPipeline]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the TrainingPipeline is not deleted; instead it becomes a pipeline with
-    /// a
-    /// [TrainingPipeline.error][google.cloud.aiplatform.v1.TrainingPipeline.error]
-    /// value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`, and
-    /// [TrainingPipeline.state][google.cloud.aiplatform.v1.TrainingPipeline.state]
-    /// is set to `CANCELLED`.
-    public func cancelTrainingPipeline<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTrainingPipelineRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CancelTrainingPipeline.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a PipelineJob. A PipelineJob will run immediately when created.
-    public func createPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreatePipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CreatePipelineJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a PipelineJob.
-    public func getPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetPipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_PipelineJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_PipelineJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.GetPipelineJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists PipelineJobs in a Location.
-    public func listPipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListPipelineJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.ListPipelineJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a PipelineJob.
-    public func deletePipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeletePipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.DeletePipelineJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Batch deletes PipelineJobs
-    /// The Operation is atomic. If it fails, none of the PipelineJobs are deleted.
-    /// If it succeeds, all of the PipelineJobs are deleted.
-    public func batchDeletePipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchDeletePipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.BatchDeletePipelineJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a PipelineJob.
-    /// Starts asynchronous cancellation on the PipelineJob. The server
-    /// makes a best effort to cancel the pipeline, but success is not
-    /// guaranteed. Clients can use
-    /// [PipelineService.GetPipelineJob][google.cloud.aiplatform.v1.PipelineService.GetPipelineJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// pipeline completed despite cancellation. On successful cancellation,
-    /// the PipelineJob is not deleted; instead it becomes a pipeline with
-    /// a [PipelineJob.error][google.cloud.aiplatform.v1.PipelineJob.error] value
-    /// with a [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding
-    /// to `Code.CANCELLED`, and
-    /// [PipelineJob.state][google.cloud.aiplatform.v1.PipelineJob.state] is set to
-    /// `CANCELLED`.
-    public func cancelPipelineJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelPipelineJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.CancelPipelineJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Batch cancel PipelineJobs.
-    /// Firstly the server will check if all the jobs are in non-terminal states,
-    /// and skip the jobs that are already terminated.
-    /// If the operation failed, none of the pipeline jobs are cancelled.
-    /// The server will poll the states of all the pipeline jobs periodically
-    /// to check the cancellation status.
-    /// This operation will return an LRO.
-    public func batchCancelPipelineJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCancelPipelineJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_PipelineService.Method.BatchCancelPipelineJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

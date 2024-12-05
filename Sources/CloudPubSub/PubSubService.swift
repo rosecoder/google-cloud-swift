@@ -19,7 +19,7 @@ public final class PubSubService: Service {
             self.grpcClient = GRPCClient(
                 transport: try .http2NIOPosix(
                     target: .dns(host: components[0], port: port),
-                    config: .defaults(transportSecurity: .plaintext)
+                    transportSecurity: .plaintext
                 )
             )
         } else {
@@ -31,10 +31,8 @@ public final class PubSubService: Service {
             self.authorization = authorization
             self.grpcClient = GRPCClient(
                 transport: try .http2NIOPosix(
-                    target: .dns(host: "pubsub.googleapis.com", port: 443),
-                    config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
-                        config.serverHostname = "pubsub.googleapis.com" as String?
-                    })))
+                    target: .dns(host: "pubsub.googleapis.com"),
+                    transportSecurity: .tls
                 ),
                 interceptors: [
                     AuthorizationClientInterceptor(authorization: authorization),

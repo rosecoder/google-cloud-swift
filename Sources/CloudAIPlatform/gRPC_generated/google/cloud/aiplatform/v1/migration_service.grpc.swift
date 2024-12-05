@@ -24,115 +24,296 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.MigrationService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.MigrationService" service.
 public enum Google_Cloud_Aiplatform_V1_MigrationService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_MigrationService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MigrationService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MigrationService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "SearchMigratableResources" metadata.
         public enum SearchMigratableResources {
+            /// Request type for "SearchMigratableResources".
             public typealias Input = Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest
+            /// Response type for "SearchMigratableResources".
             public typealias Output = Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse
+            /// Descriptor for "SearchMigratableResources".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MigrationService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MigrationService"),
                 method: "SearchMigratableResources"
             )
         }
+        /// Namespace for "BatchMigrateResources" metadata.
         public enum BatchMigrateResources {
+            /// Request type for "BatchMigrateResources".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest
+            /// Response type for "BatchMigrateResources".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "BatchMigrateResources".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_MigrationService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MigrationService"),
                 method: "BatchMigrateResources"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.MigrationService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             SearchMigratableResources.descriptor,
             BatchMigrateResources.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_MigrationService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_MigrationService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_MigrationService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "MigrationService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.MigrationService" service.
+    public static let google_cloud_aiplatform_v1_MigrationService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.MigrationService")
 }
 
-/// A service that migrates resources from automl.googleapis.com,
-/// datalabeling.googleapis.com and ml.googleapis.com to Vertex AI.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_MigrationService_ClientProtocol: Sendable {
-    /// Searches all of the resources in automl.googleapis.com,
-    /// datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
-    /// Vertex AI's given location.
-    func searchMigratableResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
-    /// and datalabeling.googleapis.com to Vertex AI.
-    func batchMigrateResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.MigrationService (client)
+
+extension Google_Cloud_Aiplatform_V1_MigrationService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.MigrationService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service that migrates resources from automl.googleapis.com,
+    /// > datalabeling.googleapis.com and ml.googleapis.com to Vertex AI.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "SearchMigratableResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Searches all of the resources in automl.googleapis.com,
+        /// > datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
+        /// > Vertex AI's given location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func searchMigratableResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchMigrateResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
+        /// > and datalabeling.googleapis.com to Vertex AI.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchMigrateResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.MigrationService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service that migrates resources from automl.googleapis.com,
+    /// > datalabeling.googleapis.com and ml.googleapis.com to Vertex AI.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "SearchMigratableResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Searches all of the resources in automl.googleapis.com,
+        /// > datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
+        /// > Vertex AI's given location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func searchMigratableResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MigrationService.Method.SearchMigratableResources.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchMigrateResources" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
+        /// > and datalabeling.googleapis.com to Vertex AI.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchMigrateResources<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_MigrationService.Method.BatchMigrateResources.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MigrationService.ClientProtocol {
-    public func searchMigratableResources<R>(
+    /// Call the "SearchMigratableResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Searches all of the resources in automl.googleapis.com,
+    /// > datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
+    /// > Vertex AI's given location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func searchMigratableResources<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.searchMigratableResources(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchMigrateResources<R>(
+
+    /// Call the "BatchMigrateResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
+    /// > and datalabeling.googleapis.com to Vertex AI.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchMigrateResources<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchMigrateResources(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_MigrationService.ClientProtocol {
-    /// Searches all of the resources in automl.googleapis.com,
-    /// datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
-    /// Vertex AI's given location.
+    /// Call the "SearchMigratableResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Searches all of the resources in automl.googleapis.com,
+    /// > datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
+    /// > Vertex AI's given location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func searchMigratableResources<Result>(
         _ message: Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>(
@@ -142,18 +323,31 @@ extension Google_Cloud_Aiplatform_V1_MigrationService.ClientProtocol {
         return try await self.searchMigratableResources(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
-    /// and datalabeling.googleapis.com to Vertex AI.
+
+    /// Call the "BatchMigrateResources" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
+    /// > and datalabeling.googleapis.com to Vertex AI.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchMigrateResources<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>(
@@ -163,61 +357,7 @@ extension Google_Cloud_Aiplatform_V1_MigrationService.ClientProtocol {
         return try await self.batchMigrateResources(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service that migrates resources from automl.googleapis.com,
-/// datalabeling.googleapis.com and ml.googleapis.com to Vertex AI.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_MigrationService_Client: Google_Cloud_Aiplatform_V1_MigrationService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Searches all of the resources in automl.googleapis.com,
-    /// datalabeling.googleapis.com and ml.googleapis.com that can be migrated to
-    /// Vertex AI's given location.
-    public func searchMigratableResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_SearchMigratableResourcesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MigrationService.Method.SearchMigratableResources.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Batch migrates resources from ml.googleapis.com, automl.googleapis.com,
-    /// and datalabeling.googleapis.com to Vertex AI.
-    public func batchMigrateResources<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchMigrateResourcesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_MigrationService.Method.BatchMigrateResources.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

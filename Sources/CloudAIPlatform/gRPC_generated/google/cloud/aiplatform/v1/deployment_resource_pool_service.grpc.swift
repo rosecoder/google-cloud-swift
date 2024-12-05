@@ -24,57 +24,87 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.DeploymentResourcePoolService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
 public enum Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_DeploymentResourcePoolService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateDeploymentResourcePool" metadata.
         public enum CreateDeploymentResourcePool {
+            /// Request type for "CreateDeploymentResourcePool".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest
+            /// Response type for "CreateDeploymentResourcePool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateDeploymentResourcePool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "CreateDeploymentResourcePool"
             )
         }
+        /// Namespace for "GetDeploymentResourcePool" metadata.
         public enum GetDeploymentResourcePool {
+            /// Request type for "GetDeploymentResourcePool".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest
+            /// Response type for "GetDeploymentResourcePool".
             public typealias Output = Google_Cloud_Aiplatform_V1_DeploymentResourcePool
+            /// Descriptor for "GetDeploymentResourcePool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "GetDeploymentResourcePool"
             )
         }
+        /// Namespace for "ListDeploymentResourcePools" metadata.
         public enum ListDeploymentResourcePools {
+            /// Request type for "ListDeploymentResourcePools".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest
+            /// Response type for "ListDeploymentResourcePools".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse
+            /// Descriptor for "ListDeploymentResourcePools".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "ListDeploymentResourcePools"
             )
         }
+        /// Namespace for "UpdateDeploymentResourcePool" metadata.
         public enum UpdateDeploymentResourcePool {
+            /// Request type for "UpdateDeploymentResourcePool".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest
+            /// Response type for "UpdateDeploymentResourcePool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateDeploymentResourcePool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "UpdateDeploymentResourcePool"
             )
         }
+        /// Namespace for "DeleteDeploymentResourcePool" metadata.
         public enum DeleteDeploymentResourcePool {
+            /// Request type for "DeleteDeploymentResourcePool".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest
+            /// Response type for "DeleteDeploymentResourcePool".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteDeploymentResourcePool".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "DeleteDeploymentResourcePool"
             )
         }
+        /// Namespace for "QueryDeployedModels" metadata.
         public enum QueryDeployedModels {
+            /// Request type for "QueryDeployedModels".
             public typealias Input = Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest
+            /// Response type for "QueryDeployedModels".
             public typealias Output = Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse
+            /// Descriptor for "QueryDeployedModels".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService"),
                 method: "QueryDeployedModels"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateDeploymentResourcePool.descriptor,
             GetDeploymentResourcePool.descriptor,
@@ -84,185 +114,589 @@ public enum Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService {
             QueryDeployedModels.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_DeploymentResourcePoolService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "DeploymentResourcePoolService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
+    public static let google_cloud_aiplatform_v1_DeploymentResourcePoolService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.DeploymentResourcePoolService")
 }
 
-/// A service that manages the DeploymentResourcePool resource.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService_ClientProtocol: Sendable {
-    /// Create a DeploymentResourcePool.
-    func createDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Get a DeploymentResourcePool.
-    func getDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// List DeploymentResourcePools in a location.
-    func listDeploymentResourcePools<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Update a DeploymentResourcePool.
-    func updateDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Delete a DeploymentResourcePool.
-    func deleteDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// List DeployedModels that have been deployed on this DeploymentResourcePool.
-    func queryDeployedModels<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.DeploymentResourcePoolService (client)
+
+extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service that manages the DeploymentResourcePool resource.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Create a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Get a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DeploymentResourcePool` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListDeploymentResourcePools" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List DeploymentResourcePools in a location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listDeploymentResourcePools<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Update a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Delete a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "QueryDeployedModels" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List DeployedModels that have been deployed on this DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func queryDeployedModels<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.DeploymentResourcePoolService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service that manages the DeploymentResourcePool resource.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Create a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.CreateDeploymentResourcePool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Get a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_DeploymentResourcePool` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.GetDeploymentResourcePool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListDeploymentResourcePools" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List DeploymentResourcePools in a location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listDeploymentResourcePools<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.ListDeploymentResourcePools.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Update a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.UpdateDeploymentResourcePool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteDeploymentResourcePool" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Delete a DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteDeploymentResourcePool<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.DeleteDeploymentResourcePool.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "QueryDeployedModels" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > List DeployedModels that have been deployed on this DeploymentResourcePool.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func queryDeployedModels<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.QueryDeployedModels.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtocol {
-    public func createDeploymentResourcePool<R>(
+    /// Call the "CreateDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Create a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createDeploymentResourcePool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createDeploymentResourcePool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getDeploymentResourcePool<R>(
+
+    /// Call the "GetDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Get a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getDeploymentResourcePool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getDeploymentResourcePool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listDeploymentResourcePools<R>(
+
+    /// Call the "ListDeploymentResourcePools" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List DeploymentResourcePools in a location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listDeploymentResourcePools<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listDeploymentResourcePools(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateDeploymentResourcePool<R>(
+
+    /// Call the "UpdateDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Update a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateDeploymentResourcePool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateDeploymentResourcePool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteDeploymentResourcePool<R>(
+
+    /// Call the "DeleteDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Delete a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteDeploymentResourcePool<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteDeploymentResourcePool(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func queryDeployedModels<R>(
+
+    /// Call the "QueryDeployedModels" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List DeployedModels that have been deployed on this DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func queryDeployedModels<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.queryDeployedModels(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtocol {
-    /// Create a DeploymentResourcePool.
+    /// Call the "CreateDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Create a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createDeploymentResourcePool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>(
@@ -272,17 +706,30 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.createDeploymentResourcePool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Get a DeploymentResourcePool.
+
+    /// Call the "GetDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Get a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getDeploymentResourcePool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>(
@@ -292,17 +739,30 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.getDeploymentResourcePool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// List DeploymentResourcePools in a location.
+
+    /// Call the "ListDeploymentResourcePools" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List DeploymentResourcePools in a location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listDeploymentResourcePools<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>(
@@ -312,17 +772,30 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.listDeploymentResourcePools(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Update a DeploymentResourcePool.
+
+    /// Call the "UpdateDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Update a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateDeploymentResourcePool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>(
@@ -332,17 +805,30 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.updateDeploymentResourcePool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Delete a DeploymentResourcePool.
+
+    /// Call the "DeleteDeploymentResourcePool" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Delete a DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteDeploymentResourcePool<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>(
@@ -352,17 +838,30 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.deleteDeploymentResourcePool(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// List DeployedModels that have been deployed on this DeploymentResourcePool.
+
+    /// Call the "QueryDeployedModels" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > List DeployedModels that have been deployed on this DeploymentResourcePool.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func queryDeployedModels<Result>(
         _ message: Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>(
@@ -372,137 +871,7 @@ extension Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtoco
         return try await self.queryDeployedModels(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service that manages the DeploymentResourcePool resource.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService_Client: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Create a DeploymentResourcePool.
-    public func createDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.CreateDeploymentResourcePool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Get a DeploymentResourcePool.
-    public func getDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_DeploymentResourcePool>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.GetDeploymentResourcePool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// List DeploymentResourcePools in a location.
-    public func listDeploymentResourcePools<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListDeploymentResourcePoolsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.ListDeploymentResourcePools.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Update a DeploymentResourcePool.
-    public func updateDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.UpdateDeploymentResourcePool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Delete a DeploymentResourcePool.
-    public func deleteDeploymentResourcePool<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteDeploymentResourcePoolRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.DeleteDeploymentResourcePool.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// List DeployedModels that have been deployed on this DeploymentResourcePool.
-    public func queryDeployedModels<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_QueryDeployedModelsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_DeploymentResourcePoolService.Method.QueryDeployedModels.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

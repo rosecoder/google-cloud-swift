@@ -24,129 +24,195 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.NotebookService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.NotebookService" service.
 public enum Google_Cloud_Aiplatform_V1_NotebookService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_NotebookService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.NotebookService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateNotebookRuntimeTemplate" metadata.
         public enum CreateNotebookRuntimeTemplate {
+            /// Request type for "CreateNotebookRuntimeTemplate".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest
+            /// Response type for "CreateNotebookRuntimeTemplate".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateNotebookRuntimeTemplate".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "CreateNotebookRuntimeTemplate"
             )
         }
+        /// Namespace for "GetNotebookRuntimeTemplate" metadata.
         public enum GetNotebookRuntimeTemplate {
+            /// Request type for "GetNotebookRuntimeTemplate".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest
+            /// Response type for "GetNotebookRuntimeTemplate".
             public typealias Output = Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate
+            /// Descriptor for "GetNotebookRuntimeTemplate".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "GetNotebookRuntimeTemplate"
             )
         }
+        /// Namespace for "ListNotebookRuntimeTemplates" metadata.
         public enum ListNotebookRuntimeTemplates {
+            /// Request type for "ListNotebookRuntimeTemplates".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest
+            /// Response type for "ListNotebookRuntimeTemplates".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse
+            /// Descriptor for "ListNotebookRuntimeTemplates".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "ListNotebookRuntimeTemplates"
             )
         }
+        /// Namespace for "DeleteNotebookRuntimeTemplate" metadata.
         public enum DeleteNotebookRuntimeTemplate {
+            /// Request type for "DeleteNotebookRuntimeTemplate".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest
+            /// Response type for "DeleteNotebookRuntimeTemplate".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteNotebookRuntimeTemplate".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "DeleteNotebookRuntimeTemplate"
             )
         }
+        /// Namespace for "UpdateNotebookRuntimeTemplate" metadata.
         public enum UpdateNotebookRuntimeTemplate {
+            /// Request type for "UpdateNotebookRuntimeTemplate".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest
+            /// Response type for "UpdateNotebookRuntimeTemplate".
             public typealias Output = Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate
+            /// Descriptor for "UpdateNotebookRuntimeTemplate".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "UpdateNotebookRuntimeTemplate"
             )
         }
+        /// Namespace for "AssignNotebookRuntime" metadata.
         public enum AssignNotebookRuntime {
+            /// Request type for "AssignNotebookRuntime".
             public typealias Input = Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest
+            /// Response type for "AssignNotebookRuntime".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "AssignNotebookRuntime".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "AssignNotebookRuntime"
             )
         }
+        /// Namespace for "GetNotebookRuntime" metadata.
         public enum GetNotebookRuntime {
+            /// Request type for "GetNotebookRuntime".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest
+            /// Response type for "GetNotebookRuntime".
             public typealias Output = Google_Cloud_Aiplatform_V1_NotebookRuntime
+            /// Descriptor for "GetNotebookRuntime".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "GetNotebookRuntime"
             )
         }
+        /// Namespace for "ListNotebookRuntimes" metadata.
         public enum ListNotebookRuntimes {
+            /// Request type for "ListNotebookRuntimes".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest
+            /// Response type for "ListNotebookRuntimes".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse
+            /// Descriptor for "ListNotebookRuntimes".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "ListNotebookRuntimes"
             )
         }
+        /// Namespace for "DeleteNotebookRuntime" metadata.
         public enum DeleteNotebookRuntime {
+            /// Request type for "DeleteNotebookRuntime".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest
+            /// Response type for "DeleteNotebookRuntime".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteNotebookRuntime".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "DeleteNotebookRuntime"
             )
         }
+        /// Namespace for "UpgradeNotebookRuntime" metadata.
         public enum UpgradeNotebookRuntime {
+            /// Request type for "UpgradeNotebookRuntime".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest
+            /// Response type for "UpgradeNotebookRuntime".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpgradeNotebookRuntime".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "UpgradeNotebookRuntime"
             )
         }
+        /// Namespace for "StartNotebookRuntime" metadata.
         public enum StartNotebookRuntime {
+            /// Request type for "StartNotebookRuntime".
             public typealias Input = Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest
+            /// Response type for "StartNotebookRuntime".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "StartNotebookRuntime".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "StartNotebookRuntime"
             )
         }
+        /// Namespace for "CreateNotebookExecutionJob" metadata.
         public enum CreateNotebookExecutionJob {
+            /// Request type for "CreateNotebookExecutionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest
+            /// Response type for "CreateNotebookExecutionJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateNotebookExecutionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "CreateNotebookExecutionJob"
             )
         }
+        /// Namespace for "GetNotebookExecutionJob" metadata.
         public enum GetNotebookExecutionJob {
+            /// Request type for "GetNotebookExecutionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest
+            /// Response type for "GetNotebookExecutionJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_NotebookExecutionJob
+            /// Descriptor for "GetNotebookExecutionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "GetNotebookExecutionJob"
             )
         }
+        /// Namespace for "ListNotebookExecutionJobs" metadata.
         public enum ListNotebookExecutionJobs {
+            /// Request type for "ListNotebookExecutionJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest
+            /// Response type for "ListNotebookExecutionJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse
+            /// Descriptor for "ListNotebookExecutionJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "ListNotebookExecutionJobs"
             )
         }
+        /// Namespace for "DeleteNotebookExecutionJob" metadata.
         public enum DeleteNotebookExecutionJob {
+            /// Request type for "DeleteNotebookExecutionJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest
+            /// Response type for "DeleteNotebookExecutionJob".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteNotebookExecutionJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_NotebookService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService"),
                 method: "DeleteNotebookExecutionJob"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.NotebookService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateNotebookRuntimeTemplate.descriptor,
             GetNotebookRuntimeTemplate.descriptor,
@@ -165,411 +231,1366 @@ public enum Google_Cloud_Aiplatform_V1_NotebookService {
             DeleteNotebookExecutionJob.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_NotebookService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_NotebookService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_NotebookService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "NotebookService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.NotebookService" service.
+    public static let google_cloud_aiplatform_v1_NotebookService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.NotebookService")
 }
 
-/// The interface for Vertex Notebook service (a.k.a. Colab on Workbench).
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_NotebookService_ClientProtocol: Sendable {
-    /// Creates a NotebookRuntimeTemplate.
-    func createNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a NotebookRuntimeTemplate.
-    func getNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists NotebookRuntimeTemplates in a Location.
-    func listNotebookRuntimeTemplates<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a NotebookRuntimeTemplate.
-    func deleteNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a NotebookRuntimeTemplate.
-    func updateNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Assigns a NotebookRuntime to a user for a particular Notebook file. This
-    /// method will either returns an existing assignment or generates a new one.
-    func assignNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a NotebookRuntime.
-    func getNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntime>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists NotebookRuntimes in a Location.
-    func listNotebookRuntimes<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a NotebookRuntime.
-    func deleteNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Upgrades a NotebookRuntime.
-    func upgradeNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Starts a NotebookRuntime.
-    func startNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a NotebookExecutionJob.
-    func createNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a NotebookExecutionJob.
-    func getNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists NotebookExecutionJobs in a Location.
-    func listNotebookExecutionJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a NotebookExecutionJob.
-    func deleteNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.NotebookService (client)
+
+extension Google_Cloud_Aiplatform_V1_NotebookService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.NotebookService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The interface for Vertex Notebook service (a.k.a. Colab on Workbench).
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListNotebookRuntimeTemplates" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookRuntimeTemplates in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listNotebookRuntimeTemplates<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AssignNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Assigns a NotebookRuntime to a user for a particular Notebook file. This
+        /// > method will either returns an existing assignment or generates a new one.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func assignNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntime` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntime>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListNotebookRuntimes" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookRuntimes in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listNotebookRuntimes<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpgradeNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Upgrades a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func upgradeNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "StartNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Starts a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func startNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookExecutionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListNotebookExecutionJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookExecutionJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listNotebookExecutionJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.NotebookService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > The interface for Vertex Notebook service (a.k.a. Colab on Workbench).
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.CreateNotebookRuntimeTemplate.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookRuntimeTemplate.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListNotebookRuntimeTemplates" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookRuntimeTemplates in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listNotebookRuntimeTemplates<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookRuntimeTemplates.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookRuntimeTemplate.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateNotebookRuntimeTemplate" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a NotebookRuntimeTemplate.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateNotebookRuntimeTemplate<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.UpdateNotebookRuntimeTemplate.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AssignNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Assigns a NotebookRuntime to a user for a particular Notebook file. This
+        /// > method will either returns an existing assignment or generates a new one.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func assignNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.AssignNotebookRuntime.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookRuntime` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntime>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookRuntime.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListNotebookRuntimes" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookRuntimes in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listNotebookRuntimes<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookRuntimes.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookRuntime.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpgradeNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Upgrades a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func upgradeNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.UpgradeNotebookRuntime.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "StartNotebookRuntime" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Starts a NotebookRuntime.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func startNotebookRuntime<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.StartNotebookRuntime.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.CreateNotebookExecutionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_NotebookExecutionJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookExecutionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListNotebookExecutionJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists NotebookExecutionJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listNotebookExecutionJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookExecutionJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteNotebookExecutionJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a NotebookExecutionJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteNotebookExecutionJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookExecutionJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
-    public func createNotebookRuntimeTemplate<R>(
+    /// Call the "CreateNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createNotebookRuntimeTemplate<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createNotebookRuntimeTemplate(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getNotebookRuntimeTemplate<R>(
+
+    /// Call the "GetNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getNotebookRuntimeTemplate<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getNotebookRuntimeTemplate(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listNotebookRuntimeTemplates<R>(
+
+    /// Call the "ListNotebookRuntimeTemplates" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookRuntimeTemplates in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listNotebookRuntimeTemplates<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listNotebookRuntimeTemplates(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteNotebookRuntimeTemplate<R>(
+
+    /// Call the "DeleteNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteNotebookRuntimeTemplate<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteNotebookRuntimeTemplate(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateNotebookRuntimeTemplate<R>(
+
+    /// Call the "UpdateNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateNotebookRuntimeTemplate<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateNotebookRuntimeTemplate(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func assignNotebookRuntime<R>(
+
+    /// Call the "AssignNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Assigns a NotebookRuntime to a user for a particular Notebook file. This
+    /// > method will either returns an existing assignment or generates a new one.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func assignNotebookRuntime<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.assignNotebookRuntime(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getNotebookRuntime<R>(
+
+    /// Call the "GetNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getNotebookRuntime<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getNotebookRuntime(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntime>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listNotebookRuntimes<R>(
+
+    /// Call the "ListNotebookRuntimes" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookRuntimes in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listNotebookRuntimes<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listNotebookRuntimes(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteNotebookRuntime<R>(
+
+    /// Call the "DeleteNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteNotebookRuntime<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteNotebookRuntime(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func upgradeNotebookRuntime<R>(
+
+    /// Call the "UpgradeNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Upgrades a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func upgradeNotebookRuntime<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.upgradeNotebookRuntime(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func startNotebookRuntime<R>(
+
+    /// Call the "StartNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Starts a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func startNotebookRuntime<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.startNotebookRuntime(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createNotebookExecutionJob<R>(
+
+    /// Call the "CreateNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createNotebookExecutionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createNotebookExecutionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getNotebookExecutionJob<R>(
+
+    /// Call the "GetNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getNotebookExecutionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getNotebookExecutionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listNotebookExecutionJobs<R>(
+
+    /// Call the "ListNotebookExecutionJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookExecutionJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listNotebookExecutionJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listNotebookExecutionJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteNotebookExecutionJob<R>(
+
+    /// Call the "DeleteNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteNotebookExecutionJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteNotebookExecutionJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
-    /// Creates a NotebookRuntimeTemplate.
+    /// Call the "CreateNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createNotebookRuntimeTemplate<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>(
@@ -579,17 +1600,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.createNotebookRuntimeTemplate(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a NotebookRuntimeTemplate.
+
+    /// Call the "GetNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getNotebookRuntimeTemplate<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>(
@@ -599,17 +1633,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.getNotebookRuntimeTemplate(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists NotebookRuntimeTemplates in a Location.
+
+    /// Call the "ListNotebookRuntimeTemplates" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookRuntimeTemplates in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listNotebookRuntimeTemplates<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>(
@@ -619,17 +1666,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.listNotebookRuntimeTemplates(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a NotebookRuntimeTemplate.
+
+    /// Call the "DeleteNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteNotebookRuntimeTemplate<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>(
@@ -639,17 +1699,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.deleteNotebookRuntimeTemplate(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a NotebookRuntimeTemplate.
+
+    /// Call the "UpdateNotebookRuntimeTemplate" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a NotebookRuntimeTemplate.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateNotebookRuntimeTemplate<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>(
@@ -659,18 +1732,31 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.updateNotebookRuntimeTemplate(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Assigns a NotebookRuntime to a user for a particular Notebook file. This
-    /// method will either returns an existing assignment or generates a new one.
+
+    /// Call the "AssignNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Assigns a NotebookRuntime to a user for a particular Notebook file. This
+    /// > method will either returns an existing assignment or generates a new one.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func assignNotebookRuntime<Result>(
         _ message: Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>(
@@ -680,17 +1766,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.assignNotebookRuntime(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a NotebookRuntime.
+
+    /// Call the "GetNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getNotebookRuntime<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>(
@@ -700,17 +1799,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.getNotebookRuntime(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists NotebookRuntimes in a Location.
+
+    /// Call the "ListNotebookRuntimes" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookRuntimes in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listNotebookRuntimes<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>(
@@ -720,17 +1832,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.listNotebookRuntimes(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a NotebookRuntime.
+
+    /// Call the "DeleteNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteNotebookRuntime<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>(
@@ -740,17 +1865,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.deleteNotebookRuntime(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Upgrades a NotebookRuntime.
+
+    /// Call the "UpgradeNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Upgrades a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func upgradeNotebookRuntime<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>(
@@ -760,17 +1898,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.upgradeNotebookRuntime(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Starts a NotebookRuntime.
+
+    /// Call the "StartNotebookRuntime" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Starts a NotebookRuntime.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func startNotebookRuntime<Result>(
         _ message: Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>(
@@ -780,17 +1931,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.startNotebookRuntime(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a NotebookExecutionJob.
+
+    /// Call the "CreateNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createNotebookExecutionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>(
@@ -800,17 +1964,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.createNotebookExecutionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a NotebookExecutionJob.
+
+    /// Call the "GetNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getNotebookExecutionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>(
@@ -820,17 +1997,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.getNotebookExecutionJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists NotebookExecutionJobs in a Location.
+
+    /// Call the "ListNotebookExecutionJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists NotebookExecutionJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listNotebookExecutionJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>(
@@ -840,17 +2030,30 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.listNotebookExecutionJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a NotebookExecutionJob.
+
+    /// Call the "DeleteNotebookExecutionJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a NotebookExecutionJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteNotebookExecutionJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>(
@@ -860,318 +2063,7 @@ extension Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
         return try await self.deleteNotebookExecutionJob(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// The interface for Vertex Notebook service (a.k.a. Colab on Workbench).
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_NotebookService_Client: Google_Cloud_Aiplatform_V1_NotebookService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a NotebookRuntimeTemplate.
-    public func createNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.CreateNotebookRuntimeTemplate.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a NotebookRuntimeTemplate.
-    public func getNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookRuntimeTemplate.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists NotebookRuntimeTemplates in a Location.
-    public func listNotebookRuntimeTemplates<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimeTemplatesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookRuntimeTemplates.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a NotebookRuntimeTemplate.
-    public func deleteNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookRuntimeTemplate.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a NotebookRuntimeTemplate.
-    public func updateNotebookRuntimeTemplate<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateNotebookRuntimeTemplateRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntimeTemplate>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.UpdateNotebookRuntimeTemplate.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Assigns a NotebookRuntime to a user for a particular Notebook file. This
-    /// method will either returns an existing assignment or generates a new one.
-    public func assignNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_AssignNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.AssignNotebookRuntime.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a NotebookRuntime.
-    public func getNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookRuntime>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookRuntime>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookRuntime.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists NotebookRuntimes in a Location.
-    public func listNotebookRuntimes<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookRuntimesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookRuntimes.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a NotebookRuntime.
-    public func deleteNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookRuntime.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Upgrades a NotebookRuntime.
-    public func upgradeNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpgradeNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.UpgradeNotebookRuntime.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Starts a NotebookRuntime.
-    public func startNotebookRuntime<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_StartNotebookRuntimeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.StartNotebookRuntime.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a NotebookExecutionJob.
-    public func createNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.CreateNotebookExecutionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a NotebookExecutionJob.
-    public func getNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_NotebookExecutionJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.GetNotebookExecutionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists NotebookExecutionJobs in a Location.
-    public func listNotebookExecutionJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListNotebookExecutionJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.ListNotebookExecutionJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a NotebookExecutionJob.
-    public func deleteNotebookExecutionJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteNotebookExecutionJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_NotebookService.Method.DeleteNotebookExecutionJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

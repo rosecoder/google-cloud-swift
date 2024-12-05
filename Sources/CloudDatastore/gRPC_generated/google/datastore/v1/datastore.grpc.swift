@@ -24,73 +24,111 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.datastore.v1.Datastore
+
+/// Namespace containing generated types for the "google.datastore.v1.Datastore" service.
 package enum Google_Datastore_V1_Datastore {
-    package static let descriptor = GRPCCore.ServiceDescriptor.google_datastore_v1_Datastore
+    /// Service descriptor for the "google.datastore.v1.Datastore" service.
+    package static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore")
+    /// Namespace for method metadata.
     package enum Method {
+        /// Namespace for "Lookup" metadata.
         package enum Lookup {
+            /// Request type for "Lookup".
             package typealias Input = Google_Datastore_V1_LookupRequest
+            /// Response type for "Lookup".
             package typealias Output = Google_Datastore_V1_LookupResponse
+            /// Descriptor for "Lookup".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "Lookup"
             )
         }
+        /// Namespace for "RunQuery" metadata.
         package enum RunQuery {
+            /// Request type for "RunQuery".
             package typealias Input = Google_Datastore_V1_RunQueryRequest
+            /// Response type for "RunQuery".
             package typealias Output = Google_Datastore_V1_RunQueryResponse
+            /// Descriptor for "RunQuery".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "RunQuery"
             )
         }
+        /// Namespace for "RunAggregationQuery" metadata.
         package enum RunAggregationQuery {
+            /// Request type for "RunAggregationQuery".
             package typealias Input = Google_Datastore_V1_RunAggregationQueryRequest
+            /// Response type for "RunAggregationQuery".
             package typealias Output = Google_Datastore_V1_RunAggregationQueryResponse
+            /// Descriptor for "RunAggregationQuery".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "RunAggregationQuery"
             )
         }
+        /// Namespace for "BeginTransaction" metadata.
         package enum BeginTransaction {
+            /// Request type for "BeginTransaction".
             package typealias Input = Google_Datastore_V1_BeginTransactionRequest
+            /// Response type for "BeginTransaction".
             package typealias Output = Google_Datastore_V1_BeginTransactionResponse
+            /// Descriptor for "BeginTransaction".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "BeginTransaction"
             )
         }
+        /// Namespace for "Commit" metadata.
         package enum Commit {
+            /// Request type for "Commit".
             package typealias Input = Google_Datastore_V1_CommitRequest
+            /// Response type for "Commit".
             package typealias Output = Google_Datastore_V1_CommitResponse
+            /// Descriptor for "Commit".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "Commit"
             )
         }
+        /// Namespace for "Rollback" metadata.
         package enum Rollback {
+            /// Request type for "Rollback".
             package typealias Input = Google_Datastore_V1_RollbackRequest
+            /// Response type for "Rollback".
             package typealias Output = Google_Datastore_V1_RollbackResponse
+            /// Descriptor for "Rollback".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "Rollback"
             )
         }
+        /// Namespace for "AllocateIds" metadata.
         package enum AllocateIds {
+            /// Request type for "AllocateIds".
             package typealias Input = Google_Datastore_V1_AllocateIdsRequest
+            /// Response type for "AllocateIds".
             package typealias Output = Google_Datastore_V1_AllocateIdsResponse
+            /// Descriptor for "AllocateIds".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "AllocateIds"
             )
         }
+        /// Namespace for "ReserveIds" metadata.
         package enum ReserveIds {
+            /// Request type for "ReserveIds".
             package typealias Input = Google_Datastore_V1_ReserveIdsRequest
+            /// Response type for "ReserveIds".
             package typealias Output = Google_Datastore_V1_ReserveIdsResponse
+            /// Descriptor for "ReserveIds".
             package static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Datastore_V1_Datastore.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore"),
                 method: "ReserveIds"
             )
         }
+        /// Descriptors for all methods in the "google.datastore.v1.Datastore" service.
         package static let descriptors: [GRPCCore.MethodDescriptor] = [
             Lookup.descriptor,
             RunQuery.descriptor,
@@ -102,243 +140,780 @@ package enum Google_Datastore_V1_Datastore {
             ReserveIds.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    package typealias ClientProtocol = Google_Datastore_V1_Datastore_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    package typealias Client = Google_Datastore_V1_Datastore_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    package static let google_datastore_v1_Datastore = Self(
-        package: "google.datastore.v1",
-        service: "Datastore"
-    )
+    /// Service descriptor for the "google.datastore.v1.Datastore" service.
+    package static let google_datastore_v1_Datastore = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.datastore.v1.Datastore")
 }
 
-/// Each RPC normalizes the partition IDs of the keys in its input entities,
-/// and always returns entities with keys with normalized partition IDs.
-/// This applies to all keys and entities, including those in values, except keys
-/// with both an empty path and an empty or unset partition ID. Normalization of
-/// input keys sets the project ID (if not already set) to the project ID from
-/// the request.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-package protocol Google_Datastore_V1_Datastore_ClientProtocol: Sendable {
-    /// Looks up entities by key.
-    func lookup<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_LookupRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_LookupResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Queries for entities.
-    func runQuery<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunQueryRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunQueryResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Runs an aggregation query.
-    func runAggregationQuery<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunAggregationQueryRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Begins a new transaction.
-    func beginTransaction<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_BeginTransactionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_BeginTransactionResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Commits a transaction, optionally creating, deleting or modifying some
-    /// entities.
-    func commit<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_CommitRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_CommitResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Rolls back a transaction.
-    func rollback<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RollbackRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RollbackResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Allocates IDs for the given keys, which is useful for referencing an entity
-    /// before it is inserted.
-    func allocateIds<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_AllocateIdsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_AllocateIdsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Prevents the supplied keys' IDs from being auto-allocated by Cloud
-    /// Datastore.
-    func reserveIds<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_ReserveIdsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_ReserveIdsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.datastore.v1.Datastore (client)
+
+extension Google_Datastore_V1_Datastore {
+    /// Generated client protocol for the "google.datastore.v1.Datastore" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Each RPC normalizes the partition IDs of the keys in its input entities,
+    /// > and always returns entities with keys with normalized partition IDs.
+    /// > This applies to all keys and entities, including those in values, except keys
+    /// > with both an empty path and an empty or unset partition ID. Normalization of
+    /// > input keys sets the project ID (if not already set) to the project ID from
+    /// > the request.
+    package protocol ClientProtocol: Sendable {
+        /// Call the "Lookup" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Looks up entities by key.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_LookupRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_LookupRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_LookupResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func lookup<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_LookupRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_LookupResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RunQuery" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Queries for entities.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RunQueryRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RunQueryRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RunQueryResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func runQuery<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunQueryRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunQueryResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RunAggregationQuery" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Runs an aggregation query.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RunAggregationQueryRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RunAggregationQueryRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RunAggregationQueryResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func runAggregationQuery<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunAggregationQueryRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BeginTransaction" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Begins a new transaction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_BeginTransactionRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_BeginTransactionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_BeginTransactionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func beginTransaction<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_BeginTransactionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_BeginTransactionResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Commit" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Commits a transaction, optionally creating, deleting or modifying some
+        /// > entities.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_CommitRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_CommitRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_CommitResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func commit<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_CommitRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_CommitResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "Rollback" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Rolls back a transaction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RollbackRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RollbackRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RollbackResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rollback<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RollbackRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RollbackResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "AllocateIds" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Allocates IDs for the given keys, which is useful for referencing an entity
+        /// > before it is inserted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_AllocateIdsRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_AllocateIdsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_AllocateIdsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func allocateIds<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_AllocateIdsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_AllocateIdsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReserveIds" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Prevents the supplied keys' IDs from being auto-allocated by Cloud
+        /// > Datastore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_ReserveIdsRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_ReserveIdsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_ReserveIdsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func reserveIds<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_ReserveIdsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_ReserveIdsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.datastore.v1.Datastore" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Each RPC normalizes the partition IDs of the keys in its input entities,
+    /// > and always returns entities with keys with normalized partition IDs.
+    /// > This applies to all keys and entities, including those in values, except keys
+    /// > with both an empty path and an empty or unset partition ID. Normalization of
+    /// > input keys sets the project ID (if not already set) to the project ID from
+    /// > the request.
+    package struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        package init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "Lookup" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Looks up entities by key.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_LookupRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_LookupRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_LookupResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func lookup<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_LookupRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_LookupResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.Lookup.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RunQuery" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Queries for entities.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RunQueryRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RunQueryRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RunQueryResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func runQuery<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunQueryRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunQueryResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.RunQuery.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RunAggregationQuery" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Runs an aggregation query.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RunAggregationQueryRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RunAggregationQueryRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RunAggregationQueryResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func runAggregationQuery<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunAggregationQueryRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.RunAggregationQuery.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BeginTransaction" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Begins a new transaction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_BeginTransactionRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_BeginTransactionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_BeginTransactionResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func beginTransaction<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_BeginTransactionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_BeginTransactionResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.BeginTransaction.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Commit" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Commits a transaction, optionally creating, deleting or modifying some
+        /// > entities.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_CommitRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_CommitRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_CommitResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func commit<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_CommitRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_CommitResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.Commit.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "Rollback" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Rolls back a transaction.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_RollbackRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_RollbackRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_RollbackResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func rollback<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RollbackRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RollbackResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.Rollback.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "AllocateIds" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Allocates IDs for the given keys, which is useful for referencing an entity
+        /// > before it is inserted.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_AllocateIdsRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_AllocateIdsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_AllocateIdsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func allocateIds<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_AllocateIdsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_AllocateIdsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.AllocateIds.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReserveIds" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Prevents the supplied keys' IDs from being auto-allocated by Cloud
+        /// > Datastore.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Datastore_V1_ReserveIdsRequest` message.
+        ///   - serializer: A serializer for `Google_Datastore_V1_ReserveIdsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Datastore_V1_ReserveIdsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        package func reserveIds<Result>(
+            request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_ReserveIdsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_ReserveIdsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Datastore_V1_Datastore.Method.ReserveIds.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Datastore_V1_Datastore.ClientProtocol {
-    package func lookup<R>(
+    /// Call the "Lookup" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Looks up entities by key.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_LookupRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func lookup<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.lookup(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_LookupRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_LookupResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func runQuery<R>(
+
+    /// Call the "RunQuery" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Queries for entities.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_RunQueryRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func runQuery<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.runQuery(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_RunQueryRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_RunQueryResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func runAggregationQuery<R>(
+
+    /// Call the "RunAggregationQuery" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Runs an aggregation query.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_RunAggregationQueryRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func runAggregationQuery<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.runAggregationQuery(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_RunAggregationQueryRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func beginTransaction<R>(
+
+    /// Call the "BeginTransaction" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Begins a new transaction.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_BeginTransactionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func beginTransaction<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.beginTransaction(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_BeginTransactionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_BeginTransactionResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func commit<R>(
+
+    /// Call the "Commit" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Commits a transaction, optionally creating, deleting or modifying some
+    /// > entities.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_CommitRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func commit<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.commit(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_CommitRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_CommitResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func rollback<R>(
+
+    /// Call the "Rollback" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Rolls back a transaction.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_RollbackRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func rollback<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.rollback(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_RollbackRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_RollbackResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func allocateIds<R>(
+
+    /// Call the "AllocateIds" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Allocates IDs for the given keys, which is useful for referencing an entity
+    /// > before it is inserted.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_AllocateIdsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func allocateIds<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.allocateIds(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_AllocateIdsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_AllocateIdsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    package func reserveIds<R>(
+
+    /// Call the "ReserveIds" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Prevents the supplied keys' IDs from being auto-allocated by Cloud
+    /// > Datastore.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Datastore_V1_ReserveIdsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    package func reserveIds<Result>(
         request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.reserveIds(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Datastore_V1_ReserveIdsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Datastore_V1_ReserveIdsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Datastore_V1_Datastore.ClientProtocol {
-    /// Looks up entities by key.
+    /// Call the "Lookup" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Looks up entities by key.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func lookup<Result>(
         _ message: Google_Datastore_V1_LookupRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>(
@@ -348,17 +923,30 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.lookup(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Queries for entities.
+
+    /// Call the "RunQuery" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Queries for entities.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func runQuery<Result>(
         _ message: Google_Datastore_V1_RunQueryRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>(
@@ -368,17 +956,30 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.runQuery(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Runs an aggregation query.
+
+    /// Call the "RunAggregationQuery" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Runs an aggregation query.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func runAggregationQuery<Result>(
         _ message: Google_Datastore_V1_RunAggregationQueryRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>(
@@ -388,17 +989,30 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.runAggregationQuery(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Begins a new transaction.
+
+    /// Call the "BeginTransaction" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Begins a new transaction.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func beginTransaction<Result>(
         _ message: Google_Datastore_V1_BeginTransactionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>(
@@ -408,18 +1022,31 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.beginTransaction(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Commits a transaction, optionally creating, deleting or modifying some
-    /// entities.
+
+    /// Call the "Commit" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Commits a transaction, optionally creating, deleting or modifying some
+    /// > entities.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func commit<Result>(
         _ message: Google_Datastore_V1_CommitRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>(
@@ -429,17 +1056,30 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.commit(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Rolls back a transaction.
+
+    /// Call the "Rollback" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Rolls back a transaction.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func rollback<Result>(
         _ message: Google_Datastore_V1_RollbackRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>(
@@ -449,18 +1089,31 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.rollback(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Allocates IDs for the given keys, which is useful for referencing an entity
-    /// before it is inserted.
+
+    /// Call the "AllocateIds" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Allocates IDs for the given keys, which is useful for referencing an entity
+    /// > before it is inserted.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func allocateIds<Result>(
         _ message: Google_Datastore_V1_AllocateIdsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>(
@@ -470,18 +1123,31 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.allocateIds(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Prevents the supplied keys' IDs from being auto-allocated by Cloud
-    /// Datastore.
+
+    /// Call the "ReserveIds" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Prevents the supplied keys' IDs from being auto-allocated by Cloud
+    /// > Datastore.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     package func reserveIds<Result>(
         _ message: Google_Datastore_V1_ReserveIdsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>(
@@ -491,185 +1157,7 @@ extension Google_Datastore_V1_Datastore.ClientProtocol {
         return try await self.reserveIds(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Each RPC normalizes the partition IDs of the keys in its input entities,
-/// and always returns entities with keys with normalized partition IDs.
-/// This applies to all keys and entities, including those in values, except keys
-/// with both an empty path and an empty or unset partition ID. Normalization of
-/// input keys sets the project ID (if not already set) to the project ID from
-/// the request.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-package struct Google_Datastore_V1_Datastore_Client: Google_Datastore_V1_Datastore.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    package init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Looks up entities by key.
-    package func lookup<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_LookupRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_LookupRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_LookupResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_LookupResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.Lookup.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Queries for entities.
-    package func runQuery<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RunQueryRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunQueryRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunQueryResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunQueryResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.RunQuery.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Runs an aggregation query.
-    package func runAggregationQuery<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RunAggregationQueryRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RunAggregationQueryRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RunAggregationQueryResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RunAggregationQueryResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.RunAggregationQuery.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Begins a new transaction.
-    package func beginTransaction<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_BeginTransactionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_BeginTransactionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_BeginTransactionResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_BeginTransactionResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.BeginTransaction.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Commits a transaction, optionally creating, deleting or modifying some
-    /// entities.
-    package func commit<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_CommitRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_CommitRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_CommitResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_CommitResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.Commit.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Rolls back a transaction.
-    package func rollback<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_RollbackRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_RollbackRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_RollbackResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_RollbackResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.Rollback.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Allocates IDs for the given keys, which is useful for referencing an entity
-    /// before it is inserted.
-    package func allocateIds<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_AllocateIdsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_AllocateIdsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_AllocateIdsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_AllocateIdsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.AllocateIds.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Prevents the supplied keys' IDs from being auto-allocated by Cloud
-    /// Datastore.
-    package func reserveIds<R>(
-        request: GRPCCore.ClientRequest<Google_Datastore_V1_ReserveIdsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Datastore_V1_ReserveIdsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Datastore_V1_ReserveIdsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Datastore_V1_ReserveIdsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Datastore_V1_Datastore.Method.ReserveIds.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

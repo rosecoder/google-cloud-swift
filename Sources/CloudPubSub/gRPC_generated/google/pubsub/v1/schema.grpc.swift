@@ -25,89 +25,135 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.pubsub.v1.SchemaService
+
+/// Namespace containing generated types for the "google.pubsub.v1.SchemaService" service.
 internal enum Google_Pubsub_V1_SchemaService {
-    internal static let descriptor = GRPCCore.ServiceDescriptor.google_pubsub_v1_SchemaService
+    /// Service descriptor for the "google.pubsub.v1.SchemaService" service.
+    internal static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService")
+    /// Namespace for method metadata.
     internal enum Method {
+        /// Namespace for "CreateSchema" metadata.
         internal enum CreateSchema {
+            /// Request type for "CreateSchema".
             internal typealias Input = Google_Pubsub_V1_CreateSchemaRequest
+            /// Response type for "CreateSchema".
             internal typealias Output = Google_Pubsub_V1_Schema
+            /// Descriptor for "CreateSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "CreateSchema"
             )
         }
+        /// Namespace for "GetSchema" metadata.
         internal enum GetSchema {
+            /// Request type for "GetSchema".
             internal typealias Input = Google_Pubsub_V1_GetSchemaRequest
+            /// Response type for "GetSchema".
             internal typealias Output = Google_Pubsub_V1_Schema
+            /// Descriptor for "GetSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "GetSchema"
             )
         }
+        /// Namespace for "ListSchemas" metadata.
         internal enum ListSchemas {
+            /// Request type for "ListSchemas".
             internal typealias Input = Google_Pubsub_V1_ListSchemasRequest
+            /// Response type for "ListSchemas".
             internal typealias Output = Google_Pubsub_V1_ListSchemasResponse
+            /// Descriptor for "ListSchemas".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "ListSchemas"
             )
         }
+        /// Namespace for "ListSchemaRevisions" metadata.
         internal enum ListSchemaRevisions {
+            /// Request type for "ListSchemaRevisions".
             internal typealias Input = Google_Pubsub_V1_ListSchemaRevisionsRequest
+            /// Response type for "ListSchemaRevisions".
             internal typealias Output = Google_Pubsub_V1_ListSchemaRevisionsResponse
+            /// Descriptor for "ListSchemaRevisions".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "ListSchemaRevisions"
             )
         }
+        /// Namespace for "CommitSchema" metadata.
         internal enum CommitSchema {
+            /// Request type for "CommitSchema".
             internal typealias Input = Google_Pubsub_V1_CommitSchemaRequest
+            /// Response type for "CommitSchema".
             internal typealias Output = Google_Pubsub_V1_Schema
+            /// Descriptor for "CommitSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "CommitSchema"
             )
         }
+        /// Namespace for "RollbackSchema" metadata.
         internal enum RollbackSchema {
+            /// Request type for "RollbackSchema".
             internal typealias Input = Google_Pubsub_V1_RollbackSchemaRequest
+            /// Response type for "RollbackSchema".
             internal typealias Output = Google_Pubsub_V1_Schema
+            /// Descriptor for "RollbackSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "RollbackSchema"
             )
         }
+        /// Namespace for "DeleteSchemaRevision" metadata.
         internal enum DeleteSchemaRevision {
+            /// Request type for "DeleteSchemaRevision".
             internal typealias Input = Google_Pubsub_V1_DeleteSchemaRevisionRequest
+            /// Response type for "DeleteSchemaRevision".
             internal typealias Output = Google_Pubsub_V1_Schema
+            /// Descriptor for "DeleteSchemaRevision".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "DeleteSchemaRevision"
             )
         }
+        /// Namespace for "DeleteSchema" metadata.
         internal enum DeleteSchema {
+            /// Request type for "DeleteSchema".
             internal typealias Input = Google_Pubsub_V1_DeleteSchemaRequest
+            /// Response type for "DeleteSchema".
             internal typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "DeleteSchema"
             )
         }
+        /// Namespace for "ValidateSchema" metadata.
         internal enum ValidateSchema {
+            /// Request type for "ValidateSchema".
             internal typealias Input = Google_Pubsub_V1_ValidateSchemaRequest
+            /// Response type for "ValidateSchema".
             internal typealias Output = Google_Pubsub_V1_ValidateSchemaResponse
+            /// Descriptor for "ValidateSchema".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "ValidateSchema"
             )
         }
+        /// Namespace for "ValidateMessage" metadata.
         internal enum ValidateMessage {
+            /// Request type for "ValidateMessage".
             internal typealias Input = Google_Pubsub_V1_ValidateMessageRequest
+            /// Response type for "ValidateMessage".
             internal typealias Output = Google_Pubsub_V1_ValidateMessageResponse
+            /// Descriptor for "ValidateMessage".
             internal static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Pubsub_V1_SchemaService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService"),
                 method: "ValidateMessage"
             )
         }
+        /// Descriptors for all methods in the "google.pubsub.v1.SchemaService" service.
         internal static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateSchema.descriptor,
             GetSchema.descriptor,
@@ -121,285 +167,933 @@ internal enum Google_Pubsub_V1_SchemaService {
             ValidateMessage.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias ClientProtocol = Google_Pubsub_V1_SchemaService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    internal typealias Client = Google_Pubsub_V1_SchemaService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    internal static let google_pubsub_v1_SchemaService = Self(
-        package: "google.pubsub.v1",
-        service: "SchemaService"
-    )
+    /// Service descriptor for the "google.pubsub.v1.SchemaService" service.
+    internal static let google_pubsub_v1_SchemaService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.pubsub.v1.SchemaService")
 }
 
-/// Service for doing schema-related operations.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal protocol Google_Pubsub_V1_SchemaService_ClientProtocol: Sendable {
-    /// Creates a schema.
-    func createSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a schema.
-    func getSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists schemas in a project.
-    func listSchemas<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemasRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemasResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists all schema revisions for the named schema.
-    func listSchemaRevisions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemaRevisionsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Commits a new schema revision to an existing schema.
-    func commitSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CommitSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a new schema revision that is a copy of the provided revision_id.
-    func rollbackSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_RollbackSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a specific schema revision.
-    func deleteSchemaRevision<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a schema.
-    func deleteSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Validates a schema.
-    func validateSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateSchemaResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Validates a message against a schema.
-    func validateMessage<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateMessageRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateMessageResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.pubsub.v1.SchemaService (client)
+
+extension Google_Pubsub_V1_SchemaService {
+    /// Generated client protocol for the "google.pubsub.v1.SchemaService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for doing schema-related operations.
+    internal protocol ClientProtocol: Sendable {
+        /// Call the "CreateSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CreateSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CreateSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSchemas" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists schemas in a project.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemasRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSchemasRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSchemasResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSchemas<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemasRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemasResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListSchemaRevisions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists all schema revisions for the named schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemaRevisionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSchemaRevisionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSchemaRevisionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listSchemaRevisions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemaRevisionsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CommitSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Commits a new schema revision to an existing schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CommitSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CommitSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func commitSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CommitSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "RollbackSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new schema revision that is a copy of the provided revision_id.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_RollbackSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_RollbackSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func rollbackSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_RollbackSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSchemaRevision" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a specific schema revision.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRevisionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSchemaRevisionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSchemaRevision<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ValidateSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Validates a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ValidateSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ValidateSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ValidateSchemaResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func validateSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateSchemaResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ValidateMessage" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Validates a message against a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ValidateMessageRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ValidateMessageRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ValidateMessageResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func validateMessage<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateMessageRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateMessageResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.pubsub.v1.SchemaService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Service for doing schema-related operations.
+    internal struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        internal init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CreateSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CreateSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func createSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.CreateSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_GetSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_GetSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func getSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.GetSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSchemas" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists schemas in a project.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemasRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSchemasRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSchemasResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listSchemas<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemasRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemasResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.ListSchemas.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListSchemaRevisions" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists all schema revisions for the named schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemaRevisionsRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ListSchemaRevisionsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ListSchemaRevisionsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func listSchemaRevisions<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemaRevisionsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.ListSchemaRevisions.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CommitSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Commits a new schema revision to an existing schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_CommitSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_CommitSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func commitSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CommitSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.CommitSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "RollbackSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a new schema revision that is a copy of the provided revision_id.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_RollbackSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_RollbackSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func rollbackSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_RollbackSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.RollbackSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSchemaRevision" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a specific schema revision.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRevisionRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSchemaRevisionRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_Schema` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func deleteSchemaRevision<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.DeleteSchemaRevision.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_DeleteSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func deleteSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.DeleteSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ValidateSchema" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Validates a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ValidateSchemaRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ValidateSchemaRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ValidateSchemaResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func validateSchema<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateSchemaRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateSchemaResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.ValidateSchema.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ValidateMessage" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Validates a message against a schema.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Pubsub_V1_ValidateMessageRequest` message.
+        ///   - serializer: A serializer for `Google_Pubsub_V1_ValidateMessageRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Pubsub_V1_ValidateMessageResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        internal func validateMessage<Result>(
+            request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateMessageRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateMessageResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Pubsub_V1_SchemaService.Method.ValidateMessage.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Pubsub_V1_SchemaService.ClientProtocol {
-    internal func createSchema<R>(
+    /// Call the "CreateSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_CreateSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func createSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_CreateSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Schema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func getSchema<R>(
+
+    /// Call the "GetSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_GetSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func getSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_GetSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Schema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func listSchemas<R>(
+
+    /// Call the "ListSchemas" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists schemas in a project.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemasRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listSchemas<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSchemas(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListSchemasRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListSchemasResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func listSchemaRevisions<R>(
+
+    /// Call the "ListSchemaRevisions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists all schema revisions for the named schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ListSchemaRevisionsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func listSchemaRevisions<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listSchemaRevisions(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ListSchemaRevisionsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ListSchemaRevisionsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func commitSchema<R>(
+
+    /// Call the "CommitSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Commits a new schema revision to an existing schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_CommitSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func commitSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.commitSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_CommitSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Schema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func rollbackSchema<R>(
+
+    /// Call the "RollbackSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new schema revision that is a copy of the provided revision_id.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_RollbackSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func rollbackSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.rollbackSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_RollbackSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Schema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func deleteSchemaRevision<R>(
+
+    /// Call the "DeleteSchemaRevision" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a specific schema revision.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRevisionRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteSchemaRevision<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSchemaRevision(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteSchemaRevisionRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_Schema>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func deleteSchema<R>(
+
+    /// Call the "DeleteSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_DeleteSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func deleteSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_DeleteSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func validateSchema<R>(
+
+    /// Call the "ValidateSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Validates a schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ValidateSchemaRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func validateSchema<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.validateSchema(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ValidateSchemaRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ValidateSchemaResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    internal func validateMessage<R>(
+
+    /// Call the "ValidateMessage" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Validates a message against a schema.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Pubsub_V1_ValidateMessageRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    internal func validateMessage<Result>(
         request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.validateMessage(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Pubsub_V1_ValidateMessageRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Pubsub_V1_ValidateMessageResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Pubsub_V1_SchemaService.ClientProtocol {
-    /// Creates a schema.
+    /// Call the "CreateSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func createSchema<Result>(
         _ message: Google_Pubsub_V1_CreateSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>(
@@ -409,17 +1103,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.createSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a schema.
+
+    /// Call the "GetSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func getSchema<Result>(
         _ message: Google_Pubsub_V1_GetSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>(
@@ -429,17 +1136,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.getSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists schemas in a project.
+
+    /// Call the "ListSchemas" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists schemas in a project.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func listSchemas<Result>(
         _ message: Google_Pubsub_V1_ListSchemasRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>(
@@ -449,17 +1169,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.listSchemas(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists all schema revisions for the named schema.
+
+    /// Call the "ListSchemaRevisions" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists all schema revisions for the named schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func listSchemaRevisions<Result>(
         _ message: Google_Pubsub_V1_ListSchemaRevisionsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>(
@@ -469,17 +1202,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.listSchemaRevisions(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Commits a new schema revision to an existing schema.
+
+    /// Call the "CommitSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Commits a new schema revision to an existing schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func commitSchema<Result>(
         _ message: Google_Pubsub_V1_CommitSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>(
@@ -489,17 +1235,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.commitSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a new schema revision that is a copy of the provided revision_id.
+
+    /// Call the "RollbackSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a new schema revision that is a copy of the provided revision_id.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func rollbackSchema<Result>(
         _ message: Google_Pubsub_V1_RollbackSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>(
@@ -509,17 +1268,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.rollbackSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a specific schema revision.
+
+    /// Call the "DeleteSchemaRevision" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a specific schema revision.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func deleteSchemaRevision<Result>(
         _ message: Google_Pubsub_V1_DeleteSchemaRevisionRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>(
@@ -529,17 +1301,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.deleteSchemaRevision(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a schema.
+
+    /// Call the "DeleteSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func deleteSchema<Result>(
         _ message: Google_Pubsub_V1_DeleteSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>(
@@ -549,17 +1334,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.deleteSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Validates a schema.
+
+    /// Call the "ValidateSchema" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Validates a schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func validateSchema<Result>(
         _ message: Google_Pubsub_V1_ValidateSchemaRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>(
@@ -569,17 +1367,30 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.validateSchema(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Validates a message against a schema.
+
+    /// Call the "ValidateMessage" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Validates a message against a schema.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     internal func validateMessage<Result>(
         _ message: Google_Pubsub_V1_ValidateMessageRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>(
@@ -589,217 +1400,7 @@ extension Google_Pubsub_V1_SchemaService.ClientProtocol {
         return try await self.validateMessage(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Service for doing schema-related operations.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-internal struct Google_Pubsub_V1_SchemaService_Client: Google_Pubsub_V1_SchemaService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    internal init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a schema.
-    internal func createSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CreateSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CreateSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.CreateSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a schema.
-    internal func getSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_GetSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_GetSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.GetSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists schemas in a project.
-    internal func listSchemas<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemasRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemasRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemasResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemasResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.ListSchemas.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists all schema revisions for the named schema.
-    internal func listSchemaRevisions<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ListSchemaRevisionsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ListSchemaRevisionsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ListSchemaRevisionsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.ListSchemaRevisions.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Commits a new schema revision to an existing schema.
-    internal func commitSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_CommitSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_CommitSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.CommitSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a new schema revision that is a copy of the provided revision_id.
-    internal func rollbackSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_RollbackSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_RollbackSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.RollbackSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a specific schema revision.
-    internal func deleteSchemaRevision<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRevisionRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_Schema>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_Schema>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.DeleteSchemaRevision.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a schema.
-    internal func deleteSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_DeleteSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_DeleteSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.DeleteSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Validates a schema.
-    internal func validateSchema<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateSchemaRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateSchemaRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateSchemaResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateSchemaResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.ValidateSchema.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Validates a message against a schema.
-    internal func validateMessage<R>(
-        request: GRPCCore.ClientRequest<Google_Pubsub_V1_ValidateMessageRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Pubsub_V1_ValidateMessageRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Pubsub_V1_ValidateMessageResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Pubsub_V1_ValidateMessageResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Pubsub_V1_SchemaService.Method.ValidateMessage.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

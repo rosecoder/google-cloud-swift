@@ -33,18 +33,16 @@ public struct GRPCClientService: Service {
                 }
                 self.init(client: GRPCClient(
                     transport: try .http2NIOPosix(
-                        target: .dns(host: host, port: port ?? 443),
-                        config: .defaults(transportSecurity: .tls(.defaults(configure: { config in
-                            config.serverHostname = host as String?
-                        })))
+                        target: .dns(host: host, port: port),
+                        transportSecurity: .tls
                     ),
                     interceptors: interceptors
                 ))
             case "http":
                 self.init(client: GRPCClient(
                     transport: try .http2NIOPosix(
-                        target: .dns(host: host, port: port ?? 80),
-                        config: .defaults(transportSecurity: .plaintext)
+                        target: .dns(host: host, port: port),
+                        transportSecurity: .tls
                     ),
                     interceptors: interceptors
                 ))
@@ -63,7 +61,7 @@ public struct GRPCClientService: Service {
             self.init(client: GRPCClient(
                 transport: try .http2NIOPosix(
                     target: .dns(host: host, port: port),
-                    config: .defaults(transportSecurity: .plaintext)
+                    transportSecurity: .plaintext
                 ),
                 interceptors: interceptors
             ))
@@ -74,7 +72,7 @@ public struct GRPCClientService: Service {
         self.init(client: GRPCClient(
             transport: try .http2NIOPosix(
                 target: .dns(host: "localhost", port: developmentPort),
-                config: .defaults(transportSecurity: .plaintext)
+                transportSecurity: .plaintext
             ),
             interceptors: interceptors
         ))

@@ -25,41 +25,63 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.GenAiTuningService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.GenAiTuningService" service.
 public enum Google_Cloud_Aiplatform_V1_GenAiTuningService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_GenAiTuningService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.GenAiTuningService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateTuningJob" metadata.
         public enum CreateTuningJob {
+            /// Request type for "CreateTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTuningJobRequest
+            /// Response type for "CreateTuningJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_TuningJob
+            /// Descriptor for "CreateTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_GenAiTuningService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService"),
                 method: "CreateTuningJob"
             )
         }
+        /// Namespace for "GetTuningJob" metadata.
         public enum GetTuningJob {
+            /// Request type for "GetTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTuningJobRequest
+            /// Response type for "GetTuningJob".
             public typealias Output = Google_Cloud_Aiplatform_V1_TuningJob
+            /// Descriptor for "GetTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_GenAiTuningService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService"),
                 method: "GetTuningJob"
             )
         }
+        /// Namespace for "ListTuningJobs" metadata.
         public enum ListTuningJobs {
+            /// Request type for "ListTuningJobs".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTuningJobsRequest
+            /// Response type for "ListTuningJobs".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTuningJobsResponse
+            /// Descriptor for "ListTuningJobs".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_GenAiTuningService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService"),
                 method: "ListTuningJobs"
             )
         }
+        /// Namespace for "CancelTuningJob" metadata.
         public enum CancelTuningJob {
+            /// Request type for "CancelTuningJob".
             public typealias Input = Google_Cloud_Aiplatform_V1_CancelTuningJobRequest
+            /// Response type for "CancelTuningJob".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelTuningJob".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_GenAiTuningService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService"),
                 method: "CancelTuningJob"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.GenAiTuningService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateTuningJob.descriptor,
             GetTuningJob.descriptor,
@@ -67,148 +89,454 @@ public enum Google_Cloud_Aiplatform_V1_GenAiTuningService {
             CancelTuningJob.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_GenAiTuningService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_GenAiTuningService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_GenAiTuningService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "GenAiTuningService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.GenAiTuningService" service.
+    public static let google_cloud_aiplatform_v1_GenAiTuningService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.GenAiTuningService")
 }
 
-/// A service for creating and managing GenAI Tuning Jobs.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_GenAiTuningService_ClientProtocol: Sendable {
-    /// Creates a TuningJob. A created TuningJob right away will be attempted to
-    /// be run.
-    func createTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a TuningJob.
-    func getTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists TuningJobs in a Location.
-    func listTuningJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Cancels a TuningJob.
-    /// Starts asynchronous cancellation on the TuningJob. The server makes a best
-    /// effort to cancel the job, but success is not guaranteed. Clients can use
-    /// [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation, the
-    /// TuningJob is not deleted; instead it becomes a job with a
-    /// [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
-    /// `CANCELLED`.
-    func cancelTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.GenAiTuningService (client)
+
+extension Google_Cloud_Aiplatform_V1_GenAiTuningService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.GenAiTuningService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing GenAI Tuning Jobs.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TuningJob. A created TuningJob right away will be attempted to
+        /// > be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TuningJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTuningJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TuningJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTuningJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTuningJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTuningJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTuningJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a TuningJob.
+        /// > Starts asynchronous cancellation on the TuningJob. The server makes a best
+        /// > effort to cancel the job, but success is not guaranteed. Clients can use
+        /// > [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation, the
+        /// > TuningJob is not deleted; instead it becomes a job with a
+        /// > [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
+        /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.GenAiTuningService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > A service for creating and managing GenAI Tuning Jobs.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TuningJob. A created TuningJob right away will be attempted to
+        /// > be run.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.CreateTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TuningJob.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TuningJob` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.GetTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTuningJobs" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TuningJobs in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTuningJobsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTuningJobsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTuningJobsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTuningJobs<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.ListTuningJobs.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelTuningJob" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Cancels a TuningJob.
+        /// > Starts asynchronous cancellation on the TuningJob. The server makes a best
+        /// > effort to cancel the job, but success is not guaranteed. Clients can use
+        /// > [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
+        /// > or other methods to check whether the cancellation succeeded or whether the
+        /// > job completed despite cancellation. On successful cancellation, the
+        /// > TuningJob is not deleted; instead it becomes a job with a
+        /// > [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
+        /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+        /// > `Code.CANCELLED`, and
+        /// > [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
+        /// > `CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTuningJobRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CancelTuningJobRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelTuningJob<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.CancelTuningJob.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
-    public func createTuningJob<R>(
+    /// Call the "CreateTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TuningJob. A created TuningJob right away will be attempted to
+    /// > be run.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTuningJob<R>(
+
+    /// Call the "GetTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TuningJob.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTuningJobs<R>(
+
+    /// Call the "ListTuningJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TuningJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTuningJobsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTuningJobs<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTuningJobs(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelTuningJob<R>(
+
+    /// Call the "CancelTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a TuningJob.
+    /// > Starts asynchronous cancellation on the TuningJob. The server makes a best
+    /// > effort to cancel the job, but success is not guaranteed. Clients can use
+    /// > [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation, the
+    /// > TuningJob is not deleted; instead it becomes a job with a
+    /// > [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
+    /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CancelTuningJobRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelTuningJob<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelTuningJob(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
-    /// Creates a TuningJob. A created TuningJob right away will be attempted to
-    /// be run.
+    /// Call the "CreateTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TuningJob. A created TuningJob right away will be attempted to
+    /// > be run.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>(
@@ -218,17 +546,30 @@ extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
         return try await self.createTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a TuningJob.
+
+    /// Call the "GetTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TuningJob.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>(
@@ -238,17 +579,30 @@ extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
         return try await self.getTuningJob(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists TuningJobs in a Location.
+
+    /// Call the "ListTuningJobs" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TuningJobs in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTuningJobs<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTuningJobsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>(
@@ -258,28 +612,41 @@ extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
         return try await self.listTuningJobs(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Cancels a TuningJob.
-    /// Starts asynchronous cancellation on the TuningJob. The server makes a best
-    /// effort to cancel the job, but success is not guaranteed. Clients can use
-    /// [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation, the
-    /// TuningJob is not deleted; instead it becomes a job with a
-    /// [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
-    /// `CANCELLED`.
+
+    /// Call the "CancelTuningJob" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Cancels a TuningJob.
+    /// > Starts asynchronous cancellation on the TuningJob. The server makes a best
+    /// > effort to cancel the job, but success is not guaranteed. Clients can use
+    /// > [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
+    /// > or other methods to check whether the cancellation succeeded or whether the
+    /// > job completed despite cancellation. On successful cancellation, the
+    /// > TuningJob is not deleted; instead it becomes a job with a
+    /// > [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
+    /// > [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
+    /// > `Code.CANCELLED`, and
+    /// > [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
+    /// > `CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelTuningJob<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CancelTuningJobRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>(
@@ -289,109 +656,7 @@ extension Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
         return try await self.cancelTuningJob(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// A service for creating and managing GenAI Tuning Jobs.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_GenAiTuningService_Client: Google_Cloud_Aiplatform_V1_GenAiTuningService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a TuningJob. A created TuningJob right away will be attempted to
-    /// be run.
-    public func createTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.CreateTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a TuningJob.
-    public func getTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TuningJob>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TuningJob>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.GetTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists TuningJobs in a Location.
-    public func listTuningJobs<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTuningJobsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTuningJobsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.ListTuningJobs.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Cancels a TuningJob.
-    /// Starts asynchronous cancellation on the TuningJob. The server makes a best
-    /// effort to cancel the job, but success is not guaranteed. Clients can use
-    /// [GenAiTuningService.GetTuningJob][google.cloud.aiplatform.v1.GenAiTuningService.GetTuningJob]
-    /// or other methods to check whether the cancellation succeeded or whether the
-    /// job completed despite cancellation. On successful cancellation, the
-    /// TuningJob is not deleted; instead it becomes a job with a
-    /// [TuningJob.error][google.cloud.aiplatform.v1.TuningJob.error] value with a
-    /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
-    /// `Code.CANCELLED`, and
-    /// [TuningJob.state][google.cloud.aiplatform.v1.TuningJob.state] is set to
-    /// `CANCELLED`.
-    public func cancelTuningJob<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CancelTuningJobRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_GenAiTuningService.Method.CancelTuningJob.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

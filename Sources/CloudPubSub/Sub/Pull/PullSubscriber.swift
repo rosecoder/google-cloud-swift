@@ -13,13 +13,13 @@ public final class PullSubscriber<Handler: _Handler>: Service {
     private let logger: Logger
 
     private let handler: Handler
-    private let client: Google_Pubsub_V1_Subscriber_ClientProtocol
+    private let client: Google_Pubsub_V1_Subscriber.ClientProtocol
     private let pubSubService: PubSubService
 
     public init(handler: Handler, pubSubService: PubSubService) {
         self.logger = Logger(label: "pubsub.subscriber." + handler.subscription.name)
         self.handler = handler
-        self.client = Google_Pubsub_V1_Subscriber_Client(wrapping: pubSubService.grpcClient)
+        self.client = Google_Pubsub_V1_Subscriber.Client(wrapping: pubSubService.grpcClient)
         self.pubSubService = pubSubService
     }
 

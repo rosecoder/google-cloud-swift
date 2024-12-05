@@ -25,49 +25,75 @@ import GRPCCore
 import GRPCProtobuf
 import SwiftProtobuf
 
+// MARK: - google.longrunning.Operations
+
+/// Namespace containing generated types for the "google.longrunning.Operations" service.
 public enum Google_Longrunning_Operations {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_longrunning_Operations
+    /// Service descriptor for the "google.longrunning.Operations" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "ListOperations" metadata.
         public enum ListOperations {
+            /// Request type for "ListOperations".
             public typealias Input = Google_Longrunning_ListOperationsRequest
+            /// Response type for "ListOperations".
             public typealias Output = Google_Longrunning_ListOperationsResponse
+            /// Descriptor for "ListOperations".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Longrunning_Operations.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations"),
                 method: "ListOperations"
             )
         }
+        /// Namespace for "GetOperation" metadata.
         public enum GetOperation {
+            /// Request type for "GetOperation".
             public typealias Input = Google_Longrunning_GetOperationRequest
+            /// Response type for "GetOperation".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "GetOperation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Longrunning_Operations.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations"),
                 method: "GetOperation"
             )
         }
+        /// Namespace for "DeleteOperation" metadata.
         public enum DeleteOperation {
+            /// Request type for "DeleteOperation".
             public typealias Input = Google_Longrunning_DeleteOperationRequest
+            /// Response type for "DeleteOperation".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "DeleteOperation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Longrunning_Operations.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations"),
                 method: "DeleteOperation"
             )
         }
+        /// Namespace for "CancelOperation" metadata.
         public enum CancelOperation {
+            /// Request type for "CancelOperation".
             public typealias Input = Google_Longrunning_CancelOperationRequest
+            /// Response type for "CancelOperation".
             public typealias Output = SwiftProtobuf.Google_Protobuf_Empty
+            /// Descriptor for "CancelOperation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Longrunning_Operations.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations"),
                 method: "CancelOperation"
             )
         }
+        /// Namespace for "WaitOperation" metadata.
         public enum WaitOperation {
+            /// Request type for "WaitOperation".
             public typealias Input = Google_Longrunning_WaitOperationRequest
+            /// Response type for "WaitOperation".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "WaitOperation".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Longrunning_Operations.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations"),
                 method: "WaitOperation"
             )
         }
+        /// Descriptors for all methods in the "google.longrunning.Operations" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             ListOperations.descriptor,
             GetOperation.descriptor,
@@ -76,208 +102,621 @@ public enum Google_Longrunning_Operations {
             WaitOperation.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Longrunning_Operations_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Longrunning_Operations_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_longrunning_Operations = Self(
-        package: "google.longrunning",
-        service: "Operations"
-    )
+    /// Service descriptor for the "google.longrunning.Operations" service.
+    public static let google_longrunning_Operations = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.longrunning.Operations")
 }
 
-/// Manages long-running operations with an API service.
-///
-/// When an API method normally takes long time to complete, it can be designed
-/// to return [Operation][google.longrunning.Operation] to the client, and the client can use this
-/// interface to receive the real response asynchronously by polling the
-/// operation resource, or pass the operation resource to another API (such as
-/// Google Cloud Pub/Sub API) to receive the response.  Any API service that
-/// returns long-running operations should implement the `Operations` interface
-/// so developers can have a consistent client experience.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Longrunning_Operations_ClientProtocol: Sendable {
-    /// Lists operations that match the specified filter in the request. If the
-    /// server doesn't support this method, it returns `UNIMPLEMENTED`.
+// MARK: google.longrunning.Operations (client)
+
+extension Google_Longrunning_Operations {
+    /// Generated client protocol for the "google.longrunning.Operations" service.
     ///
-    /// NOTE: the `name` binding allows API services to override the binding
-    /// to use different resource name schemes, such as `users/*/operations`. To
-    /// override the binding, API services can add a binding such as
-    /// `"/v1/{name=users/*}/operations"` to their service configuration.
-    /// For backwards compatibility, the default name includes the operations
-    /// collection id, however overriding users must ensure the name binding
-    /// is the parent resource, without the operations collection id.
-    func listOperations<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_ListOperationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_ListOperationsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets the latest state of a long-running operation.  Clients can use this
-    /// method to poll the operation result at intervals as recommended by the API
-    /// service.
-    func getOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_GetOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a long-running operation. This method indicates that the client is
-    /// no longer interested in the operation result. It does not cancel the
-    /// operation. If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
-    func deleteOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_DeleteOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Starts asynchronous cancellation on a long-running operation.  The server
-    /// makes a best effort to cancel the operation, but success is not
-    /// guaranteed.  If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-    /// [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// operation completed despite cancellation. On successful cancellation,
-    /// the operation is not deleted; instead, it becomes an operation with
-    /// an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`.
-    func cancelOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_CancelOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Waits until the specified long-running operation is done or reaches at most
-    /// a specified timeout, returning the latest state.  If the operation is
-    /// already done, the latest state is immediately returned.  If the timeout
-    /// specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-    /// timeout is used.  If the server does not support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
-    /// Note that this method is on a best-effort basis.  It may return the latest
-    /// state before the specified timeout (including immediately), meaning even an
-    /// immediate response is no guarantee that the operation is done.
-    func waitOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_WaitOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Manages long-running operations with an API service.
+    /// > 
+    /// > When an API method normally takes long time to complete, it can be designed
+    /// > to return [Operation][google.longrunning.Operation] to the client, and the client can use this
+    /// > interface to receive the real response asynchronously by polling the
+    /// > operation resource, or pass the operation resource to another API (such as
+    /// > Google Cloud Pub/Sub API) to receive the response.  Any API service that
+    /// > returns long-running operations should implement the `Operations` interface
+    /// > so developers can have a consistent client experience.
+    public protocol ClientProtocol: Sendable {
+        /// Call the "ListOperations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists operations that match the specified filter in the request. If the
+        /// > server doesn't support this method, it returns `UNIMPLEMENTED`.
+        /// > 
+        /// > NOTE: the `name` binding allows API services to override the binding
+        /// > to use different resource name schemes, such as `users/*/operations`. To
+        /// > override the binding, API services can add a binding such as
+        /// > `"/v1/{name=users/*}/operations"` to their service configuration.
+        /// > For backwards compatibility, the default name includes the operations
+        /// > collection id, however overriding users must ensure the name binding
+        /// > is the parent resource, without the operations collection id.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_ListOperationsRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_ListOperationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_ListOperationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listOperations<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_ListOperationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_ListOperationsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the latest state of a long-running operation.  Clients can use this
+        /// > method to poll the operation result at intervals as recommended by the API
+        /// > service.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_GetOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_GetOperationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_GetOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a long-running operation. This method indicates that the client is
+        /// > no longer interested in the operation result. It does not cancel the
+        /// > operation. If the server doesn't support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_DeleteOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_DeleteOperationRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_DeleteOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CancelOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Starts asynchronous cancellation on a long-running operation.  The server
+        /// > makes a best effort to cancel the operation, but success is not
+        /// > guaranteed.  If the server doesn't support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+        /// > [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
+        /// > other methods to check whether the cancellation succeeded or whether the
+        /// > operation completed despite cancellation. On successful cancellation,
+        /// > the operation is not deleted; instead, it becomes an operation with
+        /// > an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_CancelOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_CancelOperationRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func cancelOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_CancelOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "WaitOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Waits until the specified long-running operation is done or reaches at most
+        /// > a specified timeout, returning the latest state.  If the operation is
+        /// > already done, the latest state is immediately returned.  If the timeout
+        /// > specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+        /// > timeout is used.  If the server does not support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.
+        /// > Note that this method is on a best-effort basis.  It may return the latest
+        /// > state before the specified timeout (including immediately), meaning even an
+        /// > immediate response is no guarantee that the operation is done.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_WaitOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_WaitOperationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func waitOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_WaitOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.longrunning.Operations" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Manages long-running operations with an API service.
+    /// > 
+    /// > When an API method normally takes long time to complete, it can be designed
+    /// > to return [Operation][google.longrunning.Operation] to the client, and the client can use this
+    /// > interface to receive the real response asynchronously by polling the
+    /// > operation resource, or pass the operation resource to another API (such as
+    /// > Google Cloud Pub/Sub API) to receive the response.  Any API service that
+    /// > returns long-running operations should implement the `Operations` interface
+    /// > so developers can have a consistent client experience.
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "ListOperations" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists operations that match the specified filter in the request. If the
+        /// > server doesn't support this method, it returns `UNIMPLEMENTED`.
+        /// > 
+        /// > NOTE: the `name` binding allows API services to override the binding
+        /// > to use different resource name schemes, such as `users/*/operations`. To
+        /// > override the binding, API services can add a binding such as
+        /// > `"/v1/{name=users/*}/operations"` to their service configuration.
+        /// > For backwards compatibility, the default name includes the operations
+        /// > collection id, however overriding users must ensure the name binding
+        /// > is the parent resource, without the operations collection id.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_ListOperationsRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_ListOperationsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_ListOperationsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listOperations<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_ListOperationsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_ListOperationsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Longrunning_Operations.Method.ListOperations.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets the latest state of a long-running operation.  Clients can use this
+        /// > method to poll the operation result at intervals as recommended by the API
+        /// > service.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_GetOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_GetOperationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_GetOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Longrunning_Operations.Method.GetOperation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a long-running operation. This method indicates that the client is
+        /// > no longer interested in the operation result. It does not cancel the
+        /// > operation. If the server doesn't support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_DeleteOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_DeleteOperationRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_DeleteOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Longrunning_Operations.Method.DeleteOperation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CancelOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Starts asynchronous cancellation on a long-running operation.  The server
+        /// > makes a best effort to cancel the operation, but success is not
+        /// > guaranteed.  If the server doesn't support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+        /// > [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
+        /// > other methods to check whether the cancellation succeeded or whether the
+        /// > operation completed despite cancellation. On successful cancellation,
+        /// > the operation is not deleted; instead, it becomes an operation with
+        /// > an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+        /// > corresponding to `Code.CANCELLED`.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_CancelOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_CancelOperationRequest` messages.
+        ///   - deserializer: A deserializer for `SwiftProtobuf.Google_Protobuf_Empty` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func cancelOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_CancelOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Longrunning_Operations.Method.CancelOperation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "WaitOperation" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Waits until the specified long-running operation is done or reaches at most
+        /// > a specified timeout, returning the latest state.  If the operation is
+        /// > already done, the latest state is immediately returned.  If the timeout
+        /// > specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+        /// > timeout is used.  If the server does not support this method, it returns
+        /// > `google.rpc.Code.UNIMPLEMENTED`.
+        /// > Note that this method is on a best-effort basis.  It may return the latest
+        /// > state before the specified timeout (including immediately), meaning even an
+        /// > immediate response is no guarantee that the operation is done.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Longrunning_WaitOperationRequest` message.
+        ///   - serializer: A serializer for `Google_Longrunning_WaitOperationRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func waitOperation<Result>(
+            request: GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Longrunning_WaitOperationRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Longrunning_Operations.Method.WaitOperation.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Longrunning_Operations.ClientProtocol {
-    public func listOperations<R>(
+    /// Call the "ListOperations" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists operations that match the specified filter in the request. If the
+    /// > server doesn't support this method, it returns `UNIMPLEMENTED`.
+    /// > 
+    /// > NOTE: the `name` binding allows API services to override the binding
+    /// > to use different resource name schemes, such as `users/*/operations`. To
+    /// > override the binding, API services can add a binding such as
+    /// > `"/v1/{name=users/*}/operations"` to their service configuration.
+    /// > For backwards compatibility, the default name includes the operations
+    /// > collection id, however overriding users must ensure the name binding
+    /// > is the parent resource, without the operations collection id.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Longrunning_ListOperationsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listOperations<Result>(
         request: GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listOperations(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Longrunning_ListOperationsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_ListOperationsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getOperation<R>(
+
+    /// Call the "GetOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the latest state of a long-running operation.  Clients can use this
+    /// > method to poll the operation result at intervals as recommended by the API
+    /// > service.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Longrunning_GetOperationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getOperation<Result>(
         request: GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getOperation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Longrunning_GetOperationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteOperation<R>(
+
+    /// Call the "DeleteOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a long-running operation. This method indicates that the client is
+    /// > no longer interested in the operation result. It does not cancel the
+    /// > operation. If the server doesn't support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Longrunning_DeleteOperationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteOperation<Result>(
         request: GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteOperation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Longrunning_DeleteOperationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func cancelOperation<R>(
+
+    /// Call the "CancelOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Starts asynchronous cancellation on a long-running operation.  The server
+    /// > makes a best effort to cancel the operation, but success is not
+    /// > guaranteed.  If the server doesn't support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+    /// > [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
+    /// > other methods to check whether the cancellation succeeded or whether the
+    /// > operation completed despite cancellation. On successful cancellation,
+    /// > the operation is not deleted; instead, it becomes an operation with
+    /// > an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Longrunning_CancelOperationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func cancelOperation<Result>(
         request: GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.cancelOperation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Longrunning_CancelOperationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<SwiftProtobuf.Google_Protobuf_Empty>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func waitOperation<R>(
+
+    /// Call the "WaitOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Waits until the specified long-running operation is done or reaches at most
+    /// > a specified timeout, returning the latest state.  If the operation is
+    /// > already done, the latest state is immediately returned.  If the timeout
+    /// > specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+    /// > timeout is used.  If the server does not support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.
+    /// > Note that this method is on a best-effort basis.  It may return the latest
+    /// > state before the specified timeout (including immediately), meaning even an
+    /// > immediate response is no guarantee that the operation is done.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Longrunning_WaitOperationRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func waitOperation<Result>(
         request: GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.waitOperation(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Longrunning_WaitOperationRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Longrunning_Operations.ClientProtocol {
-    /// Lists operations that match the specified filter in the request. If the
-    /// server doesn't support this method, it returns `UNIMPLEMENTED`.
+    /// Call the "ListOperations" method.
     ///
-    /// NOTE: the `name` binding allows API services to override the binding
-    /// to use different resource name schemes, such as `users/*/operations`. To
-    /// override the binding, API services can add a binding such as
-    /// `"/v1/{name=users/*}/operations"` to their service configuration.
-    /// For backwards compatibility, the default name includes the operations
-    /// collection id, however overriding users must ensure the name binding
-    /// is the parent resource, without the operations collection id.
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists operations that match the specified filter in the request. If the
+    /// > server doesn't support this method, it returns `UNIMPLEMENTED`.
+    /// > 
+    /// > NOTE: the `name` binding allows API services to override the binding
+    /// > to use different resource name schemes, such as `users/*/operations`. To
+    /// > override the binding, API services can add a binding such as
+    /// > `"/v1/{name=users/*}/operations"` to their service configuration.
+    /// > For backwards compatibility, the default name includes the operations
+    /// > collection id, however overriding users must ensure the name binding
+    /// > is the parent resource, without the operations collection id.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listOperations<Result>(
         _ message: Google_Longrunning_ListOperationsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>(
@@ -287,19 +726,32 @@ extension Google_Longrunning_Operations.ClientProtocol {
         return try await self.listOperations(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets the latest state of a long-running operation.  Clients can use this
-    /// method to poll the operation result at intervals as recommended by the API
-    /// service.
+
+    /// Call the "GetOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets the latest state of a long-running operation.  Clients can use this
+    /// > method to poll the operation result at intervals as recommended by the API
+    /// > service.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getOperation<Result>(
         _ message: Google_Longrunning_GetOperationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>(
@@ -309,20 +761,33 @@ extension Google_Longrunning_Operations.ClientProtocol {
         return try await self.getOperation(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a long-running operation. This method indicates that the client is
-    /// no longer interested in the operation result. It does not cancel the
-    /// operation. If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
+
+    /// Call the "DeleteOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a long-running operation. This method indicates that the client is
+    /// > no longer interested in the operation result. It does not cancel the
+    /// > operation. If the server doesn't support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteOperation<Result>(
         _ message: Google_Longrunning_DeleteOperationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>(
@@ -332,26 +797,39 @@ extension Google_Longrunning_Operations.ClientProtocol {
         return try await self.deleteOperation(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Starts asynchronous cancellation on a long-running operation.  The server
-    /// makes a best effort to cancel the operation, but success is not
-    /// guaranteed.  If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-    /// [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// operation completed despite cancellation. On successful cancellation,
-    /// the operation is not deleted; instead, it becomes an operation with
-    /// an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`.
+
+    /// Call the "CancelOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Starts asynchronous cancellation on a long-running operation.  The server
+    /// > makes a best effort to cancel the operation, but success is not
+    /// > guaranteed.  If the server doesn't support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
+    /// > [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
+    /// > other methods to check whether the cancellation succeeded or whether the
+    /// > operation completed despite cancellation. On successful cancellation,
+    /// > the operation is not deleted; instead, it becomes an operation with
+    /// > an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
+    /// > corresponding to `Code.CANCELLED`.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func cancelOperation<Result>(
         _ message: Google_Longrunning_CancelOperationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>(
@@ -361,25 +839,38 @@ extension Google_Longrunning_Operations.ClientProtocol {
         return try await self.cancelOperation(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Waits until the specified long-running operation is done or reaches at most
-    /// a specified timeout, returning the latest state.  If the operation is
-    /// already done, the latest state is immediately returned.  If the timeout
-    /// specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-    /// timeout is used.  If the server does not support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
-    /// Note that this method is on a best-effort basis.  It may return the latest
-    /// state before the specified timeout (including immediately), meaning even an
-    /// immediate response is no guarantee that the operation is done.
+
+    /// Call the "WaitOperation" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Waits until the specified long-running operation is done or reaches at most
+    /// > a specified timeout, returning the latest state.  If the operation is
+    /// > already done, the latest state is immediately returned.  If the timeout
+    /// > specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
+    /// > timeout is used.  If the server does not support this method, it returns
+    /// > `google.rpc.Code.UNIMPLEMENTED`.
+    /// > Note that this method is on a best-effort basis.  It may return the latest
+    /// > state before the specified timeout (including immediately), meaning even an
+    /// > immediate response is no guarantee that the operation is done.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func waitOperation<Result>(
         _ message: Google_Longrunning_WaitOperationRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>(
@@ -389,156 +880,7 @@ extension Google_Longrunning_Operations.ClientProtocol {
         return try await self.waitOperation(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// Manages long-running operations with an API service.
-///
-/// When an API method normally takes long time to complete, it can be designed
-/// to return [Operation][google.longrunning.Operation] to the client, and the client can use this
-/// interface to receive the real response asynchronously by polling the
-/// operation resource, or pass the operation resource to another API (such as
-/// Google Cloud Pub/Sub API) to receive the response.  Any API service that
-/// returns long-running operations should implement the `Operations` interface
-/// so developers can have a consistent client experience.
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Longrunning_Operations_Client: Google_Longrunning_Operations.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Lists operations that match the specified filter in the request. If the
-    /// server doesn't support this method, it returns `UNIMPLEMENTED`.
-    ///
-    /// NOTE: the `name` binding allows API services to override the binding
-    /// to use different resource name schemes, such as `users/*/operations`. To
-    /// override the binding, API services can add a binding such as
-    /// `"/v1/{name=users/*}/operations"` to their service configuration.
-    /// For backwards compatibility, the default name includes the operations
-    /// collection id, however overriding users must ensure the name binding
-    /// is the parent resource, without the operations collection id.
-    public func listOperations<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_ListOperationsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_ListOperationsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_ListOperationsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_ListOperationsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Longrunning_Operations.Method.ListOperations.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets the latest state of a long-running operation.  Clients can use this
-    /// method to poll the operation result at intervals as recommended by the API
-    /// service.
-    public func getOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_GetOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_GetOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Longrunning_Operations.Method.GetOperation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a long-running operation. This method indicates that the client is
-    /// no longer interested in the operation result. It does not cancel the
-    /// operation. If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
-    public func deleteOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_DeleteOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_DeleteOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Longrunning_Operations.Method.DeleteOperation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Starts asynchronous cancellation on a long-running operation.  The server
-    /// makes a best effort to cancel the operation, but success is not
-    /// guaranteed.  If the server doesn't support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.  Clients can use
-    /// [Operations.GetOperation][google.longrunning.Operations.GetOperation] or
-    /// other methods to check whether the cancellation succeeded or whether the
-    /// operation completed despite cancellation. On successful cancellation,
-    /// the operation is not deleted; instead, it becomes an operation with
-    /// an [Operation.error][google.longrunning.Operation.error] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
-    /// corresponding to `Code.CANCELLED`.
-    public func cancelOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_CancelOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_CancelOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<SwiftProtobuf.Google_Protobuf_Empty>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<SwiftProtobuf.Google_Protobuf_Empty>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Longrunning_Operations.Method.CancelOperation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Waits until the specified long-running operation is done or reaches at most
-    /// a specified timeout, returning the latest state.  If the operation is
-    /// already done, the latest state is immediately returned.  If the timeout
-    /// specified is greater than the default HTTP/RPC timeout, the HTTP/RPC
-    /// timeout is used.  If the server does not support this method, it returns
-    /// `google.rpc.Code.UNIMPLEMENTED`.
-    /// Note that this method is on a best-effort basis.  It may return the latest
-    /// state before the specified timeout (including immediately), meaning even an
-    /// immediate response is no guarantee that the operation is done.
-    public func waitOperation<R>(
-        request: GRPCCore.ClientRequest<Google_Longrunning_WaitOperationRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Longrunning_WaitOperationRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Longrunning_Operations.Method.WaitOperation.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }

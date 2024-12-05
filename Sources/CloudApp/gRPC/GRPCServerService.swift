@@ -22,7 +22,7 @@ public struct GRPCServerService: Service {
         self.grpcServer = GRPCServer(
             transport: .http2NIOPosix(
                 address: .ipv4(host: host, port: port ?? defaultPort),
-                config: .defaults(transportSecurity: .plaintext)
+                transportSecurity: .plaintext
             ),
             services: services,
             interceptors: interceptors

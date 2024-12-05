@@ -24,249 +24,375 @@
 import GRPCCore
 import GRPCProtobuf
 
+// MARK: - google.cloud.aiplatform.v1.TensorboardService
+
+/// Namespace containing generated types for the "google.cloud.aiplatform.v1.TensorboardService" service.
 public enum Google_Cloud_Aiplatform_V1_TensorboardService {
-    public static let descriptor = GRPCCore.ServiceDescriptor.google_cloud_aiplatform_v1_TensorboardService
+    /// Service descriptor for the "google.cloud.aiplatform.v1.TensorboardService" service.
+    public static let descriptor = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService")
+    /// Namespace for method metadata.
     public enum Method {
+        /// Namespace for "CreateTensorboard" metadata.
         public enum CreateTensorboard {
+            /// Request type for "CreateTensorboard".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTensorboardRequest
+            /// Response type for "CreateTensorboard".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "CreateTensorboard".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "CreateTensorboard"
             )
         }
+        /// Namespace for "GetTensorboard" metadata.
         public enum GetTensorboard {
+            /// Request type for "GetTensorboard".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTensorboardRequest
+            /// Response type for "GetTensorboard".
             public typealias Output = Google_Cloud_Aiplatform_V1_Tensorboard
+            /// Descriptor for "GetTensorboard".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "GetTensorboard"
             )
         }
+        /// Namespace for "UpdateTensorboard" metadata.
         public enum UpdateTensorboard {
+            /// Request type for "UpdateTensorboard".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest
+            /// Response type for "UpdateTensorboard".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "UpdateTensorboard".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "UpdateTensorboard"
             )
         }
+        /// Namespace for "ListTensorboards" metadata.
         public enum ListTensorboards {
+            /// Request type for "ListTensorboards".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTensorboardsRequest
+            /// Response type for "ListTensorboards".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTensorboardsResponse
+            /// Descriptor for "ListTensorboards".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ListTensorboards"
             )
         }
+        /// Namespace for "DeleteTensorboard" metadata.
         public enum DeleteTensorboard {
+            /// Request type for "DeleteTensorboard".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest
+            /// Response type for "DeleteTensorboard".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteTensorboard".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "DeleteTensorboard"
             )
         }
+        /// Namespace for "ReadTensorboardUsage" metadata.
         public enum ReadTensorboardUsage {
+            /// Request type for "ReadTensorboardUsage".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest
+            /// Response type for "ReadTensorboardUsage".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse
+            /// Descriptor for "ReadTensorboardUsage".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ReadTensorboardUsage"
             )
         }
+        /// Namespace for "ReadTensorboardSize" metadata.
         public enum ReadTensorboardSize {
+            /// Request type for "ReadTensorboardSize".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest
+            /// Response type for "ReadTensorboardSize".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse
+            /// Descriptor for "ReadTensorboardSize".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ReadTensorboardSize"
             )
         }
+        /// Namespace for "CreateTensorboardExperiment" metadata.
         public enum CreateTensorboardExperiment {
+            /// Request type for "CreateTensorboardExperiment".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest
+            /// Response type for "CreateTensorboardExperiment".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardExperiment
+            /// Descriptor for "CreateTensorboardExperiment".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "CreateTensorboardExperiment"
             )
         }
+        /// Namespace for "GetTensorboardExperiment" metadata.
         public enum GetTensorboardExperiment {
+            /// Request type for "GetTensorboardExperiment".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest
+            /// Response type for "GetTensorboardExperiment".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardExperiment
+            /// Descriptor for "GetTensorboardExperiment".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "GetTensorboardExperiment"
             )
         }
+        /// Namespace for "UpdateTensorboardExperiment" metadata.
         public enum UpdateTensorboardExperiment {
+            /// Request type for "UpdateTensorboardExperiment".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest
+            /// Response type for "UpdateTensorboardExperiment".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardExperiment
+            /// Descriptor for "UpdateTensorboardExperiment".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "UpdateTensorboardExperiment"
             )
         }
+        /// Namespace for "ListTensorboardExperiments" metadata.
         public enum ListTensorboardExperiments {
+            /// Request type for "ListTensorboardExperiments".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest
+            /// Response type for "ListTensorboardExperiments".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse
+            /// Descriptor for "ListTensorboardExperiments".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ListTensorboardExperiments"
             )
         }
+        /// Namespace for "DeleteTensorboardExperiment" metadata.
         public enum DeleteTensorboardExperiment {
+            /// Request type for "DeleteTensorboardExperiment".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest
+            /// Response type for "DeleteTensorboardExperiment".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteTensorboardExperiment".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "DeleteTensorboardExperiment"
             )
         }
+        /// Namespace for "CreateTensorboardRun" metadata.
         public enum CreateTensorboardRun {
+            /// Request type for "CreateTensorboardRun".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest
+            /// Response type for "CreateTensorboardRun".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardRun
+            /// Descriptor for "CreateTensorboardRun".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "CreateTensorboardRun"
             )
         }
+        /// Namespace for "BatchCreateTensorboardRuns" metadata.
         public enum BatchCreateTensorboardRuns {
+            /// Request type for "BatchCreateTensorboardRuns".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest
+            /// Response type for "BatchCreateTensorboardRuns".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse
+            /// Descriptor for "BatchCreateTensorboardRuns".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "BatchCreateTensorboardRuns"
             )
         }
+        /// Namespace for "GetTensorboardRun" metadata.
         public enum GetTensorboardRun {
+            /// Request type for "GetTensorboardRun".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest
+            /// Response type for "GetTensorboardRun".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardRun
+            /// Descriptor for "GetTensorboardRun".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "GetTensorboardRun"
             )
         }
+        /// Namespace for "UpdateTensorboardRun" metadata.
         public enum UpdateTensorboardRun {
+            /// Request type for "UpdateTensorboardRun".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest
+            /// Response type for "UpdateTensorboardRun".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardRun
+            /// Descriptor for "UpdateTensorboardRun".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "UpdateTensorboardRun"
             )
         }
+        /// Namespace for "ListTensorboardRuns" metadata.
         public enum ListTensorboardRuns {
+            /// Request type for "ListTensorboardRuns".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest
+            /// Response type for "ListTensorboardRuns".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse
+            /// Descriptor for "ListTensorboardRuns".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ListTensorboardRuns"
             )
         }
+        /// Namespace for "DeleteTensorboardRun" metadata.
         public enum DeleteTensorboardRun {
+            /// Request type for "DeleteTensorboardRun".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest
+            /// Response type for "DeleteTensorboardRun".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteTensorboardRun".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "DeleteTensorboardRun"
             )
         }
+        /// Namespace for "BatchCreateTensorboardTimeSeries" metadata.
         public enum BatchCreateTensorboardTimeSeries {
+            /// Request type for "BatchCreateTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest
+            /// Response type for "BatchCreateTensorboardTimeSeries".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse
+            /// Descriptor for "BatchCreateTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "BatchCreateTensorboardTimeSeries"
             )
         }
+        /// Namespace for "CreateTensorboardTimeSeries" metadata.
         public enum CreateTensorboardTimeSeries {
+            /// Request type for "CreateTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest
+            /// Response type for "CreateTensorboardTimeSeries".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardTimeSeries
+            /// Descriptor for "CreateTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "CreateTensorboardTimeSeries"
             )
         }
+        /// Namespace for "GetTensorboardTimeSeries" metadata.
         public enum GetTensorboardTimeSeries {
+            /// Request type for "GetTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest
+            /// Response type for "GetTensorboardTimeSeries".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardTimeSeries
+            /// Descriptor for "GetTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "GetTensorboardTimeSeries"
             )
         }
+        /// Namespace for "UpdateTensorboardTimeSeries" metadata.
         public enum UpdateTensorboardTimeSeries {
+            /// Request type for "UpdateTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest
+            /// Response type for "UpdateTensorboardTimeSeries".
             public typealias Output = Google_Cloud_Aiplatform_V1_TensorboardTimeSeries
+            /// Descriptor for "UpdateTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "UpdateTensorboardTimeSeries"
             )
         }
+        /// Namespace for "ListTensorboardTimeSeries" metadata.
         public enum ListTensorboardTimeSeries {
+            /// Request type for "ListTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest
+            /// Response type for "ListTensorboardTimeSeries".
             public typealias Output = Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse
+            /// Descriptor for "ListTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ListTensorboardTimeSeries"
             )
         }
+        /// Namespace for "DeleteTensorboardTimeSeries" metadata.
         public enum DeleteTensorboardTimeSeries {
+            /// Request type for "DeleteTensorboardTimeSeries".
             public typealias Input = Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest
+            /// Response type for "DeleteTensorboardTimeSeries".
             public typealias Output = Google_Longrunning_Operation
+            /// Descriptor for "DeleteTensorboardTimeSeries".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "DeleteTensorboardTimeSeries"
             )
         }
+        /// Namespace for "BatchReadTensorboardTimeSeriesData" metadata.
         public enum BatchReadTensorboardTimeSeriesData {
+            /// Request type for "BatchReadTensorboardTimeSeriesData".
             public typealias Input = Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest
+            /// Response type for "BatchReadTensorboardTimeSeriesData".
             public typealias Output = Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse
+            /// Descriptor for "BatchReadTensorboardTimeSeriesData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "BatchReadTensorboardTimeSeriesData"
             )
         }
+        /// Namespace for "ReadTensorboardTimeSeriesData" metadata.
         public enum ReadTensorboardTimeSeriesData {
+            /// Request type for "ReadTensorboardTimeSeriesData".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest
+            /// Response type for "ReadTensorboardTimeSeriesData".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse
+            /// Descriptor for "ReadTensorboardTimeSeriesData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ReadTensorboardTimeSeriesData"
             )
         }
+        /// Namespace for "ReadTensorboardBlobData" metadata.
         public enum ReadTensorboardBlobData {
+            /// Request type for "ReadTensorboardBlobData".
             public typealias Input = Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest
+            /// Response type for "ReadTensorboardBlobData".
             public typealias Output = Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse
+            /// Descriptor for "ReadTensorboardBlobData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ReadTensorboardBlobData"
             )
         }
+        /// Namespace for "WriteTensorboardExperimentData" metadata.
         public enum WriteTensorboardExperimentData {
+            /// Request type for "WriteTensorboardExperimentData".
             public typealias Input = Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest
+            /// Response type for "WriteTensorboardExperimentData".
             public typealias Output = Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse
+            /// Descriptor for "WriteTensorboardExperimentData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "WriteTensorboardExperimentData"
             )
         }
+        /// Namespace for "WriteTensorboardRunData" metadata.
         public enum WriteTensorboardRunData {
+            /// Request type for "WriteTensorboardRunData".
             public typealias Input = Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest
+            /// Response type for "WriteTensorboardRunData".
             public typealias Output = Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse
+            /// Descriptor for "WriteTensorboardRunData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "WriteTensorboardRunData"
             )
         }
+        /// Namespace for "ExportTensorboardTimeSeriesData" metadata.
         public enum ExportTensorboardTimeSeriesData {
+            /// Request type for "ExportTensorboardTimeSeriesData".
             public typealias Input = Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest
+            /// Response type for "ExportTensorboardTimeSeriesData".
             public typealias Output = Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse
+            /// Descriptor for "ExportTensorboardTimeSeriesData".
             public static let descriptor = GRPCCore.MethodDescriptor(
-                service: Google_Cloud_Aiplatform_V1_TensorboardService.descriptor.fullyQualifiedService,
+                service: GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService"),
                 method: "ExportTensorboardTimeSeriesData"
             )
         }
+        /// Descriptors for all methods in the "google.cloud.aiplatform.v1.TensorboardService" service.
         public static let descriptors: [GRPCCore.MethodDescriptor] = [
             CreateTensorboard.descriptor,
             GetTensorboard.descriptor,
@@ -300,797 +426,2691 @@ public enum Google_Cloud_Aiplatform_V1_TensorboardService {
             ExportTensorboardTimeSeriesData.descriptor
         ]
     }
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias ClientProtocol = Google_Cloud_Aiplatform_V1_TensorboardService_ClientProtocol
-    @available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-    public typealias Client = Google_Cloud_Aiplatform_V1_TensorboardService_Client
 }
 
 extension GRPCCore.ServiceDescriptor {
-    public static let google_cloud_aiplatform_v1_TensorboardService = Self(
-        package: "google.cloud.aiplatform.v1",
-        service: "TensorboardService"
-    )
+    /// Service descriptor for the "google.cloud.aiplatform.v1.TensorboardService" service.
+    public static let google_cloud_aiplatform_v1_TensorboardService = GRPCCore.ServiceDescriptor(fullyQualifiedService: "google.cloud.aiplatform.v1.TensorboardService")
 }
 
-/// TensorboardService
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public protocol Google_Cloud_Aiplatform_V1_TensorboardService_ClientProtocol: Sendable {
-    /// Creates a Tensorboard.
-    func createTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a Tensorboard.
-    func getTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Tensorboard>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a Tensorboard.
-    func updateTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists Tensorboards in a Location.
-    func listTensorboards<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a Tensorboard.
-    func deleteTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Returns a list of monthly active users for a given TensorBoard instance.
-    func readTensorboardUsage<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Returns the storage size for a given TensorBoard instance.
-    func readTensorboardSize<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a TensorboardExperiment.
-    func createTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a TensorboardExperiment.
-    func getTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a TensorboardExperiment.
-    func updateTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists TensorboardExperiments in a Location.
-    func listTensorboardExperiments<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a TensorboardExperiment.
-    func deleteTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a TensorboardRun.
-    func createTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Batch create TensorboardRuns.
-    func batchCreateTensorboardRuns<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a TensorboardRun.
-    func getTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a TensorboardRun.
-    func updateTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists TensorboardRuns in a Location.
-    func listTensorboardRuns<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a TensorboardRun.
-    func deleteTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-    func batchCreateTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Creates a TensorboardTimeSeries.
-    func createTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets a TensorboardTimeSeries.
-    func getTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Updates a TensorboardTimeSeries.
-    func updateTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Lists TensorboardTimeSeries in a Location.
-    func listTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Deletes a TensorboardTimeSeries.
-    func deleteTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Reads multiple TensorboardTimeSeries' data. The data point number limit is
-    /// 1000 for scalars, 100 for tensors and blob references. If the number of
-    /// data points stored is less than the limit, all data is returned.
-    /// Otherwise, the number limit of data points is randomly selected from
-    /// this time series and returned.
-    func batchReadTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Reads a TensorboardTimeSeries' data. By default, if the number of data
-    /// points stored is less than 1000, all data is returned. Otherwise, 1000
-    /// data points is randomly selected from this time series and returned.
-    /// This value can be changed by changing max_data_points, which can't be
-    /// greater than 10k.
-    func readTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Gets bytes of TensorboardBlobs.
-    /// This is to allow reading blob data stored in consumer project's Cloud
-    /// Storage bucket without users having to obtain Cloud Storage access
-    /// permission.
-    func readTensorboardBlobData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Write time series data points of multiple TensorboardTimeSeries in multiple
-    /// TensorboardRun's. If any data fail to be ingested, an error is returned.
-    func writeTensorboardExperimentData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Write time series data points into multiple TensorboardTimeSeries under
-    /// a TensorboardRun. If any data fail to be ingested, an error is returned.
-    func writeTensorboardRunData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
-    
-    /// Exports a TensorboardTimeSeries' data. Data is returned in paginated
-    /// responses.
-    func exportTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable
+// MARK: google.cloud.aiplatform.v1.TensorboardService (client)
+
+extension Google_Cloud_Aiplatform_V1_TensorboardService {
+    /// Generated client protocol for the "google.cloud.aiplatform.v1.TensorboardService" service.
+    ///
+    /// You don't need to implement this protocol directly, use the generated
+    /// implementation, ``Client``.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > TensorboardService
+    public protocol ClientProtocol: Sendable {
+        /// Call the "CreateTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Tensorboard` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Tensorboard>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTensorboards" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Tensorboards in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTensorboards<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReadTensorboardUsage" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Returns a list of monthly active users for a given TensorBoard instance.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readTensorboardUsage<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReadTensorboardSize" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Returns the storage size for a given TensorBoard instance.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readTensorboardSize<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTensorboardExperiments" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardExperiments in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTensorboardExperiments<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchCreateTensorboardRuns" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch create TensorboardRuns.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchCreateTensorboardRuns<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTensorboardRuns" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardRuns in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTensorboardRuns<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchCreateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchCreateTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "CreateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func createTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "GetTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func getTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "UpdateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func updateTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ListTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardTimeSeries in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func listTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "DeleteTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func deleteTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "BatchReadTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads multiple TensorboardTimeSeries' data. The data point number limit is
+        /// > 1000 for scalars, 100 for tensors and blob references. If the number of
+        /// > data points stored is less than the limit, all data is returned.
+        /// > Otherwise, the number limit of data points is randomly selected from
+        /// > this time series and returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func batchReadTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReadTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads a TensorboardTimeSeries' data. By default, if the number of data
+        /// > points stored is less than 1000, all data is returned. Otherwise, 1000
+        /// > data points is randomly selected from this time series and returned.
+        /// > This value can be changed by changing max_data_points, which can't be
+        /// > greater than 10k.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ReadTensorboardBlobData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets bytes of TensorboardBlobs.
+        /// > This is to allow reading blob data stored in consumer project's Cloud
+        /// > Storage bucket without users having to obtain Cloud Storage access
+        /// > permission.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func readTensorboardBlobData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "WriteTensorboardExperimentData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Write time series data points of multiple TensorboardTimeSeries in multiple
+        /// > TensorboardRun's. If any data fail to be ingested, an error is returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func writeTensorboardExperimentData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "WriteTensorboardRunData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Write time series data points into multiple TensorboardTimeSeries under
+        /// > a TensorboardRun. If any data fail to be ingested, an error is returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func writeTensorboardRunData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+
+        /// Call the "ExportTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Exports a TensorboardTimeSeries' data. Data is returned in paginated
+        /// > responses.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        func exportTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable
+    }
+
+    /// Generated client for the "google.cloud.aiplatform.v1.TensorboardService" service.
+    ///
+    /// The ``Client`` provides an implementation of ``ClientProtocol`` which wraps
+    /// a `GRPCCore.GRPCCClient`. The underlying `GRPCClient` provides the long-lived
+    /// means of communication with the remote peer.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > TensorboardService
+    public struct Client: ClientProtocol {
+        private let client: GRPCCore.GRPCClient
+
+        /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
+        ///
+        /// - Parameters:
+        ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
+        public init(wrapping client: GRPCCore.GRPCClient) {
+            self.client = client
+        }
+
+        /// Call the "CreateTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboard.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_Tensorboard` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Tensorboard>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboard.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboard.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTensorboards" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists Tensorboards in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTensorboards<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboards.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTensorboard" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a Tensorboard.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTensorboard<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboard.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReadTensorboardUsage" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Returns a list of monthly active users for a given TensorBoard instance.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readTensorboardUsage<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardUsage.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReadTensorboardSize" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Returns the storage size for a given TensorBoard instance.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readTensorboardSize<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardSize.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardExperiment.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardExperiment.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardExperiment` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardExperiment.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTensorboardExperiments" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardExperiments in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTensorboardExperiments<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardExperiments.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTensorboardExperiment" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTensorboardExperiment<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardExperiment.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardRun.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchCreateTensorboardRuns" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch create TensorboardRuns.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchCreateTensorboardRuns<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchCreateTensorboardRuns.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardRun.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardRun` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardRun.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTensorboardRuns" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardRuns in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTensorboardRuns<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardRuns.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTensorboardRun" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardRun.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTensorboardRun<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardRun.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchCreateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchCreateTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchCreateTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "CreateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Creates a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func createTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "GetTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func getTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "UpdateTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Updates a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_TensorboardTimeSeries` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func updateTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ListTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Lists TensorboardTimeSeries in a Location.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func listTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "DeleteTensorboardTimeSeries" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Deletes a TensorboardTimeSeries.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Longrunning_Operation` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func deleteTensorboardTimeSeries<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardTimeSeries.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "BatchReadTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads multiple TensorboardTimeSeries' data. The data point number limit is
+        /// > 1000 for scalars, 100 for tensors and blob references. If the number of
+        /// > data points stored is less than the limit, all data is returned.
+        /// > Otherwise, the number limit of data points is randomly selected from
+        /// > this time series and returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func batchReadTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchReadTensorboardTimeSeriesData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReadTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Reads a TensorboardTimeSeries' data. By default, if the number of data
+        /// > points stored is less than 1000, all data is returned. Otherwise, 1000
+        /// > data points is randomly selected from this time series and returned.
+        /// > This value can be changed by changing max_data_points, which can't be
+        /// > greater than 10k.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardTimeSeriesData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ReadTensorboardBlobData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Gets bytes of TensorboardBlobs.
+        /// > This is to allow reading blob data stored in consumer project's Cloud
+        /// > Storage bucket without users having to obtain Cloud Storage access
+        /// > permission.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func readTensorboardBlobData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> Result
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.serverStreaming(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardBlobData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "WriteTensorboardExperimentData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Write time series data points of multiple TensorboardTimeSeries in multiple
+        /// > TensorboardRun's. If any data fail to be ingested, an error is returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func writeTensorboardExperimentData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.WriteTensorboardExperimentData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "WriteTensorboardRunData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Write time series data points into multiple TensorboardTimeSeries under
+        /// > a TensorboardRun. If any data fail to be ingested, an error is returned.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func writeTensorboardRunData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.WriteTensorboardRunData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+
+        /// Call the "ExportTensorboardTimeSeriesData" method.
+        ///
+        /// > Source IDL Documentation:
+        /// >
+        /// > Exports a TensorboardTimeSeries' data. Data is returned in paginated
+        /// > responses.
+        ///
+        /// - Parameters:
+        ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest` message.
+        ///   - serializer: A serializer for `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest` messages.
+        ///   - deserializer: A deserializer for `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse` messages.
+        ///   - options: Options to apply to this RPC.
+        ///   - handleResponse: A closure which handles the response, the result of which is
+        ///       returned to the caller. Returning from the closure will cancel the RPC if it
+        ///       hasn't already finished.
+        /// - Returns: The result of `handleResponse`.
+        public func exportTensorboardTimeSeriesData<Result>(
+            request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
+            serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
+            deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>,
+            options: GRPCCore.CallOptions = .defaults,
+            onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+                try response.message
+            }
+        ) async throws -> Result where Result: Sendable {
+            try await self.client.unary(
+                request: request,
+                descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ExportTensorboardTimeSeriesData.descriptor,
+                serializer: serializer,
+                deserializer: deserializer,
+                options: options,
+                onResponse: handleResponse
+            )
+        }
+    }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing default arguments to 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
-    public func createTensorboard<R>(
+    /// Call the "CreateTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTensorboard<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTensorboard(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTensorboard<R>(
+
+    /// Call the "GetTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTensorboard<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTensorboard(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_Tensorboard>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateTensorboard<R>(
+
+    /// Call the "UpdateTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateTensorboard<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateTensorboard(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTensorboards<R>(
+
+    /// Call the "ListTensorboards" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Tensorboards in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTensorboards<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTensorboards(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTensorboard<R>(
+
+    /// Call the "DeleteTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTensorboard<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTensorboard(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func readTensorboardUsage<R>(
+
+    /// Call the "ReadTensorboardUsage" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Returns a list of monthly active users for a given TensorBoard instance.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readTensorboardUsage<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.readTensorboardUsage(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func readTensorboardSize<R>(
+
+    /// Call the "ReadTensorboardSize" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Returns the storage size for a given TensorBoard instance.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readTensorboardSize<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.readTensorboardSize(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createTensorboardExperiment<R>(
+
+    /// Call the "CreateTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTensorboardExperiment<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTensorboardExperiment(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTensorboardExperiment<R>(
+
+    /// Call the "GetTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTensorboardExperiment<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTensorboardExperiment(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateTensorboardExperiment<R>(
+
+    /// Call the "UpdateTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateTensorboardExperiment<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateTensorboardExperiment(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTensorboardExperiments<R>(
+
+    /// Call the "ListTensorboardExperiments" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardExperiments in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTensorboardExperiments<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTensorboardExperiments(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTensorboardExperiment<R>(
+
+    /// Call the "DeleteTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTensorboardExperiment<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTensorboardExperiment(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createTensorboardRun<R>(
+
+    /// Call the "CreateTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTensorboardRun<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTensorboardRun(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchCreateTensorboardRuns<R>(
+
+    /// Call the "BatchCreateTensorboardRuns" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch create TensorboardRuns.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchCreateTensorboardRuns<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchCreateTensorboardRuns(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTensorboardRun<R>(
+
+    /// Call the "GetTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTensorboardRun<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTensorboardRun(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateTensorboardRun<R>(
+
+    /// Call the "UpdateTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateTensorboardRun<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateTensorboardRun(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTensorboardRuns<R>(
+
+    /// Call the "ListTensorboardRuns" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardRuns in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTensorboardRuns<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTensorboardRuns(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTensorboardRun<R>(
+
+    /// Call the "DeleteTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTensorboardRun<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTensorboardRun(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchCreateTensorboardTimeSeries<R>(
+
+    /// Call the "BatchCreateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchCreateTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchCreateTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func createTensorboardTimeSeries<R>(
+
+    /// Call the "CreateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func createTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.createTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func getTensorboardTimeSeries<R>(
+
+    /// Call the "GetTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func getTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.getTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func updateTensorboardTimeSeries<R>(
+
+    /// Call the "UpdateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func updateTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.updateTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func listTensorboardTimeSeries<R>(
+
+    /// Call the "ListTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardTimeSeries in a Location.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func listTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.listTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func deleteTensorboardTimeSeries<R>(
+
+    /// Call the "DeleteTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func deleteTensorboardTimeSeries<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.deleteTensorboardTimeSeries(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Longrunning_Operation>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func batchReadTensorboardTimeSeriesData<R>(
+
+    /// Call the "BatchReadTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads multiple TensorboardTimeSeries' data. The data point number limit is
+    /// > 1000 for scalars, 100 for tensors and blob references. If the number of
+    /// > data points stored is less than the limit, all data is returned.
+    /// > Otherwise, the number limit of data points is randomly selected from
+    /// > this time series and returned.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func batchReadTensorboardTimeSeriesData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.batchReadTensorboardTimeSeriesData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func readTensorboardTimeSeriesData<R>(
+
+    /// Call the "ReadTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads a TensorboardTimeSeries' data. By default, if the number of data
+    /// > points stored is less than 1000, all data is returned. Otherwise, 1000
+    /// > data points is randomly selected from this time series and returned.
+    /// > This value can be changed by changing max_data_points, which can't be
+    /// > greater than 10k.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readTensorboardTimeSeriesData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.readTensorboardTimeSeriesData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func readTensorboardBlobData<R>(
+
+    /// Call the "ReadTensorboardBlobData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets bytes of TensorboardBlobs.
+    /// > This is to allow reading blob data stored in consumer project's Cloud
+    /// > Storage bucket without users having to obtain Cloud Storage access
+    /// > permission.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func readTensorboardBlobData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> Result
+    ) async throws -> Result where Result: Sendable {
         try await self.readTensorboardBlobData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func writeTensorboardExperimentData<R>(
+
+    /// Call the "WriteTensorboardExperimentData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Write time series data points of multiple TensorboardTimeSeries in multiple
+    /// > TensorboardRun's. If any data fail to be ingested, an error is returned.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func writeTensorboardExperimentData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.writeTensorboardExperimentData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func writeTensorboardRunData<R>(
+
+    /// Call the "WriteTensorboardRunData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Write time series data points into multiple TensorboardTimeSeries under
+    /// > a TensorboardRun. If any data fail to be ingested, an error is returned.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func writeTensorboardRunData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.writeTensorboardRunData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
-    
-    public func exportTensorboardTimeSeriesData<R>(
+
+    /// Call the "ExportTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Exports a TensorboardTimeSeries' data. Data is returned in paginated
+    /// > responses.
+    ///
+    /// - Parameters:
+    ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest` message.
+    ///   - options: Options to apply to this RPC.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
+    public func exportTensorboardTimeSeriesData<Result>(
         request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
         options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
-    ) async throws -> R where R: Sendable {
+    ) async throws -> Result where Result: Sendable {
         try await self.exportTensorboardTimeSeriesData(
             request: request,
             serializer: GRPCProtobuf.ProtobufSerializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>(),
             deserializer: GRPCProtobuf.ProtobufDeserializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>(),
             options: options,
-            body
+            onResponse: handleResponse
         )
     }
 }
 
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
+// Helpers providing sugared APIs for 'ClientProtocol' methods.
 extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
-    /// Creates a Tensorboard.
+    /// Call the "CreateTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTensorboard<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTensorboardRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>(
@@ -1100,17 +3120,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.createTensorboard(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a Tensorboard.
+
+    /// Call the "GetTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTensorboard<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTensorboardRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>(
@@ -1120,17 +3153,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.getTensorboard(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a Tensorboard.
+
+    /// Call the "UpdateTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateTensorboard<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>(
@@ -1140,17 +3186,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.updateTensorboard(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists Tensorboards in a Location.
+
+    /// Call the "ListTensorboards" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists Tensorboards in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTensorboards<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTensorboardsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>(
@@ -1160,17 +3219,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.listTensorboards(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a Tensorboard.
+
+    /// Call the "DeleteTensorboard" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a Tensorboard.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTensorboard<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>(
@@ -1180,17 +3252,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.deleteTensorboard(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Returns a list of monthly active users for a given TensorBoard instance.
+
+    /// Call the "ReadTensorboardUsage" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Returns a list of monthly active users for a given TensorBoard instance.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readTensorboardUsage<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>(
@@ -1200,17 +3285,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.readTensorboardUsage(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Returns the storage size for a given TensorBoard instance.
+
+    /// Call the "ReadTensorboardSize" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Returns the storage size for a given TensorBoard instance.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readTensorboardSize<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>(
@@ -1220,17 +3318,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.readTensorboardSize(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a TensorboardExperiment.
+
+    /// Call the "CreateTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTensorboardExperiment<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>(
@@ -1240,17 +3351,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.createTensorboardExperiment(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a TensorboardExperiment.
+
+    /// Call the "GetTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTensorboardExperiment<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>(
@@ -1260,17 +3384,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.getTensorboardExperiment(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a TensorboardExperiment.
+
+    /// Call the "UpdateTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateTensorboardExperiment<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>(
@@ -1280,17 +3417,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.updateTensorboardExperiment(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists TensorboardExperiments in a Location.
+
+    /// Call the "ListTensorboardExperiments" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardExperiments in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTensorboardExperiments<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>(
@@ -1300,17 +3450,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.listTensorboardExperiments(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a TensorboardExperiment.
+
+    /// Call the "DeleteTensorboardExperiment" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTensorboardExperiment<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>(
@@ -1320,17 +3483,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.deleteTensorboardExperiment(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a TensorboardRun.
+
+    /// Call the "CreateTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTensorboardRun<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>(
@@ -1340,17 +3516,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.createTensorboardRun(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Batch create TensorboardRuns.
+
+    /// Call the "BatchCreateTensorboardRuns" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch create TensorboardRuns.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchCreateTensorboardRuns<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>(
@@ -1360,17 +3549,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.batchCreateTensorboardRuns(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a TensorboardRun.
+
+    /// Call the "GetTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTensorboardRun<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>(
@@ -1380,17 +3582,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.getTensorboardRun(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a TensorboardRun.
+
+    /// Call the "UpdateTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateTensorboardRun<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>(
@@ -1400,17 +3615,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.updateTensorboardRun(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists TensorboardRuns in a Location.
+
+    /// Call the "ListTensorboardRuns" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardRuns in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTensorboardRuns<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>(
@@ -1420,17 +3648,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.listTensorboardRuns(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a TensorboardRun.
+
+    /// Call the "DeleteTensorboardRun" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardRun.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTensorboardRun<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>(
@@ -1440,17 +3681,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.deleteTensorboardRun(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+
+    /// Call the "BatchCreateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchCreateTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>(
@@ -1460,17 +3714,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.batchCreateTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Creates a TensorboardTimeSeries.
+
+    /// Call the "CreateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Creates a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func createTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>(
@@ -1480,17 +3747,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.createTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets a TensorboardTimeSeries.
+
+    /// Call the "GetTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func getTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>(
@@ -1500,17 +3780,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.getTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Updates a TensorboardTimeSeries.
+
+    /// Call the "UpdateTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Updates a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func updateTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>(
@@ -1520,17 +3813,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.updateTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Lists TensorboardTimeSeries in a Location.
+
+    /// Call the "ListTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Lists TensorboardTimeSeries in a Location.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func listTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>(
@@ -1540,17 +3846,30 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.listTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Deletes a TensorboardTimeSeries.
+
+    /// Call the "DeleteTensorboardTimeSeries" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Deletes a TensorboardTimeSeries.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func deleteTensorboardTimeSeries<Result>(
         _ message: Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>(
@@ -1560,21 +3879,34 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.deleteTensorboardTimeSeries(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Reads multiple TensorboardTimeSeries' data. The data point number limit is
-    /// 1000 for scalars, 100 for tensors and blob references. If the number of
-    /// data points stored is less than the limit, all data is returned.
-    /// Otherwise, the number limit of data points is randomly selected from
-    /// this time series and returned.
+
+    /// Call the "BatchReadTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads multiple TensorboardTimeSeries' data. The data point number limit is
+    /// > 1000 for scalars, 100 for tensors and blob references. If the number of
+    /// > data points stored is less than the limit, all data is returned.
+    /// > Otherwise, the number limit of data points is randomly selected from
+    /// > this time series and returned.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func batchReadTensorboardTimeSeriesData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>(
@@ -1584,21 +3916,34 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.batchReadTensorboardTimeSeriesData(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Reads a TensorboardTimeSeries' data. By default, if the number of data
-    /// points stored is less than 1000, all data is returned. Otherwise, 1000
-    /// data points is randomly selected from this time series and returned.
-    /// This value can be changed by changing max_data_points, which can't be
-    /// greater than 10k.
+
+    /// Call the "ReadTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Reads a TensorboardTimeSeries' data. By default, if the number of data
+    /// > points stored is less than 1000, all data is returned. Otherwise, 1000
+    /// > data points is randomly selected from this time series and returned.
+    /// > This value can be changed by changing max_data_points, which can't be
+    /// > greater than 10k.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readTensorboardTimeSeriesData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>(
@@ -1608,14 +3953,27 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.readTensorboardTimeSeriesData(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Gets bytes of TensorboardBlobs.
-    /// This is to allow reading blob data stored in consumer project's Cloud
-    /// Storage bucket without users having to obtain Cloud Storage access
-    /// permission.
+
+    /// Call the "ReadTensorboardBlobData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Gets bytes of TensorboardBlobs.
+    /// > This is to allow reading blob data stored in consumer project's Cloud
+    /// > Storage bucket without users having to obtain Cloud Storage access
+    /// > permission.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func readTensorboardBlobData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest,
         metadata: GRPCCore.Metadata = [:],
@@ -1629,18 +3987,31 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.readTensorboardBlobData(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Write time series data points of multiple TensorboardTimeSeries in multiple
-    /// TensorboardRun's. If any data fail to be ingested, an error is returned.
+
+    /// Call the "WriteTensorboardExperimentData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Write time series data points of multiple TensorboardTimeSeries in multiple
+    /// > TensorboardRun's. If any data fail to be ingested, an error is returned.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func writeTensorboardExperimentData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>(
@@ -1650,18 +4021,31 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.writeTensorboardExperimentData(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Write time series data points into multiple TensorboardTimeSeries under
-    /// a TensorboardRun. If any data fail to be ingested, an error is returned.
+
+    /// Call the "WriteTensorboardRunData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Write time series data points into multiple TensorboardTimeSeries under
+    /// > a TensorboardRun. If any data fail to be ingested, an error is returned.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func writeTensorboardRunData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>(
@@ -1671,18 +4055,31 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.writeTensorboardRunData(
             request: request,
             options: options,
-            handleResponse
+            onResponse: handleResponse
         )
     }
-    
-    /// Exports a TensorboardTimeSeries' data. Data is returned in paginated
-    /// responses.
+
+    /// Call the "ExportTensorboardTimeSeriesData" method.
+    ///
+    /// > Source IDL Documentation:
+    /// >
+    /// > Exports a TensorboardTimeSeries' data. Data is returned in paginated
+    /// > responses.
+    ///
+    /// - Parameters:
+    ///   - message: request message to send.
+    ///   - metadata: Additional metadata to send, defaults to empty.
+    ///   - options: Options to apply to this RPC, defaults to `.defaults`.
+    ///   - handleResponse: A closure which handles the response, the result of which is
+    ///       returned to the caller. Returning from the closure will cancel the RPC if it
+    ///       hasn't already finished.
+    /// - Returns: The result of `handleResponse`.
     public func exportTensorboardTimeSeriesData<Result>(
         _ message: Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest,
         metadata: GRPCCore.Metadata = [:],
         options: GRPCCore.CallOptions = .defaults,
-        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> Result = {
-            try $0.message
+        onResponse handleResponse: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> Result = { response in
+            try response.message
         }
     ) async throws -> Result where Result: Sendable {
         let request = GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>(
@@ -1692,629 +4089,7 @@ extension Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
         return try await self.exportTensorboardTimeSeriesData(
             request: request,
             options: options,
-            handleResponse
-        )
-    }
-}
-
-/// TensorboardService
-@available(macOS 15.0, iOS 18.0, watchOS 11.0, tvOS 18.0, visionOS 2.0, *)
-public struct Google_Cloud_Aiplatform_V1_TensorboardService_Client: Google_Cloud_Aiplatform_V1_TensorboardService.ClientProtocol {
-    private let client: GRPCCore.GRPCClient
-    
-    public init(wrapping client: GRPCCore.GRPCClient) {
-        self.client = client
-    }
-    
-    /// Creates a Tensorboard.
-    public func createTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboard.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a Tensorboard.
-    public func getTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_Tensorboard>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_Tensorboard>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboard.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a Tensorboard.
-    public func updateTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboard.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists Tensorboards in a Location.
-    public func listTensorboards<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboards.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a Tensorboard.
-    public func deleteTensorboard<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboard.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Returns a list of monthly active users for a given TensorBoard instance.
-    public func readTensorboardUsage<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardUsageResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardUsage.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Returns the storage size for a given TensorBoard instance.
-    public func readTensorboardSize<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardSizeResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardSize.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a TensorboardExperiment.
-    public func createTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardExperiment.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a TensorboardExperiment.
-    public func getTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardExperiment.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a TensorboardExperiment.
-    public func updateTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardExperiment>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardExperiment>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardExperiment.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists TensorboardExperiments in a Location.
-    public func listTensorboardExperiments<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardExperimentsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardExperiments.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a TensorboardExperiment.
-    public func deleteTensorboardExperiment<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardExperimentRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardExperiment.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a TensorboardRun.
-    public func createTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardRun.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Batch create TensorboardRuns.
-    public func batchCreateTensorboardRuns<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardRunsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchCreateTensorboardRuns.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a TensorboardRun.
-    public func getTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardRun.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a TensorboardRun.
-    public func updateTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardRun>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardRun>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardRun.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists TensorboardRuns in a Location.
-    public func listTensorboardRuns<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardRunsResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardRuns.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a TensorboardRun.
-    public func deleteTensorboardRun<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardRunRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardRun.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Batch create TensorboardTimeSeries that belong to a TensorboardExperiment.
-    public func batchCreateTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchCreateTensorboardTimeSeriesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchCreateTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Creates a TensorboardTimeSeries.
-    public func createTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_CreateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.CreateTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets a TensorboardTimeSeries.
-    public func getTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_GetTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.GetTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Updates a TensorboardTimeSeries.
-    public func updateTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_UpdateTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_TensorboardTimeSeries>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.UpdateTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Lists TensorboardTimeSeries in a Location.
-    public func listTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ListTensorboardTimeSeriesResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ListTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Deletes a TensorboardTimeSeries.
-    public func deleteTensorboardTimeSeries<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_DeleteTensorboardTimeSeriesRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Longrunning_Operation>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Longrunning_Operation>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.DeleteTensorboardTimeSeries.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Reads multiple TensorboardTimeSeries' data. The data point number limit is
-    /// 1000 for scalars, 100 for tensors and blob references. If the number of
-    /// data points stored is less than the limit, all data is returned.
-    /// Otherwise, the number limit of data points is randomly selected from
-    /// this time series and returned.
-    public func batchReadTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_BatchReadTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.BatchReadTensorboardTimeSeriesData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Reads a TensorboardTimeSeries' data. By default, if the number of data
-    /// points stored is less than 1000, all data is returned. Otherwise, 1000
-    /// data points is randomly selected from this time series and returned.
-    /// This value can be changed by changing max_data_points, which can't be
-    /// greater than 10k.
-    public func readTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardTimeSeriesData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Gets bytes of TensorboardBlobs.
-    /// This is to allow reading blob data stored in consumer project's Cloud
-    /// Storage bucket without users having to obtain Cloud Storage access
-    /// permission.
-    public func readTensorboardBlobData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.StreamingClientResponse<Google_Cloud_Aiplatform_V1_ReadTensorboardBlobDataResponse>) async throws -> R
-    ) async throws -> R where R: Sendable {
-        try await self.client.serverStreaming(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ReadTensorboardBlobData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Write time series data points of multiple TensorboardTimeSeries in multiple
-    /// TensorboardRun's. If any data fail to be ingested, an error is returned.
-    public func writeTensorboardExperimentData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardExperimentDataResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.WriteTensorboardExperimentData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Write time series data points into multiple TensorboardTimeSeries under
-    /// a TensorboardRun. If any data fail to be ingested, an error is returned.
-    public func writeTensorboardRunData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_WriteTensorboardRunDataResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.WriteTensorboardRunData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
-        )
-    }
-    
-    /// Exports a TensorboardTimeSeries' data. Data is returned in paginated
-    /// responses.
-    public func exportTensorboardTimeSeriesData<R>(
-        request: GRPCCore.ClientRequest<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
-        serializer: some GRPCCore.MessageSerializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataRequest>,
-        deserializer: some GRPCCore.MessageDeserializer<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>,
-        options: GRPCCore.CallOptions = .defaults,
-        _ body: @Sendable @escaping (GRPCCore.ClientResponse<Google_Cloud_Aiplatform_V1_ExportTensorboardTimeSeriesDataResponse>) async throws -> R = {
-            try $0.message
-        }
-    ) async throws -> R where R: Sendable {
-        try await self.client.unary(
-            request: request,
-            descriptor: Google_Cloud_Aiplatform_V1_TensorboardService.Method.ExportTensorboardTimeSeriesData.descriptor,
-            serializer: serializer,
-            deserializer: deserializer,
-            options: options,
-            handler: body
+            onResponse: handleResponse
         )
     }
 }
