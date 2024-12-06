@@ -1,5 +1,5 @@
 {
-  "originHash" : "2f56999265d15f7842c764343dafce3aa962f8047416e2f756840420432c3206",
+  "originHash" : "5da5eaeead9881f6b529304dd60eb6f485a66b53ee320a9dde12a1b56e403b2f",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -51,8 +51,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-tracing-swift.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "a3ea592c3ffe33ea216a29fb4c3b05ed14ab108a"
+        "revision" : "4255d042805688d0713651870ed7e5f88a656767"
       }
     },
     {
@@ -78,8 +77,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-nio-transport.git",
       "state" : {
-        "revision" : "ae3f3f5cd03bd43dcc5cb8bcb65831618bc73330",
-        "version" : "1.0.0-beta.1"
+        "revision" : "cad03dbd3020b7d5311becd7bc54113172337dbf"
       }
     },
     {
