@@ -24,11 +24,6 @@ public final class ClientGoogleAuthInterceptor<Request: Sendable, Response, Depe
     }
 
     public override func send(_ part: GRPCClientRequestPart<Request>, promise: EventLoopPromise<Void>?, context: ClientInterceptorContext<Request, Response>) {
-        guard context.type == .unary else {
-            context.send(part, promise: promise)
-            return
-        }
-
         switch part {
         case .metadata(let headers):
             idTokenPromise = coordinator.idToken(targetAudience: targetAudience, eventLoop: context.eventLoop)
