@@ -1,5 +1,5 @@
 {
-  "originHash" : "7fee8985852c65993a283c5a58b525b2a83fdee20ba17944a6b7999196436ced",
+  "originHash" : "16bdea6625dab14d5abeccc953b7e2fadc93da0e595a6ea44869bffe393731e5",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -42,7 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-tracing-swift.git",
       "state" : {
-        "revision" : "2b68fe5b75dc982dfe247df28403e18c77ca28da"
+        "revision" : "fb6aa9297abc83217a1303ef851f6c2228382857",
+        "version" : "0.0.2"
       }
     },
     {
@@ -50,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift.git",
       "state" : {
-        "revision" : "e390c85ad880004513221555884ae77b08714f1e",
-        "version" : "2.0.0-beta.1"
+        "revision" : "0696e0adf7e081ba7a757a4c87242a1aab524078",
+        "version" : "2.0.0-beta.2"
       }
     },
     {
@@ -59,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-extras.git",
       "state" : {
-        "branch" : "1.0.0-beta.1",
-        "revision" : "c29e0f6642d08537f4e34a5bfad4855f4da06c9c"
+        "revision" : "67c87662da6e098ea806139220ea8b6aa8b1a3c7",
+        "version" : "1.0.0-beta.2"
       }
     },
     {
@@ -68,7 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-nio-transport.git",
       "state" : {
-        "revision" : "289c0bc09e1de3dce2fc807c7eebcd7676aa27f2"
+        "revision" : "e97f97e399f62dbedadfa4e55e962577c313907d",
+        "version" : "1.0.0-beta.2"
       }
     },
     {
@@ -76,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/grpc/grpc-swift-protobuf.git",
       "state" : {
-        "branch" : "1.0.0-beta.1",
-        "revision" : "a2834ea6305d7e44ba762d593e7ea1078b457095"
+        "revision" : "3ed26dad8d43d7a11f0c6784a93db900e3cd4281",
+        "version" : "1.0.0-beta.2"
       }
     },
     {
