@@ -4,6 +4,7 @@ import Tracing
 import CloudCore
 import RetryableTask
 import ServiceLifecycle
+import GoogleCloudServiceContext
 
 extension App {
 
@@ -14,12 +15,14 @@ extension App {
 #endif
 
     public static func main() async throws {
+        let serviceContextResolverService = initializeServiceContextResolver()
         let logService = initializeLogging()
 
         var logger = Logger(label: "app.main")
         logger.logLevel = logLevel
 
         let services: [ServiceGroupConfiguration.ServiceConfiguration?] = [
+            serviceContextResolverService,
             logService,
             tracingService(logger: logger),
         ] + (try await self.services())
