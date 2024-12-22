@@ -76,7 +76,7 @@ extension Subscription {
             _ = try await subscriberClient.createSubscription(.with {
                 $0.name = id(projectID: projectID)
                 $0.labels = labels
-                $0.topic = topic.rawValue
+                $0.topic = topic.id(projectID: projectID)
                 $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
                 $0.retainAckedMessages = retainAcknowledgedMessages
                 $0.messageRetentionDuration = .with {
@@ -89,7 +89,7 @@ extension Subscription {
                 }
                 if let deadLetterPolicy = deadLetterPolicy {
                     $0.deadLetterPolicy = .with {
-                        $0.deadLetterTopic = deadLetterPolicy.topic.rawValue
+                        $0.deadLetterTopic = deadLetterPolicy.topic.id(projectID: projectID)
                         $0.maxDeliveryAttempts = deadLetterPolicy.maxDeliveryAttempts
                     }
                 }

@@ -52,9 +52,9 @@ public final class Publisher: PublisherProtocol {
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await withSpan("pubsub-publish", ofKind: .producer) { span in
-                span.attributes["pubsub/topic"] = topic.rawValue
+                span.attributes["pubsub/topic"] = topic.name
                 return try await client.publish(.with {
-                    $0.topic = topic.rawValue
+                    $0.topic = topic.id(projectID: projectID)
                     $0.messages = messages.map { message in
                         Google_Pubsub_V1_PubsubMessage.with {
                             $0.data = message.data

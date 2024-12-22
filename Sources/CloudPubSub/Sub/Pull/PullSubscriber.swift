@@ -108,7 +108,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
         options.timeout = .seconds(3600)
 
         let response = try await client.pull(.with {
-            $0.subscription = handler.subscription.rawValue
+            $0.subscription = handler.subscription.id(projectID: projectID)
             $0.maxMessages = 1_000
         }, options: options)
 
@@ -170,7 +170,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
             span.setStatus(SpanStatus(code: .ok))
 
             do {
-                try await acknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue, logger: logger)
+                try await acknowledge(id: message.ackID, subscriptionID: handler.subscription.id(projectID: projectID), logger: logger)
             } catch {
                 logger.critical("Failed to acknowledge message: \(error)")
             }
@@ -184,7 +184,7 @@ public final class PullSubscriber<Handler: _Handler>: Service {
         span.recordError(error)
 
         do {
-            try await unacknowledge(id: message.ackID, subscriptionName: handler.subscription.rawValue, logger: logger)
+            try await unacknowledge(id: message.ackID, subscriptionID: handler.subscription.id(projectID: projectID), logger: logger)
         } catch {
             logger.error("Failed to unacknowledge message: \(error)")
         }
@@ -192,19 +192,19 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 
     // MARK: - Acknowledge
 
-    private func acknowledge(id: String, subscriptionName: String, logger: Logger) async throws {
+    private func acknowledge(id: String, subscriptionID: String, logger: Logger) async throws {
         try await withRetryableTask(logger: logger) {
             _ = try await client.acknowledge(Google_Pubsub_V1_AcknowledgeRequest.with {
-                $0.subscription = subscriptionName
+                $0.subscription = subscriptionID
                 $0.ackIds = [id]
             })
         }
     }
 
-    private func unacknowledge(id: String, subscriptionName: String, logger: Logger) async throws {
+    private func unacknowledge(id: String, subscriptionID: String, logger: Logger) async throws {
         try await withRetryableTask(logger: logger) {
             _ = try await client.modifyAckDeadline(Google_Pubsub_V1_ModifyAckDeadlineRequest.with {
-                $0.subscription = subscriptionName
+                $0.subscription = subscriptionID
                 $0.ackIds = [id]
                 $0.ackDeadlineSeconds = 0
             })
