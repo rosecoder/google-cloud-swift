@@ -12,7 +12,6 @@ extension Datastore {
         function: String = #function,
         line: UInt = #line
     ) async throws {
-        let projectID = try self.projectID
         try await withSpan("datastore-delete", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Key.kind
             try await withRetryableTask(logger: logger, operation: { [client] in

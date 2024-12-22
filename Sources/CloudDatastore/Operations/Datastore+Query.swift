@@ -69,7 +69,6 @@ extension Datastore {
         function: String = #function,
         line: UInt = #line
     ) async throws -> [Google_Datastore_V1_EntityResult] {
-        let projectID = try self.projectID
         let response: Google_Datastore_V1_RunQueryResponse = try await withSpan("datastore-query", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Entity.Key.kind
             return try await withRetryableTask(logger: logger, operation: { [client, cursor] in

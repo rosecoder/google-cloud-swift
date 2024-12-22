@@ -16,7 +16,21 @@ public final class PullSubscriber<Handler: _Handler>: Service {
     private let client: Google_Pubsub_V1_Subscriber.ClientProtocol
     private let pubSubService: PubSubService
 
-    public init(handler: Handler, pubSubService: PubSubService) {
+    public enum ConfigurationError: Error {
+        case missingProjectID
+    }
+
+    public let projectID: String
+
+    public convenience init(handler: Handler, pubSubService: PubSubService) async throws {
+        guard let projectID = await (ServiceContext.current ?? .topLevel).projectID else {
+            throw ConfigurationError.missingProjectID
+        }
+        self.init(handler: handler, pubSubService: pubSubService, projectID: projectID)
+    }
+
+    public init(handler: Handler, pubSubService: PubSubService, projectID: String) {
+        self.projectID = projectID
         self.logger = Logger(label: "pubsub.subscriber." + handler.subscription.name)
         self.handler = handler
         self.client = Google_Pubsub_V1_Subscriber.Client(wrapping: pubSubService.grpcClient)
@@ -27,7 +41,8 @@ public final class PullSubscriber<Handler: _Handler>: Service {
 #if DEBUG
         try await handler.subscription.createIfNeeded(
             subscriberClient: client,
-            publisherClient: Publisher(pubSubService: pubSubService).client
+            publisherClient: Publisher(pubSubService: pubSubService).client,
+            projectID: projectID
         )
 #endif
 
@@ -113,11 +128,11 @@ public final class PullSubscriber<Handler: _Handler>: Service {
     }
 
     private func handle(message: Google_Pubsub_V1_ReceivedMessage) async {
-        await withSpan(handler.subscription.id, ofKind: .consumer) { span in
+        await withSpan(handler.subscription.name, ofKind: .consumer) { span in
             span.attributes["message"] = message.message.messageID
 
             var logger = self.logger
-            logger[metadataKey: "subscription"] = .string(handler.subscription.id)
+            logger[metadataKey: "subscription"] = .string(handler.subscription.name)
             span.attributes["message"] = message.message.messageID
             logger.debug("Handling incoming message. Decoding...")
 

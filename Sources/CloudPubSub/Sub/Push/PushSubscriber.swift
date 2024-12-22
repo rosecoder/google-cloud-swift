@@ -13,7 +13,22 @@ public final class PushSubscriber: Service {
 
     let logger = Logger(label: "pubsub.subscriber")
 
-    public init() {}
+    public enum ConfigurationError: Error {
+        case missingProjectID
+    }
+
+    public let projectID: String
+
+    public convenience init() async throws {
+        guard let projectID = await (ServiceContext.current ?? .topLevel).projectID else {
+            throw ConfigurationError.missingProjectID
+        }
+        self.init(projectID: projectID)
+    }
+
+    public init(projectID: String) {
+        self.projectID = projectID
+    }
 
     // MARK: - Bootstrap
 
@@ -83,7 +98,7 @@ public final class PushSubscriber: Service {
     public func register<Handler: _Handler>(handler: Handler) {
 #if DEBUG
         let pullTask = Task {
-            let subscriber = PullSubscriber(handler: handler, pubSubService: pubSubService)
+            let subscriber = try await PullSubscriber(handler: handler, pubSubService: pubSubService)
             try await subscriber.run()
         }
         pullRunTasks.withLock {
@@ -96,7 +111,7 @@ public final class PushSubscriber: Service {
             await self.handle(incoming: $0, handler: handler)
         }
         handlings.withLock {
-            $0[handler.subscription.id] = handleClosure
+            $0[handler.subscription.id(projectID: projectID)] = handleClosure
         }
 
         logger.debug("Subscribed to \(handler.subscription.name)")
@@ -116,11 +131,11 @@ public final class PushSubscriber: Service {
     }
 
     private func handle<Handler: _Handler>(incoming: Incoming, handler: Handler) async -> Response {
-        await withSpan(handler.subscription.id, ofKind: .consumer) { span in
+        await withSpan(handler.subscription.name, ofKind: .consumer) { span in
             span.attributes["message"] = incoming.message.id
 
             var logger = logger
-            logger[metadataKey: "subscription"] = .string(handler.subscription.id)
+            logger[metadataKey: "subscription"] = .string(handler.subscription.name)
             logger[metadataKey: "message"] = .string(incoming.message.id)
             logger.debug("Handling incoming message. Decoding...")
 

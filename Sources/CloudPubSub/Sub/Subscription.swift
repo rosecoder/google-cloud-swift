@@ -7,7 +7,7 @@ import GoogleCloudServiceContext
 
 public struct Subscriptions {}
 
-public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable, Hashable {
+public struct Subscription<Message: _Message>: Sendable, Equatable, Hashable {
 
     public let name: String
     public let topic: Topic<Message>
@@ -32,8 +32,6 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
 
     public let deadLetterPolicy: DeadLetterPolicy?
 
-    public let projectID: String
-
     public init(
         name: String,
         topic: Topic<Message>,
@@ -52,23 +50,16 @@ public struct Subscription<Message: _Message>: Sendable, Identifiable, Equatable
         self.expirationPolicyDuration = expirationPolicyDuration
         self.messageRetentionDuration = messageRetentionDuration
         self.deadLetterPolicy = deadLetterPolicy
-#if DEBUG
-        self.projectID = ServiceContext.topLevel.projectID ?? "development"
-#else
-        self.projectID = ServiceContext.topLevel.projectID!
-#endif
     }
 
-    // MARK: - Identifiable
-
-    public var id: String {
+    public func id(projectID: String) -> String {
         "projects/\(projectID)/subscriptions/\(name)"
     }
 
     // MARK: - Hashable
 
     public var rawValue: String {
-        id
+        name
     }
 }
 
@@ -78,11 +69,12 @@ extension Subscription {
     func createIfNeeded(
         subscriberClient: Google_Pubsub_V1_Subscriber.ClientProtocol,
         publisherClient: Google_Pubsub_V1_Publisher.ClientProtocol,
-        createTopicIfNeeded: Bool = true
+        createTopicIfNeeded: Bool = true,
+        projectID: String
     ) async throws {
         do {
             _ = try await subscriberClient.createSubscription(.with {
-                $0.name = id
+                $0.name = id(projectID: projectID)
                 $0.labels = labels
                 $0.topic = topic.rawValue
                 $0.ackDeadlineSeconds = Int32(acknowledgeDeadline)
@@ -110,8 +102,13 @@ extension Subscription {
                 if !createTopicIfNeeded {
                     throw error
                 }
-                try await topic.createIfNeeded(client: publisherClient)
-                try await createIfNeeded(subscriberClient: subscriberClient, publisherClient: publisherClient, createTopicIfNeeded: false)
+                try await topic.createIfNeeded(client: publisherClient, projectID: projectID)
+                try await createIfNeeded(
+                    subscriberClient: subscriberClient,
+                    publisherClient: publisherClient,
+                    createTopicIfNeeded: false,
+                    projectID: projectID
+                )
             default:
                 throw error
             }

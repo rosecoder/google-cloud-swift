@@ -15,7 +15,21 @@ public final class Publisher: PublisherProtocol {
     let client: Google_Pubsub_V1_Publisher.ClientProtocol
     private let pubSubService: PubSubService
 
-    public init(pubSubService: PubSubService) {
+    public enum ConfigurationError: Error {
+        case missingProjectID
+    }
+
+    public let projectID: String
+
+    public convenience init(pubSubService: PubSubService) async throws {
+        guard let projectID = await (ServiceContext.current ?? .topLevel).projectID else {
+            throw ConfigurationError.missingProjectID
+        }
+        self.init(pubSubService: pubSubService, projectID: projectID)
+    }
+
+    public init(pubSubService: PubSubService, projectID: String) {
+        self.projectID = projectID
         self.client = Google_Pubsub_V1_Publisher.Client(wrapping: pubSubService.grpcClient)
         self.pubSubService = pubSubService
     }
@@ -34,7 +48,7 @@ public final class Publisher: PublisherProtocol {
             logger.debug("Publishing \(messages.count) message(s)...")
 
 #if DEBUG
-            try await topic.createIfNeeded(client: client)
+            try await topic.createIfNeeded(client: client, projectID: projectID)
 #endif
 
             let response: Google_Pubsub_V1_PublishResponse = try await withSpan("pubsub-publish", ofKind: .producer) { span in

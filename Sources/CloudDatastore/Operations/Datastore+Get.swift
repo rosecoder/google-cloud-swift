@@ -13,7 +13,6 @@ extension Datastore {
         function: String,
         line: UInt
     ) async throws -> [Entity?] {
-        let projectID = try self.projectID
         let rawKeys = keys.map { $0.raw }
 
         let response: Google_Datastore_V1_LookupResponse = try await withSpan("datastore-lookup", ofKind: .client) { span in
@@ -89,7 +88,7 @@ extension Datastore {
 
     // MARK: - Exists
 
-    /// Checks if provided keys eixsts in the datastore.
+    /// Checks if provided keys exists in the datastore.
     /// - Returns: Array of booleans. `true` if key exists, else, `false`. Ordered same way was provided keys array.
     public func containsEntities<Key: AnyKey>(
         keys: [Key],
@@ -97,7 +96,6 @@ extension Datastore {
         function: String,
         line: UInt
     ) async throws -> [Bool] {
-        let projectID = try self.projectID
         let response: Google_Datastore_V1_LookupResponse = try await withSpan("datastore-lookup", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Key.kind
             return try await withRetryableTask(logger: logger, operation: { [client] in

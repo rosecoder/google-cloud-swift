@@ -12,7 +12,6 @@ extension Datastore {
         function: String,
         line: UInt
     ) async throws {
-        let projectID = try self.projectID
         let encoder = EntityEncoder()
         let rawEntities: [Google_Datastore_V1_Entity] = try entities
             .map { try encoder.encode($0) }
@@ -67,7 +66,6 @@ extension Datastore {
     ) async throws {
         precondition(!keys.contains(where: { $0.id != .incomplete }))
 
-        let projectID = try self.projectID
         let result: Google_Datastore_V1_AllocateIdsResponse = try await withSpan("datastore-allocate-ids", ofKind: .client) { span in
             span.attributes["datastore/kind"] = Key.kind
             return try await withRetryableTask(logger: logger, operation: { [keys, client] in

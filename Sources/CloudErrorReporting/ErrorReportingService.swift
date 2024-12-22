@@ -58,7 +58,7 @@ public final class ErrorReportingService: Service {
         line: UInt
     ) async throws -> HTTPClientRequest {
         let serviceContext = ServiceContext.current ?? .topLevel
-        guard let projectID = serviceContext.projectID else {
+        guard let projectID = await serviceContext.projectID else {
             throw EnvironmentError.missingProjectID
         }
         var request = HTTPClientRequest(

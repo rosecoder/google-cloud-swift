@@ -9,7 +9,7 @@ import ServiceLifecycle
 import ServiceContextModule
 import GoogleCloudServiceContext
 
-public actor Datastore: DatastoreProtocol, Service {
+public final class Datastore: DatastoreProtocol, Service {
 
     let logger = Logger(label: "datastore")
 
@@ -17,7 +17,22 @@ public actor Datastore: DatastoreProtocol, Service {
     private let grpcClient: GRPCClient
     let client: Google_Datastore_V1_Datastore.ClientProtocol
 
-    public init() throws {
+    public enum ConfigurationError: Error {
+        case missingProjectID
+    }
+
+    public let projectID: String
+
+    public convenience init() async throws {
+        guard let projectID = await (ServiceContext.current ?? .topLevel).projectID else {
+            throw ConfigurationError.missingProjectID
+        }
+        try self.init(projectID: projectID)
+    }
+
+    public init(projectID: String) throws {
+        self.projectID = projectID
+
         if let host = ProcessInfo.processInfo.environment["DATASTORE_EMULATOR_HOST"] {
             let components = host.components(separatedBy: ":")
             let port = Int(components[1])!
@@ -56,19 +71,5 @@ public actor Datastore: DatastoreProtocol, Service {
         }
 
         try await authorization?.shutdown()
-    }
-
-    enum ConfigurationError: Error {
-        case missingProjectID
-    }
-
-    var projectID: String {
-        get throws {
-            let context = ServiceContext.current ?? .topLevel
-            guard let projectID = context.projectID else {
-                throw ConfigurationError.missingProjectID
-            }
-            return projectID
-        }
     }
 }
