@@ -25,8 +25,6 @@ let package = Package(
 
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
-        .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
-        .library(name: "CloudDatastoreTesting", targets: ["CloudDatastoreTesting"]),
         .library(name: "CloudRedis", targets: ["CloudRedis"]),
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
         .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
@@ -79,15 +77,6 @@ let package = Package(
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ] + grpcDependencies),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
-
-        .target(name: "CloudDatastore", dependencies: [
-            "CloudCore",
-        ] + grpcDependencies + infrastructureDependencies),
-        .testTarget(name: "CloudDatastoreTests", dependencies: ["CloudDatastore"]),
-
-        .target(name: "CloudDatastoreTesting", dependencies: [
-            "CloudDatastore",
-        ]),
 
         .target(name: "CloudRedis", dependencies: [
             "CloudCore",
