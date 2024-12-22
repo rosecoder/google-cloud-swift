@@ -13,14 +13,31 @@ public actor AIPlatform: Service {
     private let grpcClient: GRPCClient
     public let client: Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol
 
-    public init() throws {
+    public enum ConfigurationError: Error {
+        case missingProjectID
+        case missingLocationID
+    }
+
+    public let projectID: String
+    public let locationID: String
+
+    public init() async throws {
+        guard let projectID = await (ServiceContext.current ?? .topLevel).projectID else {
+            throw ConfigurationError.missingProjectID
+        }
+        guard let locationID = await (ServiceContext.current ?? .topLevel).locationID else {
+            throw ConfigurationError.missingLocationID
+        }
+        self.projectID = projectID
+        self.locationID = locationID
+
         self.authorization = Authorization(
             scopes: ["https://www.googleapis.com/auth/cloud-platform"],
             eventLoopGroup: .singletonMultiThreadedEventLoopGroup
         )
         self.grpcClient = GRPCClient(
             transport: try .http2NIOPosix(
-                target: .dns(host: "aiplatform.googleapis.com"),
+                target: .dns(host: locationID + "-aiplatform.googleapis.com"),
                 transportSecurity: .tls
             ),
             interceptors: [
