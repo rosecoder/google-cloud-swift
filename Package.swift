@@ -32,8 +32,6 @@ let package = Package(
         .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
         .library(name: "CloudStorageTesting", targets: ["CloudStorageTesting"]),
-
-        .library(name: "DistributedLock", targets: ["DistributedLock"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
@@ -51,6 +49,7 @@ let package = Package(
         .package(url: "https://github.com/swift-server/RediStack.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/rosecoder/retryable-task.git", from: "1.1.2"),
+        .package(url: "https://github.com/rosecoder/distributed-lock-swift.git", from: "0.0.2"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.54.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", from: "3.3.0"),
     ],
@@ -92,7 +91,7 @@ let package = Package(
 
         .target(name: "CloudRedis", dependencies: [
             "CloudCore",
-            "DistributedLock",
+            .product(name: "DistributedLock", package: "distributed-lock-swift"),
             .product(name: "RediStack", package: "RediStack"),
         ] + infrastructureDependencies),
         .testTarget(name: "CloudRedisTests", dependencies: ["CloudRedis"]),
@@ -116,11 +115,6 @@ let package = Package(
 
         .target(name: "CloudStorageTesting", dependencies: [
             "CloudStorage",
-        ]),
-
-        .target(name: "DistributedLock", dependencies: [
-            .product(name: "Logging", package: "swift-log"),
-            .product(name: "Tracing", package: "swift-distributed-tracing"),
         ]),
     ]
 )

@@ -1,5 +1,5 @@
 {
-  "originHash" : "f55a629c5b7232627eb068b10b733e0073f980556f7e3fb9a965d44f173c7fed",
+  "originHash" : "61fb260765c55e72244990d81cd6939c402c1e4e5af1fa342ed5206c0cb6e964",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "2119f0d9cc1b334e25447fe43d3693c0e60e6234",
         "version" : "1.24.0"
+      }
+    },
+    {
+      "identity" : "distributed-lock-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rosecoder/distributed-lock-swift.git",
+      "state" : {
+        "revision" : "f838c0841d173720fe602d1693cba2b12778b534",
+        "version" : "0.0.2"
       }
     },
     {
