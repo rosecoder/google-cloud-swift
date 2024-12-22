@@ -2,7 +2,7 @@ import Foundation
 import ServiceLifecycle
 import Logging
 import GoogleCloudLogging
-import CloudErrorReporting
+import GoogleCloudErrorReporting
 
 extension App {
 
@@ -16,7 +16,7 @@ extension App {
                 var logHandler = GoogleCloudLogHandler(label: label)
                 logHandler.logLevel = logLevel
 
-                var errorReportingHandler = ErrorReportingLogHandler(service: errorReportingService)
+                var errorReportingHandler = ErrorReportingLogHandler(service: errorReportingService, label: label)
                 errorReportingHandler.logLevel = .error
 
                 return MultiplexLogHandler([

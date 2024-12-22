@@ -1,8 +1,6 @@
 import Foundation
 import Logging
 import Tracing
-import CloudErrorReporting
-import GoogleCloudTracing
 import CloudCore
 import RetryableTask
 import ServiceLifecycle

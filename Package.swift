@@ -23,9 +23,6 @@ let package = Package(
         .library(name: "CloudApp", targets: ["CloudApp"]),
         .library(name: "CloudJob", targets: ["CloudJob"]),
 
-        // Infrastructure
-        .library(name: "CloudErrorReporting", targets: ["CloudErrorReporting"]),
-
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
         .library(name: "CloudDatastore", targets: ["CloudDatastore"]),
@@ -47,6 +44,7 @@ let package = Package(
         .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "1.0.0-beta.2"),
         .package(url: "https://github.com/grpc/grpc-swift-extras.git", from: "1.0.0-beta.2"),
         .package(url: "https://github.com/rosecoder/google-cloud-logging-swift.git", from: "0.0.1"),
+        .package(url: "https://github.com/rosecoder/google-cloud-error-reporting-swift.git", from: "0.0.1"),
         .package(url: "https://github.com/rosecoder/google-cloud-tracing-swift.git", from: "0.0.3"),
         .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", from: "1.0.1"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
@@ -63,8 +61,8 @@ let package = Package(
 
         .target(name: "CloudApp", dependencies: [
             "CloudCore",
-            "CloudErrorReporting",
             .product(name: "GoogleCloudLogging", package: "google-cloud-logging-swift"),
+            .product(name: "GoogleCloudErrorReporting", package: "google-cloud-error-reporting-swift"),
             .product(name: "GoogleCloudTracing", package: "google-cloud-tracing-swift"),
             .product(name: "GRPCInterceptors", package: "grpc-swift-extras"),
         ] + infrastructureDependencies),
@@ -91,12 +89,6 @@ let package = Package(
         .target(name: "CloudDatastoreTesting", dependencies: [
             "CloudDatastore",
         ]),
-
-        .target(name: "CloudErrorReporting", dependencies: [
-            "CloudCore",
-            .product(name: "AsyncHTTPClient", package: "async-http-client"),
-        ]),
-        .testTarget(name: "CloudErrorReportingTests", dependencies: ["CloudErrorReporting"]),
 
         .target(name: "CloudRedis", dependencies: [
             "CloudCore",

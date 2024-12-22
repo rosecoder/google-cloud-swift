@@ -1,5 +1,5 @@
 {
-  "originHash" : "a7748581cb814b6739aa09ee82e7ff7c39739fc8e66661039a7afd8303bd3178",
+  "originHash" : "f55a629c5b7232627eb068b10b733e0073f980556f7e3fb9a965d44f173c7fed",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "5fc80ec520634963d54ef01453e73a7c37320368",
         "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "google-cloud-error-reporting-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rosecoder/google-cloud-error-reporting-swift.git",
+      "state" : {
+        "revision" : "ffbd6048e8c52d851e65bee79b6cad36b2911098",
+        "version" : "0.0.1"
       }
     },
     {
