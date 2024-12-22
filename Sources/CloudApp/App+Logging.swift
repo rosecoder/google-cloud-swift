@@ -21,6 +21,7 @@ extension App {
 
                 return MultiplexLogHandler([
                     logHandler,
+                    errorReportingHandler,
                 ])
             }
 
