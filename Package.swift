@@ -25,7 +25,6 @@ let package = Package(
 
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
-        .library(name: "CloudRedis", targets: ["CloudRedis"]),
         .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
         .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
@@ -44,10 +43,8 @@ let package = Package(
         .package(url: "https://github.com/rosecoder/google-cloud-tracing-swift.git", from: "0.0.3"),
         .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", from: "1.0.1"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
-        .package(url: "https://github.com/swift-server/RediStack.git", from: "1.0.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/rosecoder/retryable-task.git", from: "1.1.2"),
-        .package(url: "https://github.com/rosecoder/distributed-lock-swift.git", from: "0.0.2"),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.54.0"),
         .package(url: "https://github.com/apple/swift-crypto.git", from: "3.3.0"),
     ],
@@ -77,13 +74,6 @@ let package = Package(
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ] + grpcDependencies),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
-
-        .target(name: "CloudRedis", dependencies: [
-            "CloudCore",
-            .product(name: "DistributedLock", package: "distributed-lock-swift"),
-            .product(name: "RediStack", package: "RediStack"),
-        ] + infrastructureDependencies),
-        .testTarget(name: "CloudRedisTests", dependencies: ["CloudRedis"]),
 
         .target(name: "CloudPubSub", dependencies: [
             "CloudCore",

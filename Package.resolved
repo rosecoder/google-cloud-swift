@@ -1,5 +1,5 @@
 {
-  "originHash" : "e0a35435d2dd25657710dab25073d867a25d288a6c3db18e2f3bafffb4910f1e",
+  "originHash" : "22bea3b7eaea167c88381b11040edcb7f81cb93c5b078ee6b244b2a36f3c1946",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "2119f0d9cc1b334e25447fe43d3693c0e60e6234",
         "version" : "1.24.0"
-      }
-    },
-    {
-      "identity" : "distributed-lock-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rosecoder/distributed-lock-swift.git",
-      "state" : {
-        "revision" : "f838c0841d173720fe602d1693cba2b12778b534",
-        "version" : "0.0.2"
       }
     },
     {
@@ -107,15 +98,6 @@
       "state" : {
         "revision" : "6f745e91e2422608fe14c9a66ee3826cb661e2a6",
         "version" : "5.1.1"
-      }
-    },
-    {
-      "identity" : "redistack",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/swift-server/RediStack.git",
-      "state" : {
-        "revision" : "622ce440f90d79b58e45f3a3efdd64c51d1dfd17",
-        "version" : "1.6.2"
       }
     },
     {
