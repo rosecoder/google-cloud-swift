@@ -56,62 +56,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudDatastore"
-               BuildableName = "CloudDatastore"
-               BlueprintName = "CloudDatastore"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudErrorReporting"
-               BuildableName = "CloudErrorReporting"
-               BlueprintName = "CloudErrorReporting"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudPubSub"
-               BuildableName = "CloudPubSub"
-               BlueprintName = "CloudPubSub"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudRedis"
-               BuildableName = "CloudRedis"
-               BlueprintName = "CloudRedis"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CloudStorage"
                BuildableName = "CloudStorage"
                BlueprintName = "CloudStorage"
@@ -129,48 +73,6 @@
                BlueprintIdentifier = "CloudAIPlatform"
                BuildableName = "CloudAIPlatform"
                BlueprintName = "CloudAIPlatform"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudPubSubTesting"
-               BuildableName = "CloudPubSubTesting"
-               BlueprintName = "CloudPubSubTesting"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudDatastoreTesting"
-               BuildableName = "CloudDatastoreTesting"
-               BlueprintName = "CloudDatastoreTesting"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DistributedLock"
-               BuildableName = "DistributedLock"
-               BlueprintName = "DistributedLock"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -214,46 +116,6 @@
                BlueprintIdentifier = "CloudAppTests"
                BuildableName = "CloudAppTests"
                BlueprintName = "CloudAppTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudDatastoreTests"
-               BuildableName = "CloudDatastoreTests"
-               BlueprintName = "CloudDatastoreTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudErrorReportingTests"
-               BuildableName = "CloudErrorReportingTests"
-               BlueprintName = "CloudErrorReportingTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudPubSubTests"
-               BuildableName = "CloudPubSubTests"
-               BlueprintName = "CloudPubSubTests"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CloudRedisTests"
-               BuildableName = "CloudRedisTests"
-               BlueprintName = "CloudRedisTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
