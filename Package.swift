@@ -25,8 +25,6 @@ let package = Package(
 
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
-        .library(name: "CloudPubSub", targets: ["CloudPubSub"]),
-        .library(name: "CloudPubSubTesting", targets: ["CloudPubSubTesting"]),
         .library(name: "CloudStorage", targets: ["CloudStorage"]),
         .library(name: "CloudStorageTesting", targets: ["CloudStorageTesting"]),
     ],
@@ -74,16 +72,6 @@ let package = Package(
             .product(name: "AsyncHTTPClient", package: "async-http-client"),
         ] + grpcDependencies),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
-
-        .target(name: "CloudPubSub", dependencies: [
-            "CloudCore",
-            .product(name: "NIOHTTP1", package: "swift-nio"),
-        ] + grpcDependencies + infrastructureDependencies),
-        .testTarget(name: "CloudPubSubTests", dependencies: ["CloudPubSub"]),
-
-        .target(name: "CloudPubSubTesting", dependencies: [
-            "CloudPubSub",
-        ]),
 
         .target(name: "CloudStorage", dependencies: [
             "CloudCore",
