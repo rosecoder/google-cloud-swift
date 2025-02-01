@@ -1,7 +1,7 @@
 import Foundation
 import GRPCCore
-import GRPCInterceptors
 import GRPCNIOTransportHTTP2
+import GRPCOTelTracingInterceptors
 import Logging
 import RetryableTask
 import ServiceLifecycle
@@ -16,7 +16,7 @@ public struct GRPCServerService: Service {
         host: String = "0.0.0.0",
         port: Int? = resolvePort(),
         defaultPort: Int = 3000,
-        interceptors: [ServerInterceptor] = defaultInterceptors()
+        interceptors: (_ host: String) -> [ServerInterceptor] = defaultInterceptors
     ) {
         self.address = "\(host):\(port ?? defaultPort)"
         self.grpcServer = GRPCServer(
@@ -25,7 +25,7 @@ public struct GRPCServerService: Service {
                 transportSecurity: .plaintext
             ),
             services: services,
-            interceptors: interceptors
+            interceptors: interceptors(host)
         )
     }
 
@@ -38,17 +38,21 @@ public struct GRPCServerService: Service {
         return nil
     }
 
-    public static func defaultInterceptors() -> [ServerInterceptor] {
+    public static func defaultInterceptors(host: String) -> [ServerInterceptor] {
+        let tracingInterceptor = ServerOTelTracingInterceptor(
+            serverHostname: host,
+            networkTransportMethod: "tcp"
+        )
         #if DEBUG
             let isRunningViaXcode =
                 ProcessInfo.processInfo.environment["__XCODE_BUILT_PRODUCTS_DIR_PATHS"] != nil
             return [
-                ServerTracingInterceptor(),
+                tracingInterceptor,
                 RequestLoggerInterceptor(useLogger: isRunningViaXcode),
             ]
         #else
             return [
-                ServerTracingInterceptor()
+                tracingInterceptor
             ]
         #endif
     }

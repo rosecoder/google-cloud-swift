@@ -1,8 +1,8 @@
 import CloudCore
 import Foundation
 import GRPCCore
-import GRPCInterceptors
 import GRPCNIOTransportHTTP2Posix
+import GRPCOTelTracingInterceptors
 import NIO
 import ServiceLifecycle
 
@@ -21,12 +21,15 @@ public struct GRPCClientService: Service {
     }
 
     public init(serviceEnvironmentName: String, developmentPort: Int) throws {
-        var interceptors: [any ClientInterceptor] = [
-            ClientTracingInterceptor()
-        ]
 
         if let address = ProcessInfo.processInfo.environment[serviceEnvironmentName] {
             let (scheme, host, port) = try address.parsedAddressComponents()
+            var interceptors: [any ClientInterceptor] = [
+                ClientOTelTracingInterceptor(
+                    serverHostname: host,
+                    networkTransportMethod: "tcp"
+                )
+            ]
             switch scheme {
             case "https":
                 if host.hasSuffix(".run.app") {
@@ -67,7 +70,12 @@ public struct GRPCClientService: Service {
                         target: .dns(host: host, port: port),
                         transportSecurity: .plaintext
                     ),
-                    interceptors: interceptors
+                    interceptors: [
+                        ClientOTelTracingInterceptor(
+                            serverHostname: host,
+                            networkTransportMethod: "tcp"
+                        )
+                    ]
                 ))
             return
         }
@@ -79,7 +87,12 @@ public struct GRPCClientService: Service {
                     target: .dns(host: "localhost", port: developmentPort),
                     transportSecurity: .plaintext
                 ),
-                interceptors: interceptors
+                interceptors: [
+                    ClientOTelTracingInterceptor(
+                        serverHostname: "localhost",
+                        networkTransportMethod: "tcp"
+                    )
+                ]
             ))
     }
 
