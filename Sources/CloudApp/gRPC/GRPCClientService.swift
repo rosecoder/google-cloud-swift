@@ -1,8 +1,9 @@
-import Foundation
-import NIO
-import GRPCCore
 import CloudCore
+import Foundation
+import GRPCCore
 import GRPCInterceptors
+import GRPCNIOTransportHTTP2Posix
+import NIO
 import ServiceLifecycle
 
 enum GRPCClientServiceError: Error {
@@ -13,15 +14,15 @@ enum GRPCClientServiceError: Error {
 
 public struct GRPCClientService: Service {
 
-    public let client: GRPCClient
+    public let client: GRPCClient<HTTP2ClientTransport.Posix>
 
-    public init(client: GRPCClient) {
+    public init(client: GRPCClient<HTTP2ClientTransport.Posix>) {
         self.client = client
     }
 
     public init(serviceEnvironmentName: String, developmentPort: Int) throws {
         var interceptors: [any ClientInterceptor] = [
-            ClientTracingInterceptor(),
+            ClientTracingInterceptor()
         ]
 
         if let address = ProcessInfo.processInfo.environment[serviceEnvironmentName] {
@@ -31,21 +32,23 @@ public struct GRPCClientService: Service {
                 if host.hasSuffix(".run.app") {
                     interceptors.append(CloudRunAuthenticateInterceptor(host: host))
                 }
-                self.init(client: GRPCClient(
-                    transport: try .http2NIOPosix(
-                        target: .dns(host: host, port: port),
-                        transportSecurity: .tls
-                    ),
-                    interceptors: interceptors
-                ))
+                self.init(
+                    client: GRPCClient(
+                        transport: try .http2NIOPosix(
+                            target: .dns(host: host, port: port),
+                            transportSecurity: .tls
+                        ),
+                        interceptors: interceptors
+                    ))
             case "http":
-                self.init(client: GRPCClient(
-                    transport: try .http2NIOPosix(
-                        target: .dns(host: host, port: port),
-                        transportSecurity: .tls
-                    ),
-                    interceptors: interceptors
-                ))
+                self.init(
+                    client: GRPCClient(
+                        transport: try .http2NIOPosix(
+                            target: .dns(host: host, port: port),
+                            transportSecurity: .tls
+                        ),
+                        interceptors: interceptors
+                    ))
             default:
                 throw GRPCClientServiceError.unsupportedServiceScheme(String(scheme))
             }
@@ -53,36 +56,38 @@ public struct GRPCClientService: Service {
         }
 
         // Using Kubernetes-standard of naming env vars: https://kubernetes.io/docs/concepts/services-networking/service/#environment-variables
-        if
-            let host = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_HOST"],
-            let rawPort = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_PORT"],
+        if let host = ProcessInfo.processInfo.environment[serviceEnvironmentName + "_SERVICE_HOST"],
+            let rawPort = ProcessInfo.processInfo.environment[
+                serviceEnvironmentName + "_SERVICE_PORT"],
             let port = Int(rawPort)
         {
-            self.init(client: GRPCClient(
-                transport: try .http2NIOPosix(
-                    target: .dns(host: host, port: port),
-                    transportSecurity: .plaintext
-                ),
-                interceptors: interceptors
-            ))
+            self.init(
+                client: GRPCClient(
+                    transport: try .http2NIOPosix(
+                        target: .dns(host: host, port: port),
+                        transportSecurity: .plaintext
+                    ),
+                    interceptors: interceptors
+                ))
             return
         }
 
         // Fallback to localhost
-        self.init(client: GRPCClient(
-            transport: try .http2NIOPosix(
-                target: .dns(host: "localhost", port: developmentPort),
-                transportSecurity: .plaintext
-            ),
-            interceptors: interceptors
-        ))
+        self.init(
+            client: GRPCClient(
+                transport: try .http2NIOPosix(
+                    target: .dns(host: "localhost", port: developmentPort),
+                    transportSecurity: .plaintext
+                ),
+                interceptors: interceptors
+            ))
     }
 
     public func run() async throws {
         try await withGracefulShutdownHandler {
             try await withThrowingDiscardingTaskGroup { group in
                 group.addTask {
-                    try await client.run()
+                    try await client.runConnections()
                 }
             }
         } onGracefulShutdown: {
@@ -99,7 +104,8 @@ extension String {
         }
         let scheme = self[..<schemeEndRange.lowerBound]
 
-        let hostEndRange = range(of: ":", range: schemeEndRange.upperBound..<endIndex) ?? endIndex..<endIndex
+        let hostEndRange =
+            range(of: ":", range: schemeEndRange.upperBound..<endIndex) ?? endIndex..<endIndex
         let host = String(self[schemeEndRange.upperBound..<hostEndRange.lowerBound])
 
         let port: Int?

@@ -1,16 +1,17 @@
+import CloudCore
 import Foundation
 import GRPCCore
 import GRPCNIOTransportHTTP2Posix
-import CloudCore
 import GoogleCloudAuth
-import ServiceContextModule
+import GoogleCloudAuthGRPC
 import GoogleCloudServiceContext
+import ServiceContextModule
 import ServiceLifecycle
 
 public actor AIPlatform: Service {
 
     private let authorization: Authorization
-    private let grpcClient: GRPCClient
+    private let grpcClient: GRPCClient<HTTP2ClientTransport.Posix>
     public let client: Google_Cloud_Aiplatform_V1_PredictionService.ClientProtocol
 
     public enum ConfigurationError: Error {
@@ -41,7 +42,7 @@ public actor AIPlatform: Service {
                 transportSecurity: .tls
             ),
             interceptors: [
-                AuthorizationClientInterceptor(authorization: authorization),
+                AuthorizationClientInterceptor(authorization: authorization)
             ]
         )
         self.client = Google_Cloud_Aiplatform_V1_PredictionService.Client(wrapping: grpcClient)
@@ -49,7 +50,7 @@ public actor AIPlatform: Service {
 
     public func run() async throws {
         try await withGracefulShutdownHandler {
-            try await grpcClient.run()
+            try await grpcClient.runConnections()
         } onGracefulShutdown: {
             self.grpcClient.beginGracefulShutdown()
         }

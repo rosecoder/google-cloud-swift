@@ -293,14 +293,14 @@ extension Google_Longrunning_Operations {
     /// > Google Cloud Pub/Sub API) to receive the response.  Any API service that
     /// > returns long-running operations should implement the `Operations` interface
     /// > so developers can have a consistent client experience.
-    public struct Client: ClientProtocol {
-        private let client: GRPCCore.GRPCClient
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+        private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        public init(wrapping client: GRPCCore.GRPCClient) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 

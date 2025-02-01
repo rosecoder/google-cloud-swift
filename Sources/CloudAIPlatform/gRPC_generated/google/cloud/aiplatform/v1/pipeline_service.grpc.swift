@@ -536,14 +536,14 @@ extension Google_Cloud_Aiplatform_V1_PipelineService {
     /// > A service for creating and managing Vertex AI's pipelines. This includes both
     /// > `TrainingPipeline` resources (used for AutoML and custom training) and
     /// > `PipelineJob` resources (used for Vertex AI Pipelines).
-    public struct Client: ClientProtocol {
-        private let client: GRPCCore.GRPCClient
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+        private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        public init(wrapping client: GRPCCore.GRPCClient) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 

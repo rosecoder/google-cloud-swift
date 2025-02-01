@@ -23,6 +23,7 @@
 
 import GRPCCore
 import GRPCProtobuf
+import SwiftProtobuf
 
 // MARK: - google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService
 
@@ -536,14 +537,14 @@ extension Google_Cloud_Aiplatform_V1_FeatureOnlineStoreAdminService {
     /// >
     /// > The service that handles CRUD and List for resources for
     /// > FeatureOnlineStore.
-    public struct Client: ClientProtocol {
-        private let client: GRPCCore.GRPCClient
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+        private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        public init(wrapping client: GRPCCore.GRPCClient) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 

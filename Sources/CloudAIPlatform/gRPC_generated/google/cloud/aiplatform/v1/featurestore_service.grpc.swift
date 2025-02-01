@@ -23,6 +23,7 @@
 
 import GRPCCore
 import GRPCProtobuf
+import SwiftProtobuf
 
 // MARK: - google.cloud.aiplatform.v1.FeaturestoreService
 
@@ -715,13 +716,13 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreService {
         /// > 
         /// > There are also scenarios where the caller can cause inconsistency.
         /// > 
-        /// > - Source data for import contains multiple distinct Feature values for
-        /// > the same entity ID and timestamp.
-        /// > - Source is modified during an import. This includes adding, updating, or
-        /// > removing source data and/or metadata. Examples of updating metadata
-        /// > include but are not limited to changing storage location, storage class,
-        /// > or retention policy.
-        /// > - Online serving cluster is under-provisioned.
+        /// >  - Source data for import contains multiple distinct Feature values for
+        /// >    the same entity ID and timestamp.
+        /// >  - Source is modified during an import. This includes adding, updating, or
+        /// >  removing source data and/or metadata. Examples of updating metadata
+        /// >  include but are not limited to changing storage location, storage class,
+        /// >  or retention policy.
+        /// >  - Online serving cluster is under-provisioned.
         ///
         /// - Parameters:
         ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportFeatureValuesRequest` message.
@@ -856,14 +857,14 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreService {
     /// > Source IDL Documentation:
     /// >
     /// > The service that handles CRUD and List for resources for Featurestore.
-    public struct Client: ClientProtocol {
-        private let client: GRPCCore.GRPCClient
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+        private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        public init(wrapping client: GRPCCore.GRPCClient) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
@@ -1430,13 +1431,13 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreService {
         /// > 
         /// > There are also scenarios where the caller can cause inconsistency.
         /// > 
-        /// > - Source data for import contains multiple distinct Feature values for
-        /// > the same entity ID and timestamp.
-        /// > - Source is modified during an import. This includes adding, updating, or
-        /// > removing source data and/or metadata. Examples of updating metadata
-        /// > include but are not limited to changing storage location, storage class,
-        /// > or retention policy.
-        /// > - Online serving cluster is under-provisioned.
+        /// >  - Source data for import contains multiple distinct Feature values for
+        /// >    the same entity ID and timestamp.
+        /// >  - Source is modified during an import. This includes adding, updating, or
+        /// >  removing source data and/or metadata. Examples of updating metadata
+        /// >  include but are not limited to changing storage location, storage class,
+        /// >  or retention policy.
+        /// >  - Online serving cluster is under-provisioned.
         ///
         /// - Parameters:
         ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportFeatureValuesRequest` message.
@@ -2103,13 +2104,13 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreService.ClientProtocol {
     /// > 
     /// > There are also scenarios where the caller can cause inconsistency.
     /// > 
-    /// > - Source data for import contains multiple distinct Feature values for
-    /// > the same entity ID and timestamp.
-    /// > - Source is modified during an import. This includes adding, updating, or
-    /// > removing source data and/or metadata. Examples of updating metadata
-    /// > include but are not limited to changing storage location, storage class,
-    /// > or retention policy.
-    /// > - Online serving cluster is under-provisioned.
+    /// >  - Source data for import contains multiple distinct Feature values for
+    /// >    the same entity ID and timestamp.
+    /// >  - Source is modified during an import. This includes adding, updating, or
+    /// >  removing source data and/or metadata. Examples of updating metadata
+    /// >  include but are not limited to changing storage location, storage class,
+    /// >  or retention policy.
+    /// >  - Online serving cluster is under-provisioned.
     ///
     /// - Parameters:
     ///   - request: A request containing a single `Google_Cloud_Aiplatform_V1_ImportFeatureValuesRequest` message.
@@ -2814,13 +2815,13 @@ extension Google_Cloud_Aiplatform_V1_FeaturestoreService.ClientProtocol {
     /// > 
     /// > There are also scenarios where the caller can cause inconsistency.
     /// > 
-    /// > - Source data for import contains multiple distinct Feature values for
-    /// > the same entity ID and timestamp.
-    /// > - Source is modified during an import. This includes adding, updating, or
-    /// > removing source data and/or metadata. Examples of updating metadata
-    /// > include but are not limited to changing storage location, storage class,
-    /// > or retention policy.
-    /// > - Online serving cluster is under-provisioned.
+    /// >  - Source data for import contains multiple distinct Feature values for
+    /// >    the same entity ID and timestamp.
+    /// >  - Source is modified during an import. This includes adding, updating, or
+    /// >  removing source data and/or metadata. Examples of updating metadata
+    /// >  include but are not limited to changing storage location, storage class,
+    /// >  or retention policy.
+    /// >  - Online serving cluster is under-provisioned.
     ///
     /// - Parameters:
     ///   - message: request message to send.

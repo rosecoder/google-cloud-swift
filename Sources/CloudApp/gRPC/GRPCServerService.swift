@@ -1,15 +1,15 @@
 import Foundation
 import GRPCCore
-import GRPCNIOTransportHTTP2
 import GRPCInterceptors
-import RetryableTask
+import GRPCNIOTransportHTTP2
 import Logging
+import RetryableTask
 import ServiceLifecycle
 
 public struct GRPCServerService: Service {
 
     private let address: String
-    private let grpcServer: GRPCServer
+    private let grpcServer: GRPCServer<HTTP2ServerTransport.Posix>
 
     public init(
         services: [any RegistrableRPCService],
@@ -30,31 +30,35 @@ public struct GRPCServerService: Service {
     }
 
     public static func resolvePort() -> Int? {
-        if let rawPort = ProcessInfo.processInfo.environment["PORT"], let environmentPort = Int(rawPort) {
+        if let rawPort = ProcessInfo.processInfo.environment["PORT"],
+            let environmentPort = Int(rawPort)
+        {
             return environmentPort
         }
         return nil
     }
 
     public static func defaultInterceptors() -> [ServerInterceptor] {
-#if DEBUG
-        let isRunningViaXcode = ProcessInfo.processInfo.environment["__XCODE_BUILT_PRODUCTS_DIR_PATHS"] != nil
-        return [
-            ServerTracingInterceptor(),
-            RequestLoggerInterceptor(useLogger: isRunningViaXcode),
-        ]
-#else
-        return [
-            ServerTracingInterceptor(),
-        ]
-#endif
+        #if DEBUG
+            let isRunningViaXcode =
+                ProcessInfo.processInfo.environment["__XCODE_BUILT_PRODUCTS_DIR_PATHS"] != nil
+            return [
+                ServerTracingInterceptor(),
+                RequestLoggerInterceptor(useLogger: isRunningViaXcode),
+            ]
+        #else
+            return [
+                ServerTracingInterceptor()
+            ]
+        #endif
     }
 
     public func run() async throws {
-        await DefaultRetryPolicyConfiguration.shared.use(retryPolicy: DelayedRetryPolicy(
-            delay: 10_000_000, // 10 ms
-            maxRetries: 1
-        ))
+        await DefaultRetryPolicyConfiguration.shared.use(
+            retryPolicy: DelayedRetryPolicy(
+                delay: 10_000_000,  // 10 ms
+                maxRetries: 1
+            ))
 
         try await withGracefulShutdownHandler {
             try await withThrowingDiscardingTaskGroup { group in
@@ -63,11 +67,11 @@ public struct GRPCServerService: Service {
                 }
                 group.addTask {
                     let logger = Logger(label: "grpc-server-service")
-        #if DEBUG
-                    logger.debug("App running in debug on \(address) 🚀")
-        #else
-                    logger.info("Bootstrap completed on \(address)")
-        #endif
+                    #if DEBUG
+                        logger.debug("App running in debug on \(address) 🚀")
+                    #else
+                        logger.info("Bootstrap completed on \(address)")
+                    #endif
                 }
             }
         } onGracefulShutdown: {

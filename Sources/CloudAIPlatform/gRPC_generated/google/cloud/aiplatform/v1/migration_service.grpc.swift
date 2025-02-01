@@ -142,14 +142,14 @@ extension Google_Cloud_Aiplatform_V1_MigrationService {
     /// >
     /// > A service that migrates resources from automl.googleapis.com,
     /// > datalabeling.googleapis.com and ml.googleapis.com to Vertex AI.
-    public struct Client: ClientProtocol {
-        private let client: GRPCCore.GRPCClient
+    public struct Client<Transport>: ClientProtocol where Transport: GRPCCore.ClientTransport {
+        private let client: GRPCCore.GRPCClient<Transport>
 
         /// Creates a new client wrapping the provided `GRPCCore.GRPCClient`.
         ///
         /// - Parameters:
         ///   - client: A `GRPCCore.GRPCClient` providing a communication channel to the service.
-        public init(wrapping client: GRPCCore.GRPCClient) {
+        public init(wrapping client: GRPCCore.GRPCClient<Transport>) {
             self.client = client
         }
 
