@@ -31,9 +31,9 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-metrics.git", from: "2.0.0"),
         .package(url: "https://github.com/apple/swift-distributed-tracing.git", from: "1.1.0"),
         .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "2.0.0"),
-        .package(url: "https://github.com/grpc/grpc-swift-protobuf.git", from: "1.0.0"),
-        .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "1.0.0"),
-        .package(url: "https://github.com/grpc/grpc-swift-extras.git", from: "1.0.0"),
+        .package(url: "https://github.com/grpc/grpc-swift-protobuf.git", from: "2.0.0"),
+        .package(url: "https://github.com/grpc/grpc-swift-nio-transport.git", from: "2.0.0"),
+        .package(url: "https://github.com/grpc/grpc-swift-extras.git", from: "2.0.0"),
         .package(url: "https://github.com/rosecoder/google-cloud-logging-swift.git", from: "0.0.1"),
         .package(
             url: "https://github.com/rosecoder/google-cloud-error-reporting-swift.git",
@@ -43,7 +43,6 @@ let package = Package(
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/rosecoder/retryable-task.git", from: "1.1.2"),
-        .package(url: "https://github.com/apple/swift-crypto.git", from: "3.3.0"),
     ],
     targets: [
         .target(
