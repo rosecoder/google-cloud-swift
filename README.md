@@ -9,7 +9,7 @@ The vision for this project is to provide a high-level implementation of Google 
 ### Google Services
 
 - [BigQuery](https://github.com/rosecoder/google-cloud-bigquery-swift)
-- Cloud Storage (will move to separate repository in the future)
+- [Cloud Storage](https://github.com/rosecoder/google-cloud-storage-swift)
 - [Datastore (Google Cloud Firestore in Datastore mode)](https://github.com/rosecoder/google-cloud-datastore-swift)
 - [Pub/Sub](https://github.com/rosecoder/google-cloud-pubsub-swift)
 

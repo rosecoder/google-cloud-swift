@@ -25,8 +25,6 @@ let package = Package(
 
         // Services
         .library(name: "CloudAIPlatform", targets: ["CloudAIPlatform"]),
-        .library(name: "CloudStorage", targets: ["CloudStorage"]),
-        .library(name: "CloudStorageTesting", targets: ["CloudStorageTesting"]),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-log.git", from: "1.4.2"),
@@ -84,20 +82,5 @@ let package = Package(
                 .product(name: "AsyncHTTPClient", package: "async-http-client"),
             ] + grpcDependencies),
         .testTarget(name: "CoreTests", dependencies: ["CloudCore"]),
-
-        .target(
-            name: "CloudStorage",
-            dependencies: [
-                "CloudCore",
-                .product(name: "AsyncHTTPClient", package: "async-http-client"),
-                .product(name: "Crypto", package: "swift-crypto"),
-            ] + infrastructureDependencies),
-        .testTarget(name: "CloudStorageTests", dependencies: ["CloudStorage"]),
-
-        .target(
-            name: "CloudStorageTesting",
-            dependencies: [
-                "CloudStorage"
-            ]),
     ]
 )
