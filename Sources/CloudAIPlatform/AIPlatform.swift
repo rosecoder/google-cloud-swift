@@ -38,7 +38,9 @@ public actor AIPlatform: Service {
         )
         self.grpcClient = GRPCClient(
             transport: try .http2NIOPosix(
-                target: .dns(host: locationID + "-aiplatform.googleapis.com"),
+                target: .dns(host: locationID == "global"
+                    ? "aiplatform.googleapis.com"
+                    : locationID + "-aiplatform.googleapis.com"),
                 transportSecurity: .tls,
                 config: .defaults { config in
                     config.backoff = .init(
