@@ -2,7 +2,7 @@
 
 This project is work currently in progress and being split up into multiple repositories.
 
-The vision for this project is to provide a high-level implementation of Google Cloud services in Swift, initially focusing on supporting running on Cloud Run and GKE. Packages configures logging, error reporting and tracing using the community packages [swift-log](https://github.com/apple/swift-log) and [swift-distributed-tracing](https://github.com/apple/swift-distributed-tracing). Support for metrics to Stackdriver is planned.
+The vision for this project is to provide a high-level implementation of Google Cloud services in Swift, initially focusing on supporting running on Cloud Run and GKE. Packages configures logging, error reporting, tracing and metrics using the community packages [swift-log](https://github.com/apple/swift-log), [swift-distributed-tracing](https://github.com/apple/swift-distributed-tracing) and [swift-metrics](https://github.com/apple/swift-metrics).
 
 ## Packages
 
@@ -21,6 +21,7 @@ These are automatically configured when using this package.
 - [Logging](https://github.com/rosecoder/google-cloud-logging-swift)
 - [Error Reporting](https://github.com/rosecoder/google-cloud-error-reporting-swift)
 - [Tracing](https://github.com/rosecoder/google-cloud-tracing-swift)
+- [Metrics](https://github.com/rosecoder/google-cloud-metrics-swift)
 
 ## License
 

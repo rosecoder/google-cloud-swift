@@ -25,6 +25,7 @@ extension App {
             serviceContextResolverService,
             logService,
             tracingService(logger: logger),
+            metricsService(logger: logger),
         ] + (try await self.services())
 
         let serviceGroup = ServiceGroup(configuration: ServiceGroupConfiguration(
