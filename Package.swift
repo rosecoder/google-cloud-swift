@@ -39,7 +39,7 @@ let package = Package(
             url: "https://github.com/rosecoder/google-cloud-error-reporting-swift.git",
             from: "0.0.2"),
         .package(url: "https://github.com/rosecoder/google-cloud-tracing-swift.git", from: "0.0.5"),
-        .package(url: "https://github.com/rosecoder/google-cloud-metrics-swift.git", from: "0.1.0"),
+        .package(url: "https://github.com/rosecoder/google-cloud-metrics-swift.git", from: "0.2.0"),
         .package(url: "https://github.com/rosecoder/google-cloud-auth-swift.git", from: "1.2.0"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.10.0"),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
@@ -64,7 +64,12 @@ let package = Package(
                 .product(name: "GoogleCloudMetrics", package: "google-cloud-metrics-swift"),
                 .product(name: "GRPCOTelTracingInterceptors", package: "grpc-swift-extras"),
             ] + infrastructureDependencies),
-        .testTarget(name: "CloudAppTests", dependencies: ["CloudApp"]),
+        .testTarget(
+            name: "CloudAppTests",
+            dependencies: [
+                "CloudApp",
+                .product(name: "GoogleCloudMetrics", package: "google-cloud-metrics-swift"),
+            ]),
 
         .target(
             name: "CloudJob",
@@ -72,6 +77,12 @@ let package = Package(
                 "CloudApp",
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]),
+        .testTarget(
+            name: "CloudJobTests",
+            dependencies: [
+                "CloudJob",
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
+            ] + infrastructureDependencies),
 
         .target(
             name: "CloudCore",

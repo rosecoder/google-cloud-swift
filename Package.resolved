@@ -1,5 +1,5 @@
 {
-  "originHash" : "6ad1c0dbdfab275997e17daf00f245a5703c4e59bfec0048ac0d6e499e143069",
+  "originHash" : "b7dd0fa05ae2a1f3fc7d577a7bf7e2e118247f5e219920ef02e60f15334096bd",
   "pins" : [
     {
       "identity" : "async-http-client",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rosecoder/google-cloud-metrics-swift.git",
       "state" : {
-        "revision" : "59e36979ac67db8845dd4865612b71e31c686b29",
-        "version" : "0.1.0"
+        "revision" : "c189bbc4f37ffd89f06a609e9d07c413c7d774cf",
+        "version" : "0.2.0"
       }
     },
     {
