@@ -1,4 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
 SOURCES_ROOT="$(pwd)/Sources"
+
+GOOGLEAPIS_COMMIT="${GOOGLEAPIS_COMMIT:-a67e27687c1bfcb75def41760456862b55e27b7b}"
+
+if [ ! -d googleapis/.git ]; then
+  git init -q googleapis
+  git -C googleapis remote add origin https://github.com/googleapis/googleapis.git
+fi
+echo "Fetching googleapis@${GOOGLEAPIS_COMMIT}..."
+git -C googleapis fetch -q --depth 1 origin "${GOOGLEAPIS_COMMIT}"
+git -C googleapis checkout -q --force FETCH_HEAD
 
 rm -rf ${SOURCES_ROOT}/*/gRPC_generated/*
 
